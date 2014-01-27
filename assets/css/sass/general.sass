@@ -1,0 +1,508 @@
+/*
+ *  General Layout
+ *  ==============
+ *  Body and Background
+ *  -------------------
+ *  The background image is intended to fade to white at the bottom. For small viewports it must be
+ *  specified where the background fade should start. The element must be given the class
+ *  `start-background-fade`. For medium viewports the background fade begins where the
+ *  content area starts. For large viewports the left sidebar, where the header will be located,
+ *  will not fade. Fading starts at 50% of the viewport's height.
+ *
+ *  ```
+ *  <iframe width="800" height="480">
+ *      <div class="start-background-fade kalei-stub" style="position: absolute; top: 100px">element to start bg fade at for small viewports</div>
+ *  </iframe>
+ *  ```
+ */
+html, body
+    padding: 0
+    margin: 0
+    height: 100%
+
+body
+    background: url(../images/background/lanes.png) no-repeat
+    background-size: 100% auto
+    font-size: 100%
+    overflow-x: hidden
+    min-height: 100%
+    @media screen and (max-aspect-ratio: 4/3)
+        background-size: cover
+
+body
+    @media screen and (min-width: 50em) //800px
+        .start-background-fade
+            &:before, &:after
+                content: none
+        position: relative
+        &:before, &:after
+            content: ""
+            display: block
+            position: absolute
+            left: 0
+            top: 155px
+            right: 0
+            z-index: -1
+        &:before
+            height: 200px
+            background: url(../images/background-fadeout.png) repeat-x 0 0
+        &:after
+            margin-top: 200px
+            bottom: 0
+            background: white
+    @media screen and (min-width: 81.25em) //1300px
+        &:before
+            margin-top: -100px
+        &:after
+            margin-top: 100px
+        &:before, &:after
+            top: 50%
+            left: 275px
+
+.start-background-fade
+    position: relative
+    &:before
+        content: ""
+        display: block
+        position: absolute
+        left: -100em
+        top: 0
+        right: -100em
+        height: 200px
+        z-index: -1
+        background: url(../images/background-fadeout.png) repeat-x 0 0
+    &:after
+        content: ""
+        display: block
+        position: absolute
+        left: -100em
+        top: 200px
+        right: -100em
+        bottom: -100em
+        background: white
+        z-index: -1
+    
+/*
+ *  Responsive Grid
+ *  ---------------
+ *  For small viewports the container are rendered just above each other.
+ *  
+ *  ### Breakpoints
+ *  The responsive grid breaks at the following points:
+ *
+ *  * #### 50 em / 800 px
+ *    added margins, content floats to the right creating a sidebar on the left, content width
+ *    adjusts to viewport width
+ *
+ *  * #### 64 em / 1024 px
+ *    content width stays constant and is centered, while header and footer scale to full viewport width
+ *
+ *  * #### 81.25 em / 1300 px
+ *    header is fixed to the left, content width stays constant and is centered across the remaining space on the right
+ *
+ *  ### Content Paddings
+ *  Paddings are adjusted to fit to the available space. Generally, they scale up upto
+ *  a viewport width of 60em resp. 960px and stay constant from there on. 
+ *  
+ *  ```
+ *  <iframe width="800" height="480">
+ *      <header id="page-header" class="kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content" class="kalei-stub">CONTENT<article class="fixie"></article></div>
+ *      </div>
+ *      <footer id="page-footer" class="kalei-stub">FOOTER</footer>
+ *  </iframe>
+ *  ```
+ *  
+ *  ### Page scrolled down
+ *  For viewports, that display the header at the top, it will be fixed there if scrolled down. Set
+ *  the css class `.scrolled-past` for the header to fix it there.
+ *  ```
+ *  <iframe width="800" height="480">
+ *      <header id="page-header" class="scrolled-past kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content" class="kalei-stub">CONTENT<article class="fixie"></article></div>
+ *      </div>
+ *      <footer id="page-footer" class="kalei-stub">FOOTER</footer>
+ *  </iframe>
+ *  ```
+ */
+#page-header
+    position: fixed
+    z-index: 99
+    top: 0
+    left: 0
+    right: 0
+    min-height: 4.125em //66px
+
+#content-container
+    padding: 4.125em 10px 0 //66px
+    min-height: 100%
+    box-sizing: border-box
+    overflow: hidden
+    
+#footer
+    min-height: 2.8125em //45px
+
+@media screen and (min-width: 32em) //512px
+    #content-container
+        padding: 4.125em 20px 0
+
+@media screen and (min-width: 42.5em) //680px
+    #content-container
+        padding: 4.125em 25px 0
+        
+@media screen and (min-width: 50em) //800px
+    #page-header
+        height: 5em  //80px
+        top: 1.5625em //25px
+        &.scrolled-past
+            top: 0
+    
+    #content-container
+        padding: 9.6875em 1.5625em 1.5625em 17.1875em //155px 25px 25px 275px
+    
+    #content
+        margin: 0
+
+@media screen and (min-width: 64em) //1024px
+    #content
+        width: 45.25em //724px
+        margin: 0 auto
+        
+@media screen and (min-width: 81.25em) //1300px
+    #page-header
+        margin: 0
+        width: 17.1875em //275px
+        position: fixed
+        height: auto
+        top: 0
+        left: 0
+        bottom: 0
+    
+    #content-container
+        padding: 3.125em 0 1.5625em 32.8125em //50px 0 25px 300px
+    
+    #page-footer
+        margin: 0
+
+/*
+ *  Use Of the Sidebar
+ *  ------------------
+ *  The area of the sidebar can be used by marking an element with the css class `.use-sidebar`.
+ *  ```
+ *  <iframe width="800" height="400">
+ *      <div id="content-container">
+ *          <div id="content" class="kalei-stub fixie">CONTENT AREA<div class="kalei-stub">content not using sidebar</div>
+ *              <div class="use-sidebar kalei-stub">content using sidebar</div>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+@media screen and (min-width: 50em) //800px
+    #content .use-sidebar
+        margin-left: -250px
+
+/*
+ *  Header
+ *  ------
+ *  ### Element States
+ *  Logo, menu button (mobile only), social media icons, impress and close menu button (mobile only):
+ *
+ *  * #### *normal*
+ *    white with transprency
+ *    
+ *  * #### :hover
+ *    highlight white with full opacity
+ *  
+ *  Menu items:
+ *  
+ *  * #### *normal*
+ *    grey background on mobile screen sizes, black and transparent background otherwise
+ *  
+ *  * #### :hover
+ *    highlight with background color, white text, full opacity
+ *  
+ *  * #### .active
+ *    highlighted with change in background color, white text, slight transparency on non-mobile screen sizes
+ *
+ *  The header behaves responsively and breaks at the aforementioned breakpoints.
+ *
+ *  ### Header (collapsed menu on small viewports)
+ *  ```
+ *  <iframe width="800" height="360">
+ *      <header id="page-header">
+ *          <div class="logo-bar">
+ *              <a href="/" class="logo"></a>
+ *              <div class="toggle-menu-button"></div>
+ *          </div>
+ *          <div id="page-menu">
+ *              <nav class="main-nav"><ul>
+ *                  <li><a href="#" class="articles">Articles</a></li>
+ *                  <li><a href="#" class="about active">About Me</a></li>
+ *              </ul></nav>
+ *              <nav class="social-nav"><ul>
+ *                  <li><a class="twit" href="#"></a></li>
+ *                  <li><a class="face" href="#"></a></li>
+ *                  <li><a class="gith" href="#"></a></li>
+ *                  <li><a class="mail" href="#"></a></li>
+ *              </ul></nav>
+ *              <div class="impress-link">
+ *                  <a href="#">Impress</a>
+ *              </div>
+ *              <div class="close-menu-button">
+ *                  <a href="#"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
+ *              </div>
+ *          </div>
+ *      </header>
+ *  </iframe>
+ *  ```
+ *
+ *  ### Header with expanded menu on small viewports
+ *  ```
+ *  <iframe width="320" height="320">
+ *      <header id="page-header">
+ *          <div class="logo-bar">
+ *              <a href="/" class="logo"></a>
+ *              <div class="toggle-menu-button"></div>
+ *          </div>
+ *          <div id="page-menu" class="show">
+ *              <nav class="main-nav"><ul>
+ *                  <li><a href="#" class="articles">Articles</a></li>
+ *                  <li><a href="#" class="about active">About Me</a></li>
+ *              </ul></nav>
+ *              <nav class="social-nav"><ul>
+ *                  <li><a class="twit" href="#"></a></li>
+ *                  <li><a class="face" href="#"></a></li>
+ *                  <li><a class="gith" href="#"></a></li>
+ *                  <li><a class="mail" href="#"></a></li>
+ *              </ul></nav>
+ *              <div class="impress-link">
+ *                  <a href="#">Impress</a>
+ *              </div>
+ *              <div class="close-menu-button">
+ *                  <a href="#"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
+ *              </div>
+ *          </div>
+ *      </header>
+ *  </iframe>
+ *  ```
+ */
+
+#page-header
+    a
+        text-decoration: none
+    .logo-bar
+        height: 46px
+        background: url(../images/logo-inv-065black.png)
+        .logo
+            display: block
+            background: url(../images/logo-white.png) no-repeat
+            opacity: 0.5
+            height: 46px
+            width: 226px
+            &:hover
+                opacity: 1
+        .toggle-menu-button
+            display: none
+            background: url(../images/menu-icon.png) no-repeat center
+            height: 46px
+            width: 40px
+            opacity: 0.5
+            &:hover
+                opacity: 1
+    .main-nav
+        ul
+            padding: 0
+            margin: 0
+            list-style-type: none
+        li
+            a
+                display: block
+                vertical-align: middle
+                font-family: Ubuntu
+                font-weight: 500
+                font-size: 1.125em
+                color: white
+            a.articles
+                &.active, &:hover
+                    background: #e79a0b
+            a.about
+                &.active, &:hover
+                    background: #bfbfbf
+    .social-nav ul
+        padding: 0
+        margin: 0
+        list-style-type: none
+        li a
+            display: block
+            background: url(../images/social-media-logos.png) no-repeat
+            opacity: 0.66
+            &:hover
+                opacity: 1
+    .impress-link a
+        font-family: Ubuntu
+        font-size: 0.75em
+        color: white
+        opacity: 0.66
+        &:hover
+            opacity: 1
+    .close-menu-button
+        display: none
+        background: black
+        a
+            display: block
+            text-align: center
+            height: 50px
+            line-height: 50px
+            vertical-align: middle
+            opacity: 0.5
+            color: white
+            font-family: Ubuntu
+            font-size: 1.125em
+            font-weight: 500
+            &:hover
+                opacity: 1
+            span
+                display: inline-block
+                background: url(../images/arrows.png)
+                height: 13px
+                width: 22px
+                margin: 0 20px
+            
+@media screen and (max-width: 49.9375em) //799px
+    #page-header
+        .logo-bar
+            background-position: -15px -15px
+            padding: 10px
+            .logo
+                float: left
+            .toggle-menu-button
+                display: block
+                float: right
+        #page-menu
+            display: none
+            &.show
+                display: block
+        .main-nav li a
+            padding: 10px
+            line-height: 30px
+            background: #595959
+        .social-nav
+            height: 32px
+            padding: 9px 10px 9px 2px
+            background: #3e4040
+            float: left
+            li
+                float: left
+                margin-right: 10px
+                a
+                    width: 32px
+                    height: 32px
+                    &.twit
+                        background-position: 0 0
+                    &.face
+                        background-position: -64px 0
+                    &.gith
+                        background-position: -32px 0
+                    &.mail
+                        background-position: -96px 0
+        .impress-link
+            line-height: 50px
+            text-align: right
+            padding-right: 10px
+            overflow: hidden
+            background: #3e4040
+        .close-menu-button
+            display: block
+            clear: both
+
+@media screen and (min-width: 50em)
+    #page-header
+        .main-nav a
+            padding: 0 25px
+            line-height: 80px
+            background: black
+            opacity: 0.65
+            &.active:hover, &:hover
+                opacity: 1
+            &.active
+                opacity: 0.9
+        .social-nav
+            background: rgba(0,0,0,0.65)
+            a
+                height: 16px
+                &.twit
+                    width: 20px
+                    background-position: -6px -8px
+                &.face
+                    width: 16px
+                    background-position: -72px -8px
+                &.gith
+                    width: 16px
+                    background-position: -40px -8px
+                &.mail
+                    width: 22px
+                    background-position: -101px -8px
+        .impress-link a
+            vertical-align: middle
+
+@media screen and (min-width: 50em) and (max-width: 81.1875em) //800px and 1299px
+    #page-header
+        .logo-bar
+            padding: 17px 25px
+            background-position: 0 -8px
+            width: 275px
+            float: left
+        .main-nav li
+            float: left
+            a
+                display: inline-block
+        .social-nav
+            height: 80px
+            overflow: hidden
+            ul
+                height: 48px
+                width: 48px
+                padding: 16px 25px
+                float: right
+                li
+                    margin-bottom: 16px
+                    &:nth-child(odd)
+                        float: left
+                    &:nth-child(even)
+                        float: right
+        .impress-link
+            position: absolute
+            bottom: 100%
+            right: 25px
+            line-height: 25px
+            text-align: center
+
+@media screen and (min-width: 81.25em) //1300px
+    #page-header
+        .logo-bar
+            height: 46px
+            background-position: 0 25px
+            padding: 50px 25px
+        #page-menu
+            height: 100%
+        .social-nav
+            height: 100%
+            ul
+                position: absolute
+                left: 0
+                bottom: 0
+                height: 16px
+                padding: 25px
+                li
+                    float: left
+                    margin-right: 10px
+        .impress-link
+            position: absolute
+            bottom: 25px
+            right: 25px
+            line-height: 16px
+            text-align: right

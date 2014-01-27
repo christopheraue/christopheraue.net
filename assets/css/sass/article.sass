@@ -1,0 +1,994 @@
+﻿/*
+ *  Article Page
+ *  ============
+ *  Page Layout
+ *  -----------
+ *  For small viewports the article parts are just rendered above each other. For viewports wide
+ *  enough to display a sidebar the article side details and actions jump into the sidebar on the left of the article
+ *  content.
+ *
+ *  ### Background Fade Out
+ *  The fade to white is present for viewports wide enough to show a sidebar and begins where the
+ *  article content area starts.
+ *
+ *  ```
+ *  <iframe width="800" height="480" class="article">
+ *      <header id="page-header" class="kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <h1 id="main-article-headline" class="kalei-stub">Headline</h1>
+ *                  <div id="main-article-content" class="start-background-fade kalei-stub">Article text<section class="fixie"></section></div>
+ *                  <aside id="main-article-aside" class="kalei-stub">Article aside</p></aside>
+ *              </article>
+ *              <div id="main-article-comments" class="kalei-stub">Comments</div>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+#main-article-headline,
+#main-article-content,
+#main-article-aside,
+#main-article-comments
+    margin: 0 -10px
+
+@media screen and (min-width: 32em) //512px
+    #main-article-headline,
+    #main-article-content,
+    #main-article-aside,
+    #main-article-comments
+        margin: 0 -20px
+
+@media screen and (min-width: 42.5em) //680px
+    #main-article-headline,
+    #main-article-content,
+    #main-article-aside,
+    #main-article-comments
+        margin: 0 -25px
+
+@media screen and (min-width: 50em) //800px
+    #main-article-headline
+        margin: 0 25px 25px
+    #main-article-content
+        margin: 0
+        float: right
+    #main-article-aside
+        float: left
+        margin-left: -250px
+        width: 225px
+    #main-article-comments
+        clear: both
+        margin: 0
+
+
+@media screen and (min-width: 50em) and (max-width: 81.25em) //800px 1300px
+    body.article
+        &:before, &:after
+            content: none
+        .start-background-fade
+            &:before, &:after
+                content: ""
+/*
+ *  Article Layout
+ *  --------------
+ *  ### Headline Background
+ *  For small screens the headline has a background identical to the body. The background image is
+ *  needed to give the white headline a contrast. But the background is usally not tall enough to be
+ *  still visible behind the headline in cases the navigation of the header is expanded. So we just
+ *  attach the background to the headline. If the header navigation is not shown, it just replicates
+ *  the body background. If the header navigation is expanded, the body background *seems* to scroll
+ *  down also.
+ *
+ *  ### Paddings
+ *  Paddings are adjusted to fit to the available space. Generally, they scale up upto
+ *  a viewport width of 60em resp. 960px and stay constant from there on.
+ *
+ *  ```
+ *  <iframe width="800" height="480" class="article">
+ *      <header id="page-header" class="kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <h1 id="main-article-headline">This Is the Headline of an Article With an Interesting Topic</h1>
+ *                  <div id="main-article-content" class="start-background-fade"><section class="fixie"></section></div>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+#main-article-headline
+    padding: 20px 10px 10px
+#main-article-content, #main-article-aside, #main-article-comments
+    padding: 10px
+#main-article-content, #main-article-comments
+    background: white
+    
+@media screen and (max-width: 49.9375em) //799px
+    #main-article-headline
+        background: url(../images/background/lanes.png) no-repeat 0 -66px
+        background-size: 100% auto
+
+@media screen and (min-width: 32em) //512px
+    #main-article-headline
+        padding: 40px 20px 20px
+    #main-article-content, #main-article-aside, #main-article-comments
+        padding: 20px
+
+@media screen and (min-width: 42.5em) //680px
+    #main-article-headline
+        padding: 50px 25px 25px
+    #main-article-content, #main-article-aside, #main-article-comments
+        padding: 25px
+
+@media screen and (min-width: 50em) //800px
+    #main-article-headline, #main-article-aside
+        padding: 0
+    #main-article-content, #main-article-comments
+        padding: 25px
+
+#main-article-headline
+    font: 1.5em/1.1 'Alfa Slab One'
+    color: white
+    text-shadow: 2px 2px 3px black
+    
+@media screen and (max-width: 49.9375em) //799px
+    #main-article-headline
+        font-size: 1.5em
+
+@media screen and (min-width: 32em) //512px
+    #main-article-headline
+        font-size: 2.4em
+
+@media screen and (min-width: 55em) //890px
+    #main-article-headline
+        font-size: 2.91875em
+
+@media screen and (min-width: 60em) //960px
+    #main-article-headline
+        font-size: 3.4375em
+
+/*
+ *  Headings and Paragraphs
+ *  -----------------------
+ *  The size of the body copy scales up with increased viewport width.
+ *
+ *  ### Headings
+ *  There are two levels of sub headings in the body copy. Headings have a top margin to separate
+ *  from the preceding text. Their size is relative to the size of the body copy.
+ *  
+ *  ### Paragraphs
+ *  Paragraphs are separted from other content above them by the height of one line. There is no
+ *  margin between headings and paragraphs. 
+ *
+ *  ```
+ *  <iframe width="800" height="480" class="article">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div id="main-article-content" class="start-background-fade fixie">
+ *                      <section>
+ *                          <p></p>
+ *                      </section>
+ *                      <section>
+ *                          <h2>Headline Level Two</h2>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <section>
+ *                              <h3>Headline Level Three</h3>
+ *                              <p></p>
+ *                              <p></p>
+ *                          </section>
+ *                      </section>
+ *                  </div>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+#main-article-content
+    color: black
+    font: 200 1em/1.5 'Lato'
+    
+    //paragraphs
+    p
+        margin: 0
+    * + p
+        margin-top: 1.5em
+    h2, h3, h4, h5, h6
+        + p
+            margin-top: 0
+    
+    //heading level 2+
+    h2, h3, h4, h5, h6
+        font: 1em/1 'Alfa Slab One'
+        margin: 0
+        margin-bottom: .3333em
+        clear: both
+    
+    //heading level 2
+    h2
+        font-size: 1.5em
+    * + h2, * + section > h2
+        margin-top: 1.6666em
+    
+    //heading level 3+
+    * + h3, * + section > h3,
+    * + h4, * + section > h4,
+    * + h5, * + section > h5,
+    * + h6, * + section > h6
+        margin-top: 2.5em
+
+@media screen and (min-width: 32em) //512px
+    #main-article-content
+        font-size: 1.25em
+
+@media screen and (min-width: 42.5em) //680px
+    #main-article-content
+        font-size: 1.5em
+   
+@media screen and (min-width: 50em) //800px
+    #main-article-content
+        font-size: 1em
+
+@media screen and (min-width: 55em) //890px
+    #main-article-content
+        font-size: 1.125em
+
+@media screen and (min-width: 60em) //960px
+    #main-article-content
+        font-size: 1.25em
+
+/*
+ *  Lists
+ *  -----
+ *  ### Unordered
+ *
+ *  ```
+ *  <div id="main-article-content" class="fixie">
+ *      <p></p>
+ *      <ul></ul>
+ *      <p></p>
+ *  </div>
+ *  ```
+ *  
+ *  ### Ordered
+ *
+ *  ```
+ *  <div id="main-article-content" class="fixie">
+ *      <p></p>
+ *      <ol></ol>
+ *      <p></p>
+ *  </div>
+ *  ```
+ */
+
+#main-article-content
+    ul, ol
+        padding-left: 3em
+    *
+        + ul, + ol
+            margin-top: 1.5em
+    ul
+        list-style-type: square
+
+/*
+ *  Embedded Visual Media
+ *  ---------------------
+ *  Images, videos, canvas, tables, sidebars etc.
+ *
+ *  ### Media As Wide As the Content Column (default)
+ *  ```
+ *  <iframe width="800" height="480" class="article">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div id="main-article-content" class="start-background-fade fixie">
+ *                      <section>
+ *                          <h2>Media Directly After Heading</h2>
+ *                          <img width="900" height="600"></img>
+ *                          <p></p>
+ *                      </section>
+ *                      <section>
+ *                          <h2>Media Between Paragraphs</h2>
+ *                          <p></p>
+ *                          <img width="900" height="600"></img>
+ *                          <p></p>
+ *                      </section>
+ *                  </div>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+#main-article-content
+    img, iframe, embed, object, video, source, canvas, svg, table, form, aside
+        width: 100%
+        height: auto
+        margin: 0
+    *
+        + img, + iframe, + embed, + object, + video, + source, + canvas, + svg, + table, + form, + aside
+            margin-top: 1.5em
+    h1, h2, h3, h4, h5, h6
+        + img, + iframe, + embed, + object, + video, + source, + canvas, + svg, + table, + form, + aside
+            margin-top: 0
+
+/*
+ *  ### Media Floating To the Left Of the Article Column Depending on Its Format
+ *  Indicated by a div around the media element with one of the following css classes:
+ *
+ *  * #### .panorama
+ *  Wide content with an aspect ratio of about 3+ (width) to 1 (height). Embedded media behaves like
+ *  the default and fills the complete width on the area.
+ *
+ *  * #### .landscape
+ *  Wide content with an aspect ratio of about 2 (width) to 1 (height).
+ *
+ *  * #### .sqaure
+ *  Square content with an aspect ratio of about 1 (width) to 1 (height).
+ *
+ *  * #### .portrait
+ *  Tall content with an aspect ratio of about 1 (width) to 2 (height).
+ *
+ *  * #### .pillar
+ *  Tall content with an aspect ratio of about 1 (width) to 3+ (height).
+ *  
+ *  The bounding box of the media has to align with the baselines of the article text and take into
+ *  account spacing between paragraphs and headings and paragraphs.
+ *  
+ *  #### Media Placed Between Paragraphs
+ *  ```
+ *  <iframe width="800" height="480" class="article">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div id="main-article-content" class="start-background-fade fixie">
+ *                      <section>
+ *                          <h2>Panorama</h2>
+ *                          <p></p>
+ *                          <div class="panorama">
+ *                              <img width="900" height="300"></img>
+ *                          </div>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <h2>Landscape</h2>
+ *                          <p></p>
+ *                          <div class="landscape">
+ *                              <img width="600" height="300"></img>
+ *                          </div>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <h2>Square</h2>
+ *                          <p></p>
+ *                          <div class="square">
+ *                              <img width="600" height="600"></img>
+ *                          </div>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <h2>Portrait</h2>
+ *                          <p></p>
+ *                          <div class="portrait">
+ *                              <img width="300" height="600"></img>
+ *                          </div>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <h2>Pillar</h2>
+ *                          <p></p>
+ *                          <div class="pillar">
+ *                              <img width="300" height="900"></img>
+ *                          </div>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <p></p>
+ *                      </section>
+ *                  </div>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+#main-article-content
+    .panorama, .landscape, .square, .portrait, .pillar
+        margin-top: 1.5em
+        *
+            width: 100%
+            height: auto
+    .landscape
+        @media screen and (min-width: 32em) //512px
+            height: 8.245em
+            width: auto
+            float: left
+            margin-top: 1.9em
+            margin-right: 1em
+            *
+                height: 100%
+                width: auto
+    .square
+        @media screen and (min-width: 30em) //480px
+            height: 15.745em
+            width: auto
+            float: left
+            margin-top: 1.9em
+            margin-right: 1em
+            *
+                height: 100%
+                width: auto
+    .portrait
+        @media screen and (min-width: 20em) //320px
+            height: 18.745em
+            width: auto
+            float: left
+            margin-top: 1.9em
+            margin-right: 1em
+            *
+                height: 100%
+                width: auto
+    .pillar
+        @media screen and (min-width: 20em) //320px
+            height: 27.745em
+            width: auto
+            float: left
+            margin-top: 1.9em
+            margin-right: 1em
+            *
+                height: 100%
+                width: auto
+
+/*
+ *  #### Media Placed Directly Below the Heading
+ *  ```
+ *  <iframe width="800" height="480" class="article">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div id="main-article-content" class="start-background-fade fixie">
+ *                      <section>
+ *                          <h2>Panorama</h2>
+ *                          <div class="panorama">
+ *                              <img width="900" height="300"></img>
+ *                          </div>
+ *                          <p></p>
+ *                          <h2>Landscape</h2>
+ *                          <div class="landscape">
+ *                              <img width="600" height="300"></img>
+ *                          </div>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <h2>Square</h2>
+ *                          <div class="square">
+ *                              <img width="600" height="600"></img>
+ *                          </div>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <h2>Portrait</h2>
+ *                          <div class="portrait">
+ *                              <img width="300" height="600"></img>
+ *                          </div>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <h2>Pillar</h2>
+ *                          <div class="pillar">
+ *                              <img width="300" height="900"></img>
+ *                          </div>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <p></p>
+ *                      </section>
+ *                  </div>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+#main-article-content
+    h2, h3, h4, h5, h6
+        + .panorama
+            margin-top: 0
+        + .landscape
+            margin-top: 0
+            @media screen and (min-width: 32em) //512px
+                margin-top: .4em
+                + p
+                    margin-top: 0
+        + .square
+            margin-top: 0
+            @media screen and (min-width: 30em) //480px
+                margin-top: .4em
+                + p
+                    margin-top: 0
+        + .portrait
+            margin-top: 0
+            @media screen and (min-width: 20em) //320px
+                margin-top: .4em
+                + p
+                    margin-top: 0
+        + .pillar
+            margin-top: 0
+            @media screen and (min-width: 20em) //320px
+                margin-top: .4em
+                + p
+                    margin-top: 0
+
+/*
+ *  ### Media Reaching Out Into the Sidebar
+ *  Extends the floating of the media by increasing the floating box to the left sidebar. This
+ *  behaviour is indicated by the css class `.use-sidebar`.
+ *  
+ *  Panorams, landscapes, and squares will still reach into the article area. Portraits and Pillars
+ *  will fill the width of the sidebar and no more.
+ *  
+ *  ```
+ *  <iframe width="800" height="480" class="article">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div id="main-article-content" class="start-background-fade fixie">
+ *                      <section>
+ *                          <h2>Panorama</h2>
+ *                          <p></p>
+ *                          <div class="panorama use-sidebar">
+ *                              <img width="900" height="300"></img>
+ *                          </div>
+ *                          <p></p>
+ *                          <h2>Landscape</h2>
+ *                          <p></p>
+ *                          <div class="landscape use-sidebar">
+ *                              <img width="600" height="300"></img>
+ *                          </div>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <h2>Square</h2>
+ *                          <div class="square use-sidebar">
+ *                              <img width="600" height="600"></img>
+ *                          </div>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <h2>Portrait</h2>
+ *                          <p></p>
+ *                          <div class="portrait use-sidebar">
+ *                              <img width="300" height="600"></img>
+ *                          </div>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <h2>Pillar</h2>
+ *                          <div class="pillar use-sidebar">
+ *                              <img width="300" height="900"></img>
+ *                          </div>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <p></p>
+ *                          <p></p>
+ *                      </section>
+ *                  </div>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+@media screen and (min-width: 50em) //800px
+    #content .use-sidebar
+        &.landscape
+            height: 14.245em
+        &.square
+            height: 24.745em
+        &.portrait, &.pillar
+            width: 200px
+            height: auto
+            margin-right: 0
+            *
+                width: 100%
+                height: auto
+
+/*
+ *  Quotes
+ *  ------
+ *  Quotes are set in italic Lato Light.
+ */
+
+#main-article-content
+    blockquote
+        font: italic 200 1em/1.5 Lato
+        margin: 1em 0
+        padding: 0
+        *
+            font-style: italic
+
+/*  
+ *  ### Short Quotes
+ *  Short quotes have one and a half of the size of the body copy. Their layout comes in two flavors
+ *  for larger viewports. Short quotes as wide as the content area and short quotes reaching into
+ *  the sidebar for large viewports.
+ *
+ *  #### Short Quotes As Wide As the Content Column
+ *  ```
+ *  <iframe width="800" height="480" class="article">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div id="main-article-content" class="start-background-fade fixie">
+ *                      <p></p>
+ *                      <blockquote class="short">
+ *                          <div></div>
+ *                          <footer>— Some Guy</footer>
+ *                      </blockquote>
+ *                      <p></p>
+ *                  </div>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+#main-article-content
+    blockquote.short
+        font-size: 1.5em
+        quotes: '“' '”'
+        *
+            display: inline
+        p, div
+            &:before
+                content: open-quote
+        p, div
+            &:after
+                content: close-quote
+ 
+/*  #### Short Quotes Reaching Into the Sidebar
+ *  The font size increases to the double of the body copy size for viewports wide enough to display a
+ *  sidebar.
+ *  ```
+ *  <iframe width="800" height="480" class="article">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div id="main-article-content" class="start-background-fade fixie">
+ *                      <p></p>
+ *                      <blockquote class="short use-sidebar">
+ *                          <div></div>
+ *                          <footer>— Some Guy</footer>
+ *                      </blockquote>
+ *                      <p></p>
+ *                  </div>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+@media screen and (min-width: 50em) //800px
+    #main-article-content
+        blockquote.short.use-sidebar
+            font-size: 2em
+            margin-top: 1em
+            margin-bottom: 1em
+
+/*
+ *  ### Long Quotes
+ *  Short quotes are set in italic Lato. They have a light grey background with some additional left
+ *  padding to separate them from normal text.
+ *  
+ *  ```
+ *  <iframe width="800" height="480" class="article">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div id="main-article-content" class="start-background-fade fixie">
+ *                      <section>
+ *                          <p></p>
+ *                          <blockquote class="long">
+ *                              <section></section>
+ *                              <footer>— Some Guy</footer></blockquote>
+ *                          <p></p>
+ *                      </section>
+ *                  </div>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+#main-article-content
+    blockquote.long
+        margin: 1.5em 0
+        padding: 0.5em 1em 0.5em 2em
+        background: #ebebeb
+        footer
+            text-align: right
+
+/*
+ *  Article Aside
+ *  -------------
+ *  ```
+ *  <iframe width="800" height="480" class="article">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div id="main-article-content" class="start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
+ *                  <aside id="main-article-aside">
+ *                      <div class="drawer">
+ *                          <div class="details">
+ *                              <time id="article-post-date">January 02, 2014</time>
+ *                              <ul class="tags">
+ *                                  <li><a href="#">tag</a></li>
+ *                                  <li><a href="#">anotherTag</a></li>
+ *                                  <li><a href="#">aThirdTag</a></li>
+ *                              </ul>
+ *                          </div>
+ *                          <div class="social">
+ *                              <a href="#" class="comments-link">5 Comments</a>
+ *                              <ul class="social-media">
+ *                                  <li><a href="#" class="twit"></a></li>
+ *                                  <li><a href="#" class="face"></a></li>
+ *                                  <li><a href="#" class="mail"></a></li>
+ *                              </ul>
+ *                          </div>
+ *                      </div>
+ *                      <div class="drawer-handle">Details<span class="arrow"></span></div>
+ *                  </aside>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+#main-article-aside
+    text-align: right
+    font: 0.875em Ubuntu
+    color: white
+    position: relative
+    a
+        color: white
+        text-decoration: none
+        &:hover
+            text-decoration: underline
+    ul
+        list-style-type: none
+        margin: 0
+        padding: 0
+    time, .tags li a, .comments-link
+        display: block
+        float: right
+        clear: both
+        padding: 6px 12px
+        background: rgba(0,0,0,0.65)
+        min-width: 36px
+    .details:before,
+    .tags li+li:before, .tags:before, .tags:after,
+    .social-media:before
+        content: '\00A0'
+        display: block
+        float: right
+        clear: both
+        height: 25px
+        width: 60px
+        background: rgba(0,0,0,0.65)
+    .details:after
+        clear: both
+    .tags li+li:before
+        height: 3px
+    .tags a
+        color: #b3b3b3
+    .comments-link
+        font-size: 1.25em
+        font-weight: 500
+    .social-media
+        li:first-child
+            clear: both
+        li a
+            display: block
+            padding: 15px
+            width: 30px
+            background: white url(../images/social-media-logos.png) no-repeat
+            &.twit
+                height: 24px
+                background-position: -60px -61px
+                &:hover
+                    background-position: 0 -61px
+                    background-color: #6daadc
+            &.face
+                height: 30px
+                background-position: -60px -106px
+                &:hover
+                    background-position: 0 -106px
+                    background-color: #434e93
+            &.mail
+                height: 21px
+                background-position: -60px -159px
+                &:hover
+                    background-position: 0 -159px
+                    background-color: #98bdba
+    .drawer-handle
+        display: none
+
+#main-article-aside
+    @media screen and (max-width: 49.9375em) //799px
+        position: relative
+        &:before
+            content: '\00A0'
+            background: white
+            width: 60px
+            height: 100%
+            position: absolute
+            top: 0
+            left: 50%
+            z-index: -1
+        .details, .social
+            width: 50%
+            display: inline-block
+            vertical-align: middle
+        .comments-link
+            display: none
+        .social-media
+            &:before
+                content: none
+            li:first-child
+                clear: none
+                
+    @media screen and (min-width: 50em) //800px
+        .social-media li a
+            margin-left: auto
+
+/*
+ *  ### After the page has been scrolled down: visible details
+ *  The details are attached to the viewport by giving the `<aside#main-article-aside>` a class 
+ *  `attach-to-viewport`.
+ *  ```
+ *  <iframe width="800" height="480" class="article">
+ *      <header id="page-header" class="scrolled-past kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div id="main-article-content" class="start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
+ *                  <aside id="main-article-aside" class="attach-to-viewport">
+ *                      <div class="drawer">
+ *                          <div class="details">
+ *                              <time id="article-post-date">January 02, 2014</time>
+ *                              <ul class="tags">
+ *                                  <li><a href="#">tag</a></li>
+ *                                  <li><a href="#">anotherTag</a></li>
+ *                                  <li><a href="#">aThirdTag</a></li>
+ *                              </ul>
+ *                          </div>
+ *                          <div class="social">
+ *                              <a href="#" class="comments-link">5 Comments</a>
+ *                              <ul class="social-media">
+ *                                  <li><a href="#" class="twit"></a></li>
+ *                                  <li><a href="#" class="face"></a></li>
+ *                                  <li><a href="#" class="mail"></a></li>
+ *                              </ul>
+ *                          </div>
+ *                      </div>
+ *                      <div class="drawer-handle">Details<span class="arrow"></span></div>
+ *                  </aside>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ *
+ *  ### After the page has been scrolled down: collapsed details
+ *  To collapse the details give the `<aside#main-article-aside.attach-to-viewport>` a class 
+ *  `collapsed`.
+ *  ```
+ *  <iframe width="800" height="600" class="article scrolled">
+ *      <header id="page-header" class="scrolled-past kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div id="main-article-content" class="start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
+ *                  <aside id="main-article-aside" class="attach-to-viewport collapsed">
+ *                      <div class="drawer">
+ *                          <div class="details">
+ *                              <time id="article-post-date">January 02, 2014</time>
+ *                              <ul class="tags">
+ *                                  <li><a href="#">tag</a></li>
+ *                                  <li><a href="#">anotherTag</a></li>
+ *                                  <li><a href="#">aThirdTag</a></li>
+ *                              </ul>
+ *                          </div>
+ *                          <div class="social">
+ *                              <a href="#" class="comments-link">5 Comments</a>
+ *                              <ul class="social-media">
+ *                                  <li><a href="#" class="twit"></a></li>
+ *                                  <li><a href="#" class="face"></a></li>
+ *                                  <li><a href="#" class="mail"></a></li>
+ *                              </ul>
+ *                          </div>
+ *                      </div>
+ *                      <div class="drawer-handle">Details<span class="arrow"></span></div>
+ *                  </aside>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+#main-article-aside.attach-to-viewport
+    position: fixed 
+    .drawer
+        overflow: hidden
+    .drawer-handle
+        display: block
+        position: absolute
+        font-style: italic
+        background: rgba(0,0,0,0.65)
+        text-align: left
+        cursor: pointer
+        .arrow
+            background: url(../images/arrows.png)
+            height: 8px
+            width: 22px
+    &.collapsed
+        .drawer
+            max-height: 0
+    
+    @media screen and (max-width: 49.9375em) //799px
+        bottom: 0
+        left: 0
+        right: 0
+        .drawer
+            max-height: 240px
+            transition: max-height 1s
+        .drawer-handle
+            bottom: 100%
+            left: 50%
+            margin-left: -60px
+            padding: 0 20px
+            width: 80px
+            line-height: 30px
+            .arrow
+                float: right
+                margin-top: 12px
+                background-position: -92px 0
+                transition: background-position step-end .6s
+        &.collapsed
+            .drawer-handle .arrow
+                background-position: -61px 0
+                transition: background-position step-end 1s
+                
+    @media screen and (min-width: 50em) //800px
+        top: 80px
+        .drawer
+            max-height: 500px
+            transition: max-height 2s
+        .drawer-handle
+            width: 60px
+            padding: 10px 0
+            text-align: center
+            top: 100%
+            right: 0
+            .arrow
+                display: inline-block
+                background-position: -61px 0
+                transition: background-position step-end 1.2s
+        &.collapsed
+            .drawer-handle .arrow
+                background-position: -92px 0
+                transition: background-position step-end 2s
+
+    @media screen and (min-width: 81.25em) //1300px
+        &.attach-to-viewport
+            top: 0
+ 

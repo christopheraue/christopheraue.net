@@ -1,0 +1,56 @@
+﻿/*
+ *  Archive Page
+ *  ============
+ *  Page Layout
+ *  -----------
+ *  For small viewports the everything is just rendered above each other. For viewports wide
+ *  enough to display a sidebar the headline jumps into the sidebar on the left.
+ *
+ *  ```
+ *  <iframe width="800" height="480" class="archive">
+ *      <header id="page-header" class="kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <h1 id="archive-headline" class="kalei-stub">Archive Headline</h1>
+ *              <div id="archive-list" class="start-background-fade kalei-stub">Article List</div>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+#archive-headline
+    margin: 0
+
+@media screen and (min-width: 50em) //800px
+    #archive-headline
+        float: left
+        width: 225px
+        margin-left: -250px
+
+/*
+ *  Headline
+ *  --------
+ *
+ *  ```
+ *  <iframe width="800" height="480" class="archive">
+ *      <header id="page-header" class="kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <h1 id="archive-headline">Articles</h1>
+ *              <div id="archive-list" class="start-background-fade kalei-stub">Article List</div>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+#archive-headline
+    font: 1.5em/1.1 'Alfa Slab One'
+    color: white
+    text-shadow: 2px 2px 3px black
+    @media screen and (max-width: 49.9375em) //799px
+        padding: 20px 0 10px
+    @media screen and (min-width: 50em) //800px
+        font-size: 3em
+        text-align: right
