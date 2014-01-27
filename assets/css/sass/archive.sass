@@ -1,6 +1,8 @@
 ﻿/*
  *  Archive Page
  *  ============
+ *  The archive page has set the css class `.archive` on the body.
+ *
  *  Page Layout
  *  -----------
  *  For small viewports the everything is just rendered above each other. For viewports wide
@@ -12,7 +14,7 @@
  *      <div id="content-container">
  *          <div id="content">
  *              <h1 id="archive-headline" class="kalei-stub">Archive Headline</h1>
- *              <div id="archive-list" class="start-background-fade kalei-stub">Article List</div>
+ *              <div id="article-list" class="start-background-fade kalei-stub">Article List</div>
  *          </div>
  *      </div>
  *  </iframe>
@@ -29,6 +31,59 @@
         margin-left: -250px
 
 /*
+ *  Article List Layout
+ *  -------------------
+ *  ```
+ *  <iframe width="800" height="480" class="archive">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <h1 id="archive-headline" class="kalei-stub">Archive Headline</h1>
+ *              <ol class="article-list start-background-fade">
+ *                  <li>
+ *                      <div class="article kalei-stub">Article</div>
+ *                  </li>
+ *                  <li>
+ *                      <div class="article kalei-stub">Article</div>
+ *                  </li>
+ *                  <li>
+ *                      <div class="article kalei-stub">Article</div>
+ *                  </li>
+ *                  <li>
+ *                      <div class="article kalei-stub">Article</div>
+ *                  </li>
+ *              </ol>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+.article-list
+    list-style-type: none
+    padding: 0
+    margin: 0
+    > li + li
+        margin-top: 10px
+        @media screen and (min-width: 32em) //512px
+            margin-top: 0
+            + li
+                margin-top: 20px
+        @media screen and (min-width: 42.5em) //680px
+            + li
+                margin-top: 25px
+    @media screen and (min-width: 32em) //512px
+        margin: 0 -10px
+        > li
+            width: 50%
+            float: left
+        .article
+            margin: 0 10px
+    @media screen and (min-width: 42.5em) //680px
+        margin: 0 -12.5px
+        .article
+            margin: 0 12.5px
+
+/*
  *  Headline
  *  --------
  *
@@ -38,7 +93,7 @@
  *      <div id="content-container">
  *          <div id="content">
  *              <h1 id="archive-headline">Articles</h1>
- *              <div id="archive-list" class="start-background-fade kalei-stub">Article List</div>
+ *              <div id="article-list" class="start-background-fade kalei-stub">Article List</div>
  *          </div>
  *      </div>
  *  </iframe>
@@ -52,5 +107,102 @@
     @media screen and (max-width: 49.9375em) //799px
         padding: 20px 0 10px
     @media screen and (min-width: 50em) //800px
-        font-size: 3em
+        font-size: 2.5em
         text-align: right
+
+/*
+ *  Article List Item
+ *  -----------------
+ *  ```
+ *  <iframe width="800" height="480" class="archive">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <ol class="article-list start-background-fade">
+ *                  <li>
+ *                      <div class="article">
+ *                          <h2 class="article-headline">This Is the Headline Of an Article With an Interesting Topic</h2>
+ *                          <div class="details">
+ *                              <ul class="article-tags">
+ *                                  <li><a href="#">tag</a></li>
+ *                                  <li><a href="#">anotherTag</a></li>
+ *                                  <li><a href="#">aThirdTag</a></li>
+ *                              </ul>
+ *                              <time class="article-date">January 02, 2014</time>
+ *                          </div>
+ *                          <span class="arrow"></span>
+ *                      </div>
+ *                  </li>
+ *              </ol>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+.article-list
+    a
+        color: white
+        text-decoration: none
+        &:hover
+            text-decoration: underline
+    .article
+        padding: 10px
+        padding-right: 60px
+        background: url(../images/background/lanes.png) no-repeat center
+        background-size: cover
+        position: relative
+        &:before
+            content: ""
+            position: absolute
+            top: 0
+            right: 0
+            bottom: 0
+            left: 0
+            display: block
+            background: rgba(0,0,0,.35)
+        .article-headline
+            margin: 0
+            font: 1em/1.1 'Alfa Slab One'
+            color: white
+            text-shadow: 2px 2px 3px black
+            position: relative
+        .details
+            margin-top: 20px
+            position: relative
+            display: none
+            .article-tags, .article-date
+                display: block
+                font: 0.75em/1.1 Ubuntu
+                color: white
+                width: 50%
+            .article-tags
+                text-align: left
+                margin: 0
+                padding: 0
+                list-style-type: none
+                li
+                    display: inline
+                li + li
+                    &:before
+                        content: ", "
+            .article-date
+                text-align: right
+                position: absolute
+                right: 0
+                bottom: 0
+        .arrow
+            display: block
+            position: absolute
+            right: 20px
+            top: 50%
+            margin-top: -15px
+            background: url(../images/arrows.png) -2px -39px
+            height: 31px
+            width: 18px
+    @media screen and (min-width: 32em) //512px
+        .article
+            padding: 20px
+            .details
+                display: block
+            .arrow
+                display: none
