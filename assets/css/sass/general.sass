@@ -8,10 +8,15 @@
  *  `start-background-fade`. For medium viewports the background fade begins where the
  *  content area starts. For large viewports the left sidebar, where the header will be located,
  *  will not fade. Fading starts at 50% of the viewport's height.
- *
+ *  
  *  ```
- *  <iframe width="800" height="480">
- *      <div class="start-background-fade kalei-stub" style="position: absolute; top: 100px">element to start bg fade at for small viewports</div>
+ *  <iframe width="800" height="480" class="archive">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <div class="start-background-fade kalei-stub" style="margin-top: 100px">element to start bg fade at for small viewports</div>
+ *              <article class="fixie"</article>
+ *          </div>
+ *      </div>
  *  </iframe>
  *  ```
  */
@@ -20,10 +25,16 @@ html, body
     margin: 0
     height: 100%
 
-ul, ol
+ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, p
     margin: 0
     padding: 0
+
+ul, ol
     list-style-type: none
+
+h1, h2, h3, h4, h5, h6, p
+    font-weight: normal
+    font-style: normal
 
 body
     background: lightblue no-repeat
@@ -31,12 +42,12 @@ body
     font-size: 100%
     overflow-x: hidden
     min-height: 100%
-    height: auto
     @media screen and (max-aspect-ratio: 4/3)
         background-size: cover
 
 body
     @media screen and (min-width: 50em) //800px
+        height: auto
         .start-background-fade
             &:before, &:after
                 content: none

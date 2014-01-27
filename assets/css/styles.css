@@ -40,10 +40,15 @@
  *  `start-background-fade`. For medium viewports the background fade begins where the
  *  content area starts. For large viewports the left sidebar, where the header will be located,
  *  will not fade. Fading starts at 50% of the viewport's height.
- *
+ *  
  *  ```
- *  <iframe width="800" height="480">
- *      <div class="start-background-fade kalei-stub" style="position: absolute; top: 100px">element to start bg fade at for small viewports</div>
+ *  <iframe width="800" height="480" class="archive">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <div class="start-background-fade kalei-stub" style="margin-top: 100px">element to start bg fade at for small viewports</div>
+ *              <article class="fixie"</article>
+ *          </div>
+ *      </div>
  *  </iframe>
  *  ```
  */
@@ -52,24 +57,30 @@ html, body {
   margin: 0;
   height: 100%; }
 
-ul, ol {
+ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
-  padding: 0;
+  padding: 0; }
+
+ul, ol {
   list-style-type: none; }
+
+h1, h2, h3, h4, h5, h6, p {
+  font-weight: normal;
+  font-style: normal; }
 
 body {
   background: lightblue no-repeat;
   background-size: 100% auto;
   font-size: 100%;
   overflow-x: hidden;
-  min-height: 100%;
-  height: auto; }
+  min-height: 100%; }
   @media screen and (max-aspect-ratio: 4 / 3) {
     body {
       background-size: cover; } }
 
 @media screen and (min-width: 50em) {
   body {
+    height: auto;
     position: relative; }
     body .start-background-fade:before, body .start-background-fade:after {
       content: none; }
@@ -1110,11 +1121,6 @@ body.article {
 
   #main-article-comments {
     clear: both; } }
-@media screen and (min-width: 50em) and (max-width: 81.25em) {
-  body.article:before, body.article:after {
-    content: none; }
-  body.article .start-background-fade:before, body.article .start-background-fade:after {
-    content: ""; } }
 /*  Article Layout
  *  --------------
  *  ### Headline Background
@@ -1135,7 +1141,7 @@ body.article {
  *      <div id="content-container">
  *          <div id="content">
  *              <article id="main-article">
- *                  <h1 id="main-article-headline">This Is the Headline of an Article With an Interesting Topic</h1>
+ *                  <h1 id="main-article-headline" class="article-headline">This Is the Headline of an Article With an Interesting Topic</h1>
  *                  <div id="main-article-content" class="start-background-fade text">
  *                      <section class="fixie"></section>
  *                  </div>
@@ -1145,11 +1151,14 @@ body.article {
  *  </iframe>
  *  ```
  */
-#main-article-headline {
-  font: 1.5em/1.1 "Alfa Slab One";
+.article-headline {
+  font-family: "Alfa Slab One";
+  line-height: 1.1;
   color: white;
-  text-shadow: 2px 2px 3px black;
-  margin: 0;
+  text-shadow: 2px 2px 3px black; }
+
+#main-article-headline {
+  font-size: 1.5em;
   padding: 1.66em 0.83em 0.83em; }
 
 #main-article-content, #main-article-comments {
@@ -1165,7 +1174,6 @@ body.article {
 @media screen and (min-width: 50em) {
   #main-article-headline {
     font-size: 2em;
-    margin: 0;
     padding: 0 0.625em 0.625em; } }
 /*  Article Details
  *  ---------------
@@ -1188,11 +1196,11 @@ body.article {
  *                              </ul>
  *                          </div>
  *                          <div class="social">
- *                              <a href="#" class="comments-link">5 Comments</a>
- *                              <ul class="social-media">
- *                                  <li class="twit"><a href="#"></a></li>
- *                                  <li class="face"><a href="#"></a></li>
- *                                  <li class="mail"><a href="#"></a></li>
+ *                              <a href="#" class="article-comments-link">5 Comments</a>
+ *                              <ul class="article-social-media">
+ *                                  <li><a href="#" class="twit"><span class="icon"></span></a></li>
+ *                                  <li><a href="#" class="face"><span class="icon"></span></a></li>
+ *                                  <li><a href="#" class="mail"><span class="icon"></span></a></li>
  *                              </ul>
  *                          </div>
  *                      </div>
@@ -1204,30 +1212,75 @@ body.article {
  *  </iframe>
  *  ```
  */
+.article-date, .article-tags a, .article-comments-link {
+  font-family: Ubuntu;
+  color: white;
+  padding: 0.3em 1.0725em;
+  background: rgba(0, 0, 0, 0.65); }
+
+.article-tags a, .article-comments-link {
+  text-decoration: none; }
+  .article-tags a:hover, .article-comments-link:hover {
+    text-decoration: underline; }
+
+.article-tags a {
+  color: #b3b3b3; }
+
+.article-comments-link {
+  font-size: 1.25em;
+  font-weight: 500; }
+
+.article-social-media a {
+  display: block;
+  width: 4.29em;
+  height: 4.29em;
+  background: white;
+  position: relative; }
+  .article-social-media a .icon {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -15px;
+    width: 30px;
+    background: url(../images/social-media-logos.png) no-repeat; }
+  .article-social-media a.twit .icon {
+    height: 24px;
+    margin-top: -12px;
+    background-position: -75px -76px; }
+  .article-social-media a.twit:hover {
+    background-color: #6daadc; }
+    .article-social-media a.twit:hover .icon {
+      background-position: -15px -76px; }
+  .article-social-media a.face .icon {
+    height: 30px;
+    margin-top: -15px;
+    background-position: -75px -121px; }
+  .article-social-media a.face:hover {
+    background-color: #434e93; }
+    .article-social-media a.face:hover .icon {
+      background-position: -15px -121px; }
+  .article-social-media a.mail .icon {
+    height: 21px;
+    margin-top: -10px;
+    background-position: -75px -174px; }
+  .article-social-media a.mail:hover {
+    background-color: #98bdba; }
+    .article-social-media a.mail:hover .icon {
+      background-position: -15px -174px; }
+
 #main-article-aside {
   text-align: right;
-  font: 0.7em Ubuntu;
-  color: white;
+  font-size: 0.7em;
   position: relative; }
-  #main-article-aside a {
-    color: white;
-    text-decoration: none; }
-    #main-article-aside a:hover {
-      text-decoration: underline; }
-  #main-article-aside ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0; }
-  #main-article-aside .article-date, #main-article-aside .article-tags li a, #main-article-aside .comments-link {
+  #main-article-aside .article-date, #main-article-aside .article-tags li a, #main-article-aside .article-comments-link {
     display: block;
     float: right;
     clear: both;
-    padding: 0.3em 1.0725em;
-    background: rgba(0, 0, 0, 0.65);
     min-width: 2.145em; }
   #main-article-aside .details:before,
   #main-article-aside .article-tags li + li:before, #main-article-aside .article-tags:before, #main-article-aside .article-tags:after,
-  #main-article-aside .social-media:before {
+  #main-article-aside .article-social-media:before {
     content: "\00A0";
     display: block;
     float: right;
@@ -1235,55 +1288,12 @@ body.article {
     height: 1.79em;
     width: 4.29em;
     background: rgba(0, 0, 0, 0.65); }
-  #main-article-aside .details:after {
-    clear: both; }
   #main-article-aside .article-tags li + li:before {
     height: 0.21em; }
-  #main-article-aside .article-tags a {
-    color: #b3b3b3; }
-  #main-article-aside .comments-link {
-    font-size: 1.25em;
-    font-weight: 500; }
-  #main-article-aside .social-media li:first-child {
+  #main-article-aside .details:after {
     clear: both; }
-  #main-article-aside .social-media li {
-    width: 4.29em;
-    height: 4.29em;
-    text-align: center;
-    background: white;
-    position: relative; }
-    #main-article-aside .social-media li a {
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-left: -15px;
-      width: 30px;
-      background: url(../images/social-media-logos.png) no-repeat; }
-    #main-article-aside .social-media li.twit a {
-      height: 24px;
-      margin-top: -12px;
-      background-position: -75px -76px; }
-    #main-article-aside .social-media li.twit:hover {
-      background-color: #6daadc; }
-      #main-article-aside .social-media li.twit:hover a {
-        background-position: -15px -76px; }
-    #main-article-aside .social-media li.face a {
-      height: 30px;
-      margin-top: -15px;
-      background-position: -75px -121px; }
-    #main-article-aside .social-media li.face:hover {
-      background-color: #434e93; }
-      #main-article-aside .social-media li.face:hover a {
-        background-position: -15px -121px; }
-    #main-article-aside .social-media li.mail a {
-      height: 21px;
-      margin-top: -10px;
-      background-position: -75px -174px; }
-    #main-article-aside .social-media li.mail:hover {
-      background-color: #98bdba; }
-      #main-article-aside .social-media li.mail:hover a {
-        background-position: -15px -174px; }
+  #main-article-aside .article-social-media li:first-child {
+    clear: both; }
   #main-article-aside .drawer-handle {
     display: none; }
 
@@ -1303,16 +1313,16 @@ body.article {
       width: 50%;
       display: inline-block;
       vertical-align: middle; }
-    #main-article-aside .comments-link {
+    #main-article-aside .article-comments-link {
       display: none; }
-    #main-article-aside .social-media:before {
+    #main-article-aside .article-social-media:before {
       content: none; }
-    #main-article-aside .social-media li:first-child {
+    #main-article-aside .article-social-media li:first-child {
       clear: none; }
-    #main-article-aside .social-media li {
+    #main-article-aside .article-social-media li a {
       margin-right: auto; } }
 @media screen and (min-width: 50em) {
-  #main-article-aside .social-media li {
+  #main-article-aside .article-social-media li a {
     margin-left: auto; } }
 
 /*  ### After the page has been scrolled down: visible details
@@ -1336,11 +1346,11 @@ body.article {
  *                              </ul>
  *                          </div>
  *                          <div class="social">
- *                              <a href="#" class="comments-link">5 Comments</a>
- *                              <ul class="social-media">
- *                                  <li class="twit"><a href="#"></a></li>
- *                                  <li class="face"><a href="#"></a></li>
- *                                  <li class="mail"><a href="#"></a></li>
+ *                              <a href="#" class="article-comments-link">5 Comments</a>
+ *                              <ul class="article-social-media">
+ *                                  <li><a href="#" class="twit"><span class="icon"></span></a></li>
+ *                                  <li><a href="#" class="face"><span class="icon"></span></a></li>
+ *                                  <li><a href="#" class="mail"><span class="icon"></span></a></li>
  *                              </ul>
  *                          </div>
  *                      </div>
@@ -1373,11 +1383,11 @@ body.article {
  *                              </ul>
  *                          </div>
  *                          <div class="social">
- *                              <a href="#" class="comments-link">5 Comments</a>
- *                              <ul class="social-media">
- *                                  <li class="twit"><a href="#"></a></li>
- *                                  <li class="face"><a href="#"></a></li>
- *                                  <li class="mail"><a href="#"></a></li>
+ *                              <a href="#" class="article-comments-link">5 Comments</a>
+ *                              <ul class="article-social-media">
+ *                                  <li><a href="#" class="twit"><span class="icon"></span></a></li>
+ *                                  <li><a href="#" class="face"><span class="icon"></span></a></li>
+ *                                  <li><a href="#" class="mail"><span class="icon"></span></a></li>
  *                              </ul>
  *                          </div>
  *                      </div>
@@ -1396,7 +1406,9 @@ body.article {
   #main-article-aside.attach-to-viewport .drawer-handle {
     display: block;
     position: absolute;
+    font-family: Ubuntu;
     font-style: italic;
+    color: white;
     background: rgba(0, 0, 0, 0.65);
     text-align: left;
     cursor: pointer; }
@@ -1484,7 +1496,7 @@ body.article {
 /*  Article List Layout
  *  -------------------
  *  ```
- *  <iframe width="800" height="480" class="archive">
+ *  <iframe width="800" height="480" class="archive kalei-neutral">
  *      <div id="content-container">
  *          <div id="content">
  *              <h1 id="archive-headline" class="kalei-stub">Archive Headline</h1>
@@ -1507,33 +1519,19 @@ body.article {
  *  </iframe>
  *  ```
  */
-.article-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0; }
+@media screen and (max-width: 31.9375em) {
   .article-list > li + li {
-    margin-top: 10px; }
-    @media screen and (min-width: 32em) {
-      .article-list > li + li {
-        margin-top: 0; }
-        .article-list > li + li + li {
-          margin-top: 20px; } }
-    @media screen and (min-width: 42.5em) {
+    margin-top: 1.25em; } }
+@media screen and (min-width: 32em) {
+  .article-list {
+    margin: 0 -0.625em; }
+    .article-list > li {
+      width: 50%;
+      float: left; }
       .article-list > li + li + li {
-        margin-top: 25px; } }
-  @media screen and (min-width: 32em) {
-    .article-list {
-      margin: 0 -10px; }
-      .article-list > li {
-        width: 50%;
-        float: left; }
-      .article-list .article {
-        margin: 0 10px; } }
-  @media screen and (min-width: 42.5em) {
-    .article-list {
-      margin: 0 -12.5px; }
-      .article-list .article {
-        margin: 0 12.5px; } }
+        margin-top: 1.25em; }
+    .article-list .article {
+      margin: 0 0.625em; } }
 
 /*  Headline
  *  --------
@@ -1556,7 +1554,7 @@ body.article {
   text-shadow: 2px 2px 3px black; }
   @media screen and (max-width: 49.9375em) {
     #archive-headline {
-      padding: 20px 0 10px; } }
+      margin: 1.25em 0 0.625em; } }
   @media screen and (min-width: 50em) {
     #archive-headline {
       font-size: 2.5em;
@@ -1565,14 +1563,16 @@ body.article {
 /*  Article List Item
  *  -----------------
  *  ```
- *  <iframe width="800" height="480" class="archive">
+ *  <iframe width="800" height="480" class="archive kalei-neutral">
  *      <div id="content-container">
  *          <div id="content">
  *              <ol class="article-list start-background-fade">
  *                  <li>
  *                      <div class="article">
- *                          <h2 class="article-headline">This Is the Headline Of an Article With an Interesting Topic</h2>
+ *                          <h2 class="article-headline"><a href="#">This Is the Headline Of an Article With an Interesting Topic</a></h2>
+ *                          <a href="#" class="arrow"></a>
  *                          <div class="details">
+ *                              <a href="#" class="arrow"></a>
  *                              <ul class="article-tags">
  *                                  <li><a href="#">tag</a></li>
  *                                  <li><a href="#">anotherTag</a></li>
@@ -1580,7 +1580,6 @@ body.article {
  *                              </ul>
  *                              <time class="article-date">January 02, 2014</time>
  *                          </div>
- *                          <span class="arrow"></span>
  *                      </div>
  *                  </li>
  *              </ol>
@@ -1589,14 +1588,8 @@ body.article {
  *  </iframe>
  *  ```
  */
-.article-list a {
-  color: white;
-  text-decoration: none; }
-  .article-list a:hover {
-    text-decoration: underline; }
 .article-list .article {
-  padding: 10px;
-  padding-right: 60px;
+  padding-right: 40px;
   background: url(../images/background/lanes.png) no-repeat center;
   background-size: cover;
   position: relative; }
@@ -1609,30 +1602,28 @@ body.article {
     left: 0;
     display: block;
     background: rgba(0, 0, 0, 0.35); }
+  .article-list .article:hover:before {
+    background: rgba(0, 0, 0, 0.25); }
   .article-list .article .article-headline {
-    margin: 0;
-    font: 1em/1.1 "Alfa Slab One";
-    color: white;
-    text-shadow: 2px 2px 3px black;
-    position: relative; }
+    font-size: 1em;
+    position: relative;
+    padding: 1.25em; }
+    .article-list .article .article-headline a {
+      color: white;
+      text-decoration: none; }
   .article-list .article .details {
     margin-top: 20px;
     position: relative;
     display: none; }
     .article-list .article .details .article-tags, .article-list .article .details .article-date {
-      display: block;
-      font: 0.75em/1.1 Ubuntu;
-      color: white;
-      width: 50%; }
+      font-size: 0.6em;
+      max-width: 50%;
+      box-sizing: border-box; }
     .article-list .article .details .article-tags {
-      text-align: left;
-      margin: 0;
-      padding: 0;
-      list-style-type: none; }
-      .article-list .article .details .article-tags li {
-        display: inline; }
-      .article-list .article .details .article-tags li + li:before {
-        content: ", "; }
+      text-align: left; }
+      .article-list .article .details .article-tags a {
+        position: relative;
+        display: inline-block; }
     .article-list .article .details .article-date {
       text-align: right;
       position: absolute;
@@ -1643,14 +1634,23 @@ body.article {
     position: absolute;
     right: 20px;
     top: 50%;
-    margin-top: -15px;
+    margin-top: -16px;
     background: url(../images/arrows.png) -2px -39px;
     height: 31px;
     width: 18px; }
 @media screen and (min-width: 32em) {
   .article-list .article {
-    padding: 20px; }
+    padding: 0.75em; }
+    .article-list .article .article-headline {
+      padding: 0; }
     .article-list .article .details {
       display: block; }
     .article-list .article .arrow {
-      display: none; } }
+      background: transparent;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: 0;
+      height: auto;
+      width: auto; } }

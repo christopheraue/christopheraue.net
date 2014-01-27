@@ -56,9 +56,10 @@ body.article
     #main-article-comments
         clear: both
 
-
 @media screen and (min-width: 50em) and (max-width: 81.25em) //800px 1300px
+//on the article page, start the background fade at the specified element in this range
     body.article
+        height: 100%
         &:before, &:after
             content: none
         .start-background-fade
@@ -85,7 +86,7 @@ body.article
  *      <div id="content-container">
  *          <div id="content">
  *              <article id="main-article">
- *                  <h1 id="main-article-headline">This Is the Headline of an Article With an Interesting Topic</h1>
+ *                  <h1 id="main-article-headline" class="article-headline">This Is the Headline of an Article With an Interesting Topic</h1>
  *                  <div id="main-article-content" class="start-background-fade text">
  *                      <section class="fixie"></section>
  *                  </div>
@@ -96,11 +97,14 @@ body.article
  *  ```
  */
 
-#main-article-headline
-    font: 1.5em/1.1 'Alfa Slab One'
+.article-headline
+    font-family: 'Alfa Slab One'
+    line-height: 1.1
     color: white
     text-shadow: 2px 2px 3px black
-    margin: 0
+    
+#main-article-headline
+    font-size: 1.5em
     padding: 1.66em 0.83em 0.83em
 #main-article-content, #main-article-comments
     padding: 1.25em
@@ -115,7 +119,6 @@ body.article
 @media screen and (min-width: 50em) //800px
     #main-article-headline
         font-size: 2em
-        margin: 0
         padding: 0 0.625em 0.625em
 
 /*
@@ -140,11 +143,11 @@ body.article
  *                              </ul>
  *                          </div>
  *                          <div class="social">
- *                              <a href="#" class="comments-link">5 Comments</a>
- *                              <ul class="social-media">
- *                                  <li class="twit"><a href="#"></a></li>
- *                                  <li class="face"><a href="#"></a></li>
- *                                  <li class="mail"><a href="#"></a></li>
+ *                              <a href="#" class="article-comments-link">5 Comments</a>
+ *                              <ul class="article-social-media">
+ *                                  <li><a href="#" class="twit"><span class="icon"></span></a></li>
+ *                                  <li><a href="#" class="face"><span class="icon"></span></a></li>
+ *                                  <li><a href="#" class="mail"><span class="icon"></span></a></li>
  *                              </ul>
  *                          </div>
  *                      </div>
@@ -157,30 +160,81 @@ body.article
  *  ```
  */
 
+//intrinsic properties of the single elements
+.article-date, .article-tags a, .article-comments-link
+    font-family: Ubuntu
+    color: white
+    padding: .3em 1.0725em
+    background: rgba(0,0,0,0.65)
+    
+.article-tags a, .article-comments-link
+    text-decoration: none
+    &:hover
+        text-decoration: underline
+
+.article-tags a
+    color: #b3b3b3
+
+.article-comments-link
+    font-size: 1.25em
+    font-weight: 500
+
+.article-social-media
+    a
+        display: block
+        width: 4.29em
+        height: 4.29em
+        background: white
+        position: relative
+        .icon
+            display: block
+            position: absolute
+            top: 50%
+            left: 50%
+            margin-left: -15px
+            width: 30px
+            background: url(../images/social-media-logos.png) no-repeat
+        &.twit
+            .icon
+                height: 24px
+                margin-top: -12px
+                background-position: -75px -76px
+            &:hover
+                background-color: #6daadc
+                .icon
+                    background-position: -15px -76px
+        &.face
+            .icon
+                height: 30px
+                margin-top: -15px
+                background-position: -75px -121px
+            &:hover
+                background-color: #434e93
+                .icon
+                    background-position: -15px -121px
+        &.mail
+            .icon
+                height: 21px
+                margin-top: -10px
+                background-position: -75px -174px
+            &:hover
+                background-color: #98bdba
+                .icon
+                    background-position: -15px -174px
+
+//combining the elements to the sidebar
 #main-article-aside
     text-align: right
-    font: .7em Ubuntu
-    color: white
+    font-size: .7em
     position: relative
-    a
-        color: white
-        text-decoration: none
-        &:hover
-            text-decoration: underline
-    ul
-        list-style-type: none
-        margin: 0
-        padding: 0
-    .article-date, .article-tags li a, .comments-link
+    .article-date, .article-tags li a, .article-comments-link
         display: block
         float: right
         clear: both
-        padding: .3em 1.0725em
-        background: rgba(0,0,0,0.65)
         min-width: 2.145em
     .details:before,
     .article-tags li+li:before, .article-tags:before, .article-tags:after,
-    .social-media:before
+    .article-social-media:before
         content: '\00A0'
         display: block
         float: right
@@ -188,59 +242,13 @@ body.article
         height: 1.79em
         width: 4.29em
         background: rgba(0,0,0,0.65)
-    .details:after
-        clear: both
     .article-tags li+li:before
         height: .21em
-    .article-tags a
-        color: #b3b3b3
-    .comments-link
-        font-size: 1.25em
-        font-weight: 500
-    .social-media
+    .details:after
+        clear: both
+    .article-social-media
         li:first-child
             clear: both
-        li
-            width: 4.29em
-            height: 4.29em
-            text-align: center
-            background: white
-            position: relative
-            a
-                display: block
-                position: absolute
-                top: 50%
-                left: 50%
-                margin-left: -15px
-                width: 30px
-                background: url(../images/social-media-logos.png) no-repeat
-            &.twit
-                a
-                    height: 24px
-                    margin-top: -12px
-                    background-position: -75px -76px
-                &:hover
-                    background-color: #6daadc
-                    a
-                        background-position: -15px -76px
-            &.face
-                a
-                    height: 30px
-                    margin-top: -15px
-                    background-position: -75px -121px
-                &:hover
-                    background-color: #434e93
-                    a
-                        background-position: -15px -121px
-            &.mail
-                a
-                    height: 21px
-                    margin-top: -10px
-                    background-position: -75px -174px
-                &:hover
-                    background-color: #98bdba
-                    a
-                        background-position: -15px -174px
     .drawer-handle
         display: none
 
@@ -260,18 +268,18 @@ body.article
             width: 50%
             display: inline-block
             vertical-align: middle
-        .comments-link
+        .article-comments-link
             display: none
-        .social-media
+        .article-social-media
             &:before
                 content: none
             li:first-child
                 clear: none
-            li
+            li a
                 margin-right: auto
                 
     @media screen and (min-width: 50em) //800px
-        .social-media li
+        .article-social-media li a
             margin-left: auto
 
 /*
@@ -296,11 +304,11 @@ body.article
  *                              </ul>
  *                          </div>
  *                          <div class="social">
- *                              <a href="#" class="comments-link">5 Comments</a>
- *                              <ul class="social-media">
- *                                  <li class="twit"><a href="#"></a></li>
- *                                  <li class="face"><a href="#"></a></li>
- *                                  <li class="mail"><a href="#"></a></li>
+ *                              <a href="#" class="article-comments-link">5 Comments</a>
+ *                              <ul class="article-social-media">
+ *                                  <li><a href="#" class="twit"><span class="icon"></span></a></li>
+ *                                  <li><a href="#" class="face"><span class="icon"></span></a></li>
+ *                                  <li><a href="#" class="mail"><span class="icon"></span></a></li>
  *                              </ul>
  *                          </div>
  *                      </div>
@@ -333,11 +341,11 @@ body.article
  *                              </ul>
  *                          </div>
  *                          <div class="social">
- *                              <a href="#" class="comments-link">5 Comments</a>
- *                              <ul class="social-media">
- *                                  <li class="twit"><a href="#"></a></li>
- *                                  <li class="face"><a href="#"></a></li>
- *                                  <li class="mail"><a href="#"></a></li>
+ *                              <a href="#" class="article-comments-link">5 Comments</a>
+ *                              <ul class="article-social-media">
+ *                                  <li><a href="#" class="twit"><span class="icon"></span></a></li>
+ *                                  <li><a href="#" class="face"><span class="icon"></span></a></li>
+ *                                  <li><a href="#" class="mail"><span class="icon"></span></a></li>
  *                              </ul>
  *                          </div>
  *                      </div>
@@ -357,7 +365,9 @@ body.article
     .drawer-handle
         display: block
         position: absolute
+        font-family: Ubuntu
         font-style: italic
+        color: white
         background: rgba(0,0,0,0.65)
         text-align: left
         cursor: pointer
