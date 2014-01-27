@@ -64,7 +64,7 @@ ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, p {
 ul, ol {
   list-style-type: none; }
 
-h1, h2, h3, h4, h5, h6, p {
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6, #content p {
   font-weight: normal;
   font-style: normal; }
 
@@ -1121,6 +1121,13 @@ body.article {
 
   #main-article-comments {
     clear: both; } }
+@media screen and (min-width: 50em) and (max-width: 81.25em) {
+  body.article {
+    height: 100%; }
+    body.article:before, body.article:after {
+      content: none; }
+    body.article .start-background-fade:before, body.article .start-background-fade:after {
+      content: ""; } }
 /*  Article Layout
  *  --------------
  *  ### Headline Background
