@@ -33,7 +33,49 @@
 
 /*  General Layout
  *  ==============
- *  Body and Background
+ *  Reset
+ *  -----
+ */
+html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, thead, tr, th, td,
+del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  border: 0; }
+
+:focus {
+  outline: 0; }
+
+body {
+  background: white;
+  line-height: 1;
+  color: black; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: separate;
+  border-spacing: 0; }
+
+caption, th, td {
+  font-weight: normal;
+  text-align: left; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: ""; }
+
+blockquote, q {
+  quotes: "" ""; }
+
+/*  Body and Background
  *  -------------------
  *  The background image is intended to fade to white at the bottom. For small viewports it must be
  *  specified where the background fade should start. The element must be given the class
@@ -56,17 +98,6 @@ html, body {
   padding: 0;
   margin: 0;
   height: 100%; }
-
-ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
-  padding: 0; }
-
-ul, ol {
-  list-style-type: none; }
-
-#content h1, #content h2, #content h3, #content h4, #content h5, #content h6, #content p {
-  font-weight: normal;
-  font-style: normal; }
 
 body {
   background: lightblue no-repeat;
