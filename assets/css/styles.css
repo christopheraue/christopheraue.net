@@ -254,22 +254,6 @@ body {
 
   #page-footer {
     margin: 0; } }
-/*  Use Of the Sidebar
- *  ------------------
- *  The area of the sidebar can be used by marking an element with the css class `.use-sidebar`.
- *  ```
- *  <iframe width="800" height="400">
- *      <div id="content-container">
- *          <div id="content" class="kalei-stub fixie">CONTENT AREA<div class="kalei-stub">content not using sidebar</div>
- *              <div class="use-sidebar kalei-stub">content using sidebar</div>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-@media screen and (min-width: 50em) {
-  #content .use-sidebar {
-    margin-left: -250px; } }
 /*  Header
  *  ======
  *  The header behaves responsively and breaks at the aforementioned breakpoints.
@@ -748,423 +732,83 @@ body {
 
 /*  Text and Media
  *  ==============
- *  To achieve the text formatting described on this page, the text must appear inside an article
- *  element somewhere inside the `#content` element.
+ *  To achieve the text formatting described on this page, the text must appear inside an element 
+ *  with the class `.text`.
  *
- *  Font and Font Size
- *  ------------------
+ *  Running Text
+ *  ------------
  *  The font size is set for the `#content-container` element.
  *  ```
- *  <iframe width="800" height="400" class="kalei-neutral">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text"></article>
- *          </div>
- *      </div>
- *  </iframe>
+ *  <div class="text fixie">
+ *  <section></section>
+ *  </div>
  *  ```
  */
 .text {
   color: black;
   font: 200 1em/1.5 "Lato"; }
 
-/*  Headings and Paragraphs
- *  -----------------------
- *  The size of the body copy scales up with increased viewport width.
- *
- *  ### Headings
- *  There are two levels of sub headings in the body copy. Headings have a top margin to separate
- *  from the preceding text. Their size is relative to the size of the body copy.
- *  
- *  ### Paragraphs
- *  Paragraphs are separted from other content above them by the height of one line. There is no
- *  margin between headings and paragraphs. 
- *
+/*  Headings
+ *  --------
+ *  There are two levels of sub headings in the body copy. Their size is relative to the size of the body copy.
  *  ```
- *  <iframe width="800" height="480" class="kalei-neutral">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <section>
- *                      <p></p>
- *                  </section>
- *                  <section>
- *                      <h2>Headline Level Two</h2>
- *                      <p></p>
- *                      <p></p>
- *                      <section>
- *                          <h3>Headline Level Three</h3>
- *                          <p></p>
- *                          <p></p>
- *                      </section>
- *                  </section>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
+ *  <div class="text fixie">
+ *  <h2>Headline Level Two</h2>
+ *  <h3>Headline Level Three</h3>
+ *  <h4>Headline Level Four</h4>
+ *  <h5>Headline Level Five</h5>
+ *  <h6>Headline Level Six</h6>
+ *  </div>
  *  ```
  */
-.text p {
-  margin: 0; }
-.text * + p {
-  margin-top: 1.5em; }
-.text h2 + p, .text h3 + p, .text h4 + p, .text h5 + p, .text h6 + p {
-  margin-top: 0; }
 .text h2, .text h3, .text h4, .text h5, .text h6 {
-  font: 1em/1 "Alfa Slab One";
-  margin: 0;
-  margin-bottom: 0.3333em;
-  clear: both; }
+  font: 1em/1 "Alfa Slab One"; }
 .text h2 {
   font-size: 1.5em; }
-.text * + h2, .text * + section > h2 {
-  margin-top: 1.6666em; }
-.text * + h3, .text * + section > h3,
-.text * + h4, .text * + section > h4,
-.text * + h5, .text * + section > h5,
-.text * + h6, .text * + section > h6 {
-  margin-top: 2.5em; }
 
 /*  Lists
  *  -----
  *  ### Unordered
- *
  *  ```
- *  <iframe width="800" height="480" class="kalei-neutral">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <p></p>
- *                  <ul></ul>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
+ *  <div class="text fixie">
+ *  <ul></ul>
+ *  </div>
  *  ```
  *  
  *  ### Ordered
- *
  *  ```
- *  <iframe width="800" height="480" class="kalei-neutral">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <p></p>
- *                  <ol></ol>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
+ *  <div class="text fixie">
+ *  <ol></ol>
+ *  </div>
  *  ```
  */
 .text ul, .text ol {
   padding-left: 3em; }
-.text * + ul, .text * + ol {
-  margin-top: 1.5em; }
 .text ul {
   list-style-type: square; }
 .text ol {
   list-style-type: decimal; }
 
-/*  Embedded Visual Media
- *  ---------------------
- *  Images, videos, canvas, tables, sidebars etc.
- *
- *  ### Media As Wide As the Content Column (default)
- *  ```
- *  <iframe width="800" height="480" class="kalei-neutral">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <h2>Media Directly After Heading</h2>
- *                  <img width="900" height="600"></img>
- *                  <p></p>
- *                  <h2>Media Between Paragraphs</h2>
- *                  <p></p>
- *                  <img width="900" height="600"></img>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-.text img, .text iframe, .text embed, .text object, .text video, .text source, .text canvas, .text svg, .text table, .text form, .text aside {
-  width: 100%;
-  height: auto;
-  margin: 0; }
-.text * + img, .text * + iframe, .text * + embed, .text * + object, .text * + video, .text * + source, .text * + canvas, .text * + svg, .text * + table, .text * + form, .text * + aside {
-  margin-top: 1.5em; }
-.text h1 + img, .text h1 + iframe, .text h1 + embed, .text h1 + object, .text h1 + video, .text h1 + source, .text h1 + canvas, .text h1 + svg, .text h1 + table, .text h1 + form, .text h1 + aside, .text h2 + img, .text h2 + iframe, .text h2 + embed, .text h2 + object, .text h2 + video, .text h2 + source, .text h2 + canvas, .text h2 + svg, .text h2 + table, .text h2 + form, .text h2 + aside, .text h3 + img, .text h3 + iframe, .text h3 + embed, .text h3 + object, .text h3 + video, .text h3 + source, .text h3 + canvas, .text h3 + svg, .text h3 + table, .text h3 + form, .text h3 + aside, .text h4 + img, .text h4 + iframe, .text h4 + embed, .text h4 + object, .text h4 + video, .text h4 + source, .text h4 + canvas, .text h4 + svg, .text h4 + table, .text h4 + form, .text h4 + aside, .text h5 + img, .text h5 + iframe, .text h5 + embed, .text h5 + object, .text h5 + video, .text h5 + source, .text h5 + canvas, .text h5 + svg, .text h5 + table, .text h5 + form, .text h5 + aside, .text h6 + img, .text h6 + iframe, .text h6 + embed, .text h6 + object, .text h6 + video, .text h6 + source, .text h6 + canvas, .text h6 + svg, .text h6 + table, .text h6 + form, .text h6 + aside {
-  margin-top: 0; }
-
-/*  ### Media Floating To the Left Of the Article Column Depending on Its Format
- *  Indicated by a div around the media element with one of the following css classes:
- *
- *  * #### .panorama
- *  Wide content with an aspect ratio of about 3+ (width) to 1 (height). Embedded media behaves like
- *  the default and fills the complete width on the area.
- *
- *  * #### .landscape
- *  Wide content with an aspect ratio of about 2 (width) to 1 (height).
- *
- *  * #### .sqaure
- *  Square content with an aspect ratio of about 1 (width) to 1 (height).
- *
- *  * #### .portrait
- *  Tall content with an aspect ratio of about 1 (width) to 2 (height).
- *
- *  * #### .pillar
- *  Tall content with an aspect ratio of about 1 (width) to 3+ (height).
- *  
- *  The bounding box of the media has to align with the baselines of the article text and take into
- *  account spacing between paragraphs and headings and paragraphs.
- *  
- *  #### Media Placed Between Paragraphs
- *  ```
- *  <iframe width="800" height="480" class="kalei-neutral">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <h2>Panorama</h2>
- *                  <p></p>
- *                  <div class="panorama">
- *                      <img width="900" height="300"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <h2>Landscape</h2>
- *                  <p></p>
- *                  <div class="landscape">
- *                      <img width="600" height="300"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <h2>Square</h2>
- *                  <p></p>
- *                  <div class="square">
- *                      <img width="600" height="600"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <h2>Portrait</h2>
- *                  <p></p>
- *                  <div class="portrait">
- *                      <img width="300" height="600"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *                  <h2>Pillar</h2>
- *                  <p></p>
- *                  <div class="pillar">
- *                      <img width="300" height="900"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-.text .panorama, .text .landscape, .text .square, .text .portrait, .text .pillar {
-  margin-top: 1.5em; }
-  .text .panorama *, .text .landscape *, .text .square *, .text .portrait *, .text .pillar * {
-    width: 100%;
-    height: auto; }
-@media screen and (min-width: 32em) {
-  .text .landscape {
-    height: 8.245em;
-    width: auto;
-    float: left;
-    margin-top: 1.9em;
-    margin-right: 1em; }
-    .text .landscape * {
-      height: 100%;
-      width: auto; } }
-@media screen and (min-width: 30em) {
-  .text .square {
-    height: 15.745em;
-    width: auto;
-    float: left;
-    margin-top: 1.9em;
-    margin-right: 1em; }
-    .text .square * {
-      height: 100%;
-      width: auto; } }
-@media screen and (min-width: 20em) {
-  .text .portrait {
-    height: 18.745em;
-    width: auto;
-    float: left;
-    margin-top: 1.9em;
-    margin-right: 1em; }
-    .text .portrait * {
-      height: 100%;
-      width: auto; } }
-@media screen and (min-width: 20em) {
-  .text .pillar {
-    height: 27.745em;
-    width: auto;
-    float: left;
-    margin-top: 1.9em;
-    margin-right: 1em; }
-    .text .pillar * {
-      height: 100%;
-      width: auto; } }
-
-/*  #### Media Placed Directly Below the Heading
- *  ```
- *  <iframe width="800" height="480" class="kalei-neutral">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <h2>Panorama</h2>
- *                  <div class="panorama">
- *                      <img width="900" height="300"></img>
- *                  </div>
- *                  <p></p>
- *                  <h2>Landscape</h2>
- *                  <div class="landscape">
- *                      <img width="600" height="300"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <h2>Square</h2>
- *                  <div class="square">
- *                      <img width="600" height="600"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <h2>Portrait</h2>
- *                  <div class="portrait">
- *                      <img width="300" height="600"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <h2>Pillar</h2>
- *                  <div class="pillar">
- *                      <img width="300" height="900"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-.text h2 + .panorama, .text h3 + .panorama, .text h4 + .panorama, .text h5 + .panorama, .text h6 + .panorama {
-  margin-top: 0; }
-.text h2 + .landscape, .text h3 + .landscape, .text h4 + .landscape, .text h5 + .landscape, .text h6 + .landscape {
-  margin-top: 0; }
-  @media screen and (min-width: 32em) {
-    .text h2 + .landscape, .text h3 + .landscape, .text h4 + .landscape, .text h5 + .landscape, .text h6 + .landscape {
-      margin-top: 0.4em; }
-      .text h2 + .landscape + p, .text h3 + .landscape + p, .text h4 + .landscape + p, .text h5 + .landscape + p, .text h6 + .landscape + p {
-        margin-top: 0; } }
-.text h2 + .square, .text h3 + .square, .text h4 + .square, .text h5 + .square, .text h6 + .square {
-  margin-top: 0; }
-  @media screen and (min-width: 30em) {
-    .text h2 + .square, .text h3 + .square, .text h4 + .square, .text h5 + .square, .text h6 + .square {
-      margin-top: 0.4em; }
-      .text h2 + .square + p, .text h3 + .square + p, .text h4 + .square + p, .text h5 + .square + p, .text h6 + .square + p {
-        margin-top: 0; } }
-.text h2 + .portrait, .text h3 + .portrait, .text h4 + .portrait, .text h5 + .portrait, .text h6 + .portrait {
-  margin-top: 0; }
-  @media screen and (min-width: 20em) {
-    .text h2 + .portrait, .text h3 + .portrait, .text h4 + .portrait, .text h5 + .portrait, .text h6 + .portrait {
-      margin-top: 0.4em; }
-      .text h2 + .portrait + p, .text h3 + .portrait + p, .text h4 + .portrait + p, .text h5 + .portrait + p, .text h6 + .portrait + p {
-        margin-top: 0; } }
-.text h2 + .pillar, .text h3 + .pillar, .text h4 + .pillar, .text h5 + .pillar, .text h6 + .pillar {
-  margin-top: 0; }
-  @media screen and (min-width: 20em) {
-    .text h2 + .pillar, .text h3 + .pillar, .text h4 + .pillar, .text h5 + .pillar, .text h6 + .pillar {
-      margin-top: 0.4em; }
-      .text h2 + .pillar + p, .text h3 + .pillar + p, .text h4 + .pillar + p, .text h5 + .pillar + p, .text h6 + .pillar + p {
-        margin-top: 0; } }
-
-/*  ### Media Reaching Out Into the Sidebar
- *  Extends the floating of the media by increasing the floating box to the left sidebar. This
- *  behaviour is indicated by the css class `.use-sidebar`.
- *  
- *  Panorams, landscapes, and squares will still reach into the article area. Portraits and Pillars
- *  will fill the width of the sidebar and no more.
- *  
- *  ```
- *  <iframe width="800" height="480" class="kalei-neutral">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <h2>Panorama</h2>
- *                  <p></p>
- *                  <div class="panorama use-sidebar">
- *                      <img width="900" height="300"></img>
- *                  </div>
- *                  <p></p>
- *                  <h2>Landscape</h2>
- *                  <p></p>
- *                  <div class="landscape use-sidebar">
- *                      <img width="600" height="300"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <h2>Square</h2>
- *                  <div class="square use-sidebar">
- *                      <img width="600" height="600"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *                  <h2>Portrait</h2>
- *                  <p></p>
- *                  <div class="portrait use-sidebar">
- *                      <img width="300" height="600"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *                  <h2>Pillar</h2>
- *                  <div class="pillar use-sidebar">
- *                      <img width="300" height="900"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *              <article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-@media screen and (min-width: 50em) {
-  .text .use-sidebar.landscape {
-    height: 14.245em; }
-  .text .use-sidebar.square {
-    height: 24.745em; }
-  .text .use-sidebar.portrait, .text .use-sidebar.pillar {
-    width: 200px;
-    height: auto;
-    margin-right: 0; }
-    .text .use-sidebar.portrait *, .text .use-sidebar.pillar * {
-      width: 100%;
-      height: auto; } }
 /*  Quotes
  *  ------
+ *  Their font style is italic. They have a light grey background with some additional left padding
+ *  to separate them from normal text.
+ *  
+ *  ```
+ *  <div class="text fixie">
+ *      <blockquote>
+ *          <section></section>
+ *          <footer>— Some Guy</footer>
+ *      </blockquote>
+ *  </div>
+ *  ```
  */
 .text blockquote {
+  padding: 0.5em 1em 0.5em 2em;
   font-style: italic;
-  margin: 1em 0;
-  padding: 0; }
+  background: #ebebeb; }
+  .text blockquote footer {
+    text-align: right; }
   .text blockquote * {
     font-style: italic; }
 
@@ -1175,23 +819,17 @@ body {
  *
  *  #### Short Quotes As Wide As the Content Column
  *  ```
- *  <iframe width="800" height="480" class="kalei-neutral">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <p></p>
- *                  <blockquote class="short">
- *                      <div></div>
- *                      <footer>— Some Guy</footer>
- *                  </blockquote>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
+ *  <div class="text fixie">
+ *      <blockquote class="short">
+ *          <div></div>
+ *          <footer>— Some Guy</footer>
+ *      </blockquote>
+ *  </div>
  *  ```
  */
 .text blockquote.short {
+  background: transparent;
+  padding: 0;
   font-size: 1.5em;
   quotes: "“" "”"; }
   .text blockquote.short * {
@@ -1207,15 +845,13 @@ body {
  *  ```
  *  <iframe width="800" height="480" class="kalei-neutral">
  *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <p></p>
+ *          <div id="content">
+ *              <div class="text fixie">
  *                  <blockquote class="short use-sidebar">
  *                      <div></div>
  *                      <footer>— Some Guy</footer>
  *                  </blockquote>
- *                  <p></p>
- *              </article>
+ *              </div>
  *          </div>
  *      </div>
  *  </iframe>
@@ -1223,22 +859,353 @@ body {
  */
 @media screen and (min-width: 50em) {
   .text blockquote.short.use-sidebar {
-    font-size: 2em;
-    margin-top: 1em;
-    margin-bottom: 1em; } }
-/*  ### Long Quotes
- *  Short quotes are set in italic Lato. They have a light grey background with some additional left
- *  padding to separate them from normal text.
+    font-size: 2em; } }
+
+/*  Embedded Elements
+ *  -----------------
+ *  Images, videos, canvas, tables, sidebars are shown as wide as the content column by default.
+ *  ```
+ *  <div class="text fixie">
+ *  <img width="900" height="100"></img>
+ *  </div>
+ *  ```
+ */
+.text img, .text iframe, .text embed, .text object, .text video, .text source, .text canvas, .text svg, .text table, .text form, .text aside {
+  width: 100%;
+  height: auto; }
+
+/*  Floating Elements
+ *  -----------------
+ *  The bounding box of the media has to align with the baselines of the article text and take into
+ *  account spacing between paragraphs and headings and paragraphs.
+ *
+ *  Indicated by a div around the media element with one of the following css classes:
+ */
+.text .panorama *, .text .landscape *, .text .square *, .text .portrait *, .text .pillar * {
+  width: 100%;
+  height: auto; }
+
+/*  ### .panorama
+ *  Wide content with an aspect ratio of about 3+ (width) to 1 (height). Embedded media behaves like
+ *  the default and fills the complete width on the area.
+ *  ```
+ *  <div class="text fixie">
+ *  <div class="panorama">
+ *      <img width="900" height="300"></img>
+ *  </div>
+ *  </div>
+ *  ```
+ */
+/*  ### .landscape
+ *  Wide content with an aspect ratio of about 2 (width) to 1 (height). Spans 6 lines of text.
+ *  ```
+ *  <div class="text fixie">
+ *  <div class="landscape">
+ *      <img width="600" height="300"></img>
+ *  </div>
+ *  <section></section>
+ *  </div>
+ *  ```
+ */
+@media screen and (min-width: 32em) {
+  .text .landscape {
+    height: 8.245em;
+    width: auto; }
+    .text .landscape * {
+      height: 100%;
+      width: auto; } }
+
+/*  ### .sqaure
+ *  Square content with an aspect ratio of about 1 (width) to 1 (height). Spans 11 lines of text.
+ *  ```
+ *  <div class="text fixie">
+ *  <div class="square">
+ *      <img width="600" height="600"></img>
+ *  </div>
+ *  <section></section>
+ *  </div>
+ *  ```
+ */
+@media screen and (min-width: 30em) {
+  .text .square {
+    height: 15.745em;
+    width: auto; }
+    .text .square * {
+      height: 100%;
+      width: auto; } }
+
+/*  ### .portrait
+ *  Tall content with an aspect ratio of about 1 (width) to 2 (height). Spans 19 lines of text.
+ *  ```
+ *  <div class="text fixie">
+ *  <div class="portrait">
+ *      <img width="300" height="600"></img>
+ *  </div>
+ *  <section></section>
+ *  <section></section>
+ *  </div>
+ *  ```
+ */
+@media screen and (min-width: 20em) {
+  .text .portrait {
+    height: 18.745em;
+    width: auto; }
+    .text .portrait * {
+      height: 100%;
+      width: auto; } }
+
+/*  ### .pillar
+ *  Tall content with an aspect ratio of about 1 (width) to 3+ (height). Spans 13 lines of text.
+ *  ```
+ *  <div class="text fixie">
+ *  <div class="pillar">
+ *      <img width="300" height="900"></img>
+ *  </div>
+ *  <section></section>
+ *  <section></section>
+ *  </div>
+ *  ```
  *  
+ */
+@media screen and (min-width: 20em) {
+  .text .pillar {
+    height: 27.745em;
+    width: auto; }
+    .text .pillar * {
+      height: 100%;
+      width: auto; } }
+
+/*  Elements Reaching Into the Sidebar
+ *  --------------------------------------
+ *  Extends the floating of the element by increasing the floating box to the left sidebar. This
+ *  behaviour is indicated by the css class `.use-sidebar`.
+ *  
+ *  Panoramas, landscapes, and squares will still reach into the article area. Portraits and Pillars
+ *  will fill the width of the sidebar and no more.
+ */
+@media screen and (min-width: 50em) {
+  .text .use-sidebar {
+    margin-left: -250px; }
+  .text .pillar.use-sidebar, .text .portrait.use-sidebar {
+    margin-right: 0; } }
+
+/*  ### .panorama
+ *  Wide content with an aspect ratio of about 3+ (width) to 1 (height). Embedded media behaves like
+ *  the default and fills the complete width on the area.
  *  ```
  *  <iframe width="800" height="480" class="kalei-neutral">
  *      <div id="content-container">
  *          <div id="content" class="fixie">
  *              <article class="text">
  *                  <p></p>
+ *                  <div class="panorama use-sidebar">
+ *                      <img width="900" height="300"></img>
+ *                  </div>
+ *                  <article></article>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+/*  ### .landscape
+ *  Wide content with an aspect ratio of about 2 (width) to 1 (height). Spans 10 lines of text.
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-neutral">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <p></p>
+ *                  <div class="landscape use-sidebar">
+ *                      <img width="600" height="300"></img>
+ *                  </div>
+ *                  <article></article>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 50em) {
+  .text .landscape.use-sidebar {
+    height: 14.245em; } }
+
+/*  ### .sqaure
+ *  Square content with an aspect ratio of about 1 (width) to 1 (height). Spans 16 lines of text.
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-neutral">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <p></p>
+ *                  <div class="square use-sidebar">
+ *                      <img width="600" height="600"></img>
+ *                  </div>
+ *                  <article></article>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 50em) {
+  .text .square.use-sidebar {
+    height: 24.745em; } }
+
+/*  ### .portrait
+ *  Tall content with an aspect ratio of about 1 (width) to 2 (height). Spans no defined lines of
+ *  text because it is disconnected from the content.
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-neutral">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <p></p>
+ *                  <div class="portrait use-sidebar">
+ *                      <img width="300" height="600"></img>
+ *                  </div>
+ *                  <article></article>
+ *                  <article></article>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 50em) {
+  .text .portrait.use-sidebar {
+    width: 200px;
+    height: auto; }
+    .text .portrait.use-sidebar * {
+      width: 100%;
+      height: auto; } }
+
+/*  ### .pillar
+ *  Tall content with an aspect ratio of about 1 (width) to 3+ (height). Spans no defined lines of
+ *  text because it is disconnected from the content.
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-neutral">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <p></p>
+ *                  <div class="pillar use-sidebar">
+ *                      <img width="300" height="900"></img>
+ *                  </div>
+ *                  <article></article>
+ *                  <article></article>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 50em) {
+  .text .pillar.use-sidebar {
+    width: 200px;
+    height: auto; }
+    .text .pillar.use-sidebar * {
+      width: 100%;
+      height: auto; } }
+
+/*  Interplay Of the Elements
+ *  -------------------------
+ *  ### Headings
+ *  Headings have a top margin to separate them from the preceding text. If there is no content
+ *  before the heading, then there is also no margin. Headings also have a slight bottom margin.
+ *  Elements following headings do not have a top-margin.
+ *  
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-neutral">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <h2>No Content before this heading: No top margin. Slight bottom margin.</h2>
+ *                  <p>This paragraph has no top margin!</p>
+ *                  <h3>There is a paragraph before this level three heading. So, set a top margin, please.</h3>
+ *                  <h2>There is a heading before this level 2 heading. So, set a top margin, please. The margin is bigger than for level three.</h2>
+ *                  <img width="900" height="600"></img>
+ *                  <p>The image above has no top margin</p>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.text h2, .text h3, .text h4, .text h5, .text h6 {
+  margin: 0;
+  margin-bottom: 0.3333em;
+  clear: both; }
+  .text h2 + *, .text h3 + *, .text h4 + *, .text h5 + *, .text h6 + * {
+    margin-top: 0 !important; }
+.text * + h2, .text * + section > h2 {
+  margin-top: 1.6666em !important; }
+.text * + h3, .text * + section > h3,
+.text * + h4, .text * + section > h4,
+.text * + h5, .text * + section > h5,
+.text * + h6, .text * + section > h6 {
+  margin-top: 2.5em !important; }
+
+/*  ### Stacked elements like paragraphs, lists, images and all other non floating content
+ *  All other elements are separted from other content above them by the height of one line.
+ *  An exception are list items. They have no margin.
+ *
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-neutral">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <p></p>
+ *                  <blockquote class="short">
+ *                      <div></div>
+ *                      <footer>— Some Guy</footer>
+ *                  </blockquote>
+ *                  <p></p>
+ *                  <ul></ul>
+ *                  <p></p>
+ *                  <ol></ol>
+ *                  <p></p>
  *                  <blockquote class="long">
  *                      <section></section>
- *                      <footer>— Some Guy</footer></blockquote>
+ *                      <footer>— Some Guy</footer>
+ *                  </blockquote>
+ *                  <p></p>
+ *                  <img width="900" height="600"></img>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.text * {
+  margin: 0; }
+.text * + * {
+  margin-top: 1.5em; }
+.text ul li + li, .text ol li + li {
+  margin-top: 0; }
+
+/*  ### Floating Elements
+ *  They float to the left of the article column depending on their format. The bounding box of the
+ *  element has to align with the baselines of the article text and take into account the spacing
+ *  between headings and paragraphs.
+ *
+ *  #### .panorama
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-neutral">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <p></p>
+ *                  <div class="panorama">
+ *                      <img width="900" height="300"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <h2>Heading</h2>
+ *                  <div class="panorama">
+ *                      <img width="900" height="300"></img>
+ *                  </div>
+ *                  <p></p>
  *                  <p></p>
  *              </article>
  *          </div>
@@ -1246,12 +1213,153 @@ body {
  *  </iframe>
  *  ```
  */
-.text blockquote.long {
-  margin: 1.5em 0;
-  padding: 0.5em 1em 0.5em 2em;
-  background: #ebebeb; }
-  .text blockquote.long footer {
-    text-align: right; }
+/*  #### .landscape
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-neutral">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <p></p>
+ *                  <div class="landscape">
+ *                      <img width="600" height="300"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <h2>Heading</h2>
+ *                  <div class="landscape">
+ *                      <img width="600" height="300"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 32em) {
+  .text .landscape {
+    float: left;
+    margin-top: 0.4em;
+    margin-right: 1em; }
+    .text .landscape + p {
+      margin-top: 0; }
+  .text * + .landscape {
+    margin-top: 1.9em; }
+    .text * + .landscape + p {
+      margin-top: 1.5em; }
+  .text h2 + .landscape, .text h3 + .landscape, .text h4 + .landscape, .text h5 + .landscape, .text h6 + .landscape {
+    margin-top: 0.4em !important; }
+    .text h2 + .landscape + p, .text h3 + .landscape + p, .text h4 + .landscape + p, .text h5 + .landscape + p, .text h6 + .landscape + p {
+      margin-top: 0; } }
+
+/*  #### .sqaure
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-neutral">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <p></p>
+ *                  <div class="square">
+ *                      <img width="600" height="600"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <h2>Heading</h2>
+ *                  <div class="square">
+ *                      <img width="600" height="600"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 30em) {
+  .text .square {
+    float: left;
+    margin-top: 0.4em;
+    margin-right: 1em; }
+    .text .square + p {
+      margin-top: 0; }
+  .text * + .square {
+    margin-top: 1.9em; }
+    .text * + .square + p {
+      margin-top: 1.5em; }
+  .text h2 + .square, .text h3 + .square, .text h4 + .square, .text h5 + .square, .text h6 + .square {
+    margin-top: 0.4em !important; }
+    .text h2 + .square + p, .text h3 + .square + p, .text h4 + .square + p, .text h5 + .square + p, .text h6 + .square + p {
+      margin-top: 0; } }
+
+/*  #### .portrait
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-neutral">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <p></p>
+ *                  <div class="portrait">
+ *                      <img width="300" height="600"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <h2>Heading</h2>
+ *                  <div class="portrait">
+ *                      <img width="300" height="600"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ *
+ *  #### .pillar
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-neutral">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <p></p>
+ *                  <div class="pillar">
+ *                      <img width="300" height="900"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <h2>Heading</h2>
+ *                  <div class="pillar">
+ *                      <img width="300" height="900"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 20em) {
+  .text .portrait, .text .pillar {
+    float: left;
+    margin-top: 0.4em;
+    margin-right: 1em; }
+    .text .portrait + p, .text .pillar + p {
+      margin-top: 0; }
+  .text * + .portrait, .text * + .pillar {
+    margin-top: 1.9em; }
+    .text * + .portrait + p, .text * + .pillar + p {
+      margin-top: 1.5em; }
+  .text h2 + .portrait, .text h2 + .pillar, .text h3 + .portrait, .text h3 + .pillar, .text h4 + .portrait, .text h4 + .pillar, .text h5 + .portrait, .text h5 + .pillar, .text h6 + .portrait, .text h6 + .pillar {
+    margin-top: 0.4em !important; }
+    .text h2 + .portrait + p, .text h2 + .pillar + p, .text h3 + .portrait + p, .text h3 + .pillar + p, .text h4 + .portrait + p, .text h4 + .pillar + p, .text h5 + .portrait + p, .text h5 + .pillar + p, .text h6 + .portrait + p, .text h6 + .pillar + p {
+      margin-top: 0; } }
 
 /*  Article Page
  *  ============
