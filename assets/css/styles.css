@@ -273,46 +273,24 @@ body {
 /*  Header
  *  ======
  *  The header behaves responsively and breaks at the aforementioned breakpoints.
- *  
- *  ### Element States
- *  Logo, menu button (mobile only), social media icons, impress and close menu button (mobile only):
  *
- *  * #### *normal*
- *    white with transprency
- *    
- *  * #### :hover
- *    highlight white with full opacity
- *  
- *  Menu items:
- *  
- *  * #### *normal*
- *    grey background on mobile screen sizes, black and transparent background otherwise
- *  
- *  * #### :hover
- *    highlight with background color, white text, full opacity
- *  
- *  * #### .active
- *    highlighted with change in background color, white text, slight transparency on non-mobile screen sizes
- *
- *  Collapsed Menu On Small Viewports
- *  ---------------------------------
  *  ```
  *  <iframe width="800" height="360">
  *      <header id="page-header">
- *          <div class="logo-bar">
- *              <a href="/" class="logo"></a>
- *              <div class="toggle-menu-button"></div>
+ *          <div class="logo-area">
+ *              <a href="#" class="logo"></a>
  *          </div>
- *          <div id="page-menu">
- *              <nav class="main-nav"><ul>
- *                  <li><a href="#" class="articles">Articles</a></li>
- *                  <li><a href="#" class="about active">About Me</a></li>
+ *          <div class="menu-button"></div>
+ *          <div class="menu-area">
+ *              <nav><ul class="main-nav-list">
+ *                  <li class="item articles"><a href="#">Articles</a></li>
+ *                  <li class="item about active"><a href="#">About Me</a></li>
  *              </ul></nav>
- *              <nav class="social-nav"><ul>
- *                  <li><a class="twit" href="#"></a></li>
- *                  <li><a class="face" href="#"></a></li>
- *                  <li><a class="gith" href="#"></a></li>
- *                  <li><a class="mail" href="#"></a></li>
+ *              <nav class="social-links"><ul class="social-links-list">
+ *                  <li class="item twit"><a href="#"></a></li>
+ *                  <li class="item face"><a href="#"></a></li>
+ *                  <li class="item gith"><a href="#"></a></li>
+ *                  <li class="item mail"><a href="#"></a></li>
  *              </ul></nav>
  *              <div class="impress-link">
  *                  <a href="#">Impress</a>
@@ -327,24 +305,25 @@ body {
  *
  *  Expanded Menu On Small Viewports
  *  --------------------------------
- *  Marked up by adding the css class `.show` to the element `#page-menu`.
+ *  
+ *  Marked up by adding the css class `.show` to the element `.menu-area`.
  *  ```
  *  <iframe width="320" height="320">
  *      <header id="page-header">
- *          <div class="logo-bar">
- *              <a href="/" class="logo"></a>
- *              <div class="toggle-menu-button"></div>
+ *          <div class="logo-area">
+ *              <a href="#" class="logo"></a>
  *          </div>
- *          <div id="page-menu" class="show">
- *              <nav class="main-nav"><ul>
- *                  <li><a href="#" class="articles">Articles</a></li>
- *                  <li><a href="#" class="about active">About Me</a></li>
+ *          <div class="menu-button"></div>
+ *          <div class="menu-area show">
+ *              <nav><ul class="main-nav-list">
+ *                  <li class="item articles"><a href="#">Articles</a></li>
+ *                  <li class="item about active"><a href="#">About Me</a></li>
  *              </ul></nav>
- *              <nav class="social-nav"><ul>
- *                  <li><a class="twit" href="#"></a></li>
- *                  <li><a class="face" href="#"></a></li>
- *                  <li><a class="gith" href="#"></a></li>
- *                  <li><a class="mail" href="#"></a></li>
+ *              <nav class="social-links"><ul class="social-links-list">
+ *                  <li class="item twit"><a href="#"></a></li>
+ *                  <li class="item face"><a href="#"></a></li>
+ *                  <li class="item gith"><a href="#"></a></li>
+ *                  <li class="item mail"><a href="#"></a></li>
  *              </ul></nav>
  *              <div class="impress-link">
  *                  <a href="#">Impress</a>
@@ -357,63 +336,396 @@ body {
  *  </iframe>
  *  ```
  */
-#page-header a {
-  text-decoration: none; }
-#page-header .logo-bar {
+#page-header .menu-button {
+  display: block;
+  position: fixed;
+  top: 10px;
+  right: 10px; }
+#page-header .social-links-list {
+  float: left; }
+#page-header .menu-area {
+  display: none; }
+  #page-header .menu-area.show {
+    display: block; }
+@media screen and (min-width: 50em) {
+  #page-header .menu-button {
+    display: none; }
+  #page-header .menu-area {
+    display: block; }
+  #page-header .logo-area, #page-header .logo {
+    float: left; }
+  #page-header .social-links-list {
+    float: right; }
+  #page-header .impress-link {
+    position: absolute;
+    bottom: 100%;
+    right: 25px; }
+  #page-header .close-menu-button {
+    display: none; } }
+@media screen and (min-width: 81.25em) {
+  #page-header .logo-area, #page-header .logo {
+    float: none; }
+  #page-header .menu-area {
+    height: 100%; }
+  #page-header .impress-link {
+    bottom: 25px;
+    right: 25px; } }
+
+/*  Logo
+ *  ----
+ *  ```
+ *  <iframe width="800" height="360">
+ *  <div class="logo-area">
+ *      <a href="#" class="logo"></a>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+.logo-area {
   height: 46px;
   background: url(../images/logo-inv-065black.png); }
-  #page-header .logo-bar .logo {
+  .logo-area .logo {
     display: block;
     background: url(../images/logo-white.png) no-repeat;
     opacity: 0.5;
     height: 46px;
     width: 226px; }
-    #page-header .logo-bar .logo:hover {
+    .logo-area .logo:hover {
       opacity: 1; }
-  #page-header .logo-bar .toggle-menu-button {
-    display: none;
-    background: url(../images/menu-icon.png) no-repeat center;
-    height: 46px;
-    width: 40px;
-    opacity: 0.5; }
-    #page-header .logo-bar .toggle-menu-button:hover {
-      opacity: 1; }
-#page-header .main-nav ul {
-  padding: 0;
-  margin: 0;
-  list-style-type: none; }
-#page-header .main-nav li a {
+  @media screen and (max-width: 49.9375em) {
+    .logo-area {
+      background-position: -15px -15px;
+      padding: 10px; } }
+  @media screen and (min-width: 50em) and (max-width: 81.1875em) {
+    .logo-area {
+      padding: 17px 25px;
+      background-position: 0 -8px;
+      width: 275px; } }
+  @media screen and (min-width: 81.25em) {
+    .logo-area {
+      height: 46px;
+      background-position: 0 25px;
+      padding: 50px 25px;
+      width: 225px; } }
+
+/*  Menu Button
+ *  -----------
+ *  *We have to force the menu-button to show up. Also we have to display it in front of a background
+ *  to be visible.*
+ *  ```
+ *  <iframe width="480" height="100" class="kalei-black">
+ *  <div class="menu-button" style="display: block"></div>
+ *  </iframe>
+ *  ```
+ */
+.menu-button {
+  background: url(../images/menu-icon.png) no-repeat center;
+  height: 46px;
+  width: 40px;
+  opacity: 0.5; }
+  .menu-button:hover {
+    opacity: 1; }
+
+/*  Main Navigation
+ *  ---------------
+ *  ```
+ *  <iframe width="800" height="360">
+ *  <ul class="main-nav-list">
+ *      <li class="item"><a href="#">Item 1</a></li>
+ *      <li class="item"><a href="#">Item 2</a></li>
+ *  </ul>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 50em) and (max-width: 81.1875em) {
+  .main-nav-list .item {
+    float: left; } }
+
+/*  ### Item
+ *  ```
+ *  <iframe width="800" height="360">
+ *  <ul class="main-nav-list">
+ *      <li class="item"><a href="#">Item</a></li>
+ *  </ul>
+ *  </iframe>
+ *  ```
+ */
+.main-nav-list .item a {
   display: block;
-  vertical-align: middle;
   font-family: Ubuntu;
   font-weight: 500;
   font-size: 1.125em;
-  color: white; }
-#page-header .main-nav li a.articles.active, #page-header .main-nav li a.articles:hover {
+  color: white;
+  vertical-align: middle;
+  text-decoration: none; }
+@media screen and (max-width: 49.9375em) {
+  .main-nav-list .item a {
+    padding: 10px;
+    line-height: 30px;
+    background: #595959; } }
+@media screen and (min-width: 50em) {
+  .main-nav-list .item a {
+    padding: 0 25px;
+    line-height: 80px;
+    background: black;
+    opacity: 0.65; }
+  .main-nav-list .item.active a {
+    opacity: 0.9; }
+  .main-nav-list .item a:hover, .main-nav-list .item.active a:hover {
+    opacity: 1; } }
+@media screen and (min-width: 50em) and (max-width: 81.1875em) {
+  .main-nav-list .item a {
+    display: inline-block; } }
+
+/*  #### Item: Article
+ *
+ *  ##### normal
+ *  ```
+ *  <ul class="main-nav-list">
+ *      <li class="item articles"><a href="#">Articles</a></li>
+ *  </ul>
+ *  ```
+ *
+ *  ##### .active
+ *  ```
+ *  <ul class="main-nav-list">
+ *      <li class="item articles active"><a href="#">Articles</a></li>
+ *  </ul>
+ *  ```
+ */
+.main-nav-list .articles.active a, .main-nav-list .articles a:hover {
   background: #e79a0b; }
-#page-header .main-nav li a.about.active, #page-header .main-nav li a.about:hover {
+
+/*  #### Item: About
+ *
+ *  ##### normal
+ *  ```
+ *  <ul class="main-nav-list">
+ *      <li class="item about"><a href="#">About</a></li>
+ *  </ul>
+ *  ```
+ *
+ *  ##### .active
+ *  ```
+ *  <ul class="main-nav-list">
+ *      <li class="item about active"><a href="#">About</a></li>
+ *  </ul>
+ *  ```
+ */
+.main-nav-list .about.active a, .main-nav-list .about a:hover {
   background: #bfbfbf; }
-#page-header .social-nav ul {
-  padding: 0;
-  margin: 0;
-  list-style-type: none; }
-  #page-header .social-nav ul li a {
-    display: block;
-    background: url(../images/social-media-logos.png) no-repeat;
-    opacity: 0.66; }
-    #page-header .social-nav ul li a:hover {
-      opacity: 1; }
-#page-header .impress-link a {
+
+/*  Social Links
+ *  ------------
+ *  ```
+ *  <iframe width="800" height="360">
+ *  <div class="social-links">
+ *  <ul class="social-links-list">
+ *      <li class="item twit"><a href="#"></a></li>
+ *      <li class="item face"><a href="#"></a></li>
+ *      <li class="item gith"><a href="#"></a></li>
+ *      <li class="item mail"><a href="#"></a></li>
+ *  </ul>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 50em) {
+  .social-links {
+    background: rgba(0, 0, 0, 0.65); } }
+@media screen and (min-width: 50em) and (max-width: 81.1875em) {
+  .social-links {
+    height: 80px;
+    overflow: hidden; } }
+@media screen and (min-width: 81.25em) {
+  .social-links {
+    height: 100%; } }
+
+@media screen and (max-width: 49.9375em) {
+  .social-links-list {
+    height: 32px;
+    padding: 9px 10px 9px 2px;
+    background: #3e4040; }
+    .social-links-list .item {
+      float: left;
+      margin-right: 10px; } }
+@media screen and (min-width: 50em) and (max-width: 81.1875em) {
+  .social-links-list {
+    height: 48px;
+    width: 48px;
+    padding: 16px 25px; }
+    .social-links-list .item {
+      margin-bottom: 16px; }
+      .social-links-list .item:nth-child(odd) {
+        float: left; }
+      .social-links-list .item:nth-child(even) {
+        float: right; } }
+@media screen and (min-width: 81.25em) {
+  .social-links-list {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 16px;
+    padding: 25px; }
+    .social-links-list .item {
+      float: left;
+      margin-right: 10px; } }
+
+/*  ### Item
+ *  *Given a red background to make it dimensions visible. Displays a twitter symbol because it is placed at
+ *  (0, 0) in the sprite.*
+ *  ```
+ *  <iframe width="800" height="360">
+ *  <div class="social-links">
+ *  <ul class="social-links-list">
+ *      <li class="item" style="background:red"><a href="#"></a></li>
+ *  </ul>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+.social-links-list .item a {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: url(../images/social-media-logos.png) no-repeat;
+  opacity: 0.66; }
+  .social-links-list .item a:hover {
+    opacity: 1; }
+
+/*  #### Item: Twitter
+ *  ```
+ *  <iframe width="800" height="360">
+ *  <div class="social-links">
+ *  <ul class="social-links-list">
+ *      <li class="item twit"><a href="#"></a></li>
+ *  </ul>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (max-width: 49.9375em) {
+  .social-links-list .item.twit a {
+    background-position: 0 0; } }
+@media screen and (min-width: 50em) {
+  .social-links-list .item.twit a {
+    height: 16px;
+    width: 20px;
+    background-position: -6px -8px; } }
+
+/*  #### Item: Facebook
+ *  ```
+ *  <iframe width="800" height="360">
+ *  <div class="social-links">
+ *  <ul class="social-links-list">
+ *      <li class="item face"><a href="#"></a></li>
+ *  </ul>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (max-width: 49.9375em) {
+  .social-links-list .item.face a {
+    background-position: -64px 0; } }
+@media screen and (min-width: 50em) {
+  .social-links-list .item.face a {
+    height: 16px;
+    width: 16px;
+    background-position: -72px -8px; } }
+
+/*  #### Item: Github
+ *  ```
+ *  <iframe width="800" height="360">
+ *  <div class="social-links">
+ *  <ul class="social-links-list">
+ *      <li class="item gith"><a href="#"></a></li>
+ *  </ul>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (max-width: 49.9375em) {
+  .social-links-list .item.gith a {
+    background-position: -32px 0; } }
+@media screen and (min-width: 50em) {
+  .social-links-list .item.gith a {
+    height: 16px;
+    width: 16px;
+    background-position: -40px -8px; } }
+
+/*  #### Item: Mail
+ *  ```
+ *  <iframe width="800" height="360">
+ *  <div class="social-links">
+ *  <ul class="social-links-list">
+ *      <li class="item mail"><a href="#"></a></li>
+ *  </ul>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (max-width: 49.9375em) {
+  .social-links-list .item.mail a {
+    background-position: -96px 0; } }
+@media screen and (min-width: 50em) {
+  .social-links-list .item.mail a {
+    height: 16px;
+    width: 22px;
+    background-position: -101px -8px; } }
+
+/*  Impress Link
+ *  ------------
+ *  ```
+ *  <iframe width="800" height="450" class="kalei-black">
+ *  <div class="impress-link">
+ *      <a href="#">Impress</a>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+.impress-link a {
   font-family: Ubuntu;
   font-size: 0.75em;
   color: white;
-  opacity: 0.66; }
-  #page-header .impress-link a:hover {
+  opacity: 0.66;
+  text-decoration: none; }
+  .impress-link a:hover {
     opacity: 1; }
-#page-header .close-menu-button {
-  display: none;
+@media screen and (max-width: 49.9375em) {
+  .impress-link {
+    line-height: 50px;
+    text-align: right;
+    padding-right: 10px;
+    overflow: hidden;
+    background: #3e4040; } }
+@media screen and (min-width: 50em) {
+  .impress-link a {
+    vertical-align: middle; } }
+@media screen and (min-width: 50em) {
+  .impress-link {
+    line-height: 25px;
+    text-align: center;
+    width: 48px; } }
+@media screen and (min-width: 81.25em) {
+  .impress-link {
+    line-height: 16px;
+    text-align: right; } }
+
+/*  Close Menu Button
+ *  -----------------
+ *  ```
+ *  <iframe width="800" height="450">
+ *  <div class="close-menu-button">
+ *      <a href="#"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+.close-menu-button {
+  display: block;
+  clear: both;
   background: black; }
-  #page-header .close-menu-button a {
+  .close-menu-button a {
     display: block;
     text-align: center;
     height: 50px;
@@ -423,143 +735,17 @@ body {
     color: white;
     font-family: Ubuntu;
     font-size: 1.125em;
-    font-weight: 500; }
-    #page-header .close-menu-button a:hover {
+    font-weight: 500;
+    text-decoration: none; }
+    .close-menu-button a:hover {
       opacity: 1; }
-    #page-header .close-menu-button a span {
+    .close-menu-button a .arrow {
       display: inline-block;
       background: url(../images/arrows.png);
       height: 13px;
       width: 22px;
       margin: 0 20px; }
 
-@media screen and (max-width: 49.9375em) {
-  #page-header .logo-bar {
-    background-position: -15px -15px;
-    padding: 10px; }
-    #page-header .logo-bar .logo {
-      float: left; }
-    #page-header .logo-bar .toggle-menu-button {
-      display: block;
-      float: right; }
-  #page-header #page-menu {
-    display: none; }
-    #page-header #page-menu.show {
-      display: block; }
-  #page-header .main-nav li a {
-    padding: 10px;
-    line-height: 30px;
-    background: #595959; }
-  #page-header .social-nav {
-    height: 32px;
-    padding: 9px 10px 9px 2px;
-    background: #3e4040;
-    float: left; }
-    #page-header .social-nav li {
-      float: left;
-      margin-right: 10px; }
-      #page-header .social-nav li a {
-        width: 32px;
-        height: 32px; }
-        #page-header .social-nav li a.twit {
-          background-position: 0 0; }
-        #page-header .social-nav li a.face {
-          background-position: -64px 0; }
-        #page-header .social-nav li a.gith {
-          background-position: -32px 0; }
-        #page-header .social-nav li a.mail {
-          background-position: -96px 0; }
-  #page-header .impress-link {
-    line-height: 50px;
-    text-align: right;
-    padding-right: 10px;
-    overflow: hidden;
-    background: #3e4040; }
-  #page-header .close-menu-button {
-    display: block;
-    clear: both; } }
-@media screen and (min-width: 50em) {
-  #page-header .main-nav a {
-    padding: 0 25px;
-    line-height: 80px;
-    background: black;
-    opacity: 0.65; }
-    #page-header .main-nav a.active:hover, #page-header .main-nav a:hover {
-      opacity: 1; }
-    #page-header .main-nav a.active {
-      opacity: 0.9; }
-  #page-header .social-nav {
-    background: rgba(0, 0, 0, 0.65); }
-    #page-header .social-nav a {
-      height: 16px; }
-      #page-header .social-nav a.twit {
-        width: 20px;
-        background-position: -6px -8px; }
-      #page-header .social-nav a.face {
-        width: 16px;
-        background-position: -72px -8px; }
-      #page-header .social-nav a.gith {
-        width: 16px;
-        background-position: -40px -8px; }
-      #page-header .social-nav a.mail {
-        width: 22px;
-        background-position: -101px -8px; }
-  #page-header .impress-link a {
-    vertical-align: middle; } }
-@media screen and (min-width: 50em) and (max-width: 81.1875em) {
-  #page-header .logo-bar {
-    padding: 17px 25px;
-    background-position: 0 -8px;
-    width: 275px;
-    float: left; }
-  #page-header .main-nav li {
-    float: left; }
-    #page-header .main-nav li a {
-      display: inline-block; }
-  #page-header .social-nav {
-    height: 80px;
-    overflow: hidden; }
-    #page-header .social-nav ul {
-      height: 48px;
-      width: 48px;
-      padding: 16px 25px;
-      float: right; }
-      #page-header .social-nav ul li {
-        margin-bottom: 16px; }
-        #page-header .social-nav ul li:nth-child(odd) {
-          float: left; }
-        #page-header .social-nav ul li:nth-child(even) {
-          float: right; }
-  #page-header .impress-link {
-    position: absolute;
-    bottom: 100%;
-    right: 25px;
-    line-height: 25px;
-    text-align: center; } }
-@media screen and (min-width: 81.25em) {
-  #page-header .logo-bar {
-    height: 46px;
-    background-position: 0 25px;
-    padding: 50px 25px; }
-  #page-header #page-menu {
-    height: 100%; }
-  #page-header .social-nav {
-    height: 100%; }
-    #page-header .social-nav ul {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 16px;
-      padding: 25px; }
-      #page-header .social-nav ul li {
-        float: left;
-        margin-right: 10px; }
-  #page-header .impress-link {
-    position: absolute;
-    bottom: 25px;
-    right: 25px;
-    line-height: 16px;
-    text-align: right; } }
 /*  Text and Media
  *  ==============
  *  To achieve the text formatting described on this page, the text must appear inside an article
