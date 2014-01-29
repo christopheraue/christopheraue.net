@@ -1,429 +1,130 @@
 ﻿/*
- *  Article Page
- *  ============
- *  The article page has set the css class `.article` on the body.
- *
- *  Page Layout
- *  -----------
- *  For small viewports the article parts are just rendered above each other. For viewports wide
- *  enough to display a sidebar the article side details and actions jump into the sidebar on the left of the article
- *  content.
- *
- *  ### Background Fade Out
- *  The fade to white is present for viewports wide enough to show a sidebar and begins where the
- *  article content area starts.
- *
+ *  Article
+ *  =======
+ *  Headline
+ *  --------
  *  ```
- *  <iframe width="800" height="480" class="article">
- *      <header id="page-header" class="kalei-stub">HEADER</header>
- *      <div id="content-container">
- *          <div id="content">
- *              <article id="main-article">
- *                  <h1 id="main-article-headline" class="kalei-stub">Headline</h1>
- *                  <div id="main-article-content" class="start-background-fade kalei-stub">
- *                      <section class="fixie"></section>
- *                  </div>
- *                  <div id="main-article-aside" class="kalei-stub">Article Details</p></div>
- *              </article>
- *              <div id="main-article-comments" class="kalei-stub">Comments</div>
- *          </div>
- *      </div>
- *  </iframe>
+ *  <h1 class="article-headline">This Is the Headline of an Article With an Interesting Topic</h1>
  *  ```
  */
-
-body.article
-    background-image: url(../images/background/lanes.png)
-
-//fill the full width for small viewports
-#main-article,
-#main-article-comments
-    margin: 0 -1.25em
-
-@media screen and (min-width: 50em) //800px
-    #main-article,
-    #main-article-comments
-        margin: 0
-
-//float the article details to the left for larger viewports
-@media screen and (min-width: 50em) //800px
-    #main-article-content
-        float: right
-    #main-article-aside
-        float: left
-        margin-left: -250px
-        width: 225px
-    #main-article-comments
-        clear: both
-
-//on the article page, start the background fade at the specified element in this range
-@media screen and (min-width: 50em) and (max-width: 81.25em) //800px 1300px
-    body.article
-        height: 100%
-        &:before, &:after
-            content: none
-        .start-background-fade
-            &:before, &:after
-                content: ""
-/*
- *  Article Layout
- *  --------------
- *  ### Headline Background
- *  For small screens the headline has a background identical to the body. The background image is
- *  needed to give the white headline a contrast. But the background is usally not tall enough to be
- *  still visible behind the headline in cases the navigation of the header is expanded. So we just
- *  attach the background to the headline. If the header navigation is not shown, it just replicates
- *  the body background. If the header navigation is expanded, the body background *seems* to scroll
- *  down also.
- *
- *  ### Paddings
- *  Paddings are adjusted to fit to the available space. Generally, they scale up upto
- *  a viewport width of 60em resp. 960px and stay constant from there on.
- *
- *  ```
- *  <iframe width="800" height="480" class="article">
- *      <header id="page-header" class="kalei-stub">HEADER</header>
- *      <div id="content-container">
- *          <div id="content">
- *              <article id="main-article">
- *                  <h1 id="main-article-headline" class="article-headline">This Is the Headline of an Article With an Interesting Topic</h1>
- *                  <div id="main-article-content" class="start-background-fade text">
- *                      <section class="fixie"></section>
- *                  </div>
- *              </section>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-
 .article-headline
     font-family: 'Alfa Slab One'
     line-height: 1.1
     color: white
     text-shadow: 2px 2px 3px black
-    
-#main-article-headline
-    font-size: 1.5em
-    padding: 1.66em 0.83em 0.83em
-#main-article-content, #main-article-comments
-    padding: 1.25em
-#main-article-content, #main-article-comments
-    background: white
-    
-@media screen and (max-width: 49.9375em) //799px
-    #main-article-headline
-        background: url(../images/background/lanes.png) no-repeat 0 -66px
-        background-size: 100% auto
-
-@media screen and (min-width: 50em) //800px
-    #main-article-headline
-        font-size: 2em
-        padding: 0 0.625em 0.625em
 
 /*
- *  Article Details
- *  ---------------
- *  The details aligned with the content area at the top.
- *
+ *  Date
+ *  ----
  *  ```
- *  <iframe width="800" height="480" class="article">
- *      <div id="content-container">
- *          <div id="content">
- *              <article id="main-article">
- *                  <div id="main-article-content" class="start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
- *                  <div id="main-article-aside">
- *                      <div class="drawer">
- *                          <div class="details">
- *                              <time class="article-date">January 02, 2014</time>
- *                              <ul class="article-tags">
- *                                  <li><a href="#">tag</a></li>
- *                                  <li><a href="#">anotherTag</a></li>
- *                                  <li><a href="#">aThirdTag</a></li>
- *                              </ul>
- *                          </div>
- *                          <div class="social">
- *                              <a href="#" class="article-comments-link">5 Comments</a>
- *                              <ul class="article-social-media">
- *                                  <li><a href="#" class="twit"><span class="icon"></span></a></li>
- *                                  <li><a href="#" class="face"><span class="icon"></span></a></li>
- *                                  <li><a href="#" class="mail"><span class="icon"></span></a></li>
- *                              </ul>
- *                          </div>
- *                      </div>
- *                      <div class="drawer-handle">Details<span class="arrow"></span></div>
- *                  </div>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
+ *  <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
  *  ```
  */
-
-//intrinsic properties of the single elements
-.article-date, .article-tags a, .article-comments-link
+.article-date
     font-family: Ubuntu
     color: white
     padding: .3em 1.0725em
     background: rgba(0,0,0,0.65)
-    
-.article-tags a, .article-comments-link
+
+/*
+ *  Tags
+ *  ----
+ *  ```
+ *  <a href="#" class="article-tag">tag</a>
+ *  ```
+ */
+.article-tag
+    font-family: Ubuntu
+    color: #b3b3b3
+    padding: .32em 1.0725em
+    background: rgba(0,0,0,0.65)
+    text-decoration: none
+    position: relative
+    display: inline-block
+    &:hover
+        text-decoration: underline
+
+/*
+ *  Comments Link
+ *  -------------
+ *  ```
+ *  <a href="#" class="article-comments-link">5 Comments</a>
+ *  ```
+ */
+.article-comments-link
+    font-family: Ubuntu
+    font-size: 1.25em
+    font-weight: 500
+    color: white
+    padding: .3em 1.0725em
+    background: rgba(0,0,0,0.65)
     text-decoration: none
     &:hover
         text-decoration: underline
 
-.article-tags a
-    color: #b3b3b3
-
-.article-comments-link
-    font-size: 1.25em
-    font-weight: 500
-
-.article-social-media
-    a
-        display: block
-        width: 4.29em
-        height: 4.29em
-        background: white
-        position: relative
-        .icon
-            display: block
-            position: absolute
-            top: 50%
-            left: 50%
-            margin-left: -15px
-            width: 30px
-            background: url(../images/social-media-logos.png) no-repeat
-        &.twit
-            .icon
-                height: 24px
-                margin-top: -12px
-                background-position: -75px -76px
-            &:hover
-                background-color: #6daadc
-                .icon
-                    background-position: -15px -76px
-        &.face
-            .icon
-                height: 30px
-                margin-top: -15px
-                background-position: -75px -121px
-            &:hover
-                background-color: #434e93
-                .icon
-                    background-position: -15px -121px
-        &.mail
-            .icon
-                height: 21px
-                margin-top: -10px
-                background-position: -75px -174px
-            &:hover
-                background-color: #98bdba
-                .icon
-                    background-position: -15px -174px
-
-//combining the elements to the sidebar
-#main-article-aside
-    text-align: right
-    font-size: .7em
-    position: relative
-    .article-date, .article-tags li a, .article-comments-link
-        display: block
-        float: right
-        clear: both
-        min-width: 2.145em
-    .details:before,
-    .article-tags li+li:before, .article-tags:before, .article-tags:after,
-    .article-social-media:before
-        content: '\00A0'
-        display: block
-        float: right
-        clear: both
-        height: 1.79em
-        width: 4.29em
-        background: rgba(0,0,0,0.65)
-    .article-tags li+li:before
-        height: .21em
-    .details:after
-        clear: both
-    .article-social-media
-        li:first-child
-            clear: both
-    .drawer-handle
-        display: none
-
-#main-article-aside
-    @media screen and (max-width: 49.9375em) //799px
-        position: relative
-        &:before
-            content: '\00A0'
-            background: white
-            width: 4.29em
-            height: 100%
-            position: absolute
-            top: 0
-            left: 50%
-            z-index: -1
-        .details, .social
-            width: 50%
-            display: inline-block
-            vertical-align: middle
-        .article-comments-link
-            display: none
-        .article-social-media
-            &:before
-                content: none
-            li:first-child
-                clear: none
-            li a
-                margin-right: auto
-                
-    @media screen and (min-width: 50em) //800px
-        .article-social-media li a
-            margin-left: auto
-
 /*
- *  ### After the page has been scrolled down: visible details
- *  The details are attached to the viewport by giving the `<#main-article-aside>` a class 
- *  `attach-to-viewport`.
- *  ```
- *  <iframe width="800" height="600" class="article">
- *      <header id="page-header" class="scrolled-past kalei-stub">HEADER</header>
- *      <div id="content-container">
- *          <div id="content">
- *              <article id="main-article">
- *                  <div id="main-article-content" class="start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
- *                  <div id="main-article-aside" class="attach-to-viewport">
- *                      <div class="drawer">
- *                          <div class="details">
- *                              <time class="article-date">January 02, 2014</time>
- *                              <ul class="article-tags">
- *                                  <li><a href="#">tag</a></li>
- *                                  <li><a href="#">anotherTag</a></li>
- *                                  <li><a href="#">aThirdTag</a></li>
- *                              </ul>
- *                          </div>
- *                          <div class="social">
- *                              <a href="#" class="article-comments-link">5 Comments</a>
- *                              <ul class="article-social-media">
- *                                  <li><a href="#" class="twit"><span class="icon"></span></a></li>
- *                                  <li><a href="#" class="face"><span class="icon"></span></a></li>
- *                                  <li><a href="#" class="mail"><span class="icon"></span></a></li>
- *                              </ul>
- *                          </div>
- *                      </div>
- *                      <div class="drawer-handle">Details<span class="arrow"></span></div>
- *                  </div>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- *
- *  ### After the page has been scrolled down: collapsed details
- *  To collapse the details give the `<#main-article-aside.attach-to-viewport>` a class 
- *  `collapsed`.
- *  ```
- *  <iframe width="800" height="400" class="article scrolled">
- *      <header id="page-header" class="scrolled-past kalei-stub">HEADER</header>
- *      <div id="content-container">
- *          <div id="content">
- *              <article id="main-article">
- *                  <div id="main-article-content" class="start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
- *                  <div id="main-article-aside" class="attach-to-viewport collapsed">
- *                      <div class="drawer">
- *                          <div class="details">
- *                              <time class="article-date">January 02, 2014</time>
- *                              <ul class="article-tags">
- *                                  <li><a href="#">tag</a></li>
- *                                  <li><a href="#">anotherTag</a></li>
- *                                  <li><a href="#">aThirdTag</a></li>
- *                              </ul>
- *                          </div>
- *                          <div class="social">
- *                              <a href="#" class="article-comments-link">5 Comments</a>
- *                              <ul class="article-social-media">
- *                                  <li><a href="#" class="twit"><span class="icon"></span></a></li>
- *                                  <li><a href="#" class="face"><span class="icon"></span></a></li>
- *                                  <li><a href="#" class="mail"><span class="icon"></span></a></li>
- *                              </ul>
- *                          </div>
- *                      </div>
- *                      <div class="drawer-handle">Details<span class="arrow"></span></div>
- *                  </div>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
+ *  Sharing
+ *  -------
  */
-
-#main-article-aside.attach-to-viewport
-    position: fixed 
-    .drawer
-        overflow: hidden
-    .drawer-handle
+.article-sharing
+    display: block
+    width: 4.29em
+    height: 4.29em
+    background: white
+    position: relative
+    .icon
         display: block
         position: absolute
-        font-family: Ubuntu
-        font-style: italic
-        color: white
-        background: rgba(0,0,0,0.65)
-        text-align: left
-        cursor: pointer
-        .arrow
-            background: url(../images/arrows.png) no-repeat
-            height: 8px
-            width: 22px
-    &.collapsed
-        .drawer
-            max-height: 0
-    
-    @media screen and (max-width: 49.9375em) //799px
-        bottom: 0
-        left: 0
-        right: 0
-        .drawer
-            max-height: 15em
-            transition: max-height 1s
-        .drawer-handle
-            bottom: 100%
-            left: 50%
-            margin-left: -4.29em
-            padding: 0 1.43em
-            width: 5.71em
-            line-height: 2.14em
-            .arrow
-                float: right
-                margin-top: .86em
-                background-position: -92px 0
-                transition: background-position step-end .6s
-        &.collapsed
-            .drawer-handle .arrow
-                background-position: -61px 0
-                transition: background-position step-end 1s
-                
-    @media screen and (min-width: 50em) //800px
-        top: 80px
-        .drawer
-            max-height: 32em
-            transition: max-height 2s
-        .drawer-handle
-            width: 4.29em
-            padding: .71em 0
-            text-align: center
-            top: 100%
-            right: 0
-            .arrow
-                display: inline-block
-                background-position: -61px 0
-                transition: background-position step-end 1.2s
-        &.collapsed
-            .drawer-handle .arrow
-                background-position: -92px 0
-                transition: background-position step-end 2s
+        top: 50%
+        left: 50%
+        margin-left: -15px
+        width: 30px
+        background: url(../images/social-media-logos.png) no-repeat
 
-    @media screen and (min-width: 81.25em) //1300px
-        &.attach-to-viewport
-            top: 0
- 
+/*
+ *  ### Twitter
+ *  ```
+ *  <a href="#" class="article-sharing twit"><span class="icon"></span></a>
+ *  ```
+ */
+.article-sharing.twit
+    .icon
+        height: 24px
+        margin-top: -12px
+        background-position: -75px -76px
+    &:hover
+        background-color: #6daadc
+        .icon
+            background-position: -15px -76px
+
+/*
+ *  ### Facebook
+ *  ```
+ *  <a href="#" class="article-sharing face"><span class="icon"></span></a>
+ *  ```
+ */
+.article-sharing.face
+    .icon
+        height: 30px
+        margin-top: -15px
+        background-position: -75px -121px
+    &:hover
+        background-color: #434e93
+        .icon
+            background-position: -15px -121px
+
+/*
+ *  ### Mail
+ *  ```
+ *  <a href="#" class="article-sharing mail"><span class="icon"></span></a>
+ *  ```
+ */
+.article-sharing.mail
+    .icon
+        height: 21px
+        margin-top: -10px
+        background-position: -75px -174px
+    &:hover
+        background-color: #98bdba
+        .icon
+            background-position: -15px -174px

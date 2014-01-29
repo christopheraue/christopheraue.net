@@ -1392,33 +1392,141 @@ body {
     .text h2 + .portrait + p, .text h2 + .pillar + p, .text h3 + .portrait + p, .text h3 + .pillar + p, .text h4 + .portrait + p, .text h4 + .pillar + p, .text h5 + .portrait + p, .text h5 + .pillar + p, .text h6 + .portrait + p, .text h6 + .pillar + p {
       margin-top: 0; } }
 
+/*  Article
+ *  =======
+ *  Headline
+ *  --------
+ *  ```
+ *  <h1 class="article-headline">This Is the Headline of an Article With an Interesting Topic</h1>
+ *  ```
+ */
+.article-headline {
+  font-family: "Alfa Slab One";
+  line-height: 1.1;
+  color: white;
+  text-shadow: 2px 2px 3px black; }
+
+/*  Date
+ *  ----
+ *  ```
+ *  <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
+ *  ```
+ */
+.article-date {
+  font-family: Ubuntu;
+  color: white;
+  padding: 0.3em 1.0725em;
+  background: rgba(0, 0, 0, 0.65); }
+
+/*  Tags
+ *  ----
+ *  ```
+ *  <a href="#" class="article-tag">tag</a>
+ *  ```
+ */
+.article-tag {
+  font-family: Ubuntu;
+  color: #b3b3b3;
+  padding: 0.32em 1.0725em;
+  background: rgba(0, 0, 0, 0.65);
+  text-decoration: none;
+  position: relative;
+  display: inline-block; }
+  .article-tag:hover {
+    text-decoration: underline; }
+
+/*  Comments Link
+ *  -------------
+ *  ```
+ *  <a href="#" class="article-comments-link">5 Comments</a>
+ *  ```
+ */
+.article-comments-link {
+  font-family: Ubuntu;
+  font-size: 1.25em;
+  font-weight: 500;
+  color: white;
+  padding: 0.3em 1.0725em;
+  background: rgba(0, 0, 0, 0.65);
+  text-decoration: none; }
+  .article-comments-link:hover {
+    text-decoration: underline; }
+
+/*  Sharing
+ *  -------
+ */
+.article-sharing {
+  display: block;
+  width: 4.29em;
+  height: 4.29em;
+  background: white;
+  position: relative; }
+  .article-sharing .icon {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -15px;
+    width: 30px;
+    background: url(../images/social-media-logos.png) no-repeat; }
+
+/*  ### Twitter
+ *  ```
+ *  <a href="#" class="article-sharing twit"><span class="icon"></span></a>
+ *  ```
+ */
+.article-sharing.twit .icon {
+  height: 24px;
+  margin-top: -12px;
+  background-position: -75px -76px; }
+.article-sharing.twit:hover {
+  background-color: #6daadc; }
+  .article-sharing.twit:hover .icon {
+    background-position: -15px -76px; }
+
+/*  ### Facebook
+ *  ```
+ *  <a href="#" class="article-sharing face"><span class="icon"></span></a>
+ *  ```
+ */
+.article-sharing.face .icon {
+  height: 30px;
+  margin-top: -15px;
+  background-position: -75px -121px; }
+.article-sharing.face:hover {
+  background-color: #434e93; }
+  .article-sharing.face:hover .icon {
+    background-position: -15px -121px; }
+
+/*  ### Mail
+ *  ```
+ *  <a href="#" class="article-sharing mail"><span class="icon"></span></a>
+ *  ```
+ */
+.article-sharing.mail .icon {
+  height: 21px;
+  margin-top: -10px;
+  background-position: -75px -174px; }
+.article-sharing.mail:hover {
+  background-color: #98bdba; }
+  .article-sharing.mail:hover .icon {
+    background-position: -15px -174px; }
+
 /*  Article Page
  *  ============
  *  The article page has set the css class `.article` on the body.
  *
- *  Page Layout
- *  -----------
- *  For small viewports the article parts are just rendered above each other. For viewports wide
- *  enough to display a sidebar the article side details and actions jump into the sidebar on the left of the article
- *  content.
- *
- *  ### Background Fade Out
- *  The fade to white is present for viewports wide enough to show a sidebar and begins where the
- *  article content area starts.
- *
+ *  Background and Fade Out
+ *  -----------------------
+ *  The fade to white begins where the article content area starts, except for very large viewports.
+ *  There the standard behaviour is followed.
  *  ```
  *  <iframe width="800" height="480" class="article">
- *      <header id="page-header" class="kalei-stub">HEADER</header>
  *      <div id="content-container">
  *          <div id="content">
  *              <article id="main-article">
- *                  <h1 id="main-article-headline" class="kalei-stub">Headline</h1>
- *                  <div id="main-article-content" class="start-background-fade kalei-stub">
- *                      <section class="fixie"></section>
- *                  </div>
- *                  <div id="main-article-aside" class="kalei-stub">Article Details</p></div>
+ *                  <div id="main-article-content" class="start-background-fade kalei-stub">Content</div>
  *              </article>
- *              <div id="main-article-comments" class="kalei-stub">Comments</div>
  *          </div>
  *      </div>
  *  </iframe>
@@ -1427,6 +1535,36 @@ body {
 body.article {
   background-image: url(../images/background/lanes.png); }
 
+@media screen and (min-width: 50em) and (max-width: 81.25em) {
+  body.article {
+    height: 100%; }
+    body.article:before, body.article:after {
+      content: none; }
+    body.article .start-background-fade:before, body.article .start-background-fade:after {
+      content: ""; } }
+/*  Page Layout
+ *  -----------
+ *  For small viewports the article parts are just rendered above each other. For viewports wide
+ *  enough to display a sidebar the article side details and actions jump into the sidebar on the left of the article
+ *  content.
+ *  ```
+ *  <iframe width="800" height="480" class="article kalei-white">
+ *      <header id="page-header" class="kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <h1 id="main-article-headline" class="kalei-stub">Headline</h1>
+ *                  <div id="main-article-content" class="start-background-fade kalei-stub">
+ *                      <section class="fixie"></section>
+ *                  </div>
+ *                  <div id="main-article-sidebar" class="kalei-stub">Article Details</p></div>
+ *              </article>
+ *              <div id="main-article-comments" class="kalei-stub">Comments</div>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
 #main-article,
 #main-article-comments {
   margin: 0 -1.25em; }
@@ -1436,23 +1574,18 @@ body.article {
   #main-article-comments {
     margin: 0; } }
 @media screen and (min-width: 50em) {
+  #main-article-sidebar {
+    width: 225px; }
+
   #main-article-content {
     float: right; }
 
-  #main-article-aside {
+  #main-article-sidebar {
     float: left;
-    margin-left: -250px;
-    width: 225px; }
+    margin-left: -250px; }
 
   #main-article-comments {
     clear: both; } }
-@media screen and (min-width: 50em) and (max-width: 81.25em) {
-  body.article {
-    height: 100%; }
-    body.article:before, body.article:after {
-      content: none; }
-    body.article .start-background-fade:before, body.article .start-background-fade:after {
-      content: ""; } }
 /*  Article Layout
  *  --------------
  *  ### Headline Background
@@ -1483,12 +1616,6 @@ body.article {
  *  </iframe>
  *  ```
  */
-.article-headline {
-  font-family: "Alfa Slab One";
-  line-height: 1.1;
-  color: white;
-  text-shadow: 2px 2px 3px black; }
-
 #main-article-headline {
   font-size: 1.5em;
   padding: 1.66em 0.83em 0.83em; }
@@ -1507,32 +1634,32 @@ body.article {
   #main-article-headline {
     font-size: 2em;
     padding: 0 0.625em 0.625em; } }
-/*  Article Details
+/*  Article Sidebar
  *  ---------------
- *  The details aligned with the content area at the top.
+ *  The sidebar aligns with the content area at the top.
  *
  *  ```
- *  <iframe width="800" height="480" class="article">
+ *  <iframe width="800" height="550" class="article">
  *      <div id="content-container">
  *          <div id="content">
  *              <article id="main-article">
  *                  <div id="main-article-content" class="start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
- *                  <div id="main-article-aside">
+ *                  <div id="main-article-sidebar">
  *                      <div class="drawer">
- *                          <div class="details">
- *                              <time class="article-date">January 02, 2014</time>
- *                              <ul class="article-tags">
- *                                  <li><a href="#">tag</a></li>
- *                                  <li><a href="#">anotherTag</a></li>
- *                                  <li><a href="#">aThirdTag</a></li>
+ *                          <div class="column article-details">
+ *                              <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
+ *                              <ul class="article-tags-list">
+ *                                  <li class="item"><a href="#" class="article-tag">tag</a></li>
+ *                                  <li class="item"><a href="#" class="article-tag">anotherTag</a></li>
+ *                                  <li class="item"><a href="#" class="article-tag">aThirdTag</a></li>
  *                              </ul>
  *                          </div>
- *                          <div class="social">
+ *                          <div class="column article-social">
  *                              <a href="#" class="article-comments-link">5 Comments</a>
- *                              <ul class="article-social-media">
- *                                  <li><a href="#" class="twit"><span class="icon"></span></a></li>
- *                                  <li><a href="#" class="face"><span class="icon"></span></a></li>
- *                                  <li><a href="#" class="mail"><span class="icon"></span></a></li>
+ *                              <ul class="article-sharing-list">
+ *                                  <li class="item"><a href="#" class="article-sharing twit"><span class="icon"></span></a></li>
+ *                                  <li class="item"><a href="#" class="article-sharing face"><span class="icon"></span></a></li>
+ *                                  <li class="item"><a href="#" class="article-sharing mail"><span class="icon"></span></a></li>
  *                              </ul>
  *                          </div>
  *                      </div>
@@ -1544,122 +1671,215 @@ body.article {
  *  </iframe>
  *  ```
  */
-.article-date, .article-tags a, .article-comments-link {
-  font-family: Ubuntu;
-  color: white;
-  padding: 0.3em 1.0725em;
-  background: rgba(0, 0, 0, 0.65); }
+#main-article-sidebar {
+  font-size: 0.7em; }
 
-.article-tags a, .article-comments-link {
-  text-decoration: none; }
-  .article-tags a:hover, .article-comments-link:hover {
-    text-decoration: underline; }
+/*  ### Columns
+ *  ```
+ *  <iframe width="800" height="350" class="kalei-white">
+ *  <div id="main-article-sidebar" style="margin:0">
+ *      <div class="column kalei-stub">Column 1</div>
+ *      <div class="column kalei-stub">Column 2</div>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+#main-article-sidebar .column {
+  width: 50%;
+  display: inline-block;
+  vertical-align: middle; }
+  @media screen and (min-width: 50em) {
+    #main-article-sidebar .column {
+      width: auto;
+      display: block;
+      vertical-align: baseline; } }
 
-.article-tags a {
-  color: #b3b3b3; }
-
-.article-comments-link {
-  font-size: 1.25em;
-  font-weight: 500; }
-
-.article-social-media a {
+/*  ### Sidebar Layout
+ *  extend background of sharing icons over the full height, if the social column is smaller than
+ *  the details column
+ *  ```
+ *  <iframe width="800" height="350">
+ *  <div id="main-article-sidebar" style="margin:0">
+ *      <div class="column article-details">
+ *          <time datetime="2014-01-02" class="article-date kalei-stub">Date</time>
+ *          <ul class="article-tags-list">
+ *              <li class="item kalei-stub">Tag</li>
+ *              <li class="item kalei-stub">Tag</li>
+ *              <li class="item kalei-stub">Tag</li>
+ *          </ul>
+ *      </div>
+ *      <div class="column article-social">
+ *          <a href="#" class="article-comments-link kalei-stub">Comments Link</a>
+ *          <ul class="article-sharing-list">
+ *              <li class="item kalei-stub">Social Media</li>
+ *              <li class="item kalei-stub">Social Media</li>
+ *              <li class="item kalei-stub">Social Media</li>
+ *          </ul>
+ *      </div>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+#main-article-sidebar .article-details:before,
+#main-article-sidebar .article-details:after,
+#main-article-sidebar .article-tags-list:before,
+#main-article-sidebar .article-sharing-list:before {
+  content: "\00A0";
   display: block;
+  height: 1.79em;
   width: 4.29em;
-  height: 4.29em;
-  background: white;
-  position: relative; }
-  .article-social-media a .icon {
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -15px;
-    width: 30px;
-    background: url(../images/social-media-logos.png) no-repeat; }
-  .article-social-media a.twit .icon {
-    height: 24px;
-    margin-top: -12px;
-    background-position: -75px -76px; }
-  .article-social-media a.twit:hover {
-    background-color: #6daadc; }
-    .article-social-media a.twit:hover .icon {
-      background-position: -15px -76px; }
-  .article-social-media a.face .icon {
-    height: 30px;
-    margin-top: -15px;
-    background-position: -75px -121px; }
-  .article-social-media a.face:hover {
-    background-color: #434e93; }
-    .article-social-media a.face:hover .icon {
-      background-position: -15px -121px; }
-  .article-social-media a.mail .icon {
-    height: 21px;
-    margin-top: -10px;
-    background-position: -75px -174px; }
-  .article-social-media a.mail:hover {
-    background-color: #98bdba; }
-    .article-social-media a.mail:hover .icon {
-      background-position: -15px -174px; }
-
-#main-article-aside {
-  text-align: right;
-  font-size: 0.7em;
-  position: relative; }
-  #main-article-aside .article-date, #main-article-aside .article-tags li a, #main-article-aside .article-comments-link {
-    display: block;
-    float: right;
-    clear: both;
-    min-width: 2.145em; }
-  #main-article-aside .details:before,
-  #main-article-aside .article-tags li + li:before, #main-article-aside .article-tags:before, #main-article-aside .article-tags:after,
-  #main-article-aside .article-social-media:before {
-    content: "\00A0";
-    display: block;
-    float: right;
-    clear: both;
-    height: 1.79em;
-    width: 4.29em;
-    background: rgba(0, 0, 0, 0.65); }
-  #main-article-aside .article-tags li + li:before {
-    height: 0.21em; }
-  #main-article-aside .details:after {
-    clear: both; }
-  #main-article-aside .article-social-media li:first-child {
-    clear: both; }
-  #main-article-aside .drawer-handle {
-    display: none; }
-
-@media screen and (max-width: 49.9375em) {
-  #main-article-aside {
-    position: relative; }
-    #main-article-aside:before {
+  background: rgba(0, 0, 0, 0.65);
+  float: right;
+  clear: both; }
+#main-article-sidebar .article-tags-list .item {
+  float: right;
+  clear: both; }
+  #main-article-sidebar .article-tags-list .item + .item {
+    position: relative;
+    margin-top: 0.21em; }
+    #main-article-sidebar .article-tags-list .item + .item:before {
+      float: right;
+      clear: both;
       content: "\00A0";
-      background: white;
+      display: block;
+      height: 0.21em;
       width: 4.29em;
-      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
       position: absolute;
-      top: 0;
-      left: 50%;
-      z-index: -1; }
-    #main-article-aside .details, #main-article-aside .social {
-      width: 50%;
-      display: inline-block;
-      vertical-align: middle; }
-    #main-article-aside .article-comments-link {
-      display: none; }
-    #main-article-aside .article-social-media:before {
-      content: none; }
-    #main-article-aside .article-social-media li:first-child {
-      clear: none; }
-    #main-article-aside .article-social-media li a {
-      margin-right: auto; } }
-@media screen and (min-width: 50em) {
-  #main-article-aside .article-social-media li a {
-    margin-left: auto; } }
+      bottom: 100%;
+      right: 0; }
 
-/*  ### After the page has been scrolled down: visible details
- *  The details are attached to the viewport by giving the `<#main-article-aside>` a class 
- *  `attach-to-viewport`.
+#main-article-sidebar .article-date,
+#main-article-sidebar .article-tag,
+#main-article-sidebar .article-comments-link {
+  float: right;
+  clear: both;
+  min-width: 2.145em;
+  text-align: right; }
+
+#main-article-sidebar {
+  position: relative; }
+  #main-article-sidebar .article-comments-link {
+    display: none; }
+  #main-article-sidebar .article-sharing-list:before {
+    display: none; }
+  #main-article-sidebar .article-sharing-list .item {
+    clear: both;
+    float: left; }
+  #main-article-sidebar .drawer-handle {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -4.29em; }
+  @media screen and (min-width: 50em) {
+    #main-article-sidebar .article-comments-link {
+      display: block; }
+    #main-article-sidebar .article-sharing-list:before {
+      display: block; }
+    #main-article-sidebar .article-sharing-list .item {
+      float: right; }
+    #main-article-sidebar .drawer-handle {
+      display: none;
+      top: 100%;
+      right: 0;
+      left: auto;
+      bottom: auto;
+      margin: 0; } }
+
+#main-article-sidebar:before {
+  content: "\00A0";
+  width: 4.29em;
+  height: 100%;
+  background: white; }
+
+#main-article-sidebar:before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: -1; }
+  @media screen and (min-width: 50em) {
+    #main-article-sidebar:before {
+      display: none; } }
+
+/*  ### Drawer
+ *  ```
+ *  <iframe width="800" height="350" class="kalei-white">
+ *  <div id="main-article-sidebar" style="margin:0">
+ *      <div class="drawer kalei-stub">Drawer Content<div style="background:orange; height: 50em; width: 2em"></div></div>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+#main-article-sidebar .drawer {
+  overflow: hidden;
+  max-height: 15em;
+  transition: max-height 1s; }
+  @media screen and (min-width: 50em) {
+    #main-article-sidebar .drawer {
+      max-height: 32em;
+      transition: max-height 2s; } }
+
+/*  ### Drawer Handle
+ *  ```
+ *  <iframe width="800" height="350" class="kalei-white">
+ *  <div id="main-article-sidebar" class="attach-to-header" style="margin:0; margin-top: 100px">
+ *      <div class="drawer-handle">Details<span class="arrow"></span></div>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+#main-article-sidebar .drawer-handle {
+  padding: 0 1.43em;
+  width: 5.71em;
+  line-height: 2.4em;
+  font-family: Ubuntu;
+  font-style: italic;
+  text-align: left;
+  color: white;
+  background: rgba(0, 0, 0, 0.65);
+  cursor: pointer; }
+  #main-article-sidebar .drawer-handle .arrow {
+    background: url(../images/arrows.png) no-repeat -92px 0;
+    transition: background-position step-end 0.6s;
+    height: 8px;
+    width: 22px;
+    float: right;
+    margin-top: 1em; }
+  @media screen and (min-width: 50em) {
+    #main-article-sidebar .drawer-handle {
+      width: 4.29em;
+      padding: 0.71em 0;
+      line-height: 1.5em;
+      text-align: center; }
+      #main-article-sidebar .drawer-handle .arrow {
+        display: inline-block;
+        background-position: -61px 0;
+        transition: background-position step-end 1.2s;
+        float: none;
+        margin: 0; } }
+
+/*  ### Drawer Handle (Collapsed Sidebar)
+ *  ```
+ *  <iframe width="800" height="350" class="kalei-white">
+ *  <div id="main-article-sidebar" class="attach-to-header collapsed" style="margin:0; margin-top: 100px">
+ *      <div class="drawer-handle">Details<span class="arrow"></span></div>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+#main-article-sidebar.collapsed .drawer-handle .arrow {
+  background-position: -61px 0;
+  transition: background-position step-end 1s; }
+@media screen and (min-width: 50em) {
+  #main-article-sidebar.collapsed .drawer-handle .arrow {
+    background-position: -92px 0;
+    transition: background-position step-end 2s; } }
+
+/*  ### Sidebar States
+ *  #### Sidebar Attached to Header
+ *  The sidebar is attached to the header by giving the `<#main-article-sidebar>` a class 
+ *  `attach-to-header`.
  *  ```
  *  <iframe width="800" height="600" class="article">
  *      <header id="page-header" class="scrolled-past kalei-stub">HEADER</header>
@@ -1667,59 +1887,22 @@ body.article {
  *          <div id="content">
  *              <article id="main-article">
  *                  <div id="main-article-content" class="start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
- *                  <div id="main-article-aside" class="attach-to-viewport">
+ *                  <div id="main-article-sidebar" class="attach-to-header">
  *                      <div class="drawer">
- *                          <div class="details">
- *                              <time class="article-date">January 02, 2014</time>
- *                              <ul class="article-tags">
- *                                  <li><a href="#">tag</a></li>
- *                                  <li><a href="#">anotherTag</a></li>
- *                                  <li><a href="#">aThirdTag</a></li>
+ *                          <div class="column article-details">
+ *                              <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
+ *                              <ul class="article-tags-list">
+ *                                  <li class="item"><a href="#" class="article-tag">tag</a></li>
+ *                                  <li class="item"><a href="#" class="article-tag">anotherTag</a></li>
+ *                                  <li class="item"><a href="#" class="article-tag">aThirdTag</a></li>
  *                              </ul>
  *                          </div>
- *                          <div class="social">
+ *                          <div class="column article-social">
  *                              <a href="#" class="article-comments-link">5 Comments</a>
- *                              <ul class="article-social-media">
- *                                  <li><a href="#" class="twit"><span class="icon"></span></a></li>
- *                                  <li><a href="#" class="face"><span class="icon"></span></a></li>
- *                                  <li><a href="#" class="mail"><span class="icon"></span></a></li>
- *                              </ul>
- *                          </div>
- *                      </div>
- *                      <div class="drawer-handle">Details<span class="arrow"></span></div>
- *                  </div>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- *
- *  ### After the page has been scrolled down: collapsed details
- *  To collapse the details give the `<#main-article-aside.attach-to-viewport>` a class 
- *  `collapsed`.
- *  ```
- *  <iframe width="800" height="400" class="article scrolled">
- *      <header id="page-header" class="scrolled-past kalei-stub">HEADER</header>
- *      <div id="content-container">
- *          <div id="content">
- *              <article id="main-article">
- *                  <div id="main-article-content" class="start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
- *                  <div id="main-article-aside" class="attach-to-viewport collapsed">
- *                      <div class="drawer">
- *                          <div class="details">
- *                              <time class="article-date">January 02, 2014</time>
- *                              <ul class="article-tags">
- *                                  <li><a href="#">tag</a></li>
- *                                  <li><a href="#">anotherTag</a></li>
- *                                  <li><a href="#">aThirdTag</a></li>
- *                              </ul>
- *                          </div>
- *                          <div class="social">
- *                              <a href="#" class="article-comments-link">5 Comments</a>
- *                              <ul class="article-social-media">
- *                                  <li><a href="#" class="twit"><span class="icon"></span></a></li>
- *                                  <li><a href="#" class="face"><span class="icon"></span></a></li>
- *                                  <li><a href="#" class="mail"><span class="icon"></span></a></li>
+ *                              <ul class="article-sharing-list">
+ *                                  <li class="item"><a href="#" class="article-sharing twit"><span class="icon"></span></a></li>
+ *                                  <li class="item"><a href="#" class="article-sharing face"><span class="icon"></span></a></li>
+ *                                  <li class="item"><a href="#" class="article-sharing mail"><span class="icon"></span></a></li>
  *                              </ul>
  *                          </div>
  *                      </div>
@@ -1731,70 +1914,61 @@ body.article {
  *  </iframe>
  *  ```
  */
-#main-article-aside.attach-to-viewport {
-  position: fixed; }
-  #main-article-aside.attach-to-viewport .drawer {
-    overflow: hidden; }
-  #main-article-aside.attach-to-viewport .drawer-handle {
-    display: block;
-    position: absolute;
-    font-family: Ubuntu;
-    font-style: italic;
-    color: white;
-    background: rgba(0, 0, 0, 0.65);
-    text-align: left;
-    cursor: pointer; }
-    #main-article-aside.attach-to-viewport .drawer-handle .arrow {
-      background: url(../images/arrows.png) no-repeat;
-      height: 8px;
-      width: 22px; }
-  #main-article-aside.attach-to-viewport.collapsed .drawer {
-    max-height: 0; }
-  @media screen and (max-width: 49.9375em) {
-    #main-article-aside.attach-to-viewport {
-      bottom: 0;
-      left: 0;
-      right: 0; }
-      #main-article-aside.attach-to-viewport .drawer {
-        max-height: 15em;
-        transition: max-height 1s; }
-      #main-article-aside.attach-to-viewport .drawer-handle {
-        bottom: 100%;
-        left: 50%;
-        margin-left: -4.29em;
-        padding: 0 1.43em;
-        width: 5.71em;
-        line-height: 2.14em; }
-        #main-article-aside.attach-to-viewport .drawer-handle .arrow {
-          float: right;
-          margin-top: 0.86em;
-          background-position: -92px 0;
-          transition: background-position step-end 0.6s; }
-      #main-article-aside.attach-to-viewport.collapsed .drawer-handle .arrow {
-        background-position: -61px 0;
-        transition: background-position step-end 1s; } }
+#main-article-sidebar.attach-to-header {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+  #main-article-sidebar.attach-to-header .drawer-handle {
+    display: block; }
   @media screen and (min-width: 50em) {
-    #main-article-aside.attach-to-viewport {
-      top: 80px; }
-      #main-article-aside.attach-to-viewport .drawer {
-        max-height: 32em;
-        transition: max-height 2s; }
-      #main-article-aside.attach-to-viewport .drawer-handle {
-        width: 4.29em;
-        padding: 0.71em 0;
-        text-align: center;
-        top: 100%;
-        right: 0; }
-        #main-article-aside.attach-to-viewport .drawer-handle .arrow {
-          display: inline-block;
-          background-position: -61px 0;
-          transition: background-position step-end 1.2s; }
-      #main-article-aside.attach-to-viewport.collapsed .drawer-handle .arrow {
-        background-position: -92px 0;
-        transition: background-position step-end 2s; } }
+    #main-article-sidebar.attach-to-header {
+      top: 80px;
+      left: auto;
+      right: auto;
+      bottom: auto; } }
   @media screen and (min-width: 81.25em) {
-    #main-article-aside.attach-to-viewport.attach-to-viewport {
+    #main-article-sidebar.attach-to-header {
       top: 0; } }
+
+/*  #### Attached and Collapsed Sidebar
+ *  To collapse the sidebar give the `<#main-article-sidebar.attach-to-header>` a class `collapsed`.
+ *  ```
+ *  <iframe width="800" height="400" class="article scrolled">
+ *      <header id="page-header" class="scrolled-past kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div id="main-article-content" class="start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
+ *                  <div id="main-article-sidebar" class="attach-to-header collapsed">
+ *                      <div class="drawer">
+ *                          <div class="column article-details">
+ *                              <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
+ *                              <ul class="article-tags-list">
+ *                                  <li class="item"><a href="#" class="article-tag">tag</a></li>
+ *                                  <li class="item"><a href="#" class="article-tag">anotherTag</a></li>
+ *                                  <li class="item"><a href="#" class="article-tag">aThirdTag</a></li>
+ *                              </ul>
+ *                          </div>
+ *                          <div class="column article-social">
+ *                              <a href="#" class="article-comments-link">5 Comments</a>
+ *                              <ul class="article-sharing-list">
+ *                                  <li class="item"><a href="#" class="article-sharing twit"><span class="icon"></span></a></li>
+ *                                  <li class="item"><a href="#" class="article-sharing face"><span class="icon"></span></a></li>
+ *                                  <li class="item"><a href="#" class="article-sharing mail"><span class="icon"></span></a></li>
+ *                              </ul>
+ *                          </div>
+ *                      </div>
+ *                      <div class="drawer-handle">Details<span class="arrow"></span></div>
+ *                  </div>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+#main-article-sidebar.attach-to-header.collapsed .drawer {
+  max-height: 0; }
 
 /*  Archive Page
  *  ============
@@ -1825,8 +1999,8 @@ body.article {
     float: left;
     width: 225px;
     margin-left: -250px; } }
-/*  Article List Layout
- *  -------------------
+/*  Article List
+ *  ------------
  *  ```
  *  <iframe width="800" height="480" class="archive kalei-neutral">
  *      <div id="content-container">
@@ -1954,8 +2128,7 @@ body.article {
     .article-list .article .details .article-tags {
       text-align: left; }
       .article-list .article .details .article-tags a {
-        position: relative;
-        display: inline-block; }
+        position: relative; }
     .article-list .article .details .article-date {
       text-align: right;
       position: absolute;
