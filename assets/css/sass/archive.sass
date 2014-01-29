@@ -23,54 +23,10 @@
 
 #archive-headline
     margin: 0
-
-@media screen and (min-width: 50em) //800px
-    #archive-headline
+    @media screen and (min-width: 50em) //800px
         float: left
         width: 225px
         margin-left: -250px
-
-/*
- *  Article List Layout
- *  -------------------
- *  ```
- *  <iframe width="800" height="480" class="archive kalei-neutral">
- *      <div id="content-container">
- *          <div id="content">
- *              <h1 id="archive-headline" class="kalei-stub">Archive Headline</h1>
- *              <ol class="article-list start-background-fade">
- *                  <li>
- *                      <div class="article kalei-stub">Article</div>
- *                  </li>
- *                  <li>
- *                      <div class="article kalei-stub">Article</div>
- *                  </li>
- *                  <li>
- *                      <div class="article kalei-stub">Article</div>
- *                  </li>
- *                  <li>
- *                      <div class="article kalei-stub">Article</div>
- *                  </li>
- *              </ol>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-
-.article-list
-    @media screen and (max-width: 31.9375em) //511px
-        > li + li
-            margin-top: 1.25em
-    @media screen and (min-width: 32em) //512px
-        margin: 0 -0.625em
-        > li
-            width: 50%
-            float: left
-            + li + li
-                margin-top: 1.25em
-        .article
-            margin: 0 .625em
 
 /*
  *  Headline
@@ -88,111 +44,14 @@
  *  </iframe>
  *  ```
  */
-
 #archive-headline
     font: 1.5em/1.1 'Alfa Slab One'
     color: white
     text-shadow: 2px 2px 3px black
-    @media screen and (max-width: 49.9375em) //799px
-        margin: 1.25em 0 .625em
+    margin-top: 1.25em 
+    margin-bottom: .625em
     @media screen and (min-width: 50em) //800px
+        margin-top: 0
+        margin-bottom: 0
         font-size: 2.5em
         text-align: right
-
-/*
- *  Article List Item
- *  -----------------
- *  ```
- *  <iframe width="800" height="480" class="archive kalei-neutral">
- *      <div id="content-container">
- *          <div id="content">
- *              <ol class="article-list start-background-fade">
- *                  <li>
- *                      <div class="article">
- *                          <h2 class="article-headline"><a href="#">This Is the Headline Of an Article With an Interesting Topic</a></h2>
- *                          <a href="#" class="arrow"></a>
- *                          <div class="details">
- *                              <a href="#" class="arrow"></a>
- *                              <ul class="article-tags">
- *                                  <li><a href="#">tag</a></li>
- *                                  <li><a href="#">anotherTag</a></li>
- *                                  <li><a href="#">aThirdTag</a></li>
- *                              </ul>
- *                              <time class="article-date">January 02, 2014</time>
- *                          </div>
- *                      </div>
- *                  </li>
- *              </ol>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-
-.article-list
-    .article
-        padding-right: 40px
-        background: url(../images/background/lanes.png) no-repeat center
-        background-size: cover
-        position: relative
-        &:before
-            content: ""
-            position: absolute
-            top: 0
-            right: 0
-            bottom: 0
-            left: 0
-            display: block
-            background: rgba(0,0,0,.35)
-        &:hover:before
-            background: rgba(0,0,0,.25)
-        .article-headline
-            font-size: 1em
-            position: relative
-            padding: 1.25em
-            a
-                color: white
-                text-decoration: none
-        .details
-            margin-top: 20px
-            position: relative
-            display: none
-            .article-tags, .article-date
-                font-size: .6em
-                max-width: 50%
-                box-sizing: border-box
-            .article-tags
-                text-align: left
-                a
-                    position: relative
-                    display: inline-block
-            .article-date
-                text-align: right
-                position: absolute
-                right: 0
-                bottom: 0
-        .arrow
-            display: block
-            position: absolute
-            right: 20px
-            top: 50%
-            margin-top: -16px
-            background: url(../images/arrows.png) -2px -39px
-            height: 31px
-            width: 18px
-    @media screen and (min-width: 32em) //512px
-        .article
-            padding: .75em
-            .article-headline
-                padding: 0
-            .details
-                display: block
-            .arrow
-                background: transparent
-                top: 0
-                right: 0
-                bottom: 0
-                left: 0
-                margin: 0
-                height: auto
-                width: auto

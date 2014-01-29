@@ -1512,6 +1512,219 @@ body {
   .article-sharing.mail:hover .icon {
     background-position: -15px -174px; }
 
+/*  Article List
+ *  ------------
+ *  ```
+ *  <iframe width="800" height="480" class="archive kalei-neutral">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <ol class="article-list start-background-fade">
+ *                  <li class="item">
+ *                      <div class="article-box kalei-stub">Article Box</div>
+ *                  </li>
+ *                  <li class="item">
+ *                      <div class="article-box kalei-stub">Article Box</div>
+ *                  </li>
+ *                  <li class="item">
+ *                      <div class="article-box kalei-stub">Article Box</div>
+ *                  </li>
+ *                  <li class="item">
+ *                      <div class="article-box kalei-stub">Article Box</div>
+ *                  </li>
+ *              </ol>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 32em) {
+  .article-list {
+    margin: 0 -0.625em; }
+    .article-list .article-box {
+      margin: 0 0.625em; } }
+
+.article-list > .item + .item {
+  margin-top: 1.25em; }
+@media screen and (min-width: 32em) {
+  .article-list > .item {
+    width: 50%;
+    float: left; }
+    .article-list > .item + .item {
+      margin-top: 0; }
+    .article-list > .item + .item + .item {
+      margin-top: 1.25em; } }
+
+/*  Article Box
+ *  -----------
+ *  ```
+ *  <iframe width="800" height="480" class="archive kalei-neutral">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <ol class="article-list start-background-fade">
+ *                  <li class="item">
+ *                      <div class="article-box">
+ *                          <h2 class="article-headline"><a href="#">This Is the Headline Of an Article With an Interesting Topic</a></h2>
+ *                          <a href="#" class="arrow"></a>
+ *                          <div class="details">
+ *                              <a href="#" class="arrow"></a>
+ *                              <ul class="article-tag-list">
+ *                                  <li class="item"><a href="#" class="article-tag">tag</a></li>
+ *                                  <li class="item"><a href="#" class="article-tag">anotherTag</a></li>
+ *                                  <li class="item"><a href="#" class="article-tag">aThirdTag</a></li>
+ *                              </ul>
+ *                              <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
+ *                          </div>
+ *                      </div>
+ *                  </li>
+ *              </ol>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ *
+ *  ### Layout
+ *  ```
+ *  <iframe width="800" height="480" class="archive kalei-neutral">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <ol class="article-list">
+ *                  <li class="item">
+ *                      <div class="article-box kalei-stub">
+ *                          <h2 class="article-headline kalei-stub">Headline</h2>
+ *                          <a href="#" class="arrow"></a>
+ *                          <div class="details">
+ *                              <a href="#" class="arrow"></a>
+ *                              <div class="article-tag-list kalei-stub">tags</div>
+ *                              <time class="article-date kalei-stub">date</time>
+ *                          </div>
+ *                      </div>
+ *                  </li>
+ *              </ol>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.article-box {
+  padding-right: 40px; }
+  @media screen and (min-width: 32em) {
+    .article-box {
+      padding: 0.75em; } }
+
+.article-list .article-box {
+  position: relative; }
+  .article-list .article-box:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block; }
+  .article-list .article-box .article-headline {
+    padding: 1.25em;
+    position: relative; }
+  .article-list .article-box .details {
+    margin-top: 20px;
+    position: relative;
+    display: none; }
+  .article-list .article-box .article-date {
+    position: absolute;
+    right: 0;
+    bottom: 0; }
+  .article-list .article-box .arrow {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    margin-top: -16px; }
+  @media screen and (min-width: 32em) {
+    .article-list .article-box .article-headline {
+      padding: 0; }
+    .article-list .article-box .details {
+      display: block; }
+    .article-list .article-box .arrow {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: 0; } }
+
+/*  ### Elements
+ *  #### Background
+ *  ```
+ *  <div class="article-box" style="width: 250px; height: 250px"></div>
+ *  ```
+ */
+.article-box {
+  background: url(../images/background/lanes.png) no-repeat center;
+  background-size: cover; }
+  .article-box:before {
+    content: "";
+    background: rgba(0, 0, 0, 0.35); }
+  .article-box:hover:before {
+    background: rgba(0, 0, 0, 0.25); }
+
+/*  #### Headline
+ *  ```
+ *  <div class="article-box">
+ *      <h2 class="article-headline"><a href="#">This Is the Headline Of an Article With an Interesting Topic</a></h2>
+ *  </div>
+ *  ```
+ */
+.article-box .article-headline {
+  font-size: 1em; }
+  .article-box .article-headline a {
+    color: white;
+    text-decoration: none; }
+
+/*  #### Arrow
+ *  ```
+ *  <iframe width="800" height="480" class="archive kalei-neutral">
+ *      <div class="article-box" style="width: 250px; height: 250px">
+ *          <a href="#" class="arrow"></a>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.article-box .arrow {
+  display: block;
+  background: url(../images/arrows.png) -2px -39px;
+  height: 31px;
+  width: 18px; }
+  @media screen and (min-width: 32em) {
+    .article-box .arrow {
+      background: transparent;
+      height: auto;
+      width: auto; } }
+
+/*  #### Tag List
+ *  ```
+ *  <div class="article-box">
+ *      <ul class="article-tag-list">
+ *          <li class="item"><a href="#" class="article-tag">tag</a></li>
+ *          <li class="item"><a href="#" class="article-tag">anotherTag</a></li>
+ *          <li class="item"><a href="#" class="article-tag">aThirdTag</a></li>
+ *      </ul>
+ *  </div>
+ *  ```
+ */
+.article-box .article-tag-list {
+  font-size: 0.6em;
+  max-width: 50%;
+  box-sizing: border-box; }
+
+/*  #### Date
+ *  ```
+ *  <div class="article-box">
+ *      <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
+ *  </div>
+ *  ```
+ */
+.article-box .article-date {
+  font-size: 0.6em;
+  max-width: 50%;
+  box-sizing: border-box;
+  text-align: right; }
+
 /*  Article Page
  *  ============
  *  The article page has set the css class `.article` on the body.
@@ -1993,51 +2206,11 @@ body.article {
  */
 #archive-headline {
   margin: 0; }
-
-@media screen and (min-width: 50em) {
-  #archive-headline {
-    float: left;
-    width: 225px;
-    margin-left: -250px; } }
-/*  Article List
- *  ------------
- *  ```
- *  <iframe width="800" height="480" class="archive kalei-neutral">
- *      <div id="content-container">
- *          <div id="content">
- *              <h1 id="archive-headline" class="kalei-stub">Archive Headline</h1>
- *              <ol class="article-list start-background-fade">
- *                  <li>
- *                      <div class="article kalei-stub">Article</div>
- *                  </li>
- *                  <li>
- *                      <div class="article kalei-stub">Article</div>
- *                  </li>
- *                  <li>
- *                      <div class="article kalei-stub">Article</div>
- *                  </li>
- *                  <li>
- *                      <div class="article kalei-stub">Article</div>
- *                  </li>
- *              </ol>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-@media screen and (max-width: 31.9375em) {
-  .article-list > li + li {
-    margin-top: 1.25em; } }
-@media screen and (min-width: 32em) {
-  .article-list {
-    margin: 0 -0.625em; }
-    .article-list > li {
-      width: 50%;
-      float: left; }
-      .article-list > li + li + li {
-        margin-top: 1.25em; }
-    .article-list .article {
-      margin: 0 0.625em; } }
+  @media screen and (min-width: 50em) {
+    #archive-headline {
+      float: left;
+      width: 225px;
+      margin-left: -250px; } }
 
 /*  Headline
  *  --------
@@ -2057,105 +2230,12 @@ body.article {
 #archive-headline {
   font: 1.5em/1.1 "Alfa Slab One";
   color: white;
-  text-shadow: 2px 2px 3px black; }
-  @media screen and (max-width: 49.9375em) {
-    #archive-headline {
-      margin: 1.25em 0 0.625em; } }
+  text-shadow: 2px 2px 3px black;
+  margin-top: 1.25em;
+  margin-bottom: 0.625em; }
   @media screen and (min-width: 50em) {
     #archive-headline {
+      margin-top: 0;
+      margin-bottom: 0;
       font-size: 2.5em;
       text-align: right; } }
-
-/*  Article List Item
- *  -----------------
- *  ```
- *  <iframe width="800" height="480" class="archive kalei-neutral">
- *      <div id="content-container">
- *          <div id="content">
- *              <ol class="article-list start-background-fade">
- *                  <li>
- *                      <div class="article">
- *                          <h2 class="article-headline"><a href="#">This Is the Headline Of an Article With an Interesting Topic</a></h2>
- *                          <a href="#" class="arrow"></a>
- *                          <div class="details">
- *                              <a href="#" class="arrow"></a>
- *                              <ul class="article-tags">
- *                                  <li><a href="#">tag</a></li>
- *                                  <li><a href="#">anotherTag</a></li>
- *                                  <li><a href="#">aThirdTag</a></li>
- *                              </ul>
- *                              <time class="article-date">January 02, 2014</time>
- *                          </div>
- *                      </div>
- *                  </li>
- *              </ol>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-.article-list .article {
-  padding-right: 40px;
-  background: url(../images/background/lanes.png) no-repeat center;
-  background-size: cover;
-  position: relative; }
-  .article-list .article:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: block;
-    background: rgba(0, 0, 0, 0.35); }
-  .article-list .article:hover:before {
-    background: rgba(0, 0, 0, 0.25); }
-  .article-list .article .article-headline {
-    font-size: 1em;
-    position: relative;
-    padding: 1.25em; }
-    .article-list .article .article-headline a {
-      color: white;
-      text-decoration: none; }
-  .article-list .article .details {
-    margin-top: 20px;
-    position: relative;
-    display: none; }
-    .article-list .article .details .article-tags, .article-list .article .details .article-date {
-      font-size: 0.6em;
-      max-width: 50%;
-      box-sizing: border-box; }
-    .article-list .article .details .article-tags {
-      text-align: left; }
-      .article-list .article .details .article-tags a {
-        position: relative; }
-    .article-list .article .details .article-date {
-      text-align: right;
-      position: absolute;
-      right: 0;
-      bottom: 0; }
-  .article-list .article .arrow {
-    display: block;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    margin-top: -16px;
-    background: url(../images/arrows.png) -2px -39px;
-    height: 31px;
-    width: 18px; }
-@media screen and (min-width: 32em) {
-  .article-list .article {
-    padding: 0.75em; }
-    .article-list .article .article-headline {
-      padding: 0; }
-    .article-list .article .details {
-      display: block; }
-    .article-list .article .arrow {
-      background: transparent;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: 0;
-      height: auto;
-      width: auto; } }
