@@ -1,10 +1,10 @@
 ﻿/*
  *  Article Page
  *  ============
- *  The article page has set the css class `.article` on the body.
+ *  The article page has set the css class `.article-page` on the body.
  *
  *  ```
- *  <iframe width="800" height="480" class="article">
+ *  <iframe width="800" height="480" class="article-page">
  *      <header id="page-header" class="kalei-stub">HEADER</header>
  *      <div id="content-container">
  *          <div id="content">
@@ -47,7 +47,7 @@
  *  The fade to white begins where the article content area starts, except for very large viewports.
  *  There the standard behaviour is followed.
  *  ```
- *  <iframe width="800" height="480" class="article">
+ *  <iframe width="800" height="480" class="article-page">
  *      <div id="content-container">
  *          <div id="content">
  *              <article id="main-article">
@@ -58,10 +58,10 @@
  *  </iframe>
  *  ```
  */
-body.article
+body.article-page
     background-image: url(../images/background/lanes.png)
 
-body.article #content-container
+body.article-page #content-container
     @media screen and (min-width: 50em) //800px
         //on the article page, start the background fade at the specified element in this range
         @include background-fade-hide
@@ -79,7 +79,7 @@ body.article #content-container
  *  enough to display a sidebar the article side details and actions jump into the sidebar on the left of the article
  *  content.
  *  ```
- *  <iframe width="800" height="480" class="article kalei-bg-white">
+ *  <iframe width="800" height="480" class="article-page kalei-bg-white">
  *      <header id="page-header" class="kalei-stub">HEADER</header>
  *      <div id="content-container">
  *          <div id="content">
@@ -122,7 +122,7 @@ body.article #content-container
  *  down also.
  *
  *  ```
- *  <iframe width="800" height="480" class="article">
+ *  <iframe width="800" height="480" class="article-page">
  *      <header id="page-header" class="kalei-stub">HEADER</header>
  *      <div id="content-container">
  *          <div id="content">
@@ -150,7 +150,7 @@ body.article #content-container
  *  ------------
  *
  *  ```
- *  <iframe width="800" height="480" class="article">
+ *  <iframe width="800" height="480" class="article-page">
  *      <div id="content-container">
  *          <div id="content">
  *              <article id="main-article">
@@ -173,7 +173,7 @@ body.article #content-container
  *  The sidebar aligns with the content area at the top.
  *
  *  ```
- *  <iframe width="800" height="450" class="article kalei-bg-white">
+ *  <iframe width="800" height="450" class="article-page kalei-bg-white">
  *      <div class="article-sidebar">
  *          <div class="drawer">
  *              <div class="column article-details">
