@@ -1,0 +1,72 @@
+﻿/*
+ *  Generic Page
+ *  ============
+ *  The generic page has set the css class `.generic-page` on the body.
+ *  
+ *  Layout
+ *  ------
+ *  The generic page is structured into sections, that are rendered just on top of eachother.
+ *  
+ *  ```
+ *  <iframe width="800" height="480" class="generic-page kalei-bg-white">
+ *      <header id="page-header" class="kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <section class="page-section kalei-stub">Section</section>
+ *              <section class="page-section kalei-stub">Section</section>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+body.generic-page
+    .page-section
+        margin-top: 2.5em
+        + .page-section
+            margin-top: 1.25em
+        @media screen and (min-width: 50em) //800px
+            margin-top: 0
+
+/*
+ *  Section Layout
+ *  --------------
+ *  For small viewports everything is just rendered above each other. For viewports wide
+ *  enough to display a sidebar the headline jumps into the sidebar on the left.
+ *
+ *  ```
+ *  <iframe width="800" height="480" class="generic-page kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <section class="page-section">
+ *                  <h1 class="section-headline kalei-stub">Section Headline</h1>
+ *                  <div class="section-content kalei-stub">Section Content</div>
+ *              </section>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.page-section
+    .section-headline
+        margin-bottom: .625em
+        @media screen and (min-width: 50em) //800px
+            float: left
+            margin-left: -250px
+            margin-bottom: 0
+
+/*
+ *  Section Headline
+ *  ----------------
+ *
+ *  ```
+ *  <h1 class="section-headline">Section Headline</h1>
+ *  ```
+ */
+.section-headline
+    font: 1.5em/1.1 'Alfa Slab One'
+    color: white
+    text-shadow: 2px 2px 3px black
+    @media screen and (min-width: 50em) //800px
+        font-size: 2.5em
+        text-align: right
+        width: 225px
