@@ -1,8 +1,9 @@
 ﻿/*
  *  Article
  *  =======
- *  Headline
- *  --------
+ *  General
+ *  -------
+ *  ### Headline
  *  ```
  *  <h1 class="article-headline">This Is the Headline of an Article With an Interesting Topic</h1>
  *  ```
@@ -14,8 +15,7 @@
     text-shadow: 2px 2px 3px black
 
 /*
- *  Date
- *  ----
+ *  ### Date
  *  ```
  *  <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
  *  ```
@@ -27,8 +27,7 @@
     background: rgba(0,0,0,0.65)
 
 /*
- *  Tags
- *  ----
+ *  ### Tags
  *  ```
  *  <a href="#" class="article-tag">tag</a>
  *  ```
@@ -45,8 +44,7 @@
         text-decoration: underline
 
 /*
- *  Comments Link
- *  -------------
+ *  ### Comments Link
  *  ```
  *  <a href="#" class="article-comments-link">5 Comments</a>
  *  ```
@@ -63,8 +61,7 @@
         text-decoration: underline
 
 /*
- *  Sharing
- *  -------
+ *  ### Sharing
  */
 .article-sharing
     display: block
@@ -82,7 +79,7 @@
         background: url(../images/social-media-logos.png) no-repeat
 
 /*
- *  ### Twitter
+ *  #### Twitter
  *  ```
  *  <a href="#" class="article-sharing twit"><span class="icon"></span></a>
  *  ```
@@ -98,7 +95,7 @@
             background-position: -15px -76px
 
 /*
- *  ### Facebook
+ *  #### Facebook
  *  ```
  *  <a href="#" class="article-sharing face"><span class="icon"></span></a>
  *  ```
@@ -114,7 +111,7 @@
             background-position: -15px -121px
 
 /*
- *  ### Mail
+ *  #### Mail
  *  ```
  *  <a href="#" class="article-sharing mail"><span class="icon"></span></a>
  *  ```
@@ -128,49 +125,6 @@
         background-color: #98bdba
         .icon
             background-position: -15px -174px
-
-/*
- *  Article List
- *  ------------
- *  ```
- *  <iframe width="800" height="480" class="archive kalei-neutral">
- *      <div id="content-container">
- *          <div id="content">
- *              <ol class="article-list start-background-fade">
- *                  <li class="item">
- *                      <div class="article-box kalei-stub">Article Box</div>
- *                  </li>
- *                  <li class="item">
- *                      <div class="article-box kalei-stub">Article Box</div>
- *                  </li>
- *                  <li class="item">
- *                      <div class="article-box kalei-stub">Article Box</div>
- *                  </li>
- *                  <li class="item">
- *                      <div class="article-box kalei-stub">Article Box</div>
- *                  </li>
- *              </ol>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-.article-list
-    @media screen and (min-width: 32em) //512px
-        margin: 0 -0.625em
-        .article-box
-            margin: 0 .625em
-
-.article-list > .item
-    + .item
-        margin-top: 1.25em
-    @media screen and (min-width: 32em) //512px
-        width: 50%
-        float: left
-        + .item
-            margin-top: 0
-        + .item + .item
-            margin-top: 1.25em
 
 /*
  *  Article Box
@@ -267,10 +221,12 @@
             margin: 0
 
 /*
- *  ### Elements
- *  #### Background
+ *  ### Background
+ *  It always fills out the complete box.
  *  ```
- *  <div class="article-box" style="width: 250px; height: 250px"></div>
+ *  <iframe width="250" height="250" class="kalei-bg-white">
+ *      <div class="article-box" style="width: 100%; height: 100%"></div>
+ *  </iframe>
  *  ```
  */
 .article-box
@@ -283,7 +239,7 @@
         background: rgba(0,0,0,.25)
 
 /*
- *  #### Headline
+ *  ### Headline
  *  ```
  *  <div class="article-box">
  *      <h2 class="article-headline"><a href="#">This Is the Headline Of an Article With an Interesting Topic</a></h2>
@@ -297,10 +253,10 @@
         text-decoration: none
 
 /*
- *  #### Arrow
+ *  ### Arrow
  *  ```
- *  <iframe width="800" height="480" class="kalei-neutral">
- *      <div class="article-box" style="width: 250px; height: 250px">
+ *  <iframe width="320" height="50" class="kalei-neutral">
+ *      <div class="article-box">
  *          <a href="#" class="arrow"></a>
  *      </div>
  *  </iframe>
@@ -317,7 +273,7 @@
         width: auto
 
 /*
- *  #### Tag List
+ *  ### Tag List
  *  ```
  *  <div class="article-box">
  *      <ul class="article-tag-list">
@@ -334,7 +290,7 @@
     box-sizing: border-box
 
 /*
- *  #### Date
+ *  ### Date
  *  ```
  *  <div class="article-box">
  *      <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
@@ -346,3 +302,46 @@
     max-width: 50%
     box-sizing: border-box
     text-align: right
+
+/*
+ *  Article List
+ *  ------------
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <ol class="article-list start-background-fade">
+ *                  <li class="item">
+ *                      <div class="article-box kalei-stub">Article Box</div>
+ *                  </li>
+ *                  <li class="item">
+ *                      <div class="article-box kalei-stub">Article Box</div>
+ *                  </li>
+ *                  <li class="item">
+ *                      <div class="article-box kalei-stub">Article Box</div>
+ *                  </li>
+ *                  <li class="item">
+ *                      <div class="article-box kalei-stub">Article Box</div>
+ *                  </li>
+ *              </ol>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.article-list
+    @media screen and (min-width: 32em) //512px
+        margin: 0 -0.625em
+        .article-box
+            margin: 0 .625em
+
+.article-list > .item
+    + .item
+        margin-top: 1.25em
+    @media screen and (min-width: 32em) //512px
+        width: 50%
+        float: left
+        + .item
+            margin-top: 0
+        + .item + .item
+            margin-top: 1.25em
