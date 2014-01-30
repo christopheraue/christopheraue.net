@@ -22,15 +22,16 @@
 body.article
     background-image: url(../images/background/lanes.png)
 
-//on the article page, start the background fade at the specified element in this range
-@media screen and (min-width: 50em) and (max-width: 81.25em) //800px 1300px
-    body.article
-        height: 100%
-        &:before, &:after
-            content: none
+body.article #content-container
+    @media screen and (min-width: 50em) //800px
+        //on the article page, start the background fade at the specified element in this range
+        @include background-fade-hide
         .start-background-fade
-            &:before, &:after
-                content: ""
+            @include background-fade-show
+    @media screen and (min-width: 81.25em) //1300px
+        @include background-fade-show
+        .start-background-fade
+            @include background-fade-hide
 
 /*
  *  Page Layout

@@ -3,54 +3,72 @@
  *  ==============
  *  Reset
  *  -----
+ *  Let's begin with the [reset stylesheet](http://meyerweb.com/eric/tools/css/reset/) of Eric
+ *  Meyer, v2.0, 2011-01-26 
  */
-html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, thead, tr, th, td, 
-del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, 
-h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, 
-dl, dt, dd, ol, ul, li, fieldset, form, label, legend
-    vertical-align: baseline
-    font-family: inherit
-    font-weight: inherit
-    font-style: inherit
-    font-size: 100%
-    outline: 0
-    padding: 0
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
     margin: 0
+    padding: 0
     border: 0
+    font-size: 100%
+    font: inherit
+    vertical-align: baseline
 
-\:focus
-    outline: 0
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section
+    display: block
 
-body 
-    background: white
+body
     line-height: 1
-    color: black
 
 ol, ul
     list-style: none
 
-// tables still need cellspacing="0" in the markup
+blockquote, q
+    quotes: none
+
+blockquote:before, blockquote:after,
+q:before, q:after
+    content: ''
+    content: none
+
 table
-    border-collapse: separate
+    border-collapse: collapse
     border-spacing: 0
 
-caption, th, td
-    font-weight: normal
-    text-align: left
+/*
+ *  Background
+ *  ----------
+ */
+html, body
+    height: 100%
 
-// remove possible quote marks (") from <q> & <blockquote>
-blockquote:before, blockquote:after, q:before, q:after
-    content: ""
-
-blockquote, q
-    quotes: "" ""
+body
+    overflow-x: hidden
+    min-height: 100%
+    background: lightblue no-repeat
+    background-size: 100% auto
+    @media screen and (max-aspect-ratio: 4/3)
+        background-size: cover
 
 /*
- *  Body and Background
- *  -------------------
+ *  ### Background Fade
+ *  
  *  The background image is intended to fade to white at the bottom. For small viewports it must be
  *  specified where the background fade should start. The element must be given the class
- *  `start-background-fade`. For medium viewports the background fade begins where the
+ *  `.start-background-fade`. For medium viewports the background fade begins where the
  *  content area starts. For large viewports the left sidebar, where the header will be located,
  *  will not fade. Fading starts at 50% of the viewport's height.
  *  
@@ -58,86 +76,63 @@ blockquote, q
  *  <iframe width="800" height="480" class="archive">
  *      <div id="content-container">
  *          <div id="content">
- *              <div class="start-background-fade kalei-stub" style="margin-top: 100px">element to start bg fade at for small viewports</div>
- *              <article class="fixie"</article>
+ *              <div class="start-background-fade kalei-stub">element to start bg fade at</div>
  *          </div>
  *      </div>
  *  </iframe>
  *  ```
  */
-html, body
-    padding: 0
-    margin: 0
-    height: 100%
-    
-body
-    background: lightblue no-repeat
-    background-size: 100% auto
-    font-size: 100%
-    overflow-x: hidden
-    min-height: 100%
-    @media screen and (max-aspect-ratio: 4/3)
-        background-size: cover
-
-body
-    @media screen and (min-width: 50em) //800px
-        height: auto
-        .start-background-fade
-            &:before, &:after
-                content: none
-        position: relative
-        &:before, &:after
-            content: ""
-            display: block
-            position: absolute
-            left: 0
-            top: 155px
-            right: 0
-            z-index: -1
-        &:before
-            height: 200px
-            background: url(../images/background-fadeout.png) repeat-x 0 0
-        &:after
-            margin-top: 200px
-            bottom: 0
-            background: white
-    @media screen and (min-width: 81.25em) //1300px
-        &:before
-            margin-top: -100px
-        &:after
-            margin-top: 100px
-        &:before, &:after
-            top: 250px
-            left: 275px
-
-.start-background-fade
+@mixin background-fade
     position: relative
+    &:before, &:after
+        content: ""
+        z-index: -1
+        position: absolute
     &:before
-        content: ""
-        display: block
-        position: absolute
-        left: -100em
-        top: 0
-        right: -100em
-        height: 200px
-        z-index: -1
         background: url(../images/background-fadeout.png) repeat-x 0 0
+        height: 200px
     &:after
-        content: ""
-        display: block
-        position: absolute
-        left: -100em
-        top: 200px
-        right: -100em
-        bottom: -100em
+        margin-top: 200px
         background: white
-        z-index: -1
+
+@mixin background-fade-setPos($top, $right, $bottom, $left)
+    &:before, &:after
+        top: $top
+        right: $right
+        left: $left
+    &:after
+        bottom: $bottom
+
+@mixin background-fade-hide
+    &:before, &:after
+        display: none
+
+@mixin background-fade-show
+    &:before, &:after
+        display: block
+
+#content-container
+    @include background-fade
+    @include background-fade-setPos(155px, 0, 0, 0)
+    @include background-fade-hide
+    .start-background-fade
+        @include background-fade
+        @include background-fade-setPos(0, -100em, -100em, -100em)
+        @include background-fade-show
+    
+    @media screen and (min-width: 50em) //800px
+        @include background-fade-show
+        .start-background-fade
+            @include background-fade-hide
+    
+    @media screen and (min-width: 81.25em) //1300px
+        @include background-fade-setPos(175px, 0, 0, 275px)
 
 /*
  *  Content Scaling
  *  ---------------
- *  Realized by scaling the font-size. Everything else should be scaled in relation to it. Measure
- *  should therefore be given in em.
+ *  The content area is scaled by scaling the font-size. Everything else is scaled in relation to by
+ *  setting measures in em.
  *  
  *  ```
  *  <iframe width="800" height="400" class="kalei-neutral">
@@ -150,6 +145,8 @@ body
  *  ```
  */
 #content-container
+    font-size: 1em
+    
     @media screen and (min-width: 32em) //512px
         font-size: 1.25em
 
@@ -168,9 +165,12 @@ body
 /*
  *  Responsive Grid
  *  ---------------
- *  For small viewports the container are rendered just above each other.
+ *  For small viewports the containers are rendered just above each other.
  *  
  *  ### Breakpoints
+ *  Breakpoints are set to optimize readability of the text in the content area following the
+ *  article [Logical Breakpoints For Your Responsive Design](http://www.smashingmagazine.com/2013/03/01/logical-breakpoints-responsive-design/).
+ *  
  *  The responsive grid breaks at the following points:
  *
  *  * #### 50 em / 800 px
@@ -183,9 +183,8 @@ body
  *  * #### 81.25 em / 1300 px
  *    header is fixed to the left, content width stays constant and is centered across the remaining space on the right
  *
- *  ### Content Paddings
- *  Paddings are adjusted to fit to the available space. Generally, they scale up upto
- *  a viewport width of 60em resp. 960px and stay constant from there on. 
+ *  ### Margins and Paddings
+ *  Margins and paddings scale with the font size.
  *  
  *  ```
  *  <iframe width="800" height="480">
@@ -193,10 +192,57 @@ body
  *      <div id="content-container">
  *          <div id="content" class="kalei-stub">CONTENT<article class="fixie"></article></div>
  *      </div>
- *      <footer id="page-footer" class="kalei-stub">FOOTER</footer>
  *  </iframe>
  *  ```
- *  
+ */
+#page-header
+    min-height: 66px
+    @media screen and (min-width: 50em) //800px
+        height: 5em  //80px
+    @media screen and (min-width: 81.25em) //1300px
+        width: 17.1875em //275px
+        height: auto
+
+#content-container
+    padding: 66px 1.25em 0
+    min-height: 100%
+    box-sizing: border-box
+    overflow: hidden
+    
+    @media screen and (min-width: 50em) //800px
+        padding: 155px 1.25em 1.25em 275px //155px 25px 25px 275px
+    
+    @media screen and (min-width: 81.25em) //1300px
+        padding: 3.25em 0 1.5625em 525px //50px 0 25px 525px
+        
+#content
+    @media screen and (min-width: 64em) //1024px
+        width: 36.2em //724px at font-size: 1.5em
+
+body
+    #page-header
+        position: fixed
+        z-index: 99
+        top: 0
+        left: 0
+        right: 0
+        
+        @media screen and (min-width: 50em) //800px
+            top: 1.5625em //25px
+        
+        @media screen and (min-width: 81.25em) //1300px
+            margin: 0
+            position: fixed
+            top: 0
+            left: 0
+            bottom: 0
+    #content
+        margin: 0
+        
+        @media screen and (min-width: 64em) //1024px
+            margin: 0 auto
+        
+/*
  *  ### Page scrolled down
  *  For viewports, that display the header at the top, it will be fixed there if scrolled down. Set
  *  the css class `.scrolled-past` for the header to fix it there.
@@ -206,57 +252,9 @@ body
  *      <div id="content-container">
  *          <div id="content" class="kalei-stub">CONTENT<article class="fixie"></article></div>
  *      </div>
- *      <footer id="page-footer" class="kalei-stub">FOOTER</footer>
  *  </iframe>
  *  ```
  */
-#page-header
-    position: fixed
-    z-index: 99
-    top: 0
-    left: 0
-    right: 0
-    min-height: 66px
-
-#content-container
-    padding: 66px 1.25em 0
-    min-height: 100%
-    box-sizing: border-box
-    overflow: hidden
-    
-#footer
-    min-height: 2.8125em //45px
-        
-@media screen and (min-width: 50em) //800px
-    #page-header
-        height: 5em  //80px
-        top: 1.5625em //25px
-        &.scrolled-past
-            top: 0
-    
-    #content-container
-        padding: 155px 1.25em 1.25em 275px //155px 25px 25px 275px
-    
-    #content
-        margin: 0
-
-@media screen and (min-width: 64em) //1024px
-    #content
-        width: 36.2em //724px at font-size: 1.5em
-        margin: 0 auto
-        
-@media screen and (min-width: 81.25em) //1300px
-    #page-header
-        margin: 0
-        width: 17.1875em //275px
-        position: fixed
-        height: auto
+body #page-header.scrolled-past
+    @media screen and (min-width: 50em) //800px
         top: 0
-        left: 0
-        bottom: 0
-    
-    #content-container
-        padding: 50px 0 1.5625em 525px //50px 0 25px 300px
-    
-    #page-footer
-        margin: 0
