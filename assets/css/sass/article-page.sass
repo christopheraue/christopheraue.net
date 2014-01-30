@@ -3,146 +3,17 @@
  *  ============
  *  The article page has set the css class `.article` on the body.
  *
- *  Background and Fade Out
- *  -----------------------
- *  The fade to white begins where the article content area starts, except for very large viewports.
- *  There the standard behaviour is followed.
- *  ```
- *  <iframe width="800" height="480" class="article">
- *      <div id="content-container">
- *          <div id="content">
- *              <article id="main-article">
- *                  <div id="main-article-content" class="start-background-fade kalei-stub">Content</div>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-body.article
-    background-image: url(../images/background/lanes.png)
-
-body.article #content-container
-    @media screen and (min-width: 50em) //800px
-        //on the article page, start the background fade at the specified element in this range
-        @include background-fade-hide
-        .start-background-fade
-            @include background-fade-show
-    @media screen and (min-width: 81.25em) //1300px
-        @include background-fade-show
-        .start-background-fade
-            @include background-fade-hide
-
-/*
- *  Page Layout
- *  -----------
- *  For small viewports the article parts are just rendered above each other. For viewports wide
- *  enough to display a sidebar the article side details and actions jump into the sidebar on the left of the article
- *  content.
- *  ```
- *  <iframe width="800" height="480" class="article kalei-white">
- *      <header id="page-header" class="kalei-stub">HEADER</header>
- *      <div id="content-container">
- *          <div id="content">
- *              <article id="main-article">
- *                  <h1 id="main-article-headline" class="kalei-stub">Headline</h1>
- *                  <div id="main-article-content" class="start-background-fade kalei-stub">
- *                      <section class="fixie"></section>
- *                  </div>
- *                  <div id="main-article-sidebar" class="kalei-stub">Article Details</p></div>
- *              </article>
- *              <div id="main-article-comments" class="kalei-stub">Comments</div>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-
-//fill the full width for small viewports
-#main-article,
-#main-article-comments
-    margin: 0 -1.25em
-
-@media screen and (min-width: 50em) //800px
-    #main-article,
-    #main-article-comments
-        margin: 0
-
-//float the article details to the left for larger viewports
-@media screen and (min-width: 50em) //800px
-    #main-article-sidebar
-        width: 225px
-    
-    #main-article-content
-        float: right
-    #main-article-sidebar
-        float: left
-        margin-left: -250px
-    #main-article-comments
-        clear: both
-
-/*
- *  Article Layout
- *  --------------
- *  ### Headline Background
- *  For small screens the headline has a background identical to the body. The background image is
- *  needed to give the white headline a contrast. But the background is usally not tall enough to be
- *  still visible behind the headline in cases the navigation of the header is expanded. So we just
- *  attach the background to the headline. If the header navigation is not shown, it just replicates
- *  the body background. If the header navigation is expanded, the body background *seems* to scroll
- *  down also.
- *
- *  ### Paddings
- *  Paddings are adjusted to fit to the available space. Generally, they scale up upto
- *  a viewport width of 60em resp. 960px and stay constant from there on.
- *
  *  ```
  *  <iframe width="800" height="480" class="article">
  *      <header id="page-header" class="kalei-stub">HEADER</header>
  *      <div id="content-container">
  *          <div id="content">
  *              <article id="main-article">
- *                  <h1 id="main-article-headline" class="article-headline">This Is the Headline of an Article With an Interesting Topic</h1>
- *                  <div id="main-article-content" class="start-background-fade text">
+ *                  <h1 class="article-headline">This Is the Headline of an Article With an Interesting Topic</h1>
+ *                  <div class="text start-background-fade">
  *                      <section class="fixie"></section>
  *                  </div>
- *              </section>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-    
-#main-article-headline
-    font-size: 1.5em
-    padding: 1.66em 0.83em 0.83em
-#main-article-content, #main-article-comments
-    padding: 1.25em
-#main-article-content, #main-article-comments
-    background: white
-    
-@media screen and (max-width: 49.9375em) //799px
-    #main-article-headline
-        background: url(../images/background/lanes.png) no-repeat 0 -66px
-        background-size: 100% auto
-
-@media screen and (min-width: 50em) //800px
-    #main-article-headline
-        font-size: 2em
-        padding: 0 0.625em 0.625em
-
-/*
- *  Article Sidebar
- *  ---------------
- *  The sidebar aligns with the content area at the top.
- *
- *  ```
- *  <iframe width="800" height="550" class="article">
- *      <div id="content-container">
- *          <div id="content">
- *              <article id="main-article">
- *                  <div id="main-article-content" class="start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
- *                  <div id="main-article-sidebar">
+ *                  <div class="article-sidebar">
  *                      <div class="drawer">
  *                          <div class="column article-details">
  *                              <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
@@ -170,28 +41,165 @@ body.article #content-container
  *  ```
  */
 
-#main-article-sidebar
-    font-size: .7em
-
 /*
- *  ### Columns
+ *  Background
+ *  ----------
+ *  The fade to white begins where the article content area starts, except for very large viewports.
+ *  There the standard behaviour is followed.
  *  ```
- *  <iframe width="800" height="350" class="kalei-white">
- *  <div id="main-article-sidebar" style="margin:0">
- *      <div class="column kalei-stub">Column 1</div>
- *      <div class="column kalei-stub">Column 2</div>
- *  </div>
+ *  <iframe width="800" height="480" class="article">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div class="text start-background-fade kalei-stub">Fade to white starts here</div>
+ *              </article>
+ *          </div>
+ *      </div>
  *  </iframe>
  *  ```
  */
-#main-article-sidebar .column
-    width: 50%
-    display: inline-block
-    vertical-align: middle
+body.article
+    background-image: url(../images/background/lanes.png)
+
+body.article #content-container
     @media screen and (min-width: 50em) //800px
-        width: auto
-        display: block
-        vertical-align: baseline
+        //on the article page, start the background fade at the specified element in this range
+        @include background-fade-hide
+        .start-background-fade
+            @include background-fade-show
+    @media screen and (min-width: 81.25em) //1300px
+        @include background-fade-show
+        .start-background-fade
+            @include background-fade-hide
+
+/*
+ *  Layout
+ *  ------
+ *  For small viewports the article parts are just rendered above each other. For viewports wide
+ *  enough to display a sidebar the article side details and actions jump into the sidebar on the left of the article
+ *  content.
+ *  ```
+ *  <iframe width="800" height="480" class="article kalei-bg-white">
+ *      <header id="page-header" class="kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <h1 class="kalei-stub article-headline">Headline</h1>
+ *                  <div class="text start-background-fade kalei-stub">
+ *                      <section class="fixie"></section>
+ *                  </div>
+ *                  <div class="article-sidebar kalei-stub">Article Details</p></div>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+
+#main-article
+    margin: 0 -1.25em
+    .article-headline
+        margin: 0
+    @media screen and (min-width: 50em) //800px
+        margin: 0
+        .article-headline
+            margin: 0 0.625em 0.625em
+        .text
+            float: right
+        .article-sidebar
+            float: left
+            margin-left: -250px
+            width: 225px
+
+/*
+ *  Article Headline
+ *  ----------------
+ *  For small screens the headline has a background identical to the body. The background image is
+ *  needed to give the white headline a contrast. But the background is usally not tall enough to be
+ *  still visible behind the headline in cases the navigation of the header is expanded. So we just
+ *  attach the background to the headline. If the header navigation is not shown, it just replicates
+ *  the body background. If the header navigation is expanded, the body background *seems* to scroll
+ *  down also.
+ *
+ *  ```
+ *  <iframe width="800" height="480" class="article">
+ *      <header id="page-header" class="kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <h1 class="article-headline">This Is the Headline of an Article With an Interesting Topic</h1>
+ *              </section>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+#main-article .article-headline
+    font-size: 1.5em
+    padding: 1.66em 0.83em 0.83em
+    background: url(../images/background/lanes.png) no-repeat 0 -66px
+    background-size: 100% auto
+
+    @media screen and (min-width: 50em) //800px
+        background: transparent
+        font-size: 2em
+        padding: 0
+
+/*
+ *  Article Text
+ *  ------------
+ *
+ *  ```
+ *  <iframe width="800" height="480" class="article">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div class="text start-background-fade">
+ *                      <section class="fixie"></section>
+ *                  </div>
+ *              </section>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+#main-article .text
+    padding: 1.25em
+    background: white
+
+/*
+ *  Article Sidebar
+ *  ---------------
+ *  The sidebar aligns with the content area at the top.
+ *
+ *  ```
+ *  <iframe width="800" height="450" class="article kalei-bg-white">
+ *      <div class="article-sidebar">
+ *          <div class="drawer">
+ *              <div class="column article-details">
+ *                  <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
+ *                  <ul class="article-tags-list">
+ *                      <li class="item"><a href="#" class="article-tag">tag</a></li>
+ *                      <li class="item"><a href="#" class="article-tag">anotherTag</a></li>
+ *                      <li class="item"><a href="#" class="article-tag">aThirdTag</a></li>
+ *                  </ul>
+ *              </div>
+ *              <div class="column article-social">
+ *                  <a href="#" class="article-comments-link">5 Comments</a>
+ *                  <ul class="article-sharing-list">
+ *                      <li class="item"><a href="#" class="article-sharing twit"><span class="icon"></span></a></li>
+ *                      <li class="item"><a href="#" class="article-sharing face"><span class="icon"></span></a></li>
+ *                      <li class="item"><a href="#" class="article-sharing mail"><span class="icon"></span></a></li>
+ *                  </ul>
+ *              </div>
+ *          </div>
+ *          <div class="drawer-handle">Details<span class="arrow"></span></div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.article-sidebar
+    font-size: .7em
 
 /*
  *  ### Sidebar Layout
@@ -199,7 +207,8 @@ body.article #content-container
  *  the details column
  *  ```
  *  <iframe width="800" height="350">
- *  <div id="main-article-sidebar" style="margin:0">
+ *  <div class="article-sidebar" style="margin:0">
+ *      <div class="drawer">
  *      <div class="column article-details">
  *          <time datetime="2014-01-02" class="article-date kalei-stub">Date</time>
  *          <ul class="article-tags-list">
@@ -216,6 +225,8 @@ body.article #content-container
  *              <li class="item kalei-stub">Social Media</li>
  *          </ul>
  *      </div>
+ *      </div>
+ *      <div class="drawer-handle">Handle<span class="arrow"></span></div>
  *  </div>
  *  </iframe>
  *  ```
@@ -232,7 +243,7 @@ body.article #content-container
     float: right
     clear: both
 
-#main-article-sidebar
+.article-sidebar
     .article-details:before,
     .article-details:after,
     .article-tags-list:before,
@@ -251,7 +262,7 @@ body.article #content-container
                 bottom: 100%
                 right: 0
 
-#main-article-sidebar
+.article-sidebar
     .article-date,
     .article-tag,
     .article-comments-link
@@ -260,7 +271,7 @@ body.article #content-container
         text-align: right
 
 //detailed adjustments
-#main-article-sidebar
+.article-sidebar
     position: relative
     .article-comments-link
         display: none
@@ -270,6 +281,7 @@ body.article #content-container
         clear: both
         float: left
     .drawer-handle
+        display: none
         position: absolute
         bottom: 100%
         left: 50%
@@ -282,21 +294,20 @@ body.article #content-container
         .article-sharing-list .item
             float: right
         .drawer-handle
-            display: none
             top: 100%
             right: 0
             left: auto
             bottom: auto
             margin: 0
 
-#main-article-sidebar:before
+.article-sidebar:before
     //white bg behind sharing icons over the full height
     content: '\00A0'
     width: 4.29em
     height: 100%
     background: white
 
-#main-article-sidebar:before
+.article-sidebar:before
     //white bg behind sharing icons
     display: block
     position: absolute
@@ -307,16 +318,36 @@ body.article #content-container
         display: none
 
 /*
- *  ### Drawer
+ *  ### Columns
  *  ```
  *  <iframe width="800" height="350" class="kalei-white">
- *  <div id="main-article-sidebar" style="margin:0">
+ *  <div class="article-sidebar" style="margin:0">
+ *      <div class="column kalei-stub">Column 1</div>
+ *      <div class="column kalei-stub">Column 2</div>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+.article-sidebar .column
+    width: 50%
+    display: inline-block
+    vertical-align: middle
+    @media screen and (min-width: 50em) //800px
+        width: auto
+        display: block
+        vertical-align: baseline
+
+/*
+ *  ### Drawer
+ *  ```
+ *  <iframe width="800" height="450" class="kalei-white">
+ *  <div class="article-sidebar" style="margin:0">
  *      <div class="drawer kalei-stub">Drawer Content<div style="background:orange; height: 50em; width: 2em"></div></div>
  *  </div>
  *  </iframe>
  *  ```
  */
-#main-article-sidebar .drawer
+.article-sidebar .drawer
     overflow: hidden
     max-height: 15em
     transition: max-height 1s
@@ -328,13 +359,13 @@ body.article #content-container
  *  ### Drawer Handle
  *  ```
  *  <iframe width="800" height="350" class="kalei-white">
- *  <div id="main-article-sidebar" class="attach-to-header" style="margin:0; margin-top: 100px">
+ *  <div class="article-sidebar attach-to-viewport" style="margin-left: 100px; margin-top: 100px">
  *      <div class="drawer-handle">Details<span class="arrow"></span></div>
  *  </div>
  *  </iframe>
  *  ```
  */
-#main-article-sidebar .drawer-handle
+.article-sidebar .drawer-handle
     padding: 0 1.43em
     width: 5.71em
     line-height: 2.4em
@@ -367,13 +398,13 @@ body.article #content-container
  *  ### Drawer Handle (Collapsed Sidebar)
  *  ```
  *  <iframe width="800" height="350" class="kalei-white">
- *  <div id="main-article-sidebar" class="attach-to-header collapsed" style="margin:0; margin-top: 100px">
+ *  <div class="article-sidebar attach-to-viewport collapsed" style="margin-left: 100px; margin-top: 100px">
  *      <div class="drawer-handle">Details<span class="arrow"></span></div>
  *  </div>
  *  </iframe>
  *  ```
  */
-#main-article-sidebar.collapsed .drawer-handle
+.article-sidebar.collapsed .drawer-handle
     .arrow
         background-position: -61px 0
         transition: background-position step-end 1s
@@ -384,17 +415,17 @@ body.article #content-container
 
 /*
  *  ### Sidebar States
- *  #### Sidebar Attached to Header
- *  The sidebar is attached to the header by giving the `<#main-article-sidebar>` a class 
- *  `attach-to-header`.
+ *  #### Sidebar Attached to the Viewport
+ *  The sidebar is attached to the header by giving the `<.article-sidebar>` a class 
+ *  `attach-to-viewport`.
  *  ```
- *  <iframe width="800" height="600" class="article">
+ *  <iframe width="800" height="600" class="article kalei-bg-white">
  *      <header id="page-header" class="scrolled-past kalei-stub">HEADER</header>
  *      <div id="content-container">
  *          <div id="content">
  *              <article id="main-article">
- *                  <div id="main-article-content" class="start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
- *                  <div id="main-article-sidebar" class="attach-to-header">
+ *                  <div class="text start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
+ *                  <div class="article-sidebar attach-to-viewport">
  *                      <div class="drawer">
  *                          <div class="column article-details">
  *                              <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
@@ -421,7 +452,7 @@ body.article #content-container
  *  </iframe>
  *  ```
  */
-#main-article-sidebar.attach-to-header
+.article-sidebar.attach-to-viewport
     position: fixed
     bottom: 0
     left: 0
@@ -438,15 +469,15 @@ body.article #content-container
 
 /*
  *  #### Attached and Collapsed Sidebar
- *  To collapse the sidebar give the `<#main-article-sidebar.attach-to-header>` a class `collapsed`.
+ *  To collapse the sidebar give the `<.article-sidebar.attach-to-viewport>` a class `collapsed`.
  *  ```
- *  <iframe width="800" height="400" class="article scrolled">
+ *  <iframe width="800" height="400" class="article scrolled kalei-bg-white">
  *      <header id="page-header" class="scrolled-past kalei-stub">HEADER</header>
  *      <div id="content-container">
  *          <div id="content">
  *              <article id="main-article">
- *                  <div id="main-article-content" class="start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
- *                  <div id="main-article-sidebar" class="attach-to-header collapsed">
+ *                  <div class="text start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
+ *                  <div class="article-sidebar attach-to-viewport collapsed">
  *                      <div class="drawer">
  *                          <div class="column article-details">
  *                              <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
@@ -474,6 +505,6 @@ body.article #content-container
  *  ```
  */
    
-#main-article-sidebar.attach-to-header.collapsed
+.article-sidebar.attach-to-viewport.collapsed
     .drawer
         max-height: 0
