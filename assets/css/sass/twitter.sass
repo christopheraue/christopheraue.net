@@ -3,7 +3,9 @@
  *  =======
  *  ```
  *  <iframe width="320px" height="480px" class="kalei-bg-white">
- *      <section class="twitter-timeline">
+ *      <div id="content-container">
+ *          <div id="content">
+ *      <section class="twitter-timeline page-section">
  *          <header class="header">
  *              <a href="#" class="icon"></a>
  *              <h2 class="heading">Latest Tweets</h2>
@@ -16,6 +18,31 @@
  *                  <span class="at-username">
  *                      <span class="at">@</span><a href="#" class="username">christopheraue</a>
  *                  </span>
+ *              </div>
+ *              <div class="text">
+ *                  This is the content of the tweet.
+ *                  This is an <span class="at-username"><span class="at">@</span><a href="#" class="username">username</a></span> mention.
+ *                  This is a <span class="hashtag"><span class="hash">#</span><a href="#" class="tag">hashtag</a></span>.
+ *                  This is a <a href="#" class="link">t.co/link</a>.
+ *              </div>
+ *              <ul class="action-list">
+ *                  <li class="item"><a href="#" class="action reply"><span class="icon"></span><span class="label">Reply</span></a></li>
+ *                  <li class="item"><a href="#" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a></li>
+ *                  <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
+ *              </ul>
+ *              <a href="#" class="timestamp">5h</a>
+ *          </article>
+ *          <article class="tweet">
+ *              <div class="author">
+ *                  <a href="#" class="avatar fixie"><img width="48px" height="48px"></img></a>
+ *                  <a href="#" class="name">Christopher Aue</a>
+ *                  <span class="at-username">
+ *                      <span class="at">@</span><a href="#" class="username">christopheraue</a>
+ *                  </span>
+ *              </div>
+ *              <div class="retweet-indicator">
+ *                  <span class="icon"></span>
+ *                  <span class="note">Retweeted by <a href="#" class="name">Christopher Aue</a>.</span>
  *              </div>
  *              <div class="text">
  *                  This is the content of the tweet.
@@ -77,6 +104,8 @@
  *              <a href="#" class="timestamp">5h</a>
  *          </article>
  *      </section>
+ *          </div>
+ *      </div>
  *  </iframe>
  *  ```
  */
@@ -91,16 +120,21 @@
  *  ### Layout
  *  ```
  *  <iframe width="320px" height="480px" class="kalei-bg-white">
- *      <section class="twitter-timeline">
- *          <header class="header kalei-stub">Header</header>
- *          <article class="tweet kalei-stub">Tweet</article>
- *          <article class="tweet kalei-stub">Tweet</article>
- *          <article class="tweet kalei-stub">Tweet</article>
- *      </section>
+ *      <div id="content-container">
+ *          <div id="content">    
+ *              <section class="twitter-timeline">
+ *                  <header class="header kalei-stub">Header</header>
+ *                  <article class="tweet kalei-stub">Tweet</article>
+ *                  <article class="tweet kalei-stub">Tweet</article>
+ *                  <article class="tweet kalei-stub">Tweet</article>
+ *              </section>
+ *          </div>
+ *      </div>
  *  </iframe>
  *  ```
  */
 .twitter-timeline
+    position: relative
     .header
         margin-bottom: .625em
     .tweet + .tweet
@@ -110,68 +144,58 @@
  *  ### Header
  *  ```
  *  <iframe width="320px" height="480px" class="kalei-bg-white">
- *      <section class="twitter-timeline">
- *          <header class="header">
- *              <a href="#" class="icon"></a>
- *              <h2 class="heading">Latest Tweets</h2>
- *              <a href="#" class="follow-link">Follow @christopheraue</a>
- *          </header>
- *      </section>
+ *      <div id="content-container">
+ *          <div id="content">   
+ *              <section class="twitter-timeline page-section">
+ *                  <header class="header">
+ *                      <a href="#" class="icon"></a>
+ *                      <h2 class="heading">Latest Tweets</h2>
+ *                      <a href="#" class="follow-link">Follow @christopheraue</a>
+ *                  </header>
+ *              </section>
+ *          </div>
+ *      </div>
  *  </iframe>
  *  ```
  */
 .twitter-timeline .header
+    width: 11.35em
+    position: relative
     .icon
-        margin-top: 1px
-        margin-right: 11px
-        float: left
-    .heading
-        margin: -1px 0 -3px
+        position: absolute
+        top: 50%
+        left: 12em
+        margin-top: -20px
+    .follow-link
+        display: inline-block
+        vertical-align: top
+    @media screen and (min-width: 50em) //800px
+        width: 7.85em
+        margin-right: 1.25em
+        position: absolute
+        right: 100%
+        .icon
+            position: static
+            margin-top: 0
+            margin-left: auto
 
-/*
- *  #### Icon
- *  ```
- *  <section class="twitter-timeline">
- *      <header class="header">
- *          <a href="#" class="icon"></a>
- *      </header>
- *  </section>
- *  ```
- */
 .twitter-timeline .header .icon
     display: block
     width: 49px
     height: 40px
     background: url(../images/social-media-logos.png) no-repeat -23px -308px
     
-/*
- *  #### Heading
- *  ```
- *  <section class="twitter-timeline">
- *      <header class="header">
- *          <h2 class="heading">Latest Tweets</h2>
- *      </header>
- *  </section>
- *  ```
- */
 .twitter-timeline .header .heading
-    font: 24px/1 'Alfa Slab One'
-    color: black
+    font: 1.5em/1.1 'Alfa Slab One'
+    text-align: right
+    @media screen and (min-width: 50em) //800px
+        font-size: 2em
 
-/*
- *  #### Follow Link
- *  ```
- *  <section class="twitter-timeline">
- *      <header class="header">
- *          <a href="#" class="follow-link">Follow @christopheraue</a>
- *      </header>
- *  </section>
- *  ```
- */
 .twitter-timeline .header .follow-link
-    display: inline-block
+    width: 100%
     background: #6daadc
-    padding: 0 8px 2px
+    padding: .2em 0 .4em
+    text-align: center
     font: bold 14px Ubuntu
     color: white
     text-shadow: 1px 1px 2px rgba(0,0,0,.3)
@@ -211,7 +235,8 @@
 .tweet
     font: 1em Lato
     min-height: 48px        //height of avatar
-    margin-left: 60px
+    margin-left: 48px
+    padding-left: .625em
     padding-bottom: 32px
     position: relative
     a
@@ -221,12 +246,13 @@
     .action-list
         position: absolute
         bottom: 0
-        left: 0
+        left: .625em
     .timestamp
         position: absolute
         bottom: 0
         right: 100%
-        margin-right: 12px
+    @media screen and (min-width: 50em) //800px
+        padding-bottom: 24px
 
 /*
  *  ### Author
@@ -246,9 +272,11 @@
  */
 .tweet .author
     line-height: .9
+    position: relative
     .avatar
-        float: left
-        margin-left: -60px
+        position: absolute
+        right: 100%
+        margin-right: .625em
         margin-top: .05em
     .name
         font-weight: normal
@@ -277,15 +305,11 @@
     font-weight: normal
     margin-top: .25em
     .icon
-        display: block
-        float: left
+        display: inline-block
         background: url(../images/twitter-icons.png) no-repeat -48px -2px
         width: 16px
         height: 12px
     .note
-        display: block
-        line-height: 1em
-        margin-left: 20px
         color: rgb(191,191,191)
     .name
         color: inherit
@@ -326,9 +350,8 @@
 .tweet .action
     color: black
     opacity: .15
-    line-height: 30px
     &:hover
-        opacity: 0.4
+        opacity: 0.5
     .icon
         display: inline-block
         margin-right: 4px
@@ -337,9 +360,8 @@
         display: none
         font-size: .75em
         font-weight: normal
-        vertical-align: middle
     @media screen and (min-width: 50em) //800px
-        line-height: 24px
+        opacity: .2
         .label
             display: inline-block
 
@@ -415,10 +437,11 @@
 .tweet .action-list
     .item
         float: left
-        margin-right: 50px
+        + .item
+            margin-left: 50px
     @media screen and (min-width: 50em) //800px
-        .item
-            margin-right: 10px
+        .item + .item
+            margin-left: 10px
 
 /*
  *  ### Timestamp
@@ -432,9 +455,7 @@
     display: inline-block
     color: black
     opacity: .2
-    line-height: 27px
     &:hover
         opacity: .5
     @media screen and (min-width: 50em) //800px
         font-size: .75em
-        line-height: 24px
