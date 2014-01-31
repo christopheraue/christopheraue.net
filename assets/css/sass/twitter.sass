@@ -1,0 +1,208 @@
+﻿/*
+ *  Twitter
+ *  =======
+ *  Timeline
+ *  --------
+ *  ```
+ *  <iframe width="320px" height="480px" class="kalei-bg-white">
+ *      <section class="twitter-timeline">
+ *          <header class="timeline-header">
+ *              <span class="timeline-icon"></span>
+ *              <h2 class="timeline-heading">Latest Tweets</h2>
+ *              <a href="#" class="timeline-follow-link">Follow @christopheraue</a>
+ *          </header>
+ *          <article class="tweet">
+ *              <div class="author">
+ *                  <span class="avatar"></span>
+ *                  <span class="name">Christopher Aue</span>
+ *                  <span class="username">@christopheraue</span>
+ *              </div>
+ *              <div class="retweet-indicator">
+ *                  <span class="retweet-icon"></span>
+ *                  Retweeted by <a href="#" class="retweeting-user">Christopher Aue</a>.
+ *              </div>
+ *              <div class="text">
+ *                  This is the content of the tweet.
+ *                  This is an <a href="#" class="mention">@username</a> mention.
+ *                  This is a <a href="#" class="hashtag">#hashtag</a>.
+ *                  This is a <a href="#" class="link">link</a>.
+ *              </div>
+ *              <div class="actions">
+ *                  <a href="#" class="reply"></a>
+ *                  <a href="#" class="retweet"></a>
+ *                  <a href="#" class="favorite"></a>
+ *              </div>
+ *              <a href="#" class="timestamp">5h</a>
+ *          </article>
+ *          <article class="tweet">
+ *              <div class="author">
+ *                  <span class="avatar"></span>
+ *                  <span class="name">Christopher Aue</span>
+ *                  <span class="username">@christopheraue</span>
+ *              </div>
+ *              <div class="retweet-indicator">
+ *                  <span class="retweet-icon"></span>
+ *                  Retweeted by <a href="#" class="retweeting-user">Christopher Aue</a>.
+ *              </div>
+ *              <div class="text">
+ *                  This is the content of the tweet.
+ *                  This is an <a href="#" class="mention">@username</a> mention.
+ *                  This is a <a href="#" class="hashtag">#hashtag</a>.
+ *                  This is a <a href="#" class="link">link</a>.
+ *              </div>
+ *              <div class="actions">
+ *                  <a href="#" class="reply"></a>
+ *                  <a href="#" class="retweet"></a>
+ *                  <a href="#" class="favorite"></a>
+ *              </div>
+ *              <a href="#" class="timestamp">5h</a>
+ *          </article>
+ *      </section>
+ *  </iframe>
+ *  ```
+ *  
+ *  ### Layout
+ *  ```
+ *  <iframe width="320px" height="480px" class="kalei-bg-white">
+ *      <section class="twitter-timeline">
+ *          <header class="timeline-header kalei-stub">Header</header>
+ *          <article class="tweet kalei-stub">Tweet</article>
+ *          <article class="tweet kalei-stub">Tweet</article>
+ *          <article class="tweet kalei-stub">Tweet</article>
+ *      </section>
+ *  </iframe>
+ *  ```
+ *
+ *  ### Header
+ *  ```
+ *  <iframe width="320px" height="480px" class="kalei-bg-white">
+ *      <header class="timeline-header">
+ *          <span class="timeline-icon"></span>
+ *          <h2 class="timeline-heading">Latest Tweets</h2>
+ *          <a href="#" class="timeline-follow-link">Follow @christopheraue</a>
+ *      </header>
+ *  </iframe>
+ *  ```
+ *
+ *  Tweet
+ *  -----
+ *  ```
+ *  <iframe width="320px" height="480px" class="kalei-bg-white">
+ *      <article class="tweet">
+ *          <div class="author">
+ *              <span class="avatar"></span>
+ *              <span class="name">Christopher Aue</span>
+ *              <span class="username">@christopheraue</span>
+ *          </div>
+ *          <div class="retweet-indicator">
+ *              <span class="retweet-icon"></span>
+ *              Retweeted by <a href="#" class="retweeting-user">Christopher Aue</a>.
+ *          </div>
+ *          <div class="text">
+ *              This is the content of the tweet.
+ *              This is an <a href="#" class="mention">@username</a> mention.
+ *              This is a <a href="#" class="hashtag">#hashtag</a>.
+ *              This is a <a href="#" class="link">link</a>.
+ *          </div>
+ *          <div class="actions">
+ *              <a href="#" class="reply"></a>
+ *              <a href="#" class="retweet"></a>
+ *              <a href="#" class="favorite"></a>
+ *          </div>
+ *          <a href="#" class="timestamp">5h</a>
+ *      </article>
+ *  </iframe>
+ *  ```
+ *
+ *  ### Author
+ *  ```
+ *  <iframe width="320px" height="480px" class="kalei-bg-white">
+ *      <article class="tweet">
+ *          <div class="author">
+ *              <span class="avatar"></span>
+ *              <span class="name">Christopher Aue</span>
+ *              <span class="username">@christopheraue</span>
+ *          </div>
+ *      </article>
+ *  </iframe>
+ *  ```
+ *
+ *  #### Avatar
+ *  ```
+ *  <iframe width="320px" height="480px" class="kalei-bg-white">
+ *      <article class="tweet">
+ *          <div class="author">
+ *              <span class="avatar"></span>
+ *          </div>
+ *      </article>
+ *  </iframe>
+ *  ```
+ *
+ *  #### Name
+ *  ```
+ *  <iframe width="320px" height="480px" class="kalei-bg-white">
+ *      <article class="tweet">
+ *          <div class="author">
+ *              <span class="name">Christopher Aue</span>
+ *          </div>
+ *      </article>
+ *  </iframe>
+ *  ```
+ *
+ *  #### Username
+ *  ```
+ *  <iframe width="320px" height="480px" class="kalei-bg-white">
+ *      <article class="tweet">
+ *          <div class="author">
+ *              <span class="username">@christopheraue</span>
+ *          </div>
+ *      </article>
+ *  </iframe>
+ *  ```
+ *
+ *  ### Retweet Indicator
+ *  ```
+ *  <iframe width="320px" height="480px" class="kalei-bg-white">
+ *      <article class="tweet">
+ *          <div class="retweet-indicator">
+ *              <span class="retweet-icon"></span>
+ *              Retweeted by <a href="#" class="retweeting-user">Christopher Aue</a>.
+ *          </div>
+ *      </article>
+ *  </iframe>
+ *  ```
+ *
+ *  #### Retweet Icon
+ *  ```
+ *  <iframe width="320px" height="480px" class="kalei-bg-white">
+ *      <article class="tweet">
+ *          <div class="retweet-indicator">
+ *              <span class="retweet-icon"></span>
+ *          </div>
+ *      </article>
+ *  </iframe>
+ *  ```
+ *
+ *  #### Retweeting User
+ *  ```
+ *  <iframe width="320px" height="480px" class="kalei-bg-white">
+ *      <article class="tweet">
+ *          <div class="retweet-indicator">
+ *              Retweeted by <a href="#" class="retweeting-user">Christopher Aue</a>.
+ *          </div>
+ *      </article>
+ *  </iframe>
+ *  ```
+ *
+ *  ### Text
+ *  #### Mention
+ *  #### Hashtag
+ *  #### Link
+ *
+ *  #### Actions
+ *  ##### Reply
+ *  ##### Retweet
+ *  ##### Favorite
+ *
+ *  #### Timestamp
+ */
