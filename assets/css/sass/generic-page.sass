@@ -47,12 +47,13 @@ body.generic-page
  *  ```
  */
 .page-section
+    position: relative
     .section-headline
         margin-bottom: .625em
         @media screen and (min-width: 50em) //800px
-            float: left
-            margin-left: -250px
-            margin-bottom: 0
+            position: absolute
+            right: 100%
+            margin-right: 25px
 
 /*
  *  Section Headline
@@ -60,12 +61,14 @@ body.generic-page
  *
  *  ```
  *  <h1 class="section-headline">Section Headline</h1>
+ *  <h1 class="section-headline white">Section Headline</h1>
  *  ```
  */
 .section-headline
     font: 1.5em/1.1 'Alfa Slab One'
-    color: white
-    text-shadow: 2px 2px 3px black
+    &.white
+        color: white
+        text-shadow: 2px 2px 3px black
     @media screen and (min-width: 50em) //800px
         font-size: 2.5em
         text-align: right
