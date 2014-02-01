@@ -1,4 +1,43 @@
 ﻿/*
  *  Home Page
  *  =========
+ *  Introduction
+ *  ------------
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <section class="introduction page-section use-sidebar">
+ *                  <p class="hi">Hey, I'm Christopher Aue.</p>
+ *                  <p class="topics">
+ *                      This is a place where I write about
+ *                      Web Technology, Product Development
+ *                      and Self Improvement.
+ *                  </p>
+ *              </section>
+ *              <section class="page-section"></section>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
  */
+.introduction
+    -webkit-transform: rotate(-4deg)
+    -ms-transform: rotate(-4deg)
+    transform: rotate(-4deg)
+    font-family: ArchitectsDaughter
+    color: white
+    text-shadow: 2px 2px 5px black
+    text-align: center
+    margin-bottom: 3em
+    .hi
+        font-size: 1.125em
+        line-height: 3
+    .topics
+        font-size: .75em
+        line-height: 1.125
+    @media screen and (min-width: 50em) //800px
+        .hi
+            font-size: 2.4em
+        .topics
+            font-size: 1.3em
