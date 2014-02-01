@@ -521,10 +521,9 @@
  *  Panoramas, landscapes, and squares will still reach into the article area. Portraits and Pillars
  *  will fill the width of the sidebar and no more.
  */
+//.use-sidebar is defined in the generic-page.sass
 .text
     @media screen and (min-width: 50em) //800px
-        .use-sidebar
-            margin-left: -250px
         .pillar.use-sidebar, .portrait.use-sidebar
             margin-right: 0
 
