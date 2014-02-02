@@ -1,8 +1,8 @@
 <div class="article-box">
     <h2 class="article-headline"><a href="#">{{ article.title }}</a></h2>
-    <a href="#" class="arrow"></a>
+    <a href="{{ site.url }}{{ article.url }}" class="arrow"></a>
     <div class="details">
-        <a href="#" class="arrow"></a>
+        <a href="{{ site.url }}{{ article.url }}" class="arrow"></a>
         <ul class="article-tag-list">
             {% for tag in article.tags %}
                 <li class="item"><a href="#" class="article-tag">{{ tag }}</a></li>
