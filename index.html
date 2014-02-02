@@ -1,0 +1,22 @@
+---
+layout: default
+title: christopheraue.net
+---
+<section class="introduction page-section use-sidebar">
+    <p class="hi">Hey, I'm Christopher Aue.</p>
+    <p class="topics">This is a place where I write about Web Technology,
+    Product Development and Self Improvement.</p>
+</section>
+<section class="page-section">
+    <h1 class="section-headline section-heading">Latest Articles</h1>
+    <ol class="article-list start-background-fade">
+        {% for article in site.posts %}
+        <li class="item">
+            {% if forloop.index > 4 %}
+                {% break %}
+            {% endif %}
+            {% include article-box.html %}
+        </li>
+        {% endfor %}
+    </ol>
+</section>

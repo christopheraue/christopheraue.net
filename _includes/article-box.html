@@ -1,0 +1,13 @@
+<div class="article-box">
+    <h2 class="article-headline"><a href="#">{{ article.title }}</a></h2>
+    <a href="#" class="arrow"></a>
+    <div class="details">
+        <a href="#" class="arrow"></a>
+        <ul class="article-tag-list">
+            {% for tag in article.tags %}
+                <li class="item"><a href="#" class="article-tag">{{ tag }}</a></li>
+            {% endfor %}
+        </ul>
+        <time datetime="{{ article.date }}" class="article-date">{{ article.date | date: "%B %d, %Y" }}</time>
+    </div>
+</div>
