@@ -1,6 +1,32 @@
 ﻿/*
  *  Home Page
  *  =========
+ *  The home page has set the css class `.home-page` on the body.
+ */
+
+/*
+ *  Background
+ *  ----------
+ *  The fade to white begins at the section right after the introduction.
+ *  ```
+ *  <iframe width="800" height="480" class="article-page" style="background-image: url(../assets/images/background/lanes.png)">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <section class="introduction page-section use-sidebar kalei-stub">introduction</section>
+ *              <section class="page-section start-background-fade kalei-stub">element after intro</section>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+body.home-page #content-container
+    @media screen and (min-width: 50em) //800px
+        //on the article page, start the background fade at the specified element in this range
+        @include background-fade-hide
+        .start-background-fade
+            @include background-fade-show
+ 
+/*
  *  Introduction
  *  ------------
  *  ```
@@ -8,11 +34,11 @@
  *      <div id="content-container">
  *          <div id="content" class="fixie">
  *              <section class="introduction page-section use-sidebar">
- *                  <p class="hi">Hey, I'm Christopher Aue.</p>
+ *                  <p class="hi">Hey, I'm Christopher.</p>
  *                  <p class="topics">
  *                      This is a place where I write about
- *                      Web Technology, Product Development
- *                      and Self Improvement.
+ *                      <span class="no-break">Web Technology</span>, <span class="no-break">Product Development</span>
+ *                      and <span class="no-break">Self Improvement</span>.
  *                  </p>
  *              </section>
  *              <section class="page-section"></section>
@@ -29,14 +55,18 @@
     color: white
     text-shadow: 2px 2px 5px black
     text-align: center
-    margin-bottom: 6em
+    margin-bottom: 3em
+    .no-break
+        white-space: nowrap
     .hi
-        font-size: 1.125em
-        line-height: 3
+        font-size: 1.7em
+        line-height: 1.2
+        margin-bottom: 1em
     .topics
-        font-size: .75em
-        line-height: 1.125
+        font-size: 1.1em
+        line-height: 1.5
     @media screen and (min-width: 50em) //800px
+        margin-bottom: 6em
         .hi
             font-size: 2.4em
         .topics

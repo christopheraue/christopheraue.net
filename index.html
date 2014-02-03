@@ -1,13 +1,17 @@
 ---
 layout: default
 title: christopheraue.net
+image: canvas.jpg
+css-class: home-page
 ---
 <section class="introduction page-section use-sidebar">
-    <p class="hi">Hey, I'm Christopher Aue.</p>
-    <p class="topics">This is a place where I write about Web Technology,
-    Product Development and Self Improvement.</p>
+    <p class="hi">Hey, I'm Christopher.</p>
+    <p class="topics">This is a place where I write about
+        <span class="no-break">Web Technology</span>,
+        <span class="no-break">Product Development</span> and
+        <span class="no-break">Self Improvement</span>.</p>
 </section>
-<section class="page-section">
+<section class="page-section start-background-fade">
     <h1 class="section-headline section-heading">Latest Articles</h1>
     <ol class="article-list start-background-fade">
         {% for article in site.posts %}
