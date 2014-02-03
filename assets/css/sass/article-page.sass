@@ -72,6 +72,15 @@ body.article-page #content-container
 /*
  *  Layout
  *  ------
+ *  ### Page
+ *  The content width of the article page is fixed for large viewports. The Content is centered.
+ */
+body.article-page #content
+    @media screen and (min-width: 64em) //1024px
+        width: 36.2em //724px at font-size: 1.25em
+
+/*
+ *  ### Article
  *  For small viewports the article parts are just rendered above each other. For viewports wide
  *  enough to display a sidebar the article side details and actions jump into the sidebar on the left of the article
  *  content.

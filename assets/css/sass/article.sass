@@ -180,7 +180,7 @@
  */
 .article-box
     padding-right: 40px
-    @media screen and (min-width: 32em) //512px
+    @media screen and (min-width: 22.5em) //360px
         padding: .75em
 
 .article-list .article-box
@@ -208,7 +208,7 @@
         right: 20px
         top: 50%
         margin-top: -16px
-    @media screen and (min-width: 32em) //512px
+    @media screen and (min-width: 22.5em) //360px
         .article-headline
             padding: 0
         .details
@@ -268,7 +268,7 @@
     background: url(../images/arrows.png) -2px -39px
     height: 31px
     width: 18px
-    @media screen and (min-width: 32em) //512px
+    @media screen and (min-width: 22.5em) //360px
         background: transparent
         height: auto
         width: auto
@@ -289,6 +289,9 @@
     font-size: .6em
     max-width: 50%
     box-sizing: border-box
+    .item
+        display: inline-block
+        margin-top: 3px
 
 /*
  *  ### Date
@@ -331,18 +334,27 @@
  *  ```
  */
 .article-list
+    margin-top: .625em
     @media screen and (min-width: 32em) //512px
-        margin: 0 -0.625em
+        margin-left: -0.625em
+        margin-right: -0.625em
         .article-box
             margin: 0 .625em
 
 .article-list > .item
-    + .item
-        margin-top: 1.25em
+    margin-bottom: 1.25em
     @media screen and (min-width: 32em) //512px
         width: 50%
         float: left
-        + .item
-            margin-top: 0
-        + .item + .item
-            margin-top: 1.25em
+        .article-box .article-headline
+            height: 3.3em
+    @media screen and (min-width: 65em) //1040px
+        width: 33.33%
+    @media screen and (min-width: 115em) //1840px
+        width: 25%
+
+.use-sidebar .article-list > .item
+    @media screen and (min-width: 50em) //800px
+        width: 33.33%
+    @media screen and (min-width: 100em) //1600px
+        width: 25%

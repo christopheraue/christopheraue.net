@@ -3,8 +3,8 @@ layout: default
 title: Articles - christopheraue.net
 image: canvas.jpg
 ---
-<section class="page-section">
-    <h1 class="section-headline section-heading white">Articles</h1>
+<div class="page-section use-sidebar">
+    <h1 class="page-headline page-heading">Articles</h1>
     <ol class="article-list start-background-fade">
         {% for article in site.posts %}
         {% unless article.category == 'about' %}
@@ -14,4 +14,4 @@ image: canvas.jpg
         {% endunless %}
         {% endfor %}
     </ol>
-</section>
+</div>
