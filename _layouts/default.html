@@ -4,7 +4,8 @@
         <title>{{ page.title }}</title>
         <link rel="stylesheet" href="{{ site.url }}/assets/css/styles.css" type="text/css" />
     </head>
-    <body class="{{ page.css-class }}" style="background-image:url({{ site.url }}/assets/images/background/{{ page.image }})">
+    <body class="{% if page.id %}article-page {% endif %}{{ page.body_class }}"
+          style="background-image:url({{ site.url }}/assets/images/background/{{ page.image }})">
         {% include header.html %}
         {% include content.html %}
     </body>
