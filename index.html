@@ -15,7 +15,7 @@ body_class: home-page
 </section>
 <section class="page-section start-background-fade">
     <div class="section-headline"><h2 class="section-heading">Latest Articles</h2></div>
-    <ol class="article-list start-background-fade">
+    <ol class="article-list">
         {% assign counter = 0 %}
         {% for article in site.posts %}
             {% if article.category == 'about' %}{% continue %}{% endif %}
