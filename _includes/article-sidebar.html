@@ -1,0 +1,20 @@
+<div class="article-sidebar">
+    <div class="drawer">
+        <div class="column article-details">
+            <time datetime="{{page.date}}" class="article-date">{{ page.date | date: "%B %d, %Y" }}</time>
+            <ul class="article-tags-list">
+                {% for tag in page.tags %}
+                <li class="item"><a href="#" class="article-tag">{{ tag }}</a></li>
+                {% endfor %}
+            </ul>
+        </div><div class="column article-social">
+            <a href="#" class="article-comments-link">5 Comments</a>
+            <ul class="article-sharing-list">
+                <li class="item"><a href="#" class="article-sharing twit"><span class="icon"></span></a></li>
+                <li class="item"><a href="#" class="article-sharing face"><span class="icon"></span></a></li>
+                <li class="item"><a href="#" class="article-sharing mail"><span class="icon"></span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="drawer-handle">Details<span class="arrow"></span></div>
+</div>

@@ -1,3 +1,15 @@
 <div id="content-container">
-    <div id="content">{{ content }}</div>
+    <div id="content">
+        {% if isArticlePage %}
+            <article id="main-article">
+                <h1 class="article-headline">{{ page.title }}</h1>
+                <div class="text start-background-fade">
+                    {{ content }}
+                </div>
+                {% include article-sidebar.html %}
+            </article>
+        {% else %}
+            {{ content }}
+        {% endif %}
+    </div>
 </div>
