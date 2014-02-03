@@ -1,0 +1,17 @@
+---
+layout: default
+title: Articles - christopheraue.net
+image: canvas.jpg
+---
+<section class="page-section">
+    <h1 class="section-headline section-heading white">Articles</h1>
+    <ol class="article-list start-background-fade">
+        {% for article in site.posts %}
+        {% unless article.category == 'about' %}
+        <li class="item">
+            {% include article-box.html %}
+        </li>
+        {% endunless %}
+        {% endfor %}
+    </ol>
+</section>

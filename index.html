@@ -14,13 +14,14 @@ body_class: home-page
 <section class="page-section start-background-fade">
     <h1 class="section-headline section-heading">Latest Articles</h1>
     <ol class="article-list start-background-fade">
+        {% assign counter = 0 %}
         {% for article in site.posts %}
+            {% if article.category == 'about' %}{% continue %}{% endif %}
+            {% assign counter = counter | plus:1 %}
         <li class="item">
-            {% if forloop.index > 4 %}
-                {% break %}
-            {% endif %}
             {% include article-box.html %}
         </li>
+            {% if counter > 3 %}{% break %}{% endif %}
         {% endfor %}
     </ol>
 </section>

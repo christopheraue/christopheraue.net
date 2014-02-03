@@ -1,0 +1,21 @@
+---
+layout: default
+title: About Me - christopheraue.net
+image: canvas.jpg
+---
+<h1 class="page-headline page-heading use-sidebar">About Me</h1>
+<section class="page-section use-sidebar">
+    Some background information about me comes here...
+</section>
+{% if site.categories.about %}
+<section class="page-section">
+    <h1 class="section-headline section-heading">Some Stuff</h1>
+    <ol class="article-list start-background-fade">
+        {% for article in site.categories.about %}
+        <li class="item">
+            {% include article-box.html %}
+        </li>
+        {% endfor %}
+    </ol>
+</section>
+{% endif %}
