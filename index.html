@@ -14,7 +14,7 @@ body_class: home-page
     </div>
 </section>
 <section class="page-section start-background-fade">
-    <h2 class="section-headline section-heading">Latest Articles</h2>
+    <div class="section-headline"><h2 class="section-heading">Latest Articles</h2></div>
     <ol class="article-list start-background-fade">
         {% assign counter = 0 %}
         {% for article in site.posts %}
@@ -26,4 +26,12 @@ body_class: home-page
             {% if counter > 3 %}{% break %}{% endif %}
         {% endfor %}
     </ol>
+    <div style="clear:both"></div>
+</section>
+<section class="twitter-timeline page-section">
+    <header class="section-headline">
+        <a href="http://www.twitter.com" class="icon"></a>
+        <h2 class="section-heading">Latest Tweets</h2>
+        <a href="#" class="follow-link">Follow @christopheraue</a>
+    </header>
 </section>
