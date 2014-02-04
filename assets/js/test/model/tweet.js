@@ -5,7 +5,6 @@ require([
     
     test('The tweet model is proper defined', function() {
         notStrictEqual(Tweet, undefined, 'It is not undefined');
-        ok(Tweet.prototype instanceof Backbone.Model, 'It inherits from Backbone.Model');
     });
     
     var tweetInstance = null;
