@@ -11,12 +11,10 @@ require([
 ], function(/*qunit does not return itself...*/) {
     /* 
      * QUnit is stored in the global variable QUnit.
-     * Kick it off...
+     * Kick it off after all tests have been loaded...
      */
-    QUnit.load();
-    
-    //Here come the tests...
     require([
-        'test/model/tweet'
-    ]);
+        'test/model/tweet',
+        'test/model/tweet/collection'
+    ], QUnit.load);
 });
