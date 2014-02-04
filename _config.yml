@@ -1,3 +1,4 @@
 encoding: UTF-8
 pygments: false
 url: http://localhost/christopheraue.net/_site
+exclude: [test, sass]
