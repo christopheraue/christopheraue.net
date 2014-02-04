@@ -1,9 +1,9 @@
-require([
+define([
     'model/tweet'
 ], function(Tweet) {
     module('Tweet Model');
     
-    test('The tweet model is proper defined', function() {
+    test('The tweet model is properly defined', function() {
         notStrictEqual(Tweet, undefined, 'It is not undefined');
     });
     
@@ -13,6 +13,4 @@ require([
             tweetInstance = new Tweet;
         }
     });
-    
-    
 });
