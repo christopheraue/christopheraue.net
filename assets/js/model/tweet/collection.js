@@ -1,8 +1,11 @@
 define([
     'lib/underscore',
-    'lib/backbone'
-], function(_, backbone) {
-    var TweetCollection = Backbone.Collection.extend({});
+    'lib/backbone',
+    'model/tweet'
+], function(_, backbone, Tweet) {
+    var TweetCollection = Backbone.Collection.extend({
+        model: Tweet
+    });
     
     return TweetCollection;
 });
