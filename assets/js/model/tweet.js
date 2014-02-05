@@ -1,8 +1,7 @@
 define([
-    'lib/underscore',
-    'lib/backbone'
-], function(_, backbone) {
-    var Tweet = Backbone.Model.extend({});
+    'lib/backbone/model'
+], function(BackboneModel) {
+    var Tweet = BackboneModel.extend({});
     
     return Tweet;
 });
