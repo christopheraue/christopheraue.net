@@ -1,20 +1,33 @@
 require.config({
     baseUrl: '../',
     paths: {
-        'qunit': 'test/_assets/qunit',
-        'text': 'test/_assets/text'
+        'text': 'test/lib/text',
+        'jasmine': 'test/lib/jasmine',
+        'jasmine-html': 'test/lib/jasmine-html',
+        'jasmine-boot': 'test/lib/jasmine-boot'
+    },
+    shim: {
+        'jasmine': {
+            exports: 'jasmine'
+        },
+        'jasmine-html': {
+            deps: ['jasmine'],
+            exports: 'jasmine'
+        },
+        'jasmine-boot': {
+            deps: ['jasmine', 'jasmine-html'],
+            exports: 'jasmine'
+        }
     }
 });
 
 require([
-    'qunit'
-], function(/*qunit does not return itself...*/) {
-    /* 
-     * QUnit is stored in the global variable QUnit.
-     * Kick it off after all tests have been loaded...
-     */
+    'jasmine',
+    'jasmine-html',
+    'jasmine-boot'
+], function(jasmine) {
     require([
         'test/model/tweet',
         'test/model/tweet/collection'
-    ], QUnit.load);
+    ], window.onload); //kicking of Jasmine is bound to the window onload event in jasmine-boot
 });

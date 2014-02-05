@@ -3,28 +3,28 @@ define([
     'lib/backbone/model',
     'model/tweet'
 ], function(TweetCollection, BackboneModel, Tweet) {
-    var tweetCollectionInstance = null;
-    module('Tweet Collection Constructor');
-    
-        test('It is properly defined', function() {
-            notStrictEqual(TweetCollection, undefined, 'It is not undefined');
+    describe('Tweet Collection', function() {
+        describe('Its constructor', function() {
+            it('is not undefined', function() {
+                expect(TweetCollection).not.toBe(undefined);
+            });
         });
-    
-    module('Tweet Collection Implementation', {
-            setup: function() {
-                tweetCollectionInstance = new TweetCollection;
-            }
+        
+        describe('Its implementation', function() {
+            var tweetCollectionInstance = new TweetCollection;
+            it('inherits from Backbone.Collection', function() {
+                expect(tweetCollectionInstance instanceof BackboneModel.Collection).toBe(true);
+            });
+            it('points to the tweet model', function() {
+                expect(tweetCollectionInstance.model).toBe(Tweet);
+            });
+            it('has an url linking to its resource on api.twitter.com', function() {
+                expect(tweetCollectionInstance.url).toBe('https://api.twitter.com/1.1/statuses/user_timeline.json');
+            });
         });
-    
-        test('It correctly uses Backbone.Collection', function() {
-            ok(tweetCollectionInstance instanceof BackboneModel.Collection, 'It inherits from Backbone.Collection');
-            strictEqual(tweetCollectionInstance.model, Tweet, 'It points to the tweet model');
-            strictEqual(tweetCollectionInstance.url, 'https://api.twitter.com/1.1/statuses/user_timeline.json', 'It links to its resource');
+        
+        describe('Its behaviour', function() {
+        
         });
-    
-    module('Tweet Collection Behaviour', {
-            setup: function() {
-                tweetCollectionInstance = new TweetCollection;
-            }
-        });
+    });
 });

@@ -2,21 +2,18 @@ define([
     'model/tweet',
     'lib/backbone/model'
 ], function(Tweet, BackboneModel) {
-    var tweetInstance = null;
-    
-    module('Tweet Model');
-    
-        test('The tweet model is properly defined', function() {
-            notStrictEqual(Tweet, undefined, 'It is not undefined');
-        });
-    
-    module('Tweet Model Implementation', {
-            setup: function() {
-                tweetInstance = new Tweet;
-            }
+    describe('Tweet', function() {
+        describe('Its constructor', function() {
+            it('should not be undefined', function() {
+                expect(Tweet).not.toBe(undefined);
+            });
         });
         
-        test('It correctly uses Backbone.Model', function() {
-            ok(tweetInstance instanceof BackboneModel, 'It inherits from Backbone.Model');
+        describe('Its implementation', function() {
+            it('should use Backbone.Model', function() {
+                var tweetInstance = new Tweet;
+                expect(tweetInstance instanceof BackboneModel).toBe(true);
+            });
         });
+    });
 });
