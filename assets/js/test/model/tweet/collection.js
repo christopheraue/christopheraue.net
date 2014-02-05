@@ -19,7 +19,7 @@ define([
         test('It correctly uses Backbone.Collection', function() {
             ok(tweetCollectionInstance instanceof BackboneModel.Collection, 'It inherits from Backbone.Collection');
             strictEqual(tweetCollectionInstance.model, Tweet, 'It points to the tweet model');
-            ok(false, 'It links to its resource');
+            strictEqual(tweetCollectionInstance.url, 'https://api.twitter.com/1.1/statuses/user_timeline.json', 'It links to its resource');
         });
     
     module('Tweet Collection Behaviour', {

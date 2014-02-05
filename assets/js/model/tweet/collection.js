@@ -3,7 +3,8 @@ define([
     'model/tweet'
 ], function(BackboneModel, Tweet) {
     var TweetCollection = BackboneModel.Collection.extend({
-        model: Tweet
+        model: Tweet,
+        url: 'https://api.twitter.com/1.1/statuses/user_timeline.json'
     });
     
     return TweetCollection;
