@@ -6,7 +6,7 @@ define([
     describe('Tweet Collection', function() {
         describe('Its constructor', function() {
             it('is not undefined', function() {
-                expect(TweetCollection).not.toBe(undefined);
+                expect(TweetCollection).toBeDefined();
             });
         });
         
