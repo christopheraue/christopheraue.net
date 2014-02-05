@@ -1,8 +1,8 @@
 define([
     'model/tweet/collection',
-    'lib/backbone/model',
+    'backbone',
     'model/tweet'
-], function(TweetCollection, BackboneModel, Tweet) {
+], function(TweetCollection, Backbone, Tweet) {
     describe('Tweet Collection', function() {
         describe('Its constructor', function() {
             it('is not undefined', function() {
@@ -13,7 +13,7 @@ define([
         describe('Its implementation', function() {
             var tweetCollectionInstance = new TweetCollection;
             it('inherits from Backbone.Collection', function() {
-                expect(tweetCollectionInstance instanceof BackboneModel.Collection).toBe(true);
+                expect(tweetCollectionInstance instanceof Backbone.Collection).toBe(true);
             });
             it('points to the tweet model', function() {
                 expect(tweetCollectionInstance.model).toBe(Tweet);
@@ -24,7 +24,7 @@ define([
         });
         
         describe('Its behaviour', function() {
-        
+            
         });
     });
 });

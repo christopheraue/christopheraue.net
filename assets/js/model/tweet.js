@@ -1,7 +1,7 @@
 define([
-    'lib/backbone/model'
-], function(BackboneModel) {
-    var Tweet = BackboneModel.extend({});
+    'backbone'
+], function(Backbone) {
+    var Tweet = Backbone.Model.extend({});
     
     return Tweet;
 });
