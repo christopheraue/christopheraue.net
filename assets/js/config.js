@@ -9,7 +9,8 @@ require.config({
         backbone: {
             deps: ['underscore', 'jquery'],
             exports: 'Backbone',
-            init: function() {
+            init: function(_, $) {
+                Backbone.$ = $;
                 return Backbone.noConflict();
             }
         },

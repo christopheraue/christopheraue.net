@@ -6,7 +6,8 @@ require([
         paths: {
             'jasmine': 'test/lib/jasmine',
             'jasmine-html': 'test/lib/jasmine-html',
-            'jasmine-boot': 'test/lib/jasmine-boot'
+            'jasmine-boot': 'test/lib/jasmine-boot',
+            'ajaxproxy': 'test/lib/ajaxproxy'
         },
         shim: {
             'jasmine': {
@@ -21,7 +22,7 @@ require([
         'jasmine',
         'jasmine-html',
         'jasmine-boot'
-    ], function(jasmine) {
+    ], function(jasmine) {      
         require([
             'test/model/tweet',
             'test/model/tweet/collection'
