@@ -10,7 +10,7 @@ define([
         ajaxProxy = function(options) {
             //redirect requested url to local filesystem
             var resource_url = options.url.match(/https?:\/\/(.*)/)[1];
-            
+            resource_url = resource_url.replace('?', '/');
             options.url = config.local_base_url + resource_url;
             
             //give control back to the actual ajax function

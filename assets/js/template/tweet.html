@@ -1,0 +1,21 @@
+<blockquote class="tweet">
+    <div class="author">
+        <% var author = tweet.get("user"); %>
+        <% var author_profile_url = "https://twitter.com/"+author.screen_name %>
+        <a href="<%= author_profile_url %>" class="avatar "><img src="<%= author.profile_image_url %>" width="48px" height="48px"></img></a>
+        <a href="<%= author_profile_url %>" class="name"><%= author.name %></a>
+        <span class="at-username">
+            <span class="at">@</span><a href="<%= author_profile_url %>" class="username"><%= author.screen_name %></a>
+        </span>
+    </div>
+    <div class="text">
+        <%= tweet.get("text") %>
+    </div>
+    <% var id = tweet.get("id_str"); %>
+    <ul class="action-list">
+        <li class="item"><a href="https://twitter.com/intent/tweet?in_reply_to=<%= id %>" class="action reply"><span class="icon"></span><span class="label">Reply</span></a></li>
+        <li class="item"><a href="https://twitter.com/intent/retweet?tweet_id=<%= id %>" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a></li>
+        <li class="item"><a href="https://twitter.com/intent/favorite?tweet_id=<%= id %>" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
+    </ul>
+    <a href="https://twitter.com/christopheraue/statuses/<%= id %>" class="timestamp"><%= tweet.get("created_at") %></a>
+</blockquote>

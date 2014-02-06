@@ -25,7 +25,9 @@ require([
     ], function(jasmine) {      
         require([
             'test/model/tweet',
-            'test/model/tweet/collection'
+            'test/model/tweet/collection',
+            'test/view/tweet',
+            'test/view/tweet/collection'
         ], window.onload); //kicking of Jasmine is bound to the window onload event in jasmine-boot
     });
 });
