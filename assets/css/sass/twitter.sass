@@ -11,7 +11,8 @@
  *              <h2 class="section-heading">Latest Tweets</h2>
  *              <a href="#" class="follow-link">Follow @christopheraue</a>
  *          </header>
- *          <article class="tweet">
+ *          <ol class="tweet-list">
+ *          <li class="item"><blockquote class="tweet">
  *              <div class="author">
  *                  <a href="#" class="avatar fixie"><img width="48px" height="48px"></img></a>
  *                  <a href="#" class="name">Christopher Aue</a>
@@ -31,33 +32,8 @@
  *                  <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
  *              </ul>
  *              <a href="#" class="timestamp">5h</a>
- *          </article>
- *          <article class="tweet">
- *              <div class="author">
- *                  <a href="#" class="avatar fixie"><img width="48px" height="48px"></img></a>
- *                  <a href="#" class="name">Christopher Aue</a>
- *                  <span class="at-username">
- *                      <span class="at">@</span><a href="#" class="username">christopheraue</a>
- *                  </span>
- *              </div>
- *              <div class="retweet-indicator">
- *                  <span class="icon"></span>
- *                  <span class="note">Retweeted by <a href="#" class="name">Christopher Aue</a>.</span>
- *              </div>
- *              <div class="text">
- *                  This is the content of the tweet.
- *                  This is an <span class="at-username"><span class="at">@</span><a href="#" class="username">username</a></span> mention.
- *                  This is a <span class="hashtag"><span class="hash">#</span><a href="#" class="tag">hashtag</a></span>.
- *                  This is a <a href="#" class="link">t.co/link</a>.
- *              </div>
- *              <ul class="action-list">
- *                  <li class="item"><a href="#" class="action reply"><span class="icon"></span><span class="label">Reply</span></a></li>
- *                  <li class="item"><a href="#" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a></li>
- *                  <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
- *              </ul>
- *              <a href="#" class="timestamp">5h</a>
- *          </article>
- *          <article class="tweet">
+ *          </blockquote></li>
+ *          <li class="item"><blockquote class="tweet">
  *              <div class="author">
  *                  <a href="#" class="avatar fixie"><img width="48px" height="48px"></img></a>
  *                  <a href="#" class="name">Christopher Aue</a>
@@ -81,8 +57,33 @@
  *                  <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
  *              </ul>
  *              <a href="#" class="timestamp">5h</a>
- *          </article>
- *          <article class="tweet">
+ *          </blockquote></li>
+ *          <li class="item"><blockquote class="tweet">
+ *              <div class="author">
+ *                  <a href="#" class="avatar fixie"><img width="48px" height="48px"></img></a>
+ *                  <a href="#" class="name">Christopher Aue</a>
+ *                  <span class="at-username">
+ *                      <span class="at">@</span><a href="#" class="username">christopheraue</a>
+ *                  </span>
+ *              </div>
+ *              <div class="retweet-indicator">
+ *                  <span class="icon"></span>
+ *                  <span class="note">Retweeted by <a href="#" class="name">Christopher Aue</a>.</span>
+ *              </div>
+ *              <div class="text">
+ *                  This is the content of the tweet.
+ *                  This is an <span class="at-username"><span class="at">@</span><a href="#" class="username">username</a></span> mention.
+ *                  This is a <span class="hashtag"><span class="hash">#</span><a href="#" class="tag">hashtag</a></span>.
+ *                  This is a <a href="#" class="link">t.co/link</a>.
+ *              </div>
+ *              <ul class="action-list">
+ *                  <li class="item"><a href="#" class="action reply"><span class="icon"></span><span class="label">Reply</span></a></li>
+ *                  <li class="item"><a href="#" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a></li>
+ *                  <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
+ *              </ul>
+ *              <a href="#" class="timestamp">5h</a>
+ *          </blockquote></li>
+ *          <li class="item"><blockquote class="tweet">
  *              <div class="author">
  *                  <a href="#" class="avatar fixie"><img width="48px" height="48px"></img></a>
  *                  <a href="#" class="name">Christopher Aue</a>
@@ -102,7 +103,8 @@
  *                  <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
  *              </ul>
  *              <a href="#" class="timestamp">5h</a>
- *          </article>
+ *          </blockquote></li>
+ *          </ol>
  *      </section>
  *          </div>
  *      </div>
@@ -124,18 +126,22 @@
  *          <div id="content">    
  *              <section class="twitter-timeline page-section">
  *                  <header class="section-headline kalei-stub">Header</header>
- *                  <article class="tweet kalei-stub">Tweet</article>
- *                  <article class="tweet kalei-stub">Tweet</article>
- *                  <article class="tweet kalei-stub">Tweet</article>
+ *                  <ol class="tweet-list">
+ *                      <li class="item"><blockqoute class="tweet kalei-stub">Tweet</blockqoute></li>
+ *                      <li class="item"><blockqoute class="tweet kalei-stub">Tweet</blockqoute></li>
+ *                      <li class="item"><blockqoute class="tweet kalei-stub">Tweet</blockqoute></li>
+ *                  </ol>
  *              </section>
  *          </div>
  *      </div>
  *  </iframe>
  *  ```
  */
-.twitter-timeline
-    .tweet + .tweet
-        margin-top: 1.25em
+.twitter-timeline .tweet-list
+    > .item
+        display: block
+        + .item
+            margin-top: 1.25em
 
 /*
  *  ### Header
@@ -197,7 +203,7 @@
  *  -----
  *  ```
  *  <iframe width="320px" height="480px" class="kalei-bg-white">
- *      <article class="tweet">
+ *      <blockquote class="tweet">
  *          <div class="author">
  *              <a href="#" class="avatar fixie"><img width="48px" height="48px"></img></a>
  *              <a href="#" class="name">Christopher Aue</a>
@@ -217,7 +223,7 @@
  *              <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
  *          </ul>
  *          <a href="#" class="timestamp">5h</a>
- *      </article>
+ *      </blockquote>
  *  </iframe>
  *  ```
  */
@@ -228,6 +234,7 @@
     padding-left: .625em
     padding-bottom: 32px
     position: relative
+    display: block
     a
         text-decoration: none
         &:hover
@@ -248,7 +255,7 @@
  *  The avatar is displayed by a grey square. The src attribute of the img tag must be set
  *  individually for a tweet.
  *  ```
- *  <article class="tweet">
+ *  <blockquote class="tweet">
  *      <div class="author">
  *          <a href="#" class="avatar fixie"><img width="48px" height="48px"></img></a>
  *          <a href="#" class="name">Christopher Aue</a>
@@ -256,7 +263,7 @@
  *              <span class="at">@</span><a href="#" class="username">christopheraue</a>
  *          </span>
  *      </div>
- *  </article>
+ *  </blockquote>
  *  ```
  */
 .tweet .author
@@ -280,12 +287,12 @@
  *  ### Retweet Indicator
  *  The name has a hover state.
  *  ```
- *  <article class="tweet">
+ *  <blockquote class="tweet">
  *      <div class="retweet-indicator">
  *          <span class="icon"></span>
  *          <span class="note">Retweeted by <a href="#" class="name">Christopher Aue</a>.</span>
  *      </div>
- *  </article>
+ *  </blockquote>
  *  ```
  */
 .tweet .retweet-indicator
@@ -309,14 +316,14 @@
  *  ### Text
  *  Usernames, hashtags and links have a hover state.
  *  ```
- *  <article class="tweet">
+ *  <blockquote class="tweet">
  *      <div class="text">
  *          This is the content of the tweet.
  *          This is an <span class="at-username"><span class="at">@</span><a href="#" class="username">username</a></span> mention.
  *          This is a <span class="hashtag"><span class="hash">#</span><a href="#" class="tag">hashtag</a></span>.
  *          This is a <a href="#" class="link">t.co/link</a>.
  *      </div>
- *  </article>
+ *  </blockquote>
  *  ```
  */
 .tweet .text
@@ -357,9 +364,9 @@
 /*
  *  #### Reply
  *  ```
- *  <article class="tweet">
+ *  <blockquote class="tweet">
  *      <a href="#" class="action reply"><span class="icon"></span><span class="label">Reply</span></a>
- *  </article>
+ *  </blockquote>
  *  ```
  */
 .tweet .action.reply
@@ -376,9 +383,9 @@
 /*
  *  #### Retweet
  *  ```
- *  <article class="tweet">
+ *  <blockquote class="tweet">
  *      <a href="#" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a>
- *  </article>
+ *  </blockquote>
  *  ```
  */
 .tweet .action.retweet
@@ -395,9 +402,9 @@
 /*
  *  #### Favorite
  *  ```
- *  <article class="tweet">
+ *  <blockquote class="tweet">
  *      <a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a>
- *  </article>
+ *  </blockquote>
  *  ```
  */
 .tweet .action.favorite
@@ -414,13 +421,13 @@
 /*
  *  #### List
  *  ```
- *  <article class="tweet">
+ *  <blockquote class="tweet">
  *      <ul class="action-list">
  *          <li class="item"><a href="#" class="action reply"><span class="icon"></span><span class="label">Reply</span></a></li>
  *          <li class="item"><a href="#" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a></li>
  *          <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
  *      </ul>
- *  </article>
+ *  </blockquote>
  *  ```
  */
 .tweet .action-list
@@ -435,9 +442,9 @@
 /*
  *  ### Timestamp
  *  ```
- *  <article class="tweet">
+ *  <blockquote class="tweet">
  *      <a href="#" class="timestamp">5h</a>
- *  </article>
+ *  </blockquote>
  *  ```
  */
 .tweet .timestamp
