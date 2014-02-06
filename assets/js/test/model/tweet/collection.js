@@ -38,8 +38,8 @@ define([
                 });
             });
             
-            it('should have a length of 3', function() {
-                expect(this.tweetCollectionInstance.length).toBe(3);
+            it('should have the length of the number of tweets in the test data file', function() {
+                expect(this.tweetCollectionInstance.length).toBe(10);
             })
         });
     });
