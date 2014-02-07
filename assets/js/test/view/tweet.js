@@ -5,17 +5,6 @@ define([
     'backbone'
 ], function(TweetView, Tweet, ajaxproxy, Backbone) {
     describe('Tweet View', function() {
-        beforeEach(function(done) {
-            this.tweet = new Tweet({id: '421321506891636736'});
-            
-            ajaxproxy(Backbone.$, 'ajax');
-            this.tweet.fetch({
-                success: function() {
-                    done();
-                }
-            });
-        });
-        
         describe('Text', function() {
             describe('when there is only one entity of each type', function() {
                 beforeEach(function() {
@@ -84,7 +73,7 @@ define([
         
         describe('Timestamp', function() {
             beforeEach(function() {
-                this.timestamp = this.tweet.get('created_at');
+                this.timestamp = "Thu Jan 09 16:44:09 +0000 2014";
             });
             
             it('has a datetime that is given in UTC', function() {
