@@ -3,8 +3,10 @@ define([
     'backbone',
     'text!template/tweet.html',
     'text!template/tweet/hashtag.html',
+    'text!template/tweet/mention.html',
+    'text!template/tweet/url.html',
     'lib/date-formatter'
-], function(_, Backbone, tweetTemplate, hashtagTemplate) {
+], function(_, Backbone, tweetTemplate, hashtagTemplate, mentionTemplate, urlTemplate) {
     var TweetView = Backbone.View.extend({
             tagName: 'blockquote',
             className: 'tweet',
@@ -36,10 +38,39 @@ define([
             },
             
             prepareTweetText: function(text, entities) {
-                _.each(entities.hashtags.reverse(), function(hashtag) {
-                    text = text.substr(0, hashtag.indices[0]) +
-                           _.template(hashtagTemplate, {hashtag: hashtag.text}) +
-                           text.substr(hashtag.indices[1]);
+                text = this.prepareMentions(text, entities);
+                text = this.prepareHashtags(text, entities);
+                text = this.prepareLinks(text, entities);
+            },
+            
+            prepareMentions: function(text, entities) {
+                _.each(entities.user_mentions, function(mention) {
+                    text = text.replace(
+                        '@'+mention.screen_name,
+                        _.template(mentionTemplate, {screen_name: mention.screen_name})
+                    );
+                });
+                
+                return text;
+            },
+            
+            prepareHashtags: function(text, entities) {
+                _.each(entities.hashtags, function(hashtag) {
+                    text = text.replace(
+                        '#'+hashtag.text,
+                        _.template(hashtagTemplate, {hashtag: hashtag.text})
+                    );
+                });
+                
+                return text;
+            },
+            
+            prepareLinks: function(text, entities) {
+                _.each(entities.urls, function(url) {
+                    text = text.replace(
+                        url.url,
+                        _.template(urlTemplate, {url: url})
+                    );
                 });
                 
                 return text;

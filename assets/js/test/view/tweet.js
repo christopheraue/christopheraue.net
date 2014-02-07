@@ -17,15 +17,68 @@ define([
         });
         
         describe('Text', function() {
-            it('has all hashtags marked by the corresponding link', function() {
-                var text = this.tweet.get('text'),
-                    entities = this.tweet.get('entities');
+            describe('when there is only one entity of each type', function() {
+                beforeEach(function() {
+                    this.text = "Placeit - Generate Product Screenshots in Realistic Environments https:\/\/t.co\/EOtwdoiWsy #placeit via @placeitapp";
+                    this.entities = {
+                        "hashtags":[
+                            {
+                                "text":"placeit",
+                                "indices":[
+                                    89,
+                                    97
+                                 ]
+                            }
+                        ],
+                        "urls":[
+                            {
+                                "url":"https:\/\/t.co\/EOtwdoiWsy",
+                                "expanded_url":"https:\/\/placeit.net",
+                                "display_url":"placeit.net",
+                                "indices":[
+                                    65,
+                                    88
+                                ]
+                            }
+                        ],
+                        "user_mentions":[
+                            {
+                                "screen_name":"placeitapp",
+                                "name":"Placeit",
+                                "id":2149691558,
+                                "id_str":"2149691558",
+                                "indices":[
+                                    102,
+                                    113
+                                ]
+                            }
+                        ]
+                    };
+                });
+            
+                it('has all the hashtag marked up', function() {
+                    expect(
+                        TweetView.prepareHashtags(this.text, this.entities)
+                    ).toMatch(
+                        /<span class="hashtag"><span class="hash">#<\/span><a href="#" class="tag">placeit<\/a><\/span>/
+                    );
+                });
                 
-                expect(
-                    TweetView.prepareTweetText(text, entities)
-                ).toMatch(
-                    /<span class="hashtag"><span class="hash">#<\/span><a href="#" class="tag">placeit<\/a><\/span>/
-                );
+                it('has the mention marked up', function() {
+                    expect(
+                        TweetView.prepareMentions(this.text, this.entities)
+                    ).toMatch(
+                        /<span class="at-username"><span class="at">@<\/span><a href="https:\/\/twitter.com\/placeitapp" class="username">placeitapp<\/a><\/span>/
+                    );
+                });
+                
+                it('has the link marked up', function() {
+                    expect(
+                        TweetView.prepareLinks(this.text, this.entities)
+                    ).toMatch(
+                        /<a href="https:\/\/t.co\/EOtwdoiWsy" class="link">placeit.net<\/a>/
+                    );
+                });
             });
         });
         
