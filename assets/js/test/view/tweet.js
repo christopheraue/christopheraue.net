@@ -18,6 +18,12 @@ define([
             });
         });
         
+        describe('Text', function() {
+            it('has all hashtags marked by the corresponding link', function() {
+                expect(this.tweetView.prepareTweetText()).toMatch(/<span class="hashtag"><span class="hash">#<\/span><a href="#" class="tag">placeit<\/a><\/span>/);
+            });
+        });
+        
         describe('Timestamp', function() {
             it('has a datetime that is given in UTC', function() {
                 expect(this.tweetView.prepareTweetTimestamp().datetime).toBe('Thu, 09 Jan 2014 16:44:09 GMT');
@@ -52,17 +58,6 @@ define([
                 //set now to 1 year, 8 days, 2 hours, 18 minutes and 44 seconds after the tweet was posted
                 spyOn(Date, 'now').and.returnValue(new Date('Thu, 17 Jan 2015 19:06:43 GMT'));
                 expect(this.tweetView.prepareTweetTimestamp().formatted).toBe('Jan 09, 2014');
-            });
-        });
-        
-        it('renders correctly', function(done) {
-            var tweetViewHtml = this.tweetView.render().el.outerHTML;
-            
-            require([
-                'text!test/_data/view/tweet/421321506891636736/render.out'
-            ], function(referenceOutput) {
-                expect(tweetViewHtml).toBe(referenceOutput);
-                done();
             });
         });
     });

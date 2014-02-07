@@ -2,8 +2,9 @@ define([
     'underscore',
     'backbone',
     'text!template/tweet.html',
+    'text!template/tweet/hashtag.html',
     'lib/date-formatter'
-], function(_, Backbone, tweetTemplate) {
+], function(_, Backbone, tweetTemplate, hashtagTemplate) {
     var TweetView = Backbone.View.extend({
         tagName: 'blockquote',
         className: 'tweet',
@@ -40,6 +41,12 @@ define([
         prepareTweetText: function() {
             var text = this.model.get("text"),
                 entities = this.model.get("entities");
+            
+            _.each(entities.hashtags.reverse(), function(hashtag) {
+                text = text.substr(0, hashtag.indices[0]) +
+                       _.template(hashtagTemplate, {hashtag: hashtag.text}) +
+                       text.substr(hashtag.indices[1]);
+            });
             
             return text;
         },
