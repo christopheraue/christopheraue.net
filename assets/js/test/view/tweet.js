@@ -292,5 +292,340 @@ define([
                 ).toBe('Jan 09, 2014');
             });
         });
+        
+        describe('Original Tweet', function() {
+            var tweet = new Tweet({
+                  "created_at":"Thu Jan 09 16:44:09 +0000 2014",
+                  "id":421321506891636736,
+                  "id_str":"421321506891636736",
+                  "text":"Placeit - Generate Product Screenshots in Realistic Environments",
+                  "source":"\u003ca href=\"http:\/\/twitter.com\/tweetbutton\" rel=\"nofollow\"\u003eTweet Button\u003c\/a\u003e",
+                  "truncated":false,
+                  "in_reply_to_status_id":null,
+                  "in_reply_to_status_id_str":null,
+                  "in_reply_to_user_id":null,
+                  "in_reply_to_user_id_str":null,
+                  "in_reply_to_screen_name":null,
+                  "user":{
+                     "id":253575497,
+                     "id_str":"253575497",
+                     "name":"Christopher Aue",
+                     "screen_name":"christopheraue",
+                     "location":"Germany",
+                     "description":"",
+                     "url":"http:\/\/t.co\/YoaOPCJ1qc",
+                     "entities":{
+                        "url":{
+                           "urls":[
+                              {
+                                 "url":"http:\/\/t.co\/YoaOPCJ1qc",
+                                 "expanded_url":"http:\/\/christopheraue.net",
+                                 "display_url":"christopheraue.net",
+                                 "indices":[
+                                    0,
+                                    22
+                                 ]
+                              }
+                           ]
+                        },
+                        "description":{
+                           "urls":[
+
+                           ]
+                        }
+                     },
+                     "protected":false,
+                     "followers_count":7,
+                     "friends_count":14,
+                     "listed_count":0,
+                     "created_at":"Thu Feb 17 14:41:06 +0000 2011",
+                     "favourites_count":1,
+                     "utc_offset":3600,
+                     "time_zone":"Amsterdam",
+                     "geo_enabled":false,
+                     "verified":false,
+                     "statuses_count":34,
+                     "lang":"en",
+                     "contributors_enabled":false,
+                     "is_translator":false,
+                     "is_translation_enabled":false,
+                     "profile_background_color":"C0DEED",
+                     "profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+                     "profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+                     "profile_background_tile":false,
+                     "profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/378800000847541191\/c52da5baadf1eeb7e2e06ad803936d20_normal.png",
+                     "profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/378800000847541191\/c52da5baadf1eeb7e2e06ad803936d20_normal.png",
+                     "profile_link_color":"0084B4",
+                     "profile_sidebar_border_color":"C0DEED",
+                     "profile_sidebar_fill_color":"DDEEF6",
+                     "profile_text_color":"333333",
+                     "profile_use_background_image":true,
+                     "default_profile":true,
+                     "default_profile_image":false,
+                     "following":false,
+                     "follow_request_sent":false,
+                     "notifications":false
+                  },
+                  "geo":null,
+                  "coordinates":null,
+                  "place":null,
+                  "contributors":null,
+                  "retweet_count":0,
+                  "favorite_count":0,
+                  "favorited":false,
+                  "retweeted":false,
+                  "possibly_sensitive":false,
+                  "lang":"en"
+                });
+            
+            var preparedTweet = TweetView.prepareTweet(tweet);
+            it('has its own ID set', function() {
+                expect(preparedTweet.id).toBe("421321506891636736");
+            });
+            it('shows its author', function() {
+                expect(preparedTweet.author).toEqual({
+                    name: "Christopher Aue",
+                    screen_name: "christopheraue",
+                    profile_url: "https://twitter.com/christopheraue",
+                    profile_image_url: "http:\/\/pbs.twimg.com\/profile_images\/378800000847541191\/c52da5baadf1eeb7e2e06ad803936d20_normal.png"
+                });
+            });
+            it('has no retweet indicator', function() {
+                expect(preparedTweet.retweet_indicator).toBe('');
+            });
+            it('shows its text', function() { 
+                expect(preparedTweet.text).toBe("Placeit - Generate Product Screenshots in Realistic Environments");
+            });
+            it('shows its timestamp', function() {
+                expect(preparedTweet.created_at.datetime).toBe("Thu, 09 Jan 2014 16:44:09 GMT");
+            });
+        });
+        
+        describe('Retweet', function() {
+            var tweet = new Tweet({
+                      "created_at":"Thu Jan 02 11:36:02 +0000 2014",
+                      "id":418707250648084482,
+                      "id_str":"418707250648084482",
+                      "text":"RT @lukew: What's better than discussing? Designing. What's better than designing? Coding. What's better than coding? Shipping.",
+                      "source":"\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+                      "truncated":false,
+                      "in_reply_to_status_id":null,
+                      "in_reply_to_status_id_str":null,
+                      "in_reply_to_user_id":null,
+                      "in_reply_to_user_id_str":null,
+                      "in_reply_to_screen_name":null,
+                      "user":{
+                         "id":253575497,
+                         "id_str":"253575497",
+                         "name":"Christopher Aue",
+                         "screen_name":"christopheraue",
+                         "location":"Germany",
+                         "description":"",
+                         "url":"http:\/\/t.co\/YoaOPCJ1qc",
+                         "entities":{
+                            "url":{
+                               "urls":[
+                                  {
+                                     "url":"http:\/\/t.co\/YoaOPCJ1qc",
+                                     "expanded_url":"http:\/\/christopheraue.net",
+                                     "display_url":"christopheraue.net",
+                                     "indices":[
+                                        0,
+                                        22
+                                     ]
+                                  }
+                               ]
+                            },
+                            "description":{
+                               "urls":[
+
+                               ]
+                            }
+                         },
+                         "protected":false,
+                         "followers_count":7,
+                         "friends_count":14,
+                         "listed_count":0,
+                         "created_at":"Thu Feb 17 14:41:06 +0000 2011",
+                         "favourites_count":1,
+                         "utc_offset":3600,
+                         "time_zone":"Amsterdam",
+                         "geo_enabled":false,
+                         "verified":false,
+                         "statuses_count":34,
+                         "lang":"en",
+                         "contributors_enabled":false,
+                         "is_translator":false,
+                         "is_translation_enabled":false,
+                         "profile_background_color":"C0DEED",
+                         "profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+                         "profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+                         "profile_background_tile":false,
+                         "profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/378800000847541191\/c52da5baadf1eeb7e2e06ad803936d20_normal.png",
+                         "profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/378800000847541191\/c52da5baadf1eeb7e2e06ad803936d20_normal.png",
+                         "profile_link_color":"0084B4",
+                         "profile_sidebar_border_color":"C0DEED",
+                         "profile_sidebar_fill_color":"DDEEF6",
+                         "profile_text_color":"333333",
+                         "profile_use_background_image":true,
+                         "default_profile":true,
+                         "default_profile_image":false,
+                         "following":false,
+                         "follow_request_sent":false,
+                         "notifications":false
+                      },
+                      "geo":null,
+                      "coordinates":null,
+                      "place":null,
+                      "contributors":null,
+                      "retweeted_status":{
+                         "created_at":"Thu Nov 28 01:13:18 +0000 2013",
+                         "id":405866958165258240,
+                         "id_str":"405866958165258240",
+                         "text":"What's better than discussing? Designing. What's better than designing? Coding. What's better than coding? Shipping.",
+                         "source":"\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+                         "truncated":false,
+                         "in_reply_to_status_id":null,
+                         "in_reply_to_status_id_str":null,
+                         "in_reply_to_user_id":null,
+                         "in_reply_to_user_id_str":null,
+                         "in_reply_to_screen_name":null,
+                         "user":{
+                            "id":13889622,
+                            "id_str":"13889622",
+                            "name":"Luke Wroblewski",
+                            "screen_name":"lukew",
+                            "location":"Silicon Valley + the Web",
+                            "description":"Digital product design & strategy guy in Silicon Valley. Known for Mobile First, Web Form Design, Polar, Bagcheck, ...",
+                            "url":"http:\/\/t.co\/eTQHZeellQ",
+                            "entities":{
+                               "url":{
+                                  "urls":[
+                                     {
+                                        "url":"http:\/\/t.co\/eTQHZeellQ",
+                                        "expanded_url":"http:\/\/www.lukew.com",
+                                        "display_url":"lukew.com",
+                                        "indices":[
+                                           0,
+                                           22
+                                        ]
+                                     }
+                                  ]
+                               },
+                               "description":{
+                                  "urls":[
+
+                                  ]
+                               }
+                            },
+                            "protected":false,
+                            "followers_count":79261,
+                            "friends_count":97,
+                            "listed_count":5813,
+                            "created_at":"Sun Feb 24 04:01:42 +0000 2008",
+                            "favourites_count":2318,
+                            "utc_offset":-28800,
+                            "time_zone":"Pacific Time (US & Canada)",
+                            "geo_enabled":true,
+                            "verified":false,
+                            "statuses_count":13094,
+                            "lang":"en",
+                            "contributors_enabled":false,
+                            "is_translator":false,
+                            "is_translation_enabled":false,
+                            "profile_background_color":"FFFFFF",
+                            "profile_background_image_url":"http:\/\/pbs.twimg.com\/profile_background_images\/333653482\/Screen_shot_2011-09-20_at_10.32.22_AM.png",
+                            "profile_background_image_url_https":"https:\/\/pbs.twimg.com\/profile_background_images\/333653482\/Screen_shot_2011-09-20_at_10.32.22_AM.png",
+                            "profile_background_tile":false,
+                            "profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/2924627654\/c28337b0191a03064ba289db29564dc8_normal.png",
+                            "profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/2924627654\/c28337b0191a03064ba289db29564dc8_normal.png",
+                            "profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/13889622\/1348540123",
+                            "profile_link_color":"449400",
+                            "profile_sidebar_border_color":"88D822",
+                            "profile_sidebar_fill_color":"E3F8AF",
+                            "profile_text_color":"484242",
+                            "profile_use_background_image":true,
+                            "default_profile":false,
+                            "default_profile_image":false,
+                            "following":false,
+                            "follow_request_sent":false,
+                            "notifications":false
+                         },
+                         "geo":null,
+                         "coordinates":null,
+                         "place":null,
+                         "contributors":null,
+                         "retweet_count":255,
+                         "favorite_count":187,
+                         "entities":{
+                            "hashtags":[
+
+                            ],
+                            "symbols":[
+
+                            ],
+                            "urls":[
+
+                            ],
+                            "user_mentions":[
+
+                            ]
+                         },
+                         "favorited":true,
+                         "retweeted":true,
+                         "lang":"en"
+                      },
+                      "retweet_count":255,
+                      "favorite_count":0,
+                      "entities":{
+                         "hashtags":[
+
+                         ],
+                         "symbols":[
+
+                         ],
+                         "urls":[
+
+                         ],
+                         "user_mentions":[
+                            {
+                               "screen_name":"lukew",
+                               "name":"Luke Wroblewski",
+                               "id":13889622,
+                               "id_str":"13889622",
+                               "indices":[
+                                  3,
+                                  9
+                               ]
+                            }
+                         ]
+                      },
+                      "favorited":true,
+                      "retweeted":true,
+                      "lang":"en"
+                    });
+            
+            var preparedTweet = TweetView.prepareTweet(tweet);
+            it('has its own ID set', function() {
+                expect(preparedTweet.id).toBe("418707250648084482");
+            });
+            it('shows the author of the origianl tweet', function() {
+                    expect(preparedTweet.author).toEqual({
+                    name: "Luke Wroblewski",
+                    screen_name: "lukew",
+                    profile_url: "https://twitter.com/lukew",
+                    profile_image_url: "http:\/\/pbs.twimg.com\/profile_images\/2924627654\/c28337b0191a03064ba289db29564dc8_normal.png"
+                });
+            });
+            it('has a retweet indicator showing the author or the retweet', function() {
+                expect(preparedTweet.retweet_indicator).toMatch(/Retweeted by <a href="https:\/\/twitter.com\/christopheraue" class="name">Christopher Aue<\/a>/);
+            });
+            it('shows the text of the original tweet set', function() { 
+                expect(preparedTweet.text).toBe("What's better than discussing? Designing. What's better than designing? Coding. What's better than coding? Shipping.");
+            });
+            it('shows the timestamp of the original tweet', function() {
+                expect(preparedTweet.created_at.datetime).toBe("Thu, 28 Nov 2013 01:13:18 GMT");
+            });
+        });
     });
 });

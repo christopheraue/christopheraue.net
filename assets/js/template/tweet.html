@@ -6,6 +6,7 @@
             <span class="at">@</span><a href="<%= tweet.author.profile_url %>" class="username"><%= tweet.author.screen_name %></a>
         </span>
     </div>
+    <%= tweet.retweet_indicator %>
     <div class="text">
         <%= tweet.text %>
     </div>
