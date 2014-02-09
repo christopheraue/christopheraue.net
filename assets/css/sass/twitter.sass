@@ -31,7 +31,7 @@
  *                  <li class="item"><a href="#" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a></li>
  *                  <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
  *              </ul>
- *              <a href="#" class="timestamp">5h</a>
+ *              <a href="#" class="permlink"><time class="timestamp">5h</time></a>
  *          </blockquote></li>
  *          <li class="item"><blockquote class="tweet">
  *              <div class="author">
@@ -56,7 +56,7 @@
  *                  <li class="item"><a href="#" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a></li>
  *                  <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
  *              </ul>
- *              <a href="#" class="timestamp">5h</a>
+ *              <a href="#" class="permlink"><time class="timestamp">5h</time></a>
  *          </blockquote></li>
  *          <li class="item"><blockquote class="tweet">
  *              <div class="author">
@@ -81,7 +81,7 @@
  *                  <li class="item"><a href="#" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a></li>
  *                  <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
  *              </ul>
- *              <a href="#" class="timestamp">5h</a>
+ *              <a href="#" class="permlink"><time class="timestamp">5h</time></a>
  *          </blockquote></li>
  *          <li class="item"><blockquote class="tweet">
  *              <div class="author">
@@ -102,7 +102,7 @@
  *                  <li class="item"><a href="#" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a></li>
  *                  <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
  *              </ul>
- *              <a href="#" class="timestamp">5h</a>
+ *              <a href="#" class="permlink"><time class="timestamp">5h</time></a>
  *          </blockquote></li>
  *          </ol>
  *      </section>
@@ -222,7 +222,7 @@
  *              <li class="item"><a href="#" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a></li>
  *              <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
  *          </ul>
- *          <a href="#" class="timestamp">5h</a>
+ *          <a href="#" class="permlink"><time class="timestamp">5h</time></a>
  *      </blockquote>
  *  </iframe>
  *  ```
@@ -243,7 +243,7 @@
         position: absolute
         bottom: 0
         left: .625em
-    .timestamp
+    .permlink
         position: absolute
         bottom: 0
         right: 100%
@@ -443,15 +443,17 @@
  *  ### Timestamp
  *  ```
  *  <blockquote class="tweet">
- *      <a href="#" class="timestamp">5h</a>
+ *      <a href="#" class="permlink"><time class="timestamp">5h</time></a>
  *  </blockquote>
  *  ```
  */
-.tweet .timestamp
-    display: inline-block
+.tweet .permlink
     color: black
+    display: inline-block
     opacity: .2
     &:hover
         opacity: .5
-    @media screen and (min-width: 50em) //800px
-        font-size: .75em
+
+.tweet .timestamp
+    white-space: nowrap
+    font-size: .75em

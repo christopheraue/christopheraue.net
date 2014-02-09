@@ -15,5 +15,5 @@
         <li class="item"><a href="https://twitter.com/intent/retweet?tweet_id=<%= tweet.id %>" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a></li>
         <li class="item"><a href="https://twitter.com/intent/favorite?tweet_id=<%= tweet.id %>" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
     </ul>
-    <a href="https://twitter.com/christopheraue/statuses/<%= tweet.id %>" class="timestamp"><time datetime="<%= tweet.created_at.datetime %>"><%= tweet.created_at.formatted %></time></a>
+    <a href="https://twitter.com/christopheraue/statuses/<%= tweet.id %>" class="permlink"><time datetime="<%= tweet.created_at.datetime %>" class="timestamp"><%= tweet.created_at.formatted %></time></a>
 </blockquote>
