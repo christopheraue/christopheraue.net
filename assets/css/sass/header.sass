@@ -1,10 +1,10 @@
 ﻿/*
  *  Header
  *  ======
+ *
  *  Layout
  *  ------
  *  The header behaves responsively and breaks at the aforementioned breakpoints.
- *
  *  ```
  *  <iframe width="800" height="360" class="kalei-bg-image">
  *      <header id="page-header">
@@ -114,7 +114,6 @@
  *  </iframe>
  *  ```
  */
-        
 .logo-area
     height: 46px
     background: url(../images/logo-inv-065black.png)
@@ -443,3 +442,39 @@
         color: white
         .arrow
             opacity: 1
+
+/*
+ *  Header Attached To the Top
+ *  ==========================
+ *  ```
+ *  <iframe width="800" height="360" class="kalei-bg-image">
+ *      <header id="page-header" class="attached-to-top">
+ *          <div class="logo-area">
+ *              <a href="#" class="logo"></a>
+ *          </div>
+ *          <div class="menu-button"></div>
+ *          <div class="menu-area">
+ *              <nav><ul class="mainnav-link-list">
+ *                  <li class="item"><a href="#" class="mainnav-link articles">Articles</a></li>
+ *                  <li class="item active"><a href="#" class="mainnav-link about">About Me</a></li>
+ *              </ul></nav>
+ *              <nav class="social-links"><ul class="social-link-list">
+ *                  <li class="item"><a href="#" class="social-link twit"></a></li>
+ *                  <li class="item"><a href="#" class="social-link face"></a></li>
+ *                  <li class="item"><a href="#" class="social-link gith"></a></li>
+ *                  <li class="item"><a href="#" class="social-link mail"></a></li>
+ *              </ul></nav>
+ *              <a href="#" class="impress-link">Impress</a>
+ *              <a href="#" class="close-menu-button"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
+ *          </div>
+ *      </header>
+ *  </iframe>
+ *  ```
+ */
+#page-header.attached-to-top
+    .logo-area
+        background: black
+    .mainnav-link-list .item
+        background: black
+    .social-links
+        background: black

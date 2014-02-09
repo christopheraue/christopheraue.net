@@ -110,6 +110,7 @@ body
         right: 0
         
         @media screen and (min-width: 50em) //800px
+            position: absolute
             top: 1.5625em //25px
         
         @media screen and (min-width: 81.25em) //1300px
@@ -127,19 +128,19 @@ body
 /*
  *  ### Page scrolled down
  *  For viewports, that display the header at the top, it will be fixed there if scrolled down. Set
- *  the css class `.scrolled-past` for the header to fix it there.
+ *  the css class `.attached-to-top` for the header to fix it there.
  *  ```
  *  <iframe width="800" height="480" class="kalei-bg-white">
- *      <header id="page-header" class="scrolled-past kalei-stub">HEADER</header>
+ *      <header id="page-header" class="attached-to-top kalei-stub">HEADER</header>
  *      <div id="content-container">
  *          <div id="content" class="kalei-stub">CONTENT<article class="fixie"></article></div>
  *      </div>
  *  </iframe>
  *  ```
  */
-body #page-header.scrolled-past
-    @media screen and (min-width: 50em) //800px
-        top: 0
+body #page-header.attached-to-top
+    position: fixed
+    top: 0
 
 /*
  *  Background
