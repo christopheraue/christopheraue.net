@@ -26,9 +26,6 @@ define([
             it('points to the tweet model', function() {
                 expect(this.tweetCollectionInstance.model).toBe(Tweet);
             });
-            it('has an url linking to its resource on api.twitter.com', function() {
-                expect(this.tweetCollectionInstance.url).toBe('https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=christopheraue&count=10&max_id=421321506891636736');
-            });
         });
         
         describe('The collection after it fetched tweets from the server', function() {
