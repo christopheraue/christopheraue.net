@@ -1,0 +1,10 @@
+Options +ExecCGI
+AddHandler cgi-script .rb
+
+Order Allow,Deny
+Deny from all
+
+<FilesMatch "\.rb$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
