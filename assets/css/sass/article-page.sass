@@ -426,15 +426,15 @@ body.article-page #content
  *  ### Sidebar States
  *  #### Sidebar Attached to the Viewport
  *  The sidebar is attached to the header by giving the `<.article-sidebar>` a class 
- *  `attach-to-viewport`.
+ *  `attached-to-viewport`.
  *  ```
  *  <iframe width="800" height="600" class="article kalei-bg-white">
- *      <header id="page-header" class="scrolled-past kalei-stub">HEADER</header>
+ *      <header id="page-header" class="attached-to-top kalei-stub">HEADER</header>
  *      <div id="content-container">
  *          <div id="content">
  *              <article id="main-article">
  *                  <div class="text start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
- *                  <div class="article-sidebar attach-to-viewport">
+ *                  <div class="article-sidebar attached-to-viewport">
  *                      <div class="drawer">
  *                          <div class="column article-details">
  *                              <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
@@ -461,7 +461,7 @@ body.article-page #content
  *  </iframe>
  *  ```
  */
-.article-sidebar.attach-to-viewport
+.article-sidebar.attached-to-viewport
     position: fixed
     bottom: 0
     left: 0
@@ -478,15 +478,15 @@ body.article-page #content
 
 /*
  *  #### Attached and Collapsed Sidebar
- *  To collapse the sidebar give the `<.article-sidebar.attach-to-viewport>` a class `collapsed`.
+ *  To collapse the sidebar give the `<.article-sidebar.attached-to-viewport>` a class `collapsed`.
  *  ```
  *  <iframe width="800" height="400" class="article scrolled kalei-bg-white">
- *      <header id="page-header" class="scrolled-past kalei-stub">HEADER</header>
+ *      <header id="page-header" class="attached-to-top kalei-stub">HEADER</header>
  *      <div id="content-container">
  *          <div id="content">
  *              <article id="main-article">
  *                  <div class="text start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
- *                  <div class="article-sidebar attach-to-viewport collapsed">
+ *                  <div class="article-sidebar attached-to-viewport collapsed">
  *                      <div class="drawer">
  *                          <div class="column article-details">
  *                              <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
@@ -514,6 +514,6 @@ body.article-page #content
  *  ```
  */
    
-.article-sidebar.attach-to-viewport.collapsed
+.article-sidebar.attached-to-viewport.collapsed
     .drawer
         max-height: 0

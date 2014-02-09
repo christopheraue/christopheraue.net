@@ -1,10 +1,6 @@
 ﻿/*
  *  Header
  *  ======
- *
- *  Layout
- *  ------
- *  The header behaves responsively and breaks at the aforementioned breakpoints.
  *  ```
  *  <iframe width="800" height="360" class="kalei-bg-image">
  *      <header id="page-header">
@@ -29,6 +25,15 @@
  *      </header>
  *  </iframe>
  *  ```
+ */
+#page-header
+    background: rgba(0,0,0,.65)
+
+/*
+ *  Layout
+ *  ------
+ *  The header behaves responsively and breaks at the aforementioned breakpoints.
+ *  
  */
 #page-header
     .menu-button
@@ -116,25 +121,23 @@
  */
 .logo-area
     height: 46px
-    background: url(../images/logo-inv-065black.png)
+    background: url(../images/logo-inv-065black.png) -15px -15px
+    padding: 10px
     .logo
         display: block
         background: url(../images/logo-white.png) no-repeat
-        opacity: 0.5
+        opacity: 0.65
         height: 46px
         width: 226px
         &:hover
             opacity: 1
-    @media screen and (max-width: 49.9375em) //799px
-        background-position: -15px -15px
-        padding: 10px
-    @media screen and (min-width: 50em) and (max-width: 81.1875em) //800px and 1299px
+    @media screen and (min-width: 50em) //800px
+        background: transparent
         padding: 17px 25px
-        background-position: 0 -8px
+        height: auto
         width: 275px
     @media screen and (min-width: 81.25em) //1300px
         height: 46px
-        background-position: 0 25px
         padding: 50px 25px
         width: 225px
 
@@ -174,7 +177,7 @@
     @media screen and (min-width: 50em)
         padding: 0 25px
         line-height: 80px
-        background: black
+        background: transparent
         opacity: 0.65
         &.active
             opacity: 0.9
@@ -338,7 +341,7 @@
  */
 .social-links
     @media screen and (min-width: 50em) //800px
-        background: rgba(0,0,0,0.65)
+        //background: rgba(0,0,0,0.65)
     @media screen and (min-width: 50em) and (max-width: 81.1875em) //800px and 1299px
         height: 80px
         overflow: hidden
@@ -442,39 +445,3 @@
         color: white
         .arrow
             opacity: 1
-
-/*
- *  Header Attached To the Top
- *  ==========================
- *  ```
- *  <iframe width="800" height="360" class="kalei-bg-image">
- *      <header id="page-header" class="attached-to-top">
- *          <div class="logo-area">
- *              <a href="#" class="logo"></a>
- *          </div>
- *          <div class="menu-button"></div>
- *          <div class="menu-area">
- *              <nav><ul class="mainnav-link-list">
- *                  <li class="item"><a href="#" class="mainnav-link articles">Articles</a></li>
- *                  <li class="item active"><a href="#" class="mainnav-link about">About Me</a></li>
- *              </ul></nav>
- *              <nav class="social-links"><ul class="social-link-list">
- *                  <li class="item"><a href="#" class="social-link twit"></a></li>
- *                  <li class="item"><a href="#" class="social-link face"></a></li>
- *                  <li class="item"><a href="#" class="social-link gith"></a></li>
- *                  <li class="item"><a href="#" class="social-link mail"></a></li>
- *              </ul></nav>
- *              <a href="#" class="impress-link">Impress</a>
- *              <a href="#" class="close-menu-button"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
- *          </div>
- *      </header>
- *  </iframe>
- *  ```
- */
-#page-header.attached-to-top
-    .logo-area
-        background: black
-    .mainnav-link-list .item
-        background: black
-    .social-links
-        background: black
