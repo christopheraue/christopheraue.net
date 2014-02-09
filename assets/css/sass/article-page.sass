@@ -359,10 +359,8 @@ body.article-page #content
 .article-sidebar .drawer
     overflow: hidden
     max-height: 15em
-    transition: max-height 1s
     @media screen and (min-width: 50em) //800px
         max-height: 32em
-        transition: max-height 2s
 
 /*
  *  ### Drawer Handle
@@ -386,7 +384,6 @@ body.article-page #content
     cursor: pointer
     .arrow
         background: url(../images/arrows.png) no-repeat -92px 0
-        transition: background-position step-end .6s
         height: 8px
         width: 22px
         float: right
@@ -399,28 +396,8 @@ body.article-page #content
         .arrow
             display: inline-block
             background-position: -61px 0
-            transition: background-position step-end 1.2s
             float: none
             margin: 0
-        
-/*
- *  ### Drawer Handle (Collapsed Sidebar)
- *  ```
- *  <iframe width="800" height="350" class="kalei-white">
- *  <div class="article-sidebar attach-to-viewport collapsed" style="margin-left: 100px; margin-top: 100px">
- *      <div class="drawer-handle">Details<span class="arrow"></span></div>
- *  </div>
- *  </iframe>
- *  ```
- */
-.article-sidebar.collapsed .drawer-handle
-    .arrow
-        background-position: -61px 0
-        transition: background-position step-end 1s
-    @media screen and (min-width: 50em) //800px
-        .arrow
-            background-position: -92px 0
-            transition: background-position step-end 2s
 
 /*
  *  ### Sidebar States
@@ -476,6 +453,17 @@ body.article-page #content
     @media screen and (min-width: 81.25em) //1300px
         top: 0
 
+.article-sidebar.attached-to-viewport .drawer
+    transition: max-height .5s
+    @media screen and (min-width: 50em) //800px
+        transition: max-height 1s
+
+.article-sidebar.attached-to-viewport .drawer-handle
+    .arrow
+        transition: background-position step-end .3s
+        @media screen and (min-width: 50em) //800px
+            transition: background-position step-end .6s
+
 /*
  *  #### Attached and Collapsed Sidebar
  *  To collapse the sidebar give the `<.article-sidebar.attached-to-viewport>` a class `collapsed`.
@@ -517,3 +505,11 @@ body.article-page #content
 .article-sidebar.attached-to-viewport.collapsed
     .drawer
         max-height: 0
+    .drawer-handle
+        .arrow
+            background-position: -61px 0
+            transition: background-position step-end .5s
+        @media screen and (min-width: 50em) //800px
+            .arrow
+                background-position: -92px 0
+                transition: background-position step-end 1s

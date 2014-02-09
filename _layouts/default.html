@@ -6,7 +6,7 @@
     <head>
         <title>{{ page.title }}</title>
         <link rel="stylesheet" href="{{ site.url }}/assets/css/styles.css" type="text/css" />
-        <script data-main="assets/js/main" src="assets/js/lib/require.js"></script>
+        <script data-main="{{ site.url }}/assets/js/main" src="{{ site.url }}/assets/js/lib/require.js"></script>
     </head>
     <body class="{% if isArticlePage %}article-page {% endif %}{{ page.body_class }}"
           style="background-image:url({{ site.url }}/assets/images/background/{{ page.image }})">

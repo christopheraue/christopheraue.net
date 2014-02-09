@@ -28,6 +28,10 @@
  */
 #page-header
     background: rgba(0,0,0,.65)
+    transition: background 1s
+    
+#page-header.opaque
+    background: rgba(0,0,0,1)
 
 /*
  *  Layout
@@ -148,7 +152,7 @@
  *  to be visible.*
  *  ```
  *  <iframe width="480" height="100" class="kalei-bg-black">
- *  <div class="menu-button" style="display: block"></div>
+ *  <a href="#" class="menu-button" style="display: block"></a>
  *  </iframe>
  *  ```
  */
@@ -157,6 +161,7 @@
     height: 46px
     width: 40px
     opacity: 0.5
+    display: block
     &:hover
         opacity: 1
 
