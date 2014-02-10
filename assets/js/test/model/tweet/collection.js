@@ -30,11 +30,7 @@ define([
         
         describe('The collection after it fetched tweets from the server', function() {
             beforeEach(function(done) {
-                this.tweetCollectionInstance = new TweetCollection([], {
-                    screen_name: 'christopheraue',
-                    count: '10',
-                    max_id: '421321506891636736'
-                });
+                this.tweetCollectionInstance = new TweetCollection();
                 
                 ajaxproxy(Backbone.$, 'ajax');
                 this.tweetCollectionInstance.fetch({
