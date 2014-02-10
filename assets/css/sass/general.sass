@@ -128,17 +128,17 @@ body
 /*
  *  ### Page scrolled down
  *  For viewports, that display the header at the top, it will be fixed there if scrolled down. Set
- *  the css class `.attached-to-top` for the header to fix it there.
+ *  the css class `.attached-to-viewport` for the header to fix it there.
  *  ```
  *  <iframe width="800" height="480" class="kalei-bg-white">
- *      <header id="page-header" class="attached-to-top kalei-stub">HEADER</header>
+ *      <header id="page-header" class="attached-to-viewport kalei-stub">HEADER</header>
  *      <div id="content-container">
  *          <div id="content" class="kalei-stub">CONTENT<article class="fixie"></article></div>
  *      </div>
  *  </iframe>
  *  ```
  */
-body #page-header.attached-to-top
+body #page-header.attached-to-viewport
     position: fixed
     top: 0
 

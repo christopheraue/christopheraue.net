@@ -453,16 +453,23 @@ body.article-page #content
     @media screen and (min-width: 81.25em) //1300px
         top: 0
 
-.article-sidebar.attached-to-viewport .drawer
+.article-sidebar.animate .drawer
     transition: max-height .5s
     @media screen and (min-width: 50em) //800px
         transition: max-height 1s
 
-.article-sidebar.attached-to-viewport .drawer-handle
+.article-sidebar.animate .drawer-handle
     .arrow
         transition: background-position step-end .3s
         @media screen and (min-width: 50em) //800px
             transition: background-position step-end .6s
+
+.article-sidebar.animate.collapsed .drawer-handle
+    .arrow
+        transition: background-position step-end .5s
+    @media screen and (min-width: 50em) //800px
+        .arrow
+            transition: background-position step-end 1s
 
 /*
  *  #### Attached and Collapsed Sidebar
@@ -508,8 +515,6 @@ body.article-page #content
     .drawer-handle
         .arrow
             background-position: -61px 0
-            transition: background-position step-end .5s
         @media screen and (min-width: 50em) //800px
             .arrow
                 background-position: -92px 0
-                transition: background-position step-end 1s
