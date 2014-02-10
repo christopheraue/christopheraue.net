@@ -1,6 +1,6 @@
 define([
     'jquery',
-    'viewhelper/window'
+    'ui-helper/window'
 ], function($, window) {
     return {
         $el: $('.start-background-fade'),

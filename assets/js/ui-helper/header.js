@@ -1,9 +1,9 @@
 define([
     'underscore',
     'jquery',
-    'viewhelper/window',
-    'viewhelper/backgroundFader',
-    'viewhelper/attachable'
+    'ui-helper/window',
+    'ui-helper/backgroundFader',
+    'ui-helper/attachable'
 ], function(_, $, window, bgFader, attachable) {
     var header = Object.create(attachable);
     

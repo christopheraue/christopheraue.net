@@ -1,13 +1,13 @@
 define([
     'underscore',
-    'controller/page'
+    'ui-controller/page'
 ], function(_, page) {
     var homepage = Object.create(page),
         __parent = page;
     
     _.extend(homepage, {
-        init: function() {
-            __parent.init.call(this);
+        loadAction: function() {
+            __parent.loadAction.call(this);
             
             require([
                 'model/tweet/collection',

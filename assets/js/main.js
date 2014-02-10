@@ -3,17 +3,17 @@ require([
 ], function() {
     require([
         'jquery',
-        'controller/page',
-        'controller/homepage',
-        'controller/articlepage'
+        'ui-controller/page',
+        'ui-controller/homepage',
+        'ui-controller/articlepage'
     ], function($, page, homepage, articlepage) {
         //routing
         if ($('body.home-page').length) {
-            homepage.init();
+            homepage.loadAction();
         } else if ($('body.article-page').length) {
-            articlepage.init();
+            articlepage.loadAction();
         } else {
-            page.init();
+            page.loadAction();
         }
     });
 });

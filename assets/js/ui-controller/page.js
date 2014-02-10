@@ -1,10 +1,11 @@
 define([
     'jquery',
-    'viewhelper/header'
+    'ui-helper/header'
 ], function($, header) {
     return {
-        init: function() {
+        loadAction: function() {
             header.init();
+            header.calcReferences();
             header.update();
             $(window).scroll(this.scrollAction)
             $(window).resize(this.resizeAction)
@@ -13,6 +14,7 @@ define([
             header.update();
         },
         resizeAction: function() {
+            header.calcReferences();
             header.update();
         }
     }

@@ -1,15 +1,16 @@
 define([
     'underscore',
-    'controller/page',
-    'viewhelper/articleSidebar'
+    'ui-controller/page',
+    'ui-helper/articleSidebar'
 ], function(_, page, articleSidebar) {
     var articlepage = Object.create(page),
         __parent = page;
     
     _.extend(articlepage, {
-        init: function() {
-            __parent.init.call(this);
+        loadAction: function() {
+            __parent.loadAction.call(this);
             articleSidebar.init();
+            articleSidebar.calcReferences();
             articleSidebar.update();
         },
         scrollAction: function() {
@@ -18,6 +19,7 @@ define([
         },
         resizeAction: function() {
             __parent.resizeAction();
+            articleSidebar.calcReferences();
             articleSidebar.update();
         }
     });
