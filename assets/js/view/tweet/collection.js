@@ -2,7 +2,8 @@ define([
     'underscore',
     'backbone',
     'view/tweet',
-    'text!template/collection/item.html'
+    'text!template/collection/item.html',
+    '//platform.twitter.com/widgets.js'
 ], function(_, Backbone, TweetView, collectionItemTemplate) {
     var TweetCollectionView = Backbone.View.extend({
         tagName: 'ol',

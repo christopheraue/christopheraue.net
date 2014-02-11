@@ -1,7 +1,8 @@
 define([
     'underscore',
     'ui-controller/page',
-    'ui-helper/articleSidebar'
+    'ui-helper/articleSidebar',
+    '//platform.twitter.com/widgets.js'
 ], function(_, page, articleSidebar) {
     var articlepage = Object.create(page),
         __parent = page;

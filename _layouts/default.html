@@ -5,11 +5,11 @@
 <html>
     <head>
         <title>{{ page.title }}</title>
-        <link rel="stylesheet" href="{{ site.url }}/assets/css/styles.css" type="text/css" />
-        <script data-main="{{ site.url }}/assets/js/main" src="{{ site.url }}/assets/js/lib/require.js"></script>
+        <link rel="stylesheet" href="{{ site.url | append: '/assets/css/styles.css' }}" type="text/css" />
+        <script data-main="{{ site.url | append: '/assets/js/main' }}" src="{{ site.url | append: '/assets/js/lib/require.js' }}"></script>
     </head>
     <body class="{% if isArticlePage %}article-page {% endif %}{{ page.body_class }}"
-          style="background-image:url({{ site.url }}/assets/images/background/{{ page.image }})">
+          style="background-image:url({{ site.url | append: '/assets/images/background/' | append: page.image }})">
         {% include header.html %}
         {% include content.html %}
     </body>
