@@ -50,11 +50,16 @@ define([
             this.$el.addClass('collapsed');
         },
         
+        isCollapsed: function() {
+            return this.$el.hasClass('collapsed');
+        },
+        
         init: function() {
             var that = this;
             $('.js-article-sidebar-handle').click(function() {
                 that.activateTransitions();
                 that.$el.toggleClass('collapsed');
+                that.update();
             });
         },
         
@@ -63,19 +68,34 @@ define([
                 shouldBeAttachedToTop = attachReference == 'top' && this.isScrolledPastHeaderBottom('bottom'),
                 shouldBeAttachedToBottom = attachReference == 'bottom' && !this.isScrolledPastWindowBottom('top');
             
+            //exception for attached sidebar that are not collapsed
+            if (this.isAttachedToViewport() && !this.isCollapsed()) {
+                shouldBeAttachedToTop = attachReference == 'top' && this.isScrolledPastHeaderBottom('top');
+                shouldBeAttachedToBottom = attachReference == 'bottom' && !this.isScrolledPastWindowBottom('bottom');
+            }
+            
             return shouldBeAttachedToTop || shouldBeAttachedToBottom;
+        },
+        
+        setHelpingPaddingOnArticle: function() {
+            if (this.getVerticalAttachReference() == 'bottom') {
+                $('#main-article').css('padding-bottom', this.getNotAttachedHeight());
+            }
+        },
+        
+        unsetHelpingPaddingOnArticle: function() {
+            $('#main-article').css('padding-bottom', '');
         },
         
         update: function() {
             if (this.shouldBeAttached()) {
-                if (this.isAttachedToViewport())
-                    return;
-                
+                !this.isAttachedToViewport() && this.collapse();
                 this.attachToViewport();
-                this.collapse();
+                this.setHelpingPaddingOnArticle();
             } else {
                 this.detachFromViewport();
                 this.deactivateTransitions();
+                this.unsetHelpingPaddingOnArticle();
             }
         }
     });
