@@ -50,7 +50,8 @@
     .menu-area
         display: none
     .impress-link
-        display: block
+        display: none
+        #display: block
     .close-menu-button
         display: block
         clear: both
@@ -64,7 +65,8 @@
         .social-link-list
             float: right
         .impress-link
-            display: inline-block
+            display: none
+            #display: inline-block
             position: absolute
             bottom: 100%
             right: 25px
@@ -110,7 +112,10 @@
  */
 #page-header
     .menu-area.show
+        background: #3e4040
         display: block
+        @media screen and (min-width: 50em) //800px
+            background: transparent
 
 /*
  *  Logo

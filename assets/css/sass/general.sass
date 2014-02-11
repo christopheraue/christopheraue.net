@@ -261,3 +261,32 @@ body
 
     @media screen and (min-width: 60em) //960px
         font-size: 1.25em
+
+/*
+ *  Ajax Loader
+ *  -----------
+ *  
+ *  ```
+ *  <iframe width="800" height="400" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <span class="ajax-loader">Loading</span>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.ajax-loader
+    display: inline-block
+    height: 1em
+    background: url(../images/ajax-loader-16.gif) no-repeat left center
+    padding-left: 1.25em
+    font: 200 1em/1 Lato
+    @media screen and (min-width: 32em) //512px
+        background-image: url(../images/ajax-loader-20.gif)
+    @media screen and (min-width: 42.5em) //680px
+        background-image: url(../images/ajax-loader-24.gif)
+    @media screen and (min-width: 50em) //800px
+        background-image: url(../images/ajax-loader-16.gif)
+    @media screen and (min-width: 60em) //960px
+        background-image: url(../images/ajax-loader-20.gif)

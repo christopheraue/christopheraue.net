@@ -9,6 +9,8 @@ define([
         className: 'tweet-list',
         
         render: function() {
+            this.$el.empty();
+            
             var that = this;
             //render each tweet
             this.collection.each(function(tweet) {
