@@ -1,4 +1,6 @@
 encoding: UTF-8
 pygments: false
+name: christopheraue.net
 url: http://ca.local
+description: Hey, I'm Christopher. This is a place where I write about Web Technology, Product Development and Self-Improvement.
 exclude: [test, sass]
