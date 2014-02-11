@@ -1,0 +1,2909 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: normal;
+  src: url(../fonts/Ubuntu-R.ttf); }
+
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: normal;
+  font-style: italic;
+  src: url(../fonts/Ubuntu-RI.ttf); }
+
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 500;
+  src: url(../fonts/Ubuntu-M.ttf); }
+
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: bold;
+  src: url(../fonts/Ubuntu-B.ttf); }
+
+@font-face {
+  font-family: "Alfa Slab One";
+  font-weight: normal;
+  src: url(../fonts/AlfaSlabOne-Regular.ttf); }
+
+@font-face {
+  font-family: "Lato";
+  font-weight: normal;
+  src: url(../fonts/Lato-Reg.ttf); }
+
+@font-face {
+  font-family: "Lato";
+  font-weight: 200;
+  src: url(../fonts/Lato-Lig.ttf); }
+
+@font-face {
+  font-family: "Lato";
+  font-weight: 200;
+  src: url(../fonts/Lato-LigIta.ttf);
+  font-style: italic; }
+
+@font-face {
+  font-family: "ArchitectsDaughter";
+  src: url(../fonts/ArchitectsDaughter.ttf); }
+
+/*  General
+ *  =======
+ *  Reset
+ *  -----
+ *  Let's begin with the [reset stylesheet](http://meyerweb.com/eric/tools/css/reset/) of Eric
+ *  Meyer, v2.0, 2011-01-26 
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*  Responsive Grid
+ *  ---------------
+ *  For small viewports the containers are rendered just above each other.
+ *  
+ *  ### Breakpoints
+ *  Breakpoints are set to optimize readability of the text in the content area following the
+ *  article [Logical Breakpoints For Your Responsive Design](http://www.smashingmagazine.com/2013/03/01/logical-breakpoints-responsive-design/).
+ *  
+ *  The responsive grid breaks at the following points:
+ *
+ *  * #### 50 em / 800 px
+ *    added margins, content floats to the right creating a sidebar on the left, content width
+ *    adjusts to viewport width
+ *
+ *  * #### 64 em / 1024 px
+ *    content width stays constant and is centered, while header and footer scale to full viewport width
+ *
+ *  * #### 81.25 em / 1300 px
+ *    header is fixed to the left, content width stays constant and is centered across the remaining space on the right
+ *
+ *  ### Margins and Paddings
+ *  Margins and paddings scale with the font size.
+ *  
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <header id="page-header" class="kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content" class="kalei-stub">CONTENT<article class="fixie"></article></div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+#page-header {
+  min-height: 66px; }
+  @media screen and (min-width: 50em) {
+    #page-header {
+      height: 5em; } }
+  @media screen and (min-width: 81.25em) {
+    #page-header {
+      width: 17.1875em;
+      height: auto; } }
+
+#content-container {
+  padding: 66px 1.25em 0;
+  min-height: 100%;
+  box-sizing: border-box;
+  overflow: hidden; }
+  @media screen and (min-width: 50em) {
+    #content-container {
+      padding: 155px 1.25em 1.25em 275px; } }
+  @media screen and (min-width: 81.25em) {
+    #content-container {
+      padding: 3.25em 1.5625em 1.5625em 550px; } }
+
+body #page-header {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  right: 0; }
+  @media screen and (min-width: 50em) {
+    body #page-header {
+      position: absolute;
+      top: 1.5625em; } }
+  @media screen and (min-width: 81.25em) {
+    body #page-header {
+      margin: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0; } }
+body #content {
+  margin: 0; }
+  @media screen and (min-width: 64em) {
+    body #content {
+      margin: 0 auto; } }
+
+/*  ### Page scrolled down
+ *  For viewports, that display the header at the top, it will be fixed there if scrolled down. Set
+ *  the css class `.attached-to-viewport` for the header to fix it there.
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <header id="page-header" class="attached-to-viewport kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content" class="kalei-stub">CONTENT<article class="fixie"></article></div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+body #page-header.attached-to-viewport {
+  position: fixed;
+  top: 0; }
+
+/*  Background
+ *  ----------
+ *  The background image scales across the complete width of the body. Viewports with an aspect
+ *  ratio smaller than 4/3 are filled to cover the complete height of the body. The background is
+ *  individually set by setting the background-image directly in the styles on the body element.
+ *  ```
+ *  <iframe width="800" height="480" style="background-image:url(images/bg-image.png)"></iframe>
+ *  ```
+ */
+html, body {
+  height: 100%; }
+
+body {
+  overflow-x: hidden;
+  min-height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% auto; }
+  @media screen and (max-aspect-ratio: 4 / 3) {
+    body {
+      background-size: cover; } }
+
+/*  ### Background Fade
+ *  
+ *  The background is intended to fade to white at the bottom. For small viewports it must be
+ *  specified where the background fade should start. The element must be given the class
+ *  `.start-background-fade`. For medium viewports the background fade begins where the
+ *  content area starts. For large viewports the left sidebar, where the header will be located,
+ *  will not fade. Fading starts at 50% of the viewport's height.
+ *  
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-color">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <div class="start-background-fade kalei-stub">element to start bg fade at</div>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+#content-container {
+  position: relative; }
+  #content-container:before, #content-container:after {
+    content: "";
+    z-index: -1;
+    position: absolute; }
+  #content-container:before {
+    background: url(../images/background-fadeout.png) repeat-x 0 0;
+    height: 200px; }
+  #content-container:after {
+    margin-top: 200px;
+    background: white; }
+  #content-container:before, #content-container:after {
+    top: 155px;
+    right: 0;
+    left: 0; }
+  #content-container:after {
+    bottom: 0; }
+  #content-container:before, #content-container:after {
+    display: none; }
+  #content-container .start-background-fade {
+    position: relative; }
+    #content-container .start-background-fade:before, #content-container .start-background-fade:after {
+      content: "";
+      z-index: -1;
+      position: absolute; }
+    #content-container .start-background-fade:before {
+      background: url(../images/background-fadeout.png) repeat-x 0 0;
+      height: 200px; }
+    #content-container .start-background-fade:after {
+      margin-top: 200px;
+      background: white; }
+    #content-container .start-background-fade:before, #content-container .start-background-fade:after {
+      top: 0;
+      right: -100em;
+      left: -100em; }
+    #content-container .start-background-fade:after {
+      bottom: -100em; }
+    #content-container .start-background-fade:before, #content-container .start-background-fade:after {
+      display: block; }
+  @media screen and (min-width: 50em) {
+    #content-container:before, #content-container:after {
+      display: block; }
+    #content-container .start-background-fade:before, #content-container .start-background-fade:after {
+      display: none; } }
+  @media screen and (min-width: 81.25em) {
+    #content-container:before, #content-container:after {
+      top: 175px;
+      right: 0;
+      left: 275px; }
+    #content-container:after {
+      bottom: 0; } }
+
+/*  Content Scaling
+ *  ---------------
+ *  The content area is scaled by scaling the font-size. Everything else is scaled in relation to by
+ *  setting measures in em.
+ *  
+ *  ```
+ *  <iframe width="800" height="400" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text"></article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+#content-container {
+  font-size: 1em; }
+  @media screen and (min-width: 32em) {
+    #content-container {
+      font-size: 1.25em; } }
+  @media screen and (min-width: 42.5em) {
+    #content-container {
+      font-size: 1.5em; } }
+  @media screen and (min-width: 50em) {
+    #content-container {
+      font-size: 1em; } }
+  @media screen and (min-width: 55em) {
+    #content-container {
+      font-size: 1.125em; } }
+  @media screen and (min-width: 60em) {
+    #content-container {
+      font-size: 1.25em; } }
+
+/*  Ajax Loader
+ *  -----------
+ *  
+ *  ```
+ *  <iframe width="800" height="400" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <span class="ajax-loader">Loading</span>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.ajax-loader {
+  display: inline-block;
+  height: 1em;
+  background: url(../images/ajax-loader-16.gif) no-repeat left center;
+  padding-left: 1.25em;
+  font: 200 1em/1 Lato; }
+  @media screen and (min-width: 32em) {
+    .ajax-loader {
+      background-image: url(../images/ajax-loader-20.gif); } }
+  @media screen and (min-width: 42.5em) {
+    .ajax-loader {
+      background-image: url(../images/ajax-loader-24.gif); } }
+  @media screen and (min-width: 50em) {
+    .ajax-loader {
+      background-image: url(../images/ajax-loader-16.gif); } }
+  @media screen and (min-width: 60em) {
+    .ajax-loader {
+      background-image: url(../images/ajax-loader-20.gif); } }
+
+/*  Header
+ *  ======
+ *  ```
+ *  <iframe width="800" height="360" class="kalei-bg-image">
+ *      <header id="page-header">
+ *          <div class="logo-area">
+ *              <a href="#" class="logo"></a>
+ *          </div>
+ *          <div class="menu-button"></div>
+ *          <div class="menu-area">
+ *              <nav><ul class="mainnav-link-list">
+ *                  <li class="item"><a href="#" class="mainnav-link articles">Articles</a></li>
+ *                  <li class="item active"><a href="#" class="mainnav-link about">About Me</a></li>
+ *              </ul></nav>
+ *              <nav class="social-links"><ul class="social-link-list">
+ *                  <li class="item"><a href="#" class="social-link twit"></a></li>
+ *                  <li class="item"><a href="#" class="social-link face"></a></li>
+ *                  <li class="item"><a href="#" class="social-link gith"></a></li>
+ *                  <li class="item"><a href="#" class="social-link mail"></a></li>
+ *              </ul></nav>
+ *              <a href="#" class="impress-link">Impress</a>
+ *              <a href="#" class="close-menu-button"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
+ *          </div>
+ *      </header>
+ *  </iframe>
+ *  ```
+ */
+#page-header {
+  background: rgba(0, 0, 0, 0.65);
+  transition: background 1s; }
+
+#page-header.opaque {
+  background: black; }
+
+/*  Layout
+ *  ------
+ *  The header behaves responsively and breaks at the aforementioned breakpoints.
+ *  
+ */
+#page-header .menu-button {
+  display: block;
+  position: fixed;
+  top: 10px;
+  right: 10px; }
+#page-header .social-link-list {
+  float: left; }
+#page-header .menu-area {
+  display: none; }
+#page-header .impress-link {
+  display: none;
+  #display: block; }
+#page-header .close-menu-button {
+  display: block;
+  clear: both; }
+@media screen and (min-width: 50em) {
+  #page-header .menu-button {
+    display: none; }
+  #page-header .menu-area {
+    display: block; }
+  #page-header .logo-area, #page-header .logo {
+    float: left; }
+  #page-header .social-link-list {
+    float: right; }
+  #page-header .impress-link {
+    display: none;
+    #display: inline-block;
+    position: absolute;
+    bottom: 100%;
+    right: 25px; }
+  #page-header .close-menu-button {
+    display: none; } }
+@media screen and (min-width: 81.25em) {
+  #page-header .logo-area, #page-header .logo {
+    float: none; }
+  #page-header .menu-area {
+    height: 100%; }
+  #page-header .impress-link {
+    bottom: 25px;
+    right: 25px; } }
+
+/*  ### Expanded Menu On Small Viewports
+ *  
+ *  Marked up by adding the css class `.show` to the element `.menu-area`.
+ *  ```
+ *  <iframe width="320" height="320" class="kalei-bg-image">
+ *      <header id="page-header">
+ *          <div class="logo-area">
+ *              <a href="#" class="logo"></a>
+ *          </div>
+ *          <div class="menu-button"></div>
+ *          <div class="menu-area show">
+ *              <nav><ul class="mainnav-link-list">
+ *                  <li class="item"><a href="#" class="mainnav-link articles">Articles</a></li>
+ *                  <li class="item active"><a href="#" class="mainnav-link about">About Me</a></li>
+ *              </ul></nav>
+ *              <nav class="social-links"><ul class="social-link-list">
+ *                  <li class="item"><a href="#" class="social-link twit"></a></li>
+ *                  <li class="item"><a href="#" class="social-link face"></a></li>
+ *                  <li class="item"><a href="#" class="social-link gith"></a></li>
+ *                  <li class="item"><a href="#" class="social-link mail"></a></li>
+ *              </ul></nav>
+ *              <a href="#" class="impress-link">Impress</a>
+ *              <a href="#" class="close-menu-button"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
+ *          </div>
+ *      </header>
+ *  </iframe>
+ *  ```
+ */
+#page-header .menu-area.show {
+  background: #3e4040;
+  display: block; }
+  @media screen and (min-width: 50em) {
+    #page-header .menu-area.show {
+      background: transparent; } }
+
+/*  Logo
+ *  ----
+ *  ```
+ *  <iframe width="800" height="360" class="kalei-bg-image">
+ *  <div class="logo-area">
+ *      <a href="#" class="logo"></a>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+.logo-area {
+  height: 46px;
+  background: url(../images/logo-inv-065black.png) -15px -15px;
+  padding: 10px; }
+  .logo-area .logo {
+    display: block;
+    background: url(../images/logo-white.png) no-repeat;
+    opacity: 0.65;
+    height: 46px;
+    width: 226px; }
+    .logo-area .logo:hover {
+      opacity: 1; }
+  @media screen and (min-width: 50em) {
+    .logo-area {
+      background: transparent;
+      padding: 17px 25px;
+      height: auto;
+      width: 275px; } }
+  @media screen and (min-width: 81.25em) {
+    .logo-area {
+      height: 46px;
+      padding: 50px 25px;
+      width: 225px; } }
+
+/*  Menu Button
+ *  -----------
+ *  *We have to force the menu-button to show up. Also we have to display it in front of a background
+ *  to be visible.*
+ *  ```
+ *  <iframe width="480" height="100" class="kalei-bg-black">
+ *  <a href="#" class="menu-button" style="display: block"></a>
+ *  </iframe>
+ *  ```
+ */
+.menu-button {
+  background: url(../images/menu-icon.png) no-repeat center;
+  height: 46px;
+  width: 40px;
+  opacity: 0.5;
+  display: block; }
+  .menu-button:hover {
+    opacity: 1; }
+
+/*  Main Navigation Links
+ *  ---------------------
+ */
+.mainnav-link {
+  font-family: Ubuntu;
+  font-weight: 500;
+  font-size: 1.125em;
+  color: white;
+  vertical-align: middle;
+  text-decoration: none;
+  padding: 10px;
+  line-height: 30px;
+  background: #595959; }
+  @media screen and (min-width: 50em) {
+    .mainnav-link {
+      padding: 0 25px;
+      line-height: 80px;
+      background: transparent;
+      opacity: 0.65; }
+      .mainnav-link.active {
+        opacity: 0.9; }
+      .mainnav-link:hover, .mainnav-link .active:hover {
+        opacity: 1; } }
+
+/*  ### Article
+ *
+ *  #### normal
+ *  ```
+ *  <a href="#" class="mainnav-link articles">Articles</a>
+ *  ```
+ */
+.mainnav-link.articles:hover {
+  background: #e79a0b; }
+
+/*  #### .active
+ *  ```
+ *  <a href="#" class="mainnav-link articles active">Articles</a>
+ *  ```
+ */
+.mainnav-link.articles.active {
+  background: #e79a0b; }
+
+/*  ### About
+ *
+ *  #### normal
+ *  ```
+ *  <a href="#" class="mainnav-link about">About</a>
+ *  ```
+ */
+.mainnav-link.about:hover {
+  background: #bfbfbf; }
+
+/*  #### .active
+ *  ```
+ *  <a href="#" class="mainnav-link about active">About</a>
+ *  ```
+ */
+.mainnav-link.about.active {
+  background: #bfbfbf; }
+
+/*  ### List
+ *  ```
+ *  <iframe width="800" height="360" class="kalei-bg-image">
+ *  <ul class="mainnav-link-list">
+ *      <li class="item"><a href="#" class="mainnav-link">Item 1</a></li>
+ *      <li class="item"><a href="#" class="mainnav-link">Item 2</a></li>
+ *  </ul>
+ *  </iframe>
+ *  ```
+ */
+.mainnav-link-list .mainnav-link {
+  display: block; }
+@media screen and (min-width: 50em) {
+  .mainnav-link-list .item {
+    float: left; }
+  .mainnav-link-list .mainnav-link {
+    display: inline-block; } }
+@media screen and (min-width: 81.25em) {
+  .mainnav-link-list .item {
+    float: none; }
+  .mainnav-link-list .mainnav-link {
+    display: block; } }
+
+/*  Social Links
+ *  ------------
+ */
+.social-link {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: url(../images/social-media-logos.png) no-repeat;
+  opacity: 0.66; }
+  .social-link:hover {
+    opacity: 1; }
+
+/*  #### Twitter
+ *  ```
+ *  <iframe width="200" height="100" class="kalei-black">
+ *  <a href="#" class="social-link twit"></a>
+ *  </iframe>
+ *  ```
+ */
+.social-link.twit {
+  background-position: 0 0; }
+  @media screen and (min-width: 50em) {
+    .social-link.twit {
+      height: 16px;
+      width: 20px;
+      background-position: -6px -8px; } }
+
+/*  #### Facebook
+ *  ```
+ *  <iframe width="200" height="100" class="kalei-black">
+ *  <a href="#" class="social-link face"></a>
+ *  </iframe>
+ *  ```
+ */
+.social-link.face {
+  background-position: -64px 0; }
+  @media screen and (min-width: 50em) {
+    .social-link.face {
+      height: 16px;
+      width: 16px;
+      background-position: -72px -8px; } }
+
+/*  #### Github
+ *  ```
+ *  <iframe width="200" height="100" class="kalei-black">
+ *  <a href="#" class="social-link gith"></a>
+ *  </iframe>
+ *  ```
+ */
+.social-link.gith {
+  background-position: -32px 0; }
+  @media screen and (min-width: 50em) {
+    .social-link.gith {
+      height: 16px;
+      width: 16px;
+      background-position: -40px -8px; } }
+
+/*  #### Mail
+ *  ```
+ *  <iframe width="200" height="100" class="kalei-black">
+ *  <a href="#" class="social-link mail"></a>
+ *  </iframe>
+ *  ```
+ */
+.social-link.mail {
+  background-position: -96px 0; }
+  @media screen and (min-width: 50em) {
+    .social-link.mail {
+      height: 16px;
+      width: 22px;
+      background-position: -101px -8px; } }
+
+/*  ### List
+ *  ```
+ *  <iframe width="800" height="360" class="kalei-bg-image">
+ *  <div class="social-links">
+ *  <ul class="social-link-list">
+ *      <li class="item"><a href="#" class="social-link twit"></a></li>
+ *      <li class="item"><a href="#" class="social-link face"></a></li>
+ *      <li class="item"><a href="#" class="social-link gith"></a></li>
+ *      <li class="item"><a href="#" class="social-link mail"></a></li>
+ *  </ul>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 50em) and (max-width: 81.1875em) {
+  .social-links {
+    height: 80px;
+    overflow: hidden; } }
+@media screen and (min-width: 81.25em) {
+  .social-links {
+    height: 100%; }
+    .social-links .social-link-list {
+      position: absolute;
+      left: 0;
+      bottom: 0; } }
+
+.social-link-list {
+  height: 32px;
+  padding: 9px 10px 9px 2px;
+  background: #3e4040; }
+  .social-link-list .item {
+    float: left;
+    margin-right: 10px; }
+  @media screen and (min-width: 50em) {
+    .social-link-list {
+      height: 48px;
+      width: 48px;
+      padding: 16px 25px;
+      background: transparent; }
+      .social-link-list .item {
+        margin-right: 0;
+        margin-bottom: 16px; }
+        .social-link-list .item:nth-child(odd) {
+          float: left; }
+        .social-link-list .item:nth-child(even) {
+          float: right; } }
+  @media screen and (min-width: 81.25em) {
+    .social-link-list {
+      height: 16px;
+      width: auto;
+      padding: 25px; }
+      .social-link-list .item, .social-link-list item:nth-child(even) {
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 0; } }
+
+/*  Impress Link
+ *  ------------
+ *  ```
+ *  <iframe width="200" height="100" class="kalei-black">
+ *  <a href="#" class="impress-link">Impress</a>
+ *  </iframe>
+ *  ```
+ */
+.impress-link {
+  font-family: Ubuntu;
+  font-size: 0.75em;
+  color: #9b9b9b;
+  text-decoration: none;
+  line-height: 50px;
+  padding-right: 10px;
+  overflow: hidden;
+  text-align: right;
+  background: #3e4040; }
+  .impress-link:hover {
+    color: white; }
+  @media screen and (min-width: 50em) {
+    .impress-link {
+      background: transparent;
+      padding: 0;
+      vertical-align: middle;
+      line-height: 25px;
+      text-align: center;
+      width: 48px;
+      color: white;
+      opacity: 0.66; }
+      .impress-link:hover {
+        opacity: 1; } }
+  @media screen and (min-width: 81.25em) {
+    .impress-link {
+      line-height: 16px;
+      text-align: right; } }
+
+/*  Close Menu Button
+ *  -----------------
+ *  ```
+ *  <a href="#" class="close-menu-button"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
+ *  ```
+ */
+.close-menu-button {
+  background: black;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  vertical-align: middle;
+  font-family: Ubuntu;
+  font-size: 1.125em;
+  font-weight: 500;
+  text-decoration: none;
+  color: #7f7f7f; }
+  .close-menu-button .arrow {
+    display: inline-block;
+    background: url(../images/arrows.png);
+    opacity: 0.5;
+    height: 13px;
+    width: 22px;
+    margin: 0 20px; }
+  .close-menu-button:hover {
+    color: white; }
+    .close-menu-button:hover .arrow {
+      opacity: 1; }
+
+/*  Generic Page
+ *  ============
+ *  
+ *  Layout
+ *  ------
+ *  The generic page is structured into sections, that are rendered just on top of eachother.
+ *  
+ *  ```
+ *  <iframe width="800" height="480" class="generic-page kalei-bg-white">
+ *      <header id="page-header" class="kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <h1 class="page-headline kalei-stub">Page Heading</h1>
+ *              <section class="page-section kalei-stub">Section</section>
+ *              <section class="page-section kalei-stub">Section</section>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+body .page-section {
+  margin-top: 2.5em; }
+  body .page-section + .page-section {
+    margin-top: 2.5em; }
+  @media screen and (min-width: 50em) {
+    body .page-section {
+      margin-top: 0; }
+      body .page-section + .page-section {
+        margin-top: 5em; } }
+
+/*  Using the Sidebar
+ *  -----------------
+ *  Add the css class `.use-sidebar` to a block element inside the content div to make it use the
+ *  sidebar.
+ *  
+ *  ```
+ *  <iframe width="800" height="480" class="generic-page kalei-bg-white">
+ *      <header id="page-header" class="kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <div class="use-sidebar kalei-stub">Using the full width of the page (including the sidebar)</div>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 50em) {
+  .use-sidebar {
+    margin-left: -250px; } }
+
+/*  Page Heading
+ *  ------------
+ *
+ *  ```
+ *  <h1 class="page-heading">Page Heading</h1>
+ *  ```
+ */
+.page-heading {
+  font: 2em/1.1 "Alfa Slab One";
+  color: white;
+  text-shadow: 2px 2px 3px black; }
+  @media screen and (min-width: 50em) {
+    .page-heading {
+      font-size: 3em; } }
+
+/*  Section Layout
+ *  --------------
+ *  For small viewports everything is just rendered above each other. For viewports wide
+ *  enough to display a sidebar the headline jumps into the sidebar on the left.
+ *
+ *  ```
+ *  <iframe width="800" height="480" class="generic-page kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <section class="page-section">
+ *                  <div class="section-headline kalei-stub">Section Headline</div>
+ *                  <div class="section-content kalei-stub">Section Content</div>
+ *              </section>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.page-section {
+  position: relative; }
+  .page-section .section-headline {
+    margin-bottom: 0.625em; }
+    @media screen and (min-width: 50em) {
+      .page-section .section-headline {
+        position: absolute;
+        right: 100%;
+        margin-right: 1.25em;
+        width: 225px; } }
+
+/*  Section Heading
+ *  ---------------
+ *
+ *  ```
+ *  <h2 class="section-heading">Section Heading</h2>
+ *  <h2 class="section-heading white">Section Heading</h2>
+ *  ```
+ */
+.section-heading {
+  font: 1.5em/1.1 "Alfa Slab One"; }
+  .section-heading.white {
+    color: white;
+    text-shadow: 2px 2px 3px black; }
+  @media screen and (min-width: 50em) {
+    .section-heading {
+      font-size: 2em;
+      text-align: right; } }
+
+/*  Text and Media
+ *  ==============
+ *  To achieve the text formatting described on this page, the text must appear inside an element 
+ *  with the class `.text`.
+ *
+ *  Running Content
+ *  ---------------
+ *  All running elements are separted from other content above them by the height of one line.
+ *  An exception are list items. They have no margin.
+ *
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <p></p>
+ *                  <blockquote class="short">
+ *                      <div></div>
+ *                      <footer>— Some Guy</footer>
+ *                  </blockquote>
+ *                  <p></p>
+ *                  <ul></ul>
+ *                  <p></p>
+ *                  <ol></ol>
+ *                  <p></p>
+ *                  <blockquote>
+ *                      <section></section>
+ *                      <footer>— Some Guy</footer>
+ *                  </blockquote>
+ *                  <p></p>
+ *                  <img width="900" height="600"></img>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.text * {
+  margin: 0; }
+.text * + * {
+  margin-top: 1.5em; }
+.text ul li + li, .text ol li + li {
+  margin-top: 0; }
+
+/*  ### The Font
+ *  Its size is set for the `#content-container` element.
+ *  ```
+ *  <div class="text fixie">
+ *  <section></section>
+ *  </div>
+ *  ```
+ */
+.text {
+  color: black;
+  font: 200 1em/1.5 "Lato"; }
+
+/*  ### Lists
+ *  #### Unordered
+ *  ```
+ *  <div class="text fixie">
+ *  <ul></ul>
+ *  </div>
+ *  ```
+ */
+.text ul {
+  list-style-type: square;
+  padding-left: 3em; }
+
+/*  #### Ordered
+ *  ```
+ *  <div class="text fixie">
+ *  <ol></ol>
+ *  </div>
+ *  ```
+ */
+.text ol {
+  list-style-type: decimal;
+  padding-left: 3em; }
+
+/*  ### Quotes
+ *  ```
+ *  <div class="text fixie">
+ *      <blockquote>
+ *          <section></section>
+ *          <footer>— Some Guy</footer>
+ *      </blockquote>
+ *  </div>
+ *  ```
+ */
+.text blockquote {
+  padding: 0.5em 1em 0.5em 2em;
+  font-style: italic;
+  background: #ebebeb; }
+  .text blockquote footer {
+    text-align: right; }
+  .text blockquote * {
+    font-style: italic; }
+
+/*  ### Short Quotes
+ *  ```
+ *  <div class="text fixie">
+ *      <blockquote class="short">
+ *          <div></div>
+ *          <footer>— Some Guy</footer>
+ *      </blockquote>
+ *  </div>
+ *  ```
+ */
+.text blockquote.short {
+  background: transparent;
+  padding: 0;
+  font-size: 1.5em;
+  quotes: "“" "”"; }
+  .text blockquote.short * {
+    display: inline; }
+  .text blockquote.short p:before, .text blockquote.short div:before {
+    content: open-quote; }
+  .text blockquote.short p:after, .text blockquote.short div:after {
+    content: close-quote; }
+
+/*  ### Embedded Media
+ *  Images, videos, canvas, tables fill the complete width of the content column. Their height is
+ *  adjusted to keep their aspect ratio.
+ *  ```
+ *  <div class="text fixie">
+ *  <img width="900" height="100"></img>
+ *  </div>
+ *  ```
+ */
+.text img, .text iframe, .text embed, .text object, .text video, .text source, .text canvas, .text svg, .text table, .text form, .text aside {
+  width: 100%;
+  height: auto; }
+
+/*  Headings
+ *  --------
+ *
+ *  Headings have a top margin to separate them from the preceding text. If there is no content
+ *  before the heading, then there is also no margin. Headings also have a slight bottom margin.
+ *  Elements following headings do not have a top-margin.
+ *  
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <h2>No Content before this heading: No top margin. Slight bottom margin.</h2>
+ *                  <p>This paragraph has no top margin!</p>
+ *                  <h3>There is a paragraph before this level three heading. So, set a top margin, please.</h3>
+ *                  <h2>There is a heading before this level 2 heading. So, set a top margin, please. The margin is bigger than for level three.</h2>
+ *                  <img width="900" height="600"></img>
+ *                  <p>The image above has no top margin</p>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.text h2, .text h3, .text h4, .text h5, .text h6 {
+  margin: 0;
+  margin-bottom: 0.3333em;
+  clear: both; }
+  .text h2 + *, .text h3 + *, .text h4 + *, .text h5 + *, .text h6 + * {
+    margin-top: 0 !important; }
+.text * + h2, .text * + section > h2 {
+  margin-top: 1.6666em !important; }
+.text * + h3, .text * + section > h3,
+.text * + h4, .text * + section > h4,
+.text * + h5, .text * + section > h5,
+.text * + h6, .text * + section > h6 {
+  margin-top: 2.5em !important; }
+
+/*  ### Levels
+ *  There are two levels of sub headings in the body copy. Their size is relative to the size of the body copy.
+ *  ```
+ *  <div class="text fixie">
+ *  <h2>Headline Level Two</h2>
+ *  <h3>Headline Level Three</h3>
+ *  <h4>Headline Level Four</h4>
+ *  <h5>Headline Level Five</h5>
+ *  <h6>Headline Level Six</h6>
+ *  </div>
+ *  ```
+ */
+.text h2, .text h3, .text h4, .text h5, .text h6 {
+  font: 1em/1 "Alfa Slab One"; }
+.text h2 {
+  font-size: 1.5em; }
+
+/*  Floating Elements
+ *  -----------------
+ *  They float to the left of the article column depending on their format and have to take into
+ *  account the spacing associated with headings and running content.
+ *
+ *  Floating elements are indicated by a div around the element with one of the following css
+ *  classes:
+ *
+ *  ### .panorama
+ *  Wide content with an aspect ratio of about 3+ (width) to 1 (height). Embedded media behaves like
+ *  the default and fills the complete width on the area.
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <h2>Heading</h2>
+ *                  <div class="panorama">
+ *                      <img width="900" height="300"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <div class="panorama">
+ *                      <img width="900" height="300"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+/*  ### .landscape
+ *  Wide content with an aspect ratio of about 2 (width) to 1 (height).
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <h2>Heading</h2>
+ *                  <div class="landscape">
+ *                      <img width="600" height="300"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <div class="landscape">
+ *                      <img width="600" height="300"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 32em) {
+  .text .landscape {
+    float: left;
+    margin-top: 0.4em;
+    margin-right: 1em; }
+    .text .landscape + p {
+      margin-top: 0; }
+  .text * + .landscape {
+    margin-top: 1.9em; }
+    .text * + .landscape + p {
+      margin-top: 1.5em; }
+  .text h2 + .landscape, .text h3 + .landscape, .text h4 + .landscape, .text h5 + .landscape, .text h6 + .landscape {
+    margin-top: 0.4em !important; }
+    .text h2 + .landscape + p, .text h3 + .landscape + p, .text h4 + .landscape + p, .text h5 + .landscape + p, .text h6 + .landscape + p {
+      margin-top: 0; } }
+
+/*  ### .sqaure
+ *  Square content with an aspect ratio of about 1 (width) to 1 (height).
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <h2>Heading</h2>
+ *                  <div class="square">
+ *                      <img width="600" height="600"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <div class="square">
+ *                      <img width="600" height="600"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 30em) {
+  .text .square {
+    float: left;
+    margin-top: 0.4em;
+    margin-right: 1em; }
+    .text .square + p {
+      margin-top: 0; }
+  .text * + .square {
+    margin-top: 1.9em; }
+    .text * + .square + p {
+      margin-top: 1.5em; }
+  .text h2 + .square, .text h3 + .square, .text h4 + .square, .text h5 + .square, .text h6 + .square {
+    margin-top: 0.4em !important; }
+    .text h2 + .square + p, .text h3 + .square + p, .text h4 + .square + p, .text h5 + .square + p, .text h6 + .square + p {
+      margin-top: 0; } }
+
+/*  ### .portrait
+ *  Tall content with an aspect ratio of about 1 (width) to 2 (height).
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <h2>Heading</h2>
+ *                  <div class="portrait">
+ *                      <img width="300" height="600"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <div class="portrait">
+ *                      <img width="300" height="600"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ *
+ *  ### .pillar
+ *  Tall content with an aspect ratio of about 1 (width) to 3+ (height).
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <h2>Heading</h2>
+ *                  <div class="pillar">
+ *                      <img width="300" height="900"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <div class="pillar">
+ *                      <img width="300" height="900"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 20em) {
+  .text .portrait, .text .pillar {
+    float: left;
+    margin-top: 0.4em;
+    margin-right: 1em; }
+    .text .portrait + p, .text .pillar + p {
+      margin-top: 0; }
+  .text * + .portrait, .text * + .pillar {
+    margin-top: 1.9em; }
+    .text * + .portrait + p, .text * + .pillar + p {
+      margin-top: 1.5em; }
+  .text h2 + .portrait, .text h2 + .pillar, .text h3 + .portrait, .text h3 + .pillar, .text h4 + .portrait, .text h4 + .pillar, .text h5 + .portrait, .text h5 + .pillar, .text h6 + .portrait, .text h6 + .pillar {
+    margin-top: 0.4em !important; }
+    .text h2 + .portrait + p, .text h2 + .pillar + p, .text h3 + .portrait + p, .text h3 + .pillar + p, .text h4 + .portrait + p, .text h4 + .pillar + p, .text h5 + .portrait + p, .text h5 + .pillar + p, .text h6 + .portrait + p, .text h6 + .pillar + p {
+      margin-top: 0; } }
+
+/*  ### Height of Floating Elements
+ *  
+ *  The bounding box of the floating element has to align with the baselines of the article text at
+ *  top and bottom.
+ */
+.text .panorama *, .text .landscape *, .text .square *, .text .portrait *, .text .pillar * {
+  width: 100%;
+  height: auto; }
+
+/*  ### .panorama
+ *  Has a height in relation to its width. It does not need to align the baselines of the text.
+ *  ```
+ *  <div class="text fixie">
+ *  <div class="panorama">
+ *      <img width="900" height="300"></img>
+ *  </div>
+ *  </div>
+ *  ```
+ */
+/*  ### .landscape
+ *  Spans 6 lines of text.
+ *  ```
+ *  <div class="text fixie">
+ *  <div class="landscape">
+ *      <img width="600" height="300"></img>
+ *  </div>
+ *  <section></section>
+ *  </div>
+ *  ```
+ */
+@media screen and (min-width: 32em) {
+  .text .landscape {
+    height: 8.245em;
+    width: auto; }
+    .text .landscape * {
+      height: 100%;
+      width: auto; } }
+
+/*  ### .sqaure
+ *  Spans 11 lines of text.
+ *  ```
+ *  <div class="text fixie">
+ *  <div class="square">
+ *      <img width="600" height="600"></img>
+ *  </div>
+ *  <section></section>
+ *  </div>
+ *  ```
+ */
+@media screen and (min-width: 30em) {
+  .text .square {
+    height: 15.745em;
+    width: auto; }
+    .text .square * {
+      height: 100%;
+      width: auto; } }
+
+/*  ### .portrait
+ *  Spans 19 lines of text.
+ *  ```
+ *  <div class="text fixie">
+ *  <div class="portrait">
+ *      <img width="300" height="600"></img>
+ *  </div>
+ *  <section></section>
+ *  <section></section>
+ *  </div>
+ *  ```
+ */
+@media screen and (min-width: 20em) {
+  .text .portrait {
+    height: 18.745em;
+    width: auto; }
+    .text .portrait * {
+      height: 100%;
+      width: auto; } }
+
+/*  ### .pillar
+ *  Spans 13 lines of text.
+ *  ```
+ *  <div class="text fixie">
+ *  <div class="pillar">
+ *      <img width="300" height="900"></img>
+ *  </div>
+ *  <section></section>
+ *  <section></section>
+ *  </div>
+ *  ```
+ *  
+ */
+@media screen and (min-width: 20em) {
+  .text .pillar {
+    height: 27.745em;
+    width: auto; }
+    .text .pillar * {
+      height: 100%;
+      width: auto; } }
+
+/*  ### Floating Elements Reaching Into the Sidebar
+ *  Extends the floating of the element by increasing the floating box to the left sidebar. This
+ *  behaviour increases the displayed size of the floating element. It is indicated by the css class
+ *  `.use-sidebar`.
+ *  
+ *  Panoramas, landscapes, and squares will still reach into the article area. Portraits and Pillars
+ *  will fill the width of the sidebar and no more.
+ */
+@media screen and (min-width: 50em) {
+  .text .pillar.use-sidebar, .text .portrait.use-sidebar {
+    margin-right: 0; } }
+
+/*  ### .panorama
+ *  Behaves like the default and fills the complete width of the area. Its height is set in relation
+ *  to its width.
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <p></p>
+ *                  <div class="panorama use-sidebar">
+ *                      <img width="900" height="300"></img>
+ *                  </div>
+ *                  <article></article>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+/*  ### .landscape
+ *  Spans 10 lines of text.
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <p></p>
+ *                  <div class="landscape use-sidebar">
+ *                      <img width="600" height="300"></img>
+ *                  </div>
+ *                  <article></article>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 50em) {
+  .text .landscape.use-sidebar {
+    height: 14.245em; } }
+
+/*  ### .sqaure
+ *  Spans 16 lines of text.
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <p></p>
+ *                  <div class="square use-sidebar">
+ *                      <img width="600" height="600"></img>
+ *                  </div>
+ *                  <article></article>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 50em) {
+  .text .square.use-sidebar {
+    height: 24.745em; } }
+
+/*  ### .portrait
+ *  Spans no defined lines of text because it is disconnected from the content.
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <p></p>
+ *                  <div class="portrait use-sidebar">
+ *                      <img width="300" height="600"></img>
+ *                  </div>
+ *                  <article></article>
+ *                  <article></article>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 50em) {
+  .text .portrait.use-sidebar {
+    width: 200px;
+    height: auto; }
+    .text .portrait.use-sidebar * {
+      width: 100%;
+      height: auto; } }
+
+/*  ### .pillar
+ *  Spans no defined lines of text because it is disconnected from the content.
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <p></p>
+ *                  <div class="pillar use-sidebar">
+ *                      <img width="300" height="900"></img>
+ *                  </div>
+ *                  <article></article>
+ *                  <article></article>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 50em) {
+  .text .pillar.use-sidebar {
+    width: 200px;
+    height: auto; }
+    .text .pillar.use-sidebar * {
+      width: 100%;
+      height: auto; } }
+
+/*  ### Short Quotes Reaching Into the Sidebar
+ *  Behaves like `.panorama`. The font size increases to the double of the body copy size for
+ *  viewports wide enough to display a sidebar.
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <div class="text fixie">
+ *                  <blockquote class="short use-sidebar">
+ *                      <div></div>
+ *                      <footer>— Some Guy</footer>
+ *                  </blockquote>
+ *              </div>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 50em) {
+  .text blockquote.short.use-sidebar {
+    font-size: 2em; } }
+
+/*  Article
+ *  =======
+ *  General
+ *  -------
+ *  ### Headline
+ *  ```
+ *  <h1 class="article-headline">This Is the Headline of an Article With an Interesting Topic</h1>
+ *  ```
+ */
+.article-headline {
+  font-family: "Alfa Slab One";
+  line-height: 1.1;
+  color: white;
+  text-shadow: 2px 2px 3px black; }
+
+/*  ### Date
+ *  ```
+ *  <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
+ *  ```
+ */
+.article-date {
+  font-family: Ubuntu;
+  color: white;
+  padding: 0.3em 1.0725em;
+  background: rgba(0, 0, 0, 0.65); }
+
+/*  ### Tags
+ *  ```
+ *  <a href="#" class="article-tag">tag</a>
+ *  ```
+ */
+.article-tag {
+  font-family: Ubuntu;
+  color: #b3b3b3;
+  padding: 0.32em 1.0725em;
+  background: rgba(0, 0, 0, 0.65);
+  text-decoration: none;
+  position: relative;
+  display: inline-block; }
+  .article-tag:hover {
+    text-decoration: underline; }
+
+/*  ### Comments Link
+ *  ```
+ *  <a href="#" class="article-comments-link">5 Comments</a>
+ *  ```
+ */
+.article-comments-link {
+  font-family: Ubuntu;
+  font-size: 1.25em;
+  font-weight: 500;
+  color: white;
+  padding: 0.3em 1.0725em;
+  background: rgba(0, 0, 0, 0.65);
+  text-decoration: none; }
+  .article-comments-link:hover {
+    text-decoration: underline; }
+
+/*  ### Sharing
+ */
+.article-sharing {
+  display: block;
+  width: 4.29em;
+  height: 4.29em;
+  background: white;
+  position: relative; }
+  .article-sharing .icon {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -15px;
+    width: 30px;
+    background: url(../images/social-media-logos.png) no-repeat; }
+
+/*  #### Twitter
+ *  ```
+ *  <a href="#" class="article-sharing twit"><span class="icon"></span></a>
+ *  ```
+ */
+.article-sharing.twit .icon {
+  height: 24px;
+  margin-top: -12px;
+  background-position: -15px -142px; }
+.article-sharing.twit:hover {
+  background-color: #6daadc; }
+  .article-sharing.twit:hover .icon {
+    background-position: -15px -82px; }
+
+/*  #### Facebook
+ *  ```
+ *  <a href="#" class="article-sharing face"><span class="icon"></span></a>
+ *  ```
+ */
+.article-sharing.face .icon {
+  height: 30px;
+  margin-top: -15px;
+  background-position: -75px -139px; }
+.article-sharing.face:hover {
+  background-color: #434e93; }
+  .article-sharing.face:hover .icon {
+    background-position: -75px -79px; }
+
+/*  #### Mail
+ *  ```
+ *  <a href="#" class="article-sharing mail"><span class="icon"></span></a>
+ *  ```
+ */
+.article-sharing.mail .icon {
+  height: 21px;
+  margin-top: -10px;
+  background-position: -135px -144px; }
+.article-sharing.mail:hover {
+  background-color: #98bdba; }
+  .article-sharing.mail:hover .icon {
+    background-position: -135px -84px; }
+
+/*  Article Box
+ *  -----------
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-neutral">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <ol class="article-list">
+ *                  <li class="item">
+ *                      <div class="article-box" style="background-image: url(images/bg-image.png)">
+ *                          <h2 class="article-headline"><a href="#">This Is the Headline Of an Article With an Interesting Topic</a></h2>
+ *                          <a href="#" class="arrow"></a>
+ *                          <div class="details">
+ *                              <a href="#" class="arrow"></a>
+ *                              <ul class="article-tag-list">
+ *                                  <li class="item"><a href="#" class="article-tag">tag</a></li>
+ *                                  <li class="item"><a href="#" class="article-tag">anotherTag</a></li>
+ *                                  <li class="item"><a href="#" class="article-tag">aThirdTag</a></li>
+ *                              </ul>
+ *                              <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
+ *                          </div>
+ *                      </div>
+ *                  </li>
+ *              </ol>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ *
+ *  ### Layout
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-neutral">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <ol class="article-list">
+ *                  <li class="item">
+ *                      <div class="article-box kalei-stub">
+ *                          <h2 class="article-headline kalei-stub">Headline</h2>
+ *                          <a href="#" class="arrow"></a>
+ *                          <div class="details">
+ *                              <a href="#" class="arrow"></a>
+ *                              <div class="article-tag-list kalei-stub">tags</div>
+ *                              <time class="article-date kalei-stub">date</time>
+ *                          </div>
+ *                      </div>
+ *                  </li>
+ *              </ol>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.article-box {
+  padding-right: 40px; }
+  @media screen and (min-width: 22.5em) {
+    .article-box {
+      padding: 0.75em; } }
+
+.article-list .article-box {
+  position: relative; }
+  .article-list .article-box:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block; }
+  .article-list .article-box .article-headline {
+    padding: 1.25em;
+    position: relative; }
+  .article-list .article-box .details {
+    margin-top: 20px;
+    position: relative;
+    display: none; }
+  .article-list .article-box .article-date {
+    position: absolute;
+    right: 0;
+    bottom: 0; }
+  .article-list .article-box .arrow {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    margin-top: -16px; }
+  @media screen and (min-width: 22.5em) {
+    .article-list .article-box .article-headline {
+      padding: 0; }
+    .article-list .article-box .details {
+      display: block; }
+    .article-list .article-box .arrow {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: 0; } }
+
+/*  ### Background
+ *  It always fills out the complete box, is centered and is set via the background-image style.
+ *  ```
+ *  <iframe width="250" height="250" class="kalei-bg-white">
+ *      <div class="article-box" style="width: 100%; height: 100%; box-sizing: border-box; background-image: url(images/bg-image.png)"></div>
+ *  </iframe>
+ *  ```
+ */
+.article-box {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; }
+  .article-box:before {
+    content: "";
+    background: rgba(0, 0, 0, 0.35); }
+  .article-box:hover:before {
+    background: rgba(0, 0, 0, 0.25); }
+
+/*  ### Headline
+ *  ```
+ *  <div class="article-box">
+ *      <h2 class="article-headline"><a href="#">This Is the Headline Of an Article With an Interesting Topic</a></h2>
+ *  </div>
+ *  ```
+ */
+.article-box .article-headline {
+  font-size: 1em; }
+  .article-box .article-headline a {
+    color: white;
+    text-decoration: none; }
+
+/*  ### Arrow
+ *  ```
+ *  <iframe width="320" height="50" class="kalei-bg-black">
+ *      <div class="article-box">
+ *          <a href="#" class="arrow"></a>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.article-box .arrow {
+  display: block;
+  background: url(../images/arrows.png) -2px -39px;
+  height: 31px;
+  width: 18px; }
+  @media screen and (min-width: 22.5em) {
+    .article-box .arrow {
+      background: transparent;
+      height: auto;
+      width: auto; } }
+
+/*  ### Tag List
+ *  ```
+ *  <div class="article-box">
+ *      <ul class="article-tag-list">
+ *          <li class="item"><a href="#" class="article-tag">tag</a></li>
+ *          <li class="item"><a href="#" class="article-tag">anotherTag</a></li>
+ *          <li class="item"><a href="#" class="article-tag">aThirdTag</a></li>
+ *      </ul>
+ *  </div>
+ *  ```
+ */
+.article-box .article-tag-list {
+  font-size: 0.6em;
+  max-width: 50%;
+  box-sizing: border-box; }
+  .article-box .article-tag-list .item {
+    display: inline-block;
+    margin-top: 3px; }
+
+/*  ### Date
+ *  ```
+ *  <div class="article-box">
+ *      <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
+ *  </div>
+ *  ```
+ */
+.article-box .article-date {
+  font-size: 0.6em;
+  max-width: 50%;
+  box-sizing: border-box;
+  text-align: right; }
+
+/*  Article List
+ *  ------------
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <ol class="article-list start-background-fade">
+ *                  <li class="item">
+ *                      <div class="article-box kalei-stub">Article Box</div>
+ *                  </li>
+ *                  <li class="item">
+ *                      <div class="article-box kalei-stub">Article Box</div>
+ *                  </li>
+ *                  <li class="item">
+ *                      <div class="article-box kalei-stub">Article Box</div>
+ *                  </li>
+ *                  <li class="item">
+ *                      <div class="article-box kalei-stub">Article Box</div>
+ *                  </li>
+ *              </ol>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.article-list {
+  margin-top: 0.625em; }
+  @media screen and (min-width: 32em) {
+    .article-list {
+      margin-left: -0.625em;
+      margin-right: -0.625em; }
+      .article-list .article-box {
+        margin: 0 0.625em; } }
+
+.article-list > .item + .item {
+  margin-top: 1.25em; }
+@media screen and (min-width: 32em) {
+  .article-list > .item {
+    width: 50%;
+    float: left; }
+    .article-list > .item + .item {
+      margin-top: 0; }
+      .article-list > .item + .item + .item {
+        margin-top: 1.25em; }
+    .article-list > .item .article-box .article-headline {
+      height: 3.3em; } }
+@media screen and (min-width: 65em) {
+  .article-list > .item {
+    width: 33.33%; }
+    .article-list > .item + .item + .item {
+      margin-top: 0; }
+      .article-list > .item + .item + .item + .item {
+        margin-top: 1.25em; } }
+@media screen and (min-width: 115em) {
+  .article-list > .item {
+    width: 25%; }
+    .article-list > .item + .item + .item + .item {
+      margin-top: 0; }
+      .article-list > .item + .item + .item + .item + .item {
+        margin-top: 1.25em; } }
+
+@media screen and (min-width: 50em) {
+  .use-sidebar .article-list > .item {
+    width: 33.33%; }
+    .use-sidebar .article-list > .item + .item + .item {
+      margin-top: 0; }
+      .use-sidebar .article-list > .item + .item + .item + .item {
+        margin-top: 1.25em; } }
+@media screen and (min-width: 100em) {
+  .use-sidebar .article-list > .item {
+    width: 25%; }
+    .use-sidebar .article-list > .item + .item + .item + .item {
+      margin-top: 0; }
+      .use-sidebar .article-list > .item + .item + .item + .item + .item {
+        margin-top: 1.25em; } }
+
+/*  Article Page
+ *  ============
+ *  The article page has set the css class `.article-page` on the body.
+ *
+ *  ```
+ *  <iframe width="800" height="480" class="article-page" style="background-image: url(../assets/images/background/lanes.png)">
+ *      <header id="page-header" class="kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <h1 class="article-headline">This Is the Headline of an Article With an Interesting Topic</h1>
+ *                  <div class="text start-background-fade">
+ *                      <section class="fixie"></section>
+ *                  </div>
+ *                  <div class="article-sidebar">
+ *                      <div class="drawer">
+ *                          <div class="column article-details">
+ *                              <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
+ *                              <ul class="article-tags-list">
+ *                                  <li class="item"><a href="#" class="article-tag">tag</a></li>
+ *                                  <li class="item"><a href="#" class="article-tag">anotherTag</a></li>
+ *                                  <li class="item"><a href="#" class="article-tag">aThirdTag</a></li>
+ *                              </ul>
+ *                          </div>
+ *                          <div class="column article-social">
+ *                              <a href="#" class="article-comments-link">5 Comments</a>
+ *                              <ul class="article-sharing-list">
+ *                                  <li class="item"><a href="#" class="article-sharing twit"><span class="icon"></span></a></li>
+ *                                  <li class="item"><a href="#" class="article-sharing face"><span class="icon"></span></a></li>
+ *                                  <li class="item"><a href="#" class="article-sharing mail"><span class="icon"></span></a></li>
+ *                              </ul>
+ *                          </div>
+ *                      </div>
+ *                      <div class="drawer-handle">Details<span class="arrow"></span></div>
+ *                  </div>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+/*  Background
+ *  ----------
+ *  The fade to white begins where the article content area starts, except for very large viewports.
+ *  There the standard behaviour is followed.
+ *  ```
+ *  <iframe width="800" height="480" class="article-page" style="background-image: url(../assets/images/background/lanes.png)">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div class="text start-background-fade kalei-stub">Fade to white starts here</div>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 50em) {
+  body.article-page #content-container:before, body.article-page #content-container:after {
+    display: none; }
+  body.article-page #content-container .start-background-fade:before, body.article-page #content-container .start-background-fade:after {
+    display: block; } }
+@media screen and (min-width: 81.25em) {
+  body.article-page #content-container:before, body.article-page #content-container:after {
+    display: block; }
+  body.article-page #content-container .start-background-fade:before, body.article-page #content-container .start-background-fade:after {
+    display: none; } }
+
+/*  Layout
+ *  ------
+ *  ### Page
+ *  The content width of the article page is fixed for large viewports. The Content is centered.
+ */
+@media screen and (min-width: 64em) {
+  body.article-page #content {
+    width: 36.2em; } }
+
+/*  ### Article
+ *  For small viewports the article parts are just rendered above each other. For viewports wide
+ *  enough to display a sidebar the article side details and actions jump into the sidebar on the left of the article
+ *  content.
+ *  ```
+ *  <iframe width="800" height="480" class="article-page kalei-bg-white">
+ *      <header id="page-header" class="kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <h1 class="kalei-stub article-headline">Headline</h1>
+ *                  <div class="text start-background-fade kalei-stub">
+ *                      <section class="fixie"></section>
+ *                  </div>
+ *                  <div class="article-sidebar kalei-stub">Article Details</p></div>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+#main-article {
+  margin: 0 -1.25em; }
+  #main-article .article-headline {
+    margin: 0; }
+  @media screen and (min-width: 50em) {
+    #main-article {
+      margin: 0; }
+      #main-article .article-headline {
+        margin: 0 0.625em 0.625em; }
+      #main-article .text {
+        float: right; }
+      #main-article .article-sidebar {
+        float: left;
+        margin-left: -250px;
+        width: 225px; } }
+
+/*  Article Headline
+ *  ----------------
+ *  For small screens the headline has a background identical to the body. The background image is
+ *  needed to give the white headline a contrast. But the background is usally not tall enough to be
+ *  still visible behind the headline in cases the navigation of the header is expanded. So we just
+ *  attach the background to the headline. If the header navigation is not shown, it just replicates
+ *  the body background. If the header navigation is expanded, the body background *seems* to scroll
+ *  down also.
+ *
+ *  ```
+ *  <iframe width="800" height="480" class="article-page" style="background-image: url(../assets/images/background/lanes.png)">
+ *      <header id="page-header" class="kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <h1 class="article-headline">This Is the Headline of an Article With an Interesting Topic</h1>
+ *              </section>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+#main-article .article-headline {
+  font-size: 1.5em;
+  padding: 1.66em 0.83em 0.83em;
+  background: url(../images/background/lanes.png) no-repeat 0 -66px;
+  background-size: 100% auto; }
+  @media screen and (min-width: 50em) {
+    #main-article .article-headline {
+      background: transparent;
+      font-size: 2em;
+      padding: 0; } }
+
+/*  Article Text
+ *  ------------
+ *
+ *  ```
+ *  <iframe width="800" height="480" class="article-page" style="background-image: url(../assets/images/background/lanes.png)">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div class="text start-background-fade">
+ *                      <section class="fixie"></section>
+ *                  </div>
+ *              </section>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+#main-article .text {
+  padding: 1.25em;
+  background: white;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/*  Article Sidebar
+ *  ---------------
+ *  The sidebar aligns with the content area at the top.
+ *
+ *  ```
+ *  <iframe width="800" height="450" class="article-page">
+ *      <div class="article-sidebar">
+ *          <div class="drawer">
+ *              <div class="column article-details">
+ *                  <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
+ *                  <ul class="article-tags-list">
+ *                      <li class="item"><a href="#" class="article-tag">tag</a></li>
+ *                      <li class="item"><a href="#" class="article-tag">anotherTag</a></li>
+ *                      <li class="item"><a href="#" class="article-tag">aThirdTag</a></li>
+ *                  </ul>
+ *              </div>
+ *              <div class="column article-social">
+ *                  <a href="#" class="article-comments-link">5 Comments</a>
+ *                  <ul class="article-sharing-list">
+ *                      <li class="item"><a href="#" class="article-sharing twit"><span class="icon"></span></a></li>
+ *                      <li class="item"><a href="#" class="article-sharing face"><span class="icon"></span></a></li>
+ *                      <li class="item"><a href="#" class="article-sharing mail"><span class="icon"></span></a></li>
+ *                  </ul>
+ *              </div>
+ *          </div>
+ *          <div class="drawer-handle">Details<span class="arrow"></span></div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.article-sidebar {
+  font-size: 0.7em; }
+
+/*  ### Sidebar Layout
+ *  extend background of sharing icons over the full height, if the social column is smaller than
+ *  the details column
+ *  ```
+ *  <iframe width="800" height="350">
+ *  <div class="article-sidebar" style="margin:0">
+ *      <div class="drawer">
+ *      <div class="column article-details">
+ *          <time datetime="2014-01-02" class="article-date kalei-stub">Date</time>
+ *          <ul class="article-tags-list">
+ *              <li class="item kalei-stub">Tag</li>
+ *              <li class="item kalei-stub">Tag</li>
+ *              <li class="item kalei-stub">Tag</li>
+ *          </ul>
+ *      </div>
+ *      <div class="column article-social">
+ *          <a href="#" class="article-comments-link kalei-stub">Comments Link</a>
+ *          <ul class="article-sharing-list">
+ *              <li class="item kalei-stub">Social Media</li>
+ *              <li class="item kalei-stub">Social Media</li>
+ *              <li class="item kalei-stub">Social Media</li>
+ *          </ul>
+ *      </div>
+ *      </div>
+ *      <div class="drawer-handle">Handle<span class="arrow"></span></div>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+.article-sidebar .article-details:before,
+.article-sidebar .article-details:after,
+.article-sidebar .article-tags-list:before,
+.article-sidebar .article-sharing-list:before {
+  content: "\00A0";
+  display: block;
+  height: 1.79em;
+  width: 4.29em;
+  background: rgba(0, 0, 0, 0.65);
+  float: right;
+  clear: both; }
+.article-sidebar .article-tags-list .item {
+  float: right;
+  clear: both; }
+  .article-sidebar .article-tags-list .item + .item {
+    position: relative;
+    margin-top: 0.21em; }
+    .article-sidebar .article-tags-list .item + .item:before {
+      float: right;
+      clear: both;
+      content: "\00A0";
+      display: block;
+      height: 0.21em;
+      width: 4.29em;
+      background: rgba(0, 0, 0, 0.65);
+      position: absolute;
+      bottom: 100%;
+      right: 0; }
+
+.article-sidebar .article-date,
+.article-sidebar .article-tag,
+.article-sidebar .article-comments-link {
+  float: right;
+  clear: both;
+  min-width: 2.145em;
+  text-align: right; }
+
+.article-sidebar {
+  position: relative; }
+  .article-sidebar .article-comments-link {
+    display: none; }
+  .article-sidebar .article-sharing-list:before {
+    display: none; }
+  .article-sidebar .article-sharing-list .item {
+    clear: both;
+    float: left; }
+  .article-sidebar .drawer-handle {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -4.29em; }
+  @media screen and (min-width: 50em) {
+    .article-sidebar .article-comments-link {
+      display: block; }
+    .article-sidebar .article-sharing-list:before {
+      display: block; }
+    .article-sidebar .article-sharing-list .item {
+      float: right; }
+    .article-sidebar .drawer-handle {
+      top: 100%;
+      right: 0;
+      left: auto;
+      bottom: auto;
+      margin: 0; } }
+
+.article-sidebar:before {
+  content: "\00A0";
+  width: 4.29em;
+  height: 100%;
+  background: white; }
+
+.article-sidebar:before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: -1; }
+  @media screen and (min-width: 50em) {
+    .article-sidebar:before {
+      display: none; } }
+
+/*  ### Columns
+ *  ```
+ *  <iframe width="800" height="350" class="kalei-white">
+ *  <div class="article-sidebar" style="margin:0">
+ *      <div class="column kalei-stub">Column 1</div>
+ *      <div class="column kalei-stub">Column 2</div>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+.article-sidebar .column {
+  width: 50%;
+  display: inline-block;
+  vertical-align: middle; }
+  @media screen and (min-width: 50em) {
+    .article-sidebar .column {
+      width: auto;
+      display: block;
+      vertical-align: baseline; } }
+
+/*  ### Drawer
+ *  ```
+ *  <iframe width="800" height="450" class="kalei-white">
+ *  <div class="article-sidebar" style="margin:0">
+ *      <div class="drawer kalei-stub">Drawer Content<div style="background:orange; height: 50em; width: 2em"></div></div>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+.article-sidebar .drawer {
+  overflow: hidden;
+  max-height: 15em; }
+  @media screen and (min-width: 50em) {
+    .article-sidebar .drawer {
+      max-height: 32em; } }
+
+/*  ### Drawer Handle
+ *  ```
+ *  <iframe width="800" height="350" class="kalei-white">
+ *  <div class="article-sidebar attach-to-viewport" style="margin-left: 100px; margin-top: 100px">
+ *      <div class="drawer-handle">Details<span class="arrow"></span></div>
+ *  </div>
+ *  </iframe>
+ *  ```
+ */
+.article-sidebar .drawer-handle {
+  padding: 0 1.43em;
+  width: 5.71em;
+  line-height: 2.4em;
+  font-family: Ubuntu;
+  font-style: italic;
+  text-align: left;
+  color: white;
+  background: rgba(0, 0, 0, 0.65);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.5s; }
+  .article-sidebar .drawer-handle .arrow {
+    background: url(../images/arrows.png) no-repeat -92px 0;
+    height: 8px;
+    width: 22px;
+    float: right;
+    margin-top: 1em; }
+  @media screen and (min-width: 50em) {
+    .article-sidebar .drawer-handle {
+      width: 4.29em;
+      padding: 0.71em 0;
+      line-height: 1.5em;
+      text-align: center; }
+      .article-sidebar .drawer-handle .arrow {
+        display: inline-block;
+        background-position: -61px 0;
+        float: none;
+        margin: 0; } }
+
+/*  ### Sidebar States
+ *  #### Sidebar Attached to the Viewport
+ *  The sidebar is attached to the header by giving the `<.article-sidebar>` a class 
+ *  `attached-to-viewport`.
+ *  ```
+ *  <iframe width="800" height="600" class="article kalei-bg-white">
+ *      <header id="page-header" class="attached-to-top kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div class="text start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
+ *                  <div class="article-sidebar attached-to-viewport">
+ *                      <div class="drawer">
+ *                          <div class="column article-details">
+ *                              <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
+ *                              <ul class="article-tags-list">
+ *                                  <li class="item"><a href="#" class="article-tag">tag</a></li>
+ *                                  <li class="item"><a href="#" class="article-tag">anotherTag</a></li>
+ *                                  <li class="item"><a href="#" class="article-tag">aThirdTag</a></li>
+ *                              </ul>
+ *                          </div>
+ *                          <div class="column article-social">
+ *                              <a href="#" class="article-comments-link">5 Comments</a>
+ *                              <ul class="article-sharing-list">
+ *                                  <li class="item"><a href="#" class="article-sharing twit"><span class="icon"></span></a></li>
+ *                                  <li class="item"><a href="#" class="article-sharing face"><span class="icon"></span></a></li>
+ *                                  <li class="item"><a href="#" class="article-sharing mail"><span class="icon"></span></a></li>
+ *                              </ul>
+ *                          </div>
+ *                      </div>
+ *                      <div class="drawer-handle">Details<span class="arrow"></span></div>
+ *                  </div>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.article-sidebar.attached-to-viewport {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+  .article-sidebar.attached-to-viewport .drawer-handle {
+    opacity: 1; }
+  @media screen and (min-width: 50em) {
+    .article-sidebar.attached-to-viewport {
+      top: 80px;
+      left: auto;
+      right: auto;
+      bottom: auto; } }
+  @media screen and (min-width: 81.25em) {
+    .article-sidebar.attached-to-viewport {
+      top: 0; } }
+
+.article-sidebar.animate .drawer {
+  transition: max-height 0.5s; }
+  @media screen and (min-width: 50em) {
+    .article-sidebar.animate .drawer {
+      transition: max-height 1s; } }
+
+.article-sidebar.animate .drawer-handle .arrow {
+  transition: background-position step-end 0.3s; }
+  @media screen and (min-width: 50em) {
+    .article-sidebar.animate .drawer-handle .arrow {
+      transition: background-position step-end 0.6s; } }
+
+.article-sidebar.animate.collapsed .drawer-handle .arrow {
+  transition: background-position step-end 0.5s; }
+@media screen and (min-width: 50em) {
+  .article-sidebar.animate.collapsed .drawer-handle .arrow {
+    transition: background-position step-end 1s; } }
+
+/*  #### Attached and Collapsed Sidebar
+ *  To collapse the sidebar give the `<.article-sidebar.attached-to-viewport>` a class `collapsed`.
+ *  ```
+ *  <iframe width="800" height="400" class="article scrolled kalei-bg-white">
+ *      <header id="page-header" class="attached-to-top kalei-stub">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article id="main-article">
+ *                  <div class="text start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
+ *                  <div class="article-sidebar attached-to-viewport collapsed">
+ *                      <div class="drawer">
+ *                          <div class="column article-details">
+ *                              <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
+ *                              <ul class="article-tags-list">
+ *                                  <li class="item"><a href="#" class="article-tag">tag</a></li>
+ *                                  <li class="item"><a href="#" class="article-tag">anotherTag</a></li>
+ *                                  <li class="item"><a href="#" class="article-tag">aThirdTag</a></li>
+ *                              </ul>
+ *                          </div>
+ *                          <div class="column article-social">
+ *                              <a href="#" class="article-comments-link">5 Comments</a>
+ *                              <ul class="article-sharing-list">
+ *                                  <li class="item"><a href="#" class="article-sharing twit"><span class="icon"></span></a></li>
+ *                                  <li class="item"><a href="#" class="article-sharing face"><span class="icon"></span></a></li>
+ *                                  <li class="item"><a href="#" class="article-sharing mail"><span class="icon"></span></a></li>
+ *                              </ul>
+ *                          </div>
+ *                      </div>
+ *                      <div class="drawer-handle">Details<span class="arrow"></span></div>
+ *                  </div>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.article-sidebar.attached-to-viewport.collapsed .drawer {
+  max-height: 0; }
+.article-sidebar.attached-to-viewport.collapsed .drawer-handle .arrow {
+  background-position: -61px 0; }
+@media screen and (min-width: 50em) {
+  .article-sidebar.attached-to-viewport.collapsed .drawer-handle .arrow {
+    background-position: -92px 0; } }
+
+/*  Twitter
+ *  =======
+ *  ```
+ *  <iframe width="320px" height="480px" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content">
+ *      <section class="twitter-timeline page-section">
+ *          <header class="section-headline">
+ *              <a href="#" class="icon"></a>
+ *              <h2 class="section-heading">Latest Tweets</h2>
+ *              <a href="#" class="follow-link">Follow @christopheraue</a>
+ *          </header>
+ *          <ol class="tweet-list">
+ *          <li class="item"><blockquote class="tweet">
+ *              <div class="author">
+ *                  <a href="#" class="avatar fixie"><img width="48px" height="48px"></img></a>
+ *                  <a href="#" class="name">Christopher Aue</a>
+ *                  <span class="at-username">
+ *                      <span class="at">@</span><a href="#" class="username">christopheraue</a>
+ *                  </span>
+ *              </div>
+ *              <div class="text">
+ *                  This is the content of the tweet.
+ *                  This is an <span class="at-username"><span class="at">@</span><a href="#" class="username">username</a></span> mention.
+ *                  This is a <span class="hashtag"><span class="hash">#</span><a href="#" class="tag">hashtag</a></span>.
+ *                  This is a <a href="#" class="link">t.co/link</a>.
+ *              </div>
+ *              <ul class="action-list">
+ *                  <li class="item"><a href="#" class="action reply"><span class="icon"></span><span class="label">Reply</span></a></li>
+ *                  <li class="item"><a href="#" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a></li>
+ *                  <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
+ *              </ul>
+ *              <a href="#" class="permlink"><time class="timestamp">5h</time></a>
+ *          </blockquote></li>
+ *          <li class="item"><blockquote class="tweet">
+ *              <div class="author">
+ *                  <a href="#" class="avatar fixie"><img width="48px" height="48px"></img></a>
+ *                  <a href="#" class="name">Christopher Aue</a>
+ *                  <span class="at-username">
+ *                      <span class="at">@</span><a href="#" class="username">christopheraue</a>
+ *                  </span>
+ *              </div>
+ *              <div class="retweet-indicator">
+ *                  <span class="icon"></span>
+ *                  <span class="note">Retweeted by <a href="#" class="name">Christopher Aue</a>.</span>
+ *              </div>
+ *              <div class="text">
+ *                  This is the content of the tweet.
+ *                  This is an <span class="at-username"><span class="at">@</span><a href="#" class="username">username</a></span> mention.
+ *                  This is a <span class="hashtag"><span class="hash">#</span><a href="#" class="tag">hashtag</a></span>.
+ *                  This is a <a href="#" class="link">t.co/link</a>.
+ *              </div>
+ *              <ul class="action-list">
+ *                  <li class="item"><a href="#" class="action reply"><span class="icon"></span><span class="label">Reply</span></a></li>
+ *                  <li class="item"><a href="#" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a></li>
+ *                  <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
+ *              </ul>
+ *              <a href="#" class="permlink"><time class="timestamp">5h</time></a>
+ *          </blockquote></li>
+ *          <li class="item"><blockquote class="tweet">
+ *              <div class="author">
+ *                  <a href="#" class="avatar fixie"><img width="48px" height="48px"></img></a>
+ *                  <a href="#" class="name">Christopher Aue</a>
+ *                  <span class="at-username">
+ *                      <span class="at">@</span><a href="#" class="username">christopheraue</a>
+ *                  </span>
+ *              </div>
+ *              <div class="retweet-indicator">
+ *                  <span class="icon"></span>
+ *                  <span class="note">Retweeted by <a href="#" class="name">Christopher Aue</a>.</span>
+ *              </div>
+ *              <div class="text">
+ *                  This is the content of the tweet.
+ *                  This is an <span class="at-username"><span class="at">@</span><a href="#" class="username">username</a></span> mention.
+ *                  This is a <span class="hashtag"><span class="hash">#</span><a href="#" class="tag">hashtag</a></span>.
+ *                  This is a <a href="#" class="link">t.co/link</a>.
+ *              </div>
+ *              <ul class="action-list">
+ *                  <li class="item"><a href="#" class="action reply"><span class="icon"></span><span class="label">Reply</span></a></li>
+ *                  <li class="item"><a href="#" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a></li>
+ *                  <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
+ *              </ul>
+ *              <a href="#" class="permlink"><time class="timestamp">5h</time></a>
+ *          </blockquote></li>
+ *          <li class="item"><blockquote class="tweet">
+ *              <div class="author">
+ *                  <a href="#" class="avatar fixie"><img width="48px" height="48px"></img></a>
+ *                  <a href="#" class="name">Christopher Aue</a>
+ *                  <span class="at-username">
+ *                      <span class="at">@</span><a href="#" class="username">christopheraue</a>
+ *                  </span>
+ *              </div>
+ *              <div class="text">
+ *                  This is the content of the tweet.
+ *                  This is an <span class="at-username"><span class="at">@</span><a href="#" class="username">username</a></span> mention.
+ *                  This is a <span class="hashtag"><span class="hash">#</span><a href="#" class="tag">hashtag</a></span>.
+ *                  This is a <a href="#" class="link">t.co/link</a>.
+ *              </div>
+ *              <ul class="action-list">
+ *                  <li class="item"><a href="#" class="action reply"><span class="icon"></span><span class="label">Reply</span></a></li>
+ *                  <li class="item"><a href="#" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a></li>
+ *                  <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
+ *              </ul>
+ *              <a href="#" class="permlink"><time class="timestamp">5h</time></a>
+ *          </blockquote></li>
+ *          </ol>
+ *      </section>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+/*  Timeline Page Section
+ *  ---------------------
+ */
+/*  ### Layout
+ *  ```
+ *  <iframe width="320px" height="480px" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content">    
+ *              <section class="twitter-timeline page-section">
+ *                  <header class="section-headline kalei-stub">Header</header>
+ *                  <ol class="tweet-list">
+ *                      <li class="item"><blockqoute class="tweet kalei-stub">Tweet</blockqoute></li>
+ *                      <li class="item"><blockqoute class="tweet kalei-stub">Tweet</blockqoute></li>
+ *                      <li class="item"><blockqoute class="tweet kalei-stub">Tweet</blockqoute></li>
+ *                  </ol>
+ *              </section>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.twitter-timeline .tweet-list > .item {
+  display: block; }
+  .twitter-timeline .tweet-list > .item + .item {
+    margin-top: 1.25em; }
+
+/*  ### Header
+ *  ```
+ *  <iframe width="320px" height="480px" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content">   
+ *              <section class="twitter-timeline page-section">
+ *                  <header class="section-headline">
+ *                      <a href="#" class="icon"></a>
+ *                      <h2 class="section-heading">Latest Tweets</h2>
+ *                      <a href="#" class="follow-link">Follow @christopheraue</a>
+ *                  </header>
+ *              </section>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.twitter-timeline .section-headline {
+  width: 11.35em;
+  position: relative; }
+  .twitter-timeline .section-headline .icon {
+    position: absolute;
+    top: 50%;
+    left: 12em;
+    margin-top: -20px; }
+  .twitter-timeline .section-headline .follow-link {
+    display: inline-block;
+    vertical-align: top; }
+  @media screen and (min-width: 50em) {
+    .twitter-timeline .section-headline {
+      position: absolute;
+      width: 7.85em; }
+      .twitter-timeline .section-headline .icon {
+        position: static;
+        margin-top: 0;
+        margin-left: auto; } }
+
+.twitter-timeline .section-headline .icon {
+  display: block;
+  width: 49px;
+  height: 40px;
+  background: url(../images/social-media-logos.png) no-repeat -23px -308px; }
+
+.twitter-timeline .section-headline .follow-link {
+  width: 100%;
+  background: #6daadc;
+  padding: 0.2em 0 0.4em;
+  text-align: center;
+  font: bold 14px Ubuntu;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  text-decoration: none; }
+  .twitter-timeline .section-headline .follow-link:hover {
+    text-decoration: underline; }
+
+/*  Tweet
+ *  -----
+ *  ```
+ *  <iframe width="320px" height="480px" class="kalei-bg-white">
+ *      <blockquote class="tweet">
+ *          <div class="author">
+ *              <a href="#" class="avatar fixie"><img width="48px" height="48px"></img></a>
+ *              <a href="#" class="name">Christopher Aue</a>
+ *              <span class="at-username">
+ *                  <span class="at">@</span><a href="#" class="username">christopheraue</a>
+ *              </span>
+ *          </div>
+ *          <div class="text">
+ *              This is the content of the tweet.
+ *              This is an <span class="at-username"><span class="at">@</span><a href="#" class="username">username</a></span> mention.
+ *              This is a <span class="hashtag"><span class="hash">#</span><a href="#" class="tag">hashtag</a></span>.
+ *              This is a <a href="#" class="link">t.co/link</a>.
+ *          </div>
+ *          <ul class="action-list">
+ *              <li class="item"><a href="#" class="action reply"><span class="icon"></span><span class="label">Reply</span></a></li>
+ *              <li class="item"><a href="#" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a></li>
+ *              <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
+ *          </ul>
+ *          <a href="#" class="permlink"><time class="timestamp">5h</time></a>
+ *      </blockquote>
+ *  </iframe>
+ *  ```
+ */
+.tweet {
+  font: 1em Lato;
+  min-height: 48px;
+  margin-left: 48px;
+  padding-left: 0.625em;
+  padding-bottom: 32px;
+  position: relative;
+  display: block; }
+  .tweet a {
+    text-decoration: none; }
+    .tweet a:hover {
+      text-decoration: underline; }
+  .tweet .action-list {
+    position: absolute;
+    bottom: 0;
+    left: 0.625em; }
+  .tweet .permlink {
+    position: absolute;
+    bottom: 0;
+    right: 100%; }
+  @media screen and (min-width: 50em) {
+    .tweet {
+      padding-bottom: 24px; } }
+
+/*  ### Author
+ *  The avatar is displayed by a grey square. The src attribute of the img tag must be set
+ *  individually for a tweet.
+ *  ```
+ *  <blockquote class="tweet">
+ *      <div class="author">
+ *          <a href="#" class="avatar fixie"><img width="48px" height="48px"></img></a>
+ *          <a href="#" class="name">Christopher Aue</a>
+ *          <span class="at-username">
+ *              <span class="at">@</span><a href="#" class="username">christopheraue</a>
+ *          </span>
+ *      </div>
+ *  </blockquote>
+ *  ```
+ */
+.tweet .author {
+  line-height: 0.9;
+  position: relative; }
+  .tweet .author .avatar {
+    position: absolute;
+    right: 100%;
+    margin-right: 0.625em;
+    margin-top: 0.05em; }
+  .tweet .author .name {
+    font-weight: normal;
+    color: black; }
+  .tweet .author .at-username {
+    font-size: 0.75em;
+    color: #7f7f7f; }
+    .tweet .author .at-username .username {
+      color: inherit; }
+
+/*  ### Retweet Indicator
+ *  The name has a hover state.
+ *  ```
+ *  <blockquote class="tweet">
+ *      <div class="retweet-indicator">
+ *          <span class="icon"></span>
+ *          <span class="note">Retweeted by <a href="#" class="name">Christopher Aue</a>.</span>
+ *      </div>
+ *  </blockquote>
+ *  ```
+ */
+.tweet .retweet-indicator {
+  color: #bfbfbf;
+  font-size: 0.75em;
+  font-weight: normal;
+  margin-top: 0.25em; }
+  .tweet .retweet-indicator .icon {
+    display: inline-block;
+    background: url(../images/twitter-icons.png) no-repeat -48px -2px;
+    width: 16px;
+    height: 12px; }
+  .tweet .retweet-indicator .note {
+    color: #bfbfbf; }
+  .tweet .retweet-indicator .name {
+    color: inherit; }
+    .tweet .retweet-indicator .name:hover {
+      color: #0084b4; }
+
+/*  ### Text
+ *  Usernames, hashtags and links have a hover state.
+ *  ```
+ *  <blockquote class="tweet">
+ *      <div class="text">
+ *          This is the content of the tweet.
+ *          This is an <span class="at-username"><span class="at">@</span><a href="#" class="username">username</a></span> mention.
+ *          This is a <span class="hashtag"><span class="hash">#</span><a href="#" class="tag">hashtag</a></span>.
+ *          This is a <a href="#" class="link">t.co/link</a>.
+ *      </div>
+ *  </blockquote>
+ *  ```
+ */
+.tweet .text {
+  line-height: 1.25em;
+  margin-top: 0.25em; }
+  .tweet .text .at-username {
+    color: #66b5d2; }
+    .tweet .text .at-username .username {
+      color: #0084b4; }
+  .tweet .text .hashtag {
+    color: #66b5d2; }
+    .tweet .text .hashtag .tag {
+      color: #0084b4; }
+  .tweet .text .link {
+    color: #0084b4; }
+
+/*  ### Actions
+ */
+.tweet .action {
+  color: black;
+  opacity: 0.15; }
+  .tweet .action:hover {
+    opacity: 0.5; }
+  .tweet .action .icon {
+    display: inline-block;
+    margin-right: 4px;
+    vertical-align: middle; }
+  .tweet .action .label {
+    display: none;
+    font-size: 0.75em;
+    font-weight: normal; }
+  @media screen and (min-width: 50em) {
+    .tweet .action {
+      opacity: 0.2; }
+      .tweet .action .label {
+        display: inline-block; } }
+
+/*  #### Reply
+ *  ```
+ *  <blockquote class="tweet">
+ *      <a href="#" class="action reply"><span class="icon"></span><span class="label">Reply</span></a>
+ *  </blockquote>
+ *  ```
+ */
+.tweet .action.reply .icon {
+  width: 24px;
+  height: 17px;
+  background: url(../images/twitter-icons.png) no-repeat -4px -24px; }
+@media screen and (min-width: 50em) {
+  .tweet .action.reply .icon {
+    width: 12px;
+    height: 9px;
+    background-position: -2px -4px; } }
+
+/*  #### Retweet
+ *  ```
+ *  <blockquote class="tweet">
+ *      <a href="#" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a>
+ *  </blockquote>
+ *  ```
+ */
+.tweet .action.retweet .icon {
+  width: 30px;
+  height: 16px;
+  background: url(../images/twitter-icons.png) no-repeat -33px -24px; }
+@media screen and (min-width: 50em) {
+  .tweet .action.retweet .icon {
+    width: 14px;
+    height: 8px;
+    background-position: -17px -4px; } }
+
+/*  #### Favorite
+ *  ```
+ *  <blockquote class="tweet">
+ *      <a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a>
+ *  </blockquote>
+ *  ```
+ */
+.tweet .action.favorite .icon {
+  width: 20px;
+  height: 19px;
+  background: url(../images/twitter-icons.png) no-repeat -70px -23px; }
+@media screen and (min-width: 50em) {
+  .tweet .action.favorite .icon {
+    width: 10px;
+    height: 10px;
+    background-position: -35px -3px; } }
+
+/*  #### List
+ *  ```
+ *  <blockquote class="tweet">
+ *      <ul class="action-list">
+ *          <li class="item"><a href="#" class="action reply"><span class="icon"></span><span class="label">Reply</span></a></li>
+ *          <li class="item"><a href="#" class="action retweet"><span class="icon"></span><span class="label">Retweet</span></a></li>
+ *          <li class="item"><a href="#" class="action favorite"><span class="icon"></span><span class="label">Favorite</span></a></li>
+ *      </ul>
+ *  </blockquote>
+ *  ```
+ */
+.tweet .action-list .item {
+  float: left; }
+  .tweet .action-list .item + .item {
+    margin-left: 50px; }
+@media screen and (min-width: 50em) {
+  .tweet .action-list .item + .item {
+    margin-left: 10px; } }
+
+/*  ### Timestamp
+ *  ```
+ *  <blockquote class="tweet">
+ *      <a href="#" class="permlink"><time class="timestamp">5h</time></a>
+ *  </blockquote>
+ *  ```
+ */
+.tweet .permlink {
+  color: black;
+  display: inline-block;
+  opacity: 0.2; }
+  .tweet .permlink:hover {
+    opacity: 0.5; }
+
+.tweet .timestamp {
+  white-space: nowrap;
+  font-size: 0.75em; }
+
+/*  Home Page
+ *  =========
+ *  The home page has set the css class `.home-page` on the body.
+ */
+/*  Background
+ *  ----------
+ *  The fade to white begins at the section right after the introduction.
+ *  ```
+ *  <iframe width="800" height="480" class="article-page" style="background-image: url(../assets/images/background/lanes.png)">
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <section class="introduction page-section use-sidebar kalei-stub">introduction</section>
+ *              <section class="page-section start-background-fade kalei-stub">element after intro</section>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+@media screen and (min-width: 50em) {
+  body.home-page #content-container:before, body.home-page #content-container:after {
+    display: none; }
+  body.home-page #content-container .start-background-fade:before, body.home-page #content-container .start-background-fade:after {
+    display: block; } }
+
+/*  Introduction
+ *  ------------
+ *  ```
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <section class="introduction page-section use-sidebar">
+ *                  <p class="hi">Hey, I'm Christopher.</p>
+ *                  <p class="topics">
+ *                      This is a place where I write about
+ *                      <span class="no-break">Web Technology</span>, <span class="no-break">Product Development</span>
+ *                      and <span class="no-break">Self Improvement</span>.
+ *                  </p>
+ *              </section>
+ *              <section class="page-section"></section>
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+.introduction {
+  -webkit-transform: rotate(-4deg);
+  -ms-transform: rotate(-4deg);
+  transform: rotate(-4deg);
+  font-family: ArchitectsDaughter;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+  text-align: center;
+  max-width: 40em;
+  margin: 2em auto; }
+  .introduction .no-break {
+    white-space: nowrap; }
+  .introduction .hi {
+    font-size: 1.7em;
+    line-height: 1.2;
+    margin-bottom: 1em; }
+  .introduction .topics {
+    font-size: 1.1em;
+    line-height: 1.5; }
+  @media screen and (min-width: 50em) {
+    .introduction {
+      margin-top: 0;
+      margin-bottom: 4em; }
+      .introduction .hi {
+        font-size: 2.4em; }
+      .introduction .topics {
+        font-size: 1.3em; } }
