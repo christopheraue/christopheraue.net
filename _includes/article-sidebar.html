@@ -8,7 +8,7 @@
                 {% endfor %}
             </ul>
         </div><div class="column article-social">
-            <a href="#" class="article-comments-link">5 Comments</a>
+            <a href="{{ site.url }}{{ page.url }}#disqus_thread" class="article-comments-link">0 Comments</a>
             <ul class="article-sharing-list">
                 <li class="item"><a href="https://twitter.com/intent/tweet?url={{ site.url | append: page.url | cgi_escape }}&via=christopheraue&text={{ page.title | cgi_escape }}" class="article-sharing twit"><span class="icon"></span></a></li>
                 <li class="item"><a href="https://www.facebook.com/sharer/sharer.php?s=100&p[url]={{ site.url | append: page.url | cgi_escape }}&p[title]={{ page.title | cgi_escape }}&p[summary]={{ page.excerpt | cgi_escape }}&p[images][0]={{ site.url | append: '/assets/images/background/' | append: page.image | cgi_escape }}" target="_blank"" class="article-sharing face"><span class="icon"></span></a></li>

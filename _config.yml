@@ -1,5 +1,6 @@
 encoding: UTF-8
 pygments: false
+permalink: pretty
 name: christopheraue.net
 url: http://ca.local
 description: Hey, I'm Christopher. This is a place where I write about Web Technology, Product Development and Self-Improvement.

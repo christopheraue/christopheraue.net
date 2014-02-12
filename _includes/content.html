@@ -8,10 +8,12 @@
                 </div>
                 {% include article-sidebar.html %}
             </article>
+            <div id="disqus_thread"></div>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
         {% else %}
             {{ content }}
         {% endif %}
         {% assign image = 'background/' | append: page.image %}
-        {% include image-credit.html image=image %}
     </div>
+    {% include image-credit.html image=image %}
 </div>
