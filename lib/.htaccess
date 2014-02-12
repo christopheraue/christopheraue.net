@@ -4,7 +4,7 @@ AddHandler cgi-script .rb
 Order Allow,Deny
 Deny from all
 
-<FilesMatch "\.rb$">
+<FilesMatch "\.(?:rb|php)$">
     Order Allow,Deny
     Allow from all
 </FilesMatch>

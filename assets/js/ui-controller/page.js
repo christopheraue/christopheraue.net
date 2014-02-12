@@ -1,15 +1,16 @@
 define([
     'jquery',
-    'ui-helper/header'
-], function($, header) {
+    'ui-helper/header',
+    'ui-helper/backToTopButton',
+    'ui-helper/adaptiveImages'
+], function($, header, backToTopButton, adaptiveImages) {
     return {
         loadAction: function() {
             header.init();
             header.calcReferences();
             header.update();
-            $('.js-back-to-top-button').click(function() {
-                $(window).scrollTop(0);
-            });
+            backToTopButton.init();
+            adaptiveImages.init();
             $(window).scroll(this.scrollAction)
             $(window).resize(this.resizeAction)
         },
