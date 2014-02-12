@@ -811,6 +811,10 @@ body {
  */
 body .page-section {
   margin-top: 2.5em; }
+  body .page-section:after {
+    content: "";
+    display: block;
+    clear: both; }
   body .page-section + .page-section {
     margin-top: 2.5em; }
   @media screen and (min-width: 50em) {

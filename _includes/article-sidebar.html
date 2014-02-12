@@ -4,7 +4,7 @@
             <time datetime="{{page.date}}" class="article-date">{{ page.date | date: "%B %d, %Y" }}</time>
             <ul class="article-tags-list">
                 {% for tag in page.tags %}
-                <li class="item"><a href="#" class="article-tag">{{ tag }}</a></li>
+                <li class="item">{% include article-tag.html tag=tag %}</li>
                 {% endfor %}
             </ul>
         </div><div class="column article-social">

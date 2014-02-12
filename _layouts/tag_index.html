@@ -1,0 +1,18 @@
+---
+title: Article Tags
+layout: default
+image: canvas.jpg
+---
+
+<h1 class="page-headline page-heading use-sidebar">{{ page.title }}</span></h1>
+{% for tag in site.tags %}    
+    {% assign tag_label = tag[0] %}
+    <div class="page-section">
+        <h2 class="section-headline section-heading">{{ tag_label }}</h2>
+        {% if forloop.first %}
+            {% include article-list.html categories='all' tags=tag_label css_class="start-background-fade" %}
+        {% else %}
+            {% include article-list.html categories='all' tags=tag_label %}
+        {% endif %}
+    </div>
+{% endfor %}

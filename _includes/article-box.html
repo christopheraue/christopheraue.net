@@ -5,7 +5,7 @@
         <a href="{{ site.url }}{{ article.url }}" class="arrow"></a>
         <ul class="article-tag-list">
             {% for tag in article.tags %}
-                <li class="item"><a href="#" class="article-tag">{{ tag }}</a></li>
+                <li class="item">{% include article-tag.html tag=tag %}</li>
             {% endfor %}
         </ul>
         <time datetime="{{ article.date }}" class="article-date">{{ article.date | date: "%B %d, %Y" }}</time>

@@ -12,12 +12,6 @@ image: canvas.jpg
 {% if site.categories.about %}
 <section class="page-section">
     <h1 class="section-headline section-heading">Some Stuff</h1>
-    <ol class="article-list start-background-fade">
-        {% for article in site.categories.about %}
-        <li class="item">
-            {% include article-box.html %}
-        </li>
-        {% endfor %}
-    </ol>
+    {% include article-list.html categories='about' tags='all' css_class='start-background-fade' %}
 </section>
 {% endif %}
