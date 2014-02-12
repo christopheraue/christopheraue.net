@@ -16,6 +16,7 @@
  *              <section class="page-section kalei-stub">Section</section>
  *          </div>
  *      </div>
+ *      <a href="#" class="close-button back-to-top-button js-back-to-top-button kalei-stub">BACK TO TOP</a>
  *  </iframe>
  *  ```
  */
@@ -32,6 +33,11 @@ body
             margin-top: 0
             + .page-section
                 margin-top: 5em
+    .back-to-top-button
+        display: block
+        clear: both
+        @media screen and (min-width: 50em) //800px
+            display: none
 
 /*
  *  Using the Sidebar
@@ -132,3 +138,33 @@ body
     text-align: right
     a
         color: #ccc
+
+/*
+ *  Close Button
+ *  ------------
+ *  ```
+ *  <a href="#" class="close-button"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
+ *  ```
+ */
+.close-button
+    background: black
+    text-align: center
+    height: 50px
+    line-height: 50px
+    vertical-align: middle
+    font-family: Ubuntu
+    font-size: 1.125em
+    font-weight: 500
+    text-decoration: none
+    color: rgb(127,127,127)
+    .arrow
+        display: inline-block
+        background: url(../images/arrows.png)
+        opacity: 0.5
+        height: 13px
+        width: 22px
+        margin: 0 20px
+    &:hover
+        color: white
+        .arrow
+            opacity: 1

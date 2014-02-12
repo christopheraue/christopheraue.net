@@ -7,6 +7,9 @@ define([
             header.init();
             header.calcReferences();
             header.update();
+            $('.js-back-to-top-button').click(function() {
+                $(window).scrollTop(0);
+            });
             $(window).scroll(this.scrollAction)
             $(window).resize(this.resizeAction)
         },

@@ -20,7 +20,7 @@
  *                  <li class="item"><a href="#" class="social-link mail"></a></li>
  *              </ul></nav>
  *              <a href="#" class="impress-link">Impress</a>
- *              <a href="#" class="close-menu-button"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
+ *              <a href="#" class="close-button"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
  *          </div>
  *      </header>
  *  </iframe>
@@ -52,7 +52,7 @@
     .impress-link
         display: none
         #display: block
-    .close-menu-button
+    .close-button
         display: block
         clear: both
     @media screen and (min-width: 50em) //800px
@@ -70,7 +70,7 @@
             position: absolute
             bottom: 100%
             right: 25px
-        .close-menu-button
+        .close-button
             display: none
     @media screen and (min-width: 81.25em) //1300px
         .logo-area, .logo
@@ -104,7 +104,7 @@
  *                  <li class="item"><a href="#" class="social-link mail"></a></li>
  *              </ul></nav>
  *              <a href="#" class="impress-link">Impress</a>
- *              <a href="#" class="close-menu-button"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
+ *              <a href="#" class="close-button"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
  *          </div>
  *      </header>
  *  </iframe>
@@ -425,33 +425,3 @@
     @media screen and (min-width: 81.25em) //1300px
         line-height: 16px
         text-align: right
-
-/*
- *  Close Menu Button
- *  -----------------
- *  ```
- *  <a href="#" class="close-menu-button"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
- *  ```
- */
-.close-menu-button
-    background: black
-    text-align: center
-    height: 50px
-    line-height: 50px
-    vertical-align: middle
-    font-family: Ubuntu
-    font-size: 1.125em
-    font-weight: 500
-    text-decoration: none
-    color: rgb(127,127,127)
-    .arrow
-        display: inline-block
-        background: url(../images/arrows.png)
-        opacity: 0.5
-        height: 13px
-        width: 22px
-        margin: 0 20px
-    &:hover
-        color: white
-        .arrow
-            opacity: 1
