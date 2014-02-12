@@ -11,5 +11,7 @@
         {% else %}
             {{ content }}
         {% endif %}
+        {% assign image = 'background/' | append: page.image %}
+        {% include image-credit.html image=image %}
     </div>
 </div>
