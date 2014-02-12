@@ -10,7 +10,7 @@
         <script data-main="{{ site.url | append: '/assets/js/main' }}" src="{{ site.url | append: '/assets/js/lib/require.js' }}"></script>
     </head>
     <body class="{% if isArticlePage %}article-page {% endif %}{{ page.body_class }}"
-          style="background-image:url({{ site.url | append: '/assets/images/background/' | append: page.image }})">
+          style="background-image:url({{ site.url | append: '/images/background/' | append: page.image }})">
         {% include header.html %}
         {% include content.html %}
     </body>
