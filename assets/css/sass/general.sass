@@ -90,7 +90,7 @@ table
         height: auto
 
 #content-container
-    padding: 66px 1.25em 0
+    padding: 66px 1.25em 1.25em
     min-height: 100%
     box-sizing: border-box
     overflow: hidden
@@ -261,6 +261,24 @@ body
 
     @media screen and (min-width: 60em) //960px
         font-size: 1.25em
+
+/*
+ *  Links
+ *  -----
+ *  
+ *  ```
+ *  <iframe width="800" height="400" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              This is a <a href="#">Link</a>.
+ *          </div>
+ *      </div>
+ *  </iframe>
+ *  ```
+ */
+a
+    text-decoration: underline
+    color: black
 
 /*
  *  Ajax Loader
