@@ -8,11 +8,6 @@
   author: 252_Yuki
   license: http://creativecommons.org/licenses/by/2.0/
 
-- path: background/blur_horizon.jpg
-  source: http://www.flickr.com/photos/x1brett/8703185923/
-  author: Brett Jordan
-  license: http://creativecommons.org/licenses/by/2.0
-
 - path: background/blur_purple_orange.jpg
   source: http://www.flickr.com/photos/masud/3344695759/
   author: Masud Khan
@@ -21,4 +16,14 @@
 - path: background/old_library.jpg
   source: http://www.flickr.com/photos/adulau/5043219979/
   author: Alexandre Dulaunoy
+  license: http://creativecommons.org/licenses/by/2.0
+
+- path: background/blur_fish.jpg
+  source: http://www.flickr.com/photos/ericmmartin/2873301531/
+  author: Eric Martin
+  license: http://creativecommons.org/licenses/by/2.0
+
+- path: background/blur_lightbeam.jpg
+  source: http://www.flickr.com/photos/seeminglee/8557077232/
+  author: See_ming Lee
   license: http://creativecommons.org/licenses/by/2.0

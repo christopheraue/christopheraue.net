@@ -1,6 +1,7 @@
 url: http://ca.local
 name: Christopher Aue
 description: This is a place where I gather resources and write about <span class="no-break">Web Technology</span>, <span class="no-break">Product Development</span> and <span class="no-break">Self-Improvement</span>.
+default_background: blur_lightbeam.jpg
 encoding: UTF-8
 pygments: false
 permalink: pretty

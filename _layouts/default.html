@@ -1,6 +1,13 @@
 {% if page.id %}
     {% assign isArticlePage = true %}
 {% endif %}
+
+{% if page.image %}
+    {% assign background = page.image %}
+{% else %}
+    {% assign background = site.default_background %}
+{% endif %}
+
 <!doctype html>
 <html>
     <head>
@@ -10,7 +17,7 @@
         <script data-main="{{ site.url | append: '/assets/js/main' }}" src="{{ site.url | append: '/assets/js/lib/require.js' }}"></script>
     </head>
     <body class="{% if isArticlePage %}article-page {% endif %}{{ page.body_class }}"
-          style="background-image:url({{ site.url | append: '/images/background/' | append: page.image }})">
+          style="background-image:url({{ site.url | append: '/images/background/' | append: background }})">
         {% include header.html %}
         {% include content.html %}
     </body>

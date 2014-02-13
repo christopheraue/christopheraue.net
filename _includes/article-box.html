@@ -1,4 +1,10 @@
-<div class="article-box" style="background-image:url({{ site.url | append: '/images/background/' | append: article.image }})">
+{% if article.image %}
+    {% assign background = article.image %}
+{% else %}
+    {% assign background = site.default_background %}
+{% endif %}
+
+<div class="article-box" style="background-image:url({{ site.url | append: '/images/background/' | append: background}})">
     <{{ include.headline_tag }} class="article-headline"><a href="#">{{ article.title }}</a></{{ include.headline_tag }}>
     <a href="{{ site.url }}{{ article.url }}" class="arrow"></a>
     <div class="details">
