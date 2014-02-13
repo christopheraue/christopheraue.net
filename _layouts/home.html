@@ -1,0 +1,16 @@
+---
+title: Home
+layout: default
+body_class: home-page
+---
+<div class="page-section use-sidebar">
+    <section class="introduction">
+        {{content}}
+    </section>
+</div>
+<div class="page-section start-background-fade">
+    {% include article-list.html heading='Latest Articles' categories='webdevelopment' tags='all' limit=4 title_tag='h3' %}
+</div>
+<div class="page-section">
+    {% include twitter-timeline.html %}
+</div>

@@ -1,37 +1,57 @@
-<ol class="article-list {{ include.css_class }}">
-    {% assign counter = 0 %}
-    {% for article in site.posts %}
-        {% assign is_in_category = false %}
-        {% assign has_tag = false %}
+{% comment %}
+Parameters:
+- heading (optional) The article list will creat a html section and set the heading in an h2 tag
+- categories: Category filter for the articles to include in the list. Can be 'all' to include
+              articles of all categories or a space separates list of category identifiers.
+- tags: Tag filter for the articles to include in the list. Can be 'all' to include articles with all
+        tags or a space separates list of tags.
+- limit (optional): Limit the number of articles in the list.
+- title_tag: Sets the html tag wrapping the article titles.
+{% endcomment %}
+
+{% if include.heading %}
+<section class="articles">
+    <div class="section-headline">
+        <h2 class="section-heading">{{ include.heading | xml_escape }}</h2>
+    </div>
+{% endif %}
+    <ol class="article-list {{ include.css_class }}">
+        {% assign counter = 0 %}
+        {% for article in site.posts %}
+            {% assign is_in_category = false %}
+            {% assign has_tag = false %}
+            
+            {% if include.categories == 'all' %}
+                {% assign is_in_category = true %}
+            {% else %}
+                {% for category in article.categories %}
+                    {% if include.categories contains category %}
+                        {% assign is_in_category = true %}
+                        {% break %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            
+            {% if include.tags == 'all' %}
+                {% assign has_tag = true %}
+            {% else %}
+                {% for tag in article.tags %}
+                    {% if include.tags contains tag %}
+                        {% assign has_tag = true %}
+                        {% break %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
         
-        {% if include.categories == 'all' %}
-            {% assign is_in_category = true %}
-        {% else %}
-            {% for category in article.categories %}
-                {% if include.categories contains category %}
-                    {% assign is_in_category = true %}
-                    {% break %}
-                {% endif %}
-            {% endfor %}
-        {% endif %}
-        
-        {% if include.tags == 'all' %}
-            {% assign has_tag = true %}
-        {% else %}
-            {% for tag in article.tags %}
-                {% if include.tags contains tag %}
-                    {% assign has_tag = true %}
-                    {% break %}
-                {% endif %}
-            {% endfor %}
-        {% endif %}
-    
-        {% if is_in_category and has_tag %}
-        <li class="item">
-            {% include article-box.html headline_tag=include.headline_tag %}
-        </li>
-            {% assign counter = counter | plus:1 %}
-        {% endif %}
-        {% if counter >= include.limit %}{% break %}{% endif %}
-    {% endfor %}
-</ol>
+            {% if is_in_category and has_tag %}
+            <li class="item">
+                {% include article-box.html title_tag=include.title_tag %}
+            </li>
+                {% assign counter = counter | plus:1 %}
+            {% endif %}
+            {% if counter >= include.limit %}{% break %}{% endif %}
+        {% endfor %}
+    </ol>
+{% if include.heading %}
+</section>
+{% endif %}

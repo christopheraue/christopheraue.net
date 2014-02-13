@@ -34,11 +34,11 @@ body.home-page #content-container
  *      <div id="content-container">
  *          <div id="content" class="fixie">
  *              <section class="introduction page-section use-sidebar">
- *                  <p class="hi">Hey, I'm Christopher.</p>
- *                  <p class="topics">
+ *                  <h1>Hey, I'm Christopher.</h1>
+ *                  <p>
  *                      This is a place where I write about
- *                      <span class="no-break">Web Technology</span>, <span class="no-break">Product Development</span>
- *                      and <span class="no-break">Self Improvement</span>.
+ *                      <em>Web Technology</em>, <em>Product Development</em>
+ *                      and <em>Self Improvement</em>.
  *                  </p>
  *              </section>
  *              <section class="page-section"></section>
@@ -57,19 +57,19 @@ body.home-page #content-container
     text-align: center
     max-width: 40em
     margin: 2em auto
-    .no-break
+    em
         white-space: nowrap
-    .hi
+    h1
         font-size: 1.7em
         line-height: 1.2
         margin-bottom: 1em
-    .topics
+    p
         font-size: 1.1em
         line-height: 1.5
     @media screen and (min-width: 50em) //800px
         margin-top: 0
         margin-bottom: 4em
-        .hi
+        h1
             font-size: 2.4em
-        .topics
+        p
             font-size: 1.3em
