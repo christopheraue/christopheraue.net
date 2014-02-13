@@ -10,9 +10,9 @@ image: blur_blue_orange.jpg
     <div class="page-section">
         <h2 class="section-headline section-heading">{{ tag_label }}</h2>
         {% if forloop.first %}
-            {% include article-list.html categories='all' tags=tag_label css_class="start-background-fade" %}
+            {% include article-list.html categories='all' tags=tag_label css_class="start-background-fade" headline_tag='h3' %}
         {% else %}
-            {% include article-list.html categories='all' tags=tag_label %}
+            {% include article-list.html categories='all' tags=tag_label headline_tag='h3' %}
         {% endif %}
     </div>
 {% endfor %}

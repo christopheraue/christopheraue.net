@@ -1,17 +1,17 @@
 ---
 layout: default
-title: About Me - christopheraue.net
+title: About Me
 image: canvas.jpg
 ---
 <section class="page-section use-sidebar">
-    <h1 class="page-headline page-heading">About Me</h1>
+    <h1 class="page-headline page-heading">{{ page.title }}</h1>
     <div class="text">
         <p>Some background information about me comes here...</p>
     </div>
 </section>
 {% if site.categories.about %}
 <section class="page-section">
-    <h1 class="section-headline section-heading">Some Stuff</h1>
-    {% include article-list.html categories='about' tags='all' css_class='start-background-fade' %}
+    <h2 class="section-headline section-heading">Some Stuff</h2>
+    {% include article-list.html categories='about' tags='all' css_class='start-background-fade' headline_tag='h2' %}
 </section>
 {% endif %}

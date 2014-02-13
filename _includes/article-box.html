@@ -1,5 +1,5 @@
 <div class="article-box" style="background-image:url({{ site.url | append: '/images/background/' | append: article.image }})">
-    <h2 class="article-headline"><a href="#">{{ article.title }}</a></h2>
+    <{{ include.headline_tag }} class="article-headline"><a href="#">{{ article.title }}</a></{{ include.headline_tag }}>
     <a href="{{ site.url }}{{ article.url }}" class="arrow"></a>
     <div class="details">
         <a href="{{ site.url }}{{ article.url }}" class="arrow"></a>

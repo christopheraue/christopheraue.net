@@ -1,4 +1,5 @@
 <ol class="article-list {{ include.css_class }}">
+    {% assign counter = 0 %}
     {% for article in site.posts %}
         {% assign is_in_category = false %}
         {% assign has_tag = false %}
@@ -27,8 +28,10 @@
     
         {% if is_in_category and has_tag %}
         <li class="item">
-            {% include article-box.html %}
+            {% include article-box.html headline_tag=include.headline_tag %}
         </li>
+            {% assign counter = counter | plus:1 %}
         {% endif %}
+        {% if counter >= include.limit %}{% break %}{% endif %}
     {% endfor %}
 </ol>

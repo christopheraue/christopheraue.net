@@ -1,7 +1,7 @@
+url: http://ca.local
+name: Christopher Aue
+description: This is a place where I gather resources and write about <span class="no-break">Web Technology</span>, <span class="no-break">Product Development</span> and <span class="no-break">Self-Improvement</span>.
 encoding: UTF-8
 pygments: false
 permalink: pretty
-name: christopheraue.net
-url: http://ca.local
-description: Hey, I'm Christopher. This is a place where I write about Web Technology, Product Development and Self-Improvement.
 exclude: [test, sass]

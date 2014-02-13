@@ -6,26 +6,13 @@ body_class: home-page
 ---
 <section class="page-section use-sidebar">
     <div class="introduction">
-        <h2 class="hi">Hey, I'm Christopher.</h2>
-        <p class="topics">This is a place where I write about
-            <span class="no-break">Web Technology</span>,
-            <span class="no-break">Product Development</span> and
-            <span class="no-break">Self-Improvement</span>.</p>
+        <h1 class="hi">Hey, I'm Christopher Aue.</h1>
+        <p class="topics">{{ site.description }}</p>
     </div>
 </section>
 <section class="page-section start-background-fade">
     <div class="section-headline"><h2 class="section-heading">Latest Articles</h2></div>
-    <ol class="article-list">
-        {% assign counter = 0 %}
-        {% for article in site.posts %}
-            {% if article.category == 'about' %}{% continue %}{% endif %}
-            {% assign counter = counter | plus:1 %}
-        <li class="item">
-            {% include article-box.html %}
-        </li>
-            {% if counter > 3 %}{% break %}{% endif %}
-        {% endfor %}
-    </ol>
+    {% include article-list.html categories='webdevelopment' tags='all' limit=4 headline_tag='h3' %}
     <div style="clear:both"></div>
 </section>
 <section class="twitter-timeline page-section">
