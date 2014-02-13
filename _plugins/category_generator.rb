@@ -1,6 +1,8 @@
 module Jekyll
   # Represents a specific category page
   class CategoryPage < Page
+    MATCHER = /^(.+\/)*(\d+)-(.*)(\.[^.]+)$/
+    
     def initialize(site, source, dir, name)
       @site = site
       @base = self.containing_dir(source, dir)
@@ -9,7 +11,7 @@ module Jekyll
       self.process @name
       self.read_yaml(@base, @name)
       
-      self.data['category'] = name
+      self.data['category'] = @basename
       self.data['layout'] = 'category'
     end
     
@@ -26,7 +28,20 @@ module Jekyll
     end
     
     def self.valid?(name)
-      true
+      name =~ MATCHER
+    end
+    
+    # Extract information from the post filename.
+    #
+    # name - The String filename of the post file.
+    #
+    # Returns nothing.
+    def process(name)
+      m, cats, order, basename, ext = *name.match(MATCHER)
+      self.basename = basename
+      self.ext = ext
+    rescue ArgumentError
+      raise FatalException.new("Post #{name} does not have a valid date.")
     end
   end
 

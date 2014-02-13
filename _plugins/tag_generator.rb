@@ -23,6 +23,7 @@ module Jekyll
       super(site, base, dir)
       self.data['tag'] = tag
       self.data['title'] = self.data['title_prefix'] + tag
+      self.data['meta_description'] = 'A list of all articles tagged with ' + tag
     end
 
     def layout_page
@@ -55,6 +56,11 @@ module Jekyll
 
   # Represents a page with all the tags
   class TagIndexPage < BaseTagPage
+    def initialize(site, base, dir)
+      super(site, base, dir)
+      self.data['meta_description'] = 'A list of all tags used on this site and the corresponding articles'
+    end
+    
     def layout_page
       'tag_index.html'
     end
