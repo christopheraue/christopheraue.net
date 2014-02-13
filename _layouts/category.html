@@ -9,11 +9,11 @@ layout: default
         {{content}}
     </div>
     {% else %}
-    {% include article-list.html categories=page.categories tags='all' css_class='start-background-fade' title_tag='h2' %}
+    {% include article-list.html categories=page.category tags='all' css_class='start-background-fade' title_tag='h2' %}
     {% endif %}
 </section>
 {% if page.content != empty %}
 <div class="page-section">
-    {% include article-list.html heading=page.article_list_heading categories=page.categories tags='all' css_class='start-background-fade' title_tag='h2' %}
+    {% include article-list.html heading=page.article_list_heading categories=page.category tags='all' css_class='start-background-fade' title_tag='h2' %}
 </div>
 {% endif %}

@@ -4,5 +4,5 @@ description: This is a place where I gather resources and write about *Web Techn
 default_background: blur_lightbeam.jpg
 encoding: UTF-8
 pygments: false
-permalink: pretty
+permalink: :year/:month/:day/:title/
 exclude: [test, sass]
