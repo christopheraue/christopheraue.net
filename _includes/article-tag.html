@@ -1,1 +1,1 @@
-<a href="{{ site.url | append: '/tag/' | append: include.tag }}" class="article-tag">{{ include.tag }}</a>
+<a href="{{ site.url | append: '/tag/' | append: include.tag }}" class="article-tag">{{ include.tag | xml_escape }}</a>
