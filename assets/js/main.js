@@ -2,18 +2,27 @@ require([
     'config'
 ], function() {
     require([
-        'jquery',
-        'ui-controller/page',
-        'ui-controller/homepage',
-        'ui-controller/articlepage'
-    ], function($, page, homepage, articlepage) {
+        'jquery'
+    ], function($) {
         //routing
         if ($('body.home-page').length) {
-            homepage.loadAction();
+            require([
+                'ui-controller/homepage'
+            ],function(homepage) {
+                homepage.loadAction();
+            });
         } else if ($('body.article-page').length) {
-            articlepage.loadAction();
+            require([
+                'ui-controller/articlepage'
+            ], function(articlepage) {
+                articlepage.loadAction();
+            });
         } else {
-            page.loadAction();
+            require([
+                'ui-controller/page'
+            ], function(page) {
+                page.loadAction();
+            });
         }
     });
 });

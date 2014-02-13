@@ -2,10 +2,9 @@ define([
     'underscore',
     'ui-controller/page',
     'ui-helper/articleSidebar',
-    '//platform.twitter.com/widgets.js',
     'ui-helper/disqus',
-    'ui-helper/disqusCount'
-], function(_, page, articleSidebar) {
+    '//platform.twitter.com/widgets.js'
+], function(_, page, articleSidebar, disqus) {
     var articlepage = Object.create(page),
         __parent = page;
     
@@ -15,6 +14,7 @@ define([
             articleSidebar.init();
             articleSidebar.calcReferences();
             articleSidebar.update();
+            disqus.init();
         },
         scrollAction: function() {
             __parent.scrollAction();
