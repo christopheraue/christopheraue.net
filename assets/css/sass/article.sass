@@ -193,8 +193,10 @@ a.article-tag:hover
         left: 0
         display: block
     .article-headline
-        padding: 1.25em
         position: relative //to place it atop of .article:before
+        > *
+            padding: 1.25em
+            display: block
     .details
         margin-top: 20px
         position: relative
@@ -209,7 +211,7 @@ a.article-tag:hover
         top: 50%
         margin-top: -16px
     @media screen and (min-width: 22.5em) //360px
-        .article-headline
+        .article-headline > *
             padding: 0
         .details
             display: block

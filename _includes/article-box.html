@@ -5,7 +5,7 @@
 {% endif %}
 
 <div class="article-box" style="background-image:url({{ site.url | append: '/images/background/' | append: background}})">
-    <{{ include.title_tag }} class="article-headline"><a href="#">{{ article.title | xml_escape }}</a></{{ include.title_tag }}>
+    <{{ include.title_tag }} class="article-headline"><a href="{{ site.url }}{{ article.url }}">{{ article.title | xml_escape }}</a></{{ include.title_tag }}>
     <a href="{{ site.url }}{{ article.url }}" class="arrow"></a>
     <div class="details">
         <a href="{{ site.url }}{{ article.url }}" class="arrow"></a>
