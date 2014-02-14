@@ -1,7 +1,7 @@
 <div class="article-sidebar collapsed js-article-sidebar">
     <div class="drawer">
         <div class="column article-details">
-            <time datetime="{{page.date}}" class="article-date">{{ page.date | date: "%B %d, %Y" }}</time>
+            {% include date.html date=page.date css_class='article-date' %}
             <ul class="article-tags-list">
                 {% for tag in page.tags %}
                 <li class="item">{% include article-tag.html tag=tag %}</li>
@@ -10,8 +10,8 @@
         </div><div class="column article-social">
             <a href="{{ site.url }}{{ page.url }}#disqus_thread" class="article-comments-link">0 Comments</a>
             <ul class="article-sharing-list">
-                <li class="item"><a href="https://twitter.com/intent/tweet?url={{ site.url | append: page.url | cgi_escape }}&via=christopheraue&text={{ page.title | cgi_escape }}" class="article-sharing twit"><span class="icon"></span></a></li>
-                <li class="item"><a href="https://www.facebook.com/sharer/sharer.php?s=100&p[url]={{ site.url | append: page.url | cgi_escape }}&p[title]={{ page.title | cgi_escape }}&p[summary]={{ page.excerpt | cgi_escape }}&p[images][0]={{ site.url | append: '/assets/images/background/' | append: page.image | cgi_escape }}" target="_blank"" class="article-sharing face"><span class="icon"></span></a></li>
+                <li class="item"><a href="https://twitter.com/intent/tweet?url={{ site.url | append: page.url | cgi_escape }}&amp;via=christopheraue&amp;text={{ page.title | cgi_escape }}" class="article-sharing twit"><span class="icon"></span></a></li>
+                <li class="item"><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;{{ 'p[url]' | cgi_escape }}={{ site.url | append: page.url | cgi_escape }}&amp;{{ 'p[title]' | cgi_escape }}={{ page.title | cgi_escape }}&amp;{{ 'p[summary]' | cgi_escape }}={{ page.excerpt | cgi_escape }}&amp;{{ 'p[images][0]' | cgi_escape }}={{ site.url | append: '/assets/images/background/' | append: page.image | cgi_escape }}" target="_blank" class="article-sharing face"><span class="icon"></span></a></li>
             </ul>
         </div>
     </div>

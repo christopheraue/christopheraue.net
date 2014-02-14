@@ -14,6 +14,6 @@
                 <li class="item">{% include article-tag.html tag=tag %}</li>
             {% endfor %}
         </ul>
-        <time datetime="{{ article.date }}" class="article-date">{{ article.date | date: "%B %d, %Y" }}</time>
+        {% include date.html date=article.date css_class='article-date' %}
     </div>
 </div>

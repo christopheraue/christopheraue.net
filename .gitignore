@@ -3,3 +3,5 @@ assets/css/*.css
 Thumbs.db
 twitter_api_config.yml
 ai-cache
+_site
+_site_production
