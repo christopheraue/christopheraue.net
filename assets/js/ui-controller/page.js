@@ -2,8 +2,9 @@ define([
     'jquery',
     'ui-helper/header',
     'ui-helper/backToTopButton',
-    'ui-helper/adaptiveImages'
-], function($, header, backToTopButton, adaptiveImages) {
+    'ui-helper/adaptiveImages',
+    'ui-helper/googleAnalytics'
+], function($, header, backToTopButton, adaptiveImages, googleAnalytics) {
     return {
         loadAction: function() {
             header.init();
@@ -11,6 +12,7 @@ define([
             header.update();
             backToTopButton.init();
             adaptiveImages.init();
+            googleAnalytics.init();
             $(window).scroll(this.scrollAction)
             $(window).resize(this.resizeAction)
         },

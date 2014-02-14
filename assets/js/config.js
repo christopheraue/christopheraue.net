@@ -19,6 +19,9 @@ require.config({
             init: function() {
                 return _.noConflict();
             }
+        },
+        '//www.google-analytics.com/analytics.js': {
+            exports: 'ga'
         }
     },
     map: {
