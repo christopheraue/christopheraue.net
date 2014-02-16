@@ -37,6 +37,7 @@
  *  ```
  */
 .text
+    max-width: 36.2em
     &.white-bg
         padding: 1.25em
         background: white
@@ -335,23 +336,27 @@
  *  </iframe>
  *  ```
  */
-.text
-    @media screen and (min-width: 32em) //512px
-        .landscape
-            float: left
-            margin-top: .4em
-            margin-right: 1em
+@mixin floatAndMargins($selector)
+    .#{$selector}
+        float: left
+        margin-top: .4em
+        margin-right: 1em
+        + p
+            margin-top: 0
+    * + .#{$selector}
+        margin-top: 1.9em
+        + p
+            margin-top: 1.5em
+    h2, h3, h4, h5, h6
+        + .#{$selector}
+            margin-top: .4em !important //overwrite the important rule set for elements following headings
             + p
                 margin-top: 0
-        * + .landscape
-            margin-top: 1.9em
-            + p
-                margin-top: 1.5em
-        h2, h3, h4, h5, h6
-            + .landscape
-                margin-top: .4em !important //overwrite the important rule set for elements following headings
-                + p
-                    margin-top: 0
+    
+
+.text
+    @media screen and (min-width: 32em) //512px
+        @include floatAndMargins(landscape)
 
 /*
  *  ### .sqaure
@@ -379,22 +384,10 @@
  *  ```
  */
 .text
+    .square.height-6, .square.height-9
+        @include floatAndMargins(square)
     @media screen and (min-width: 30em) //480px
-        .square
-            float: left
-            margin-top: .4em
-            margin-right: 1em
-            + p
-                margin-top: 0
-        * + .square
-            margin-top: 1.9em
-            + p
-                margin-top: 1.5em
-        h2, h3, h4, h5, h6
-            + .square
-                margin-top: .4em !important //overwrite the important rule set for elements following headings
-                + p
-                    margin-top: 0
+        @include floatAndMargins(square)
 
 /*
  *  ### .portrait
@@ -451,21 +444,8 @@
  */
 .text
     @media screen and (min-width: 20em) //320px
-        .portrait, .pillar
-            float: left
-            margin-top: .4em
-            margin-right: 1em
-            + p
-                margin-top: 0
-        * + .portrait, * + .pillar
-            margin-top: 1.9em
-            + p
-                margin-top: 1.5em
-        h2, h3, h4, h5, h6
-            + .portrait, + .pillar
-                margin-top: .4em !important //overwrite the important rule set for elements following headings
-                + p
-                    margin-top: 0
+        @include floatAndMargins(portrait)
+        @include floatAndMargins(pillar)
 
 /*
  *  ### Height of Floating Elements
@@ -473,11 +453,22 @@
  *  The bounding box of the floating element has to align with the baselines of the article text at
  *  top and bottom.
  */
+@mixin setHeight($height)
+    height: $height
+    width: auto
+    *
+        width: auto
+        height: 100%
+
 .text
     .panorama, .landscape, .square, .portrait, .pillar
         *
             width: 100%
             height: auto
+        &.height-6
+            @include setHeight(8.245em)
+        &.height-9
+            @include setHeight(12.745em)
 
 /*
  *  ### .panorama
@@ -507,11 +498,7 @@
 .text
     .landscape
         @media screen and (min-width: 32em) //512px
-            height: 8.245em
-            width: auto
-            *
-                height: 100%
-                width: auto
+            @include setHeight(8.245em)
 
 /*
  *  ### .sqaure
@@ -528,11 +515,7 @@
 .text
     .square
         @media screen and (min-width: 30em) //480px
-            height: 15.745em
-            width: auto
-            *
-                height: 100%
-                width: auto
+            @include setHeight(15.745em)
 
 /*
  *  ### .portrait
@@ -550,15 +533,11 @@
 .text
     .portrait
         @media screen and (min-width: 20em) //320px
-            height: 18.745em
-            width: auto
-            *
-                height: 100%
-                width: auto
+            @include setHeight(18.745em)
 
 /*
  *  ### .pillar
- *  Spans 13 lines of text.
+ *  Spans 25 lines of text.
  *  ```
  *  <div class="text fixie">
  *  <div class="pillar">
@@ -573,11 +552,7 @@
 .text
     .pillar
         @media screen and (min-width: 20em) //320px
-            height: 27.745em
-            width: auto
-            *
-                height: 100%
-                width: auto
+            @include setHeight(27.745em)
 
 /*
  *  ### Floating Elements Reaching Into the Sidebar
