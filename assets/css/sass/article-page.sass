@@ -10,7 +10,7 @@
  *          <div id="content">
  *              <article id="main-article">
  *                  <h1 class="article-headline">This Is the Headline of an Article With an Interesting Topic</h1>
- *                  <div class="text start-background-fade">
+ *                  <div class="text white-bg start-background-fade">
  *                      <section class="fixie"></section>
  *                  </div>
  *                  <div class="article-sidebar">
@@ -51,7 +51,7 @@
  *      <div id="content-container">
  *          <div id="content">
  *              <article id="main-article">
- *                  <div class="text start-background-fade kalei-stub">Fade to white starts here</div>
+ *                  <div class="text white-bg start-background-fade kalei-stub">Fade to white starts here</div>
  *              </article>
  *          </div>
  *      </div>
@@ -91,7 +91,7 @@ body.article-page #content
  *          <div id="content">
  *              <article id="main-article">
  *                  <h1 class="kalei-stub article-headline">Headline</h1>
- *                  <div class="text start-background-fade kalei-stub">
+ *                  <div class="text white-bg start-background-fade kalei-stub">
  *                      <section class="fixie"></section>
  *                  </div>
  *                  <div class="article-sidebar kalei-stub">Article Details</p></div>
@@ -166,7 +166,7 @@ body.article-page #content
  *      <div id="content-container">
  *          <div id="content">
  *              <article id="main-article">
- *                  <div class="text start-background-fade">
+ *                  <div class="text white-bg start-background-fade">
  *                      <section class="fixie"></section>
  *                  </div>
  *              </section>
@@ -175,12 +175,8 @@ body.article-page #content
  *  </iframe>
  *  ```
  */
-#main-article .text
-    padding: 1.25em
-    background: white
-    width: 100%
-    -moz-box-sizing: border-box
-    box-sizing: border-box
+//#main-article .text inherits from .text.white-bg
+    
 
 /*
  *  Article Sidebar
@@ -487,7 +483,7 @@ body.article-page #content
  *      <div id="content-container">
  *          <div id="content">
  *              <article id="main-article">
- *                  <div class="text start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
+ *                  <div class="text white-bg start-background-fade kalei-stub">Article text<section class="fixie"></section><section class="fixie"></section></div>
  *                  <div class="article-sidebar attached-to-viewport collapsed">
  *                      <div class="drawer">
  *                          <div class="column article-details">
