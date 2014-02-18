@@ -49,6 +49,96 @@ table
     border-spacing: 0
 
 /*
+ *  Fonts
+ *  -----
+ *  The following fonts may be used throughout the site:
+ *
+ *  ### Ubuntu
+ *  Used for navigational elements on the page (header, article sidebar).
+ *  ```
+ *  <p style="font: 1em/1 Ubuntu">Ubuntu Regular</p>
+ *  <p style="font: italic 1em/1 Ubuntu">Ubuntu Regular Italic</p>
+ *  <p style="font: 500 1em/1 Ubuntu">Ubuntu Medium</p>
+ *  <p style="font: bold 1em/1 Ubuntu">Ubuntu Bold</p>
+ *  ```
+ */
+@font-face
+    font-family: 'Ubuntu'
+    font-weight: normal
+    src: url(../fonts/Ubuntu-R.woff)
+
+@font-face
+    font-family: 'Ubuntu'
+    font-weight: normal
+    font-style: italic
+    src: url(../fonts/Ubuntu-RI.woff)
+
+@font-face
+    font-family: 'Ubuntu'
+    font-weight: 500
+    src: url(../fonts/Ubuntu-M.woff)
+
+@font-face
+    font-family: 'Ubuntu'
+    font-weight: bold
+    src: url(../fonts/Ubuntu-B.woff)
+
+/*
+ *  ### Lato
+ *  Used for content.
+ *  ```
+ *  <p style="font: 200 1em/1 Lato">Lato Light</p>
+ *  <p style="font: italic 200 1em/1 Lato">Lato Light Italic</p>
+ *  <p style="font: 1em/1 Lato">Lato Regular</p>
+ *  <p style="font: bold 1em/1 Lato">Lato Bold</p>
+ *  ```
+ */
+    
+@font-face
+    font-family: 'Lato'
+    font-weight: 200
+    src: url(../fonts/Lato-Lig.woff)
+
+@font-face
+    font-family: 'Lato'
+    font-weight: 200
+    src: url(../fonts/Lato-LigIta.woff)
+    font-style: italic
+
+@font-face
+    font-family: 'Lato'
+    font-weight: normal
+    src: url(../fonts/Lato-Reg.woff)
+
+@font-face
+    font-family: 'Lato'
+    font-weight: bold
+    src: url(../fonts/Lato-Bol.woff)
+
+/*
+ *  ### Alfa Slab One
+ *  Used for Headlines.
+ *  ```
+ *  <p style="font: 1em/1  'Alfa Slab One'">Alfa Slab One Regular</p>
+ *  ```
+ */
+@font-face
+    font-family: 'Alfa Slab One'
+    font-weight: normal
+    src: url(../fonts/AlfaSlabOne-Regular.woff)
+
+/*
+ *  ### Architects Daughter
+ *  Used for a personal touch.
+ *  ```
+ *  <p style="font: 2em/1 ArchitectsDaughter">Architects Daughter</p>
+ *  ```
+ */
+@font-face
+    font-family: 'ArchitectsDaughter'
+    src: url(../fonts/ArchitectsDaughter.woff)
+
+/*
  *  Responsive Grid
  *  ---------------
  *  For small viewports the containers are rendered just above each other.
