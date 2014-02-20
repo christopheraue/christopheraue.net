@@ -3,12 +3,189 @@
  *  ==============
  *  To achieve the text formatting described on this page, the text must appear inside an element 
  *  with the class `.text`.
- *
- *  Running Content
+ */
+
+/*
+ *  Inline Elements
  *  ---------------
- *  All running elements are separted from other content above them by the height of one line.
- *  An exception are list items. They have no margin.
- *
+ *  ### The Font
+ *  Its size is set for the `<#content-container>` element. Running text uses the Lato Light font.
+ *  ```
+ *  <div class="text fixie">
+ *      <p></p>
+ *  </div>
+ *  ```
+ */
+.text
+    color: black
+    font: 200 1em/1.5 'Lato'
+
+/*
+ *  ### Emphasis
+ *  ```
+ *  <div class="text">
+ *      <p>This is <em>emphasized text</em>.</p>
+ *      <p>This is <strong>strong text</strong>.</p>
+ *  </div>
+ *  ```
+ */
+.text em
+    font-style: italic
+
+.text strong
+    font-weight: normal
+
+/*
+ *  ### Code
+ *  ```
+ *  <div class="text">
+ *      <p>This is an <code>inline code</code> fragment.</p>
+ *  </div>
+ *  ```
+ */
+.text code
+    font-family: monospace
+    white-space: nowrap
+    border: 1px solid #ddd
+    background-color: #f8f8f8
+    border-radius: 3px
+    max-width: 100%
+    overflow: auto
+    padding: .1em
+
+/*
+ *  Block Elements
+ *  --------------
+ *  ### Lists
+ *  #### Unordered
+ *  ```
+ *  <div class="text fixie">
+ *  <ul></ul>
+ *  </div>
+ *  ```
+ */
+.text ul
+    list-style-type: square
+    padding-left: 3em
+
+/*
+ *  #### Ordered
+ *  ```
+ *  <div class="text fixie">
+ *  <ol></ol>
+ *  </div>
+ *  ```
+ */
+.text ol
+    list-style-type: decimal
+    padding-left: 3em
+
+/*
+ *  #### Margins Between Items
+ *  Display no margin between items by default. Add margins between items, if the list item does
+ *  contain a block element as first child. Works for ul and ol alike.
+ *  ```
+ *  <div class="text fixie">
+ *      <ul>
+ *          <li><p></p></li>
+ *          <li><p></p></li>
+ *          <li><p></p></li>
+ *      </ul>
+ *  </div>
+ *  ```
+ */
+.text ul,
+.text ol
+    li + li
+        margin-top: 0
+        > :first-child
+            margin-top: 1.5em
+
+/*
+ *  ### Quotes
+ *  ```
+ *  <div class="text fixie">
+ *      <blockquote>
+ *          <section></section>
+ *          <footer>— Some Guy</footer>
+ *      </blockquote>
+ *  </div>
+ *  ```
+ */
+.text blockquote
+    padding: 0.5em 1em 0.5em 2em
+    font-style: italic
+    background: #f8f8f8
+    footer
+        text-align: right
+    *
+        font-style: italic
+
+/*  
+ *  ### Short Quotes
+ *  ```
+ *  <div class="text fixie">
+ *      <blockquote class="short">
+ *          <div></div>
+ *          <footer>— Some Guy</footer>
+ *      </blockquote>
+ *  </div>
+ *  ```
+ */
+.text blockquote.short
+    background: transparent
+    padding: 0
+    font-size: 1.5em
+    quotes: '“' '”'
+    *
+        display: inline
+    p, div
+        &:before
+            content: open-quote
+    p, div
+        &:after
+            content: close-quote
+
+/*
+ *  ### Code Block
+ *  ```
+ *  <div class="text">
+ *      <pre><code>&lt;div class="center-area"&gt;::before
+ *     &lt;div class="centered"&gt;&lt;/div&gt;
+ *  &lt;/div&gt;</code></pre>
+ *  </div>
+ *  ```
+ */
+.text pre code
+    display: block
+    white-space: pre
+    line-height: 1.3
+    padding: .25em
+
+/*
+ *  ### Embedded Media
+ *  Images, videos, canvas, tables fill the complete width of the content column. Their height is
+ *  adjusted to keep their aspect ratio.
+ *  ```
+ *  <div class="text fixie">
+ *  <img width="900" height="100"></img>
+ *  </div>
+ *  ```
+ */
+.text
+    img, table, form, aside
+        width: 100%
+        height: auto
+.text
+    iframe, embed, object, video, canvas, svg
+        width: 100%
+
+/*
+ *  ### Combining Block Elements
+ *  All block elements are separated from each other by one line-height. The text area can be set to
+ *  have a white background and a padding by applying the css class `white-bg` to the `<.text>`
+ *  element. Text areas cannot be wider than 36.2em to ensure good readability.
+ *  
  *  ```
  *  <iframe width="800" height="480" class="kalei-bg-white">
  *      <div id="content-container">
@@ -43,181 +220,6 @@
         background: white
     * + *
         margin-top: 1.5em
-
-/*
- *  ### The Font
- *  Its size is set for the `#content-container` element.
- *  ```
- *  <div class="text fixie">
- *  <p></p>
- *  </div>
- *  ```
- *
- *  ### Emphasis
- *  ```
- *  <div class="text">
- *      <em>emphasized text</em>
- *  </div>
- *  ```
- *
- *  ```
- *  <div class="text">
- *      <strong>strong text</strong>
- *  </div>
- *  ```
- */
-.text
-    //inner properties
-    color: black
-    font: 200 1em/1.5 'Lato'
-    em
-        font-style: italic
-    strong
-        font-weight: normal
-
-/*
- *  ### Lists
- *  Display no margin between items as default.
- */
-.text ul,
-.text ol
-    li + li
-        margin-top: 0
-
-/*
- *  #### Unordered
- *  ```
- *  <div class="text fixie">
- *  <ul></ul>
- *  </div>
- *  ```
- */
-.text ul
-    list-style-type: square
-    padding-left: 3em
-
-/*
- *  #### Ordered
- *  ```
- *  <div class="text fixie">
- *  <ol></ol>
- *  </div>
- *  ```
- */
-.text ol
-    list-style-type: decimal
-    padding-left: 3em
-
-/*
- *  #### Added Margins Between Items
- *  Add margins inbetween items, if the list item does conain a block element as first child. Works for ul and ol alike.
- *  ```
- *  <div class="text fixie">
- *      <ul>
- *          <li><p></p></li>
- *          <li><p></p></li>
- *          <li><p></p></li>
- *      </ul>
- *  </div>
- *  ```
- */
-.text ul,
-.text ol
-    li + li > :first-child
-        margin-top: 1.5em
-
-/*
- *  ### Quotes
- *  ```
- *  <div class="text fixie">
- *      <blockquote>
- *          <section></section>
- *          <footer>— Some Guy</footer>
- *      </blockquote>
- *  </div>
- *  ```
- */
-.text
-    //inner properties
-    blockquote
-        padding: 0.5em 1em 0.5em 2em
-        font-style: italic
-        background: #f8f8f8
-        footer
-            text-align: right
-        *
-            font-style: italic
-
-/*  
- *  ### Short Quotes
- *  ```
- *  <div class="text fixie">
- *      <blockquote class="short">
- *          <div></div>
- *          <footer>— Some Guy</footer>
- *      </blockquote>
- *  </div>
- *  ```
- */
-.text
-    blockquote.short
-        background: transparent
-        padding: 0
-        font-size: 1.5em
-        quotes: '“' '”'
-        *
-            display: inline
-        p, div
-            &:before
-                content: open-quote
-        p, div
-            &:after
-                content: close-quote
-
-/*
- *  ### Code
- *  ```
- *  <div class="text">
- *      <pre><code>&lt;div class="center-area"&gt;::before
- *     &lt;div class="centered"&gt;&lt;/div&gt;
- *  &lt;/div&gt;</code></pre>
- *      <p>This is an <code>inline code</code> fragment.</p>
- *  </div>
- *  ```
- */
-.text
-    code
-        font-family: monospace
-        white-space: nowrap
-        border: 1px solid #ddd
-        background-color: #f8f8f8
-        border-radius: 3px
-        max-width: 100%
-        overflow: auto
-        padding: .1em
-    pre code
-        display: block
-        white-space: pre
-        line-height: 1.3
-        padding: .25em
-
-/*
- *  ### Embedded Media
- *  Images, videos, canvas, tables fill the complete width of the content column. Their height is
- *  adjusted to keep their aspect ratio.
- *  ```
- *  <div class="text fixie">
- *  <img width="900" height="100"></img>
- *  </div>
- *  ```
- */
-.text
-    img, table, form, aside
-        width: 100%
-        height: auto
-.text
-    iframe, embed, object, video, canvas, svg
-        width: 100%
 
 /*
  *  Headings
