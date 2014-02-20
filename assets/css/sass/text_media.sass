@@ -43,16 +43,26 @@
         background: white
     * + *
         margin-top: 1.5em
-    ul, ol
-        li + li
-            margin-top: 0
 
 /*
  *  ### The Font
  *  Its size is set for the `#content-container` element.
  *  ```
  *  <div class="text fixie">
- *  <section></section>
+ *  <p></p>
+ *  </div>
+ *  ```
+ *
+ *  ### Emphasis
+ *  ```
+ *  <div class="text">
+ *      <em>emphasized text</em>
+ *  </div>
+ *  ```
+ *
+ *  ```
+ *  <div class="text">
+ *      <strong>strong text</strong>
  *  </div>
  *  ```
  */
@@ -67,6 +77,14 @@
 
 /*
  *  ### Lists
+ *  Display no margin between items as default.
+ */
+.text ul,
+.text ol
+    li + li
+        margin-top: 0
+
+/*
  *  #### Unordered
  *  ```
  *  <div class="text fixie">
@@ -91,6 +109,24 @@
     padding-left: 3em
 
 /*
+ *  #### Added Margins Between Items
+ *  Add margins inbetween items, if the list item does conain a block element as first child. Works for ul and ol alike.
+ *  ```
+ *  <div class="text fixie">
+ *      <ul>
+ *          <li><p></p></li>
+ *          <li><p></p></li>
+ *          <li><p></p></li>
+ *      </ul>
+ *  </div>
+ *  ```
+ */
+.text ul,
+.text ol
+    li + li > :first-child
+        margin-top: 1.5em
+
+/*
  *  ### Quotes
  *  ```
  *  <div class="text fixie">
@@ -106,7 +142,7 @@
     blockquote
         padding: 0.5em 1em 0.5em 2em
         font-style: italic
-        background: #ebebeb
+        background: #f8f8f8
         footer
             text-align: right
         *
@@ -139,6 +175,33 @@
                 content: close-quote
 
 /*
+ *  ### Code
+ *  ```
+ *  <div class="text">
+ *      <pre><code>&lt;div class="center-area"&gt;::before
+ *     &lt;div class="centered"&gt;&lt;/div&gt;
+ *  &lt;/div&gt;</code></pre>
+ *      <p>This is an <code>inline code</code> fragment.</p>
+ *  </div>
+ *  ```
+ */
+.text
+    code
+        font-family: monospace
+        white-space: nowrap
+        border: 1px solid #ddd
+        background-color: #f8f8f8
+        border-radius: 3px
+        max-width: 100%
+        overflow: auto
+        padding: .1em
+    pre code
+        display: block
+        white-space: pre
+        line-height: 1.3
+        padding: .25em
+
+/*
  *  ### Embedded Media
  *  Images, videos, canvas, tables fill the complete width of the content column. Their height is
  *  adjusted to keep their aspect ratio.
@@ -149,9 +212,12 @@
  *  ```
  */
 .text
-    img, iframe, embed, object, video, source, canvas, svg, table, form, aside
+    img, table, form, aside
         width: 100%
         height: auto
+.text
+    iframe, embed, object, video, canvas, svg
+        width: 100%
 
 /*
  *  Headings
