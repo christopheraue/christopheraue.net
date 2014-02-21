@@ -163,22 +163,66 @@
     padding: .25em
 
 /*
- *  ### Embedded Media
- *  Images, videos, canvas, tables fill the complete width of the content column. Their height is
- *  adjusted to keep their aspect ratio.
+ *  ### Tables
  *  ```
  *  <div class="text fixie">
- *  <img width="900" height="100"></img>
+ *      <table>
+ *          <caption>Table Caption</caption>
+ *          <thead>
+ *              <tr>
+ *                  <th></th>
+ *                  <th></th>
+ *                  <th></th>
+ *              </tr>
+ *          </thead>
+ *          <tbody>
+ *              <tr>
+ *                  <td></td><td></td><td></td>
+ *              </tr>
+ *              <tr>
+ *                  <td></td><td></td><td></td>
+ *              </tr>
+ *              <tr>
+ *                  <td></td><td></td><td></td>
+ *              </tr>
+ *          </tbody>
+ *          <tfoot>
+ *              <tr>
+ *                  <td></td><td></td><td></td>
+ *              </tr>
+ *          </tfoot>
+ *      </table>
  *  </div>
  *  ```
  */
-.text
-    img, table, form, aside
-        width: 100%
-        height: auto
-.text
-    iframe, embed, object, video, canvas, svg
-        width: 100%
+.text table
+    width: 100%
+    caption
+        font: 1em/1.2 'Alfa Slab One'
+        text-align: left
+        margin-top: 2.5em
+        margin-bottom: .3333em
+    th, td
+        padding: .5em
+        vertical-align: top
+        text-align: left
+        border-top: 1px solid #ddd
+    th
+        font-weight: bold
+    th[rowspan]
+        vertical-align: middle
+    thead > tr
+        > th
+            vertical-align: bottom
+            border-bottom: 2px solid #ddd
+        &:first-child
+            th, td
+                border-top: 0
+    tbody > tr:nth-child(odd)
+        th, td
+            background-color: #f9f9f9
+        th[rowspan]
+            background: transparent
 
 /*
  *  ### Combining Block Elements
@@ -206,7 +250,6 @@
  *                      <footer>— Some Guy</footer>
  *                  </blockquote>
  *                  <p></p>
- *                  <img width="900" height="600"></img>
  *              </article>
  *          </div>
  *      </div>
@@ -224,7 +267,6 @@
 /*
  *  Headings
  *  --------
- *
  *  Headings have a top margin to separate them from the preceding text. If there is no content
  *  before the heading, then there is also no margin. Headings also have a slight bottom margin.
  *  Elements following headings do not have a top-margin.
@@ -282,345 +324,274 @@
         font-size: 1.5em
 
 /*
- *  Tables
- *  ------
- *  ```
- *  <div class="text fixie">
- *      <table>
- *          <caption>Table Caption</caption>
- *          <thead>
- *              <tr>
- *                  <th></th>
- *                  <th></th>
- *                  <th></th>
- *              </tr>
- *          </thead>
- *          <tbody>
- *              <tr>
- *                  <td></td><td></td><td></td>
- *              </tr>
- *              <tr>
- *                  <td></td><td></td><td></td>
- *              </tr>
- *              <tr>
- *                  <td></td><td></td><td></td>
- *              </tr>
- *          </tbody>
- *          <tfoot>
- *              <tr>
- *                  <td></td><td></td><td></td>
- *              </tr>
- *          </tfoot>
- *      </table>
- *  </div>
- *  ```
+ *  Media And Floating Elements
+ *  ---------------------------
  */
-.text table
-    caption
-        font: 1em/1.2 'Alfa Slab One'
-        text-align: left
-        margin-top: 2.5em
-        margin-bottom: .3333em
-    th, td
-        padding: .5em
-        vertical-align: top
-        text-align: left
-        border-top: 1px solid #ddd
-    th
-        font-weight: bold
-    th[rowspan]
-        vertical-align: middle
-    thead > tr
-        > th
-            vertical-align: bottom
-            border-bottom: 2px solid #ddd
-        &:first-child
-            th, td
-                border-top: 0
-    tbody > tr:nth-child(odd)
-        th, td
-            background-color: #f9f9f9
-        th[rowspan]
-            background: transparent
+@mixin floatElementAndSetBaseMargins
+    float: left
+    margin-top: .4em
+    margin-right: 1em
+    + p
+        margin-top: 0
 
-/*
- *  Floating Elements
- *  -----------------
- *  They float to the left of the article column depending on their format and have to take into
- *  account the spacing associated with headings and running content.
- *
- *  Floating elements are indicated by a div around the element with one of the following css
- *  classes:
- *
- *  ### .panorama
- *  Wide content with an aspect ratio of about 3+ (width) to 1 (height). Embedded media behaves like
- *  the default and fills the complete width on the area.
- *  ```
- *  <iframe width="800" height="480" class="kalei-bg-white">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <h2>Heading</h2>
- *                  <div class="panorama">
- *                      <img width="900" height="300"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <div class="panorama">
- *                      <img width="900" height="300"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-//no styles since default behaviour
+@mixin setMarginsIfFollowsBlock
+    margin-top: 1.9em
+    + p
+        margin-top: 1.5em
 
-/*
- *  ### .landscape
- *  Wide content with an aspect ratio of about 2 (width) to 1 (height).
- *  ```
- *  <iframe width="800" height="480" class="kalei-bg-white">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <h2>Heading</h2>
- *                  <div class="landscape">
- *                      <img width="600" height="300"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <div class="landscape">
- *                      <img width="600" height="300"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-@mixin floatAndMargins($selector)
-    .#{$selector}
-        float: left
-        margin-top: .4em
-        margin-right: 1em
-        + p
-            margin-top: 0
-    * + .#{$selector}
-        margin-top: 1.9em
-        + p
-            margin-top: 1.5em
-    h2, h3, h4, h5, h6
-        + .#{$selector}
-            margin-top: .4em !important //overwrite the important rule set for elements following headings
-            + p
-                margin-top: 0
-    
+@mixin setMarginsIfFollowsHeadline
+    margin-top: .4em !important //overwrite the important rule set for elements following headings
+    + p
+        margin-top: 0
 
-.text
-    @media screen and (min-width: 32em) //512px
-        @include floatAndMargins(landscape)
-
-/*
- *  ### .sqaure
- *  Square content with an aspect ratio of about 1 (width) to 1 (height).
- *  ```
- *  <iframe width="800" height="480" class="kalei-bg-white">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <h2>Heading</h2>
- *                  <div class="square">
- *                      <img width="600" height="600"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <div class="square">
- *                      <img width="600" height="600"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-.text
-    .square.height-6, .square.height-9
-        @include floatAndMargins(square)
-    @media screen and (min-width: 30em) //480px
-        @include floatAndMargins(square)
-
-/*
- *  ### .portrait
- *  Tall content with an aspect ratio of about 1 (width) to 2 (height).
- *  ```
- *  <iframe width="800" height="480" class="kalei-bg-white">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <h2>Heading</h2>
- *                  <div class="portrait">
- *                      <img width="300" height="600"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *                  <div class="portrait">
- *                      <img width="300" height="600"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- *
- *  ### .pillar
- *  Tall content with an aspect ratio of about 1 (width) to 3+ (height).
- *  ```
- *  <iframe width="800" height="480" class="kalei-bg-white">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <h2>Heading</h2>
- *                  <div class="pillar">
- *                      <img width="300" height="900"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *                  <div class="pillar">
- *                      <img width="300" height="900"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-.text
-    @media screen and (min-width: 20em) //320px
-        @include floatAndMargins(portrait)
-        @include floatAndMargins(pillar)
-
-/*
- *  ### Height of Floating Elements
- *  
- *  The bounding box of the floating element has to align with the baselines of the article text at
- *  top and bottom.
- */
-@mixin setHeight($height)
-    height: $height
-    width: auto
+@mixin floatSelector($selector)
+    #{$selector}
+        @include floatElementAndSetBaseMargins
     *
+        + #{$selector}
+            @include setMarginsIfFollowsBlock
+    h2, h3, h4, h5, h6
+        + #{$selector}
+            @include setMarginsIfFollowsHeadline
+
+@mixin setWidthTo($lines)
+    width: (.745em+1.5*$lines)
+    padding-bottom: 0
+
+@mixin setHeightTo($lines)
+    height: (.745em+1.5*$lines)
+    width: auto
+
+@mixin scaleImagesAccordingToWidth($selector)
+    #{$selector} img
+        width: 100%
+        height: auto
+
+@mixin scaleImagesAccordingToHeight
+    img
         width: auto
         height: 100%
 
-.text
-    .panorama, .landscape, .square, .portrait, .pillar
-        *
+@mixin scaleEmbedsAccordingToSize($selector)
+    #{$selector}
+        position: relative
+        iframe, embed, object, svg, canvas
+            position: absolute
+            top: 0
+            left: 0
             width: 100%
-            height: auto
-        &.height-6
-            @include setHeight(8.245em)
-        &.height-9
-            @include setHeight(12.745em)
+            height: 100%
+    
+@mixin floatSelectorAtMinWidthWithHeight($selector, $minWidth, $lines, $ratio: null)
+    @media screen and (min-width: $minWidth)
+        @include floatSelector($selector)
+        #{$selector}
+            @include setHeightTo($lines)
+            @include scaleImagesAccordingToHeight
+            @if $ratio
+                @include setWidthTo($lines*$ratio)
 
 /*
+ *  Elements might float to the left of the article column depending on their format and have to
+ *  take into account the spacing associated with headings and running content. The bounding box of
+ *  the floating element has to align with the baselines of the article text at the bottom.
+ *  
+ *  To take care of all that, *all* media must be placed inside a container element with one of the
+ *  following classes, corresponding to their aspect ratio:
+ *
  *  ### .panorama
- *  Has a height in relation to its width. It does not need to align the baselines of the text.
+ *  Wide content with an aspect ratio of about 3+ (width) to 1 (height). Embedded media always fills
+ *  the complete width on the area. Has a height in relation to its width. It does not need to be
+ *  aligned to the baselines of the text.
  *  ```
- *  <div class="text fixie">
- *  <div class="panorama">
- *      <img width="900" height="300"></img>
- *  </div>
- *  </div>
+ *  <iframe width="800" height="800" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <h2>Heading</h2>
+ *                  <div class="panorama">
+ *                      <img width="900" height="300"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <div class="panorama">
+ *                      <img width="900" height="300"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <div class="panorama ratio-16-9">
+ *                      <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
+ *                  </div>
+ *                  <p></p>
+ *                  <div class="panorama">
+ *                      <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
+ *                  </div>
+ *                  <p></p>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
  *  ```
  */
-//no styles since default behavior
+.text
+    @include scaleImagesAccordingToWidth('.panorama')
+    @include scaleEmbedsAccordingToSize('.panorama')
+    .panorama.ratio-16-9
+        padding-bottom: 56.25%
+        position: relative
+        height: 0
+        *
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
 
 /*
  *  ### .landscape
- *  Spans 6 lines of text.
+ *  Wide content with an aspect ratio of about 2 (width) to 1 (height). Spans 6 lines of text.
  *  ```
- *  <div class="text fixie">
- *  <div class="landscape">
- *      <img width="600" height="300"></img>
- *  </div>
- *  <section></section>
- *  </div>
+ *  <iframe width="800" height="800" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <h2>Heading</h2>
+ *                  <div class="landscape">
+ *                      <img width="600" height="300"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <div class="landscape">
+ *                      <img width="600" height="300"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <div class="landscape ratio-16-9">
+ *                      <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
  *  ```
  */
 .text
-    .landscape
-        @media screen and (min-width: 32em) //512px
-            @include setHeight(8.245em)
+    @include scaleImagesAccordingToWidth('.landscape')
+    @include scaleEmbedsAccordingToSize('.landscape')
+    @include floatSelectorAtMinWidthWithHeight('.landscape', 32em, 6) //512px
+    @include floatSelectorAtMinWidthWithHeight('.landscape.ratio-16-9', 32em, 6, (16/9)) //512px
 
 /*
- *  ### .sqaure
- *  Spans 11 lines of text.
+ *  ### .square
+ *  Square content with an aspect ratio of exactly 1 (width) to 1 (height). Spans 11 lines of text.
  *  ```
- *  <div class="text fixie">
- *  <div class="square">
- *      <img width="600" height="600"></img>
- *  </div>
- *  <section></section>
- *  </div>
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <h2>Heading</h2>
+ *                  <div class="square">
+ *                      <img width="600" height="600"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <div class="square">
+ *                      <img width="600" height="600"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <div class="square height-6">
+ *                      <img width="600" height="600"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <div class="square height-9">
+ *                      <img width="600" height="600"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <div class="square">
+ *                      <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
  *  ```
  */
 .text
-    .square
-        @media screen and (min-width: 30em) //480px
-            @include setHeight(15.745em)
+    @include scaleImagesAccordingToWidth('.square')
+    @include scaleEmbedsAccordingToSize('.square')
+    @include floatSelectorAtMinWidthWithHeight('.square', 30em, 11, 1) //480px
+    @include floatSelectorAtMinWidthWithHeight('.square.height-6', 0, 6, 1)
+    @include floatSelectorAtMinWidthWithHeight('.square.height-9', 0, 9, 1)
 
 /*
  *  ### .portrait
- *  Spans 19 lines of text.
+ *  Tall content with an aspect ratio of about 1 (width) to 2 (height). Spans 13 lines of text.
  *  ```
- *  <div class="text fixie">
- *  <div class="portrait">
- *      <img width="300" height="600"></img>
- *  </div>
- *  <section></section>
- *  <section></section>
- *  </div>
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <h2>Heading</h2>
+ *                  <div class="portrait">
+ *                      <img width="300" height="600"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <div class="portrait">
+ *                      <img width="300" height="600"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
  *  ```
  */
 .text
-    .portrait
-        @media screen and (min-width: 20em) //320px
-            @include setHeight(18.745em)
+    @include scaleImagesAccordingToWidth('.portrait')
+    @include scaleEmbedsAccordingToSize('.portrait')
+    @include floatSelectorAtMinWidthWithHeight('.portrait', 20em, 13) //320px
 
 /*
  *  ### .pillar
- *  Spans 25 lines of text.
+ *  Tall content with an aspect ratio of about 1 (width) to 3+ (height). Spans 19 lines of text.
  *  ```
- *  <div class="text fixie">
- *  <div class="pillar">
- *      <img width="300" height="900"></img>
- *  </div>
- *  <section></section>
- *  <section></section>
- *  </div>
+ *  <iframe width="800" height="480" class="kalei-bg-white">
+ *      <div id="content-container">
+ *          <div id="content" class="fixie">
+ *              <article class="text">
+ *                  <h2>Heading</h2>
+ *                  <div class="pillar">
+ *                      <img width="300" height="900"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <div class="pillar">
+ *                      <img width="300" height="900"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
+ *              </article>
+ *          </div>
+ *      </div>
+ *  </iframe>
  *  ```
- *  
  */
 .text
-    .pillar
-        @media screen and (min-width: 20em) //320px
-            @include setHeight(27.745em)
+    @include scaleImagesAccordingToWidth('.pillar')
+    @include scaleEmbedsAccordingToSize('.pillar')
+    @include floatSelectorAtMinWidthWithHeight('.pillar', 20em, 19) //320px
 
 /*
  *  ### Floating Elements Reaching Into the Sidebar
@@ -679,12 +650,10 @@
  *  ```
  */
 .text
-    @media screen and (min-width: 50em) //800px
-        .landscape.use-sidebar
-            height: 14.245em
+    @include floatSelectorAtMinWidthWithHeight('.landscape.use-sidebar', 50em, 10) //800px
 
 /*
- *  ### .sqaure
+ *  ### .square
  *  Spans 16 lines of text.
  *  ```
  *  <iframe width="800" height="480" class="kalei-bg-white">
@@ -703,9 +672,7 @@
  *  ```
  */
 .text
-    @media screen and (min-width: 50em) //800px
-        .square.use-sidebar
-            height: 24.745em
+    @include floatSelectorAtMinWidthWithHeight('.square.use-sidebar', 50em, 16, 1) //800px
  
 /*
  *  ### .portrait
