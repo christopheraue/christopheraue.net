@@ -5,7 +5,7 @@ category: articles
 tags: device_pixels css_pixels device_resolution physical_size
 image: blur_fish.jpg
 excerpt: In general, I want the elements on my page to have the same physical size (say in inches or centimetres) for a specific category of device. This cannot be achieved with physical CSS Units. But does this matter anyway?
-meta_description: Do physical CSS unit really matter? What is the relative difference in physical size of elements displayed on different devices? Find out!
+meta_description: Do physical CSS units really matter? What is the relative difference in physical size of elements displayed on different devices? Find out!
 ---
 
 When I was doing some responsive webdesign lately I came across the following situation:
