@@ -23,6 +23,9 @@
 body
     .page-section
         margin-top: 2.5em
+        &.text-optimized
+            max-width: 36.2em
+            margin: 0 auto
         &:after
             content: ''
             display: block
@@ -33,6 +36,8 @@ body
             margin-top: 0
             + .page-section
                 margin-top: 5em
+    .page-headline
+        margin-bottom: .25em
     .back-to-top-button
         display: block
         clear: both
@@ -133,7 +138,7 @@ body
  *  ```
  */
 .image-credit
-    margin: 0.5em 0
+    margin: 1.25em 0
     font: .75em/1 Lato
     color: #ccc
     text-align: right
