@@ -27,3 +27,18 @@
   source: http://www.flickr.com/photos/seeminglee/8557077232/
   author: See_ming Lee
   license: http://creativecommons.org/licenses/by/2.0
+
+- path: background/stone_circles.jpg
+  source: https://www.flickr.com/photos/kwl/2785555259/
+  author: Kenny Louie
+  license: http://creativecommons.org/licenses/by/2.0
+
+- path: background/fence.jpg
+  source: https://www.flickr.com/photos/ohitzanna/5877148559/
+  author: Anna Oh
+  license: http://creativecommons.org/licenses/by-sa/2.0/
+
+- path: background/whales.jpg
+  source: http://www.flickr.com/photos/barathieu/7277953560/
+  author: Reunion Underwater Photography
+  license: http://creativecommons.org/licenses/by-sa/2.0/
