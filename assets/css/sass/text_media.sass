@@ -362,7 +362,7 @@
     height: (.745em+1.5*$lines)
     width: auto
 
-@mixin scaleImagesAccordingToWidth($selector)
+@mixin scaleMediaInsideSelectorAccordingToWidth($selector)
     #{$selector} img
         width: 100%
         height: auto
@@ -372,10 +372,11 @@
         width: auto
         height: 100%
 
-@mixin scaleEmbedsAccordingToSize($selector)
+@mixin scaleMediaInsideSelectorAccordingToRatio($selector, $ratio: 1)
     #{$selector}
         position: relative
-        iframe, embed, object, svg, canvas
+        padding-bottom: 100%/$ratio
+        *
             position: absolute
             top: 0
             left: 0
@@ -391,6 +392,51 @@
             @if $ratio
                 @include setWidthTo($lines*$ratio)
 
+@mixin setContentSizeToParentSize
+    position: relative
+    *
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+
+@mixin setWidth($width: 100%)
+    width: $width
+
+@mixin setHeight($lines)
+    height: (.745em+1.5*$lines)
+
+@mixin setFlexibleRatioBasedOnWidth($width: 100%)
+    height: auto
+    padding-bottom: 0
+    padding-top: 0
+    *
+        position: static
+        width: 100%
+        height: auto
+
+@mixin setFlexibleRatioBasedOnHeight($lines: 1)
+    width: auto
+    padding-bottom: 0
+    padding-top: 0
+    *
+        position: static
+        width: auto
+        height: 100%
+
+@mixin setFixedRatioBasedOnWidth($ratio: 1, $width: 100%, $widthOffset: 0)
+    height: 0
+    padding-bottom: $width/$ratio
+    padding-top: $widthOffset/$ratio
+    @include setContentSizeToParentSize
+
+@mixin setFixedRatioBasedOnHeight($ratio, $lines)
+    width: (.745em+1.5*$lines*$ratio)
+    padding-bottom: 0
+    padding-top: 0
+    @include setContentSizeToParentSize
+
 /*
  *  Elements might float to the left of the article column depending on their format and have to
  *  take into account the spacing associated with headings and running content. The bounding box of
@@ -399,272 +445,146 @@
  *  To take care of all that, *all* media must be placed inside a container element with one of the
  *  following classes, corresponding to their aspect ratio:
  *
- *  ### .panorama
- *  Wide content with an aspect ratio of about 3+ (width) to 1 (height). Embedded media always fills
- *  the complete width on the area. Has a height in relation to its width. It does not need to be
- *  aligned to the baselines of the text.
+ *  ### .landscape
+ *  Wide content with more width than height. Spans across the complete width of the available area
+ *  by default. Can be floated by adding the class `.float`.
  *  ```
  *  <iframe width="800" height="800" class="kalei-bg-white">
  *      <div id="content-container">
  *          <div id="content" class="fixie">
  *              <article class="text">
- *                  <h2>Heading</h2>
- *                  <div class="panorama">
- *                      <img width="900" height="300"></img>
- *                  </div>
- *                  <p></p>
- *                  <div class="panorama">
- *                      <img width="900" height="300"></img>
- *                  </div>
- *                  <p></p>
- *                  <div class="panorama ratio-16-9">
- *                      <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
- *                  </div>
- *                  <p></p>
- *                  <div class="panorama">
- *                      <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
- *                  </div>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-.text
-    @include scaleImagesAccordingToWidth('.panorama')
-    @include scaleEmbedsAccordingToSize('.panorama')
-    .panorama.ratio-16-9
-        padding-bottom: 56.25%
-        position: relative
-        height: 0
-        *
-            position: absolute
-            top: 0
-            left: 0
-            width: 100%
-            height: 100%
-
-/*
- *  ### .landscape
- *  Wide content with an aspect ratio of about 2 (width) to 1 (height). Spans 6 lines of text.
- *  ```
- *  <iframe width="800" height="800" class="kalei-bg-white">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <h2>Heading</h2>
+ *                  <h2>Full Width</h2>
  *                  <div class="landscape">
  *                      <img width="600" height="300"></img>
  *                  </div>
  *                  <p></p>
- *                  <p></p>
- *                  <div class="landscape">
- *                      <img width="600" height="300"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <div class="landscape ratio-16-9">
+ *                  <div class="landscape video">
  *                      <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
  *                  </div>
  *                  <p></p>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-.text
-    @include scaleImagesAccordingToWidth('.landscape')
-    @include scaleEmbedsAccordingToSize('.landscape')
-    @include floatSelectorAtMinWidthWithHeight('.landscape', 32em, 6) //512px
-    @include floatSelectorAtMinWidthWithHeight('.landscape.ratio-16-9', 32em, 6, (16/9)) //512px
-
-/*
- *  ### .square
- *  Square content with an aspect ratio of exactly 1 (width) to 1 (height). Spans 11 lines of text.
- *  ```
- *  <iframe width="800" height="480" class="kalei-bg-white">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <h2>Heading</h2>
- *                  <div class="square">
- *                      <img width="600" height="600"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <div class="square">
- *                      <img width="600" height="600"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <div class="square height-6">
- *                      <img width="600" height="600"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <div class="square height-9">
- *                      <img width="600" height="600"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <div class="square">
+ *                  <div class="landscape photo">
  *                      <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
  *                  </div>
- *                  <p></p>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-.text
-    @include scaleImagesAccordingToWidth('.square')
-    @include scaleEmbedsAccordingToSize('.square')
-    @include floatSelectorAtMinWidthWithHeight('.square', 30em, 11, 1) //480px
-    @include floatSelectorAtMinWidthWithHeight('.square.height-6', 0, 6, 1)
-    @include floatSelectorAtMinWidthWithHeight('.square.height-9', 0, 9, 1)
-
-/*
- *  ### .portrait
- *  Tall content with an aspect ratio of about 1 (width) to 2 (height). Spans 13 lines of text.
- *  ```
- *  <iframe width="800" height="480" class="kalei-bg-white">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <h2>Heading</h2>
- *                  <div class="portrait">
- *                      <img width="300" height="600"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *                  <div class="portrait">
- *                      <img width="300" height="600"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-.text
-    @include scaleImagesAccordingToWidth('.portrait')
-    @include scaleEmbedsAccordingToSize('.portrait')
-    @include floatSelectorAtMinWidthWithHeight('.portrait', 20em, 13) //320px
-
-/*
- *  ### .pillar
- *  Tall content with an aspect ratio of about 1 (width) to 3+ (height). Spans 19 lines of text.
- *  ```
- *  <iframe width="800" height="480" class="kalei-bg-white">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <h2>Heading</h2>
- *                  <div class="pillar">
- *                      <img width="300" height="900"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *                  <div class="pillar">
- *                      <img width="300" height="900"></img>
- *                  </div>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-.text
-    @include scaleImagesAccordingToWidth('.pillar')
-    @include scaleEmbedsAccordingToSize('.pillar')
-    @include floatSelectorAtMinWidthWithHeight('.pillar', 20em, 19) //320px
-
-/*
- *  ### Floating Elements Reaching Into the Sidebar
- *  Extends the floating of the element by increasing the floating box to the left sidebar. This
- *  behaviour increases the displayed size of the floating element. It is indicated by the css class
- *  `.use-sidebar`.
- *  
- *  Panoramas, landscapes, and squares will still reach into the article area. Portraits and Pillars
- *  will fill the width of the sidebar and no more.
- */
-//.use-sidebar is defined in the generic-page.sass
-.text
-    @media screen and (min-width: 50em) //800px
-        .pillar.use-sidebar, .portrait.use-sidebar
-            margin-right: 0
-
-/*
- *  ### .panorama
- *  Behaves like the default and fills the complete width of the area. Its height is set in relation
- *  to its width.
- *  ```
- *  <iframe width="800" height="480" class="kalei-bg-white">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <p></p>
- *                  <div class="panorama use-sidebar">
- *                      <img width="900" height="300"></img>
- *                  </div>
- *                  <article></article>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-//no styles since default behaviour.
- 
-/*
- *  ### .landscape
- *  Spans 10 lines of text.
- *  ```
- *  <iframe width="800" height="480" class="kalei-bg-white">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <p></p>
+ *                  <h2>Full Width Using Sidebar</h2>
  *                  <div class="landscape use-sidebar">
  *                      <img width="600" height="300"></img>
  *                  </div>
- *                  <article></article>
+ *                  <p></p>
+ *                  <div class="landscape use-sidebar video">
+ *                      <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
+ *                  </div>
+ *                  <p></p>
+ *                  <div class="landscape use-sidebar photo">
+ *                      <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
+ *                  </div>
+ *                  <h2>Floated</h2>
+ *                  <div class="landscape float">
+ *                      <img width="600" height="300"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <h3>Video Format</h3>
+ *                  <div class="landscape float video">
+ *                      <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <h3>Photo Format</h3>
+ *                  <div class="landscape float photo">
+ *                      <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <h2>Floated Using Sidebar</h2>
+ *                  <div class="landscape float use-sidebar">
+ *                      <img width="600" height="300"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <h3>Video Format</h3>
+ *                  <div class="landscape float use-sidebar video">
+ *                      <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <h3>Photo Format</h3>
+ *                  <div class="landscape float use-sidebar photo">
+ *                      <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
  *              </article>
  *          </div>
  *      </div>
  *  </iframe>
  *  ```
- */
+ */  
 .text
-    @include floatSelectorAtMinWidthWithHeight('.landscape.use-sidebar', 50em, 10) //800px
+    .landscape
+        @include setFlexibleRatioBasedOnWidth(100%)
+        &.video //video format 16/9
+            @include setFixedRatioBasedOnWidth((16/9), 100%)
+        &.photo //photo format 3/2
+            @include setFixedRatioBasedOnWidth((3/2), 100%)
+        
+        @media screen and (min-width: 50em) //800px
+            &.video.use-sidebar
+                @include setFixedRatioBasedOnWidth((16/9), 100%, 250px)
+            &.photo.use-sidebar
+                @include setFixedRatioBasedOnWidth((3/2), 100%, 250px)
+    
+    @media screen and (min-width: 36em) //576px
+        @include floatSelector('.landscape.float')
+        .landscape.float
+            @include setHeight(5)
+            @include setFlexibleRatioBasedOnHeight(5)
+            &.use-sidebar
+                @media screen and (min-width: 50em) //800px
+                    @include setHeight(10)
+                    @include setFlexibleRatioBasedOnHeight(10)
+        .landscape.float.video //video format 16/9
+            @include setHeight(6)
+            @include setFixedRatioBasedOnHeight((16/9), 6)
+            &.use-sidebar
+                @media screen and (min-width: 50em) //800px
+                    @include setHeight(11)
+                    @include setFixedRatioBasedOnHeight((16/9), 11)
+        .landscape.float.photo //photo format 3/2
+            @include setHeight(7)
+            @include setFixedRatioBasedOnHeight((3/2), 7)
+            &.use-sidebar
+                @media screen and (min-width: 50em) //800px
+                    @include setHeight(13)
+                    @include setFixedRatioBasedOnHeight((3/2), 13)
 
 /*
  *  ### .square
- *  Spans 16 lines of text.
+ *  Square content with an aspect ratio of exactly 1 (width) to 1 (height). Spans 9 lines of text,
+ *  if floated. Is floated by default.
  *  ```
  *  <iframe width="800" height="480" class="kalei-bg-white">
  *      <div id="content-container">
  *          <div id="content" class="fixie">
  *              <article class="text">
- *                  <p></p>
- *                  <div class="square use-sidebar">
+ *                  <h2>Heading</h2>
+ *                  <div class="square">
  *                      <img width="600" height="600"></img>
  *                  </div>
- *                  <article></article>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <div class="square">
+ *                      <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <div class="square use-sidebar">
+ *                      <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
  *              </article>
  *          </div>
  *      </div>
@@ -672,51 +592,49 @@
  *  ```
  */
 .text
-    @include floatSelectorAtMinWidthWithHeight('.square.use-sidebar', 50em, 16, 1) //800px
- 
+    .square
+        @include setFixedRatioBasedOnWidth(1, 100%)
+    
+    @media screen and (min-width: 38em) //608px
+        @include floatSelector('.square')
+        .square
+            @include setHeight(9)
+            @include setFixedRatioBasedOnHeight(1, 9)
+            &.use-sidebar
+                @media screen and (min-width: 50em) //800px
+                    @include setHeight(19)
+                    @include setFixedRatioBasedOnHeight(1, 19)
+
 /*
  *  ### .portrait
- *  Spans no defined lines of text because it is disconnected from the content.
+ *  Tall content with more height than width. Spans 13 lines of text, if floated. Is floated by
+ *  default.
  *  ```
  *  <iframe width="800" height="480" class="kalei-bg-white">
  *      <div id="content-container">
  *          <div id="content" class="fixie">
  *              <article class="text">
+ *                  <h2>Heading</h2>
+ *                  <div class="portrait">
+ *                      <img width="300" height="600"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <div class="portrait photo">
+ *                      <img width="400" height="600"></img>
+ *                  </div>
+ *                  <p></p>
+ *                  <p></p>
  *                  <p></p>
  *                  <div class="portrait use-sidebar">
  *                      <img width="300" height="600"></img>
  *                  </div>
  *                  <article></article>
- *                  <article></article>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-.text
-    @media screen and (min-width: 50em) //800px
-        .portrait.use-sidebar
-            width: 200px
-            height: auto
-            *
-                width: 100%
-                height: auto
-
-/*
- *  ### .pillar
- *  Spans no defined lines of text because it is disconnected from the content.
- *  ```
- *  <iframe width="800" height="480" class="kalei-bg-white">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <p></p>
- *                  <div class="pillar use-sidebar">
- *                      <img width="300" height="900"></img>
+ *                  <div class="portrait photo use-sidebar">
+ *                      <img width="400" height="600"></img>
  *                  </div>
  *                  <article></article>
- *                  <article></article>
  *              </article>
  *          </div>
  *      </div>
@@ -724,13 +642,33 @@
  *  ```
  */
 .text
-    @media screen and (min-width: 50em) //800px
-        .pillar.use-sidebar
-            width: 200px
-            height: auto
-            *
-                width: 100%
-                height: auto
+    .portrait
+        @include setFlexibleRatioBasedOnWidth(100%)
+        &.photo //photo format 2/3
+            @include setFixedRatioBasedOnWidth((2/3), 100%)
+        
+        @media screen and (min-width: 50em) //800px
+            &.photo.use-sidebar 
+                width: 225px
+                @include setFixedRatioBasedOnWidth((2/3), 225px)
+    
+    @media screen and (min-width: 22.5em) //360px
+        @include floatSelector('.portrait')
+        .portrait
+            @include setHeight(14)
+            @include setFlexibleRatioBasedOnHeight(14)
+            &.use-sidebar
+                width: 225px
+                margin-right: 0
+                @media screen and (min-width: 50em) //800px
+                    @include setFlexibleRatioBasedOnWidth(225px)
+        .portrait.photo //photo format 2/3
+            @include setHeight(10)
+            @include setFixedRatioBasedOnHeight((2/3), 10)
+            &.use-sidebar
+                width: 225px
+                @media screen and (min-width: 50em) //800px
+                    @include setFixedRatioBasedOnWidth((2/3), 225px)
 
 /*  
  *  ### Short Quotes Reaching Into the Sidebar
