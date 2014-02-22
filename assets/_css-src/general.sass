@@ -59,61 +59,52 @@ table
  *  <p style="font: 1em/1 Ubuntu">Ubuntu Regular</p>
  *  <p style="font: italic 1em/1 Ubuntu">Ubuntu Regular Italic</p>
  *  <p style="font: 500 1em/1 Ubuntu">Ubuntu Medium</p>
- *  <p style="font: bold 1em/1 Ubuntu">Ubuntu Bold</p>
  *  ```
  */
 @font-face
     font-family: 'Ubuntu'
-    font-weight: normal
-    src: url(../fonts/Ubuntu-R.woff)
+    font-style: normal
+    font-weight: 400
+    src: local('Ubuntu'), url(http://themes.googleusercontent.com/static/fonts/ubuntu/v5/_xyN3apAT_yRRDeqB3sPRg.woff) format('woff')
 
 @font-face
     font-family: 'Ubuntu'
-    font-weight: normal
-    font-style: italic
-    src: url(../fonts/Ubuntu-RI.woff)
-
-@font-face
-    font-family: 'Ubuntu'
+    font-style: normal
     font-weight: 500
-    src: url(../fonts/Ubuntu-M.woff)
+    src: local('Ubuntu Medium'), local('Ubuntu-Medium'), url(http://themes.googleusercontent.com/static/fonts/ubuntu/v5/OsJ2DjdpjqFRVUSto6IffD8E0i7KZn-EPnyo3HZu7kw.woff) format('woff')
 
 @font-face
     font-family: 'Ubuntu'
-    font-weight: bold
-    src: url(../fonts/Ubuntu-B.woff)
+    font-style: italic
+    font-weight: 400
+    src: local('Ubuntu Italic'), local('Ubuntu-Italic'), url(http://themes.googleusercontent.com/static/fonts/ubuntu/v5/kbP_6ONYVgE-bLa9ZRbvvvesZW2xOQ-xsNqO47m55DA.woff) format('woff')
 
 /*
  *  ### Lato
  *  Used for content.
  *  ```
- *  <p style="font: 200 1em/1 Lato">Lato Light</p>
- *  <p style="font: italic 200 1em/1 Lato">Lato Light Italic</p>
+ *  <p style="font: 300 1em/1 Lato">Lato Light</p>
+ *  <p style="font: italic 300 1em/1 Lato">Lato Light Italic</p>
  *  <p style="font: 1em/1 Lato">Lato Regular</p>
- *  <p style="font: bold 1em/1 Lato">Lato Bold</p>
  *  ```
  */
-    
 @font-face
     font-family: 'Lato'
-    font-weight: 200
-    src: url(../fonts/Lato-Lig.woff)
+    font-style: normal
+    font-weight: 300
+    src: local('Lato Light'), local('Lato-Light'), url(http://themes.googleusercontent.com/static/fonts/lato/v7/KT3KS9Aol4WfR6Vas8kNcg.woff) format('woff')
 
 @font-face
     font-family: 'Lato'
-    font-weight: 200
-    src: url(../fonts/Lato-LigIta.woff)
+    font-style: normal
+    font-weight: 400
+    src: local('Lato Regular'), local('Lato-Regular'), url(http://themes.googleusercontent.com/static/fonts/lato/v7/9k-RPmcnxYEPm8CNFsH2gg.woff) format('woff')
+
+@font-face
+    font-family: 'Lato'
     font-style: italic
-
-@font-face
-    font-family: 'Lato'
-    font-weight: normal
-    src: url(../fonts/Lato-Reg.woff)
-
-@font-face
-    font-family: 'Lato'
-    font-weight: bold
-    src: url(../fonts/Lato-Bol.woff)
+    font-weight: 300
+    src: local('Lato Light Italic'), local('Lato-LightItalic'), url(http://themes.googleusercontent.com/static/fonts/lato/v7/2HG_tEPiQ4Z6795cGfdivD8E0i7KZn-EPnyo3HZu7kw.woff) format('woff')
 
 /*
  *  ### Alfa Slab One
@@ -124,19 +115,22 @@ table
  */
 @font-face
     font-family: 'Alfa Slab One'
-    font-weight: normal
-    src: url(../fonts/AlfaSlabOne-Regular.woff)
+    font-style: normal
+    font-weight: 400
+    src: local('Alfa Slab One'), local('AlfaSlabOne-Regular'), url(http://themes.googleusercontent.com/static/fonts/alfaslabone/v3/Qx6FPcitRwTC_k88tLPc-fn8qdNnd5eCmWXua5W-n7c.woff) format('woff')
 
 /*
  *  ### Architects Daughter
  *  Used for a personal touch.
  *  ```
- *  <p style="font: 2em/1 ArchitectsDaughter">Architects Daughter</p>
+ *  <p style="font: 2em/1 'Architects Daughter'">Architects Daughter</p>
  *  ```
  */
 @font-face
-    font-family: 'ArchitectsDaughter'
-    src: url(../fonts/ArchitectsDaughter.woff)
+    font-family: 'Architects Daughter'
+    font-style: normal
+    font-weight: 400
+    src: local('Architects Daughter'), local('ArchitectsDaughter'), url(http://themes.googleusercontent.com/static/fonts/architectsdaughter/v4/RXTgOOQ9AAtaVOHxx0IUBOkI_DLF4EgbZt3mhU8gQFo.woff) format('woff')
 
 /*
  *  Responsive Grid
@@ -386,7 +380,7 @@ a
     height: 1em
     background: url(../images/ajax-loader-16.gif) no-repeat left center
     padding-left: 1.25em
-    font: 200 1em/1 Lato
+    font: 300 1em/1 Lato
     @media screen and (min-width: 32em) //512px
         background-image: url(../images/ajax-loader-20.gif)
     @media screen and (min-width: 42.5em) //680px
