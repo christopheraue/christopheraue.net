@@ -1,41 +1,41 @@
 ---
 layout: article
-title: Physical Size Of Elements On a Webpage
+title: 'Physical Size of CSS Pixels On Smartphones, Tablets & Co'
 category: articles
-tags: css-pixels device-resolution physical-size
+tags: device-pixel-ratio physical-size
 image: blur_fish.jpg
-excerpt: In general, I want the elements on my page to have the same physical size (say in inches or centimetres) for a specific category of device. This cannot be achieved with physical CSS Units. But does this matter anyway?
-meta_description: Do physical CSS units really matter? What is the relative difference in physical size of elements displayed on different devices? Find out!
+excerpt: In general, I want the elements on my website to have the same physical size (say in inches or centimetres) for a specific category of device. This cannot be achieved with physical CSS Units. But does this matter anyway?
+meta_description: Do physical CSS units really matter? What is the difference in physical size of websites displayed on smartphones, tables and other devices? Find out!
 ---
 
 When I was doing some responsive webdesign lately I came across the following situation:
     
-In general, I want the elements on my page to have the same physical size (say in inches or centimetres) for a *specific category* of device. It is obvious that large screens I'm sitting an arm length or further away from should display my elements bigger than my smartphone does. The manufacturers have taken care of that by implementing a reasonable CSS vs. device pixel ratio (CSS pixel ratio, for short) for the devices. You can just use your known CSS pixels to design your page and everything else will be taken care of.
+In general, I want the elements on my website to have the same physical size (say in inches or centimetres) for a *specific category* of device. It is obvious that large screens I'm sitting an arm length or further away from should display my elements bigger than my smartphone does. The manufacturers have taken care of that by implementing a reasonable physical vs. CSS pixel ratio (Device Pixel Ratio, for short) for the devices. You can just use your known CSS units to design your page and everything else will be taken care of.
 
 Same Sized Devices With Differently Sized Elements
 --------------------------------------------------
-Well, at least most of the time. There is a slight problem with devices that lay in the *same* category: Some have the same resolution and the same CSS pixel ratio, but vary in size. Or, they have a similar size, but their resolutions and CSS pixel ratio do not behave proportionally.
+Well, at least most of the time. There can be a problem with devices that lay in the *same* category: Some have the same resolution and the same Device Pixel Ratio, but vary in size. Or, they have a similar size, but their resolutions and Device Pixel Ratio do not behave proportionally.
 
-- The iPad 1/2 and iPad Mini 1 have the same resolution of 1024x768 and the same CSS pixel ratio of 1, but the iPad's diagonal is about 2 inches larger than the iPad Mini's.
+- The iPad 1/2 and iPad Mini 1 have the same resolution of 1024x768 and the same Device Pixel Ratio of 1, but the iPad's diagonal is about 2 inches larger than the iPad Mini's.
 - The LG Optimus 3D and LG Spectrum have roughly identical sizes, but especially their difference in resolution leads to a difference of more than 200 CSS pixels along the long side of the devices.
 
 At this point it becomes clear, that for now there is [no way](http://www.quirksmode.org/blog/archives/2012/11/the_css_physica.html) to design pages with exact physical dimensions in mind. Well, you could try to [differentiate between small and large devices](http://mobile.smashingmagazine.com/2013/03/21/responsive-web-design-with-physical-units/) with a resolution media query. But this doesn't get you around the fact that your element will be of different size on different devices.
 
-A Comparison Table
-------------------
-To get a feeling about these different sizes I generated the following tables for the categories *smartphones*, *tablets*, *standard displays* and *Macbooks*. They take some devices and their data from wikipedia's [List of Displays by Pixel Density](http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density) and calculate the *CSS Resolution in CSS pixels per inch (cssppi)*. For each category the average CSS Resolution is calculated and the CSS Resolution of each device is then set into relation to it in the *Element Size Difference* column. A value of 10% in this last column says the device displays its content about 10% larger than the average device of this category. Concrete: If the average device displays an element with a width of 100 px in CSS land as 1 inch wide on its screen a device with a size difference of 10% will display this 100 px element as 1.1 inches wide.
+Comparing the Physical Size of CSS Pixels Across Devices
+--------------------------------------------------------
+To get a feeling about these different sizes I generated the following tables for the categories *smartphones*, *tablets*, *standard displays* and *Macbooks*. They take some devices and their data from wikipedia's [List of Displays by Pixel Density](http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density) and calculate the *CSS Resolution in CSS pixels per inch (cssppi)*. For each category the average CSS Resolution is calculated and the cssppi of each device is then set into relation to it in the *Physical Size Difference* column. A value of 10% in this last column says the device displays its content about 10% larger than the average device of this category. Concrete: If the average device displays an element with a width of 100 px in CSS land as 1 inch wide on its screen a device with a size difference of 10% will display this 100 px element as 1.1 inches wide.
 
 <div class="use-sidebar">
 <table>
-    <caption>Element Size Difference of Smartphones (average CSS resolution of 157.19)</caption>
+    <caption>Physical Size Difference of Smartphones (average cssppi of 157.19)</caption>
     <thead>
         <tr>
             <th>Brand</th>
             <th>Device</th>
             <th>Resolution [ppi]</th>
-            <th>CSS Pixel Ratio</th>
+            <th>Device Pixel Ratio</th>
             <th>CSS Resolution [cssppi]</th>
-            <th>Element Size Difference</th>
+            <th>Physical Size Difference</th>
         </tr>
     </thead>
     <tbody>
@@ -95,15 +95,15 @@ To get a feeling about these different sizes I generated the following tables fo
 </table>
 
 <table>
-    <caption>Element Size Difference of Tablets (average CSS resolution of 159.95)</caption>
+    <caption>Physical Size Difference of Tablets (average cssppi of 159.95)</caption>
     <thead>
         <tr>
             <th>Brand</th>
             <th>Device</th>
             <th>Resolution [ppi]</th>
-            <th>CSS Pixel Ratio</th>
+            <th>Device Pixel Ratio</th>
             <th>CSS Resolution [cssppi]</th>
-            <th>Element Size Difference</th>
+            <th>Physical Size Difference</th>
         </tr>
     </thead>
     <tbody>
@@ -129,13 +129,13 @@ To get a feeling about these different sizes I generated the following tables fo
 </table>
 
 <table>
-    <caption>Element Size Difference of Standard Displays (average CSS resolution of 97.48, CSS pixel ratio of 1)</caption>
+    <caption>Physical Size Difference of Standard Displays (average cssppi of 97.48, Device Pixel Ratio of 1)</caption>
     <thead>
         <tr>
             <th>Aspect Ratio</th>
             <th>Size [in] (Resolution [px])</th>
             <th>CSS Resolution [cssppi]</th>
-            <th>Element Size Difference</th>
+            <th>Physical Size Difference</th>
         </tr>
     </thead>
     <tbody>
@@ -177,14 +177,14 @@ To get a feeling about these different sizes I generated the following tables fo
 </table>
 
 <table>
-    <caption>Element Size Difference of Apple Macbooks (average CSS resolution 119.64)</caption>
+    <caption>Physical Size Difference of Apple Macbooks (average cssppi 119.64)</caption>
     <thead>
         <tr>
             <th>Model</th>
             <th>Resolution [ppi]</th>
-            <th>CSS Pixel Ratio</th>
+            <th>Device Pixel Ratio</th>
             <th>CSS Resolution [cssppi]</th>
-            <th>Element Size Difference</th>
+            <th>Physical Size Difference</th>
         </tr>
     </thead>
     <tbody>
@@ -199,15 +199,17 @@ To get a feeling about these different sizes I generated the following tables fo
 </table>
 </div>
 
-What does it all mean?
-----------------------
+How a Website Scales On Different Devices
+-----------------------------------------
 This is by no means a complete list. I have taken the devices with available data that seemed like reasonable representatives of their kind to me. I filtered out some absurd devices like 16:9 standard displays with a 16 inch diagonal and a resolution of 1920x1080.
 
-In general, smartphones and tablets are treated the same way by manufacturers regarding their CSS Resolution. Both categories have a similar average CSS resolution of about 160 cssppi. This makes sense since both types of devices are held in your hands. Macbooks have an average CSS resolution of about 120 cssppi, indicating they are further away than phones and closer than monitors with an average of 96 cssppi. I haven't looked at values for other notebooks, so I cannot say, if they behave the same.
+So, what does it all mean?
+
+In general, smartphones and tablets are treated the same way by manufacturers regarding their CSS resolution. Both categories have a similar average resolution of about 160 cssppi. This makes sense since both types of devices are held in your hands. Macbooks have about 120 cssppi on average, indicating they are further away than phones and closer than monitors with an average of 96 cssppi. I haven't looked at values for other notebooks, so I cannot say, if they behave the same.
 
 Besides that:
 
-- Smartphones, common standard displays and Macbooks are relative uniform and most of them have a size difference in the bounds of ± 10%. I cannot think of a case where you cannot live with such a difference in size. So generally, there shouldn't be much of a problem.
+- Smartphones, common standard displays and Macbooks are relative uniform and most of them vary in displayed physical size in the bounds of ± 10%. I cannot think of a case where you cannot live with such a difference in size. So generally, there shouldn't be much of a problem.
 - Larger standard displays generally show their content bigger.
 - Tablets and more unusual standard displays show a wider range of size differences. It could happen, that it looks good on one device and is too small or big on another.
 - Of course, there are some extreme cases. The most extreme ones are the Amazon Kindle Fire HDX 8.9 showing elements 41% smaller than average and the LG Optimus One showing elements 24% larger than average. By looking on their CSS resolution this means, that the Optimus One displays its content almost twice as big as the Kindle.

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 'Centering With vertical-align: middle'
+title: 'Vertically Center With CSS using vertical-align: middle'
 category: articles
 tags: vertical-centering inline-block vertical-align
 image: stone_circles.jpg
@@ -17,12 +17,12 @@ Why is it the best way? **It is the solution that works in almost all situations
 - It works for block and inline elements alike, since you explicitly set the `display` property.
 - It is semantically clean by not adding any helper elements to your mark-up besides one pseudo-element.
 - It is supported across browers (IE8+).
-- It is able to center more than one element next to each other.
+- It is able to vertically center more than one element next to each other.
 
-Especially, that the height of the centered element(s) can be flexible sets this method apart from all other methods relying on absolute positioning with [negative margins](http://css-tricks.com/snippets/css/exactly-center-an-imagediv-horizontally-and-vertically/) or [margin: auto](http://coding.smashingmagazine.com/2013/08/09/absolute-horizontal-vertical-centering-css/). **This makes the vertical-align-method the most maintainable**. Need to replace an image with one of a different size? No problem, just set the path to the new file. You can leave the CSS alone. Or are you centering a block of text? Rewrite the text and it is still perfectly aligned.
+Especially, that the height of the centered element(s) can be flexible sets this method apart from all other methods relying on absolute positioning with [negative margins](http://css-tricks.com/snippets/css/exactly-center-an-imagediv-horizontally-and-vertically/) or [margin: auto](http://coding.smashingmagazine.com/2013/08/09/absolute-horizontal-vertical-centering-css/). **This makes the vertical-align method the most maintainable**. Need to replace an image with one of a different size? No problem, just set the path to the new file. You can leave the CSS alone. Or are you centering a block of text? Rewrite the text and it is still perfectly aligned.
 
-Drawbacks?
-----------
+Trying to Vertically Center In An Area With Height Set To 'Auto'
+----------------------------------------------------------------
 There is one drawback, if you want to call it one: **It does not work, if the height of the outer element is determined by the height of its content**. This means, it does not work, if the `height` property of the outer element evaluates to `auto`, eventually. This particularly happens in the following scenarios (Have a look at the CSS specs about [height](http://www.w3.org/TR/CSS2/visudet.html#propdef-height) for more details.):
 
 - You do not set `height` at all. It defaults to `auto`.
@@ -37,12 +37,12 @@ Why do we need a definite height on the outer element? Because the pseudo-elemen
     <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
 </div>
 
-**So, is this bad, after all?** To center something, you need to know the top and bottom edge of the area to center in. If you cannot fix these bounds by any means, neither by setting an explicit height nor by positioning the top and bottom of an absolute positioned element, you cannot expect to center something in there.
+**So, is this bad, after all?** To vertically center something, you need to know the top and bottom edge of the area to center in. If you cannot fix these bounds by any means, neither by setting an explicit height nor by positioning the top and bottom of an absolute positioned element, you cannot expect to center something in there.
 
-With this in mind: You want to center something in an area with min-height using vertical-align? Here you go: [Center in min-height area](http://codepen.io/christopheraue/pen/HwfJB).
+With this in mind: You want to vertically center an element in an area with min-height using `vertical-align: middle`? Have a look at the box on the left ([Source](http://codepen.io/christopheraue/pen/HwfJB)).
 
-A Small Fix
------------
+A Small Fix For The White-Space Problem
+---------------------------------------
 But there is still something, that I dislike about the approach. As said in the closing note on CSS-Tricks:
 
 > The 0.25em nudge-back is a little janky.
