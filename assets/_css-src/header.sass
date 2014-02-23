@@ -188,6 +188,26 @@
             opacity: 1
 
 /*
+ *  ### Default
+ *
+ *  #### normal
+ *  ```
+ *  <a href="#" class="mainnav-link">About</a>
+ *  ```
+ */
+.mainnav-link:hover
+    background: #bfbfbf
+
+/*
+ *  #### .active
+ *  ```
+ *  <a href="#" class="mainnav-link active">About</a>
+ *  ```
+ */
+.mainnav-link.active
+    background: #bfbfbf
+
+/*
  *  ### Article
  *
  *  #### normal
@@ -195,9 +215,8 @@
  *  <a href="#" class="mainnav-link articles">Articles</a>
  *  ```
  */
-.mainnav-link.articles
-    &:hover
-        background: #e79a0b
+.mainnav-link.articles:hover
+    background: #e79a0b
 
 /*
  *  #### .active
@@ -209,25 +228,24 @@
     background: #e79a0b
 
 /*
- *  ### About
+ *  ### Collected
  *
  *  #### normal
  *  ```
- *  <a href="#" class="mainnav-link about">About</a>
+ *  <a href="#" class="mainnav-link collected">Articles</a>
  *  ```
  */
-.mainnav-link.about
-    &:hover
-        background: #bfbfbf
+.mainnav-link.collected:hover
+    background: #0c6f90
 
 /*
  *  #### .active
  *  ```
- *  <a href="#" class="mainnav-link about active">About</a>
+ *  <a href="#" class="mainnav-link collected active">Articles</a>
  *  ```
  */
-.mainnav-link.about.active
-    background: #bfbfbf
+.mainnav-link.collected.active
+    background: #0c6f90
 
 /*
  *  ### List
