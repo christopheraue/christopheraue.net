@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 'Physical Size of CSS Pixels On Smartphones, Tablets & Co'
+title: 'Physical Size of CSS Units On Smartphones, Tablets & Co'
 category: articles
 tags: device-pixel-ratio physical-size
 image: blur_fish.jpg
@@ -21,7 +21,7 @@ Well, at least most of the time. There can be a problem with devices that lay in
 
 At this point it becomes clear, that for now there is [no way](http://www.quirksmode.org/blog/archives/2012/11/the_css_physica.html) to design pages with exact physical dimensions in mind. Well, you could try to [differentiate between small and large devices](http://mobile.smashingmagazine.com/2013/03/21/responsive-web-design-with-physical-units/) with a resolution media query. But this doesn't get you around the fact that your element will be of different size on different devices.
 
-Comparing the Physical Size of CSS Pixels Across Devices
+Comparing the Physical Size of CSS Units Across Devices
 --------------------------------------------------------
 To get a feeling about these different sizes I generated the following tables for the categories *smartphones*, *tablets*, *standard displays* and *Macbooks*. They take some devices and their data from wikipedia's [List of Displays by Pixel Density](http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density) and calculate the *CSS Resolution in CSS pixels per inch (cssppi)*. For each category the average CSS Resolution is calculated and the cssppi of each device is then set into relation to it in the *Physical Size Difference* column. A value of 10% in this last column says the device displays its content about 10% larger than the average device of this category. Concrete: If the average device displays an element with a width of 100 px in CSS land as 1 inch wide on its screen a device with a size difference of 10% will display this 100 px element as 1.1 inches wide.
 
