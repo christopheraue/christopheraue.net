@@ -1,7 +1,7 @@
 url: http://ca.local
 destination: ./_site
 name: Christopher Aue
-description: This is a place where I gather resources and write about *Web Technology*, *Product Development* and *Self-Improvement*.
+description: This is a place where I collect resources and write about *Web Technology*, *Product Development* and *Self-Improvement*.
 default_background: blur_lightbeam.jpg
 encoding: UTF-8
 pygments: false
