@@ -6,7 +6,7 @@ meta_description: Collected articles and other resources about web technology, p
 Here I list all the stuff I found online and considered useful enough to save the link.
 
 
-Self Improvement
+Self-Improvement
 ----------------
 
 - [Brené Brown: Why Your Critics Aren't The Ones Who Count](http://99u.com/videos/20052/brene-brown-stop-focusing-on-your-critics)
@@ -24,13 +24,6 @@ People
 - [If Management is the Only Way Up, We’re All F’d](http://moz.com/rand/if-management-is-the-only-way-up-were-all-fd/)
 
 
-Product Testing
----------------
-
-- [Laura Klein about Testing Products](http://www.youtube.com/watch?v=g_g-9BpBcFs)
-- [Eric Ries about the Minimum Viable Product](http://www.youtube.com/watch?v=E4ex0fejo8w)
-
-
 Strategy
 --------
 
@@ -40,15 +33,7 @@ Strategy
 - ["Think in terms of multidisciplinary modules and how they interact"](http://www.wired.com/opinion/2013/12/165191/)
 - [Gowalla Post Mortem: While we were busy playing tug-of-war over check-ins, someone else found a path to the goal with less friction.](https://medium.com/work-education/6152adc41de9)
 - [How to Model Viral Growth](http://www.linkedin.com/today/post/article/20121002124206-18876785-how-to-model-viral-growth-the-hybrid-model) | [Part2](http://www.linkedin.com/today/post/article/20121011190820-18876785-how-to-model-viral-growth-simple-loss) | [Part3](http://www.linkedin.com/today/post/article/20130402154324-18876785-how-to-model-viral-growth-retention-virality-curves)
-
-
-(Online) Marketing
-------------------
-
-- [The Beginner's Guide To SEO](http://moz.com/beginners-guide-to-seo)
-- [The Beginner’s Guide To Content Marketing](http://www.natedesmond.com/the-beginners-guide-to-content-marketing)
-- [Gary Vaynerchuk: Stop Storytelling Like It's 2007](http://99u.com/videos/22081/gary-vaynerchuk-how-to-tell-stories-in-an-a-d-d-world)
-- [How Product Hunt Got Its First 2,000 Users Doing Things That Don’t Scale](http://ryanhoover.me/post/72663537463/how-we-got-our-first-2-000-users-doing-things-that)
+- [Alexander Osterwalder and Steve Blank about Business Model Generation](http://www.youtube.com/watch?v=8GIbCg8NpBw)
 
 
 Web Technology
@@ -62,3 +47,19 @@ Design
 ------
 
 - [Can space really be negative?](http://www.webdesignerdepot.com/2013/10/can-space-really-be-negative/)
+
+
+Product Testing
+---------------
+
+- [Laura Klein about Testing Products](http://www.youtube.com/watch?v=g_g-9BpBcFs)
+- [Eric Ries about the Minimum Viable Product](http://www.youtube.com/watch?v=E4ex0fejo8w)
+
+
+Marketing
+---------
+
+- [The Beginner's Guide To SEO](http://moz.com/beginners-guide-to-seo)
+- [The Beginner’s Guide To Content Marketing](http://www.natedesmond.com/the-beginners-guide-to-content-marketing)
+- [Gary Vaynerchuk: Stop Storytelling Like It's 2007](http://99u.com/videos/22081/gary-vaynerchuk-how-to-tell-stories-in-an-a-d-d-world)
+- [How Product Hunt Got Its First 2,000 Users Doing Things That Don’t Scale](http://ryanhoover.me/post/72663537463/how-we-got-our-first-2-000-users-doing-things-that)
