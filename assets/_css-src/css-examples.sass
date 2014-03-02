@@ -1,0 +1,143 @@
+/*
+ * Styles For Examples
+ * ===================
+ */
+.example
+    border: 1px solid lightgrey
+    padding: 1em
+    border-radius: 3px
+    &.center
+        text-align: center
+    .center
+        text-align: center
+        display: inline-block
+        width: 100%
+    + pre
+        margin-top: 0
+        code
+            border-top: none
+            border-top-left-radius: 0
+            border-top-right-radius: 0
+    * + *
+        margin-top: 0
+
+/*
+ * Columns
+ * -------
+ */
+.example.columns
+    > *
+        width: 47.5%
+        display: inline-block
+        vertical-align: baseline
+    > :nth-child(odd)
+        margin-right: 2.5%
+    > :nth-child(even)
+        margin-left: 2.5%
+    
+/*
+ * Background
+ * ----------
+ */
+.example .bg-grey
+    background: lightgrey
+
+/*
+ * Border
+ * ------
+ */
+.example .border-grey
+    border: 1px solid lightgrey
+
+/*
+ * Text
+ * ----
+ */
+.example .font
+    white-space: nowrap
+    line-height: 1
+    &.large
+        font-size: 2em
+    &.larger
+        font-size: 4em
+    &.tall-line-height
+        line-height: 2
+    &.color-grey
+        color: lightgrey
+
+/*
+ * Boxes
+ * -----
+ */
+.example .box
+    min-width: 1em
+    min-height: 1em
+    &.shorter
+        min-height: .25em
+        &.square
+            min-width: .25em
+    &.short
+        min-height: .5em
+        &.square
+            min-width: .5em
+    &.tall
+        height: 2em
+        &.square
+            height: 2em
+    &.taller
+        height: 4em
+        &.square
+            height: 4em
+
+/*
+ * Lines
+ * -----
+ */
+.example .line
+    position: relative
+    width: 100%
+    margin-right: -100%
+    border-top: 1px solid black
+    z-index: 10
+    &.dashed
+        border-style: dashed
+    &.dotted
+        border-style: dotted
+    &.grey
+        border-color: lightgrey
+    &.red
+        border-color: red
+    &.blue
+        border-color: blue
+    &.green
+        border-color: limegreen
+    &.orange
+        border-color: goldenrod
+
+/*
+ * Vertical Alignment
+ * ------------------
+ */
+.example .top
+    display: inline-block
+    vertical-align: top
+
+.example .bottom
+    display: inline-block
+    vertical-align: bottom
+
+.example .middle
+    display: inline-block
+    vertical-align: middle
+
+.example .baseline
+    display: inline-block
+    vertical-align: baseline
+
+.example .text-top
+    display: inline-block
+    vertical-align: text-top
+
+.example .text-bottom
+    display: inline-block
+    vertical-align: text-bottom
