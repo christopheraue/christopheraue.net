@@ -6,4 +6,4 @@ default_background: blur_lightbeam.jpg
 encoding: UTF-8
 pygments: false
 permalink: :year/:month/:day/:title/
-exclude: [test, sass, build.sh, deploy.sh, set_development_env.sh, set_production_env.sh]
+exclude: [test, sass, build.sh, deploy.sh, set_development_env.sh, set_production_env.sh, videos]
