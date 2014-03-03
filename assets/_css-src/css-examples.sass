@@ -25,7 +25,7 @@
  * Columns
  * -------
  */
-.example.columns
+.example.columns, .example.columns-2
     > *
         width: 47.5%
         display: inline-block
@@ -33,6 +33,18 @@
     > :nth-child(odd)
         margin-right: 2.5%
     > :nth-child(even)
+        margin-left: 2.5%
+
+.example.columns-3
+    > *
+        width: 30%
+        display: inline-block
+        vertical-align: baseline
+    > :nth-child(3n+1)
+        margin-right: 2.5%
+    > :nth-child(3n+2)
+        margin: 0 2.5%
+    > :nth-child(3n+3)
         margin-left: 2.5%
     
 /*
@@ -56,12 +68,18 @@
 .example .font
     white-space: nowrap
     line-height: 1
+    &.small
+        font-size: .5em
+    &.smaller
+        font-size: .25em
     &.large
         font-size: 2em
     &.larger
         font-size: 4em
     &.tall-line-height
         line-height: 2
+    &.short-line-height
+        line-height: .5
     &.color-grey
         color: lightgrey
 
@@ -90,15 +108,26 @@
             height: 4em
 
 /*
+ * Overlays
+ * --------
+ */
+@mixin inline-overlay
+    display: inline-block
+    width: 100%
+    margin-right: -100%
+    position: relative
+    z-index: 10
+
+.example .inline-overlay
+    @include inline-overlay
+
+/*
  * Lines
  * -----
  */
 .example .line
-    position: relative
-    width: 100%
-    margin-right: -100%
+    @include inline-overlay
     border-top: 1px solid black
-    z-index: 10
     &.dashed
         border-style: dashed
     &.dotted
@@ -113,6 +142,19 @@
         border-color: limegreen
     &.orange
         border-color: goldenrod
+
+/*
+ * Box-Model
+ * ---------
+ */
+.example .show-box-model
+    background: #c1cd89     //padding
+    border-color: #fcdb9a   //border
+    > .show-box-model-content
+        background: #8ab3bf    //content
+        display: block
+        min-width: 100%
+        min-height: 100%
 
 /*
  * Vertical Alignment
@@ -141,3 +183,11 @@
 .example .text-bottom
     display: inline-block
     vertical-align: text-bottom
+
+.example .sub
+    display: inline-block
+    vertical-align: sub
+
+.example .super
+    display: inline-block
+    vertical-align: super
