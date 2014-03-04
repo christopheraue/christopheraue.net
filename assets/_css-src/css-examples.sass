@@ -6,6 +6,7 @@
     border: 1px solid lightgrey
     padding: 1em
     border-radius: 3px
+    line-height: 1
     &.center
         text-align: center
     .center
@@ -54,6 +55,15 @@
 .example .bg-grey
     background: lightgrey
 
+.example .bg-green
+    background: #c1cd89
+
+.example .bg-yellow
+    background: #fcdb9a
+
+.example .bg-blue
+    background: #8ab3bf
+
 /*
  * Border
  * ------
@@ -69,13 +79,13 @@
     white-space: nowrap
     line-height: 1
     &.small
-        font-size: .5em
+        font-size: .6666em
     &.smaller
-        font-size: .25em
+        font-size: .3333em
     &.large
-        font-size: 2em
+        font-size: 1.5em
     &.larger
-        font-size: 4em
+        font-size: 3em
     &.tall-line-height
         line-height: 2
     &.short-line-height
@@ -92,20 +102,20 @@
     min-height: 1em
     &.shorter
         min-height: .25em
-        &.square
+        &.quad
             min-width: .25em
     &.short
         min-height: .5em
-        &.square
+        &.quad
             min-width: .5em
     &.tall
         height: 2em
-        &.square
-            height: 2em
+        &.quad
+            width: 2em
     &.taller
         height: 4em
-        &.square
-            height: 4em
+        &.quad
+            width: 4em
 
 /*
  * Overlays
