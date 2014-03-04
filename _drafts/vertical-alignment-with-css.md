@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 'All You Need To Know About Vertical-Align In CSS|The Ultimate Guide To Vertical-Align With CSS|How vertical-align In CSS Really Works'
+title: 'All You Need To Know About Vertical-Align'
 category: articles
 tags: inline-block vertical-align line-box
 image: fence.jpg
@@ -468,7 +468,7 @@ Some Examples:
             vertical-align: top;
         }
 
-*   Placing two larger elements in a line and vertically aligning them moves the baseline where it fulfils both alignments. Then the height of the line box is adjusted (left). Adding a third element, that does not go beyond the line box's edges because of its alignment, affects neither the line box's height nor the baseline's position (middle). If it *does* go beyond the line box's edges, the height is adjusted, again (right).
+*   Placing two larger elements in a line and vertically aligning them moves the baseline where it fulfils both alignments. Then the height of the line box is adjusted (left). Adding a third element, that does not go beyond the line box's edges because of its alignment, affects neither the line box's height nor the baseline's position (middle). If it *does* go beyond the line box's edges, the height is adjusted pushing down our first two boxes (right).
     
     <div class="example columns-3">
         <div class="top"><!--
@@ -545,8 +545,8 @@ Some Examples:
             vertical-align: 50%;
         }
 
-### There Is a Little Gap Below Inline-Level Elements
-Have a look at this:
+### There Might Be a Little Gap Below Inline-Level Elements
+Have a look at this setting:
 
 <div class="example columns-2">
     <div class="top">
@@ -626,7 +626,7 @@ As you can see, the list items sit on the baseline. Below the baseline is some s
         //size, color, etc.
     }
 
-### The Gap Between Inline-Level Elements Breaks the Layout
+### A Gap Between Inline-Level Elements Breaking the Layout
 *This is mainly a problem of inline-level elements themselves. But since they are a requirement of vertical-align, it is good to know about this.*
 
 You can see this gap in the former example with the list items. The gap comes from the white-space between inline-elements present in your mark-up. All white-space between inline-elements is collapsed into one space. This space gets in the way, if we want to place to inline elements next to each other and giving them a width of `50%`. There is not enough space for two 50%-elements and a space. So the line breaks into two lines destroying the layout (left). To remove the gap, we need to remove the white-space, for example with html comments (right).
@@ -673,6 +673,6 @@ You can see this gap in the former example with the list items. The gap comes fr
     }
 
 ## Vertical-Align Demystified
-
+Now, that I know about all the quirks, all this doesn't seem so mysterious any more.
 - All values of vertical-align except top and bottom are referencing the baselines of the involved elements.
 - vertical-align on an element does not only affect the vertical position of itself.
