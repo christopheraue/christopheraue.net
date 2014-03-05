@@ -15,16 +15,27 @@
     text-shadow: 2px 2px 3px black
 
 /*
- *  ### Date
+ *  Article Detail
+ *  --------------
+ *  ```
+ *  <span class="article-detail">Detail</span>
+ *  ```
+ */
+.article-detail
+    font-family: Ubuntu
+    color: white
+    padding: .3em 1.0725em
+    background: rgba(0,0,0,0.65)
+    
+/*
+ *  ### Deprecated: Date
+ *  use .article-detail instead
  *  ```
  *  <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
  *  ```
  */
 .article-date
-    font-family: Ubuntu
-    color: white
-    padding: .3em 1.0725em
-    background: rgba(0,0,0,0.65)
+    @extend .article-detail
 
 /*
  *  ### Tags
@@ -33,9 +44,7 @@
  *  ```
  */
 .article-tag
-    font-family: Ubuntu
-    padding: .32em 1.0725em
-    background: rgba(0,0,0,0.65)
+    @extend .article-detail
     position: relative
     display: inline-block
     color: #b3b3b3
@@ -52,11 +61,9 @@
  *  ```
  */
 .article-comments-link
-    font-family: Ubuntu
+    @extend .article-detail
     font-size: 1.25em
     font-weight: 500
-    padding: .3em 1.0725em
-    background: rgba(0,0,0,0.65)
     color: white
     text-decoration: none
     &:hover
