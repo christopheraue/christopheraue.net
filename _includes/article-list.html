@@ -15,7 +15,7 @@ Parameters:
         <h2 class="section-heading">{{ include.heading | xml_escape }}</h2>
     </div>
 {% endif %}
-    <ol class="article-list {{ include.css_class }}">
+    <ol class="article-list {{ include.css_class }}"><!--
         {% assign counter = 0 %}
         {% for article in site.posts %}
             {% assign is_in_category = false %}
@@ -44,14 +44,14 @@ Parameters:
             {% endif %}
         
             {% if is_in_category and has_tag %}
-            <li class="item">
+         --><li class="item">
                 {% include article-box.html title_tag=include.title_tag %}
-            </li>
+            </li><!--
                 {% assign counter = counter | plus:1 %}
             {% endif %}
             {% if counter >= include.limit %}{% break %}{% endif %}
         {% endfor %}
-    </ol>
+ --></ol>
 {% if include.heading %}
 </section>
 {% endif %}
