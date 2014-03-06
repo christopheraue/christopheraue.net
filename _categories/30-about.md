@@ -8,8 +8,8 @@ meta_description: Who is Christopher Aue? What is he up to?
     <img src="/images/christopheraue.png" alt="Photo of Christopher Aue">
 </div>
 
-Hi! My name is Christopher Aue. I'm living in Germany in a city called Münster. I moved here some years ago to study physics at the Westfälische Wilhelms-Universität and graduated with a diploma in 2011. Having enough of science and research at the time I decided to turn my passion to profession which led me to join the startup [Grünspar](http://www.gruenspar.de) as a web developer. After two years of working there I quit to be able to explore the field of product development as a whole.
+Hi! My name is Christopher Aue. I'm a freelance web and Magento developer from Münster, Germany. This is my personal blog, that happens to be mostly about frontend development up to now. Besides my work, I nurture my skill as a software engineering and try to get the hang of product development and marketing.
 
-I'm passionate about useful products leveraging the possibilities of a connected world delivering a nice and clean user experience. I'm an efficiency fanatic knowing to be become more efficient it takes a fair amount of learning, rethinking and failing. I'm considering myself to be a generalist developing the right mix of deep knowledge in individual fields to be able to pull things of alone if necessary.
+My passion to use the computer to create stuff flared up as a kid while playing around with Corel Draw (I guess, it was version 4) on my home's computer. After discovering the web I was quickly drawn into web design, taught myself programming and also tried a lot of different things from 3D modelling and animation to creating mods for games. After studying physics and graduating from university I decided to turn my passion to profession which led me to join the startup [Grünspar](http://www.gruenspar.de) as a web developer. After two years of working there I quit to be able to shift my focus more into the direction of product development.
 
-To balance things out for me I spend my free time doing Ving Tsun Kung Fu. It is a challenge for itself to get it working in sparring under pressure.
+To balance things out for me I spend my free time doing Ving Tsun Kung Fu. It is a challenge for itself to get it working, if someone tries to punch you.
