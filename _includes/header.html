@@ -1,23 +1,23 @@
 <header id="page-header" class="js-header">
     <div class="logo-area">
         <a href="{{ site.url }}" class="logo"><img src="{{ site.url }}/assets/images/christopheraue.png" alt="Christopher Aue" width="226" height="46"/></a>
-    </div>
-    <a href="#" class="menu-button js-menu-button"></a>
-    <div class="menu-area js-menu-area">
-        <nav><ul class="mainnav-link-list">
-            {% for page in site.pages %}
-            {% if page.layout == 'category' %}
-            <li class="item"><a href="{{ site.url }}{{ page.url }}" class="mainnav-link {{ page.category }}">{{ page.title }}</a></li>
-            {% endif %}
-            {% endfor %}
-        </ul></nav>
-        <nav class="social-links"><ul class="social-link-list">
-            <li class="item"><a href="https://twitter.com/intent/user?screen_name=christopheraue" target="_blank" title="Follow my tweets!" class="social-link twit"></a></li>
-            <li class="item"><a href="https://github.com/christopheraue" target="_blank" title="Follow my projects on github!" class="social-link gith"></a></li>
-            <li class="item"><a href="mailto:hi@christopheraue.net" target="_blank" title="Say hello via email!" class="social-link mail"></a></li>
-            <li class="item"><a href="https://plus.google.com/114377207286629068658" target="_blank" title="Google+" class="social-link goog"></a></li>
-        </ul></nav>
-        <a href="{{ site.url | append: '/impress' }}" class="impress-link">Impress</a>
-        <a href="#" class="close-button js-close-menu-button"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
-    </div>
+        <a href="#" class="menu-button js-menu-button"></a>
+    </div><!--
+ --><nav class="mainnav js-menu-area"><ul class="mainnav-link-list">
+        {% for page in site.pages %}
+        {% if page.layout == 'category' %}
+        <li class="item"><a href="{{ site.url }}{{ page.url }}" class="mainnav-link {{ page.category }}">{{ page.title }}</a></li>
+        {% endif %}
+        {% endfor %}
+    </ul></nav>
+    <div class="social-legal-links js-menu-area"><!--
+     --><ul class="social-link-list"><!--
+      --><li class="item"><a href="https://twitter.com/intent/user?screen_name=christopheraue" target="_blank" title="Follow my tweets!" class="social-link twit"></a></li>
+         <li class="item"><a href="https://github.com/christopheraue" target="_blank" title="Follow my projects on github!" class="social-link gith"></a></li>
+         <li class="item"><a href="mailto:hi@christopheraue.net" target="_blank" title="Say hello via email!" class="social-link mail"></a></li>
+         <li class="item"><a href="https://plus.google.com/114377207286629068658" target="_blank" title="Google+" class="social-link goog"></a></li>
+        </ul>
+        <a href="{{ site.url | append: '/impress' }}" class="impress-link">Impress</a><!--
+ --></div>
+    <a href="#" class="close-button js-close-menu-button js-menu-area"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
 </header>

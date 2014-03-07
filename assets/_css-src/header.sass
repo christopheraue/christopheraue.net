@@ -13,13 +13,15 @@
  *                  <li class="item"><a href="#" class="mainnav-link articles">Articles</a></li>
  *                  <li class="item active"><a href="#" class="mainnav-link about">About Me</a></li>
  *              </ul></nav>
- *              <nav class="social-links"><ul class="social-link-list">
- *                  <li class="item"><a href="#" class="social-link twit"></a></li>
- *                  <li class="item"><a href="#" class="social-link face"></a></li>
- *                  <li class="item"><a href="#" class="social-link gith"></a></li>
- *                  <li class="item"><a href="#" class="social-link mail"></a></li>
- *              </ul></nav>
- *              <a href="#" class="impress-link">Impress</a>
+ *              <div class="social-legal-links">
+ *                  <ul class="social-link-list">
+ *                      <li class="item"><a href="#" class="social-link twit"></a></li>
+ *                      <li class="item"><a href="#" class="social-link face"></a></li>
+ *                      <li class="item"><a href="#" class="social-link gith"></a></li>
+ *                      <li class="item"><a href="#" class="social-link mail"></a></li>
+ *                  </ul>
+ *                  <a href="#" class="impress-link">Impress</a>
+ *              </div>
  *              <a href="#" class="close-button"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
  *          </div>
  *      </header>
@@ -39,46 +41,99 @@
  *  The header behaves responsively and breaks at the aforementioned breakpoints.
  *  
  */
+@mixin justify-content
+    text-align: justify
+    line-height: 0
+    &:after
+        content: ''
+        display: inline-block
+        vertical-align: bottom
+        width: 100%
+    > *
+        position: relative
+
+@mixin revert-justify-content
+    text-align: left
+    line-height: inherit
+    &:after
+        content: none
+    > *
+        position: inherit
+
+@mixin align-content-middle
+    > *
+        display: inline-block
+        vertical-align: middle
+
+@mixin revert-align-content-middle
+    > *
+        display: inline-block
+        vertical-align: middle
+
+@mixin center-content-in-height
+    &:before
+        content: ''
+        display: inline-block
+        vertical-align: middle
+        height: 100%
+    @include align-content-middle
+    
 #page-header
-    .menu-button
+    .logo-area
         display: block
-        position: fixed
-        top: 10px
-        right: 10px
-    .social-link-list
-        float: left
-    .menu-area
-        display: none
-    .impress-link
-        display: block
-    .close-button
-        display: block
-        clear: both
+        margin: 1.25em
+        @media screen and (max-width: 49.9999em) //800px
+            @include justify-content
+            @include align-content-middle
+    .logo img
+        width: 11.3em
+        height: auto
+    .social-legal-links
+        padding: 0 1.25em
+        height: 3em
+        background: #3e4040
+        @media screen and (max-width: 49.9999em) //800px
+            @include justify-content
+            @include center-content-in-height
     @media screen and (min-width: 50em) //800px
-        .menu-button
-            display: none
-        .menu-area
-            display: block
-        .logo-area, .logo
-            float: left
-        .social-link-list
-            float: right
+        @media screen and (max-width: 81.2499em) //1300px
+            @include justify-content
+            @include align-content-middle
+        .logo-area
+            display: inline-block
+            margin: 0 1.25em
+        .social-legal-links
+            margin-right: 1.25em
+            padding: 0
+            height: auto
+            background: transparent
+            position: static
         .impress-link
-            display: none
-            #display: inline-block
+            display: block
             position: absolute
             bottom: 100%
-            right: 25px
+            right: 1.66em
+        .menu-button,
         .close-button
             display: none
     @media screen and (min-width: 81.25em) //1300px
-        .logo-area, .logo
-            float: none
+        .logo-area
+            margin: 2.5em 1.25em
         .menu-area
             height: 100%
+        .social-legal-links
+            @include justify-content
+            @include center-content-in-height
+            margin: 1.25em
+            position: absolute
+            bottom: 0
+            left: 0
+            right: 0
         .impress-link
-            bottom: 25px
-            right: 25px
+            display: inline-block
+            position: relative
+            bottom: 0
+            right: 0
 
 /*
  *  ### Expanded Menu On Small Viewports
@@ -96,13 +151,15 @@
  *                  <li class="item"><a href="#" class="mainnav-link articles">Articles</a></li>
  *                  <li class="item active"><a href="#" class="mainnav-link about">About Me</a></li>
  *              </ul></nav>
- *              <nav class="social-links"><ul class="social-link-list">
- *                  <li class="item"><a href="#" class="social-link twit"></a></li>
- *                  <li class="item"><a href="#" class="social-link face"></a></li>
- *                  <li class="item"><a href="#" class="social-link gith"></a></li>
- *                  <li class="item"><a href="#" class="social-link mail"></a></li>
- *              </ul></nav>
- *              <a href="#" class="impress-link">Impress</a>
+ *              <div class="social-legal-links">
+ *                  <ul class="social-link-list">
+ *                      <li class="item"><a href="#" class="social-link twit"></a></li>
+ *                      <li class="item"><a href="#" class="social-link face"></a></li>
+ *                      <li class="item"><a href="#" class="social-link gith"></a></li>
+ *                      <li class="item"><a href="#" class="social-link mail"></a></li>
+ *                  </ul>
+ *                  <a href="#" class="impress-link">Impress</a>
+ *              </div>
  *              <a href="#" class="close-button"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
  *          </div>
  *      </header>
@@ -110,38 +167,31 @@
  *  ```
  */
 #page-header
-    .menu-area.show
-        background: #3e4040
-        display: block
-        @media screen and (min-width: 50em) //800px
-            background: transparent
+    @media screen and (max-width: 49.9375em) //799px
+        .mainnav,
+        .social-legal-links,
+        .close-button
+            display: none
+            &.show
+                display: block
+            
 
 /*
  *  Logo
  *  ----
  *  ```
  *  <iframe width="800" height="360" class="agileSG-bg-image">
- *  <div class="logo-area">
  *      <a href="#" class="logo"><img src="/assets/images/christopheraue.png"/></a>
- *  </div>
  *  </iframe>
  *  ```
  */
-.logo-area
-    height: 46px
-    padding: 10px
-    .logo
-        opacity: 0.65
-        &:hover
-            opacity: 1
-    @media screen and (min-width: 50em) //800px
-        padding: 17px 25px
-        height: auto
-        width: 275px
-    @media screen and (min-width: 81.25em) //1300px
-        height: 46px
-        padding: 50px 25px
-        width: 225px
+.logo
+    position: relative
+    opacity: 0.65
+    &:hover
+        opacity: 1
+    *
+        vertical-align: middle
 
 /*
  *  Menu Button
@@ -155,11 +205,10 @@
  *  ```
  */
 .menu-button
-    background: url(../images/menu-icon.png) no-repeat center
-    height: 46px
-    width: 40px
+    background: url(../images/menu-icon.png) no-repeat center right
+    height: 26px
+    min-width: 40px
     opacity: 0.5
-    display: block
     &:hover
         opacity: 1
 
@@ -170,16 +219,15 @@
 .mainnav-link
     font-family: Ubuntu
     font-weight: 500
-    font-size: 1.125em
+    font-size: .9em
     color: white
     vertical-align: middle
     text-decoration: none
-    padding: 10px
-    line-height: 30px
+    padding: 0 1.1111em
+    line-height: 3em
     background: #595959
     @media screen and (min-width: 50em)
-        padding: 0 25px
-        line-height: 80px
+        line-height: 5em
         background: transparent
         opacity: 0.65
         &.active
@@ -263,14 +311,10 @@
         display: block
     @media screen and (min-width: 50em)
         .item
-            float: left
-        .mainnav-link
             display: inline-block
     @media screen and (min-width: 81.25em) //1300px
         .item
-            float: none
-        .mainnav-link
-            display: block
+            display: list-item
 
 /*
  *  Social Links
@@ -294,11 +338,9 @@
  *  ```
  */
 .social-link.twit
-    background-position: 0 0
-    @media screen and (min-width: 50em) //800px
-        height: 16px
-        width: 20px
-        background-position: -6px -8px
+    height: 16px
+    width: 20px
+    background-position: -6px -8px
 
 /*
  *  #### Facebook
@@ -309,11 +351,9 @@
  *  ```
  */
 .social-link.face
-    background-position: -64px 0
-    @media screen and (min-width: 50em) //800px
-        height: 16px
-        width: 16px
-        background-position: -72px -8px
+    height: 16px
+    width: 16px
+    background-position: -72px -8px
 
 /*
  *  #### Github
@@ -324,11 +364,9 @@
  *  ```
  */
 .social-link.gith
-    background-position: -32px 0
-    @media screen and (min-width: 50em) //800px
-        height: 16px
-        width: 16px
-        background-position: -40px -8px
+    height: 16px
+    width: 16px
+    background-position: -40px -8px
 
 /*
  *  #### Mail
@@ -339,11 +377,9 @@
  *  ```
  */
 .social-link.mail
-    background-position: -96px 0
-    @media screen and (min-width: 50em) //800px
-        height: 16px
-        width: 22px
-        background-position: -101px -8px
+    height: 16px
+    width: 22px
+    background-position: -101px -8px
 
 /*
  *  #### Google+
@@ -354,33 +390,24 @@
  *  ```
  */
 .social-link.goog
-    background-position: -128px 0
-    @media screen and (min-width: 50em) //800px
-        height: 16px
-        width: 16px
-        background-position: -136px -8px
+    height: 16px
+    width: 16px
+    background-position: -136px -8px
 
 /*
  *  ### List
  *  ```
  *  <iframe width="800" height="360" class="agileSG-bg-image">
- *  <div class="social-links">
  *  <ul class="social-link-list">
  *      <li class="item"><a href="#" class="social-link twit"></a></li>
  *      <li class="item"><a href="#" class="social-link face"></a></li>
  *      <li class="item"><a href="#" class="social-link gith"></a></li>
  *      <li class="item"><a href="#" class="social-link mail"></a></li>
  *  </ul>
- *  </div>
  *  </iframe>
  *  ```
  */
-.social-links
-    @media screen and (min-width: 50em) //800px
-        //background: rgba(0,0,0,0.65)
-    @media screen and (min-width: 50em) and (max-width: 81.1875em) //800px and 1299px
-        height: 80px
-        overflow: hidden
+.social-link-list
     @media screen and (min-width: 81.25em) //1300px
         height: 100%
         .social-link-list
@@ -389,32 +416,19 @@
             bottom: 0
 
 .social-link-list
-    height: 32px
-    padding: 9px 10px 9px 2px
-    background: #3e4040
+    display: inline-block
     .item
-        float: left
-        margin-right: 10px
-    @media screen and (min-width: 50em) //800px
-        height: 48px
+        display: inline-block
+        vertical-align: middle
+        + .item
+            margin-left: 1em
+    @media screen and (min-width: 50em) and (max-width: 81.2499em) //800px - 1300px
+        @include justify-content
         width: 48px
-        padding: 16px 25px
-        background: transparent
         .item
-            margin-right: 0
-            margin-bottom: 16px
-            &:nth-child(odd)
-                float: left
-            &:nth-child(even)
-                float: right
-    @media screen and (min-width: 81.25em) //1300px
-        height: 16px
-        width: auto
-        padding: 25px
-        .item, item:nth-child(even)
-            float: left
-            margin-right: 10px
-            margin-bottom: 0
+            margin: 8px 0
+            + .item
+                margin-left: 0
 
 /*
  *  Impress Link
@@ -427,27 +441,17 @@
  */
 .impress-link
     font-family: Ubuntu
-    font-size: 0.75em
+    font-size: 0.7em
     color: rgb(155,155,155)
     text-decoration: none
-    line-height: 50px
-    padding-right: 10px
-    overflow: hidden
     text-align: right
-    background: #3e4040
     &:hover
         color: white
     @media screen and (min-width: 50em) //800px
-        background: transparent
-        padding: 0
-        vertical-align: middle
-        line-height: 25px
+        line-height: 1.6666em
         text-align: center
         width: 48px
         color: white
         opacity: .66
         &:hover
             opacity: 1
-    @media screen and (min-width: 81.25em) //1300px
-        line-height: 16px
-        text-align: right
