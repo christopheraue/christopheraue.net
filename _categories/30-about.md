@@ -4,7 +4,7 @@ article_list_heading: Some Stuff
 meta_description: Who is Christopher Aue? What is he up to?
 ---
 
-<div class="square height-6">
+<div class="landscape float">
     <img src="/images/christopheraue.png" alt="Photo of Christopher Aue">
 </div>
 

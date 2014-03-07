@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 'Vertically Center With CSS using vertical-align: middle'
+title: 'Vertical Centering With CSS using vertical-align: middle'
 category: articles
 tags: vertical-centering inline-block vertical-align
 image: stone_circles.jpg
