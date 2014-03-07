@@ -301,20 +301,20 @@ One question bugging me was the following: I have an icon I want to center next 
 
 <div class="example columns">
     <div class="top center">
-        <span class="small box bg-grey middle"> </span> Really centered?
+        <span class="small box bg-grey middle"> </span> Centered?
     </div><!--
  --><div class="top center">
-        <span class="small box bg-grey middle"> </span> <span class="middle">Perfectly centered!</span>
+        <span class="small box bg-grey middle"> </span> <span class="middle">Centered!</span>
     </div>
 </div>
     
     //left mark-up
     <span class="icon middle"> </span>
-    Really centered?
+    Centered?
     
     //right mark-up
     <span class="icon middle"> </span>
-    <span class="middle">Perfectly centered!</span>
+    <span class="middle">Centered!</span>
     
     //styles
     .icon {
@@ -341,7 +341,7 @@ Here is the example again, but I drew in some auxiliary lines you already know f
             <span class="baseline"><!--
              --><span class="red dotted line top"> </span><!--
              --><span class="red dotted line bottom"> </span><!--
-             -->Really centered?
+             -->Centered?
             </span>
         </span>
     </div><!--
@@ -356,7 +356,7 @@ Here is the example again, but I drew in some auxiliary lines you already know f
             <span class="middle"><!--
              --><span class="red dotted line top"> </span><!--
              --><span class="red dotted line bottom"> </span><!--
-             -->Perfectly centered!
+             -->Centered!
             </span>
         </span>
     </div>
