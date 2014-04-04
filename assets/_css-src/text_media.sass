@@ -652,8 +652,8 @@
         
         @media screen and (min-width: 50em) //800px
             &.photo.use-sidebar 
-                width: 225px
-                @include setFixedRatioBasedOnWidth((2/3), 225px)
+                width: 11.3em
+                @include setFixedRatioBasedOnWidth((2/3), 11.3em)
     
     @media screen and (min-width: 22.5em) //360px
         @include floatSelector('.portrait')
@@ -661,17 +661,17 @@
             @include setHeight(14)
             @include setFlexibleRatioBasedOnHeight(14)
             &.use-sidebar
-                width: 225px
+                width: 11.3em
                 margin-right: 0
                 @media screen and (min-width: 50em) //800px
-                    @include setFlexibleRatioBasedOnWidth(225px)
+                    @include setFlexibleRatioBasedOnWidth(11.3em)
         .portrait.photo //photo format 2/3
             @include setHeight(10)
             @include setFixedRatioBasedOnHeight((2/3), 10)
             &.use-sidebar
-                width: 225px
+                width: 11.3em
                 @media screen and (min-width: 50em) //800px
-                    @include setFixedRatioBasedOnWidth((2/3), 225px)
+                    @include setFixedRatioBasedOnWidth((2/3), 11.3em)
 
 /*  
  *  ### Short Quotes Reaching Into the Sidebar

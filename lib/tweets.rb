@@ -1,4 +1,4 @@
-#!/Ruby200/bin/ruby
+#!/bin/ruby
 require "yaml"
 require "uri"
 require "base64"
