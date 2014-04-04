@@ -1,4 +1,6 @@
 .sass-cache
+.geany
+.idea
 assets/css/*.css
 Thumbs.db
 twitter_api_config.yml
