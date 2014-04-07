@@ -22,6 +22,7 @@ People
 - [Gretchen Rubin about 4 categories how people respond to rules](http://99u.com/videos/21547/gretchen-rubin-the-4-ways-to-successfully-adopt-new-habits)
 - [Non-Creepy Networking: Party Etiquette](http://jessicahische.is/helpingyoubelesscreepy)
 - [If Management is the Only Way Up, We’re All F’d](http://moz.com/rand/if-management-is-the-only-way-up-were-all-fd/)
+- [The Starfish and the Spider: The Unstoppable Power of Leaderless Organizations ](http://ugnchicago.com/wp-content/uploads/2009/07/Starfish-and-Spider-Ori-Brafman-Summary.pdf)
 
 
 Strategy
