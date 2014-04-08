@@ -2,8 +2,8 @@
   Options +FollowSymlinks
   RewriteEngine On
   
-  RewriteCond %{HTTP_HOST} !=c.loc
-  RewriteRule (.*) http://c.loc/$1 [R=301,L]
+  RewriteCond %{HTTP_HOST} !=c
+  RewriteRule (.*) http://c/$1 [R=301,L]
   
   # Adaptive-Images -----------------------------------------------------------------------------------
 

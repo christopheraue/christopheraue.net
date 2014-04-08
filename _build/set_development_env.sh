@@ -1,10 +1,10 @@
 # set development environment
 # in jekyll config
-sed -i 's/^url: .*$/url: http:\/\/c.loc/' _config.yml
-sed -i 's/^destination: .*/destination: \/home\/c\/http\/christopheraue\.net/' _config.yml
+sed -i 's/^url: .*$/url: http:\/\/c/' _config.yml
+sed -i 's/^destination: .*/destination: \/srv\/http\/c\/christopheraue\.net/' _config.yml
 # in .htaccess
-sed -i 's/RewriteCond %{HTTP_HOST} !=.*$/RewriteCond %{HTTP_HOST} !=c.loc/' .htaccess
-sed -i 's/RewriteRule (\.\*) [^$]*/RewriteRule (.*) http:\/\/c.loc\//' .htaccess
+sed -i 's/RewriteCond %{HTTP_HOST} !=.*$/RewriteCond %{HTTP_HOST} !=c/' .htaccess
+sed -i 's/RewriteRule (\.\*) [^$]*/RewriteRule (.*) http:\/\/c\//' .htaccess
 # in ruby scripts
 sed -i 's/^#!.*$/#!\/bin\/ruby/' lib/tweets.rb
 #set formatted javascript files

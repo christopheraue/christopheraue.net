@@ -1,5 +1,5 @@
-url: http://c.loc
-destination: /home/c/http/christopheraue.net
+url: http://c
+destination: /srv/http/c/christopheraue.net
 name: Christopher Aue
 description: This is a place where I collect resources and write about *Web Technology*, *Product Development* and *Self-Improvement*.
 default_background: blur_lightbeam.jpg
