@@ -35,7 +35,7 @@ Requirements To Use Vertical-Align
 
 Inline-level elements are laid out next to each other in lines. Once there are more elements that fit into the current line, a new line is created beneath it. All these lines have a so-called **line box**, which encloses all the content of its line. Differently sized content means line boxes of different height. In the following illustration the top and bottom of line boxes are indicated by red lines.
 
-<div class="example">
+<figure>
     <span class="red dotted line top"> </span><!--
  --><span class="red dotted line bottom"> </span><!--
  --><span class="center">A tall
@@ -53,7 +53,7 @@ Inline-level elements are laid out next to each other in lines. Once there are m
         <span class="tall box bg-grey text-bottom"> </span>
         <span class="bottom">happen.</span>
     </span>
-</div>
+</figure>
 
 The line boxes trace out the field we are playing on. Inside these line boxes the property `vertical-align` is responsible for aligning the individual elements. **So, in respect to what are elements aligned?**
 
@@ -62,7 +62,7 @@ About Baselines and Outer Edges
 The most important reference point to align vertically is the baseline of the involved elements. In some cases the top and bottom edge of the element's enclosing box becomes important, too. Let's have a look where the baseline and outer edges live for each involved type of element:
 
 ### Inline Element
-<div class="example columns-3">
+<figure class="columns col-3">
     <div class="large font"><!--
      --><span class="green dotted line text-top"> </span><!--
      --><span class="green dotted line text-bottom"> </span><!--
@@ -91,7 +91,7 @@ The most important reference point to align vertically is the baseline of the in
      --><span class="blue dotted line baseline"> </span><!--
      --><span class="center">aAÄ qQ</span>
     </div>
-</div>
+</figure>
 
 Here you see three lines of text next to each other. The top and bottom edge of the line height is indicated by red lines, the height of the font by green lines and the baseline by a blue line. On the left, the text has a line height set to the *same height* as the font-size. The green and red line collapsed to one line on each side. In the middle, the line height is *twice as large* as the font-size. On the right, the line height is *half as large* as the font-size.
 
@@ -100,7 +100,7 @@ Here you see three lines of text next to each other. The top and bottom edge of 
 **The inline element's baseline** is the line, the characters are *sitting* on. This is the blue line in the figure. Roughly speaking, the baseline is *somewhere below the middle of the line height*. Have look at the W3C Specs for a [detailed definition](http://www.w3.org/TR/CSS2/visudet.html#leading).
 
 ### Inline-Block Element
-<div class="example columns-3">
+<figure class="columns col-3">
     <div class="top"><!--
      --><span class="red dotted line top"> </span><!--
      --><span class="red dotted line bottom"> </span><!--
@@ -125,10 +125,10 @@ Here you see three lines of text next to each other. The top and bottom edge of 
          --><span class="show-box-model-content"> </span>
         </span>
     </div>
-</div>
+</figure>
 
 <style type="text/css">
-    .example .inline-block {
+    figure .inline-block {
         display: inline-block;
         margin: .5em;
         padding: .5em;
@@ -151,7 +151,7 @@ From left to right you see: an inline-block element with [in-flow](http://www.w3
 * In case of *no* in-flow content the baseline is, again, the bottom edge of the margin-box (example on the right).
 
 ### Line Box
-<div class="example">
+<figure>
     <span class="large font">
         <span class="green dotted line text-top"> </span><!--
      --><span class="green dotted line text-bottom"> </span><!--
@@ -167,7 +167,7 @@ From left to right you see: an inline-block element with [in-flow](http://www.w3
             <span class="bottom bg-grey">happen.</span>
         </span>
     </span>
-</div>
+</figure>
 
 You've already seen this setting. This time I drew in the top and bottom of the line box's text box (green, more on this below) and the baseline (blue), too. I also highlighted the area of the text elements by giving them a grey background.
 
@@ -195,7 +195,7 @@ Phew, this was the hard part. **Now, we know everything to put things into persp
 By using `vertical-align` the reference points mentioned in the last sentence in the list above are set into a certain relationship.
 
 ### Aligning the Element's Baseline Relative To the Line Box's Baseline
-<div class="example">
+<figure>
     <span class="large font">
         <span class="blue dotted line baseline"> </span><!--
      --><span class="font color-grey">x</span><!--
@@ -207,7 +207,7 @@ By using `vertical-align` the reference points mentioned in the last sentence in
             <span class="baseline" style="vertical-align: 10px"><span class="blue dotted line baseline"> </span>+10px</span>
         </span>
     </span>
-</div>
+</figure>
 
 * **baseline**: The element's baseline sits exactly on top of the line box's baseline.
 * **sub**: The element's baseline is shifted below the line box's baseline.
@@ -216,7 +216,7 @@ By using `vertical-align` the reference points mentioned in the last sentence in
 * **&lt;length&gt;**: The element's baseline is shifted with respect to the line box's baseline by an absolute length.
 
 ### Aligning the Element's Outer Edges Relative To the Line Box's Baseline
-<div class="example">
+<figure>
     <span class="large font">
         <span class="orange dotted line middle"> </span><!--
      --><span class="font color-grey baseline"><span class="blue dotted line baseline"> </span>x</span><!--
@@ -228,12 +228,12 @@ By using `vertical-align` the reference points mentioned in the last sentence in
             </span>
         </span>
     </span>
-</div>
+</figure>
 
 * **middle**: The midpoint between the element's top and bottom edge is aligned to the line box's baseline plus half of the x-height.
 
 ### Aligning the Element's Outer Edges Relative To the Line Box's Text Box
-<div class="example">
+<figure>
     <span class="large font tall-line-height">
         <span class="green dotted line text-top"> </span><!--
      --><span class="green dotted line text-bottom"> </span><!--
@@ -255,7 +255,7 @@ By using `vertical-align` the reference points mentioned in the last sentence in
             </span>
         </span>
     </span>
-</div>
+</figure>
 
 One could also list these two cases under aligning relative to the line box's baseline, since the position of the text box is determined by the baseline.
 
@@ -263,7 +263,7 @@ One could also list these two cases under aligning relative to the line box's ba
 * **text-bottom**: The element's bottom edge is aligned to the line box's text box bottom edge.
 
 ### Aligning the Element's Outer Edges Relative To the Line Box's Outer Edges
-<div class="example">
+<figure>
     <span class="large font tall-line-height">
         <span class="red dotted line top"> </span><!--
      --><span class="red dotted line bottom"> </span><!--
@@ -285,7 +285,7 @@ One could also list these two cases under aligning relative to the line box's ba
             </span>
         </span>
     </span>
-</div>
+</figure>
 
 * **top**: The element's top edge is aligned to the line box's top edge.
 * **bottom**: The element's bottom edge is aligned to the line box's bottom edge.
@@ -299,14 +299,14 @@ We can now take a closer look at vertical alignment in certain situations. Espec
 ### Centering an Icon
 One question bugging me was the following: I have an icon I want to center next to a line of text. Just giving the icon a `vertical-align: middle` didn't seem to center it in a satisfying way. Have a look at this example:
 
-<div class="example columns">
+<figure class="columns">
     <div class="top center">
         <span class="small box bg-grey middle"> </span> Centered?
     </div><!--
  --><div class="top center">
         <span class="small box bg-grey middle"> </span> <span class="middle">Centered!</span>
     </div>
-</div>
+</figure>
     
     //left mark-up
     <span class="icon middle"> </span>
@@ -329,7 +329,7 @@ One question bugging me was the following: I have an icon I want to center next 
 
 Here is the example again, but I drew in some auxiliary lines you already know from above:
 
-<div class="example columns">
+<figure class="columns">
     <div class="top">
         <span class="orange dotted line middle"> </span><!--
      --><span class="font color-grey inline-overlay baseline"><!--
@@ -360,7 +360,7 @@ Here is the example again, but I drew in some auxiliary lines you already know f
             </span>
         </span>
     </div>
-</div>
+</figure>
 
 This sheds some light on our matter. Because the text on the left isn't aligned at all, it sits on the baseline. The thing is, by aligning the box with `vertical-align: middle` we are aligning it to the middle of the lower case letters without ascenders (half of the x-height). So, characters with ascenders stand out at the top.
 
@@ -373,7 +373,7 @@ Some Examples:
 
 *   If there is a tall element in the line spanning across the complete height, `vertical-align` has no effect on it. There is no space above its top and below its bottom, that would let it move. To fulfil its alignment relative to the line box's baseline, the line box's baseline has to move. The short box has a `vertical-align: baseline`. On the left, the tall box is aligned `text-bottom`. On the right, it is aligned `text-top`. You can see the baseline jumping up taking the short box with it.
 
-    <div class="example columns"><!--
+    <figure class="columns"><!--
      --><div class="top"><!--
          --><span class="green dotted line text-top"> </span><!--
          --><span class="green dotted line text-bottom"> </span><!--
@@ -396,7 +396,7 @@ Some Examples:
                 <span class="short box bg-grey baseline"> </span>
             </span><!--
      --></div>
-    </div>
+    </figure>
         
         //mark-up on the left
         <span class="tall-box text-bottom"> </span>
@@ -425,7 +425,7 @@ Some Examples:
 
 *   Even setting `vertical-align` to `bottom` (left) and `top` (right) moves the baseline. This is strange, since the baseline shouldn't be involved at all.
     
-    <div class="example columns">
+    <figure class="columns">
         <div class="top"><!--
          --><span class="green dotted line text-top"> </span><!--
          --><span class="green dotted line text-bottom"> </span><!--
@@ -448,7 +448,7 @@ Some Examples:
                 <span class="short box bg-grey baseline"> </span>
             </span>
         </div>
-    </div>
+    </figure>
         
         //mark-up on the left
         <span class="tall-box bottom"> </span>
@@ -475,7 +475,7 @@ Some Examples:
 
 *   Placing two larger elements in a line and vertically aligning them moves the baseline where it fulfils both alignments. Then the height of the line box is adjusted (left). Adding a third element, that does not go beyond the line box's edges because of its alignment, affects neither the line box's height nor the baseline's position (middle). If it *does* go beyond the line box's edges, the line box's height and baseline are adjusted, again. In this case, our first two boxes are pushed down (right).
     
-    <div class="example columns-3">
+    <figure class="columns col-3">
         <div class="top"><!--
          --><span class="green dotted line text-top"> </span><!--
          --><span class="green dotted line text-bottom"> </span><!--
@@ -511,7 +511,7 @@ Some Examples:
                 <span class="taller box bg-grey baseline" style="vertical-align: 100%"> </span>
             </span>
         </div>
-    </div>
+    </figure>
         
         //mark-up on the left
         <span class="tall-box text-bottom"> </span>
@@ -553,7 +553,7 @@ Some Examples:
 ### There Might Be a Little Gap Below Inline-Level Elements
 Have a look at this setting:
 
-<div class="example columns-2">
+<figure class="columns">
     <div class="top">
         <ul class="baseline center bg-yellow" style="padding: 0">
             <li class="taller quad box bg-grey baseline"> </li>
@@ -573,7 +573,7 @@ Have a look at this setting:
             <li class="taller quad box bg-grey baseline"> </li>
         </ul>
     </div>
-</div>
+</figure>
 
     //mark-up
     <ul>
@@ -591,7 +591,7 @@ Have a look at this setting:
 
 As you can see, the list items sit on the baseline. Below the baseline is some space to shelter the descenders of a text. This is causing the gap. The Solution? Just move the baseline out of the way, for example by aligning the list items with `vertical-align: middle`:
     
-<div class="example columns-2">
+<figure class="columns">
     <div class="top">
         <ul class="baseline center bg-yellow" style="padding: 0">
             <li class="taller quad box bg-grey middle"> </li>
@@ -611,7 +611,7 @@ As you can see, the list items sit on the baseline. Below the baseline is some s
             <li class="taller quad box bg-grey middle"> </li>
         </ul>
     </div>
-</div>
+</figure>
 
     //mark-up
     <ul>
@@ -636,7 +636,7 @@ As you can see, the list items sit on the baseline. Below the baseline is some s
 
 You can see this gap in the former example between the list items. The gap comes from the white-space between inline-elements present in your mark-up. All white-space between inline-elements is collapsed into one space. This space gets in the way, if we want to place two inline elements next to each other and giving them `width: 50%`, for example. There is not enough space for two 50%-elements and a space. So the line breaks into two lines destroying the layout (left). To remove the gap, we need to remove the white-space, for example with html comments (right).
 
-<div class="example columns-2">
+<figure class="columns">
     <div class="top border-grey" style="box-sizing: border-box">
         <div class="tall box center bg-blue" style="width: 50%">
             50% wide
@@ -653,7 +653,7 @@ You can see this gap in the former example between the list items. The gap comes
             50% wide
         </div>
     </div>
-</div>
+</figure>
 
     //mark-up on the left
     <div class="half">

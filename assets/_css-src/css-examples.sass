@@ -1,24 +1,20 @@
 /*
- * Styles For Examples
- * ===================
+ * Styles For Figures
+ * ==================
  */
-.example
-    border: 1px solid lightgrey
-    padding: 1em
-    border-radius: 3px
+.text figure
     line-height: 1
     &.center
         text-align: center
+    &.bg-grey
+        background: #f0f0f0
+        padding: 1em
     .center
         text-align: center
         display: inline-block
         width: 100%
     + pre
-        margin-top: 0
-        code
-            border-top: none
-            border-top-left-radius: 0
-            border-top-right-radius: 0
+        margin-top: 1em
     * + *
         margin-top: 0
 
@@ -26,56 +22,67 @@
  * Columns
  * -------
  */
-.example.columns, .example.columns-2
+.text figure.columns
     > *
         width: 47.5%
         display: inline-block
-        vertical-align: baseline
     > :nth-child(odd)
         margin-right: 2.5%
     > :nth-child(even)
         margin-left: 2.5%
 
-.example.columns-3
+.text figure.columns.col-3
     > *
         width: 30%
         display: inline-block
-        vertical-align: baseline
+    > :nth-child(odd),
+    > :nth-child(even)
+        margin-left: 0
+        margin-right: 0
     > :nth-child(3n+1)
         margin-right: 2.5%
     > :nth-child(3n+2)
         margin: 0 2.5%
     > :nth-child(3n+3)
         margin-left: 2.5%
+
+.text figure,
+.text figure.columns
+    figcaption
+        width: 100%
+        margin: 0
+        margin-top: 1em
+        font-style: italic
+        font-size: .8em
     
 /*
  * Background
  * ----------
  */
-.example .bg-grey
+figure .bg-grey
     background: lightgrey
 
-.example .bg-green
+figure .bg-green
     background: #c1cd89
 
-.example .bg-yellow
+figure .bg-yellow
     background: #fcdb9a
 
-.example .bg-blue
+figure .bg-blue
     background: #8ab3bf
 
 /*
  * Border
  * ------
  */
-.example .border-grey
+.text figure .border-grey
     border: 1px solid lightgrey
 
 /*
  * Text
  * ----
  */
-.example .font
+.text figure .font
     white-space: nowrap
     line-height: 1
     &.small
@@ -97,7 +104,7 @@
  * Boxes
  * -----
  */
-.example .box
+.text figure .box
     min-width: 1em
     min-height: 1em
     &.shorter
@@ -128,14 +135,14 @@
     position: relative
     z-index: 10
 
-.example .inline-overlay
+.text figure .inline-overlay
     @include inline-overlay
 
 /*
  * Lines
  * -----
  */
-.example .line
+.text figure .line
     @include inline-overlay
     border-top: 1px solid black
     &.dashed
@@ -157,7 +164,7 @@
  * Box-Model
  * ---------
  */
-.example .show-box-model
+.text figure .show-box-model
     background: #c1cd89     //padding
     border-color: #fcdb9a   //border
     > .show-box-model-content
@@ -170,34 +177,34 @@
  * Vertical Alignment
  * ------------------
  */
-.example .top
+.text figure .top
     display: inline-block
     vertical-align: top
 
-.example .bottom
+.text figure .bottom
     display: inline-block
     vertical-align: bottom
 
-.example .middle
+.text figure .middle
     display: inline-block
     vertical-align: middle
 
-.example .baseline
+.text figure .baseline
     display: inline-block
     vertical-align: baseline
 
-.example .text-top
+.text figure .text-top
     display: inline-block
     vertical-align: text-top
 
-.example .text-bottom
+.text figure .text-bottom
     display: inline-block
     vertical-align: text-bottom
 
-.example .sub
+.text figure .sub
     display: inline-block
     vertical-align: sub
 
-.example .super
+.text figure .super
     display: inline-block
     vertical-align: super
