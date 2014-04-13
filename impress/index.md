@@ -13,6 +13,6 @@ title: Impress
         48151 Münster<br/>
         Germany<br/>
         <br/>
-        mail[at]christopheraue[dot]net
+        mail\[at\]christopheraue\[dot\]net
     </p>
 </section>

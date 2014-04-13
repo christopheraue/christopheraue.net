@@ -29,7 +29,7 @@ Line length is measured by the number or characters per line (CPL). Good line le
 <aside class="portrait use-sidebar">
     <header>Media Queries Based On an Element's Width?</header>
     <div class="content">
-        <p>On a site note, wouldn't it be nice to have media queries, that could check conditions on elements?</p>
+        <p>On a side note, wouldn't it be nice to have media queries, that could check conditions on elements?</p>
         <pre><code>@media (#my-text-area min-width: X em)</code></pre>
         <p>This way, you don't need to take into account the size of all the other stuff around the text. If the text area get wider than `X em`, the layout breaks. Probably, you even need fewer queries, since conditions might repeat at a different screen size or some other factor. Yea, well, but you can't have everything, I guess...</p>
     </div>
