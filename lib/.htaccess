@@ -1,6 +1,3 @@
-Options +ExecCGI
-AddHandler cgi-script .rb
-
 Order Allow,Deny
 Deny from all
 

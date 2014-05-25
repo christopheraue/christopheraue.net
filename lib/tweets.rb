@@ -17,9 +17,6 @@ consumer_secret_uri_encoded = URI.encode_www_form_component(consumer_secret)
 bearer_token_credentials = consumer_key_uri_encoded + ":" + consumer_secret_uri_encoded
 bearer_token_credentials_base64_encoded = Base64.strict_encode64(bearer_token_credentials)
 
-puts 'Content-Type: text/html'
-puts
-
 tweets = Net::HTTP.start('api.twitter.com',  {:use_ssl => true}) do |http|
     header = { 'Authorization' => "Basic " + bearer_token_credentials_base64_encoded,
                'Content-Type' => "application/x-www-form-urlencoded;charset=UTF-8" }
@@ -39,4 +36,7 @@ tweets = Net::HTTP.start('api.twitter.com',  {:use_ssl => true}) do |http|
     response.body
 end
 
-puts tweets
+res = "Content-Type: application/json\n\n"
+res += tweets
+
+puts res
