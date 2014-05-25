@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Impress
+title: Impressum
 ---
 
 <section class="page-section text-optimized">

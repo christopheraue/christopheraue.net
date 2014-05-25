@@ -430,6 +430,9 @@
             margin: 8px 0
             + .item
                 margin-left: 0
+    @media screen and (min-width: 81.25em) //1300px
+        .item + .item
+            margin-left: .5em
 
 /*
  *  Impress Link
@@ -451,7 +454,6 @@
     @media screen and (min-width: 50em) //800px
         line-height: 1.6666em
         text-align: center
-        width: 48px
         color: white
         opacity: .66
         &:hover
