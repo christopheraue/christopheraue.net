@@ -23,7 +23,7 @@ People
 - [Non-Creepy Networking: Party Etiquette](http://jessicahische.is/helpingyoubelesscreepy)
 - [If Management is the Only Way Up, We’re All F’d](http://moz.com/rand/if-management-is-the-only-way-up-were-all-fd/)
 - [The Starfish and the Spider: The Unstoppable Power of Leaderless Organizations ](http://ugnchicago.com/wp-content/uploads/2009/07/Starfish-and-Spider-Ori-Brafman-Summary.pdf)
-
+- [Resistance As A Resource](http://dhemery.com/articles/resistance_as_a_resource/)
 
 Strategy
 --------
