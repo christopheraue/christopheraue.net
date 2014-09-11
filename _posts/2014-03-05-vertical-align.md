@@ -16,7 +16,7 @@ Peculiarities Of Vertical-Align
 -------------------------------
 But, `vertical-align` can be a real scumbag sometimes. Working with it can be a little frustrating. There seem to be some mysterious rules at work. For example, it might happen, that the element you changed `vertical-align` for doesn't change its alignment at all, but other elements in the line do! I'm still getting dragged into the dark corners of `vertical-align` from time to time, tearing my hair. 
 
-Unfortunately, most resources on the matter are somewhat shallow. Especially, if we want to use `vertical-align` for layout. They concentrate on the misconception of trying to [vertical align everything inside an element](http://phrogz.net/CSS/vertical-align/). They give [basic introductions](http://css-tricks.com/what-is-vertical-align/) into the property and explain how elements are aligned in very simple situations. Or [both](http://www.impressivewebs.com/css-vertical-align/). They do not explain the tricky parts.
+Unfortunately, most resources on the matter are somewhat shallow. Especially, if we want to use `vertical-align` for layout. They concentrate on the misconception of trying to vertical align everything inside an element. They give basic introductions into the property and explain how elements are aligned in very simple situations. They do not explain the tricky parts.
 
 So, I set myself the target to **clarify the behavior of vertical-align once and for all**. I ended up working through the [W3C](http://www.w3.org/TR/CSS2/visudet.html#line-height) [specifications](http://www.w3.org/TR/CSS2/visuren.html#inline-formatting) and playing with some examples. The result is this article.
 
@@ -169,9 +169,9 @@ From left to right you see: an inline-block element with [in-flow](http://www.w3
     </span>
 </figure>
 
-You've already seen this setting. This time I drew in the top and bottom of the line box's text box (green, more on this below) and the baseline (blue), too. I also highlighted the area of the text elements by giving them a grey background.
+You've already seen this setting above. This time I drew in the top and bottom of the line box's text box (green, more on this below) and the baseline (blue), too. I also highlighted the area of the text elements by giving them a grey background.
 
-The line box has a **top edge** aligned to the top edge of the top-most element of this line and a **bottom edge** aligning to the bottom edge of the bottom-most element of the line. This is the box indicated by the red lines in the figure above.
+The line box has a **top edge** aligned to the top edge of the top-most element of this line and a **bottom edge** aligned to the bottom edge of the bottom-most element of the line. This is the box indicated by the red lines in the figure above.
 
 **The line box's baseline** is variable:
 
@@ -182,7 +182,7 @@ The line box has a **top edge** aligned to the top edge of the top-most element 
 
 This is probably the most confusing part, when working with vertical-align. It means, the baseline is placed where ever it needs to be to fulfil all other conditions like vertical-align and minimizing the line box's height. It is a free parameter in the equation.
 
-Since the line box's baseline is invisible, it may not immediately obvious where it is. But, you can make it visible very easily. Just add a character at the beginning of the line in questions, like I added an "x" in the figure. If this character is not aligned in any way, it will sit on the baseline by default.
+Since the line box's baseline is invisible, it may not immediately be obvious where it is. But, you can make it visible very easily. Just add a character at the beginning of the line in questions, like I added an "x" in the figure. If this character is not aligned in any way, it will sit on the baseline by default.
 
 Around its baseline the line box has what we might call its **text box**. The text box simply is an inline element inside the line box without any alignment. Its top and bottom edges are defined by the line height. This box is indicated by the green lines in the figure above. Since this text box is tied to the baseline, it moves when the baseline moves. (Side note: this text box is called [strut](http://www.w3.org/TR/CSS2/visudet.html#strut) in the W3C Specs)
 
