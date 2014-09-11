@@ -4,6 +4,6 @@ name: Christopher Aue
 description: This is a place where I collect resources and write about *Web Technology*, *Product Development* and *Self-Improvement*.
 default_background: blur_lightbeam.jpg
 encoding: UTF-8
-pygments: false
+highlighter: false
 permalink: :year/:month/:day/:title/
 exclude: [test, sass, build.sh, deploy.sh, set_development_env.sh, set_production_env.sh, videos, Gemfile, Gemfile.lock, Guardfile]

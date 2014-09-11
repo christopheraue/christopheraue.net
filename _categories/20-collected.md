@@ -34,6 +34,7 @@ Strategy
 - [Gowalla Post Mortem: While we were busy playing tug-of-war over check-ins, someone else found a path to the goal with less friction.](https://medium.com/work-education/6152adc41de9)
 - [How to Model Viral Growth](http://www.linkedin.com/today/post/article/20121002124206-18876785-how-to-model-viral-growth-the-hybrid-model) | [Part2](http://www.linkedin.com/today/post/article/20121011190820-18876785-how-to-model-viral-growth-simple-loss) | [Part3](http://www.linkedin.com/today/post/article/20130402154324-18876785-how-to-model-viral-growth-retention-virality-curves)
 - [Alexander Osterwalder and Steve Blank about Business Model Generation](http://www.youtube.com/watch?v=8GIbCg8NpBw)
+- [How to Read a Patent](http://adlervermillion.com/how-to-read-a-patent/)
 
 
 Web Technology

@@ -33,13 +33,126 @@ There is one drawback, if you want to call it one: **It does not work, if the he
 
 Why do we need a definite height on the outer element? Because the pseudo-element in our solution has a `height` set to `100%`. Look at the last bullet point above to see, what happens, if the outer element's `height` evaluates to `auto`. The pseudo-element gets a `height` of `auto`, too. Its content is an empty string. So its height will be one line-height, not the full height of its parent.
 
-<div class="square">
-    <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
-</div>
-
 **So, is this bad, after all?** To vertically center something, you need to know the top and bottom edge of the area to center in. If you cannot fix these bounds by any means, neither by setting an explicit height nor by positioning the top and bottom of an absolute positioned element, you cannot expect to center something in there.
 
-With this in mind: You want to vertically center an element in an area with min-height using `vertical-align: middle`? Have a look at the box on the left ([Source](http://codepen.io/christopheraue/pen/HwfJB)).
+With this in mind: You want to vertically center an element in an area with min-height using `vertical-align: middle`? Have a look at the box below:
+
+<div class="example">
+  <div class="full-area">
+    <div class="container">
+      <div class="center-area"><!--
+        --><div class="centered">Yay, I'm centered in the blue min-height area!</div>
+      </div>
+      <div class="content">Click to change content height</div>
+    </div>
+  </div>
+</div>
+
+<style type="text/css">
+  .example .container {
+    min-height: 150px;
+    position: relative;
+  }
+  .example .content {
+    height: 200px;
+  }
+  .example .center-area {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .example .center-area:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+  .example .centered {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  /*making it prettier*/
+  .example .full-area {
+    background: lightgrey;
+    color: white;
+    height: 224px;
+  }
+  .example .center-area {
+    text-align: center;
+  }
+  .example .container {
+    padding: 10px;
+    box-sizing: border-box;
+    background: lightskyblue;
+    line-height: 1;
+  }
+  .example .content {
+    margin: 0;
+    border: 2px solid white;
+    transition: height 2s;
+    text-align: center;
+    font-weight: bold;
+  }
+  .example .centered {
+    background: orange;
+    padding: .5em;
+    width: 80%;
+  }
+</style>
+
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+  (function($) {
+    var heights = ['100px', '200px'],
+        iteration = 0;
+
+    $('.container').click(function() {
+      $('.content').css('height', heights[iteration % heights.length]);
+      iteration += 1;
+    });
+  }(jQuery.noConflict(true)))
+</script>
+
+The minimal markup and CSS:
+
+    <div class="container">
+      <div class="center-area"><!--
+        --><div class="centered">Yay, I'm centered ...!</div>
+      </div>
+      <div class="content">
+        <!-- Some content defining the
+             height of the container -->
+      </div>
+    </div>
+    
+    <style type="text/css">
+      .container {
+        min-height: 150px;
+        position: relative; //so center-area can
+                            //be positioned absolute
+      }
+      .center-area {
+        //let it fill the whole container
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+      .center-area:before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+      }
+      .centered {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    </style>
 
 A Small Fix For The White-Space Problem
 ---------------------------------------

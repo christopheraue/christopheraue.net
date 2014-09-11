@@ -77,7 +77,7 @@ module Jekyll
     #
     # Returns nothing.
     def read_categories(dir = '')
-      categoryPages = @site.read_things(dir, '_categories', CategoryPage)
+      categoryPages = @site.read_content(dir, '_categories', CategoryPage)
    end
   end
 end
