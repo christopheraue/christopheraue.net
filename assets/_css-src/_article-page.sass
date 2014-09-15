@@ -168,6 +168,7 @@ body.article-page #content
 /*
  *  Article Text
  *  ------------
+ *  Text areas of articles cannot be wider than 36.2em to ensure good readability.
  *
  *  ```
  *  <iframe width="800" height="480" class="article-page agileSG-bg-image">
@@ -183,8 +184,9 @@ body.article-page #content
  *  </iframe>
  *  ```
  */
-//#main-article .text inherits from .text.white-bg
-    
+//mainly #main-article .text inherits from .text.white-bg
+#main-article .text
+    max-width: 36.2em
 
 /*
  *  Article Sidebar

@@ -62,6 +62,7 @@ Marketing
 
 - [The Beginner's Guide To SEO](http://moz.com/beginners-guide-to-seo)
 - [The Beginner’s Guide To Content Marketing](http://www.natedesmond.com/the-beginners-guide-to-content-marketing)
+- [Keyword Research: The Definitive Guide](http://backlinko.com/keyword-research)
 - [Gary Vaynerchuk: Stop Storytelling Like It's 2007](http://99u.com/videos/22081/gary-vaynerchuk-how-to-tell-stories-in-an-a-d-d-world)
 - [How Product Hunt Got Its First 2,000 Users Doing Things That Don’t Scale](http://ryanhoover.me/post/72663537463/how-we-got-our-first-2-000-users-doing-things-that)
 

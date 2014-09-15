@@ -4,8 +4,8 @@ title: 'em Units In Layouts: Font-Size As Global Scaling Factor'
 category: articles
 tags: em layout font-size
 image: fractal.jpg
-excerpt: Text is the main reason why websites exist. So, there is a good reason to subordinate scales in a layout to the size of the font. The CSS unit `em` helps with this.
-meta_description: Text is the main reason why websites exist. So, there is a good reason to subordinate scales in a layout to the size of the font. The CSS unit `em` helps with this.
+excerpt: Text is the main reason why websites exist. So, there is a good reason to subordinate scales in a layout to the size of the font. The CSS unit `em` helps.
+meta_description: Text is the main reason why websites exist. So, there is a good reason to subordinate scales in a layout to the size of the font. The CSS unit `em` helps.
 ---
 
 Text is the main reason why websites exist. To serve its content it is good practice to [design the site around its text](http://rafaltomal.com/start-the-visual-design-process-by-defining-the-typography-first/). This does not stop by defining the typographic style but, for instance, includes the line length as well. The line length on the other hand defines the width of the content area, which in turn most likely has an impact on the dimensions and positions of all other elements on the site.
@@ -44,8 +44,8 @@ There is another possibility to reduce the CPL: increasing the size of the font.
 Have a look at this example directly taken from this blog:
 
 <figure class="landscape columns bg-grey">
-    <img src="/images/embed/em-scaling-800.jpg" class="top"><!--
- --><img src="/images/embed/em-scaling-960.jpg" class="top">
+    <img src="/images/embed/em-scaling-800.jpg" alt="section of christopheraue.net at 800px width" class="top"><!--
+ --><img src="/images/embed/em-scaling-960.jpg" alt="section of christopheraue.net at 960px width" class="top">
     <figcaption>The same area of an article page of this blog at a viewport width around 800px (left) and 960px (right)</figcaption>
 </figure>
 

@@ -8,7 +8,11 @@ excerpt: A journey down the rabbit hole into the mysteries of vertical-align. In
 meta_description: Vertical-align has some seemingly mysterious rules at work. This article forces them to show their true color. And make them work for you!
 ---
 
-Whenever I design for the web I come across at least a couple of situations where I need to place some elements side by side and align them properly along a horizontal line. Sometimes I solve it with `float`, sometimes with `position: absolute`, sometimes even dirty by manually adding margins or paddings. I don't really like these solutions. Floats only align at their tops and need to be cleared manually. Absolute positioning takes the elements out of the flow so they do no longer affect their surroundings. And working with fixed margins and paddings immediately breaks things on the tiniest change.
+Often I need to vertically align elements side by side.
+
+Sometimes I solve it with `float`, sometimes with `position: absolute`, sometimes even dirty by manually adding margins or paddings.
+
+I don't really like these solutions. Floats only align at their tops and need to be cleared manually. Absolute positioning takes the elements out of the flow so they do no longer affect their surroundings. And working with fixed margins and paddings immediately breaks things on the tiniest change.
 
 But there is another player here: **`vertical-align`**. I think it deserves more credit. Ok, technically, using `vertical-align` for layout is a hack, since it wasn't invented for this reason. It's there to align text and elements next to text. Nonetheless, you can also use `vertical-align` in different contexts to align elements very flexible and fine-grained. The sizes of elements need not to be known. Elements stay in the flow so other elements can react to changed dimensions of those. This makes it a valuable option.
 
@@ -24,7 +28,8 @@ So, let's tackle the rules of the game.
 
 Requirements To Use Vertical-Align
 ----------------------------------
-`vertical-align` is used to align [inline-level elements](http://www.w3.org/TR/CSS2/visuren.html#inline-level). These are elements, whose `display` property evaluates to 
+`vertical-align` is used to align [inline-level elements](http://www.w3.org/TR/CSS2/visuren.html#inline-level). These are elements, whose `display` property evaluates to
+
 * inline,
 * inline-block or
 * inline-table (not considered in this article).
@@ -62,7 +67,7 @@ About Baselines and Outer Edges
 The most important reference point to align vertically is the baseline of the involved elements. In some cases the top and bottom edge of the element's enclosing box becomes important, too. Let's have a look where the baseline and outer edges live for each involved type of element:
 
 ### Inline Element
-<figure class="columns col-3">
+<figure class="columns no-break thirds">
     <div class="large font"><!--
      --><span class="green dotted line text-top"> </span><!--
      --><span class="green dotted line text-bottom"> </span><!--
@@ -100,7 +105,7 @@ Here you see three lines of text next to each other. The top and bottom edge of 
 **The inline element's baseline** is the line, the characters are *sitting* on. This is the blue line in the figure. Roughly speaking, the baseline is *somewhere below the middle of the line height*. Have look at the W3C Specs for a [detailed definition](http://www.w3.org/TR/CSS2/visudet.html#leading).
 
 ### Inline-Block Element
-<figure class="columns col-3">
+<figure class="columns no-break thirds">
     <div class="top"><!--
      --><span class="red dotted line top"> </span><!--
      --><span class="red dotted line bottom"> </span><!--
@@ -299,7 +304,7 @@ We can now take a closer look at vertical alignment in certain situations. Espec
 ### Centering an Icon
 One question bugging me was the following: I have an icon I want to center next to a line of text. Just giving the icon a `vertical-align: middle` didn't seem to center it in a satisfying way. Have a look at this example:
 
-<figure class="columns">
+<figure class="columns no-break">
     <div class="top center">
         <span class="small box bg-grey middle"> </span> Centered?
     </div><!--
@@ -329,7 +334,7 @@ One question bugging me was the following: I have an icon I want to center next 
 
 Here is the example again, but I drew in some auxiliary lines you already know from above:
 
-<figure class="columns">
+<figure class="columns no-break">
     <div class="top">
         <span class="orange dotted line middle"> </span><!--
      --><span class="font color-grey inline-overlay baseline"><!--
@@ -373,7 +378,7 @@ Some Examples:
 
 *   If there is a tall element in the line spanning across the complete height, `vertical-align` has no effect on it. There is no space above its top and below its bottom, that would let it move. To fulfil its alignment relative to the line box's baseline, the line box's baseline has to move. The short box has a `vertical-align: baseline`. On the left, the tall box is aligned `text-bottom`. On the right, it is aligned `text-top`. You can see the baseline jumping up taking the short box with it.
 
-    <figure class="columns"><!--
+    <figure class="columns no-break"><!--
      --><div class="top"><!--
          --><span class="green dotted line text-top"> </span><!--
          --><span class="green dotted line text-bottom"> </span><!--
@@ -425,7 +430,7 @@ Some Examples:
 
 *   Even setting `vertical-align` to `bottom` (left) and `top` (right) moves the baseline. This is strange, since the baseline shouldn't be involved at all.
     
-    <figure class="columns">
+    <figure class="columns no-break">
         <div class="top"><!--
          --><span class="green dotted line text-top"> </span><!--
          --><span class="green dotted line text-bottom"> </span><!--
@@ -475,7 +480,7 @@ Some Examples:
 
 *   Placing two larger elements in a line and vertically aligning them moves the baseline where it fulfils both alignments. Then the height of the line box is adjusted (left). Adding a third element, that does not go beyond the line box's edges because of its alignment, affects neither the line box's height nor the baseline's position (middle). If it *does* go beyond the line box's edges, the line box's height and baseline are adjusted, again. In this case, our first two boxes are pushed down (right).
     
-    <figure class="columns col-3">
+    <figure class="columns no-break thirds">
         <div class="top"><!--
          --><span class="green dotted line text-top"> </span><!--
          --><span class="green dotted line text-bottom"> </span><!--
@@ -551,14 +556,14 @@ Some Examples:
         }
 
 ### There Might Be a Little Gap Below Inline-Level Elements
-Have a look at this setting:
+Have a look at this setting. It's common if you try to vertical-align `li` elements of a list.
 
-<figure class="columns">
+<figure class="columns no-break">
     <div class="top">
         <ul class="baseline center bg-yellow" style="padding: 0">
-            <li class="taller quad box bg-grey baseline"> </li>
-            <li class="taller quad box bg-grey baseline"> </li>
-            <li class="taller quad box bg-grey baseline"> </li>
+            <li class="taller quad max-third-width box bg-grey baseline"> </li>
+            <li class="taller quad max-third-width box bg-grey baseline"> </li>
+            <li class="taller quad max-third-width box bg-grey baseline"> </li>
         </ul>
     </div><!--
  --><div class="top"><!--
@@ -568,9 +573,9 @@ Have a look at this setting:
      --><span class="red dotted line bottom"> </span><!--
      --><span class="blue dotted line baseline"> </span><!--
      --><ul class="baseline center bg-yellow" style="padding: 0">
-            <li class="taller quad box bg-grey baseline"> </li>
-            <li class="taller quad box bg-grey baseline"> </li>
-            <li class="taller quad box bg-grey baseline"> </li>
+            <li class="taller max-third-width quad box bg-grey baseline"> </li>
+            <li class="taller max-third-width quad box bg-grey baseline"> </li>
+            <li class="taller max-third-width quad box bg-grey baseline"> </li>
         </ul>
     </div>
 </figure>
@@ -591,12 +596,12 @@ Have a look at this setting:
 
 As you can see, the list items sit on the baseline. Below the baseline is some space to shelter the descenders of a text. This is causing the gap. The Solution? Just move the baseline out of the way, for example by aligning the list items with `vertical-align: middle`:
     
-<figure class="columns">
+<figure class="columns no-break">
     <div class="top">
         <ul class="baseline center bg-yellow" style="padding: 0">
-            <li class="taller quad box bg-grey middle"> </li>
-            <li class="taller quad box bg-grey middle"> </li>
-            <li class="taller quad box bg-grey middle"> </li>
+            <li class="taller quad max-third-width box bg-grey middle"> </li>
+            <li class="taller quad max-third-width box bg-grey middle"> </li>
+            <li class="taller quad max-third-width box bg-grey middle"> </li>
         </ul>
     </div><!--
  --><div class="top"><!--
@@ -606,9 +611,9 @@ As you can see, the list items sit on the baseline. Below the baseline is some s
      --><span class="red dotted line bottom"> </span><!--
      --><span class="blue dotted line baseline"> </span><!--
      --><ul class="baseline center bg-yellow" style="padding: 0">
-            <li class="taller quad box bg-grey middle"> </li>
-            <li class="taller quad box bg-grey middle"> </li>
-            <li class="taller quad box bg-grey middle"> </li>
+            <li class="taller quad max-third-width box bg-grey middle"> </li>
+            <li class="taller quad max-third-width box bg-grey middle"> </li>
+            <li class="taller quad max-third-width box bg-grey middle"> </li>
         </ul>
     </div>
 </figure>
@@ -636,7 +641,7 @@ As you can see, the list items sit on the baseline. Below the baseline is some s
 
 You can see this gap in the former example between the list items. The gap comes from the white-space between inline-elements present in your mark-up. All white-space between inline-elements is collapsed into one space. This space gets in the way, if we want to place two inline elements next to each other and giving them `width: 50%`, for example. There is not enough space for two 50%-elements and a space. So the line breaks into two lines destroying the layout (left). To remove the gap, we need to remove the white-space, for example with html comments (right).
 
-<figure class="columns">
+<figure class="columns no-break">
     <div class="top border-grey" style="box-sizing: border-box">
         <div class="tall box center bg-blue" style="width: 50%">
             50% wide

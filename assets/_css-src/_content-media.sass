@@ -1,334 +1,6 @@
-﻿/*
- *  Text and Media
- *  ==============
- *  To achieve the text formatting described on this page, the text must appear inside an element 
- *  with the class `.text`.
- */
-
 /*
- *  Inline Elements
- *  ---------------
- *  ### The Font
- *  Its size is set for the `<#content-container>` element. Running text uses the Lato Light font.
- *  ```
- *  <div class="text fixie">
- *      <p></p>
- *  </div>
- *  ```
- */
-.text
-    color: black
-    font: 300 1em/1.5 'Lato'
-
-/*
- *  ### Emphasis
- *  ```
- *  <div class="text">
- *      <p>This is <em>emphasized text</em>.</p>
- *      <p>This is <strong>strong text</strong>.</p>
- *  </div>
- *  ```
- */
-.text em
-    font-style: italic
-
-.text strong
-    font-weight: normal
-
-/*
- *  ### Code
- *  ```
- *  <div class="text">
- *      <p>This is an <code>inline code</code> fragment.</p>
- *  </div>
- *  ```
- */
-.text code
-    font-family: monospace
-    white-space: nowrap
-    border: 1px solid #ddd
-    background-color: #f0f0f0
-    border-radius: 3px
-    max-width: 100%
-    overflow: auto
-    padding: .1em
-
-/*
- *  Block Elements
+ *  Embedded Media
  *  --------------
- *  ### Lists
- *  #### Unordered
- *  ```
- *  <div class="text fixie">
- *  <ul></ul>
- *  </div>
- *  ```
- */
-.text ul
-    list-style-type: square
-    padding-left: 3em
-
-/*
- *  #### Ordered
- *  ```
- *  <div class="text fixie">
- *  <ol></ol>
- *  </div>
- *  ```
- */
-.text ol
-    list-style-type: decimal
-    padding-left: 3em
-
-/*
- *  #### Margins Between Items
- *  Display no margin between items by default. Add margins between items, if the list item does
- *  contain a block element as first child. Works for ul and ol alike.
- *  ```
- *  <div class="text fixie">
- *      <ul>
- *          <li><p></p></li>
- *          <li><p></p></li>
- *          <li><p></p></li>
- *      </ul>
- *  </div>
- *  ```
- */
-.text ul,
-.text ol
-    li + li
-        margin-top: 0
-        > :first-child
-            margin-top: 1.5em
-
-/*
- *  ### Quotes
- *  ```
- *  <div class="text fixie">
- *      <blockquote>
- *          <section></section>
- *          <footer>— Some Guy</footer>
- *      </blockquote>
- *  </div>
- *  ```
- */
-.text blockquote
-    padding: 0.5em 1em 0.5em 2em
-    font-style: italic
-    background: #f0f0f0
-    footer
-        text-align: right
-    *
-        font-style: italic
-
-/*  
- *  ### Short Quotes
- *  ```
- *  <div class="text fixie">
- *      <blockquote class="short">
- *          <div></div>
- *          <footer>— Some Guy</footer>
- *      </blockquote>
- *  </div>
- *  ```
- */
-.text blockquote.short
-    background: transparent
-    padding: 0
-    font-size: 1.5em
-    quotes: '“' '”'
-    *
-        display: inline
-    p, div
-        &:before
-            content: open-quote
-    p, div
-        &:after
-            content: close-quote
-
-.text * + blockquote.short
-    margin-top: 1em
-
-/*
- *  ### Code Block
- *  ```
- *  <div class="text">
- *      <pre><code>&lt;div class="center-area"&gt;::before
- *     &lt;div class="centered"&gt;&lt;/div&gt;
- *  &lt;/div&gt;</code></pre>
- *  </div>
- *  ```
- */
-.text pre code
-    display: block
-    white-space: pre
-    line-height: 1.3
-    padding: .25em
-
-/*
- *  ### Tables
- *  ```
- *  <div class="text fixie">
- *      <table>
- *          <caption>Table Caption</caption>
- *          <thead>
- *              <tr>
- *                  <th></th>
- *                  <th></th>
- *                  <th></th>
- *              </tr>
- *          </thead>
- *          <tbody>
- *              <tr>
- *                  <td></td><td></td><td></td>
- *              </tr>
- *              <tr>
- *                  <td></td><td></td><td></td>
- *              </tr>
- *              <tr>
- *                  <td></td><td></td><td></td>
- *              </tr>
- *          </tbody>
- *          <tfoot>
- *              <tr>
- *                  <td></td><td></td><td></td>
- *              </tr>
- *          </tfoot>
- *      </table>
- *  </div>
- *  ```
- */
-.text table
-    width: 100%
-    caption
-        font: 1em/1.2 'Alfa Slab One'
-        text-align: left
-        margin-top: 2.5em
-        margin-bottom: .3333em
-    th, td
-        padding: .5em
-        vertical-align: top
-        text-align: left
-        border-top: 1px solid #ddd
-    th
-        font-weight: normal
-    th[rowspan]
-        vertical-align: middle
-    thead > tr
-        > th
-            vertical-align: bottom
-            border-bottom: 2px solid #ddd
-        &:first-child
-            th, td
-                border-top: 0
-    tbody > tr:nth-child(odd)
-        th, td
-            background-color: #f9f9f9
-        th[rowspan]
-            background: transparent
-
-/*
- *  ### Combining Block Elements
- *  All block elements are separated from each other by one line-height. The text area can be set to
- *  have a white background and a padding by applying the css class `white-bg` to the `<.text>`
- *  element. Text areas cannot be wider than 36.2em to ensure good readability.
- *  
- *  ```
- *  <iframe width="800" height="480" class="agileSG-bg-white">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <p></p>
- *                  <blockquote class="short">
- *                      <div></div>
- *                      <footer>— Some Guy</footer>
- *                  </blockquote>
- *                  <p></p>
- *                  <ul></ul>
- *                  <p></p>
- *                  <ol></ol>
- *                  <p></p>
- *                  <blockquote>
- *                      <section></section>
- *                      <footer>— Some Guy</footer>
- *                  </blockquote>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-.text
-    max-width: 36.2em
-    &.white-bg
-        padding: 1.25em
-        background: white
-    * + *
-        margin-top: 1.5em
-
-/*
- *  Headings
- *  --------
- *  Headings have a top margin to separate them from the preceding text. If there is no content
- *  before the heading, then there is also no margin. Headings also have a slight bottom margin.
- *  Elements following headings do not have a top-margin.
- *  
- *  ```
- *  <iframe width="800" height="480" class="agileSG-bg-white">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text">
- *                  <h2>No Content before this heading: No top margin. Slight bottom margin.</h2>
- *                  <p>This paragraph has no top margin!</p>
- *                  <h3>There is a paragraph before this level three heading. So, set a top margin, please.</h3>
- *                  <h2>There is a heading before this level 2 heading. So, set a top margin, please. The margin is bigger than for level three.</h2>
- *                  <img width="900" height="600"></img>
- *                  <p>The image above has no top margin</p>
- *              </article>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-.text
-    h2, h3, h4, h5, h6
-        margin: 0
-        margin-bottom: .3333em
-        //clear: both
-        + *
-            margin-top: 0 !important  //important is necessary, so this rule is not overwritten by something like * + p
-    
-    * + h2, * + section > h2
-        margin-top: 1.6666em !important
-    * + h3, * + section > h3,
-    * + h4, * + section > h4,
-    * + h5, * + section > h5,
-    * + h6, * + section > h6
-        margin-top: 2.5em !important
-
-/*
- *  ### Levels
- *  There are two levels of sub headings in the body copy. Their size is relative to the size of the body copy.
- *  ```
- *  <div class="text fixie">
- *  <h2>Headline Level Two</h2>
- *  <h3>Headline Level Three</h3>
- *  <h4>Headline Level Four</h4>
- *  <h5>Headline Level Five</h5>
- *  <h6>Headline Level Six</h6>
- *  </div>
- *  ```
- */
-.text
-    h2, h3, h4, h5, h6
-        font: 1em/1.2 'Alfa Slab One'
-    h2
-        font-size: 1.5em
-
-/*
- *  Media And Floating Elements
- *  ---------------------------
  */
 @mixin floatElementAndSetBaseMargins
     float: left
@@ -449,9 +121,13 @@
  *  To take care of all that, *all* media must be placed inside a container element with one of the
  *  following classes, corresponding to their aspect ratio:
  *
- *  ### .landscape
+ *  #### .landscape
  *  Wide content with more width than height. Spans across the complete width of the available area
  *  by default. Can be floated by adding the class `.float`.
+ *
+ *  * .video: Fix size to video format 16/9
+ *  * .photo: Fix size to photo format 3/2
+ *
  *  ```
  *  <iframe width="800" height="800" class="agileSG-bg-white">
  *      <div id="content-container">
@@ -565,7 +241,7 @@
                     @include setFixedRatioBasedOnHeight((3/2), 13)
 
 /*
- *  ### .square
+ *  #### .square
  *  Square content with an aspect ratio of exactly 1 (width) to 1 (height). Spans 9 lines of text,
  *  if floated. Is floated by default.
  *  ```
@@ -610,9 +286,12 @@
                     @include setFixedRatioBasedOnHeight(1, 19)
 
 /*
- *  ### .portrait
+ *  #### .portrait
  *  Tall content with more height than width. Spans 13 lines of text, if floated. Is floated by
  *  default.
+ *
+ *  * .photo: Fix size to photo format 2/3
+ *
  *  ```
  *  <iframe width="800" height="480" class="agileSG-bg-white">
  *      <div id="content-container">
@@ -676,8 +355,8 @@
                     @include setFixedRatioBasedOnWidth((2/3), 11.3em)
 
 /*  
- *  ### Short Quotes Reaching Into the Sidebar
- *  Behaves like `.panorama`. The font size increases to the double of the body copy size for
+ *  #### Short Quotes Reaching Into the Sidebar
+ *  Behaves like `.landscape`. The font size increases to the double of the body copy size for
  *  viewports wide enough to display a sidebar.
  *  ```
  *  <iframe width="800" height="480" class="agileSG-bg-white">
@@ -698,9 +377,10 @@
     @media screen and (min-width: 50em) //800px
         blockquote.short.use-sidebar
             font-size: 2em
+            margin-left: -6.275em
 
 /*
- *  ### Sidebar
+ *  #### Sidebar
  *  ```
  *  <iframe width="800" height="480" class="agileSG-bg-white">
  *      <div id="content-container">

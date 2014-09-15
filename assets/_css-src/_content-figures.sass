@@ -1,6 +1,6 @@
 /*
- * Styles For Figures
- * ==================
+ * Figures
+ * -------
  */
 .text figure
     line-height: 1
@@ -17,37 +17,6 @@
         margin-top: 1em
     * + *
         margin-top: 0
-
-/*
- * Columns
- * -------
- */
-.text figure.columns
-    > *
-        width: 47.5%
-        display: inline-block
-    > :nth-child(odd)
-        margin-right: 2.5%
-    > :nth-child(even)
-        margin-left: 2.5%
-
-.text figure.columns.col-3
-    > *
-        width: 30%
-        display: inline-block
-    > :nth-child(odd),
-    > :nth-child(even)
-        margin-left: 0
-        margin-right: 0
-    > :nth-child(3n+1)
-        margin-right: 2.5%
-    > :nth-child(3n+2)
-        margin: 0 2.5%
-    > :nth-child(3n+3)
-        margin-left: 2.5%
-
-.text figure,
-.text figure.columns
     figcaption
         width: 100%
         margin: 0
@@ -56,8 +25,7 @@
         font-size: .8em
     
 /*
- * Background
- * ----------
+ * ### Background
  */
 figure .bg-grey
     background: lightgrey
@@ -72,15 +40,13 @@ figure .bg-blue
     background: #8ab3bf
 
 /*
- * Border
- * ------
+ * ### Border
  */
 .text figure .border-grey
     border: 1px solid lightgrey
 
 /*
- * Text
- * ----
+ * ### Text
  */
 .text figure .font
     white-space: nowrap
@@ -101,8 +67,7 @@ figure .bg-blue
         color: lightgrey
 
 /*
- * Boxes
- * -----
+ * ### Boxes
  */
 .text figure .box
     min-width: 1em
@@ -123,10 +88,11 @@ figure .bg-blue
         height: 4em
         &.quad
             width: 4em
+    &.quad.max-third-width
+        max-width: 30%
 
 /*
- * Overlays
- * --------
+ * ### Overlays
  */
 @mixin inline-overlay
     display: inline-block
@@ -139,8 +105,7 @@ figure .bg-blue
     @include inline-overlay
 
 /*
- * Lines
- * -----
+ * ### Lines
  */
 .text figure .line
     @include inline-overlay
@@ -161,8 +126,7 @@ figure .bg-blue
         border-color: goldenrod
 
 /*
- * Box-Model
- * ---------
+ * ### Box-Model
  */
 .text figure .show-box-model
     background: #c1cd89     //padding
@@ -172,39 +136,3 @@ figure .bg-blue
         display: block
         min-width: 100%
         min-height: 100%
-
-/*
- * Vertical Alignment
- * ------------------
- */
-.text figure .top
-    display: inline-block
-    vertical-align: top
-
-.text figure .bottom
-    display: inline-block
-    vertical-align: bottom
-
-.text figure .middle
-    display: inline-block
-    vertical-align: middle
-
-.text figure .baseline
-    display: inline-block
-    vertical-align: baseline
-
-.text figure .text-top
-    display: inline-block
-    vertical-align: text-top
-
-.text figure .text-bottom
-    display: inline-block
-    vertical-align: text-bottom
-
-.text figure .sub
-    display: inline-block
-    vertical-align: sub
-
-.text figure .super
-    display: inline-block
-    vertical-align: super
