@@ -18,7 +18,7 @@ If `em` is new to you or you want to refresh your memory, there is a [short intr
 
 > While it is possible to do an entire layout with just em units, I think for responsive layouts it’s probably best to use pixels or percentages — and, as mentioned, use ems for typography.
 
-might not be quite along the lines of this article, but if it was I couldn't tell you anything interesting. ;)
+might not be quite along the lines of this article, but if it was I couldn't tell you anything interesting.
 
 Media Queries As Starting Point
 -------------------------------

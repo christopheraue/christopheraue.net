@@ -118,41 +118,43 @@ With this in mind: You want to vertically center an element in an area with min-
 
 The minimal markup and CSS:
 
-    <div class="container">
-      <div class="center-area"><!--
-        --><div class="centered">Yay, I'm centered ...!</div>
-      </div>
-      <div class="content">
-        <!-- Some content defining the
-             height of the container -->
-      </div>
-    </div>
-    
-    <style type="text/css">
-      .container {
-        min-height: 150px;
-        position: relative; //so center-area can
-                            //be positioned absolute
-      }
-      .center-area {
-        //let it fill the whole container
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-      }
-      .center-area:before {
-        content: '';
-        display: inline-block;
-        vertical-align: middle;
-        height: 100%;
-      }
-      .centered {
-        display: inline-block;
-        vertical-align: middle;
-      }
-    </style>
+{% highlight html %}
+<div class="container">
+  <div class="center-area"><!--
+    --><div class="centered">Yay, I'm centered ...!</div>
+  </div>
+  <div class="content">
+    <!-- Some content defining the
+         height of the container -->
+  </div>
+</div>
+
+<style type="text/css">
+  .container {
+    min-height: 150px;
+    position: relative; /* so center-area can
+                           be positioned absolute */
+  }
+  .center-area {
+    /* let it fill the whole container */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .center-area:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+  .centered {
+    display: inline-block;
+    vertical-align: middle;
+  }
+</style>
+{% endhighlight %}
 
 A Small Fix For The White-Space Problem
 ---------------------------------------
@@ -162,27 +164,46 @@ But there is still something, that I dislike about the approach. As said in the 
 
 **So why is there a the space, anyway?** It comes from the white-space between inline-elements **present in your mark-up**. The markup looks like:
 
-    <div class="center-area">
-        <div class="centered"></div>
-    </div>
+{% highlight html %}
+<div class="center-area">
+  <div class="centered"></div>
+</div>
+{% endhighlight %}
 
 If we included the pseudo-element, it would look like:
-    
-    <div class="center-area">::before
-        <div class="centered"></div>
-    </div>
+
+{% highlight html %}
+<div class="center-area">::before
+  <div class="centered"></div>
+</div>
+{% endhighlight %}
 
 So, we have white-space between the `::before` and the `<div.centered>`: a line-break and some spaces. They collapse to one space according to the rules html is processed by. This single space is the gap we are seeing. To remove it, remove the white-space. You have two options:
 
-- Put everything both opening tags into one line:
-  
-      <div class="center-area"><div class="centered">
-      </div></div>
+- Put both opening tags into one line:
+
+  <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"center-area"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"centered"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;&lt;/div&gt;</span></code></pre></div>
+
+{% comment %}
+{% highlight html %}
+<div class="center-area"><div class="centered">
+</div></div>
+{% endhighlight %}
+{% endcomment %}
 
 - Keep the indentation and add a comment to filter out the line-break and spaces.
-      
-      <div class="center-area"><!--
-          --><div class="centered"></div>
-      </div>
+
+  <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"center-area"</span><span class="nt">&gt;</span><span class="c">&lt;!--</span>
+  <span class="c"> --&gt;</span><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"centered"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+{% comment %}
+{% highlight html %}
+<div class="center-area"><!--
+ --><div class="centered"></div>
+</div>
+{% endhighlight %}
+{% endcomment %}
   
-This way, we can remove the space. This is a good thing, since it is not proportional to the em length across different fonts. For example, it is .625em for Courier and .25em for Helvetica. This is quite a difference. We had to explicitly set the margin of the pseudo-element for every font. Changing indentation of your mark-up or adding comments at the right places can also be bad for maintenance, since it can be overlooked very easily. But once you know it, it is quickly fixed making it the lesser evil in my opinion.
+This way, we can remove the space. This is a good thing, since it is not proportional to the em length across different fonts. For example, it is .625em for Courier and .25em for Helvetica. This is quite a difference. We had to explicitly set the margin of the pseudo-element for every font. Changing indentation of your mark-up or adding comments at the right places can also be bad for maintenance, since it can be overlooked very easily. But once you know it, it is quickly fixed and making it the lesser evil in my opinion.

@@ -15,39 +15,46 @@ I had this problem when testing some code for the e-commerce application Magento
 
 Some googling and reading answers on Stack Overflow didn't provide a direct solution. Mostly it was about optimizing the codes structure like using dependency injection so its behavior is better encapsulated and easier to test. Just Magento does not do dependency injection at all. Instead objects are created where needed with something along the lines of
 
-    $model = Mage::getModel('namespace/modelName');
-    
-    //This is essentially the same as writing
-    $model = new Vendor_Namespace_Model_ModelName();
+{% highlight php %}
+<?php
+
+$model = Mage::getModel('namespace/modelName');
+
+//This is essentially the same as writing
+$model = new Vendor_Namespace_Model_ModelName();
+{% endhighlight %}
 
 With the system under test at hand there was no way to mock the cURL function and inject it. **So, how to test it?**
 
-## Inspiration From Another Framework
+## Inspiration From Other Frameworks
 What do testing frameworks in different languages bring along? [Jasmine](http://jasmine.github.io/) for Javascript, for example, offers a spy that makes the task from above easy. There, you just write something like
 
-    spyOn(duck, "quak");
+{% highlight js %}
+spyOn(duck, "quak");
+{% endhighlight %}
 
-and from then on calls to `duck.quak` are recorded. In Javascript calls can be, so to speak, intercepted by just redefining the underlying function like so:
+and from then on calls to `duck.quak` are recorded. In Javascript calls can be intercepted by just redefining the underlying function like so:
 
-    var IWantToBeIntercepted = function() {...}
-    var IWantToBeIntercepted_original = IWantToBeIntercepted;
-    
-    IWantToBeIntercepted = function() {
-        var result;
-        
-        if (stubbed) {
-            result = cannedAnswer;
-        } else {
-            //delegate to original function
-            result = IWantToBeIntercepted_original()
-        }
-        
-        //track meta data of the call like
-        //its arguments and return value
-        
-        return result;
-    }
+{% highlight js %}
+var IWantToBeIntercepted = function() {...}
+var IWantToBeIntercepted_original = IWantToBeIntercepted;
 
+IWantToBeIntercepted = function() {
+  var result;
+  
+  if (stubbed) {
+      result = cannedAnswer;
+  } else {
+      //delegate to original function
+      result = IWantToBeIntercepted_original()
+  }
+  
+  //track meta data of the call like
+  //its arguments and return value
+  
+  return result;
+}
+{% endhighlight %}
 
 This works for methods, too.
 
