@@ -5,7 +5,7 @@ category: articles
 tags: inline-block vertical-align line-box
 image: windows.jpg
 excerpt: A journey down the rabbit hole into the mysteries of vertical-align. Instructions on how to master it included!
-meta_description: Vertical-align has some seemingly mysterious rules at work. This article forces them to show their true color. And make them work for you!
+meta_description: Vertical-align has some seemingly mysterious rules at work. This article forces them to show their true color.
 ---
 
 Often I need to vertically align elements side by side.
@@ -18,7 +18,7 @@ But there is another player here: **`vertical-align`**. I think it deserves more
 
 Peculiarities Of Vertical-Align
 -------------------------------
-But, `vertical-align` can be a real scumbag sometimes. Working with it can be a little frustrating. There seem to be some mysterious rules at work. For example, it might happen, that the element you changed `vertical-align` for doesn't change its alignment at all, but other elements in the line do! I'm still getting dragged into the dark corners of `vertical-align` from time to time, tearing my hair. 
+But, `vertical-align` can be a real scumbag sometimes. Working with it can be a little frustrating. There seem to be some mysterious rules at work. For example, it might happen, that the element you changed `vertical-align` for doesn't change its alignment at all, but other elements in the line do! I'm still getting dragged into the dark corners of `vertical-align` from time to time, tearing my hair.
 
 Unfortunately, most resources on the matter are somewhat shallow. Especially, if we want to use `vertical-align` for layout. They concentrate on the misconception of trying to vertical align everything inside an element. They give basic introductions into the property and explain how elements are aligned in very simple situations. They do not explain the tricky parts.
 
@@ -114,7 +114,7 @@ Here you see three lines of text next to each other. The top and bottom edge of 
          --><span class="show-box-model-content">c</span>
         </span>
     </div><!--
-    
+
  --><div class="top"><!--
      --><span class="red dotted line top"> </span><!--
      --><span class="blue dotted line baseline"> </span><!--
@@ -312,22 +312,22 @@ One question bugging me was the following: I have an icon I want to center next 
         <span class="small box bg-grey middle"> </span> <span class="middle">Centered!</span>
     </div>
 </figure>
-    
+
     //left mark-up
     <span class="icon middle"> </span>
     Centered?
-    
+
     //right mark-up
     <span class="icon middle"> </span>
     <span class="middle">Centered!</span>
-    
+
     //styles
     .icon {
         display: inline-block;
-        
+
         //size, color, etc.
     }
-    
+
     .middle {
         vertical-align: middle;
     }
@@ -402,34 +402,34 @@ Some Examples:
             </span><!--
      --></div>
     </figure>
-        
+
         //mark-up on the left
         <span class="tall-box text-bottom"> </span>
         <span class="short-box"> </span>
-        
+
         //mark-up on the right
         <span class="tall-box text-top"> </span>
         <span class="short-box"> </span>
-        
+
         //styles
         .tall-box, .short-box {
             display: inline-block;
-            
+
             //size, color, etc.
         }
-        
+
         .text-bottom {
             vertical-align: text-bottom;
         }
-        
+
         .text-top {
             vertical-align: text-top;
         }
-    
+
     The same behaviour shows up when aligning a tall element with other values for `vertical-align`.
 
 *   Even setting `vertical-align` to `bottom` (left) and `top` (right) moves the baseline. This is strange, since the baseline shouldn't be involved at all.
-    
+
     <figure class="columns no-break">
         <div class="top"><!--
          --><span class="green dotted line text-top"> </span><!--
@@ -454,32 +454,32 @@ Some Examples:
             </span>
         </div>
     </figure>
-        
+
         //mark-up on the left
         <span class="tall-box bottom"> </span>
         <span class="short-box"> </span>
-        
+
         //mark-up on the right
         <span class="tall-box top"> </span>
         <span class="short-box"> </span>
-        
+
         //styles
         .tall-box, .short-box {
             display: inline-block;
-            
+
             //size, color, etc.
         }
-        
+
         .bottom {
             vertical-align: bottom;
         }
-        
+
         .top {
             vertical-align: top;
         }
 
 *   Placing two larger elements in a line and vertically aligning them moves the baseline where it fulfils both alignments. Then the height of the line box is adjusted (left). Adding a third element, that does not go beyond the line box's edges because of its alignment, affects neither the line box's height nor the baseline's position (middle). If it *does* go beyond the line box's edges, the line box's height and baseline are adjusted, again. In this case, our first two boxes are pushed down (right).
-    
+
     <figure class="columns no-break thirds">
         <div class="top"><!--
          --><span class="green dotted line text-top"> </span><!--
@@ -517,41 +517,41 @@ Some Examples:
             </span>
         </div>
     </figure>
-        
+
         //mark-up on the left
         <span class="tall-box text-bottom"> </span>
         <span class="tall-box text-top"> </span>
-        
+
         //mark-up in the middle
         <span class="tall-box text-bottom"> </span>
         <span class="tall-box text-top"> </span>
         <span class="tall-box middle"> </span>
-        
+
         //mark-up on the right
         <span class="tall-box text-bottom"> </span>
         <span class="tall-box text-top"> </span>
-        <span class="tall-box baseline+"> </span>
-        
+        <span class="tall-box _100percent"> </span>
+
         //styles
         .tall-box {
             display: inline-block;
-            
+
             //size, color, etc.
         }
-        
+
         .middle {
             vertical-align: middle;
         }
-        
+
         .text-top {
             vertical-align: text-top;
         }
-        
+
         .text-bottom {
             vertical-align: text-bottom;
         }
-        
-        .baseline+ {
+
+        ._100percent {
             vertical-align: 100%;
         }
 
@@ -586,16 +586,16 @@ Have a look at this setting. It's common if you try to vertical-align `li` eleme
         <li class="box"></li>
         <li class="box"></li>
     </ul>
-    
+
     //styles
     .box {
         display: inline-block;
-        
+
         //size, color, etc.
     }
 
 As you can see, the list items sit on the baseline. Below the baseline is some space to shelter the descenders of a text. This is causing the gap. The Solution? Just move the baseline out of the way, for example by aligning the list items with `vertical-align: middle`:
-    
+
 <figure class="columns no-break">
     <div class="top">
         <ul class="baseline center bg-yellow" style="padding: 0">
@@ -629,10 +629,10 @@ As you can see, the list items sit on the baseline. Below the baseline is some s
     .middle {
         vertical-align: middle;
     }
-    
+
     .box {
         display: inline-block;
-        
+
         //size, color, etc.
     }
 
@@ -667,7 +667,7 @@ You can see this gap in the former example between the list items. The gap comes
     <div class="half">
         50%% wide
     </div>
-    
+
     //mark-up on the right
     <div class="half">
         50% wide

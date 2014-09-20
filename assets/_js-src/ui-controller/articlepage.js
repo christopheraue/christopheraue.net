@@ -3,8 +3,9 @@ define([
     'ui-controller/page',
     'ui-helper/articleSidebar',
     'ui-helper/disqus',
+    'ui-helper/shareCount',
     '//platform.twitter.com/widgets.js'
-], function(_, page, articleSidebar, disqus) {
+], function(_, page, articleSidebar, disqus, shareCount) {
     var articlepage = Object.create(page),
         __parent = page;
     
@@ -15,6 +16,7 @@ define([
             articleSidebar.calcReferences();
             articleSidebar.update();
             disqus.init();
+            shareCount.init();
         },
         scrollAction: function() {
             __parent.scrollAction();

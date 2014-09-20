@@ -15,10 +15,11 @@
                 {% endfor %}
             </ul>
         </div><div class="column article-social">
-            <a href="{{ site.url }}{{ page.url }}#disqus_thread" class="article-comments-link article-detail">0 Comments</a>
+            <a href="{{ site.url | append: page.url }}#disqus_thread" class="article-comments-link article-detail">0 Comments</a>
             <ul class="article-sharing-list">
-                <li class="item"><a href="https://twitter.com/intent/tweet?url={{ site.url | append: page.url | cgi_escape }}&amp;via=christopheraue&amp;text={{ page.title | cgi_escape }}" class="article-sharing twit"><span class="icon"></span></a></li>
-                <li class="item"><a href="https://www.facebook.com/sharer/sharer.php?m2w&amp;s=100&amp;{{ 'p[url]' | cgi_escape }}={{ site.url | append: page.url | cgi_escape }}&amp;{{ 'p[title]' | cgi_escape }}={{ page.title | cgi_escape }}&amp;{{ 'p[summary]' | cgi_escape }}={{ page.excerpt | cgi_escape }}&amp;{{ 'p[images][0]' | cgi_escape }}={{ site.url | append: '/assets/images/background/' | append: page.image | cgi_escape }}" target="_blank" class="article-sharing face"><span class="icon"></span></a></li>
+                <li class="item"><a href="https://twitter.com/intent/tweet?url={{ site.url | append: page.url | cgi_escape }}&amp;via=christopheraue&amp;text={{ page.title | cgi_escape }}" class="article-sharing twit js-tw-shares" onclick="ga('send', 'event', 'Twitter', 'Share Attempt', '{{ site.url | append: page.url }}')"><span class="icon"></span></a></li>
+                <li class="item"><a href="https://www.facebook.com/sharer/sharer.php?m2w&amp;s=100&amp;{{ 'p[url]' | cgi_escape }}={{ site.url | append: page.url | cgi_escape }}&amp;{{ 'p[title]' | cgi_escape }}={{ page.title | cgi_escape }}&amp;{{ 'p[summary]' | cgi_escape }}={{ page.excerpt | cgi_escape }}&amp;{{ 'p[images][0]' | cgi_escape }}={{ site.url | append: '/assets/images/background/' | append: page.image | cgi_escape }}" target="_blank" class="article-sharing face js-fb-shares" onclick="ga('send', 'event', 'Facebook', 'Share Attempt', '{{ site.url | append: page.url }}')"><span class="icon"></span></a></li>
+                <li class="item"><a href="https://plus.google.com/share?url={{ site.url | append: page.url }}" class="article-sharing gogl js-gl-shares" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');ga('send', 'event', 'Google+', 'Share Attempt', '{{ site.url | append: page.url }}');return false;"><span class="icon"></span></a></li>
             </ul>
         </div>
     </div>
