@@ -2,15 +2,15 @@
 layout: article
 title: 'All You Need To Know About Vertical-Align'
 category: articles
-tags: inline-block vertical-align line-box
+tags: inline-block vertical-align line-box css
 image: windows.jpg
 excerpt: A journey down the rabbit hole into the mysteries of vertical-align. Instructions on how to master it included!
-meta_description: Vertical-align has some seemingly mysterious rules at work. This article forces them to show their true color.
+meta_description: The CSS property vertical-align has some seemingly mysterious rules at work. This article forces them to show their true color.
 ---
 
 Often I need to vertically align elements side by side.
 
-Sometimes I solve it with `float`, sometimes with `position: absolute`, sometimes even dirty by manually adding margins or paddings.
+CSS offers some possibilities. Sometimes I solve it with `float`, sometimes with `position: absolute`, sometimes even dirty by manually adding margins or paddings.
 
 I don't really like these solutions. Floats only align at their tops and need to be cleared manually. Absolute positioning takes the elements out of the flow so they do no longer affect their surroundings. And working with fixed margins and paddings immediately breaks things on the tiniest change.
 
@@ -22,7 +22,7 @@ But, `vertical-align` can be a real scumbag sometimes. Working with it can be a 
 
 Unfortunately, most resources on the matter are somewhat shallow. Especially, if we want to use `vertical-align` for layout. They concentrate on the misconception of trying to vertical align everything inside an element. They give basic introductions into the property and explain how elements are aligned in very simple situations. They do not explain the tricky parts.
 
-So, I set myself the target to **clarify the behavior of vertical-align once and for all**. I ended up working through the [W3C](http://www.w3.org/TR/CSS2/visudet.html#line-height) [specifications](http://www.w3.org/TR/CSS2/visuren.html#inline-formatting) and playing with some examples. The result is this article.
+So, I set myself the target to **clarify the behavior of vertical-align once and for all**. I ended up working through the W3C's [CSS](http://www.w3.org/TR/CSS2/visudet.html#line-height) [specifications](http://www.w3.org/TR/CSS2/visuren.html#inline-formatting) and playing with some examples. The result is this article.
 
 So, let's tackle the rules of the game.
 
@@ -100,7 +100,7 @@ The most important reference point to align vertically is the baseline of the in
 
 Here you see three lines of text next to each other. The top and bottom edge of the line height is indicated by red lines, the height of the font by green lines and the baseline by a blue line. On the left, the text has a line height set to the *same height* as the font-size. The green and red line collapsed to one line on each side. In the middle, the line height is *twice as large* as the font-size. On the right, the line height is *half as large* as the font-size.
 
-**The inline element's outer edges** align itself with the top and bottom edge of the line height. It *does not* matter, if the line height is smaller than the height of the font. So, the outer edges are the red lines in the figure above.
+**The inline element's outer edges** align themselves with the top and bottom edge of the line height. It *does not* matter, if the line height is smaller than the height of the font. So, the outer edges are the red lines in the figure above.
 
 **The inline element's baseline** is the line, the characters are *sitting* on. This is the blue line in the figure. Roughly speaking, the baseline is *somewhere below the middle of the line height*. Have look at the W3C Specs for a [detailed definition](http://www.w3.org/TR/CSS2/visudet.html#leading).
 
