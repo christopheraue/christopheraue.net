@@ -102,7 +102,7 @@ Here you see three lines of text next to each other. The top and bottom edge of 
 
 **The inline element's outer edges** align themselves with the top and bottom edge of the line height. It *does not* matter, if the line height is smaller than the height of the font. So, the outer edges are the red lines in the figure above.
 
-**The inline element's baseline** is the line, the characters are *sitting* on. This is the blue line in the figure. Roughly speaking, the baseline is *somewhere below the middle of the line height*. Have look at the W3C Specs for a [detailed definition](http://www.w3.org/TR/CSS2/visudet.html#leading).
+**The inline element's baseline** is the line, the characters are *sitting* on. This is the blue line in the figure. Roughly speaking, the baseline is *somewhere below the middle of the font's height*. Have look at the W3C Specs for a [detailed definition](http://www.w3.org/TR/CSS2/visudet.html#leading).
 
 ### Inline-Block Element
 <figure class="columns no-break thirds">
