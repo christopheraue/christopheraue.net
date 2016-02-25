@@ -194,7 +194,7 @@ Around its baseline the line box has what we might call its **text box**. The te
 Phew, this was the hard part. **Now, we know everything to put things into perspective**. Let's quickly sum up the most important facts:
 
 * There is an area called *line box*. This is the area in which vertical alignment takes place. It has a *baseline*, a *text box* and a *top* and *bottom edge*.
-* There are *inline-level elements*. These are the objects that are aligned. They have a *baseline* and and a *top* and *bottom edge*.
+* There are *inline-level elements*. These are the objects that are aligned. They have a *baseline* and a *top* and *bottom edge*.
 
 ## The Values Of Vertical-Align
 By using `vertical-align` the reference points mentioned in the last sentence in the list above are set into a certain relationship.
