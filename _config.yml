@@ -1,7 +1,7 @@
 url: http://c.loc
 destination: ./_site
 name: Christopher Aue
-description: This is a place where I collect resources and write about *Web Technology*, *Product Development* and *Productivity*.
+description: A place for Christopher Aue to write about stuff.
 default_background: blur_lightbeam.jpg
 encoding: UTF-8
 highlighter: pygments

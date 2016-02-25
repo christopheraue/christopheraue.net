@@ -4,7 +4,7 @@
  *  Reset
  *  -----
  *  Let's begin with the [reset stylesheet](http://meyerweb.com/eric/tools/css/reset/) of Eric
- *  Meyer, v2.0, 2011-01-26 
+ *  Meyer, v2.0, 2011-01-26
  */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -15,8 +15,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video
     margin: 0
@@ -26,7 +26,7 @@ time, mark, audio, video
     font: inherit
     vertical-align: baseline
 
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section
     display: block
 
@@ -133,14 +133,23 @@ table
     src: local('Architects Daughter'), local('ArchitectsDaughter'), url(http://themes.googleusercontent.com/static/fonts/architectsdaughter/v4/RXTgOOQ9AAtaVOHxx0IUBOkI_DLF4EgbZt3mhU8gQFo.woff) format('woff')
 
 /*
+ *  ### Source Code Pro
+ *  Used for a machinized touch.
+ *  ```
+ *  <p style="font: 2em/1 'Source Code Pro'">Source Code Pro</p>
+ *  ```
+ */
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro)
+
+/*
  *  Responsive Grid
  *  ---------------
  *  For small viewports the containers are rendered just above each other.
- *  
+ *
  *  ### Breakpoints
  *  Breakpoints are set to optimize readability of the text in the content area following the
  *  article [Logical Breakpoints For Your Responsive Design](http://www.smashingmagazine.com/2013/03/01/logical-breakpoints-responsive-design/).
- *  
+ *
  *  The responsive grid breaks at the following points:
  *
  *  * #### 50 em / 800 px
@@ -155,7 +164,7 @@ table
  *
  *  ### Margins and Paddings
  *  Margins and paddings scale with the font size.
- *  
+ *
  *  ```
  *  <iframe width="800" height="480" class="agileSG-bg-white">
  *      <header id="page-header" class="agileSG-stub">HEADER</header>
@@ -174,10 +183,10 @@ table
     min-height: 100%
     box-sizing: border-box
     overflow: hidden
-    
+
     @media screen and (min-width: 50em) //800px
         padding: 8.75em 1.25em 1.25em 13.8em //140px 20px 20px 221px
-    
+
     @media screen and (min-width: 81.25em) //1300px
         padding: 2.5em 1.25em 1.25em 27.05em //50px 25px 25px 541px
 
@@ -188,11 +197,11 @@ body
         top: 0
         left: 0
         right: 0
-        
+
         @media screen and (min-width: 50em) //800px
             position: absolute
             top: 1.25em  //20px
-        
+
         @media screen and (min-width: 81.25em) //1300px
             margin: 0
             position: fixed
@@ -201,7 +210,7 @@ body
             bottom: 0
     #content
         margin: 0
-        
+
 /*
  *  ### Page scrolled down
  *  For viewports, that display the header at the top, it will be fixed there if scrolled down. Set
@@ -242,13 +251,13 @@ body
 
 /*
  *  ### Background Fade
- *  
+ *
  *  The background is intended to fade to white at the bottom. For small viewports it must be
  *  specified where the background fade should start. The element must be given the class
  *  `.start-background-fade`. For medium viewports the background fade begins where the
  *  content area starts. For large viewports the left sidebar, where the header will be located,
  *  will not fade. Fading starts at 50% of the viewport's height.
- *  
+ *
  *  ```
  *  <iframe width="800" height="480" class="agileSG-bg-color">
  *      <div id="content-container">
@@ -296,12 +305,12 @@ body
         @include background-fade
         @include background-fade-setPos(0, -100em, -100em, -100em)
         @include background-fade-show
-    
+
     @media screen and (min-width: 50em) //800px
         @include background-fade-show
         .start-background-fade
             @include background-fade-hide
-    
+
     @media screen and (min-width: 81.25em) //1300px
         @include background-fade-setPos(175px, 0, 0, 275px)
 
@@ -310,7 +319,7 @@ body
  *  ---------------
  *  The content area is scaled by scaling the font-size. Everything else is scaled in relation to by
  *  setting measures in em.
- *  
+ *
  *  ```
  *  <iframe width="800" height="400" class="agileSG-bg-white">
  *      <div id="content-container">
@@ -323,13 +332,13 @@ body
  */
 #content-container
     font-size: 1em
-    
+
     @media screen and (min-width: 32em) //512px
         font-size: 1.25em
 
     @media screen and (min-width: 42.5em) //680px
         font-size: 1.5em
-       
+
     @media screen and (min-width: 50em) //800px
         font-size: 1em
 
@@ -341,7 +350,7 @@ body
 
 #page-header
     font-size: 1.25em
-    
+
     @media screen and (min-width: 50em) //800px
         font-size: 1em
 
@@ -354,7 +363,7 @@ body
 /*
  *  Links
  *  -----
- *  
+ *
  *  ```
  *  <iframe width="800" height="400" class="agileSG-bg-white">
  *      <div id="content-container">
@@ -372,7 +381,7 @@ a
 /*
  *  Ajax Loader
  *  -----------
- *  
+ *
  *  ```
  *  <iframe width="800" height="400" class="agileSG-bg-white">
  *      <div id="content-container">

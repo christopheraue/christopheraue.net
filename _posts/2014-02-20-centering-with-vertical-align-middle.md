@@ -8,7 +8,7 @@ excerpt: 'The best way to vertically center elements with CSS is by using displa
 meta_description: 'Find out why you should vertically center elements with vertical-align and what you need to keep in mind when working with this technique.'
 ---
 
-If I need to vertically center elements with CSS I almost always end up using `display: inline-block` in conjunction with `vertical-align: middle`. The technique is explained on [CSS-Tricks](http://css-tricks.com/centering-in-the-unknown/). I won't go into the details here, so take a look at the linked article.
+If I need to vertically center elements with CSS I almost always end up using `display: inline-block` in conjunction with `vertical-align: middle`. The technique is explained on [CSS-Tricks](http://css-tricks.com/centering-in-the-unknown/). `vertical-align` may not always behave the way you expect it to — I've dedicated a [complete article]({{ site.url | append: '/2014/03/05/vertical-align/' }}) to it — but here it's the solution to go for.
 
 Why is it the best way? **It is the solution that works in almost all situations**:
 
@@ -207,3 +207,7 @@ So, we have white-space between the `::before` and the `<div.centered>`: a line-
 {% endcomment %}
   
 This way, we can remove the space. This is a good thing, since it is not proportional to the em length across different fonts. For example, it is .625em for Courier and .25em for Helvetica. This is quite a difference. We had to explicitly set the margin of the pseudo-element for every font. Changing indentation of your mark-up or adding comments at the right places can also be bad for maintenance, since it can be overlooked very easily. But once you know it, it is quickly fixed and making it the lesser evil in my opinion.
+
+Further Reading
+---------------
+If you dispair of `vertical-align` from time to time, I recommend having a look at my in-depth article [All You Need To Know About Vertical-Align]({{ site.url | append: '/2014/03/05/vertical-align/' }}).

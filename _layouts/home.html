@@ -2,11 +2,6 @@
 layout: default
 body_class: home-page
 ---
-<div class="page-section use-sidebar">
-  <section class="introduction">
-    {{content}}
-  </section>
-</div>
 <div class="page-section start-background-fade">
   <header class="section-headline">
     <h2 class="section-heading">Working On</h2>
@@ -16,8 +11,8 @@ body_class: home-page
   </div>
 </div>
 <div class="page-section">
-  {% include article-list.html heading='Latest Articles' categories='articles' tags='all' limit=4 title_tag='h3' %}
+  {% include twitter-timeline.html %}
 </div>
 <div class="page-section">
-  {% include twitter-timeline.html %}
+  {% include article-list.html heading='Latest Articles' categories='articles' tags='all' limit=4 title_tag='h3' %}
 </div>
