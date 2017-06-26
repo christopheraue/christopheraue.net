@@ -10,8 +10,6 @@
     },{
         name: 'ui-controller/articlepage'
     },{
-        name: 'ui-controller/homepage'
-    },{
         name: 'ui-controller/page'
     }]
 })
