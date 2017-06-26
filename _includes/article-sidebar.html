@@ -9,11 +9,6 @@
                     {% include date.html date=page.date css_class='article-date article-detail' %}
                 </li>
             </ul>
-            <ul class="article-tags-list">
-                {% for tag in page.tags %}
-                <li class="item">{% include article-tag.html tag=tag css_class='article-detail'%}</li>
-                {% endfor %}
-            </ul>
         </div><div class="column article-social">
             <a href="{{ site.url | append: page.url }}#disqus_thread" class="article-comments-link article-detail">0 Comments</a>
             <ul class="article-sharing-list">

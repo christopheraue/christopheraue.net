@@ -38,24 +38,6 @@
   @extend .article-detail
 
 /*
- *  ### Tags
- *  ```
- *  <a href="#" class="article-tag">tag</a>
- *  ```
- */
-.article-tag
-  @extend .article-detail
-  position: relative
-  display: inline-block
-  color: #b3b3b3
-  white-space: nowrap
-  a
-    color: #b3b3b3
-    text-decoration: none
-    &:hover
-      text-decoration: underline
-
-/*
  *  ### Comments Link
  *  ```
  *  <a href="#" class="article-comments-link">5 Comments</a>
@@ -230,11 +212,6 @@
  *              <a href="#" class="arrow"></a>
  *              <div class="details"><!--
  *               --><a href="#" class="arrow"></a><!--
- *               --><ul class="article-tag-list">
- *                  <li class="item"><a href="#" class="article-tag">tag</a></li>
- *                  <li class="item"><a href="#" class="article-tag">anotherTag</a></li>
- *                  <li class="item"><a href="#" class="article-tag">aThirdTag</a></li>
- *                </ul>
  *                <time datetime="2014-01-02" class="article-date">January 02, 2014</time><!--
  *             --></div>
  *            </div>
@@ -257,7 +234,6 @@
  *              <a href="#" class="arrow"></a>
  *              <div class="details"><!--
  *               --><a href="#" class="arrow"></a><!--
- *               --><div class="article-tag-list agileSG-stub">tags</div>
  *                <time class="article-date agileSG-stub">date</time><!--
  *             --></div>
  *            </div>
@@ -311,12 +287,10 @@
       display: inline-block
       vertical-align: top
       width: 100%
-  .article-tag-list, .article-date
+  .article-date
     display: inline-block
     vertical-align: bottom
     max-width: 45%
-  .article-tag-list
-    text-align: left
   .arrow
     position: absolute
     right: 20px
@@ -388,26 +362,6 @@
     background: transparent
     height: auto
     width: auto
-
-/*
- *  ### Tag List
- *  ```
- *  <div class="article-box">
- *    <ul class="article-tag-list">
- *      <li class="item"><a href="#" class="article-tag">tag</a></li>
- *      <li class="item"><a href="#" class="article-tag">anotherTag</a></li>
- *      <li class="item"><a href="#" class="article-tag">aThirdTag</a></li>
- *    </ul>
- *  </div>
- *  ```
- */
-.article-box .article-tag-list
-  font-size: .6em
-  max-width: 50%
-  box-sizing: border-box
-  .item
-    display: inline-block
-    margin-top: 3px
 
 /*
  *  ### Date

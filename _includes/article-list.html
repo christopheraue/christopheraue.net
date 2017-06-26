@@ -16,40 +16,10 @@ Parameters:
     </div>
 {% endif %}
     <ol class="article-list {{ include.css_class }}"><!--
-        {% assign counter = 0 %}
         {% for article in site.posts %}
-            {% assign is_in_category = false %}
-            {% assign has_tag = false %}
-            
-            {% if include.categories == 'all' %}
-                {% assign is_in_category = true %}
-            {% else %}
-                {% for category in article.categories %}
-                    {% if include.categories contains category %}
-                        {% assign is_in_category = true %}
-                        {% break %}
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
-            
-            {% if include.tags == 'all' %}
-                {% assign has_tag = true %}
-            {% else %}
-                {% for tag in article.tags %}
-                    {% if include.tags contains tag %}
-                        {% assign has_tag = true %}
-                        {% break %}
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
-        
-            {% if is_in_category and has_tag %}
          --><li class="item">
                 {% include article-box.html title_tag=include.title_tag %}
             </li><!--
-                {% assign counter = counter | plus:1 %}
-            {% endif %}
-            {% if counter >= include.limit %}{% break %}{% endif %}
         {% endfor %}
  --></ol>
 {% if include.heading %}
