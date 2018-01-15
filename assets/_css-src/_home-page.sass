@@ -5,28 +5,6 @@
  */
 
 /*
- *  Background
- *  ----------
- *  The fade to white begins at the section right after the introduction.
- *  ```
- *  <iframe width="800" height="480" class="article-page agileSG-bg-image">
- *      <div id="content-container">
- *          <div id="content">
- *              <section class="introduction page-section use-sidebar agileSG-stub">introduction</section>
- *              <section class="page-section start-background-fade agileSG-stub">element after intro</section>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-body.home-page #content-container
-    @media screen and (min-width: 50em) //800px
-        //on the article page, start the background fade at the specified element in this range
-        @include background-fade-hide
-        .start-background-fade
-            @include background-fade-show
-
-/*
  *  Introduction
  *  ------------
  *  ```

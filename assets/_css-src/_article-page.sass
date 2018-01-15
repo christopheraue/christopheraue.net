@@ -44,34 +44,6 @@
  */
 
 /*
- *  Background
- *  ----------
- *  The fade to white begins where the article content area starts, except for very large viewports.
- *  There the standard behaviour is followed.
- *  ```
- *  <iframe width="800" height="480" class="article-page agileSG-bg-image">
- *    <div id="content-container">
- *      <div id="content">
- *        <article id="main-article">
- *          <div class="text white-bg start-background-fade agileSG-stub">Fade to white starts here</div>
- *        </article>
- *      </div>
- *    </div>
- *  </iframe>
- *  ```
- */
-body.article-page #content-container
-  @media screen and (min-width: 50em) //800px
-    //on the article page, start the background fade at the specified element in this range
-    @include background-fade-hide
-    .start-background-fade
-      @include background-fade-show
-  @media screen and (min-width: 81.25em) //1300px
-    @include background-fade-show
-    .start-background-fade
-      @include background-fade-hide
-
-/*
  *  Layout
  *  ------
  *  ### Page
@@ -126,9 +98,11 @@ body.article-page #content
       clear: both
 
 #disqus_thread
-  margin-top: 2.5em
+  background: white
+  margin: 1.25em -1.25em 0
+  padding: 1.25em
   @media screen and (min-width: 50em) //800px
-    padding: 1.25em
+    margin: 1.25em 0 0
 
 /*
  *  Article Headline
@@ -257,14 +231,12 @@ body.article-page #content
   display: block
   height: $height
   width: 4.29em
-  background: rgba(0,0,0,0.65)
 
 @mixin sidebar-element-positioning
   float: right
   clear: both
 
 .article-sidebar
-  .article-details:before,
   .article-details:after,
   .article-sharing-list:before
     @include sidebar-bg-content(1.79em)
@@ -398,8 +370,8 @@ body.article-page #content
   font-family: Ubuntu
   font-style: italic
   text-align: left
-  color: white
-  background: rgba(0,0,0,0.65)
+  color: black
+  background: white
   cursor: pointer
   opacity: 0
   transition: opacity .5s

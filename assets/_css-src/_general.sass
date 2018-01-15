@@ -234,88 +234,12 @@ body #page-header.attached-to-viewport
 /*
  *  Background
  *  ----------
- *  The background image scales across the complete width of the body. Viewports with an aspect
- *  ratio smaller than 4/3 are filled to cover the complete height of the body. The background is
- *  individually set by setting the background-image directly in the styles on the body element.
  *  ```
  *  <iframe width="800" height="480" class="agileSG-bg-image"></iframe>
  *  ```
  */
-html, body
-    height: 100%
-
 body
-    overflow-x: hidden
-    min-height: 100%
-    background-repeat: no-repeat
-    background-position: left top
-    background-attachment: fixed
-    background-size: cover
-
-/*
- *  ### Background Fade
- *
- *  The background is intended to fade to white at the bottom. For small viewports it must be
- *  specified where the background fade should start. The element must be given the class
- *  `.start-background-fade`. For medium viewports the background fade begins where the
- *  content area starts. For large viewports the left sidebar, where the header will be located,
- *  will not fade. Fading starts at 50% of the viewport's height.
- *
- *  ```
- *  <iframe width="800" height="480" class="agileSG-bg-color">
- *      <div id="content-container">
- *          <div id="content">
- *              <div class="start-background-fade agileSG-stub">element to start bg fade at</div>
- *          </div>
- *      </div>
- *  </iframe>
- *  ```
- */
-@mixin background-fade
-    position: relative
-    &:before, &:after
-        content: ""
-        z-index: -99
-        position: absolute
-    &:before
-        background: url(../images/background-fadeout.png) repeat-x 0 0
-        height: 400px
-    &:after
-        margin-top: 400px
-        background: white
-
-@mixin background-fade-setPos($top, $right, $bottom, $left)
-    &:before, &:after
-        top: $top
-        right: $right
-        left: $left
-    &:after
-        bottom: $bottom
-
-@mixin background-fade-hide
-    &:before, &:after
-        display: none
-
-@mixin background-fade-show
-    &:before, &:after
-        display: block
-
-#content-container
-    @include background-fade
-    @include background-fade-setPos(155px, 0, 0, 0)
-    @include background-fade-hide
-    .start-background-fade
-        @include background-fade
-        @include background-fade-setPos(0, -100em, -100em, -100em)
-        @include background-fade-show
-
-    @media screen and (min-width: 50em) //800px
-        @include background-fade-show
-        .start-background-fade
-            @include background-fade-hide
-
-    @media screen and (min-width: 81.25em) //1300px
-        @include background-fade-setPos(175px, 0, 0, 275px)
+    background: black
 
 /*
  *  Content Scaling

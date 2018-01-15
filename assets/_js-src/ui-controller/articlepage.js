@@ -2,8 +2,7 @@ define([
     'underscore',
     'ui-controller/page',
     'ui-helper/articleSidebar',
-    'ui-helper/disqus',
-    '//platform.twitter.com/widgets.js'
+    'ui-helper/disqus'
 ], function(_, page, articleSidebar, disqus) {
     var articlepage = Object.create(page),
         __parent = page;

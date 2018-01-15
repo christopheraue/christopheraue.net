@@ -4,11 +4,7 @@
     {% assign background = site.default_background %}
 {% endif %}
 
-<div class="article-box" style="background-image:url({{ site.url | append: '/images/background/' | append: background}})">
-    <{{ include.title_tag }} class="article-headline"><a href="{{ site.url }}{{ article.url }}">{{ article.title | xml_escape }}</a></{{ include.title_tag }}>
-    <a href="{{ site.url }}{{ article.url }}" class="arrow"></a>
-    <div class="details"><!--
-     --><a href="{{ site.url }}{{ article.url }}" class="arrow"></a>
-        {% include date.html date=article.date css_class='article-date' %}
-    </div>
-</div>
+<a href="{{ site.url }}{{ article.url }}" class="article-box">
+    {% include date.html date=article.date css_class='article-date' %}
+    <{{ include.title_tag }} class="article-headline">{{ article.title | xml_escape }}</{{ include.title_tag }}>
+</a>

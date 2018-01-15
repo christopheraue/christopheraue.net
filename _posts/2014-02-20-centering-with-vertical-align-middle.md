@@ -2,8 +2,6 @@
 layout: article
 title: 'Vertical Centering With CSS using vertical-align: middle'
 category: articles
-tags: vertical-centering inline-block vertical-align
-image: stone_circles.jpg
 excerpt: 'The best way to vertically center elements with CSS is by using display: inline-block in conjunction with vertical-align: middle. This articles explains why it is the best way, what its limits are and what to keep in mind using this technique.'
 meta_description: 'Find out why you should vertically center elements with vertical-align and what you need to keep in mind when working with this technique.'
 ---

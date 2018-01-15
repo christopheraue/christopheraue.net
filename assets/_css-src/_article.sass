@@ -12,7 +12,6 @@
   font-family: 'Alfa Slab One'
   line-height: 1.1
   color: white
-  text-shadow: 2px 2px 3px black
 
 /*
  *  Article Detail
@@ -24,8 +23,7 @@
 .article-detail
   font-family: Ubuntu
   color: white
-  padding: .3em 1.0725em
-  background: rgba(0,0,0,0.65)
+  padding: 0 0 .6em
   
 /*
  *  ### Deprecated: Date
@@ -208,12 +206,8 @@
  *        <ol class="article-list">
  *          <li class="item">
  *            <div class="article-box agileSG-bg-image"">
+ *              <time datetime="2014-01-02" class="article-date">January 02, 2014</time>
  *              <h2 class="article-headline"><a href="#">This Is the Headline Of an Article With an Interesting Topic</a></h2>
- *              <a href="#" class="arrow"></a>
- *              <div class="details"><!--
- *               --><a href="#" class="arrow"></a><!--
- *                <time datetime="2014-01-02" class="article-date">January 02, 2014</time><!--
- *             --></div>
  *            </div>
  *          </li>
  *        </ol>
@@ -229,13 +223,9 @@
  *      <div id="content">
  *        <ol class="article-list">
  *          <li class="item">
- *            <div class="article-box agileSG-stub"><!--
- *             --><h2 class="article-headline agileSG-stub">Headline</h2>
- *              <a href="#" class="arrow"></a>
- *              <div class="details"><!--
- *               --><a href="#" class="arrow"></a><!--
- *                <time class="article-date agileSG-stub">date</time><!--
- *             --></div>
+ *            <div class="article-box agileSG-stub">
+ *              <time class="article-date agileSG-stub">date</time>
+ *              <h2 class="article-headline agileSG-stub">Headline</h2>
  *            </div>
  *          </li>
  *        </ol>
@@ -245,12 +235,15 @@
  *  ```
  */
 .article-box
+  display: block
+  text-decoration: none
   padding-right: 40px
   @media screen and (min-width: 22.5em) //360px
     padding: .75em
 
 .article-list .article-box
   position: relative
+  padding: 1.25em
   &:before
     position: absolute
     top: 0
@@ -258,57 +251,13 @@
     bottom: 0
     left: 0
     display: block
+  .article-date
+    max-width: 45%
+    color: black
   .article-headline
     position: relative //to place it atop of .article:before
-    @media screen and (min-width: 40em) //640px
-      height: 3.3em
     > *
-      padding: 1.25em
       display: block
-  .details
-    margin-top: 20px
-    position: relative
-    overflow: hidden
-    display: none
-    text-align: justify
-    line-height: 0
-    height: 2.2em
-    @media screen and (min-width: 40em) //640px
-      height: 3.3em
-    *
-      line-height: 1
-    &:before
-      content: ''
-      display: inline-block
-      vertical-align: top
-      height: 100%
-    &:after
-      content: ''
-      display: inline-block
-      vertical-align: top
-      width: 100%
-  .article-date
-    display: inline-block
-    vertical-align: bottom
-    max-width: 45%
-  .arrow
-    position: absolute
-    right: 20px
-    top: 50%
-    margin-top: -16px
-  @media screen and (min-width: 22.5em) //360px
-    .article-headline
-      height: 2.2em
-      > *
-        padding: 0
-    .details
-      display: block
-    .arrow
-      top: 0
-      right: 0
-      bottom: 0
-      left: 0
-      margin: 0
 
 /*
  *  ### Background
@@ -320,14 +269,10 @@
  *  ```
  */
 .article-box
-  background-repeat: no-repeat
-  background-position: center
-  background-size: cover
-  &:before
-    content: ""
-    background: rgba(0,0,0,.35)
+  background: white
   &:hover:before
-    background: rgba(0,0,0,.25)
+    content: ""
+    background: rgba(0,0,0,.1)
 
 /*
  *  ### Headline
@@ -339,29 +284,7 @@
  */
 .article-box .article-headline
   font-size: 1em
-  a
-    color: white
-    text-decoration: none
-
-/*
- *  ### Arrow
- *  ```
- *  <iframe width="320" height="50" class="agileSG-bg-black">
- *    <div class="article-box">
- *      <a href="#" class="arrow"></a>
- *    </div>
- *  </iframe>
- *  ```
- */
-.article-box .arrow
-  display: block
-  background: url(../images/arrows.png) -2px -39px
-  height: 31px
-  width: 18px
-  @media screen and (min-width: 22.5em) //360px
-    background: transparent
-    height: auto
-    width: auto
+  color: black
 
 /*
  *  ### Date
@@ -421,7 +344,7 @@
     &:nth-child(2)
       margin-top: 0
     .article-box .article-headline
-      height: 3.3em
+      height: 5em
   @media screen and (min-width: 65em) //1040px
     width: 33.33%
     &:nth-child(3)

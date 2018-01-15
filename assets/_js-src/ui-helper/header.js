@@ -14,18 +14,9 @@ define([
             var height = this.$el.height();
             //set headerHeight to zero, if it is attached to left and span the complete height
             //of the viewport
-            height = height < window.getHeight() ? height : 0;
-            return height;
+            return height < window.getHeight() ? height : 0;
         },
-        
-        makeOpaque: function() {
-            this.$el.addClass('opaque');
-        },
-        
-        makeTransparent: function() {
-            this.$el.removeClass('opaque');
-        },
-        
+
         isScrolledPast: function() {
             return window.getTopOffset() >= this.getNotAttachedTopOffset();
         },
@@ -40,12 +31,6 @@ define([
         update: function() {
             if (this.isScrolledPast()) {
                 this.attachToViewport();
-                
-                if (bgFader.isScrolledPast()) {
-                    this.makeOpaque();
-                } else {
-                    this.makeTransparent();
-                }
             } else {
                 this.detachFromViewport();
             }

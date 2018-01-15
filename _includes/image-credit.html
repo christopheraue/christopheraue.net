@@ -1,8 +1,0 @@
-{% for image_credit in site.data.image_credits %}
-    {% if image_credit.path == include.image %}
-        <div class="image-credit">
-            Image Credit: <a href="{{ image_credit.source }}" target="_blank">{{ image_credit.author | xml_escape }}</a>
-        </div>
-        {% break %}
-    {% endif %}
-{% endfor %}

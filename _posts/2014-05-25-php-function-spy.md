@@ -2,8 +2,6 @@
 layout: article
 title: 'PHP Spy: Record Calls To Functions or Alter Their Behavior At Runtime'
 category: articles
-tags: php spy function testing stub record_calls
-image: surveillance.jpg
 excerpt: Track calls to functions and methods or stub them when you cannot use a PHPUnit test double.
 meta_description: Track calls to functions and methods or stub them when you cannot use a PHPUnit test double.
 ---
