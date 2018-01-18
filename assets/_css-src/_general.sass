@@ -55,7 +55,10 @@ table
  *
  *  ### Ubuntu
  *  Used for navigational elements on the page (header, article sidebar).
+ *
  *  ```
+ *  !bodyBackground white
+ *
  *  <p style="font: 1em/1 Ubuntu">Ubuntu Regular</p>
  *  <p style="font: italic 1em/1 Ubuntu">Ubuntu Regular Italic</p>
  *  <p style="font: 500 1em/1 Ubuntu">Ubuntu Medium</p>
@@ -82,7 +85,10 @@ table
 /*
  *  ### Lato
  *  Used for content.
+ *
  *  ```
+ *  !bodyBackground white
+ *
  *  <p style="font: 300 1em/1 Lato">Lato Light</p>
  *  <p style="font: italic 300 1em/1 Lato">Lato Light Italic</p>
  *  <p style="font: 1em/1 Lato">Lato Regular</p>
@@ -109,7 +115,10 @@ table
 /*
  *  ### Alfa Slab One
  *  Used for Headlines.
+ *
  *  ```
+ *  !bodyBackground white
+ *
  *  <p style="font: 1em/1  'Alfa Slab One'">Alfa Slab One Regular</p>
  *  ```
  */
@@ -122,7 +131,10 @@ table
 /*
  *  ### Architects Daughter
  *  Used for a personal touch.
+ *
  *  ```
+ *  !bodyBackground white
+ *
  *  <p style="font: 2em/1 'Architects Daughter'">Architects Daughter</p>
  *  ```
  */
@@ -135,7 +147,10 @@ table
 /*
  *  ### Source Code Pro
  *  Used for a machinized touch.
+ *
  *  ```
+ *  !bodyBackground white
+ *
  *  <p style="font: 2em/1 'Source Code Pro'">Source Code Pro</p>
  *  ```
  */
@@ -166,12 +181,13 @@ table
  *  Margins and paddings scale with the font size.
  *
  *  ```
- *  <iframe width="800" height="480" class="agileSG-bg-white">
- *      <header id="page-header" class="agileSG-stub">HEADER</header>
- *      <div id="content-container">
- *          <div id="content" class="agileSG-stub">CONTENT<article class="fixie"></article></div>
- *      </div>
- *  </iframe>
+ *  !responsive
+ *  !bodyBackground white
+ *
+ *  <header id="page-header" class="agileSG-stub">HEADER</header>
+ *  <div id="content-container">
+ *      <div id="content" class="agileSG-stub">CONTENT<article class="fixie"></article></div>
+ *  </div>
  *  ```
  */
 #page-header
@@ -215,13 +231,15 @@ body
  *  ### Page scrolled down
  *  For viewports, that display the header at the top, it will be fixed there if scrolled down. Set
  *  the css class `.attached-to-viewport` for the header to fix it there.
+ *
  *  ```
- *  <iframe width="800" height="480" class="agileSG-bg-white">
- *      <header id="page-header" class="attached-to-viewport agileSG-stub">HEADER</header>
- *      <div id="content-container">
- *          <div id="content" class="agileSG-stub">CONTENT<article class="fixie"></article></div>
- *      </div>
- *  </iframe>
+ *  !responsive
+ *  !bodyBackground white
+ *
+ *  <header id="page-header" class="attached-to-viewport agileSG-stub">HEADER</header>
+ *  <div id="content-container">
+ *      <div id="content" class="agileSG-stub">CONTENT<article class="fixie"></article></div>
+ *  </div>
  *  ```
  */
 body #page-header.attached-to-viewport
@@ -234,8 +252,10 @@ body #page-header.attached-to-viewport
 /*
  *  Background
  *  ----------
+ *
  *  ```
- *  <iframe width="800" height="480" class="agileSG-bg-image"></iframe>
+ *  !responsive
+ *  !bodyBackground image
  *  ```
  */
 body
@@ -248,13 +268,14 @@ body
  *  setting measures in em.
  *
  *  ```
- *  <iframe width="800" height="400" class="agileSG-bg-white">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              <article class="text"></article>
- *          </div>
+ *  !responsive
+ *  !bodyBackground white
+ *
+ *  <div id="content-container">
+ *      <div id="content" class="fixie">
+ *          <article class="text"></article>
  *      </div>
- *  </iframe>
+ *  </div>
  *  ```
  */
 #content-container
@@ -292,13 +313,14 @@ body
  *  -----
  *
  *  ```
- *  <iframe width="800" height="400" class="agileSG-bg-white">
- *      <div id="content-container">
- *          <div id="content" class="fixie">
- *              This is a <a href="#">Link</a>.
- *          </div>
+ *  !responsive
+ *  !bodyBackground white
+ *
+ *  <div id="content-container">
+ *      <div id="content" class="fixie">
+ *          This is a <a href="#">Link</a>.
  *      </div>
- *  </iframe>
+ *  </div>
  *  ```
  */
 a
@@ -310,13 +332,14 @@ a
  *  -----------
  *
  *  ```
- *  <iframe width="800" height="400" class="agileSG-bg-white">
- *      <div id="content-container">
- *          <div id="content">
- *              <span class="ajax-loader">Loading</span>
- *          </div>
+ *  !responsive
+ *  !bodyBackground white
+ *
+ *  <div id="content-container">
+ *      <div id="content">
+ *          <span class="ajax-loader">Loading</span>
  *      </div>
- *  </iframe>
+ *  </div>
  *  ```
  */
 .ajax-loader

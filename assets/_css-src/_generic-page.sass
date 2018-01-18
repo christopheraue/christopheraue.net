@@ -7,17 +7,19 @@
  *  The generic page is structured into sections, that are rendered just on top of eachother.
  *  
  *  ```
- *  <iframe width="800" height="480" class="generic-page agileSG-bg-white">
- *      <header id="page-header" class="agileSG-stub">HEADER</header>
- *      <div id="content-container">
- *          <div id="content">
- *              <h1 class="page-headline agileSG-stub">Page Heading</h1>
- *              <section class="page-section agileSG-stub">Section</section>
- *              <section class="page-section agileSG-stub">Section</section>
- *          </div>
+ *  !responsive
+ *  !bodyClass generic-page
+ *  !bodyBackground white
+ *
+ *  <header id="page-header" class="agileSG-stub">HEADER</header>
+ *  <div id="content-container">
+ *      <div id="content">
+ *          <h1 class="page-headline agileSG-stub">Page Heading</h1>
+ *          <section class="page-section agileSG-stub">Section</section>
+ *          <section class="page-section agileSG-stub">Section</section>
  *      </div>
- *      <a href="#" class="close-button back-to-top-button js-back-to-top-button agileSG-stub">BACK TO TOP</a>
- *  </iframe>
+ *  </div>
+ *  <a href="#" class="close-button back-to-top-button js-back-to-top-button agileSG-stub">BACK TO TOP</a>
  *  ```
  */
 body
@@ -52,14 +54,16 @@ body
  *  sidebar.
  *  
  *  ```
- *  <iframe width="800" height="480" class="generic-page agileSG-bg-white">
- *      <header id="page-header" class="agileSG-stub">HEADER</header>
- *      <div id="content-container">
- *          <div id="content">
- *              <div class="use-sidebar agileSG-stub">Using the full width of the page (including the sidebar)</div>
- *          </div>
+ *  !responsive
+ *  !bodyClass generic-page
+ *  !bodyBackground white
+ *
+ *  <header id="page-header" class="agileSG-stub">HEADER</header>
+ *  <div id="content-container">
+ *      <div id="content">
+ *          <div class="use-sidebar agileSG-stub">Using the full width of the page (including the sidebar)</div>
  *      </div>
- *  </iframe>
+ *  </div>
  *  ```
  */
 .use-sidebar
@@ -88,16 +92,18 @@ body
  *  enough to display a sidebar the headline jumps into the sidebar on the left.
  *
  *  ```
- *  <iframe width="800" height="480" class="generic-page agileSG-bg-white">
- *      <div id="content-container">
- *          <div id="content">
- *              <section class="page-section">
- *                  <div class="section-headline agileSG-stub">Section Headline</div>
- *                  <div class="section-content agileSG-stub">Section Content</div>
- *              </section>
- *          </div>
+ *  !responsive
+ *  !bodyClass generic-page
+ *  !bodyBackground white
+ *
+ *  <div id="content-container">
+ *      <div id="content">
+ *          <section class="page-section">
+ *              <div class="section-headline agileSG-stub">Section Headline</div>
+ *              <div class="section-content agileSG-stub">Section Content</div>
+ *          </section>
  *      </div>
- *  </iframe>
+ *  </div>
  *  ```
  */
 .page-section
