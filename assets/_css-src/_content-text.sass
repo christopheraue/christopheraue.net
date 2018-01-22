@@ -7,7 +7,10 @@
  *  ### Inline Elements
  *  #### The Font
  *  Its size is set for the `<#content-container>` element. Running text uses the Lato Light font.
+ *
  *  ```
+ *  !bodyBackground white
+ *
  *  <div class="text fixie">
  *      <p></p>
  *  </div>
@@ -19,7 +22,10 @@
 
 /*
  *  #### Emphasis
+ *
  *  ```
+ *  !bodyBackground white
+ *
  *  <div class="text">
  *      <p>This is <em>emphasized text</em>.</p>
  *      <p>This is <strong>strong text</strong>.</p>
@@ -34,14 +40,18 @@
 
 /*
  *  #### Code
+ *
  *  ```
+ *  !bodyBackground white
+ *
  *  <div class="text">
  *      <p>This is an <code>inline code</code> fragment.</p>
  *  </div>
  *  ```
  */
 .text code
-    font-family: monospace
+    font-family: 'Source Code Pro'
+    font-size: 0.9em
     white-space: nowrap
     border: 1px solid #ddd
     background-color: #f0f0f0
@@ -54,7 +64,10 @@
  *  ### Block Elements
  *  #### Lists
  *  ##### Unordered
+ *
  *  ```
+ *  !bodyBackground white
+ *
  *  <div class="text fixie">
  *  <ul></ul>
  *  </div>
@@ -66,7 +79,10 @@
 
 /*
  *  ##### Ordered
+ *
  *  ```
+ *  !bodyBackground white
+ *
  *  <div class="text fixie">
  *  <ol></ol>
  *  </div>
@@ -80,7 +96,10 @@
  *  ##### Margins Between Items
  *  Display no margin between items by default. Add margins between items, if the list item does
  *  contain a block element as first child. Works for ul and ol alike.
+ *
  *  ```
+ *  !bodyBackground white
+ *
  *  <div class="text fixie">
  *      <ul>
  *          <li><p></p></li>
@@ -99,7 +118,10 @@
 
 /*
  *  #### Quotes
+ *
  *  ```
+ *  !bodyBackground white
+ *
  *  <div class="text fixie">
  *      <blockquote>
  *          <section></section>
@@ -119,7 +141,10 @@
 
 /*  
  *  #### Short Quotes
+ *
  *  ```
+ *  !bodyBackground white
+ *
  *  <div class="text fixie">
  *      <blockquote class="short">
  *          <div></div>
@@ -147,7 +172,10 @@
 
 /*
  *  #### Code Block
+ *
  *  ```
+ *  !bodyBackground white
+ *
  *  <div class="text">
  *      <pre><code>&lt;div class="center-area"&gt;::before
  *     &lt;div class="centered"&gt;&lt;/div&gt;
@@ -163,7 +191,10 @@
 
 /*
  *  #### Tables
+ *
  *  ```
+ *  !bodyBackground white
+ *
  *  <div class="text fixie">
  *      <table>
  *          <caption>Table Caption</caption>
@@ -309,7 +340,10 @@
 /*
  *  #### Levels
  *  There are two levels of sub headings in the body copy. Their size is relative to the size of the body copy.
+ *
  *  ```
+ *  !bodyBackground white
+ *
  *  <div class="text fixie">
  *  <h2>Headline Level Two</h2>
  *  <h3>Headline Level Three</h3>

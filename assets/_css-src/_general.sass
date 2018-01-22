@@ -129,29 +129,13 @@ table
     src: local('Alfa Slab One'), local('AlfaSlabOne-Regular'), url(http://themes.googleusercontent.com/static/fonts/alfaslabone/v3/Qx6FPcitRwTC_k88tLPc-fn8qdNnd5eCmWXua5W-n7c.woff) format('woff')
 
 /*
- *  ### Architects Daughter
- *  Used for a personal touch.
- *
- *  ```
- *  !bodyBackground white
- *
- *  <p style="font: 2em 'Architects Daughter'">Architects Daughter</p>
- *  ```
- */
-@font-face
-    font-family: 'Architects Daughter'
-    font-style: normal
-    font-weight: 400
-    src: local('Architects Daughter'), local('ArchitectsDaughter'), url(http://themes.googleusercontent.com/static/fonts/architectsdaughter/v4/RXTgOOQ9AAtaVOHxx0IUBOkI_DLF4EgbZt3mhU8gQFo.woff) format('woff')
-
-/*
  *  ### Source Code Pro
- *  Used for a machinized touch.
+ *  Used for code.
  *
  *  ```
  *  !bodyBackground white
  *
- *  <p style="font: 2em 'Source Code Pro'">Source Code Pro</p>
+ *  <p style="font: 1em 'Source Code Pro'">Source Code Pro</p>
  *  ```
  */
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro)
@@ -313,46 +297,11 @@ body
  *  -----
  *
  *  ```
- *  !responsive
  *  !bodyBackground white
  *
- *  <div id="content-container">
- *      <div id="content" class="fixie">
- *          This is a <a href="#">Link</a>.
- *      </div>
- *  </div>
+ *  This is a <a href="#">Link</a>.
  *  ```
  */
 a
     text-decoration: underline
     color: black
-
-/*
- *  Ajax Loader
- *  -----------
- *
- *  ```
- *  !responsive
- *  !bodyBackground white
- *
- *  <div id="content-container">
- *      <div id="content">
- *          <span class="ajax-loader">Loading</span>
- *      </div>
- *  </div>
- *  ```
- */
-.ajax-loader
-    display: inline-block
-    height: 1em
-    background: url(../images/ajax-loader-16.gif) no-repeat left center
-    padding-left: 1.25em
-    font: 300 1em/1 Lato
-    @media screen and (min-width: 32em) //512px
-        background-image: url(../images/ajax-loader-20.gif)
-    @media screen and (min-width: 42.5em) //680px
-        background-image: url(../images/ajax-loader-24.gif)
-    @media screen and (min-width: 50em) //800px
-        background-image: url(../images/ajax-loader-16.gif)
-    @media screen and (min-width: 60em) //960px
-        background-image: url(../images/ajax-loader-20.gif)
