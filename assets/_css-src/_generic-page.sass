@@ -19,7 +19,6 @@
  *          <section class="page-section agileSG-stub">Section</section>
  *      </div>
  *  </div>
- *  <a href="#" class="close-button back-to-top-button js-back-to-top-button agileSG-stub">BACK TO TOP</a>
  *  ```
  */
 body
@@ -130,33 +129,3 @@ body
     @media screen and (min-width: 50em) //800px
         font-size: 2em
         text-align: right
-
-/*
- *  Close Button
- *  ------------
- *  ```
- *  <a href="#" class="close-button"><span class="arrow"></span>CLOSE MENU<span class="arrow"></span></a>
- *  ```
- */
-.close-button
-    position: relative
-    background: black
-    text-align: center
-    line-height: 3em
-    vertical-align: middle
-    font-family: Ubuntu
-    font-size: 1.125em
-    font-weight: 500
-    text-decoration: none
-    color: rgb(127,127,127)
-    .arrow
-        display: inline-block
-        background: url(../images/arrows.png)
-        opacity: 0.5
-        height: 13px
-        width: 22px
-        margin: 0 20px
-    &:hover
-        color: white
-        .arrow
-            opacity: 1
