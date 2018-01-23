@@ -158,74 +158,47 @@ table
  *  * #### 64 em / 1024 px
  *    content width stays constant and is centered, while header and footer scale to full viewport width
  *
- *  * #### 81.25 em / 1300 px
- *    header is fixed to the left, content width stays constant and is centered across the remaining space on the right
- *
  *  ### Margins and Paddings
  *  Margins and paddings scale with the font size.
  *
  *  ```
  *  !responsive
- *  !bodyBackground white
  *
- *  <header id="page-header" class="agileSG-stub">HEADER</header>
- *  <div id="content-container">
- *      <div id="content" class="agileSG-stub">CONTENT<article class="fixie"></article></div>
+ *  <div style="color: white">
+ *      <header id="page-header">HEADER</header>
+ *      <div id="content-container">
+ *          <div id="content">
+ *              <article class="fixie">
+ *                  <h1 class="article-headline">CONTENT</h1>
+ *                  <p></p>
+ *                  <p></p>
+ *                  <p></p>
+ *              </article>
+ *          </div>
+ *      </div>
  *  </div>
  *  ```
  */
 
 #content-container
-    padding: 6rem 1.25em 1.25em
+    padding: 3em 1.25em 1.25em
     min-height: 100%
     box-sizing: border-box
     overflow: hidden
 
     @media screen and (min-width: 50em) //800px
-        padding: 8.75em 1.25em 1.25em 13.8em //140px 20px 20px 221px
-
-    @media screen and (min-width: 81.25em) //1300px
-        padding: 2.5em 1.25em 1.25em 27.05em //50px 25px 25px 541px
+        padding-left: 13.8em //221px
 
 body
-    #page-header
-        position: fixed
-        z-index: 99
-        top: 0
-        left: 0
-        right: 0
     #content
         margin: 0
-
-/*
- *  ### Page scrolled down
- *  For viewports, that display the header at the top, it will be fixed there if scrolled down. Set
- *  the css class `.attached-to-viewport` for the header to fix it there.
- *
- *  ```
- *  !responsive
- *  !bodyBackground white
- *
- *  <header id="page-header" class="attached-to-viewport agileSG-stub">HEADER</header>
- *  <div id="content-container">
- *      <div id="content" class="agileSG-stub">CONTENT<article class="fixie"></article></div>
- *  </div>
- *  ```
- */
-body #page-header.attached-to-viewport
-    position: fixed
-    top: 0
-
-    @media screen and (max-width: 81.2499em) //1300px
-        height: 4em
 
 /*
  *  Background
  *  ----------
  *
  *  ```
- *  !responsive
- *  !bodyBackground image
+ *  <div style="padding: 1em"></div>
  *  ```
  */
 body
