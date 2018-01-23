@@ -241,12 +241,14 @@ body.article-page #content
   display: block
   height: $height
   width: 4.29em
+  background: white
 
 @mixin sidebar-element-positioning
   float: right
   clear: both
 
 .article-sidebar
+  .article-details:before,
   .article-details:after,
   .article-sharing-list:before
     @include sidebar-bg-content(1.79em)
@@ -263,6 +265,9 @@ body.article-page #content
 
 .article-sidebar
   .article-detail
+    padding: .6em
+    background: white
+    color: black
     @include sidebar-element-positioning
     min-width: 2.145em
     text-align: right
