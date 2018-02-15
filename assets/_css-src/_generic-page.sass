@@ -1,52 +1,7 @@
 ﻿/*
  *  Generic Page
  *  ============
- *  
- *  Layout
- *  ------
- *  The generic page is structured into sections, that are rendered just on top of eachother.
- *  
- *  ```
- *  !responsive
- *  !bodyClass generic-page
- *  !bodyBackground white
  *
- *  <header id="page-header" class="agileSG-stub">HEADER</header>
- *  <div id="content-container">
- *      <div id="content">
- *          <h1 class="page-headline agileSG-stub">Page Heading</h1>
- *          <section class="page-section agileSG-stub">Section</section>
- *          <section class="page-section agileSG-stub">Section</section>
- *      </div>
- *  </div>
- *  ```
- */
-body
-    .page-section
-        margin-top: 2.5em
-        &.text-optimized
-            max-width: 36.2em
-            margin-left: auto
-            margin-right: auto
-        &:after
-            content: ''
-            display: block
-            clear: both
-        + .page-section
-            margin-top: 2.5em
-        @media screen and (min-width: 50em) //800px
-            margin-top: 0
-            + .page-section
-                margin-top: 5em
-    .page-headline
-        margin-bottom: .25em
-    .back-to-top-button
-        display: block
-        clear: both
-        @media screen and (min-width: 50em) //800px
-            display: none
-
-/*
  *  Using the Sidebar
  *  -----------------
  *  Add the css class `.use-sidebar` to a block element inside the content div to make it use the
@@ -90,37 +45,6 @@ body
         font-size: 3em
 
 /*
- *  Section Layout
- *  --------------
- *  For small viewports everything is just rendered above each other. For viewports wide
- *  enough to display a sidebar the headline jumps into the sidebar on the left.
- *
- *  ```
- *  !responsive
- *  !bodyClass generic-page
- *  !bodyBackground white
- *
- *  <div id="content-container">
- *      <div id="content">
- *          <section class="page-section">
- *              <div class="section-headline agileSG-stub">Section Headline</div>
- *              <div class="section-content agileSG-stub">Section Content</div>
- *          </section>
- *      </div>
- *  </div>
- *  ```
- */
-.page-section
-    position: relative
-    .section-headline
-        margin-bottom: .625em
-        @media screen and (min-width: 50em) //800px
-            position: absolute
-            right: 100%
-            margin-right: 1.25em
-            width: 200px
-
-/*
  *  Section Heading
  *  ---------------
  *
@@ -133,4 +57,3 @@ body
     color: white
     @media screen and (min-width: 50em) //800px
         font-size: 2em
-        text-align: right

@@ -132,78 +132,36 @@ body
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro)
 
 /*
- *  Responsive Grid
- *  ---------------
- *  For small viewports the containers are rendered just above each other.
+ *  Page Layout
+ *  -----------
  *
- *  ### Breakpoints
- *  Breakpoints are set to optimize readability of the text in the content area following the
- *  article [Logical Breakpoints For Your Responsive Design](http://www.smashingmagazine.com/2013/03/01/logical-breakpoints-responsive-design/).
+ *  The page has a header and a content area. The content area itself can
+ *  consist of sections which in turn can have subsections. Everything is
+ *  rendered on top of each other.
  *
- *  The responsive grid breaks at the following points:
- *
- *  * #### 50 em / 800 px
- *    added margins, content floats to the right creating a sidebar on the left, content width
- *    adjusts to viewport width
- *
- *  * #### 64 em / 1024 px
- *    content width stays constant and is centered, while header and footer scale to full viewport width
- *
- *  ### Margins and Paddings
- *  Margins and paddings scale with the font size.
+ *  The whole body is scaled by scaling the font-size. Everything else is
+ *  scaled in relation to it by setting measures in em.
  *
  *  ```
  *  !responsive
  *
- *  <div style="color: white">
- *      <header id="page-header">HEADER</header>
- *      <div id="content-container">
- *          <div id="content">
- *              <article class="fixie">
- *                  <h1 class="article-headline">CONTENT</h1>
- *                  <p></p>
- *                  <p></p>
- *                  <p></p>
- *              </article>
- *          </div>
- *      </div>
+ *  <header id="page-header" class="white-box">HEADER</header>
+ *  <div id="content">
+ *      <section>
+ *          <h2>Main Section 1</h2>
+ *          <section class="white-box">Subsection 1</section>
+ *          <section class="white-box">Subsection 2</section>
+ *      </section>
+ *      <section>
+ *          <h2>Main Section 2</h2>
+ *          <section class="white-box">Subsection 1</section>
+ *          <section class="white-box">Subsection 2</section>
+ *      </section>
  *  </div>
  *  ```
  */
-
-#content-container
-    padding: 3em 1.25em 1.25em
-    min-height: 100%
-    box-sizing: border-box
-    overflow: hidden
-
-    @media screen and (min-width: 50em) //800px
-        padding-left: 13.8em //221px
-
 body
-    #content
-        margin: 0
-
-
-/*
- *  Content Scaling
- *  ---------------
- *  The content area is scaled by scaling the font-size. Everything else is scaled in relation to by
- *  setting measures in em.
- *
- *  ```
- *  !responsive
- *  !bodyBackground white
- *
- *  <div id="content-container">
- *      <div id="content" class="fixie">
- *          <article class="text"></article>
- *      </div>
- *  </div>
- *  ```
- */
-#content-container
-    font-size: 1em
+    font-size: 100%
 
     @media screen and (min-width: 32em) //512px
         font-size: 1.25em
@@ -214,8 +172,339 @@ body
     @media screen and (min-width: 50em) //800px
         font-size: 1em
 
-    @media screen and (min-width: 55em) //890px
+    @media screen and (min-width: 55em) //880px
         font-size: 1.125em
 
     @media screen and (min-width: 60em) //960px
         font-size: 1.25em
+
+    #page-header
+        margin-bottom: 3em
+
+    #content
+        margin-bottom: 1.5em
+        min-height: 100%
+        box-sizing: border-box
+        overflow: hidden
+
+        > section
+            + section
+                margin-top: 2.5em
+            * + section
+                margin-top: 1.25em
+
+section
+    &:after
+        content: ''
+        display: block
+        clear: both
+
+/*
+ *  Columns
+ *  --------------
+ *
+ *  Columns are rendered on top of each other for small viewports. For
+ *  viewports wider than 40 em (640 px), the columns move next to each other.
+ *
+ *  To force columns for smaller viewports the css class `.no-break` can be
+ *  used.
+ */
+@mixin columns
+    > *
+        margin-top: 0
+        box-sizing: border-box
+        display: inline-block
+
+/*
+ *  ### Halves
+ *
+ *  ```
+ *  <div class="halves">
+ *      <div><div class="white-box center">Column 1</div></div><!--
+ *   --><div><div class="white-box center">Column 2</div></div>
+ *  </div>
+ *  ```
+ *
+ *  ### Halves With Gutter
+ *
+ *  ```
+ *  <div class="halves with-gutter">
+ *      <div><div class="white-box center">Column 1</div></div><!--
+ *   --><div><div class="white-box center">Column 2</div></div>
+ *  </div>
+ *  ```
+ */
+@mixin columns-halves
+    .halves
+        @include columns
+        > *
+            width: 50%
+        &.with-gutter
+            > :first-child
+                padding: 0 0.725em 0 1.25em
+            > :first-child + *
+                padding: 0 1.25em 0 0.725em
+
+/*
+ *  ### Two Thirds, One Third
+ *
+ *  ```
+ *  <div class="two-thirds-one">
+ *      <div><div class="white-box center">Column 1</div></div><!--
+ *   --><div><div class="white-box center">Column 2</div></div>
+ *  </div>
+ *  ```
+ *
+ *  ### Two Thirds, One Third With Gutter
+ *
+ *  ```
+ *  <div class="two-thirds-one with-gutter">
+ *      <div><div class="white-box center">Column 1</div></div><!--
+ *   --><div><div class="white-box center">Column 2</div></div>
+ *  </div>
+ *  ```
+ */
+@mixin columns-two-thirds-one
+    .two-thirds-one
+        @include columns
+        > :first-child
+            width: 66.666%
+        > :first-child + *
+            width: 33.333%
+        &.with-gutter
+            > :first-child
+                padding: 0 0.725em 0 1.25em
+            > :first-child + *
+                padding: 0 1.25em 0 0.725em
+
+/*
+ *  ### One Third, Two Thirds
+ *
+ *  ```
+ *  <div class="one-third-two">
+ *      <div><div class="white-box center">Column 1</div></div><!--
+ *   --><div><div class="white-box center">Column 2</div></div>
+ *  </div>
+ *  ```
+ *
+ *  ### One Third, Two Thirds With Gutter
+ *
+ *  ```
+ *  <div class="one-third-two with-gutter">
+ *      <div><div class="white-box center">Column 1</div></div><!--
+ *   --><div><div class="white-box center">Column 2</div></div>
+ *  </div>
+ *  ```
+ */
+@mixin columns-one-third-two
+    .one-third-two
+        @include columns
+        > :first-child
+            width: 33.333%
+        > :first-child + *
+            width: 66.666%
+        &.with-gutter
+            > :first-child
+                padding: 0 0.725em 0 1.25em
+            > :first-child + *
+                padding: 0 1.25em 0 0.725em
+
+/*
+ *  ### Two Thirds Centered
+ *
+ *  ```
+ *  <div class="two-thirds">
+ *      <div><div class="white-box center">Column 1</div></div><!--
+ *   --><div><div class="white-box center">Column 2</div></div>
+ *  </div>
+ *  ```
+ *
+ *  ### Two Thirds Centered With Gutter
+ *
+ *  ```
+ *  <div class="two-thirds with-gutter">
+ *      <div><div class="white-box center">Column 1</div></div><!--
+ *   --><div><div class="white-box center">Column 2</div></div>
+ *  </div>
+ *  ```
+ */
+@mixin columns-two-thirds
+    .two-thirds
+        @include columns
+        > *
+            width: 33.333%
+        > :first-child
+            margin-left: 16.666%
+        &.with-gutter
+            > *
+                padding: 0 0.725em
+
+/*
+ *  ### Thirds
+ *
+ *  ```
+ *  <div class="thirds">
+ *      <div><div class="white-box center">Column 1</div></div><!--
+ *   --><div><div class="white-box center">Column 2</div></div><!--
+ *   --><div><div class="white-box center">Column 3</div></div>
+ *  </div>
+ *  ```
+ *
+ *  ### Thirds With Gutter
+ *
+ *  ```
+ *  <div class="thirds with-gutter">
+ *      <div><div class="white-box center">Column 1</div></div><!--
+ *   --><div><div class="white-box center">Column 2</div></div><!--
+ *   --><div><div class="white-box center">Column 3</div></div>
+ *  </div>
+ *  ```
+ */
+@mixin columns-thirds
+    .thirds
+        @include columns
+        > *
+            width: 33.333%
+        &.with-gutter
+            > :first-child
+                padding: 0 0.725em 0 1.25em
+            > :first-child + *
+                padding: 0 0.725em 0 0.725em
+            > :first-child + * + *
+                padding: 0 1.25em 0 0.725em
+
+/*
+ *  ### Quarters
+ *
+ *  ```
+ *  <div class="quarters">
+ *      <div><div class="white-box center">Column 1</div></div><!--
+ *   --><div><div class="white-box center">Column 2</div></div><!--
+ *   --><div><div class="white-box center">Column 3</div></div><!--
+ *   --><div><div class="white-box center">Column 4</div></div>
+ *  </div>
+ *  ```
+ *
+ *  ### Quarters With Gutter
+ *
+ *  ```
+ *  <div class="quarters with-gutter">
+ *      <div><div class="white-box center">Column 1</div></div><!--
+ *   --><div><div class="white-box center">Column 2</div></div><!--
+ *   --><div><div class="white-box center">Column 3</div></div><!--
+ *   --><div><div class="white-box center">Column 4</div></div>
+ *  </div>
+ *  ```
+ */
+@mixin columns-quarters
+    .quarters
+        @include columns
+        > *
+            width: 25%
+        &.with-gutter
+            > :first-child
+                padding: 0 0.725em 0 1.25em
+            > :first-child + *
+                padding: 0 0.725em 0 0.725em
+            > :first-child + * + *
+                padding: 0 0.725em 0 0.725em
+            > :first-child + * + * + *
+                padding: 0 1.25em 0 0.725em
+
+@media screen and (min-width: 40em) //640px
+    @include columns-halves
+    @include columns-two-thirds-one
+    @include columns-one-third-two
+    @include columns-two-thirds
+    @include columns-thirds
+    @include columns-quarters
+
+.columns.no-break
+    @include columns-halves
+    @include columns-two-thirds-one
+    @include columns-one-third-two
+    @include columns-two-thirds
+    @include columns-thirds
+    @include columns-quarters
+
+/*
+ *  Alignment
+ *  ---------
+ *
+ *  ### Horizontal
+ *
+ *  ```
+ *  <div class="left">
+ *      <div class="white-box">Left Alignment</div>
+ *  </div>
+ *
+ *  <div class="center">
+ *      <div class="white-box">Center Alignment</div>
+ *  </div>
+ *
+ *  <div class="right">
+ *      <div class="white-box">Right Alignment</div>
+ *  </div>
+ *  ```
+ */
+.left
+    text-align: left
+    > *
+        display: inline-block
+
+.right
+    text-align: right
+    > *
+        display: inline-block
+
+.center
+    text-align: center
+    > *
+        display: inline-block
+
+/*
+ *  ### Vertical
+ *
+ *  ```
+ *  <div class="box center">
+ *      <div class="white-box" style="line-height: 6em">-----</div>
+ *      <div class="white-box top">top</div>
+ *      <div class="white-box bottom">bottom</div>
+ *      <div class="white-box middle">middle</div>
+ *      <div class="white-box baseline">baseline</div>
+ *      <div class="white-box text-top">text-top</div>
+ *      <div class="white-box text-bottom">text-bottom</div>
+ *  </div>
+ *  ```
+ */
+.top
+    display: inline-block
+    vertical-align: top
+
+.bottom
+    display: inline-block
+    vertical-align: bottom
+
+.middle
+    display: inline-block
+    vertical-align: middle
+
+.baseline
+    display: inline-block
+    vertical-align: baseline
+
+.text-top
+    display: inline-block
+    vertical-align: text-top
+
+.text-bottom
+    display: inline-block
+    vertical-align: text-bottom
+
+.sub
+    display: inline-block
+    vertical-align: sub
+
+.super
+    display: inline-block
+    vertical-align: super
