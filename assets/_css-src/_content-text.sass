@@ -1,31 +1,75 @@
 /*
  *  Text
  *  ----
- */
-
-/*
- *  ### Inline Elements
- *  #### The Font
- *  Its size is set for the `<#content-container>` element. Running text uses the Lato Light font.
+ *
+ *  ### Ensuring Good Readability
+ *
+ *  Text areas with `.readable-width` don't grow wider than 40em to ensure good
+ *  readability. For details see the article
+ *  [Logical Breakpoints For Your Responsive Design](http://www.smashingmagazine.com/2013/03/01/logical-breakpoints-responsive-design/).
  *
  *  ```
- *  !bodyBackground white
+ *  !responsive
  *
- *  <div class="text fixie">
+ *  <div class="text readable-width white-box fixie">
  *      <p></p>
  *  </div>
  *  ```
  */
+.text.readable-width
+    max-width: 40em
+    margin: 0 auto
+
+/*
+ *  ### Inline Elements
+ *  #### The Font
+ *  Running text uses the Lato Light font.
+ *
+ *  ```
+ *  <div class="text fixie white-box">
+ *      <p></p>
+ *  </div>
+ *  ```
+ */
+@font-face
+    font-family: 'Lato'
+    font-style: normal
+    font-weight: 300
+    src: local('Lato Light'), local('Lato-Light'), url(http://themes.googleusercontent.com/static/fonts/lato/v7/KT3KS9Aol4WfR6Vas8kNcg.woff) format('woff')
+
+@font-face
+    font-family: 'Lato'
+    font-style: normal
+    font-weight: 400
+    src: local('Lato Regular'), local('Lato-Regular'), url(http://themes.googleusercontent.com/static/fonts/lato/v7/9k-RPmcnxYEPm8CNFsH2gg.woff) format('woff')
+
+@font-face
+    font-family: 'Lato'
+    font-style: italic
+    font-weight: 300
+    src: local('Lato Light Italic'), local('Lato-LightItalic'), url(http://themes.googleusercontent.com/static/fonts/lato/v7/2HG_tEPiQ4Z6795cGfdivD8E0i7KZn-EPnyo3HZu7kw.woff) format('woff')
+
 .text
     font: 300 1em/1.5 'Lato'
+
+/*
+ *  #### Links
+ *
+ *  ```
+ *  <div class="text white-box">
+ *      This is a <a href="#">Link</a>.
+ *  </div>
+ *  ```
+ */
+a
+    text-decoration: underline
+    color: inherit
 
 /*
  *  #### Emphasis
  *
  *  ```
- *  !bodyBackground white
- *
- *  <div class="text">
+ *  <div class="text white-box">
  *      <p>This is <em>emphasized text</em>.</p>
  *      <p>This is <strong>strong text</strong>.</p>
  *  </div>
@@ -41,9 +85,7 @@
  *  #### Code
  *
  *  ```
- *  !bodyBackground white
- *
- *  <div class="text">
+ *  <div class="text white-box">
  *      <p>This is an <code>inline code</code> fragment.</p>
  *  </div>
  *  ```
@@ -66,10 +108,8 @@
  *  ##### Unordered
  *
  *  ```
- *  !bodyBackground white
- *
- *  <div class="text fixie">
- *  <ul></ul>
+ *  <div class="text fixie white-box">
+ *      <ul></ul>
  *  </div>
  *  ```
  */
@@ -81,10 +121,8 @@
  *  ##### Ordered
  *
  *  ```
- *  !bodyBackground white
- *
- *  <div class="text fixie">
- *  <ol></ol>
+ *  <div class="text fixie white-box">
+ *      <ol></ol>
  *  </div>
  *  ```
  */
@@ -98,9 +136,7 @@
  *  contain a block element as first child. Works for ul and ol alike.
  *
  *  ```
- *  !bodyBackground white
- *
- *  <div class="text fixie">
+ *  <div class="text fixie white-box">
  *      <ul>
  *          <li><p></p></li>
  *          <li><p></p></li>
@@ -120,9 +156,7 @@
  *  #### Quotes
  *
  *  ```
- *  !bodyBackground white
- *
- *  <div class="text fixie">
+ *  <div class="text fixie white-box">
  *      <blockquote>
  *          <section></section>
  *          <footer>— Some Guy</footer>
@@ -144,9 +178,7 @@
  *  #### Short Quotes
  *
  *  ```
- *  !bodyBackground white
- *
- *  <div class="text fixie">
+ *  <div class="text fixie white-box">
  *      <blockquote class="short">
  *          <div></div>
  *          <footer>— Some Guy</footer>
@@ -175,12 +207,8 @@
  *  #### Code Block
  *
  *  ```
- *  !bodyBackground white
- *
- *  <div class="text">
- *      <pre><code>&lt;div class="center-area"&gt;::before
- *     &lt;div class="centered"&gt;&lt;/div&gt;
- *  &lt;/div&gt;</code></pre>
+ *  <div class="text white-box">
+ *      <pre><code>&lt;div class="center-area"&gt;::before&lt;div class="centered"&gt;&lt;/div&gt;&lt;/div&gt;</code></pre>
  *  </div>
  *  ```
  */
@@ -194,9 +222,7 @@
  *  #### Tables
  *
  *  ```
- *  !bodyBackground white
- *
- *  <div class="text fixie">
+ *  <div class="text fixie white-box">
  *      <table>
  *          <caption>Table Caption</caption>
  *          <thead>
@@ -257,59 +283,45 @@
 
 /*
  *  #### Combining Block Elements
- *  All block elements are separated from each other by one line-height. The text area can be set to
- *  have a white background and a padding by applying the css class `white-bg` to the `<.text>`
- *  element. Text areas with `.readable-width` cannot be wider than 36.2em to ensure good
- *  readability.
- *  
- *  ```
- *  !responsive
- *  !bodyBackground white
  *
- *  <div id="content-container">
- *      <div id="content" class="fixie">
- *          <article class="text readable-width">
- *              <p></p>
- *              <blockquote class="short">
- *                  <div></div>
- *                  <footer>— Some Guy</footer>
- *              </blockquote>
- *              <p></p>
- *              <ul></ul>
- *              <p></p>
- *              <ol></ol>
- *              <p></p>
- *              <blockquote>
- *                  <section></section>
- *                  <footer>— Some Guy</footer>
- *              </blockquote>
- *              <p></p>
- *              <table>
- *                  <caption>Table Caption</caption>
- *                  <thead>
- *                      <tr>
- *                          <th></th>
- *                          <th></th>
- *                          <th></th>
- *                      </tr>
- *                  </thead>
- *                  <tbody>
- *                      <tr>
- *                          <td></td><td></td><td></td>
- *                      </tr>
- *                  </tbody>
- *              </table>
- *          </article>
- *      </div>
- *  </div>
+ *  All block elements are separated from each other by one line-height.
+ *
+ *  ```
+ *  <article class="text white-box fixie">
+ *      <p></p>
+ *      <blockquote class="short">
+ *          <div></div>
+ *          <footer>— Some Guy</footer>
+ *      </blockquote>
+ *      <p></p>
+ *      <ul></ul>
+ *      <p></p>
+ *      <ol></ol>
+ *      <p></p>
+ *      <blockquote>
+ *          <section></section>
+ *          <footer>— Some Guy</footer>
+ *      </blockquote>
+ *      <p></p>
+ *      <table>
+ *          <caption>Table Caption</caption>
+ *          <thead>
+ *              <tr>
+ *                  <th></th>
+ *                  <th></th>
+ *                  <th></th>
+ *              </tr>
+ *          </thead>
+ *          <tbody>
+ *              <tr>
+ *                  <td></td><td></td><td></td>
+ *              </tr>
+ *          </tbody>
+ *      </table>
+ *  </article>
  *  ```
  */
 .text
-    &.readable-width
-        max-width: 36.2em
-    &.white-bg
-        padding: 1.25em
-        background: white
     * + *
         margin-top: 1.5em
 
@@ -320,20 +332,15 @@
  *  Elements following headings do not have a top-margin.
  *  
  *  ```
- *  !responsive
- *  !bodyBackground white
- *
- *  <div id="content-container">
- *      <div id="content" class="fixie">
- *          <article class="text">
- *              <h2>No Content before this heading: No top margin. Slight bottom margin.</h2>
- *              <p>This paragraph has no top margin!</p>
- *              <h3>There is a paragraph before this level three heading. So, set a top margin, please.</h3>
- *              <h2>There is a heading before this level 2 heading. So, set a top margin, please. The margin is bigger than for level three.</h2>
- *              <img width="900" height="600"></img>
- *              <p>The image above has no top margin</p>
- *          </article>
- *      </div>
+ *  <div id="content">
+ *      <article class="text fixie white-box">
+ *          <h2>No Content before this heading: No top margin. Slight bottom margin.</h2>
+ *          <p>This paragraph has no top margin!</p>
+ *          <h3>There is a paragraph before this level three heading. So, set a top margin, please.</h3>
+ *          <h2>There is a heading before this level 2 heading. So, set a top margin, please. The margin is bigger than for level three.</h2>
+ *          <img width="900" height="600"></img>
+ *          <p>The image above has no top margin</p>
+ *      </article>
  *  </div>
  *  ```
  */
@@ -358,14 +365,12 @@
  *  There are two levels of sub headings in the body copy. Their size is relative to the size of the body copy.
  *
  *  ```
- *  !bodyBackground white
- *
- *  <div class="text fixie">
- *  <h2>Headline Level Two</h2>
- *  <h3>Headline Level Three</h3>
- *  <h4>Headline Level Four</h4>
- *  <h5>Headline Level Five</h5>
- *  <h6>Headline Level Six</h6>
+ *  <div class="text fixie white-box">
+ *      <h2>Headline Level Two</h2>
+ *      <h3>Headline Level Three</h3>
+ *      <h4>Headline Level Four</h4>
+ *      <h5>Headline Level Five</h5>
+ *      <h6>Headline Level Six</h6>
  *  </div>
  *  ```
  */
