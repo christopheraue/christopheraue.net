@@ -7,30 +7,114 @@
  *
  *  ```
  *  !responsive
- *  !bodyBackground white
  *
  *  <header id="page-header">
- *      <div class="logo">
- *          <a href="#"><img src="/assets/images/christopheraue.png"/></a>
+ *      <div class="logo-nav">
+ *          <div class="logo">
+ *              <a href="#"><img class="christopheraue middle" src="/assets/images/christopheraue.svg"/></a>
+ *          </div>
+ *          <nav>
+ *              <ul class="top">
+ *                  <li>
+ *                      <a href="#">
+ *                          <img class="slash-technical middle" src="/assets/images/slash_technical.svg"/>
+ *                          <div class="arrow"></div>
+ *                      </a>
+ *                  </li>
+ *                  <li>
+ *                      <a href="#">
+ *                          <img class="slash-collateral middle" src="/assets/images/slash_collateral.svg"/>
+ *                          <div class="arrow"></div>
+ *                      </a>
+ *                  </li>
+ *              </ul>
+ *          </nav>
  *      </div>
- *      <ul class="social-link-list">
- *          <li class="item"><a href="#" class="social-link twit"></a></li>
- *          <li class="item"><a href="#" class="social-link gith"></a></li>
- *          <li class="item"><a href="#" class="social-link mail"></a></li>
- *      </ul>
- *      <a href="#" class="impress-link">Impress</a>
  *  </header>
  *  ```
  */
 #page-header
     text-align: center
-    padding: .75em
-    .logo
-        img
-            width: 11.3em
-            height: auto
-    .social-link-list
-        margin: .75em
+    padding: 2em
+    .logo-nav
+        position: relative
+        display: inline-block
+        .christopheraue
+            height: 2.5em
+        .slash-technical
+            height: 1.5em
+            position: relative
+            top: -.1em
+        .slash-collateral
+            height: 1.5em
+            position: relative
+            top: -.1em
+        nav
+            position: absolute
+            top: 1.25em
+            right: 0
+            overflow: hidden
+            ul
+                height: 1.25em
+                text-align: left
+                li
+                    a
+                        position: relative
+                        display: block
+                        height: 1.25em
+                        overflow: hidden
+                        padding-right: 1.5em
+                    .arrow
+                        position: absolute
+                        right: 0
+                        top: 0
+                        width: 1.25em
+                        height: 1.25em
+                        opacity: 0
+                        &:before
+                            content: ''
+                            display: block
+                            position: relative
+                            top: 50%
+                            left: 50%
+                            margin-top: -.15em
+                            margin-left: -.35em
+                            width: 0
+                            height: 0
+                            border: .35em solid transparent
+                            border-top-color: white
+                            transition: transform .2s
+                            transform-origin: 50% 15%
+                    &:first-child
+                        .arrow
+                            opacity: 1
+                            bottom: 0
+                            top: auto
+                        + *
+                            opacity: 0
+                            transition: opacity .2s ease
+            &:hover
+                overflow: visible
+                ul li
+                    a
+                        padding-left: 1em
+                    &:first-child
+                        a
+                            padding-top: 1em
+                            margin-top: -1em
+                    &:last-child
+                        a
+                            padding-bottom: 1em
+                            margin-bottom: -1em
+                    &:first-child
+                        .arrow
+                            opacity: 0
+                        + *
+                            opacity: 1
+                    .arrow:before
+                        transform: rotate(90deg)
+                    &:hover .arrow
+                        opacity: 1
 
 
 /*
