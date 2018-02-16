@@ -208,225 +208,113 @@ section
  *
  *  To force columns for smaller viewports the css class `.no-break` can be
  *  used.
+ *
+ *  ### Halves, Quarters, Eighths and Sixteenths
+ *
+ *  ```
+ *  <div class="columns">
+ *      <div class="half"><div class="white-box center">1/2</div></div><!--
+ *   --><div class="quarter"><div class="white-box center">1/4</div></div><!--
+ *   --><div class="eighth"><div class="white-box center">1/8</div></div><!--
+ *   --><div class="sixteenth"><div class="white-box center">1/16</div></div><!--
+ *   --><div class="sixteenth"><div class="white-box center">1/16</div></div>
+ *  </div>
+ *  ```
+ *
+ *  ### Two Thirds
+ *
+ *  ```
+ *  <div class="columns">
+ *      <div class="two-thirds"><div class="white-box center">2/3</div></div><!--
+ *   --><div class="third"><div class="white-box center">1/3</div></div>
+ *  </div>
+ *  ```
+ *
+ *  ### Thirds, Sixths and Twelfths
+ *
+ *  ```
+ *  <div class="columns">
+ *      <div class="twelfth"><div class="white-box center">1/12</div></div><!--
+ *   --><div class="twelfth"><div class="white-box center">1/12</div></div><!--
+ *   --><div class="sixth"><div class="white-box center">1/6</div></div><!--
+ *   --><div class="third"><div class="white-box center">1/3</div></div><!--
+ *   --><div class="sixth"><div class="white-box center">1/6</div></div><!--
+ *   --><div class="twelfth"><div class="white-box center">1/12</div></div><!--
+ *   --><div class="twelfth"><div class="white-box center">1/12</div></div>
+ *  </div>
+ *  ```
+ *
+ *  ### Columns With Gutters
+ *
+ *  ```
+ *  <div class="columns with-gutters">
+ *      <div class="sixth"><div class="white-box center">1/6</div></div><!--
+ *   --><div class="sixth"><div class="white-box center">1/6</div></div><!--
+ *   --><div class="third"><div class="white-box center">1/3</div></div><!--
+ *   --><div class="sixth"><div class="white-box center">1/6</div></div><!--
+ *   --><div class="sixth"><div class="white-box center">1/6</div></div>
+ *  </div>
+ *  ```
+ *
+ *  ### Columns With Inner Gutters Only
+ *
+ *  ```
+ *  <div class="remove-outer-gutters">
+ *      <div class="columns with-gutters">
+ *         <div class="sixth"><div class="white-box center">1/6</div></div><!--
+ *      --><div class="sixth"><div class="white-box center">1/6</div></div><!--
+ *      --><div class="third"><div class="white-box center">1/3</div></div><!--
+ *      --><div class="sixth"><div class="white-box center">1/6</div></div><!--
+ *      --><div class="sixth"><div class="white-box center">1/6</div></div>
+ *      </div>
+ *  </div>
+ *  ```
  */
-@mixin columns
+@mixin column-widths
+    > .three-quarters
+        width: 75%
+    > .two-thirds
+        width: 66.6666%
+    > .half
+        width: 50%
+    > .third
+        width: 33.3333%
+    > .quarter
+        width: 25%
+    > .sixth
+        width: 16.6666%
+    > .eighth
+        width: 12.5%
+    > .twelfth
+        width: 8.3333%
+    > .sixteenth
+        width: 6.25%
+
+$gutter-width: 1.25em
+
+.columns
     > *
-        margin-top: 0
+        margin: 0
+        vertical-align: top
         box-sizing: border-box
         display: inline-block
-
-/*
- *  ### Halves
- *
- *  ```
- *  <div class="halves">
- *      <div><div class="white-box center">Column 1</div></div><!--
- *   --><div><div class="white-box center">Column 2</div></div>
- *  </div>
- *  ```
- *
- *  ### Halves With Gutter
- *
- *  ```
- *  <div class="halves with-gutter">
- *      <div><div class="white-box center">Column 1</div></div><!--
- *   --><div><div class="white-box center">Column 2</div></div>
- *  </div>
- *  ```
- */
-@mixin columns-halves
-    .halves
-        @include columns
+        overflow: hidden
         > *
-            width: 50%
-        &.with-gutter
-            > :first-child
-                padding: 0 0.725em 0 1.25em
-            > :first-child + *
-                padding: 0 1.25em 0 0.725em
-
-/*
- *  ### Two Thirds, One Third
- *
- *  ```
- *  <div class="two-thirds-one">
- *      <div><div class="white-box center">Column 1</div></div><!--
- *   --><div><div class="white-box center">Column 2</div></div>
- *  </div>
- *  ```
- *
- *  ### Two Thirds, One Third With Gutter
- *
- *  ```
- *  <div class="two-thirds-one with-gutter">
- *      <div><div class="white-box center">Column 1</div></div><!--
- *   --><div><div class="white-box center">Column 2</div></div>
- *  </div>
- *  ```
- */
-@mixin columns-two-thirds-one
-    .two-thirds-one
-        @include columns
-        > :first-child
-            width: 66.666%
-        > :first-child + *
-            width: 33.333%
-        &.with-gutter
-            > :first-child
-                padding: 0 0.725em 0 1.25em
-            > :first-child + *
-                padding: 0 1.25em 0 0.725em
-
-/*
- *  ### One Third, Two Thirds
- *
- *  ```
- *  <div class="one-third-two">
- *      <div><div class="white-box center">Column 1</div></div><!--
- *   --><div><div class="white-box center">Column 2</div></div>
- *  </div>
- *  ```
- *
- *  ### One Third, Two Thirds With Gutter
- *
- *  ```
- *  <div class="one-third-two with-gutter">
- *      <div><div class="white-box center">Column 1</div></div><!--
- *   --><div><div class="white-box center">Column 2</div></div>
- *  </div>
- *  ```
- */
-@mixin columns-one-third-two
-    .one-third-two
-        @include columns
-        > :first-child
-            width: 33.333%
-        > :first-child + *
-            width: 66.666%
-        &.with-gutter
-            > :first-child
-                padding: 0 0.725em 0 1.25em
-            > :first-child + *
-                padding: 0 1.25em 0 0.725em
-
-/*
- *  ### Two Thirds Centered
- *
- *  ```
- *  <div class="two-thirds">
- *      <div><div class="white-box center">Column 1</div></div><!--
- *   --><div><div class="white-box center">Column 2</div></div>
- *  </div>
- *  ```
- *
- *  ### Two Thirds Centered With Gutter
- *
- *  ```
- *  <div class="two-thirds with-gutter">
- *      <div><div class="white-box center">Column 1</div></div><!--
- *   --><div><div class="white-box center">Column 2</div></div>
- *  </div>
- *  ```
- */
-@mixin columns-two-thirds
-    .two-thirds
-        @include columns
+            box-sizing: border-box
+            width: 100%
+    @media screen and (min-width: 40em) //640px
+        @include column-widths
+    &.no-break
+        @include column-widths
+    &.with-gutters
+        padding: 0 $gutter-width/2
         > *
-            width: 33.333%
-        > :first-child
-            margin-left: 16.666%
-        &.with-gutter
-            > *
-                padding: 0 0.725em
+            padding: 0 $gutter-width/2
 
-/*
- *  ### Thirds
- *
- *  ```
- *  <div class="thirds">
- *      <div><div class="white-box center">Column 1</div></div><!--
- *   --><div><div class="white-box center">Column 2</div></div><!--
- *   --><div><div class="white-box center">Column 3</div></div>
- *  </div>
- *  ```
- *
- *  ### Thirds With Gutter
- *
- *  ```
- *  <div class="thirds with-gutter">
- *      <div><div class="white-box center">Column 1</div></div><!--
- *   --><div><div class="white-box center">Column 2</div></div><!--
- *   --><div><div class="white-box center">Column 3</div></div>
- *  </div>
- *  ```
- */
-@mixin columns-thirds
-    .thirds
-        @include columns
-        > *
-            width: 33.333%
-        &.with-gutter
-            > :first-child
-                padding: 0 0.725em 0 1.25em
-            > :first-child + *
-                padding: 0 0.725em 0 0.725em
-            > :first-child + * + *
-                padding: 0 1.25em 0 0.725em
-
-/*
- *  ### Quarters
- *
- *  ```
- *  <div class="quarters">
- *      <div><div class="white-box center">Column 1</div></div><!--
- *   --><div><div class="white-box center">Column 2</div></div><!--
- *   --><div><div class="white-box center">Column 3</div></div><!--
- *   --><div><div class="white-box center">Column 4</div></div>
- *  </div>
- *  ```
- *
- *  ### Quarters With Gutter
- *
- *  ```
- *  <div class="quarters with-gutter">
- *      <div><div class="white-box center">Column 1</div></div><!--
- *   --><div><div class="white-box center">Column 2</div></div><!--
- *   --><div><div class="white-box center">Column 3</div></div><!--
- *   --><div><div class="white-box center">Column 4</div></div>
- *  </div>
- *  ```
- */
-@mixin columns-quarters
-    .quarters
-        @include columns
-        > *
-            width: 25%
-        &.with-gutter
-            > :first-child
-                padding: 0 0.725em 0 1.25em
-            > :first-child + *
-                padding: 0 0.725em 0 0.725em
-            > :first-child + * + *
-                padding: 0 0.725em 0 0.725em
-            > :first-child + * + * + *
-                padding: 0 1.25em 0 0.725em
-
-@media screen and (min-width: 40em) //640px
-    @include columns-halves
-    @include columns-two-thirds-one
-    @include columns-one-third-two
-    @include columns-two-thirds
-    @include columns-thirds
-    @include columns-quarters
-
-.columns.no-break
-    @include columns-halves
-    @include columns-two-thirds-one
-    @include columns-one-third-two
-    @include columns-two-thirds
-    @include columns-thirds
-    @include columns-quarters
-
+.remove-outer-gutters
+    overflow: hidden
+    .columns
+        margin: 0 (-$gutter-width)
 /*
  *  Alignment
  *  ---------
