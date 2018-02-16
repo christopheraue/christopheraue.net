@@ -11,19 +11,19 @@
  *  <header id="page-header">
  *      <div class="logo-nav">
  *          <div class="logo">
- *              <a href="#"><img class="christopheraue middle" src="/assets/images/christopheraue.svg"/></a>
+ *              <a href="#"><img class="christopheraue" src="/assets/images/christopheraue.svg"/></a>
  *          </div>
  *          <nav>
  *              <ul class="top">
  *                  <li>
  *                      <a href="#">
- *                          <img class="slash-technical middle" src="/assets/images/slash_technical.svg"/>
+ *                          <img class="nav-image" src="/assets/images/slash_technical.svg"/>
  *                          <div class="arrow"></div>
  *                      </a>
  *                  </li>
  *                  <li>
  *                      <a href="#">
- *                          <img class="slash-collateral middle" src="/assets/images/slash_collateral.svg"/>
+ *                          <img class="nav-image" src="/assets/images/slash_collateral.svg"/>
  *                          <div class="arrow"></div>
  *                      </a>
  *                  </li>
@@ -41,14 +41,10 @@
         display: inline-block
         .christopheraue
             height: 2.5em
-        .slash-technical
-            height: 1.5em
+        .nav-image
+            height: 1.75em
             position: relative
-            top: -.1em
-        .slash-collateral
-            height: 1.5em
-            position: relative
-            top: -.1em
+            top: -.2em
         nav
             position: absolute
             top: 1.25em
@@ -77,19 +73,23 @@
                             position: relative
                             top: 50%
                             left: 50%
-                            margin-top: -.15em
+                            margin-top: 0
                             margin-left: -.35em
                             width: 0
                             height: 0
                             border: .35em solid transparent
                             border-top-color: white
-                            transition: transform .2s
+                            transform: rotate(90deg)
                             transform-origin: 50% 15%
                     &:first-child
                         .arrow
                             opacity: 1
                             bottom: 0
                             top: auto
+                            &:before
+                                margin-top: -.1em
+                                transform: rotate(0deg)
+                                transition: transform .2s, margin .2s
                         + *
                             opacity: 0
                             transition: opacity .2s ease
@@ -102,6 +102,9 @@
                         a
                             padding-top: 1em
                             margin-top: -1em
+                        .arrow:before
+                            margin-top: 0
+                            transform: rotate(90deg)
                     &:last-child
                         a
                             padding-bottom: 1em
@@ -111,8 +114,6 @@
                             opacity: 0
                         + *
                             opacity: 1
-                    .arrow:before
-                        transform: rotate(90deg)
                     &:hover .arrow
                         opacity: 1
 
