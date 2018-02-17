@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    id="svg19196"
    version="1.1"
-   viewBox="0 0 11.40193 4"
-   height="4"
-   width="11.40193">
+   viewBox="0 0 228.03868 80"
+   height="80"
+   width="228.03868">
   <defs
      id="defs19190" />
   <metadata
@@ -25,10 +25,10 @@
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(-15.842163,-110.71413)"
+     transform="translate(92.476212,-61.405454)"
      id="layer1">
     <g
-       transform="translate(0,0.3671875)"
+       transform="matrix(20,0,0,20,-409.31949,-2145.9044)"
        id="g6134">
       <path
          style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.18600664;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
