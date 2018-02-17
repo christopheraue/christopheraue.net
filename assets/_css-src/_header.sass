@@ -13,18 +13,18 @@
  *          <div class="logo">
  *              <a href="#"><img class="christopheraue" src="/assets/images/christopheraue.svg"/></a>
  *          </div>
- *          <nav>
+ *          <nav class="nav">
  *              <ul class="top">
  *                  <li>
  *                      <a href="#">
- *                          <img class="nav-image" src="/assets/images/slash_technical.svg"/>
- *                          <div class="arrow"></div>
+ *                          <div class="nav-item-part"><img class="nav-image" src="/assets/images/slash_technical.svg"/></div><!--
+ *                       --><div class="nav-item-part"><div class="arrow"></div></div>
  *                      </a>
  *                  </li>
  *                  <li>
  *                      <a href="#">
- *                          <img class="nav-image" src="/assets/images/slash_collateral.svg"/>
- *                          <div class="arrow"></div>
+ *                          <div class="nav-item-part"><img class="nav-image" src="/assets/images/slash_collateral.svg"/></div><!--
+ *                       --><div class="nav-item-part"><div class="arrow"></div></div>
  *                      </a>
  *                  </li>
  *              </ul>
@@ -39,65 +39,78 @@
     .logo-nav
         position: relative
         display: inline-block
-        .christopheraue
-            height: 2.5em
-        .nav-image
-            height: 1.75em
-            position: relative
-            top: -.2em
-        nav
+        .logo
+            display: inline-block
+            vertical-align: top
+            .christopheraue
+                height: 2.5em
+                vertical-align: middle
+        .nav
             position: absolute
             top: 1.25em
             right: 0
+            height: 1.25em
             overflow: hidden
-            ul
-                height: 1.25em
+            text-align: right
+            @media screen and (min-width: 50em) //800px
+                position: static
+                display: inline-block
+                vertical-align: top
+                font-size: 1.5em
+                margin-top: -.3em
+                margin-left: .1em
                 text-align: left
-                li
-                    a
-                        position: relative
+            li
+                a
+                    position: relative
+                    display: block
+                    height: 1.25em
+                    overflow: hidden
+                .nav-item-part
+                    display: inline-block
+                    vertical-align: middle
+                    height: 1.25em
+                    overflow: hidden
+                .nav-image
+                    height: 1.75em
+                    position: relative
+                    top: -.2em
+                .arrow
+                    width: 1.25em
+                    height: 1.25em
+                    margin-left: .1em
+                    opacity: 0
+                    &:before
+                        content: ''
                         display: block
-                        height: 1.25em
-                        overflow: hidden
-                        padding-right: 1.5em
+                        position: relative
+                        top: 50%
+                        left: 50%
+                        margin-top: 0
+                        margin-left: -.35em
+                        width: 0
+                        height: 0
+                        border: .35em solid transparent
+                        border-top-color: white
+                        transform: rotate(90deg)
+                        transform-origin: 50% 15%
+                        @media screen and (min-width: 32em) //800px
+                            margin-left: -.275em
+                            border-width: .3em
+                &:first-child
                     .arrow
-                        position: absolute
-                        right: 0
-                        top: 0
-                        width: 1.25em
-                        height: 1.25em
-                        opacity: 0
+                        opacity: 1
+                        bottom: 0
+                        top: auto
                         &:before
-                            content: ''
-                            display: block
-                            position: relative
-                            top: 50%
-                            left: 50%
-                            margin-top: 0
-                            margin-left: -.35em
-                            width: 0
-                            height: 0
-                            border: .35em solid transparent
-                            border-top-color: white
-                            transform: rotate(90deg)
-                            transform-origin: 50% 15%
-                    &:first-child
-                        .arrow
-                            opacity: 1
-                            bottom: 0
-                            top: auto
-                            &:before
-                                margin-top: -.1em
-                                transform: rotate(0deg)
-                                transition: transform .2s, margin .2s
-                        + *
-                            opacity: 0
-                            transition: opacity .2s ease
+                            transform: rotate(0deg)
+                            transition: transform .2s, margin .2s
+                    + *
+                        opacity: 0
+                        transition: opacity .2s ease
             &:hover
                 overflow: visible
                 ul li
-                    a
-                        padding-left: 1em
                     &:first-child
                         a
                             padding-top: 1em
