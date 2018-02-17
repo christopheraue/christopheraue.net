@@ -1,0 +1,105 @@
+﻿@import "variables"
+
+/*
+ *  /technical Category
+ *  ===================
+ *
+ *  The Font
+ *  --------
+ *
+ *  The special font for this category to give it a tech-y feel. Used for
+ *  headlines, code blocks or where else it fits.
+ *
+ *  ```
+ *  <div class="white-box">
+ *      <p style="font: 1em 'Source Code Pro'">Source Code Pro</p>
+ *      <p style="font: italic 1em 'Source Code Pro'">Source Code Pro Italic</p>
+ *      <p style="font: 900 1em 'Source Code Pro'">Source Code Pro Black</p>
+ *  </div>
+ *  ```
+ */
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900')
+
+@font-face
+    font-family: 'Source Code Pro'
+    src: url('//fontlibrary.org/assets/fonts/source-code-pro/8733444bf1b52108e4cad8cfcbc40e15/c7808ab8a4aa1d26b5d38fcd51e59ef2/SourceCodeProItalic.ttf') format('truetype')
+    font-weight: normal
+    font-style: italic
+
+/*
+ *  The Category Page
+ *  -----------------
+ *
+ *  Lists all articles by sections.
+ *
+ *  ```
+ *  !responsive
+ *  !bodyClass category-page technical-category
+ *
+ *  <div id="content">
+ *      <section class="columns with-gutters">
+ *          <div class="third">
+ *              <h2>Section 1</h2>
+ *          </div><!--
+ *       --><nav class="two-thirds">
+ *              <ul class="article-list">
+ *                  <li>
+ *                      <h3>Article Headline</h3>
+ *                      <p>This is a description of the article. It may become longer than a single line.</p>
+ *                  </li>
+ *                  <li>
+ *                      <h3>Article Headline</h3>
+ *                      <p>This is a description of the article.</p>
+ *                  </li>
+ *              </ul>
+ *          </nav>
+ *      </section>
+ *      <section class="columns with-gutters">
+ *          <div class="third">
+ *              <h2>Section 2</h2>
+ *          </div><!--
+ *       --><nav class="two-thirds">
+ *              <ul class="article-list">
+ *                  <li>
+ *                      <h3>This Is a Very Long Article Headline: Maybe With a Subtitle</h3>
+ *                      <p>This is a description of the article.</p>
+ *                  </li>
+ *                  <li>
+ *                      <h3>Article Headline</h3>
+ *                      <p>This is a description of the article.</p>
+ *                  </li>
+ *              </ul>
+ *          </nav>
+ *      </section>
+ *  </div>
+ *  ```
+ */
+.category-page
+    section + section
+        margin-top: 2*$gutter-width
+    .article-list > li + li
+        margin-top: $gutter-width
+    h2
+        font-size: 1.625em
+        text-align: left
+        margin-bottom: .75em
+    .article-list li
+        font-size: 1em
+        line-height: 1.5
+    @media screen and (min-width: 40em) //640px
+        h2
+            text-align: right
+            font-size: 1.3em
+        .article-list li
+            font-size: .8em
+
+.category-page.technical-category
+    h2
+        font-family: 'Source Code Pro', monospace
+        font-style: italic
+    h3
+        font-family: 'Source Code Pro', monospace
+        font-weight: bold
+    .article-list p
+        font-family: 'Source Code Pro', monospace
+        font-weight: normal

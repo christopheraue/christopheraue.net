@@ -1,3 +1,5 @@
+@import "variables"
+
 /*
  *  General
  *  =======
@@ -127,26 +129,12 @@ body
     src: local('Alfa Slab One'), local('AlfaSlabOne-Regular'), url(http://themes.googleusercontent.com/static/fonts/alfaslabone/v3/Qx6FPcitRwTC_k88tLPc-fn8qdNnd5eCmWXua5W-n7c.woff) format('woff')
 
 /*
- *  ### Source Code Pro
- *  Used for code.
- *
- *  ```
- *  !bodyBackground white
- *
- *  <p style="font: 1em 'Source Code Pro'">Source Code Pro</p>
- *  ```
- */
-@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro)
-
-/*
  *  Page Layout
  *  -----------
  *
- *  The page has a header and a content area. The content area itself can
- *  consist of sections which in turn can have subsections. Everything is
- *  rendered on top of each other.
+ *  The page has a header and a content area.
  *
- *  The whole body is scaled by scaling the font-size. Everything else is
+ *  The whole page is scaled by scaling the font-size. Everything else is
  *  scaled in relation to it by setting measures in em.
  *
  *  ```
@@ -154,16 +142,7 @@ body
  *
  *  <header id="page-header" class="white-box">HEADER</header>
  *  <div id="content">
- *      <section>
- *          <h2>Main Section 1</h2>
- *          <section class="white-box">Subsection 1</section>
- *          <section class="white-box">Subsection 2</section>
- *      </section>
- *      <section>
- *          <h2>Main Section 2</h2>
- *          <section class="white-box">Subsection 1</section>
- *          <section class="white-box">Subsection 2</section>
- *      </section>
+ *      <section class="white-box">CONTENT</section>
  *  </div>
  *  ```
  */
@@ -193,18 +172,6 @@ body
         min-height: 100%
         box-sizing: border-box
         overflow: hidden
-
-        > section
-            + section
-                margin-top: 2.5em
-            * + section
-                margin-top: 1.25em
-
-section
-    &:after
-        content: ''
-        display: block
-        clear: both
 
 /*
  *  Columns
@@ -297,19 +264,18 @@ section
     > .sixteenth
         width: 6.25%
 
-$gutter-width: 1.25em
-
 .columns
     > *
         margin: 0
-        vertical-align: top
         box-sizing: border-box
-        display: inline-block
         overflow: hidden
         > *
             box-sizing: border-box
             width: 100%
     @media screen and (min-width: 40em) //640px
+        > *
+            display: inline-block
+            vertical-align: top
         @include column-widths
     &.no-break
         @include column-widths
