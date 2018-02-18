@@ -373,3 +373,150 @@ body
 .super
     display: inline-block
     vertical-align: super !important
+
+
+/*
+ *  Social Icons
+ *  ------------
+ */
+@mixin social-icon
+    display: inline-block
+    width: 1em
+    height: 1em
+    background: url(../images/social_icons.svg) no-repeat
+    background-size: auto 500%
+
+/*
+ *  ### Mail
+ *  ```
+ *  !bodyBackground white
+ *
+ *  <div style="background: white; padding: 1em; font-size: 2em">
+ *    <div class="mail-icon"></div>
+ *    <div class="mail-icon-black"></div>
+ *  </div>
+ *  <div style="background: black; padding: 1em; font-size: 2em">
+ *    <div class="mail-icon"></div>
+ *    <div class="mail-icon-white"></div>
+ *  </div>
+ *  ```
+ */
+.mail-icon
+    @include social-icon
+    background-position: 0 0
+
+.mail-icon-white
+    @include social-icon
+    background-position: 0 50%
+
+.mail-icon-black
+    @include social-icon
+    background-position: 0 100%
+
+/*
+ *  ### Twitter
+ *  ```
+ *  !bodyBackground white
+ *
+ *  <div style="background: white; padding: 1em; font-size: 2em">
+ *    <div class="twitter-icon"></div>
+ *    <div class="twitter-icon-black"></div>
+ *  </div>
+ *  <div style="background: black; padding: 1em; font-size: 2em">
+ *    <div class="twitter-icon"></div>
+ *    <div class="twitter-icon-white"></div>
+ *  </div>
+ *  ```
+ */
+.twitter-icon
+    @include social-icon
+    background-position: 25% 0
+
+.twitter-icon-white
+    @include social-icon
+    background-position: 25% 50%
+
+.twitter-icon-black
+    @include social-icon
+    background-position: 25% 100%
+
+/*
+ *  ### Facebook
+ *  ```
+ *  !bodyBackground white
+ *
+ *  <div style="background: white; padding: 1em; font-size: 2em">
+ *    <div class="facebook-icon"></div>
+ *    <div class="facebook-icon-black"></div>
+ *  </div>
+ *  <div style="background: black; padding: 1em; font-size: 2em">
+ *    <div class="facebook-icon"></div>
+ *    <div class="facebook-icon-white"></div>
+ *  </div>
+ *  ```
+ */
+.facebook-icon
+    @include social-icon
+    background-position: 50% 0
+
+.facebook-icon-white
+    @include social-icon
+    background-position: 50% 50%
+
+.facebook-icon-black
+    @include social-icon
+    background-position: 50% 100%
+
+/*
+ *  ### Github
+ *  ```
+ *  !bodyBackground white
+ *
+ *  <div style="background: white; padding: 1em; font-size: 2em">
+ *    <div class="github-icon"></div>
+ *    <div class="github-icon-black"></div>
+ *  </div>
+ *  <div style="background: black; padding: 1em; font-size: 2em">
+ *    <div class="github-icon"></div>
+ *    <div class="github-icon-white"></div>
+ *  </div>
+ *  ```
+ */
+.github-icon
+    @include social-icon
+    background-position: 75% 0
+
+.github-icon-white
+    @include social-icon
+    background-position: 75% 50%
+
+.github-icon-black
+    @include social-icon
+    background-position: 75% 100%
+
+/*
+ *  ### YouTube
+ *  ```
+ *  !bodyBackground white
+ *
+ *  <div style="background: white; padding: 1em; font-size: 2em">
+ *    <div class="youtube-icon"></div>
+ *    <div class="youtube-icon-black"></div>
+ *  </div>
+ *  <div style="background: black; padding: 1em; font-size: 2em">
+ *    <div class="youtube-icon"></div>
+ *    <div class="youtube-icon-white"></div>
+ *  </div>
+ *  ```
+ */
+.youtube-icon
+    @include social-icon
+    background-position: 100% 0
+
+.youtube-icon-white
+    @include social-icon
+    background-position: 100% 50%
+
+.youtube-icon-black
+    @include social-icon
+    background-position: 100% 100%
