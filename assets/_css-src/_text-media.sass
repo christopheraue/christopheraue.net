@@ -1,6 +1,13 @@
 /*
  *  Embedded Media
  *  --------------
+ *
+ *  Elements might float to the left of the article column depending on their format and have to
+ *  take into account the spacing associated with headings and running content. The bounding box of
+ *  the floating element has to align with the baselines of the article text at the bottom.
+ *
+ *  To take care of all that, **all** media must be placed inside a container element with one of
+ *  the following classes, corresponding to their aspect ratio:
  */
 @mixin floatElementAndSetBaseMargins
     float: left
@@ -114,14 +121,7 @@
     @include setContentSizeToParentSize
 
 /*
- *  Elements might float to the left of the article column depending on their format and have to
- *  take into account the spacing associated with headings and running content. The bounding box of
- *  the floating element has to align with the baselines of the article text at the bottom.
- *  
- *  To take care of all that, *all* media must be placed inside a container element with one of the
- *  following classes, corresponding to their aspect ratio:
- *
- *  #### .landscape
+ *  ### .landscape
  *  Wide content with more width than height. Spans across the complete width of the available area
  *  by default. Can be floated by adding the class `.float`.
  *
@@ -130,76 +130,73 @@
  *
  *  ```
  *  !responsive
- *  !bodyBackground white
  *
- *  <div id="content-container">
- *      <div id="content" class="fixie">
- *          <article class="text">
- *              <h2>Full Width</h2>
- *              <div class="landscape">
- *                  <img width="600" height="300"></img>
- *              </div>
- *              <p></p>
- *              <div class="landscape video">
- *                  <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
- *              </div>
- *              <p></p>
- *              <div class="landscape photo">
- *                  <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
- *              </div>
- *              <h2>Full Width Using Sidebar</h2>
- *              <div class="landscape use-sidebar">
- *                  <img width="600" height="300"></img>
- *              </div>
- *              <p></p>
- *              <div class="landscape use-sidebar video">
- *                  <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
- *              </div>
- *              <p></p>
- *              <div class="landscape use-sidebar photo">
- *                  <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
- *              </div>
- *              <h2>Floated</h2>
- *              <div class="landscape float">
- *                  <img width="600" height="300"></img>
- *              </div>
- *              <p></p>
- *              <p></p>
- *              <h3>Video Format</h3>
- *              <div class="landscape float video">
- *                  <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
- *              </div>
- *              <p></p>
- *              <p></p>
- *              <h3>Photo Format</h3>
- *              <div class="landscape float photo">
- *                  <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
- *              </div>
- *              <p></p>
- *              <p></p>
- *              <h2>Floated Using Sidebar</h2>
- *              <div class="landscape float use-sidebar">
- *                  <img width="600" height="300"></img>
- *              </div>
- *              <p></p>
- *              <p></p>
- *              <p></p>
- *              <h3>Video Format</h3>
- *              <div class="landscape float use-sidebar video">
- *                  <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
- *              </div>
- *              <p></p>
- *              <p></p>
- *              <p></p>
- *              <h3>Photo Format</h3>
- *              <div class="landscape float use-sidebar photo">
- *                  <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
- *              </div>
- *              <p></p>
- *              <p></p>
- *              <p></p>
- *          </article>
- *      </div>
+ *  <div id="content" class="white-box fixie">
+ *      <article class="text">
+ *          <h2>Full Width</h2>
+ *          <div class="landscape">
+ *              <img width="600" height="300"></img>
+ *          </div>
+ *          <p></p>
+ *          <div class="landscape video">
+ *              <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
+ *          </div>
+ *          <p></p>
+ *          <div class="landscape photo">
+ *              <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
+ *          </div>
+ *          <h2>Full Width Using Sidebar</h2>
+ *          <div class="landscape use-sidebar">
+ *              <img width="600" height="300"></img>
+ *          </div>
+ *          <p></p>
+ *          <div class="landscape use-sidebar video">
+ *              <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
+ *          </div>
+ *          <p></p>
+ *          <div class="landscape use-sidebar photo">
+ *              <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
+ *          </div>
+ *          <h2>Floated</h2>
+ *          <div class="landscape float">
+ *              <img width="600" height="300"></img>
+ *          </div>
+ *          <p></p>
+ *          <p></p>
+ *          <h3>Video Format</h3>
+ *          <div class="landscape float video">
+ *              <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
+ *          </div>
+ *          <p></p>
+ *          <p></p>
+ *          <h3>Photo Format</h3>
+ *          <div class="landscape float photo">
+ *              <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
+ *          </div>
+ *          <p></p>
+ *          <p></p>
+ *          <h2>Floated Using Sidebar</h2>
+ *          <div class="landscape float use-sidebar">
+ *              <img width="600" height="300"></img>
+ *          </div>
+ *          <p></p>
+ *          <p></p>
+ *          <p></p>
+ *          <h3>Video Format</h3>
+ *          <div class="landscape float use-sidebar video">
+ *              <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
+ *          </div>
+ *          <p></p>
+ *          <p></p>
+ *          <p></p>
+ *          <h3>Photo Format</h3>
+ *          <div class="landscape float use-sidebar photo">
+ *              <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
+ *          </div>
+ *          <p></p>
+ *          <p></p>
+ *          <p></p>
+ *      </article>
  *  </div>
  *  ```
  */  
@@ -242,35 +239,32 @@
                     @include setFixedRatioBasedOnHeight((3/2), 13)
 
 /*
- *  #### .square
+ *  ### .square
  *  Square content with an aspect ratio of exactly 1 (width) to 1 (height). Spans 9 lines of text,
  *  if floated. Is floated by default.
  *
  *  ```
  *  !responsive
- *  !bodyBackground white
  *
- *  <div id="content-container">
- *      <div id="content" class="fixie">
- *          <article class="text">
- *              <h2>Heading</h2>
- *              <div class="square">
- *                  <img width="600" height="600"></img>
- *              </div>
- *              <p></p>
- *              <p></p>
- *              <div class="square">
- *                  <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
- *              </div>
- *              <p></p>
- *              <p></p>
- *              <div class="square use-sidebar">
- *                  <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
- *              </div>
- *              <p></p>
- *              <p></p>
- *          </article>
- *      </div>
+ *  <div id="content" class="white-box fixie">
+ *      <article class="text">
+ *          <h2>Heading</h2>
+ *          <div class="square">
+ *              <img width="600" height="600"></img>
+ *          </div>
+ *          <p></p>
+ *          <p></p>
+ *          <div class="square">
+ *              <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
+ *          </div>
+ *          <p></p>
+ *          <p></p>
+ *          <div class="square use-sidebar">
+ *              <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
+ *          </div>
+ *          <p></p>
+ *          <p></p>
+ *      </article>
  *  </div>
  *  ```
  */
@@ -289,7 +283,7 @@
                     @include setFixedRatioBasedOnHeight(1, 19)
 
 /*
- *  #### .portrait
+ *  ### .portrait
  *  Tall content with more height than width. Spans 13 lines of text, if floated. Is floated by
  *  default.
  *
@@ -297,34 +291,31 @@
  *
  *  ```
  *  !responsive
- *  !bodyBackground white
  *
- *  <div id="content-container">
- *      <div id="content" class="fixie">
- *          <article class="text">
- *              <h2>Heading</h2>
- *              <div class="portrait">
- *                  <img width="300" height="600"></img>
- *              </div>
- *              <p></p>
- *              <p></p>
- *              <p></p>
- *              <div class="portrait photo">
- *                  <img width="400" height="600"></img>
- *              </div>
- *              <p></p>
- *              <p></p>
- *              <p></p>
- *              <div class="portrait use-sidebar">
- *                  <img width="300" height="600"></img>
- *              </div>
- *              <article></article>
- *              <div class="portrait photo use-sidebar">
- *                  <img width="400" height="600"></img>
- *              </div>
- *              <article></article>
- *          </article>
- *      </div>
+ *  <div id="content" class="fixie">
+ *      <article class="text">
+ *          <h2>Heading</h2>
+ *          <div class="portrait">
+ *              <img width="300" height="600"></img>
+ *          </div>
+ *          <p></p>
+ *          <p></p>
+ *          <p></p>
+ *          <div class="portrait photo">
+ *              <img width="400" height="600"></img>
+ *          </div>
+ *          <p></p>
+ *          <p></p>
+ *          <p></p>
+ *          <div class="portrait use-sidebar">
+ *              <img width="300" height="600"></img>
+ *          </div>
+ *          <article></article>
+ *          <div class="portrait photo use-sidebar">
+ *              <img width="400" height="600"></img>
+ *          </div>
+ *          <article></article>
+ *      </article>
  *  </div>
  *  ```
  */
@@ -359,22 +350,21 @@
                     @include setFixedRatioBasedOnWidth((2/3), 11.3em)
 
 /*  
- *  #### Short Quotes Reaching Into the Sidebar
+ *  Short Quotes Reaching Into the Sidebar
+ *  --------------------------------------
+ *
  *  Behaves like `.landscape`. The font size increases to the double of the body copy size for
  *  viewports wide enough to display a sidebar.
  *
  *  ```
  *  !responsive
- *  !bodyBackground white
  *
- *  <div id="content-container">
- *      <div id="content">
- *          <div class="text fixie">
- *              <blockquote class="short use-sidebar">
- *                  <div></div>
- *                  <footer>— Some Guy</footer>
- *              </blockquote>
- *          </div>
+ *  <div id="content">
+ *      <div class="text fixie">
+ *          <blockquote class="short use-sidebar">
+ *              <div></div>
+ *              <footer>— Some Guy</footer>
+ *          </blockquote>
  *      </div>
  *  </div>
  *  ```
@@ -386,20 +376,18 @@
             margin-left: -6.275em
 
 /*
- *  #### Sidebar
+ *  Sidebar
+ *  -------
  *
  *  ```
  *  !responsive
- *  !bodyBackground white
  *
- *  <div id="content-container">
- *      <div id="content">
- *          <div class="text fixie">
- *              <aside class="portrait use-sidebar">
- *                  <header>Sidebar Title</header>
- *                  <p class="content"></p>
- *              </aside>
- *          </div>
+ *  <div id="content">
+ *      <div class="text fixie">
+ *          <aside class="portrait use-sidebar">
+ *              <header>Sidebar Title</header>
+ *              <p class="content"></p>
+ *          </aside>
  *      </div>
  *  </div>
  *  ```
