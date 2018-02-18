@@ -4,6 +4,26 @@
  *  /technical Category
  *  ===================
  *
+ *  Colors
+ *  ------
+ *  ```
+ *  !bodyClass technical-category
+ *
+ *  <div class="text white-box">Background and Text Color</div>
+ *  ```
+ */
+$light: #f1fffb
+$dark: rgba(4,33,24,1)
+
+.technical-category
+    background: $dark
+    color: $light
+
+    .white-box
+        background: $light
+        color: $dark
+
+/*
  *  The Font
  *  --------
  *
@@ -11,6 +31,8 @@
  *  headlines, code blocks or where else it fits.
  *
  *  ```
+ *  !bodyClass technical-category
+ *
  *  <div class="white-box">
  *      <p style="font: 1em 'Source Code Pro'">Source Code Pro</p>
  *      <p style="font: italic 1em 'Source Code Pro'">Source Code Pro Italic</p>
@@ -18,7 +40,7 @@
  *  </div>
  *  ```
  */
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900')
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,400,900')
 
 @font-face
     font-family: 'Source Code Pro'
@@ -31,6 +53,40 @@
     src: url('//fontlibrary.org/assets/fonts/source-code-pro/8733444bf1b52108e4cad8cfcbc40e15/bc0b540c0dd23b1823393629837ff731/SourceCodeProBlackItalic.ttf') format('truetype')
     font-weight: 900
     font-style: italic
+
+/*
+ *  Text Adjustments
+ *  ----------------
+ *
+ *  ### Inline Code
+ *
+ *  ```
+ *  !bodyClass technical-category
+ *
+ *  <div class="text white-box">
+ *      <p>This is an <code>inline code</code> fragment.</p>
+ *  </div>
+ *  ```
+ */
+.technical-category
+    .text code
+        background-color: rgba(4,33,24,0.075)
+
+/*
+ *  ### Code Blocks
+ *
+ *  ```
+ *  !bodyClass technical-category
+ *
+ *  <div class="text white-box">
+ *      <pre><code>&lt;div class="center-area"&gt;&#10; &nbsp;&lt;div class="centered"&gt;&lt;/div&gt;&#10;&lt;/div&gt;</code></pre>
+ *  </div>
+ *  ```
+ */
+.technical-category
+    .text pre code
+        background-color: $dark
+        color: $light
 
 /*
  *  The Category Page
