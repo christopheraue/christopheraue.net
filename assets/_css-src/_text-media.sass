@@ -36,44 +36,6 @@
         + #{$selector}
             @include setMarginsIfFollowsHeadline
 
-@mixin setWidthTo($lines)
-    width: (.745em+1.5*$lines)
-    padding-bottom: 0
-
-@mixin setHeightTo($lines)
-    height: (.745em+1.5*$lines)
-    width: auto
-
-@mixin scaleMediaInsideSelectorAccordingToWidth($selector)
-    #{$selector} img
-        width: 100%
-        height: auto
-
-@mixin scaleImagesAccordingToHeight
-    img
-        width: auto
-        height: 100%
-
-@mixin scaleMediaInsideSelectorAccordingToRatio($selector, $ratio: 1)
-    #{$selector}
-        position: relative
-        padding-bottom: 100%/$ratio
-        > *
-            position: absolute
-            top: 0
-            left: 0
-            width: 100%
-            height: 100%
-    
-@mixin floatSelectorAtMinWidthWithHeight($selector, $minWidth, $lines, $ratio: null)
-    @media screen and (min-width: $minWidth)
-        @include floatSelector($selector)
-        #{$selector}
-            @include setHeightTo($lines)
-            @include scaleImagesAccordingToHeight
-            @if $ratio
-                @include setWidthTo($lines*$ratio)
-
 @mixin setContentSizeToParentSize
     position: relative
     > *
@@ -82,9 +44,6 @@
         left: 0
         width: 100%
         height: 100%
-
-@mixin setWidth($width: 100%)
-    width: $width
 
 @mixin setHeight($lines)
     height: (.745em+1.5*$lines)
@@ -122,84 +81,44 @@
 
 /*
  *  ### .landscape
+ *
  *  Wide content with more width than height. Spans across the complete width of the available area
  *  by default. Can be floated by adding the class `.float`.
  *
  *  * .video: Fix size to video format 16/9
  *  * .photo: Fix size to photo format 3/2
  *
+ *  #### Full Width Media
+ *
  *  ```
  *  !responsive
  *
  *  <div id="content" class="white-box fixie">
  *      <article class="text">
- *          <h2>Full Width</h2>
- *          <div class="landscape">
- *              <img width="600" height="300"></img>
- *          </div>
- *          <p></p>
- *          <div class="landscape video">
- *              <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
- *          </div>
- *          <p></p>
- *          <div class="landscape photo">
- *              <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
- *          </div>
- *          <h2>Full Width Using Sidebar</h2>
- *          <div class="landscape use-sidebar">
- *              <img width="600" height="300"></img>
- *          </div>
- *          <p></p>
- *          <div class="landscape use-sidebar video">
- *              <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
- *          </div>
- *          <p></p>
- *          <div class="landscape use-sidebar photo">
- *              <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
- *          </div>
- *          <h2>Floated</h2>
- *          <div class="landscape float">
- *              <img width="600" height="300"></img>
- *          </div>
- *          <p></p>
- *          <p></p>
- *          <h3>Video Format</h3>
- *          <div class="landscape float video">
- *              <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
- *          </div>
- *          <p></p>
- *          <p></p>
- *          <h3>Photo Format</h3>
- *          <div class="landscape float photo">
- *              <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
- *          </div>
- *          <p></p>
- *          <p></p>
- *          <h2>Floated Using Sidebar</h2>
- *          <div class="landscape float use-sidebar">
- *              <img width="600" height="300"></img>
- *          </div>
- *          <p></p>
- *          <p></p>
- *          <p></p>
- *          <h3>Video Format</h3>
- *          <div class="landscape float use-sidebar video">
- *              <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
- *          </div>
- *          <p></p>
- *          <p></p>
- *          <p></p>
- *          <h3>Photo Format</h3>
- *          <div class="landscape float use-sidebar photo">
- *              <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
- *          </div>
- *          <p></p>
- *          <p></p>
- *          <p></p>
+ *          <section>
+ *              <h2>Image Defined Format</h2>
+ *              <div class="landscape">
+ *                  <img width="500" height="200"></img>
+ *              </div>
+ *              <p></p>
+ *          </section>
+ *          <section>
+ *              <h2>Video Format</h2>
+ *              <div class="landscape video">
+ *                  <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
+ *              </div>
+ *              <p></p>
+ *          </section>
+ *          <section>
+ *              <h2>Photo Format</h2>
+ *              <div class="landscape photo">
+ *                  <div style="width: 100%; height: 100%; background: purple"></div>
+ *              </div>
+ *          </section>
  *      </article>
  *  </div>
  *  ```
- */  
+ */
 .text
     .landscape
         @include setFlexibleRatioBasedOnWidth(100%)
@@ -207,63 +126,88 @@
             @include setFixedRatioBasedOnWidth((16/9), 100%)
         &.photo //photo format 3/2
             @include setFixedRatioBasedOnWidth((3/2), 100%)
-        
-        @media screen and (min-width: 50em) //800px
-            &.video.use-sidebar
-                @include setFixedRatioBasedOnWidth((16/9), 100%, 250px)
-            &.photo.use-sidebar
-                @include setFixedRatioBasedOnWidth((3/2), 100%, 250px)
-    
+
+/*
+ *  #### Floating Media
+ *
+ *  Media with a landscape format is floated when the viewport becomes wide enough.
+ *
+ *  ```
+ *  !responsive
+ *
+ *
+ *  <div id="content" class="white-box fixie">
+ *      <article class="text">
+ *          <section>
+ *              <h2>Image Defined Format</h2>
+ *              <div class="landscape float">
+ *                  <img width="500" height="200"></img>
+ *              </div>
+ *              <p></p>
+ *              <p></p>
+ *          </section>
+ *          <section>
+ *              <h2>Video Format</h2>
+ *              <div class="landscape float video">
+ *                  <iframe src="//www.youtube.com/embed/ejwrxGs_Y_I?rel=0"></iframe>
+ *              </div>
+ *              <p></p>
+ *              <p></p>
+ *          </section>
+ *          <section>
+ *              <h2>Photo Format</h2>
+ *              <div class="landscape float photo">
+ *                  <div style="width: 100%; height: 100%; background: purple"></div>
+ *              </div>
+ *              <p></p>
+ *              <p></p>
+ *          </section>
+ *      </article>
+ *  </div>
+ *  ```
+ */
+.text
     @media screen and (min-width: 36em) //576px
         @include floatSelector('.landscape.float')
         .landscape.float
             @include setHeight(5)
             @include setFlexibleRatioBasedOnHeight(5)
-            &.use-sidebar
-                @media screen and (min-width: 50em) //800px
-                    @include setHeight(10)
-                    @include setFlexibleRatioBasedOnHeight(10)
-        .landscape.float.video //video format 16/9
-            @include setHeight(6)
-            @include setFixedRatioBasedOnHeight((16/9), 6)
-            &.use-sidebar
-                @media screen and (min-width: 50em) //800px
-                    @include setHeight(11)
-                    @include setFixedRatioBasedOnHeight((16/9), 11)
-        .landscape.float.photo //photo format 3/2
-            @include setHeight(7)
-            @include setFixedRatioBasedOnHeight((3/2), 7)
-            &.use-sidebar
-                @media screen and (min-width: 50em) //800px
-                    @include setHeight(13)
-                    @include setFixedRatioBasedOnHeight((3/2), 13)
+            &.video //video format 16/9
+                @include setHeight(6)
+                @include setFixedRatioBasedOnHeight((16/9), 6)
+            &.photo //photo format 3/2
+                @include setHeight(7)
+                @include setFixedRatioBasedOnHeight((3/2), 7)
 
 /*
  *  ### .square
+ *
  *  Square content with an aspect ratio of exactly 1 (width) to 1 (height). Spans 9 lines of text,
- *  if floated. Is floated by default.
+ *  if floated. It is floated by default when the viewport becomes wide enough.
  *
  *  ```
  *  !responsive
  *
  *  <div id="content" class="white-box fixie">
  *      <article class="text">
- *          <h2>Heading</h2>
- *          <div class="square">
- *              <img width="600" height="600"></img>
- *          </div>
- *          <p></p>
- *          <p></p>
- *          <div class="square">
- *              <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
- *          </div>
- *          <p></p>
- *          <p></p>
- *          <div class="square use-sidebar">
- *              <iframe src="http://s.codepen.io/christopheraue/fullpage/HwfJB?">&nbsp;</iframe>
- *          </div>
- *          <p></p>
- *          <p></p>
+ *          <section>
+ *              <h2>Image Defined Size</h2>
+ *              <div class="square">
+ *                  <img width="600" height="600"></img>
+ *              </div>
+ *              <p></p>
+ *              <p></p>
+ *              <p></p>
+ *          </section>
+ *          <section>
+ *              <h2>Photo Format</h2>
+ *              <div class="square">
+ *                  <div style="width: 100%; height: 100%; background: purple"></div>
+ *              </div>
+ *              <p></p>
+ *              <p></p>
+ *              <p></p>
+ *          </section>
  *      </article>
  *  </div>
  *  ```
@@ -277,44 +221,40 @@
         .square
             @include setHeight(9)
             @include setFixedRatioBasedOnHeight(1, 9)
-            &.use-sidebar
-                @media screen and (min-width: 50em) //800px
-                    @include setHeight(19)
-                    @include setFixedRatioBasedOnHeight(1, 19)
 
 /*
  *  ### .portrait
- *  Tall content with more height than width. Spans 13 lines of text, if floated. Is floated by
- *  default.
+ *
+ *  Tall content with more height than width. Spans 13 lines of text, if floated. It is floated by
+ *  default when the viewport becomes wide enough.
  *
  *  * .photo: Fix size to photo format 2/3
  *
  *  ```
  *  !responsive
  *
- *  <div id="content" class="fixie">
+ *  <div id="content" class="white-box fixie">
  *      <article class="text">
- *          <h2>Heading</h2>
- *          <div class="portrait">
- *              <img width="300" height="600"></img>
- *          </div>
- *          <p></p>
- *          <p></p>
- *          <p></p>
- *          <div class="portrait photo">
- *              <img width="400" height="600"></img>
- *          </div>
- *          <p></p>
- *          <p></p>
- *          <p></p>
- *          <div class="portrait use-sidebar">
- *              <img width="300" height="600"></img>
- *          </div>
- *          <article></article>
- *          <div class="portrait photo use-sidebar">
- *              <img width="400" height="600"></img>
- *          </div>
- *          <article></article>
+ *          <section>
+ *              <h2>Image Defined Format</h2>
+ *              <div class="portrait">
+ *                  <img width="300" height="600"></img>
+ *              </div>
+ *              <p></p>
+ *              <p></p>
+ *              <p></p>
+ *              <p></p>
+ *          </section>
+ *          <section>
+ *              <h2>Photo Format</h2>
+ *              <div class="portrait photo">
+ *                  <div style="width: 100%; height: 100%; background: purple"></div>
+ *              </div>
+ *              <p></p>
+ *              <p></p>
+ *              <p></p>
+ *              <p></p>
+ *          </section>
  *      </article>
  *  </div>
  *  ```
@@ -324,82 +264,12 @@
         @include setFlexibleRatioBasedOnWidth(100%)
         &.photo //photo format 2/3
             @include setFixedRatioBasedOnWidth((2/3), 100%)
-        
-        @media screen and (min-width: 50em) //800px
-            &.photo.use-sidebar 
-                width: 11.3em
-                @include setFixedRatioBasedOnWidth((2/3), 11.3em)
     
     @media screen and (min-width: 22.5em) //360px
         @include floatSelector('.portrait')
         .portrait
             @include setHeight(14)
             @include setFlexibleRatioBasedOnHeight(14)
-            &.use-sidebar
-                width: 11.3em
-                height: auto
-                //margin-right: 0
-                @media screen and (min-width: 50em) //800px
-                    @include setFlexibleRatioBasedOnWidth(11.3em)
         .portrait.photo //photo format 2/3
             @include setHeight(10)
             @include setFixedRatioBasedOnHeight((2/3), 10)
-            &.use-sidebar
-                //width: 11.3em
-                @media screen and (min-width: 50em) //800px
-                    @include setFixedRatioBasedOnWidth((2/3), 11.3em)
-
-/*  
- *  Short Quotes Reaching Into the Sidebar
- *  --------------------------------------
- *
- *  Behaves like `.landscape`. The font size increases to the double of the body copy size for
- *  viewports wide enough to display a sidebar.
- *
- *  ```
- *  !responsive
- *
- *  <div id="content">
- *      <div class="text fixie">
- *          <blockquote class="short use-sidebar">
- *              <div></div>
- *              <footer>— Some Guy</footer>
- *          </blockquote>
- *      </div>
- *  </div>
- *  ```
- */
-.text
-    @media screen and (min-width: 50em) //800px
-        blockquote.short.use-sidebar
-            font-size: 2em
-            margin-left: -6.275em
-
-/*
- *  Sidebar
- *  -------
- *
- *  ```
- *  !responsive
- *
- *  <div id="content">
- *      <div class="text fixie">
- *          <aside class="portrait use-sidebar">
- *              <header>Sidebar Title</header>
- *              <p class="content"></p>
- *          </aside>
- *      </div>
- *  </div>
- *  ```
- */
-.text aside
-    header
-        background: #e79a0b
-        padding: .8em
-        color: white
-        font: italic bold 1em/1 Ubuntu
-    .content
-        margin: 0
-        background: #f0f0f0
-        font-size: .8em
-        padding: 1em

@@ -332,6 +332,33 @@
             background: transparent
 
 /*
+ *  ### Asides
+ *
+ *  ```
+ *  <div id="content">
+ *      <div class="text fixie">
+ *          <aside>
+ *              <header>Aside Title</header>
+ *              <p></p>
+ *          </aside>
+ *      </div>
+ *  </div>
+ *  ```
+ */
+.text aside
+    header
+        background: #e79a0b
+        padding: .8em
+        color: white
+        font: italic bold 1em/1 Ubuntu
+    p
+        margin: 0
+        background: #f0f0f0
+        color: black
+        font-size: .8em
+        padding: 1em
+
+/*
  *  ### Combination of Block Elements
  *
  *  All block elements are separated from each other by one line-height.
@@ -369,6 +396,12 @@
  *              </tr>
  *          </tbody>
  *      </table>
+ *      <p></p>
+ *      <aside>
+ *          <header>Aside Title</header>
+ *          <p></p>
+ *      </aside>
+ *      <p></p>
  *  </article>
  *  ```
  */
