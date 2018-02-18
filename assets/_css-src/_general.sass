@@ -264,25 +264,29 @@ body
     > .sixteenth
         width: 6.25%
 
-.columns
+@mixin columns
     > *
+        display: block
         margin: 0
         box-sizing: border-box
-        overflow: hidden
+    &.with-gutters
+        padding: 0 $gutter-width/2
         > *
-            box-sizing: border-box
-            width: 100%
+            padding: 0 $gutter-width/2
+.columns
+    @include columns
+    > *
+        display: inline-block
+        vertical-align: top
+    @include column-widths
+
+.columns-when-wide
+    @include columns
     @media screen and (min-width: 40em) //640px
         > *
             display: inline-block
             vertical-align: top
         @include column-widths
-    &.no-break
-        @include column-widths
-    &.with-gutters
-        padding: 0 $gutter-width/2
-        > *
-            padding: 0 $gutter-width/2
 
 .remove-outer-gutters
     overflow: hidden
@@ -340,32 +344,32 @@ body
  */
 .top
     display: inline-block
-    vertical-align: top
+    vertical-align: top !important
 
 .bottom
     display: inline-block
-    vertical-align: bottom
+    vertical-align: bottom !important
 
 .middle
     display: inline-block
-    vertical-align: middle
+    vertical-align: middle !important
 
 .baseline
     display: inline-block
-    vertical-align: baseline
+    vertical-align: baseline !important
 
 .text-top
     display: inline-block
-    vertical-align: text-top
+    vertical-align: text-top !important
 
 .text-bottom
     display: inline-block
-    vertical-align: text-bottom
+    vertical-align: text-bottom !important
 
 .sub
     display: inline-block
-    vertical-align: sub
+    vertical-align: sub !important
 
 .super
     display: inline-block
-    vertical-align: super
+    vertical-align: super !important

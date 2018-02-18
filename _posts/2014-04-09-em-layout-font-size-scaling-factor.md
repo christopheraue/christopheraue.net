@@ -41,7 +41,7 @@ There is another possibility to reduce the CPL: increasing the size of the font.
 
 Have a look at this example directly taken from this blog:
 
-<figure class="landscapes bg-grey columns with-gutters">
+<figure class="landscapes bg-grey columns-when-wide with-gutters">
     <div class="half">
         <img src="/images/embed/em-scaling-800.jpg" alt="section of christopheraue.net at 800px width">
     </div><!--
