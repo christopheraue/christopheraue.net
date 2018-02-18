@@ -1,13 +1,35 @@
 ---
 layout: default
 ---
-
-<article id="main-article">
-    <h1 class="article-headline">{{ page.title | xml_escape }}</h1>
-    <div class="text white-bg js-article-content">
-        {{ content }}
+<article>
+  <header>
+    <h1>{{ page.title | xml_escape }}</h1>
+    <div class="meta">
+      <div class="social">
+        <a href="{{ site.url | append: page.url }}#disqus_thread" class="comments">0 Comments</a>
+        —
+        <ul class="sharing">
+          <li>
+            <a href="https://twitter.com/intent/tweet?url={{ site.url | append: page.url | cgi_escape }}&amp;via=christopheraue&amp;text={{ page.title | cgi_escape }}"
+               title="Share on Twitter"
+               onclick="ga('send', 'event', 'Twitter', 'Share Attempt', '{{ site.url | append: page.url }}')">
+              <div class="twitter-icon-white"></div>
+            </a>
+          </li><!--
+       --><li>
+            <a href="https://www.facebook.com/sharer/sharer.php?m2w&amp;s=100&amp;{{ 'p[url]' | cgi_escape }}={{ site.url | append: page.url | cgi_escape }}&amp;{{ 'p[title]' | cgi_escape }}={{ page.title | cgi_escape }}&amp;{{ 'p[summary]' | cgi_escape }}={{ page.excerpt | cgi_escape }}&amp;{{ 'p[images][0]' | cgi_escape }}={{ site.url | append: '/assets/images/background/' | append: page.image | cgi_escape }}"
+               target="_blank"
+               title="Share on Facebook"
+               onclick="ga('send', 'event', 'Facebook', 'Share Attempt', '{{ site.url | append: page.url }}')">
+              <div class="facebook-icon-white"></div>
+            </a>
+          </li>
+        </ul>
+      </div><!--
+   --><time datetime="{{ page.date | replace: ' +', '+' }}" class="date">{{ page.date | date: "%B %d, %Y" }}</time>
     </div>
-    {% include article-sidebar.html %}
+  </header>
+  <section class="text white-box">{{ content }}</section>
 </article>
-<div id="disqus_thread"></div>
+<div id="disqus_thread" class="white-box"></div>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>

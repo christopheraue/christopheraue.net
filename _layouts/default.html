@@ -1,28 +1,24 @@
-{% if page.id %}
-    {% assign isArticlePage = true %}
-{% endif %}
-
 <!doctype html>
 <html>
-    <head>
-        <title>{{ page.title | xml_escape }}{% unless page.no_head_title_affix %} - {{ site.name | xml_escape }}{% endunless %}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <meta name="author" content="Christopher Aue">
-        <link rel="author" href="https://plus.google.com/114377207286629068658">
-        <meta name="description" content="{{ page.meta_description }}">
-        <meta name="robots" content="index, follow">
-        <link rel="alternate" type="application/rss+xml" title="christopheraue.net" href="{{ site.url | append: '/feed.xml' }}">
-        <link rel="stylesheet" href="{{ site.url | append: '/assets/css/styles.css' }}" type="text/css" />
-        <script async data-main="{{ site.url | append: '/assets/js/main' }}" src="{{ site.url | append: '/assets/js/lib/require.js' }}"></script>
-    </head>
-    <body class="{% if isArticlePage %}article-page {% endif %}{{ page.body_class }}">
-        {% include header.html %}
-        <div id="content-container">
-            <div id="content">
-                {{ content }}
-            </div>
-        </div>
-        <a href="#" class="close-button back-to-top-button js-back-to-top-button"><span class="arrow"></span>BACK TO TOP<span class="arrow"></span></a>
-    </body>
+  <head>
+    <title>{{ page.title | xml_escape }}{% unless page.no_head_title_affix %} - {{ site.name | xml_escape }}{% endunless %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Christopher Aue">
+    <meta name="description" content="{{ page.meta_description }}">
+    <meta name="robots" content="index, follow">
+    <link rel="alternate" type="application/rss+xml" title="christopheraue.net" href="{{ site.url | append: '/feed.xml' }}">
+    <link rel="stylesheet" href="{{ site.url | append: '/assets/css/styles.css' }}" type="text/css" />
+    <script async data-main="{{ site.url | append: '/assets/js/main' }}" src="{{ site.url | append: '/assets/js/lib/require.js' }}"></script>
+  </head>
+  <body class="{% if page.id %}
+                 article-page
+               {% endif %}
+               {{ page.body_class }}
+               technical-category">
+    {% include header.html %}
+    <div id="content">
+      {{ content }}
+    </div>
+  </body>
 </html>

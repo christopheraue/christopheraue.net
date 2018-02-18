@@ -1,11 +1,23 @@
-<header id="page-header" class="js-header">
+<header id="page-header">
+  <div class="logo-nav">
     <div class="logo">
-        <a href="{{ site.url }}"><img src="{{ site.url }}/assets/images/christopheraue.png" alt="Christopher Aue" width="226" height="46"/></a>
-    </div><!--
- --><ul class="social-link-list"><!--
-     --><li class="item"><a href="https://twitter.com/intent/user?screen_name=christopheraue" target="_blank" title="@christopheraue on twitter" class="social-link twit"></a></li>
-        <li class="item"><a href="https://github.com/christopheraue" target="_blank" title="christopheraue on github" class="social-link gith"></a></li>
-        <li class="item"><a href="mailto:hi@christopheraue.net" target="_blank" title="Say hello!" class="social-link mail"></a></li>
-    </ul>
-    <a href="{{ site.url | append: '/impressum' }}" class="impress-link">Impressum</a>
+      <a href="{{ site.url }}"><img src="{{ site.url }}/assets/images/christopheraue.svg" class="christopheraue" alt="Christopher Aue"/></a>
+    </div>
+    <nav class="nav">
+      <ul class="top">
+        <li>
+          <a href="{{ site.url }}/technical">
+            <div class="nav-item-part"><img class="nav-image" src="/assets/images/slash_technical.svg"/></div><!--
+         --><div class="nav-item-part"><div class="arrow"></div></div>
+          </a>
+        </li>
+        <li>
+          <a href="{{ site.url }}/collateral">
+            <div class="nav-item-part"><img class="nav-image" src="/assets/images/slash_collateral.svg"/></div><!--
+         --><div class="nav-item-part"><div class="arrow"></div></div>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
