@@ -303,11 +303,15 @@ We can now take a closer look at vertical alignment in certain situations. Espec
 One question bugging me was the following: I have an icon I want to center next to a line of text. Just giving the icon a `vertical-align: middle` didn't seem to center it in a satisfying way. Have a look at this example:
 
 <figure class="columns">
-    <div class="half center">
-        <span class="small box bg-grey middle"> </span> Centered?
+    <div class="half">
+        <div class="center">
+            <span class="small box bg-grey middle"> </span> Centered?
+        </div>
     </div><!--
- --><div class="half center">
-        <span class="small box bg-grey middle"> </span> <span class="middle">Centered!</span>
+ --><div class="half">
+        <div class="center">
+            <span class="small box bg-grey middle"> </span> <span class="middle">Centered!</span>
+        </div>
     </div>
 </figure>
 
