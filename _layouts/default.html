@@ -11,11 +11,7 @@
     <link rel="stylesheet" href="{{ site.url | append: '/assets/css/styles.css' }}" type="text/css" />
     <script async data-main="{{ site.url | append: '/assets/js/main' }}" src="{{ site.url | append: '/assets/js/lib/require.js' }}"></script>
   </head>
-  <body class="{% if page.id %}
-                 article-page
-               {% endif %}
-               {{ page.body_class }}
-               technical-category">
+  <body class="{{ page.body_class }} technical-category">
     {% include header.html %}
     <div id="content">
       {{ content }}

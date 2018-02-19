@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<article>
+<article class="article">
   <header>
     <h1>{{ page.title | xml_escape }}</h1>
     <div class="meta">
@@ -30,6 +30,6 @@ layout: default
     </div>
   </header>
   <section class="text white-box">{{ content }}</section>
+  <div id="disqus_thread" class="white-box"></div>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </article>
-<div id="disqus_thread" class="white-box"></div>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>

@@ -9,7 +9,8 @@
  *  ```
  *  !bodyClass technical-category
  *
- *  <div class="text white-box">Background and Text Color</div>
+ *  <div class="text" style="padding: 1.25em">Light Text On Dark Background</div>
+ *  <div class="text white-box">Dark Text On Light Background</div>
  *  ```
  */
 $light: white
@@ -28,8 +29,9 @@ $dark: rgb(15,35,25)
  *  --------
  *
  *  *Source Code Pro* is used more in this category to give it a tech-y feel.
- *  It is already used for code blocks in texts, but for this category it is
- *  extended by a bold variant to be used for headlines or where else it fits.
+ *  It has already been imported to use it for code blocks in texts, but for
+ *  this category it is extended by a bold variant to be used for headlines or
+ *  where else it fits.
  *
  *  ```
  *  <div class="white-box">
@@ -41,10 +43,64 @@ $dark: rgb(15,35,25)
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:900')
 
 /*
- *  Text Adjustments
- *  ----------------
+ *  Changes To an Article List
+ *  --------------------------
  *
+ *  Headings and similar elements are displayed with this category's
+ *  characteristic font.
+ */
+.technical-category
+    .article-list
+        h2
+            font-family: 'Source Code Pro', monospace
+            font-style: italic
+        h3
+            font-family: 'Source Code Pro', monospace
+            font-weight: bold
+        p
+            font-family: 'Source Code Pro', monospace
+            font-weight: 200
+
+/*
+ *  Changes To an Article
+ *  ---------------------
+ *
+ *  Headings and similar elements are displayed with this category's
+ *  characteristic font.
+ */
+.technical-category
+    .article
+        header
+            font-family: 'Source Code Pro', monospace
+
+/*
+ *  Changes To Text
+ *  ---------------
+ *
+ *  ### Headings and Captions
+ *
+ *  ```
+ *  !bodyClass technical-category
+ *
+ *  <div class="text white-box">
+ *      <h2>Headline Level 2</h2>
+ *      <h3>Headline Level 3</h3>
+ *      <h4>Headline Level 4</h4>
+ *      <h5>Headline Level 5</h5>
+ *      <h6>Headline Level 6</h6>
+ *  </div>
+ *  ```
+ */
+.technical-category
+    .text
+        h2, h3, h4, h5, h6,
+        table caption
+            font-family: 'Source Code Pro', monospace
+
+/*
  *  ### Inline Code
+ *
+ *  Colors are adjusted to match the colors of this category.
  *
  *  ```
  *  !bodyClass technical-category
@@ -61,6 +117,8 @@ $dark: rgb(15,35,25)
 /*
  *  ### Code Blocks
  *
+ *  Colors are adjusted to match the colors of this category.
+ *
  *  ```
  *  !bodyClass technical-category
  *
@@ -73,179 +131,3 @@ $dark: rgb(15,35,25)
     .text pre code
         background-color: $dark
         color: $light
-
-/*
- *  The Category Page
- *  -----------------
- *
- *  Lists all articles by sections.
- *
- *  ```
- *  !responsive
- *  !bodyClass category-page technical-category
- *
- *  <div id="content">
- *      <section class="columns-when-wide with-gutters">
- *          <div class="third">
- *              <h2>Section 1</h2>
- *          </div><!--
- *       --><nav class="two-thirds">
- *              <ul class="article-list">
- *                  <li>
- *                      <h3>Article Headline</h3>
- *                      <p>This is a description of the article. It may become longer than a single line.</p>
- *                  </li>
- *                  <li>
- *                      <h3>Article Headline</h3>
- *                      <p>This is a description of the article.</p>
- *                  </li>
- *              </ul>
- *          </nav>
- *      </section>
- *      <section class="columns-when-wide with-gutters">
- *          <div class="third">
- *              <h2>Section 2</h2>
- *          </div><!--
- *       --><nav class="two-thirds">
- *              <ul class="article-list">
- *                  <li>
- *                      <h3>This Is a Very Long Article Headline: Maybe With a Subtitle</h3>
- *                      <p>This is a description of the article.</p>
- *                  </li>
- *                  <li>
- *                      <h3>Article Headline</h3>
- *                      <p>This is a description of the article.</p>
- *                  </li>
- *              </ul>
- *          </nav>
- *      </section>
- *  </div>
- *  ```
- */
-.category-page
-    section + section
-        margin-top: 2*$gutter-width
-    .article-list > li + li
-        margin-top: $gutter-width
-    h2
-        font-size: 1.625em
-        text-align: left
-        margin-bottom: .75em
-    .article-list li
-        font-size: 1em
-        line-height: 1.5
-    @media screen and (min-width: 40em) //640px
-        h2
-            text-align: right
-            font-size: 1.3em
-        .article-list li
-            font-size: .8em
-
-.category-page.technical-category
-    h2
-        font-family: 'Source Code Pro', monospace
-        font-style: italic
-    h3
-        font-family: 'Source Code Pro', monospace
-        font-weight: bold
-    .article-list p
-        font-family: 'Source Code Pro', monospace
-        font-weight: 200
-
-/*
- *  The Article Page
- *  ----------------
- *
- *  Displays an article.
- *
- *  ```
- *  !responsive
- *  !bodyClass article-page technical-category
- *
- *  <div id="content">
- *    <article>
- *      <header>
- *        <h1>This Is the Headline of an Article With an Interesting Topic</h1>
- *        <div class="meta">
- *          <div class="social">
- *            <a href="#" class="comments">5 Comments</a>
- *            —
- *            <ul class="sharing">
- *              <li><a href="#" title="Share on Twitter"><div class="twitter-icon-white"></div></a></li><!--
- *           --><li><a href="#" title="Share on Facebook"><div class="facebook-icon-white"></div></a></li>
- *            </ul>
- *          </div><!--
- *       --><time datetime="2049-09-15" class="date">September 15, 2049</time>
- *        </div>
- *      </header>
- *      <section class="text white-box fixie"></section>
- *    </article>
- *    <div id="disqus_thread" class="white-box">COMMENT SECTION</div>
- *  </div>
- *  ```
- */
-
-.article-page
-    #content
-        max-width: 40em
-        margin: 0 auto
-    article
-        header
-            margin: 0 $gutter-width
-            position: relative
-        h1
-            font-size: 1.5em
-            @media screen and (min-width: 50em) //800px
-                font-size: 2em
-            font-style: italic
-            font-weight: bold
-            text-align: left
-            @media screen and (min-width: 22em) // 352px
-                text-align: center
-        .meta
-            white-space: nowrap
-            > *
-                display: block
-                margin: .5em 0
-            @media screen and (min-width: 22em) // 352px
-                > *
-                    display: inline-block
-                    vertical-align: middle
-                > .social
-                    width: 60%
-                > .date
-                    width: 40%
-                > :last-child
-                    text-align: right
-        .date
-            font-size: .8em
-        .comments
-            font-size: .8em
-            vertical-align: middle
-            text-decoration: none
-            &:hover
-                font-style: italic
-        .sharing
-            display: inline-block
-            vertical-align: middle
-            li
-                display: inline-block
-                vertical-align: middle
-                a
-                    display: inline-block
-                    vertical-align: middle
-                    padding: .25em
-                    opacity: .4
-                    &:hover
-                        opacity: 1
-                    > *
-                        font-size: 1.1em
-
-#disqus_thread
-    margin-top: $gutter-width
-
-.article-page.technical-category
-    h1, h2, h3, h4, h5, h6,
-    header,
-    .text table caption
-        font-family: 'Source Code Pro', monospace
