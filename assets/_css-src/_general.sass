@@ -491,3 +491,23 @@ body
 .youtube-icon-black
     @include social-icon
     background-position: 100% 100%
+
+/*
+ *  Optimal Readability
+ *  -------------------
+ *
+ *  To ensure optimal readability for text areas they should not grow wider
+ *  than 40 em. Adding the css class `.ensure-readability` takes care of that.
+ *
+ *  ```
+ *  !responsive
+ *
+ *  <div class="text white-box ensure-readability fixie">
+ *      <p></p>
+ *      <p></p>
+ *  </div>
+ *  ```
+ */
+.ensure-readability
+    max-width: 40em
+    margin: 0 auto
