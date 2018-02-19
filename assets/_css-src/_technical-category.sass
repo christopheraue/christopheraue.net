@@ -25,13 +25,13 @@ $dark: rgb(15,35,25)
         color: $dark
 
 /*
- *  The Font
- *  --------
+ *  The Characteristic Font
+ *  -----------------------
  *
  *  *Source Code Pro* is used more in this category to give it a tech-y feel.
- *  It has already been imported to use it for code blocks in texts, but for
- *  this category it is extended by a bold variant to be used for headlines or
- *  where else it fits.
+ *  It has already been imported for code blocks in texts, but for this
+ *  category an additional bold variant is imported too. The font is used for
+ *  headlines or where else it fits.
  *
  *  ```
  *  <div class="white-box">
@@ -46,27 +46,18 @@ $dark: rgb(15,35,25)
  *  Changes To an Article List
  *  --------------------------
  *
- *  Headings and similar elements are displayed with this category's
- *  characteristic font.
+ *  Headings are displayed with this category's characteristic font.
  */
 .technical-category
     .article-list
-        h2
+        h2, h3
             font-family: 'Source Code Pro', monospace
-            font-style: italic
-        h3
-            font-family: 'Source Code Pro', monospace
-            font-weight: bold
-        p
-            font-family: 'Source Code Pro', monospace
-            font-weight: 200
 
 /*
  *  Changes To an Article
  *  ---------------------
  *
- *  Headings and similar elements are displayed with this category's
- *  characteristic font.
+ *  An article's header is displayed with this category's characteristic font.
  */
 .technical-category
     .article
@@ -78,6 +69,8 @@ $dark: rgb(15,35,25)
  *  ---------------
  *
  *  ### Headings and Captions
+ *
+ *  Rendered with this category's characteristic font.
  *
  *  ```
  *  !bodyClass technical-category

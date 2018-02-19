@@ -62,13 +62,12 @@ a
     text-decoration: none
 
 /*
- *  Background
+ *  Colors
  *  ----------
  *
- *  The background is black.
- *
  *  ```
- *  <div style="padding: 1em"></div>
+ *  <div class="text" style="padding: 1.25em">Light Text On Dark Background</div>
+ *  <div class="text white-box">Dark Text On Light Background</div>
  *  ```
  */
 body
@@ -79,6 +78,26 @@ body
     padding: 1.25em
     background: white
     color: black
+
+/*
+ *  Text
+ *  ----
+ *
+ *  The default font is *Work Sans*.
+ *
+ *  ```
+ *  <div class="white-box">
+ *      <p style="font-weight: 200; font-style: normal">Work Sans Light</p>
+ *      <p style="font-weight: 200; font-style: italic">Work Sans Light Italic</p>
+ *      <p style="font-weight: 400; font-style: normal">Work Sans Regular</p>
+ *      <p style="font-weight: 400; font-style: italic">Work Sans Regular Italic</p>
+ *  </div>
+ *  ```
+ */
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:200,400&subset=latin-ext')
+
+body
+    font: 200 1em/1 'Work Sans'
 
 /*
  *  Page Layout
