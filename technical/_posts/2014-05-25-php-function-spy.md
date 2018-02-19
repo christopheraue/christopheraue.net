@@ -1,9 +1,9 @@
 ---
 layout: article
 title: 'PHP Spy: Record Calls To Functions or Alter Their Behavior At Runtime'
-category: articles
 excerpt: Track calls to functions and methods or stub them when you cannot use a PHPUnit test double.
 meta_description: Track calls to functions and methods or stub them when you cannot use a PHPUnit test double.
+redirect_from: /2014/05/25/php-function-spy
 ---
 
 What do you do, if you use PHPUnit and test code that does not rely on dependency injection? When you cannot just create a [test double](http://phpunit.de/manual/3.7/en/test-doubles.html) of the object in question and inject it into the system under test?

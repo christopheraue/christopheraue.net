@@ -1,9 +1,9 @@
 ---
 layout: article
 title: 'Vertical-Align: All You Need To Know'
-category: articles
 excerpt: A journey down the rabbit hole into the mysteries of vertical-align. Instructions on how to master it included!
 meta_description: The CSS property vertical-align has some seemingly mysterious rules at work. This article forces them to show their true color.
+redirect_from: /2014/03/05/vertical-align
 ---
 
 Often I need to vertically align elements side by side.
