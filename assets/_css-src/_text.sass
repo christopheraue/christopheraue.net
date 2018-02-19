@@ -575,16 +575,18 @@ $comment: #888888
  *  ```
  */
 .text aside
+    padding: $gutter-width
+    background-color: rgba(0,0,0,0.032)
+    font-size: .8em
     header
         background: #e79a0b
-        padding: .8em
         color: white
-        font: italic bold 1em/1 Ubuntu
-    p
-        margin: 0
-        background-color: rgba(0,0,0,0.032)
-        font-size: .8em
-        padding: 1em
+        font-style: italic
+        font-weight: bold
+        margin: (-$gutter-width) (-$gutter-width) 0
+        padding: $gutter-width/2 $gutter-width
+        &:before
+            content: "On a Side Note: "
 
 /*
  *  ### Combination of Block Elements

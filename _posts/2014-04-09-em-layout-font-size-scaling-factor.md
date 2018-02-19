@@ -24,13 +24,13 @@ When implementing a responsive design with text in mind one usually starts with 
 
 Line length is measured by the number or characters per line (CPL). Good line lengths are roughly between [55 and 100 characters](http://www.pearsonified.com/2012/01/characters-per-line.php). So, if the lines become too long, we break the layout, so the width of the text area is shortened again.
 
-<aside class="portrait use-sidebar">
+<aside>
     <header>Media Queries Based On an Element's Width?</header>
-    <div class="content">
-        <p>On a side note, wouldn't it be nice to have media queries, that could check conditions on elements?</p>
+    <section>
+        <p>Wouldn't it be nice to have media queries, that could check conditions on elements?</p>
         <pre><code>@media (#my-text-area min-width: X em)</code></pre>
         <p>This way, you don't need to take into account the size of all the other stuff around the text. If the text area get wider than `X em`, the layout breaks. Probably, you even need fewer queries, since conditions might repeat at a different screen size or some other factor. Yea, well, but you can't have everything, I guess...</p>
-    </div>
+    </section>
 </aside>
 
 Using `em` as units in media queries is beneficial compared to absolute lengths like `px`, because [things don't break](http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/), if the user chooses to zoom in or has set an initial `font-size` other than the default `medium` (16px).
