@@ -2,8 +2,6 @@ url: http://c.loc
 destination: ./_site
 name: Christopher Aue
 description: A place for Christopher Aue to write about stuff.
-default_background: blur_lightbeam.jpg
 encoding: UTF-8
-highlighter: pygments
 permalink: :year/:month/:day/:title/
 exclude: [test, sass, build.sh, deploy.sh, set_development_env.sh, set_production_env.sh, videos, Gemfile, Gemfile.lock, Guardfile]
