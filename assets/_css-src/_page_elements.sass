@@ -4,6 +4,26 @@
  *  Page Elements
  *  =============
  *
+ *  Maximum Width To Ensure Readability
+ *  -----------------------------------
+ *
+ *  To ensure optimum readability text areas with css class
+ *  `.ensure-readability` do not grow wider than 40 em.
+ *
+ *  ```
+ *  !responsive
+ *
+ *  <div class="text white-box ensure-readability fixie">
+ *      <p></p>
+ *      <p></p>
+ *  </div>
+ *  ```
+ */
+.ensure-readability
+  max-width: 40em
+  margin: 0 auto
+
+/*
  *  Article Lists
  *  -------------
  *
@@ -15,7 +35,7 @@
  *          <div class="third">
  *              <h2>Section 1</h2>
  *          </div><!--
- *       --><nav class="two-thirds">
+ *       --><nav class="two-thirds ensure-readability">
  *              <ul>
  *                  <li>
  *                      <h3>Article Headline</h3>
@@ -32,7 +52,7 @@
  *          <div class="third">
  *              <h2>Section 2</h2>
  *          </div><!--
- *       --><nav class="two-thirds">
+ *       --><nav class="two-thirds ensure-readability">
  *              <ul>
  *                  <li>
  *                      <h3>This Is a Very Long Article Headline: Maybe With a Subtitle</h3>
@@ -75,7 +95,7 @@
  *  !responsive
  *
  *  <div id="content">
- *    <article class="article">
+ *    <article class="article ensure-readability">
  *      <header>
  *        <h1>This Is the Headline of an Article With an Interesting Topic</h1>
  *        <div class="meta">
@@ -98,8 +118,6 @@
  */
 
 .article
-  max-width: 40em
-  margin: 0 auto
   header
     margin: 0 $gutter-width
     position: relative
