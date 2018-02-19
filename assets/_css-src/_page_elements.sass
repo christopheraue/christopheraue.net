@@ -191,7 +191,7 @@
   h3
     font-weight: bold
   p
-    font-weight: 200
+    opacity: 0.7
   li
     font-size: 1em
     line-height: 1.5
@@ -218,7 +218,7 @@
  *        <div class="meta">
  *          <div class="social">
  *            <a href="#" class="comments">5 Comments</a>
- *            —
+ *            <span class="dash">—</span>
  *            <ul class="sharing">
  *              <li><a href="#" title="Share on Twitter"><div class="twitter-icon-white"></div></a></li><!--
  *           --><li><a href="#" title="Share on Facebook"><div class="facebook-icon-white"></div></a></li>
@@ -262,14 +262,18 @@
         width: 40%
       > :last-child
         text-align: right
+  .meta
+    font-size: .8em
   .date
-    font-size: .8em
+    opacity: .7
   .comments
-    font-size: .8em
+    opacity: .7
     vertical-align: middle
     text-decoration: none
     &:hover
-      font-style: italic
+      opacity: 1
+  .dash
+    opacity: .7
   .sharing
     display: inline-block
     vertical-align: middle
@@ -279,11 +283,10 @@
       a
         display: inline-block
         vertical-align: middle
+        font-size: 1.25em
         padding: .25em
-        opacity: .4
+        opacity: .7
         &:hover
           opacity: 1
-        > *
-          font-size: 1.1em
   #disqus_thread
     margin-top: $gutter-width
