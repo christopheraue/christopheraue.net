@@ -6,25 +6,68 @@
  *  To achieve the text formatting described on this page, the text must appear inside an element
  *  with the class `.text`.
  *
- *  The Font
- *  --------
+ *  The Fonts
+ *  ---------
  *
- *  Text uses the *Work Sans Extra Light* font.
+ *  Regular text uses *Work Sans*.
  *
  *  ```
- *  <div class="text fixie white-box">
- *      <p></p>
+ *  <div class="white-box">
+ *      <p style="font: 200 1em 'Work Sans'">Work Sans Light</p>
+ *      <p style="font: 200 italic 1em 'Work Sans'">Work Sans Light Italic</p>
+ *      <p style="font: 400 1em 'Work Sans'">Work Sans Regular</p>
+ *      <p style="font: 400 italic 1em 'Work Sans'">Work Sans Regular Italic</p>
  *  </div>
  *  ```
  */
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:200,400&subset=latin-ext')
 
-.text
-    font: 200 1em/1.5 'Work Sans'
+/*
+ *  Code uses *Source Code Pro*.
+ *
+ *  ```
+ *  <div class="white-box">
+ *      <p style="font: 200 1em 'Source Code Pro'">Source Code Pro Light</p>
+ *      <p style="font: 200 italic 1em 'Source Code Pro'">Source Code Pro Light Italic</p>
+ *      <p style="font: 400 1em 'Source Code Pro'">Source Code Pro Regular</p>
+ *      <p style="font: 400 italic 1em 'Source Code Pro'">Source Code Pro Regular Italic</p>
+ *  </div>
+ *  ```
+ */
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,400&subset=latin-ext')
 
 /*
  *  Headings
  *  --------
+ *
+ *  ### Levels
+ *  There are three visually distinct levels of sub headings in the body copy.
+ *
+ *  `<h1>` is used outside the running text as the top level headline.
+ *
+ *  ```
+ *  <div class="text white-box">
+ *      <h2>Headline Level Two</h2>
+ *      <h3>Headline Level Three</h3>
+ *      <h4>Headline Level Four</h4>
+ *      <h5>Headline Level Five</h5>
+ *      <h6>Headline Level Six</h6>
+ *  </div>
+ *  ```
+ */
+.text
+    h2, h3, h4, h5, h6
+        font-weight: bold
+    h2
+        font-size: 1.5em
+        line-height: 1.2em
+    h3
+        font-size: 1.3em
+    h4, h5, h6
+        font-size: 1.1em
+
+/*
+ *  ### Spacings
  *
  *  Headings have a top margin to separate them from the preceding text. If there is no content
  *  before the heading, then there is also no margin. Headings also have a slight bottom margin.
@@ -61,38 +104,26 @@
     * + h6, * + section > h6
         margin-top: 2.5em !important
 
-/*
- *  ### Levels
- *  There are two levels of sub headings in the body copy. Their size is relative to the size of the body copy.
+/*  Inline Elements
+ *  ---------------
+ *
+ *  ### Regular Text
  *
  *  ```
- *  <div class="text fixie white-box">
- *      <h2>Headline Level Two</h2>
- *      <h3>Headline Level Three</h3>
- *      <h4>Headline Level Four</h4>
- *      <h5>Headline Level Five</h5>
- *      <h6>Headline Level Six</h6>
+ *  <div class="text white-box">
+ *      This is plain and simple text.
  *  </div>
  *  ```
  */
 .text
-    h2, h3, h4, h5, h6
-        font-size: 1.2em
-        line-height: 1.2em
-        font-weight: bold
-    h2
-        font-size: 1.5em
-        line-height: 1.2em
-        font-weight: bold
+    font: 200 1em/1.5 'Work Sans'
 
-/*  Inline Elements
- *  ---------------
- *
+/*
  *  ### Links
  *
  *  ```
  *  <div class="text white-box">
- *      This is a <a href="#">Link</a>.
+ *      This is a <a href="#">link</a>.
  *  </div>
  *  ```
  */
@@ -238,13 +269,14 @@
  */
 .text blockquote.short
     background: transparent
-    *
-        font-size: 1.5em
+    > *
         display: inline
-    p:before
-        content: '“'
-    p:after
-        content: '”'
+    > p
+        font-size: 1.5em
+        &:before
+            content: '“'
+        &:after
+            content: '”'
 
 .text * + blockquote.short
     margin-top: 1em
