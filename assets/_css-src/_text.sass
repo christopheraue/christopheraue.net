@@ -275,19 +275,233 @@
  *  ```
  *  !responsive
  *
- *  <div class="text white-box">
- *      <pre><code>&lt;div class="center-area"&gt;&#10; &nbsp;&lt;div class="centered"&gt;&lt;/div&gt;&#10;&lt;/div&gt;</code></pre>
+ *  <div class="text white-box ensure-readability">
+ *      <div class="highlight">
+ *          <pre><code>
+ *  <span class="c">&lt;!-- Comment --&gt;</span>
+ *  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon middle"</span><span class="nt">&gt;&lt;/span&gt;</span>
+ *  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"middle"</span><span class="nt">&gt;</span>Centered!<span class="nt">&lt;/span&gt;</span>
+ *
+ *  <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span>
+ *      <span class="nc">.icon</span>   <span class="p">{</span> <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+ *                <span class="c">// size, color, etc. </span> <span class="p">}</span>
+ *
+ *      <span class="nc">.middle</span> <span class="p">{</span> <span class="k">vertical-align</span><span class="o">:</span> <span class="k">middle</span><span class="p">;</span> <span class="p">}</span>
+ *  <span class="nt">&lt;/style&gt;</span>
+ *          </code></pre>
+ *      </div>
  *  </div>
  *  ```
  */
-.text pre code
-    display: block
-    font-weight: 400
-    white-space: pre
-    line-height: 1.3
-    padding: 1em
-    border-radius: 0
-    overflow: auto
+
+$error: #e24234
+$operator: #cc7832
+$identifier: #ffc66d
+$literal: #6e9cbe
+$string: #a5c261
+$parameter: #9876aa
+$comment: #888888
+
+.text
+    .highlight
+        margin-left: -$gutter-width
+        margin-right: -$gutter-width
+        padding: $gutter-width
+        overflow: auto
+        background: black
+        color: white
+        font-weight: 300
+        line-height: 1.3
+        .hll
+            background-color: #404040
+        .c
+            /* Comment */
+            color: $comment
+            font-style: italic
+        .err
+            /* Error */
+            color: $error
+            background-color: $identifier
+        .g
+            /* Generic */
+        .k
+            /* Keyword */
+            font-weight: 400
+        .l
+            /* Literal */
+            color: $literal
+        .n
+            /* Name */
+        .o
+            /* Operator */
+        .x
+            /* Other */
+        .p
+            /* Punctuation */
+        .cm
+            /* Comment.Multiline */
+            color: $comment
+        .cp
+            /* Comment.Preproc */
+            color: $comment
+        .c1
+            /* Comment.Single */
+            color: $comment
+        .cs
+            /* Comment.Special */
+            color: $comment
+        .gd
+            /* Generic.Deleted */
+            color: $error
+        .ge
+            /* Generic.Emph */
+            font-style: italic
+        .gr
+            /* Generic.Error */
+            color: $error
+        .gh
+            /* Generic.Heading */
+            font-weight: 400
+        .gi
+            /* Generic.Inserted */
+        .go
+            /* Generic.Output */
+        .gp
+            /* Generic.Prompt */
+        .gs
+            /* Generic.Strong */
+            font-weight: 400
+        .gu
+            /* Generic.Subheading */
+        .gt
+            /* Generic.Traceback */
+            color: $error
+        .kc
+            /* Keyword.Constant */
+            font-weight: 400
+        .kd
+            /* Keyword.Declaration */
+            font-weight: 400
+        .kn
+            /* Keyword.Namespace */
+            font-weight: 400
+        .kp
+            /* Keyword.Pseudo */
+            font-weight: 400
+        .kr
+            /* Keyword.Reserved */
+            font-weight: 400
+        .kt
+            /* Keyword.Type */
+            font-weight: 400
+        .ld
+            /* Literal.Date */
+            color: $literal
+        .m
+            /* Literal.Number */
+            color: $literal
+        .s
+            /* Literal.String */
+            color: $string
+        .na
+            /* Name.Attribute */
+        .nb
+            /* Name.Builtin */
+        .nc
+            /* Name.Class */
+            font-weight: 400
+        .no
+            /* Name.Constant */
+            font-weight: 400
+        .nd
+            /* Name.Decorator */
+        .ni
+            /* Name.Entity */
+        .ne
+            /* Name.Exception */
+        .nf
+            /* Name.Function */
+            color: $identifier
+        .nl
+            /* Name.Label */
+        .nn
+            /* Name.Namespace */
+        .nx
+            /* Name.Other */
+        .py
+            /* Name.Property */
+        .nt
+            /* Name.Tag */
+            color: $identifier
+        .nv
+            /* Name.Variable */
+            color: $identifier
+        .ow
+            /* Operator.Word */
+        .w
+            /* Text.Whitespace */
+        .mf
+            /* Literal.Number.Float */
+            color: $literal
+        .mh
+            /* Literal.Number.Hex */
+            color: $literal
+        .mi
+            /* Literal.Number.Integer */
+            color: $literal
+        .mo
+            /* Literal.Number.Oct */
+            color: $literal
+        .sb
+            /* Literal.String.Backtick */
+            color: $string
+        .sc
+            /* Literal.String.Char */
+            color: $string
+        .sd
+            /* Literal.String.Doc */
+            color: $string
+        .s2
+            /* Literal.String.Double */
+            color: $string
+        .se
+            /* Literal.String.Escape */
+            color: $string
+        .sh
+            /* Literal.String.Heredoc */
+            color: $string
+        .si
+            /* Literal.String.Interpol */
+            color: $string
+        .sx
+            /* Literal.String.Other */
+            color: $string
+        .sr
+            /* Literal.String.Regex */
+            color: $string
+        .s1
+            /* Literal.String.Single */
+            color: $string
+        .ss
+            /* Literal.String.Symbol */
+            color: $string
+        .bp
+            /* Name.Builtin.Pseudo */
+        .vc
+            /* Name.Variable.Class */
+        .vg
+            /* Name.Variable.Global */
+        .vi
+            /* Name.Variable.Instance */
+        .il
+            /* Literal.Number.Integer.Long */
+            color: $literal
+    ul, ol
+        .highlight
+            border-radius: .25em 0 0 .25em
+    pre code
+        white-space: pre
+        background: transparent
 
 /*
  *  ### Tables

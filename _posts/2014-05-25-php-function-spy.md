@@ -27,13 +27,17 @@ With the system under test at hand there was no way to mock the cURL function an
 ## Inspiration From Other Frameworks
 What do testing frameworks in different languages bring along? [Jasmine](http://jasmine.github.io/) for Javascript, for example, offers a spy that makes the task from above easy. There, you just write something like
 
-{% highlight js %}
+{% highlight php %}
+<?php
+
 spyOn(duck, "quak");
 {% endhighlight %}
 
 and from then on calls to `duck.quak` are recorded. In Javascript calls can be intercepted by just redefining the underlying function like so:
 
-{% highlight js %}
+{% highlight php %}
+<?php
+
 var IWantToBeIntercepted = function() {...}
 var IWantToBeIntercepted_original = IWantToBeIntercepted;
 
