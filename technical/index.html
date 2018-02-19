@@ -1,0 +1,23 @@
+---
+title: Christopher Aue / technical
+layout: with_header
+categories: technical
+---
+
+<section class="article-list columns-when-wide with-gutters">
+  <div class="third">
+    <h2>Webdesign</h2>
+  </div><!--
+--><nav class="two-thirds ensure-readability">
+    <ul>
+      {% for article in site.posts %}
+      <li>
+        <a href="{{ site.url }}{{ article.url }}">
+          <h3>{{ article.title | xml_escape }}</h3>
+          <p>{{ article.excerpt | xml_escape }}</p>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</section>

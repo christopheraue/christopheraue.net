@@ -1,3 +1,7 @@
+# Disable directory listings
+Options -Indexes
+
+# Enable URLs without trailing slashes
 Options +MultiViews
 
 <IfModule mod_rewrite.c>
