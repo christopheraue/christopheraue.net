@@ -2,8 +2,25 @@
 title: Christopher Aue
 layout: bare
 no_head_title_affix: true
+categories: home
 ---
 
-{% for category in site.category_list %}
-<a href="/{{ category }}">/{{ category }}</a>
-{% endfor %}
+<h1>
+  <img src="/assets/images/christopheraue.svg" alt="Christopher Aue"/>
+</h1>
+
+<a class="category technical" href="/technical">
+  <span class="desc-container"><!--
+ --><span class="desc">
+      <img class="slash-img" src="/assets/images/slash_technical.svg"/>
+    </span>
+  </span>
+</a>
+
+<a class="category collateral" href="/collateral">
+  <span class="desc-container"><!--
+ --><span class="desc">
+      <img class="slash-img" src="/assets/images/slash_collateral.svg"/>
+    </span>
+  </span>
+</a>
