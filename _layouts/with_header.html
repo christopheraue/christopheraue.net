@@ -9,16 +9,13 @@ layout: bare
     </div>
     <nav class="nav">
       <ul class="top">
+        {% for category in site.category_list %}
         <li>
-          <a href="{{ site.url }}/technical">
-            <img class="nav-image" src="/assets/images/slash_technical.svg"/>
+          <a href="{{ site.url }}/{{ category }}">
+            <img class="nav-image" src="/assets/images/slash_{{ category }}.svg"/>
           </a>
         </li>
-        <li>
-          <a href="{{ site.url }}/collateral">
-            <img class="nav-image" src="/assets/images/slash_collateral.svg"/>
-          </a>
-        </li>
+        {% endfor %}
       </ul>
       <div class="arrow"></div>
     </nav>

@@ -5,12 +5,12 @@ layout: none
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>{{ site.name | xml_escape }} / technical</title>
+        <title>{{ site.name | xml_escape }}/{{ page.categories }}</title>
         <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}
         </description>
-        <link>{{ site.url }}/technical</link>
-        <atom:link href="{{ site.url }}/technical/feed.xml" rel="self" type="application/rss+xml"/>
-        {% for post in site.categories.technical %}
+        <link>{{ site.url }}/{{ page.categories }}</link>
+        <atom:link href="{{ site.url }}/{{ page.categories }}/feed.xml" rel="self" type="application/rss+xml"/>
+        {% for post in site.categories[page.categories] %}
         <item>
             <title>{{ post.title | xml_escape }}</title>
             <description>{{ post.excerpt | xml_escape }}</description>
