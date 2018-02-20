@@ -9,12 +9,19 @@ layout: bare
     </div>
     <nav class="nav">
       <ul class="top">
-        {% for category in site.category_list %}
         <li>
-          <a href="{{ site.url }}/{{ category }}">
-            <img class="nav-image" src="/assets/images/slash_{{ category }}.svg"/>
+          <a href="{{ site.url }}/{{ page.categories }}">
+            <img class="nav-image" src="/assets/images/slash_{{ page.categories }}.svg"/>
           </a>
         </li>
+        {% for category in site.category_list %}
+          {% if category != page.categories %}
+            <li>
+              <a href="{{ site.url }}/{{ category }}">
+                <img class="nav-image" src="/assets/images/slash_{{ category }}.svg"/>
+              </a>
+            </li>
+          {% endif %}
         {% endfor %}
       </ul>
       <div class="arrow"></div>

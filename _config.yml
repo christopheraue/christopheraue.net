@@ -30,3 +30,8 @@ defaults:
       path: "technical"
     values:
       categories: "technical"
+
+  - scope:
+      path: "collateral"
+    values:
+      categories: "collateral"

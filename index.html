@@ -4,4 +4,6 @@ layout: bare
 no_head_title_affix: true
 ---
 
-<a href="/technical">/technical</a>
+{% for category in site.category_list %}
+<a href="/{{ category }}">/{{ category }}</a>
+{% endfor %}
