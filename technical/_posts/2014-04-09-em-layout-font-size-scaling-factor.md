@@ -1,5 +1,4 @@
 ---
-layout: article
 title: 'em Units In Layouts: Font-Size As Global Scaling Factor'
 excerpt: Text is the main reason why websites exist. So, there is a good reason to subordinate scales in a layout to the size of the font. The CSS unit `em` helps.
 meta_description: Text is the main reason why websites exist. So, there is a good reason to subordinate scales in a layout to the size of the font. The CSS unit `em` helps.

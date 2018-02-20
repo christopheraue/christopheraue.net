@@ -7,3 +7,21 @@ permalink: :categories/:title
 exclude: [test, sass, build.sh, deploy.sh, set_development_env.sh, set_production_env.sh, videos, Gemfile, Gemfile.lock]
 plugins:
   - jekyll-redirect-from
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "article"
+
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "with_header"
+
+  - scope:
+      path: "technical"
+    values:
+      categories: "technical"

@@ -1,5 +1,4 @@
 ---
-layout: article
 title: 'PHP Spy: Record Calls To Functions or Alter Their Behavior At Runtime'
 excerpt: Track calls to functions and methods or stub them when you cannot use a PHPUnit test double.
 meta_description: Track calls to functions and methods or stub them when you cannot use a PHPUnit test double.
