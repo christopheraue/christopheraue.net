@@ -51,6 +51,15 @@ table
     border-spacing: 0
 
 /*
+ *  Body Height
+ *  -----------
+ *
+ *  Set to full height.
+ */
+html, body
+    height: 100%
+
+/*
  *  Links
  *  -----
  *
@@ -149,11 +158,12 @@ body
  *  Columns
  *  --------------
  *
- *  Columns are rendered on top of each other for small viewports. For
- *  viewports wider than 40 em (640 px), the columns move next to each other.
+ *  A container with css class `.columns` displays its containing elements
+ *  with the given width next to each other.
  *
- *  To force columns for smaller viewports the css class `.no-break` can be
- *  used.
+ *  When using `.columns-when-wide` columns are rendered on top of each other
+ *  for small viewports. For viewports wider than 40 em (640 px), the columns
+ *  move next to each other.
  *
  *  ### Halves, Quarters, Eighths and Sixteenths
  *
