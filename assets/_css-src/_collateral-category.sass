@@ -1,0 +1,31 @@
+@import "variables"
+
+/*
+ *  /collateral Category
+ *  ====================
+ *
+ *  Colors
+ *  ------
+ *
+ *  Dark Color: #2D1914 (dark red)
+ *
+ *  Light Color: white
+ *
+ *  ```
+ *  !bodyClass collateral
+ *
+ *  <div style="padding: 1.25em">Light Text On Dark Background</div>
+ *  <div class="white-box">Dark Text On Light Background</div>
+ *  ```
+ */
+
+$light: white
+$dark: rgb(45,25,20)
+
+body.collateral
+  background: $dark
+  color: $light
+
+  .white-box
+    background: $light
+    color: $dark
