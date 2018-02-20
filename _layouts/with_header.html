@@ -10,13 +10,13 @@ layout: bare
     <nav class="nav">
       <ul class="top">
         <li>
-          <a href="{{ site.url }}/{{ page.categories }}">
-            <img src="/assets/images/slash_{{ page.categories }}.svg"/>
+          <a href="{{ site.url }}/{{ page.category }}">
+            <img src="/assets/images/slash_{{ page.category }}.svg"/>
           </a><!--
        --><div class="arrow"></div>
         </li>
         {% for category in site.category_list %}
-          {% if category != page.categories %}
+          {% if category != page.category %}
             <li>
               <a href="{{ site.url }}/{{ category }}">
                 <img src="/assets/images/slash_{{ category }}.svg"/>

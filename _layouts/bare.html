@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ site.url | append: '/assets/css/styles.css' }}" type="text/css" />
     <script async data-main="{{ site.url | append: '/assets/js/main' }}" src="{{ site.url | append: '/assets/js/lib/require.js' }}"></script>
   </head>
-  <body class="{{ page.categories | join: ' ' }}">
+  <body class="{{ page.category }}">
     {{ content }}
   </body>
 </html>

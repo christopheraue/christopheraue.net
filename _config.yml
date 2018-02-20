@@ -29,9 +29,9 @@ defaults:
   - scope:
       path: "technical"
     values:
-      categories: "technical"
+      category: "technical"
 
   - scope:
       path: "collateral"
     values:
-      categories: "collateral"
+      category: "collateral"
