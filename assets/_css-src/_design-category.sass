@@ -1,26 +1,26 @@
 ﻿@import "variables"
 
 /*
- *  /technical Category
- *  ===================
+ *  /design Category
+ *  ================
  *
  *  Colors
  *  ------
  *
  *  ```
- *  !bodyClass technical
+ *  !bodyClass design
  *
  *  <div style="padding: 1.25em">Light Text On Dark Background</div>
  *  <div class="white-box">Dark Text On Light Background</div>
  *  ```
  */
-body.technical
-    background: $technical-dark
-    color: $technical-light
+body.design
+    background: $design-dark
+    color: $design-light
 
     .white-box
-        background: $technical-light
-        color: $technical-dark
+        background: $design-light
+        color: $design-dark
 
 /*
  *  The Characteristic Font
@@ -46,7 +46,7 @@ body.technical
  *
  *  Headings are displayed with this category's characteristic font.
  */
-body.technical
+body.design
     .article-list
         h2, h3
             font-family: 'Source Code Pro', monospace
@@ -57,7 +57,7 @@ body.technical
  *
  *  An article's header is displayed with this category's characteristic font.
  */
-body.technical
+body.design
     .article
         > header
             font-family: 'Source Code Pro', monospace
@@ -71,7 +71,7 @@ body.technical
  *  Rendered with this category's characteristic font.
  *
  *  ```
- *  !bodyClass technical
+ *  !bodyClass design
  *
  *  <div class="text white-box">
  *      <h2>Headline Level 2</h2>
@@ -82,7 +82,7 @@ body.technical
  *  </div>
  *  ```
  */
-body.technical
+body.design
     .text
         h2, h3, h4, h5, h6,
         table caption
@@ -94,16 +94,16 @@ body.technical
  *  Colors are adjusted to match the colors of this category.
  *
  *  ```
- *  !bodyClass technical
+ *  !bodyClass design
  *
  *  <div class="text white-box">
  *      <p>This is an <code>inline code</code> fragment.</p>
  *  </div>
  *  ```
  */
-body.technical
+body.design
     .text code
-        background-color: rgba($technical-dark,0.1)
+        background-color: rgba($design-dark,0.1)
 
 /*
  *  ### Code Blocks
@@ -111,14 +111,14 @@ body.technical
  *  Colors are adjusted to match the colors of this category.
  *
  *  ```
- *  !bodyClass technical
+ *  !bodyClass design
  *
  *  <div class="text white-box">
  *      <pre><code>&lt;div class="center-area"&gt;&#10; &nbsp;&lt;div class="centered"&gt;&lt;/div&gt;&#10;&lt;/div&gt;</code></pre>
  *  </div>
  *  ```
  */
-body.technical
+body.design
     .text .highlight
-        background-color: $technical-dark
-        color: $technical-light
+        background-color: $design-dark
+        color: $design-light

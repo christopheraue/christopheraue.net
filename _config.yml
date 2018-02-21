@@ -11,7 +11,7 @@ plugins:
 # Jekyll's site.categories does not return categories without posts. Since
 # /collateral doesn't have any it is not included in the list. Hard code it
 # here :/
-category_list: [technical, collateral]
+category_list: [design, collateral]
 
 defaults:
   - scope:
@@ -27,9 +27,9 @@ defaults:
       layout: "with_header"
 
   - scope:
-      path: "technical"
+      path: "design"
     values:
-      category: "technical"
+      category: "design"
 
   - scope:
       path: "collateral"
