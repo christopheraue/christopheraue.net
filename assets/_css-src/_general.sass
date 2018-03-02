@@ -360,12 +360,13 @@ body
  *  Social Icons
  *  ------------
  */
-@mixin social-icon
+.social-icon
     display: inline-block
+    vertical-align: middle
     width: 1em
     height: 1em
-    background: url(../images/social_icons.svg) no-repeat
-    background-size: auto 300%
+    &.white
+        fill: white
 
 /*
  *  ### Mail
@@ -373,20 +374,19 @@ body
  *  !bodyBackground white
  *
  *  <div style="background: white; padding: 1em; font-size: 2em">
- *    <div class="mail-icon"></div>
+ *    <svg class="social-icon mail-orange">
+ *      <use xlink:href="/assets/images/social_icons.svgz#mail-icon"></use>
+ *    </svg>
  *  </div>
  *  <div style="background: black; padding: 1em; font-size: 2em">
- *    <div class="mail-icon-white"></div>
+ *    <svg class="social-icon white">
+ *      <use xlink:href="/assets/images/social_icons.svgz#mail-icon"></use>
+ *    </svg>
  *  </div>
  *  ```
  */
-.mail-icon
-    @include social-icon
-    background-position: 0 0
-
-.mail-icon-white
-    @include social-icon
-    background-position: 0 100%
+.social-icon.mail-orange
+    fill: #ffc13b
 
 /*
  *  ### Twitter
@@ -394,20 +394,19 @@ body
  *  !bodyBackground white
  *
  *  <div style="background: white; padding: 1em; font-size: 2em">
- *    <div class="twitter-icon"></div>
+ *    <svg class="social-icon twitter-blue">
+ *      <use xlink:href="/assets/images/social_icons.svgz#twitter-icon"></use>
+ *    </svg>
  *  </div>
  *  <div style="background: black; padding: 1em; font-size: 2em">
- *    <div class="twitter-icon-white"></div>
+ *    <svg class="social-icon white">
+ *      <use xlink:href="/assets/images/social_icons.svgz#twitter-icon"></use>
+ *    </svg>
  *  </div>
  *  ```
  */
-.twitter-icon
-    @include social-icon
-    background-position: 25% 0
-
-.twitter-icon-white
-    @include social-icon
-    background-position: 25% 100%
+.social-icon.twitter-blue
+    fill: #55acee
 
 /*
  *  ### Facebook
@@ -415,20 +414,19 @@ body
  *  !bodyBackground white
  *
  *  <div style="background: white; padding: 1em; font-size: 2em">
- *    <div class="facebook-icon"></div>
+ *    <svg class="social-icon">
+ *      <use xlink:href="/assets/images/social_icons.svgz#facebook-icon-colored"></use>
+ *    </svg>
  *  </div>
  *  <div style="background: black; padding: 1em; font-size: 2em">
- *    <div class="facebook-icon-white"></div>
+ *    <svg class="social-icon white">
+ *      <use xlink:href="/assets/images/social_icons.svgz#facebook-icon"></use>
+ *    </svg>
  *  </div>
  *  ```
  */
-.facebook-icon
-    @include social-icon
-    background-position: 50% 0
-
-.facebook-icon-white
-    @include social-icon
-    background-position: 50% 100%
+.social-icon.facebook-blue
+    fill: #395185
 
 /*
  *  ### Github
@@ -436,20 +434,19 @@ body
  *  !bodyBackground white
  *
  *  <div style="background: white; padding: 1em; font-size: 2em">
- *    <div class="github-icon"></div>
+ *    <svg class="social-icon github-black">
+ *      <use xlink:href="/assets/images/social_icons.svgz#github-icon"></use>
+ *    </svg>
  *  </div>
  *  <div style="background: black; padding: 1em; font-size: 2em">
- *    <div class="github-icon-white"></div>
+ *    <svg class="social-icon white">
+ *      <use xlink:href="/assets/images/social_icons.svgz#github-icon"></use>
+ *    </svg>
  *  </div>
  *  ```
  */
-.github-icon
-    @include social-icon
-    background-position: 75% 0
-
-.github-icon-white
-    @include social-icon
-    background-position: 75% 100%
+.social-icon.github-black
+    fill: #161614
 
 /*
  *  ### YouTube
@@ -457,20 +454,41 @@ body
  *  !bodyBackground white
  *
  *  <div style="background: white; padding: 1em; font-size: 2em">
- *    <div class="youtube-icon"></div>
+ *    <svg class="social-icon">
+ *      <use xlink:href="/assets/images/social_icons.svgz#youtube-icon-colored"></use>
+ *    </svg>
  *  </div>
  *  <div style="background: black; padding: 1em; font-size: 2em">
- *    <div class="youtube-icon-white"></div>
+ *    <svg class="social-icon white">
+ *      <use xlink:href="/assets/images/social_icons.svgz#youtube-icon"></use>
+ *    </svg>
  *  </div>
  *  ```
  */
-.youtube-icon
-    @include social-icon
-    background-position: 100% 0
+.social-icon.youtube-red
+    fill: #ff0000
 
-.youtube-icon-white
-    @include social-icon
-    background-position: 100% 100%
+/*
+ *  ### Patreon
+ *  ```
+ *  !bodyBackground white
+ *
+ *  <div style="background: white; padding: 1em; font-size: 2em">
+ *    <svg class="social-icon">
+ *      <use xlink:href="/assets/images/social_icons.svgz#patreon-icon-colored"></use>
+ *    </svg>
+ *  </div>
+ *  <div style="background: black; padding: 1em; font-size: 2em">
+ *    <svg class="social-icon white">
+ *      <use xlink:href="/assets/images/social_icons.svgz#patreon-icon"></use>
+ *    </svg>
+ *  </div>
+ *  ```
+ */
+.social-icon.patreon-coral
+    fill: #f96854
+.social-icon.patreon-navy
+    fill: #052D49
 
 /*
  *  Optimal Readability

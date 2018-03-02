@@ -1,7 +1,8 @@
 require.config({
     paths: {
         'underscore': 'lib/underscore',
-        'jquery': 'lib/jquery'
+        'jquery': 'lib/jquery',
+        'svgxuse': 'lib/svgxuse'
     },
     shim: {
         underscore: {

@@ -1,7 +1,8 @@
 require([
+    'config',
     'jquery',
-    'config'
-], function($) {
+    'svgxuse'
+], function(_, $) {
     //routing
     if ($('body.article-page').length) {
         require([

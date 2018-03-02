@@ -14,7 +14,9 @@ layout: with_header
             <a href="https://twitter.com/intent/tweet?url={{ site.url | append: page.url | cgi_escape }}&amp;via=christopheraue&amp;text={{ page.title | cgi_escape }}"
                title="Share on Twitter"
                onclick="ga('send', 'event', 'Twitter', 'Share Attempt', '{{ site.url | append: page.url }}')">
-              <div class="twitter-icon-white"></div>
+              <svg class="social-icon white">
+                <use xlink:href="/assets/images/social_icons.svgz#twitter-icon"></use>
+              </svg>
             </a>
           </li><!--
        --><li>
@@ -22,7 +24,9 @@ layout: with_header
                target="_blank"
                title="Share on Facebook"
                onclick="ga('send', 'event', 'Facebook', 'Share Attempt', '{{ site.url | append: page.url }}')">
-              <div class="facebook-icon-white"></div>
+              <svg class="social-icon white">
+                <use xlink:href="/assets/images/social_icons.svgz#facebook-icon"></use>
+              </svg>
             </a>
           </li>
         </ul>
