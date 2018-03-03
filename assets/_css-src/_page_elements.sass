@@ -14,84 +14,101 @@
  *  !responsive
  *
  *  <header id="page-header">
- *      <div class="logo-nav">
- *          <div class="logo">
- *              <a href="#"><img class="christopheraue" src="/assets/images/christopheraue.svg"/></a>
- *          </div>
- *          <nav class="nav">
- *              <ul class="top">
- *                  <li>
- *                      <a href="#">
- *                          <img src="/assets/images/slash_collateral.svg"/>
- *                      </a><!--
- *                   --><div class="arrow"></div>
- *                  </li>
- *                  <li>
- *                      <a href="#">
- *                        <img src="/assets/images/slash_design.svg"/>
- *                      </a>
- *                  </li>
- *              </ul>
- *          </nav>
+ *    <div class="logo-nav">
+ *      <div class="logo">
+ *        <a href="/" title="Go to start page">
+ *          <svg viewBox="0 0 436 76" >
+ *            <title>Christopher Aue</title>
+ *            <use xlink:href="/assets/images/logo_and_categories.svgz#christopher-aue"></use>
+ *          </svg>
+ *        </a>
  *      </div>
+ *      <nav class="nav">
+ *        <ul>
+ *          <li>
+ *            <h1 class="nav-item">
+ *              <svg class="collateral">
+ *                <title>/collateral</title>
+ *                <use xlink:href="/assets/images/logo_and_categories.svgz#slash-collateral"></use>
+ *              </svg>
+ *            </h1><!--
+ *         --><div class="arrow"></div>
+ *          </li>
+ *          <li>
+ *            <a href="#" title="Go to /design" class="nav-item">
+ *              <svg class="design">
+ *                <title>/design</title>
+ *                <use xlink:href="/assets/images/logo_and_categories.svgz#slash-design"></use>
+ *              </svg>
+ *            </a>
+ *          </li>
+ *        </ul>
+ *      </nav>
+ *    </div>
  *  </header>
  *  ```
  */
 #page-header
   text-align: center
-  padding: 2em
+  padding: 2em 1.25em
+  height: 2.5em
   .logo-nav
     position: relative
     display: inline-block
     .logo
       display: inline-block
       vertical-align: top
-      .christopheraue
+      a
+        display: inline-block
         height: 2.5em
         vertical-align: middle
-      a
         opacity: 0.85
         &:hover
           opacity: 1
+      svg
+        height: 100%
+        pointer-events: none
+        fill: white
+        stroke: white
     .nav
       position: absolute
       top: 1.25em
       right: 0
-      height: 1.25em
+      height: 1.5em
       text-align: right
       @media screen and (min-width: 50em) //800px
         display: inline-block
-        position: relative
-        top: 0
+        position: static
         font-size: 1.5em
         margin-top: -.25em
         margin-left: .1em
         text-align: left
       li
         position: relative
-        display: block
-        opacity: 0.85
-        &:hover
-          opacity: 1
-        img
-          height: 1.75em
-          position: relative
-          top: -.25em
+        svg
+          height: 1.5em
           pointer-events: none
+          fill: white
+          stroke: white
+          &.collateral
+            width: 5.46em
+          &.design
+            width: 4.33em
         + li
           height: 0
           overflow: hidden
           opacity: 0
           transition: opacity .2s ease
-        a
+        .nav-item
           display: inline-block
           vertical-align: middle
-          height: 1.25em
+          height: 1.5em
+        a
           padding: 0 .675em
           margin: 0 -.675em
-        &:first-child a
-          padding-top: .675em
-          margin-top: -.675em
+          opacity: 0.85
+          &:hover
+            opacity: 1
         &:last-child a
           padding-bottom: .675em
           margin-bottom: -.675em
@@ -107,7 +124,7 @@
               display: block
               position: absolute
               top: 50%
-              margin-top: -.125em
+              margin-top: -.2em
               left: 50%
               margin-left: -.35em
               width: 0
@@ -122,7 +139,7 @@
                 margin-left: -.275em
                 border-width: .3em
         + li
-          margin-right: 1.25em
+          margin-right: 1.5em
       &:hover
         li
           &:first-child
@@ -132,7 +149,7 @@
           &:hover
             opacity: 1
           + li
-            height: 1.25em
+            height: 1.5em
             overflow: visible
             opacity: 0.85
 

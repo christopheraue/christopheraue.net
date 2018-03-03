@@ -5,21 +5,32 @@ layout: bare
 <header id="page-header">
   <div class="logo-nav">
     <div class="logo">
-      <a href="{{ site.url }}"><img src="{{ site.url }}/assets/images/christopheraue.svg" class="christopheraue" alt="Christopher Aue"/></a>
+      <a href="/" title="Go to start page">
+        <svg viewBox="0 0 436 76" >
+          <title>Christopher Aue</title>
+          <use xlink:href="/assets/images/logo_and_categories.svgz#christopher-aue"></use>
+        </svg>
+      </a>
     </div>
     <nav class="nav">
-      <ul class="top">
+      <ul>
         <li>
-          <a href="{{ site.url }}/{{ page.category }}">
-            <img src="/assets/images/slash_{{ page.category }}.svg"/>
-          </a><!--
+          <h1 class="nav-item">
+            <svg class="{{ page.category }}">
+              <title>/{{ page.category }}</title>
+              <use xlink:href="/assets/images/logo_and_categories.svgz#slash-{{ page.category }}"></use>
+            </svg>
+          </h1><!--
        --><div class="arrow"></div>
         </li>
         {% for category in site.category_list %}
           {% if category != page.category %}
             <li>
-              <a href="{{ site.url }}/{{ category }}">
-                <img src="/assets/images/slash_{{ category }}.svg"/>
+              <a href="/{{ category }}" class="nav-item" title="Go to /{{ category }}">
+                <svg class="{{ category }}">
+                  <title>/{{ category }}</title>
+                  <use xlink:href="/assets/images/logo_and_categories.svgz#slash-{{ category }}"></use>
+                </svg>
               </a>
             </li>
           {% endif %}
