@@ -6,8 +6,3 @@ sed -i 's/^destination: .*$/destination: .\/_site_production/' _config.yml
 # in .htaccess
 sed -i 's/RewriteCond %{HTTP_HOST} !=.*$/RewriteCond %{HTTP_HOST} !=christopheraue.net/' .htaccess
 sed -i 's/RewriteRule (\.\*) [^$]*/RewriteRule (.*) http:\/\/christopheraue.net\//' .htaccess
-#set minified javascript files
-#sed -i "s/'backbone': 'lib\/backbone'/'backbone': 'lib\/backbone-min'/" assets/js/config.js
-#sed -i "s/'underscore': 'lib\/underscore'/'underscore': 'lib\/underscore-min'/" assets/js/config.js
-#sed -i "s/'jquery': 'lib\/jquery'/'jquery': 'lib\/jquery-min'/" assets/js/config.js
-sed -i "s/'\/assets\/js\/lib\/[^']*'/'\/assets\/js\/lib\/require-min.js'/" _layouts/default.html
