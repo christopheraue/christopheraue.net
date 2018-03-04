@@ -21,3 +21,66 @@ body.collateral
   .white-box
     background: $collateral-light
     color: $collateral-dark
+
+/*
+ *  The Category Page
+ *  -----------------
+ *
+ *  ```
+ *  !responsive
+ *  !bodyClass collateral
+ *
+ *  <div id="content">
+ *    <section id="theatre">
+ *      <div class="marquee">
+ *        <object data="/assets/images/collateral_page_marquee.svgz" type="image/svg+xml">
+ *          Collateral &mdash; Visual Storytelling in movies & games
+ *        </object>
+ *        <svg class="light-box" viewBox="0 0 620 110">
+ *          <g transform="translate(310,2.5)">
+ *            <text dy="20">presenting</text>
+ *            <text dy="40">Life Is Strange: Before the Storm</text>
+ *            <text dy="70" class="large">Visualization of Emotions &mdash; Part 1</text>
+ *            <text y="100"><tspan>Part 2</tspan><tspan dx="30">Mar 12</tspan></text>
+ *          </g>
+ *        </svg>
+ *      </div>
+ *      <div class="screen"><div></div></div>
+ *    </section>
+ *  </div>
+ *  ```
+ */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700&subset=latin-ext')
+
+body.collateral
+  #content
+    padding: 0 $gutter-width
+    max-width: 50em
+    margin-left: auto
+    margin-right: auto
+  #theatre
+    .marquee
+      position: relative
+      margin-bottom: -20%
+      object
+        width: 100%
+      .light-box
+        position: absolute
+        top: 31.25%
+        left: 10%
+        height: 19.1%
+        text
+          font-family: "Open Sans Condensed"
+          font-weight: bold
+          font-size: 22px
+          fill: black
+          text-anchor: middle
+          text-transform: uppercase
+          &.large
+            font-size: 36px
+    .screen
+      width: 66%
+      margin: 0 auto
+      > *
+        padding-bottom: 56.25%
+        background: black
