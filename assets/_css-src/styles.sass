@@ -1,4 +1,14 @@
-﻿@import "general"
+﻿// fonts are imported manually in the jekyll template
+// to avoid the @import declaration slowing down loading
+// the styles
+$google-fonts: ""
+
+@function str-join($string, $delim, $append)
+  $len: str-length($string)
+  @return if($len == 0, $append, str-insert($string, $delim+$append, $len+1))
+
+@import "variables"
+@import "general"
 @import "page_elements"
 @import "text"
 @import "homepage"
