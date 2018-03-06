@@ -11,7 +11,7 @@ has_feed: true
     <ul>
       {% for article in site.posts %}
       <li>
-        <a href="{{ site.url }}{{ article.url }}">
+        <a href="{{ site.url }}{{ article.url }}" title="Go to the article">
           <h3>{{ article.title | xml_escape }}</h3>
           <p>{{ article.excerpt | xml_escape }}</p>
         </a>

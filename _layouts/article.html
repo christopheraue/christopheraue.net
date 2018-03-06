@@ -7,15 +7,17 @@ layout: with_header
     <h1>{{ page.title | xml_escape }}</h1>
     <div class="meta">
       <div class="social">
-        <a href="{{ site.url | append: page.url }}#disqus_thread" class="comments">0 Comments</a>
+        <a href="{{ site.url | append: page.url }}#disqus_thread" title="Go to the comment section" class="comments">0 Comments</a>
         —
         <ul class="sharing">
           <li>
             <a href="https://twitter.com/intent/tweet?url={{ site.url | append: page.url | cgi_escape }}&amp;via=christopheraue&amp;text={{ page.title | cgi_escape }}"
                title="Share on Twitter"
                onclick="ga('send', 'event', 'Twitter', 'Share Attempt', '{{ site.url | append: page.url }}')">
-              <svg class="social-icon white">
-                <use xlink:href="/assets/images/social_icons.svgz#twitter-icon"></use>
+              <svg class="social-icon white" role="img">
+                <use xlink:href="/assets/images/social_icons.svgz#twitter-icon" aria-labelledby="tw-icon-desc">
+                  <desc id="tw-icon-desc">The Twitter icon</desc>
+                </use>
               </svg>
             </a>
           </li><!--
@@ -24,8 +26,10 @@ layout: with_header
                target="_blank"
                title="Share on Facebook"
                onclick="ga('send', 'event', 'Facebook', 'Share Attempt', '{{ site.url | append: page.url }}')">
-              <svg class="social-icon white">
-                <use xlink:href="/assets/images/social_icons.svgz#facebook-icon"></use>
+              <svg class="social-icon white" role="img">
+                <use xlink:href="/assets/images/social_icons.svgz#facebook-icon" aria-labelledby="fb-icon-desc">
+                  <desc id="fb-icon-desc">The Facebook icon</desc>
+                </use>
               </svg>
             </a>
           </li>
