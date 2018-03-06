@@ -16,14 +16,14 @@
  *
  *  ```
  *  <div class="white-box">
- *      <p style="font: 200 1em 'Source Code Pro'">Source Code Pro Light</p>
- *      <p style="font: 200 italic 1em 'Source Code Pro'">Source Code Pro Light Italic</p>
- *      <p style="font: 400 1em 'Source Code Pro'">Source Code Pro Regular</p>
- *      <p style="font: 400 italic 1em 'Source Code Pro'">Source Code Pro Regular Italic</p>
+ *      <p style="font: 300 1em 'Source Code Pro'">Source Code Pro Light</p>
+ *      <p style="font: 300 italic 1em 'Source Code Pro'">Source Code Pro Light Italic</p>
+ *      <p style="font: 500 1em 'Source Code Pro'">Source Code Pro Medium</p>
+ *      <p style="font: 500 italic 1em 'Source Code Pro'">Source Code Pro Medium Italic</p>
  *  </div>
  *  ```
  */
-$google-fonts: str-join($google-fonts, "|", "Source+Code+Pro:200,400")
+$google-fonts: str-join($google-fonts, "|", "Source+Code+Pro:300,500")
 
 /*
  *  Headings
@@ -105,7 +105,7 @@ $google-fonts: str-join($google-fonts, "|", "Source+Code+Pro:200,400")
  *  ```
  */
 .text
-    font: 200 1em/1.5 'Work Sans'
+    font: 300 1em/1.5 'Work Sans'
 
 /*
  *  ### Links
@@ -137,7 +137,7 @@ $google-fonts: str-join($google-fonts, "|", "Source+Code+Pro:200,400")
     font-style: italic
 
 .text strong
-    font-weight: 400
+    font-weight: 500
 
 /*
  *  ### Inline Code
@@ -154,6 +154,7 @@ $google-fonts: str-join($google-fonts, "|", "Source+Code+Pro:200,400")
     background-color: rgba(0,0,0,0.1)
     border-radius: .2em
     padding: .1em .25em
+    font-size: .95em
 
 /*
  *  Block Elements
@@ -326,7 +327,7 @@ $comment: #888888
             /* Generic */
         .k
             /* Keyword */
-            font-weight: 400
+            font-weight: 500
         .l
             /* Literal */
             color: $literal
@@ -361,7 +362,7 @@ $comment: #888888
             color: $error
         .gh
             /* Generic.Heading */
-            font-weight: 400
+            font-weight: 500
         .gi
             /* Generic.Inserted */
         .go
@@ -370,7 +371,7 @@ $comment: #888888
             /* Generic.Prompt */
         .gs
             /* Generic.Strong */
-            font-weight: 400
+            font-weight: 500
         .gu
             /* Generic.Subheading */
         .gt
@@ -378,22 +379,22 @@ $comment: #888888
             color: $error
         .kc
             /* Keyword.Constant */
-            font-weight: 400
+            font-weight: 500
         .kd
             /* Keyword.Declaration */
-            font-weight: 400
+            font-weight: 500
         .kn
             /* Keyword.Namespace */
-            font-weight: 400
+            font-weight: 500
         .kp
             /* Keyword.Pseudo */
-            font-weight: 400
+            font-weight: 500
         .kr
             /* Keyword.Reserved */
-            font-weight: 400
+            font-weight: 500
         .kt
             /* Keyword.Type */
-            font-weight: 400
+            font-weight: 500
         .ld
             /* Literal.Date */
             color: $literal
@@ -409,10 +410,10 @@ $comment: #888888
             /* Name.Builtin */
         .nc
             /* Name.Class */
-            font-weight: 400
+            font-weight: 500
         .no
             /* Name.Constant */
-            font-weight: 400
+            font-weight: 500
         .nd
             /* Name.Decorator */
         .ni
