@@ -63,7 +63,7 @@
         height: 2.5em
         vertical-align: middle
         opacity: 0.85
-        &:hover
+        &:hover, &.hover
           opacity: 1
       svg
         height: 100%
@@ -107,7 +107,7 @@
           padding: 0 .675em
           margin: 0 -.675em
           opacity: 0.85
-          &:hover
+          &:hover, &.hover
             opacity: 1
         &:last-child a
           padding-bottom: .675em
@@ -140,13 +140,13 @@
                 border-width: .3em
         + li
           margin-right: 1.5em
-      &:hover
+      &:hover, &.hover
         li
           &:first-child
             .arrow:before
               transform: rotate(90deg)
               opacity: 0
-          &:hover
+          &:hover, &.hover
             opacity: 1
           + li
             height: 1.5em
@@ -215,7 +215,7 @@
     line-height: 1.5
     + li
       margin-top: $gutter-width
-    &:hover
+    &:hover, &.hover
       p
         opacity: 1
   @media screen and (min-width: 40em) //640px
@@ -299,7 +299,7 @@
     opacity: .7
     vertical-align: middle
     text-decoration: none
-    &:hover
+    &:hover, &.hover
       opacity: 1
   .dash
     opacity: .7
@@ -315,7 +315,7 @@
         font-size: 1.25em
         padding: .25em
         opacity: .7
-        &:hover
+        &:hover, &.hover
           opacity: 1
   #disqus_thread
     margin-top: $gutter-width
@@ -324,5 +324,5 @@
     font-size: .8em
     a
       opacity: .7
-      &:hover
+      &:hover, &.hover
         opacity: 1
