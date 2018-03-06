@@ -174,12 +174,27 @@ body.collateral
     text-align: center
     svg
       height: 3em
+    a
+      display: inline-block
+      position: relative
+      &:after
+        content: ''
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        background: white
+        opacity: 0
   .annotation
     svg
       stroke: white
   #youtube
     min-width: 15em
     max-width: 30em
+    .button a:hover:after
+      opacity: 0.45
     .annotation
       text-align: right
       margin-top: .4em
@@ -188,6 +203,8 @@ body.collateral
   #patreon
     min-width: 15em
     max-width: 30em
+    .button a:hover:after
+      opacity: 0.25
     .help-me
       text-align: left
       margin-bottom: -.2em
@@ -210,6 +227,8 @@ body.collateral
   #twitter
     min-width: 15em
     max-width: 21.5em
+    .button a:hover:after
+      opacity: 0.15
     .annotation
       margin-bottom: -2.3em
       text-align: left
