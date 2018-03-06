@@ -58,12 +58,13 @@
     .logo
       display: inline-block
       vertical-align: top
+      margin-bottom: -1.25em
       a
         display: inline-block
         height: 2.5em
         vertical-align: middle
         opacity: 0.85
-        &:hover, &.hover
+        &.hover
           opacity: 1
       svg
         height: 100%
@@ -71,18 +72,16 @@
         fill: white
         stroke: white
     .nav
-      position: absolute
-      top: 1.25em
-      right: 0
-      height: 1.5em
+      position: relative
       text-align: right
+      transition: font-size .3s
       @media screen and (min-width: 50em) //800px
         display: inline-block
-        position: static
         font-size: 1.5em
         margin-top: -.25em
-        margin-left: .1em
         text-align: left
+      ul
+        transition: background .3s
       li
         position: relative
         svg
@@ -96,62 +95,67 @@
             width: 4.33em
         + li
           height: 0
-          overflow: hidden
           opacity: 0
           transition: opacity .2s ease
         .nav-item
           display: inline-block
           vertical-align: middle
           height: 1.5em
-        a
-          padding: 0 .675em
-          margin: 0 -.675em
-          opacity: 0.85
-          &:hover, &.hover
-            opacity: 1
-        &:last-child a
-          padding-bottom: .675em
-          margin-bottom: -.675em
+          padding-left: .25em
+          padding-right: 1.5em
         &:first-child
-          .arrow
-            display: inline-block
-            vertical-align: middle
-            position: relative
-            width: 1.25em
-            height: 1.25em
-            &:before
-              content: ''
-              display: block
-              position: absolute
-              top: 50%
-              margin-top: -.2em
-              left: 50%
-              margin-left: -.35em
-              width: 0
-              height: 0
-              border: .35em solid transparent
-              border-top-color: white
-              opacity: 1
-              transform: rotate(0deg)
-              transition: transform .2s, opacity .8s
-              transform-origin: 50% 15%
-              @media screen and (min-width: 32em) //800px
-                margin-left: -.275em
-                border-width: .3em
-        + li
-          margin-right: 1.5em
-      &:hover, &.hover
+          .nav-item
+            padding-top: .25em
+            margin-top: -.25em
+            margin-right: -1.25em
+        &:last-child
+          .nav-item
+            padding-bottom: .25em
+        a
+          opacity: 0.85
+          &.hover
+            opacity: 1
+      .arrow
+        display: inline-block
+        vertical-align: top
+        position: relative
+        width: 1.25em
+        height: 1.25em
+        padding: .5em
+        margin: -.5em
+        &:before
+          content: ''
+          display: block
+          position: absolute
+          top: 50%
+          margin-top: -.1em
+          left: 50%
+          margin-left: -.35em
+          width: 0
+          height: 0
+          border: .35em solid transparent
+          border-top-color: white
+          opacity: 1
+          transform: rotate(0deg)
+          transition: transform .2s, opacity .8s
+          transform-origin: 50% 15%
+          @media screen and (min-width: 32em) //800px
+            margin-left: -.275em
+            border-width: .3em
+      &.hover
+        @media screen and (max-width: 42.5em) //512
+          font-size: 2em
+        ul
+          background: rgba(0,0,0,0.33)
         li
-          &:first-child
-            .arrow:before
-              transform: rotate(90deg)
-              opacity: 0
-          &:hover, &.hover
+          &.hover
             opacity: 1
           + li
             height: 1.5em
-            overflow: visible
             opacity: 0.85
+        .arrow:before
+          transform: rotate(90deg)
+          opacity: 0
 
 /*
  *  Article Lists
@@ -215,7 +219,7 @@
     line-height: 1.5
     + li
       margin-top: $gutter-width
-    &:hover, &.hover
+    &.hover
       p
         opacity: 1
   @media screen and (min-width: 40em) //640px
@@ -299,7 +303,7 @@
     opacity: .7
     vertical-align: middle
     text-decoration: none
-    &:hover, &.hover
+    &.hover
       opacity: 1
   .dash
     opacity: .7
@@ -315,7 +319,7 @@
         font-size: 1.25em
         padding: .25em
         opacity: .7
-        &:hover, &.hover
+        &.hover
           opacity: 1
   #disqus_thread
     margin-top: $gutter-width
@@ -324,5 +328,5 @@
     font-size: .8em
     a
       opacity: .7
-      &:hover, &.hover
+      &.hover
         opacity: 1
