@@ -18,59 +18,100 @@ require([
     }
 
     // unify handling of mouse hover and touch events
-    var hoveredElements = {
-        _elements: [],
-        add: function(el) {
-            el.classList.add('hover');
-            this._elements.push(el);
-        },
-        clear: function() {
-            this._elements.forEach(function(el) {
-                el.classList.remove('hover');
-            });
-            this._elements = [];
+    if (window.TouchEvent) {
+        Object.defineProperty(TouchEvent.prototype, 'touchTarget', {
+            get: function () {
+                var touch = this.changedTouches[0];
+                return document.elementFromPoint(touch.clientX, touch.clientY);
+            }
+        });
+    }
+
+    HTMLCollection.prototype.forEach = function(f) {
+        var staticElements = [];
+        for (var i=0; i<this.length; i++) {
+            staticElements.push(this[i]);
+        }
+        staticElements.forEach(f);
+    };
+
+    Node.prototype.forEachAncestor = function(f, opts) {
+        opts = opts === undefined ? {} : opts;
+        var upto = (opts.upto === undefined) ? null : opts.upto;
+        var includeSelf = (opts.includeSelf === undefined) ? false : opts.includeSelf;
+        var el = this;
+
+        if (includeSelf) {
+            f(el);
+        }
+
+        while(el) {
+            if (el === upto) break;
+            el = el.parentElement;
+            f(el);
         }
     };
 
-    var eventTarget = function(e){
-        if (e.type.substr(0,5) === 'touch') {
-            var touch = e.changedTouches[0];
-            return document.elementFromPoint(touch.clientX, touch.clientY);
-        } else {
-            return e.target;
-        }
+    Node.prototype.addClass = function(cls) {
+        this.classList.add(cls);
     };
 
-    var targetsFrom = function(e){
-        var targets = [],
-            target = eventTarget(e);
-
-        do {
-            target.classList.add('hover');
-            hoveredElements._elements.push(target);
-            target = target.parentElement;
-        } while (target);
-
-        return targets;
+    Node.prototype.addClassToAncestors = function(cls, opts) {
+        this.forEachAncestor(function(el){
+            el.addClass(cls);
+        }, opts);
     };
 
-    var updateHover = function(e){
-        hoveredElements.clear();
-        targetsFrom(e).forEach(function(el){ hoveredElements.add(el); });
-        e.preventDefault();
+    Node.prototype.rmvClass = function(cls) {
+        this.classList.remove(cls);
     };
 
-    var endHover = function(e){
-        hoveredElements.clear();
-        e.preventDefault();
+    Node.prototype.rmvClassFromDescendents = function(cls) {
+        this.getElementsByClassName(cls).forEach(function(el){
+            el.rmvClass(cls);
+        });
     };
 
-    var body = document.getElementsByTagName('body')[0];
-    body.addEventListener('touchstart', updateHover, false);
-    body.addEventListener('touchmove', updateHover, false);
-    body.addEventListener('touchend', endHover, false);
-    body.addEventListener('touchcancel', endHover, false);
-    body.addEventListener('mouseenter', updateHover, false);
-    body.addEventListener('mousemove', updateHover, false);
-    body.addEventListener('mouseleave', endHover, false);
+    document.getElementsByTagName('*').forEach(function(el){
+        el.addEventListener('touchstart', function(e){
+            e.currentTarget.addClass('hover');
+        }, false);
+
+        el.addEventListener('touchend', function(e){
+            e.currentTarget.rmvClass('hover');
+        }, false);
+
+        el.addEventListener('touchcancel', function(e){
+            e.currentTarget.rmvClass('hover');
+        }, false);
+
+        el.addEventListener('mouseenter', function(e){
+            e.currentTarget.addClass('hover');
+        }, false);
+
+        el.addEventListener('mouseleave', function(e){
+            e.currentTarget.rmvClass('hover');
+        }, false);
+    });
+
+    document.getElementsByClassName('js-hover-follow-touch').forEach(function(el){
+        el.addEventListener('touchstart', function(e){
+            e.preventDefault();
+        }, false);
+
+        el.addEventListener('touchmove', function(e){
+            e.currentTarget.rmvClassFromDescendents('hover');
+            if (e.currentTarget.contains(e.touchTarget)) {
+                e.touchTarget.addClassToAncestors('hover', {upto: e.currentTarget, includeSelf: true});
+            }
+            e.preventDefault();
+        }, false);
+
+        el.addEventListener('touchend', function(e) {
+            e.currentTarget.rmvClassFromDescendents('hover');
+        }, false);
+
+        el.addEventListener('touchcancel', function(e) {
+        }, false);
+    });
 });
