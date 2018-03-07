@@ -18,6 +18,12 @@ require([
     }
 
     // unify handling of mouse hover and touch events
+    var debug = document.getElementById('js-debug');
+    debug.idx = 0;
+    debug.log = function(msg) {
+        debug.innerText += this.idx++ + " " + msg + "\n";
+    };
+
     if (window.TouchEvent) {
         Object.defineProperty(TouchEvent.prototype, 'touchTarget', {
             get: function () {

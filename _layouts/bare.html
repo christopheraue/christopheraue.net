@@ -15,6 +15,9 @@
     <script async data-main="/assets/js/main" src="/assets/js/lib/require.js"></script>
   </head>
   <body class="{{ page.category }}">
+    <div style="display: flex; position: fixed; bottom: 0; max-height: 50%; overflow: hidden; background: rgba(0,0,0,0.66); z-index: 999; font-size: 16px">
+      <div id="js-debug" style="align-self: flex-end"></div>
+    </div>
     {{ content }}
   </body>
 </html>
