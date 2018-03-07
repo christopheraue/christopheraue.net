@@ -48,7 +48,7 @@
  *  </header>
  *  ```
  */
-$transition_time: .3s
+$transition_time: 300ms
 
 #page-header
   text-align: center
@@ -86,7 +86,7 @@ $transition_time: .3s
       text-align: right
       white-space: nowrap
       border-radius: .1em
-      transition: font-size $transition_time ease, background $transition_time ease, height $transition_time ease, border-color $transition_time ease
+      transition: font-size $transition_time ease, height $transition_time ease, right $transition_time ease
       @media screen and (min-width: 50em) //800px
         position: relative
         display: inline-block
@@ -98,6 +98,7 @@ $transition_time: .3s
       .nav-item
         display: block
         padding: .5em .5em .5em 1.25em
+        transition: background $transition_time ease
         svg
           display: inline-block
           vertical-align: top
@@ -105,13 +106,13 @@ $transition_time: .3s
           pointer-events: none
           fill: white
           stroke: white
+          transition: opacity $transition_time ease
         &.collateral svg
           width: 5.1em
         &.design svg
           width: 4em
       li + li
         .nav-item
-          opacity: 0
           padding-right: 1.75em
       .arrow
         display: inline-block
@@ -144,7 +145,6 @@ $transition_time: .3s
       &.hover
         height: 4.5em
         font-size: 2em
-        background: black
         box-shadow: 0 0 5px rgba(0,0,0,0.5), 1px 1px 3px rgba(0,0,0,0.5)
         &:after
           content: ''
@@ -159,12 +159,17 @@ $transition_time: .3s
         @media screen and (min-width: 32em) //512px
           font-size: 1.5em
         .nav-item
-          opacity: 0.8
           &.collateral
-            background: $collateral-dark
+            background: darken($collateral-dark, 5%)
+            &.hover
+              background: $collateral-dark
           &.design
-            background: $design-dark
-          &.hover
+            background: darken($design-dark, 5%)
+            &.hover
+              background: $design-dark
+          svg
+            opacity: 0.7
+          &.hover svg
             opacity: 1
         .arrow:before
           transform: rotate(90deg)
