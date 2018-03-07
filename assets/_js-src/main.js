@@ -56,14 +56,14 @@ require([
         this.classList.add(cls);
     };
 
+    Node.prototype.rmvClass = function(cls) {
+        this.classList.remove(cls);
+    };
+
     Node.prototype.addClassToAncestors = function(cls, opts) {
         this.forEachAncestor(function(el){
             el.addClass(cls);
         }, opts);
-    };
-
-    Node.prototype.rmvClass = function(cls) {
-        this.classList.remove(cls);
     };
 
     Node.prototype.rmvClassFromDescendents = function(cls) {
@@ -108,10 +108,16 @@ require([
         }, false);
 
         el.addEventListener('touchend', function(e) {
+            e.currentTarget.rmvClass('hover');
             e.currentTarget.rmvClassFromDescendents('hover');
+            if (e.currentTarget.contains(e.touchTarget)) {
+                e.touchTarget.click();
+            }
         }, false);
 
         el.addEventListener('touchcancel', function(e) {
+            e.currentTarget.rmvClass('hover');
+            e.currentTarget.rmvClassFromDescendents('hover');
         }, false);
     });
 });
