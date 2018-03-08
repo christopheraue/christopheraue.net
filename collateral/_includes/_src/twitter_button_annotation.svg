@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="99.721291"
+   height="64.775322"
+   viewBox="0 0 99.721291 64.775322"
+   version="1.1"
+   id="svg5516"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   sodipodi:docname="twitter_button_annotation.svg">
+  <defs
+     id="defs5510" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#8c3f3f"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="64.062016"
+     inkscape:cy="-179.96581"
+     inkscape:document-units="px"
+     inkscape:current-layer="svg5516"
+     showgrid="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     units="px"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="false"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-nodes="false"
+     inkscape:snap-others="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:snap-page="true"
+     inkscape:snap-grids="false"
+     inkscape:snap-to-guides="false"
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:snap-global="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid6364"
+       empspacing="1"
+       originx="6.3628419e-06"
+       originy="-135.22469"
+       spacingx="26.458331"
+       spacingy="26.458331" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5513">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="twitter-button-annotation"
+     aria-labelledby="twitter-button-annotation-title">
+    <title
+       id="twitter-button-annotation-title">for in between</title>
+    <path
+       style="fill:none;stroke-width:1.50002074;stroke-linecap:round"
+       d="m 84.03978,47.5109 c 6.16307,0.8315 13.20511,7.3398 14.92946,16.5039"
+       id="path4854"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path6762"
+       style="fill:none;stroke-width:1.50002074;stroke-linecap:round;stroke-linejoin:round"
+       d="m 67.9061,41.0552 c -0.4415,2.3341 -0.53576,4.4211 -0.97508,6.7375 0.51723,-3.3729 1.43499,-6.6486 4.59138,-6.2488 3.52003,0.4455 2.42816,4.7496 2.1844,7.1932 M 57.52989,43.3433 c 1.44942,0.368 3.99562,1.0501 5.32443,-0.011 1.26522,-1.0105 -0.052,-2.6163 -1.12971,-2.9619 -1.24836,-0.4004 -2.84546,0.035 -3.85173,0.8955 -1.34195,1.148 -1.28043,3.5716 -0.14909,4.5752 1.34504,1.1932 3.86772,1.4478 5.43711,0.9811 M 47.27921,41.9001 c 1.54285,0.2179 3.76412,0.9207 5.18401,-0.1373 0.51174,-0.3813 0.43086,-1.3637 0.0456,-1.8108 -1.91212,-2.2188 -6.08465,-0.8489 -6.09884,2.3026 -0.0153,3.3921 5.15861,4.0789 6.85396,3.1802 M 31.91856,36.4035 c 0.62566,2.6404 1.21427,4.7771 1.9717,7.1971 1.25411,-1.2141 2.41119,-2.3087 3.37608,-3.4308 0.51717,1.4131 1.24132,2.9101 1.80436,4.0945 1.56098,-2.1772 2.86206,-4.2911 4.34812,-6.3639 M 22.24551,34.4683 c 1.9146,0.2158 4.58885,0.5432 6.11193,0.8594 M 26.38945,26.1344 C 25.7679,31.6392 24.8886,37.6023 24.3578,42.3714 M 12.91594,37.6736 c 1.30789,0.1782 4.6137,0.5323 5.75813,-0.2876 0.68022,-0.4873 -0.12105,-1.7034 -0.48582,-2.0381 -1.43774,-1.3191 -3.60216,-1.3053 -5.11066,-0.095 -1.63688,1.3134 -1.43863,3.9 0.16325,5.1287 1.30465,1.0007 3.81266,1.1128 5.31535,0.5388 M 2.75183,23.1446 C 2.22855,26.8382 1.75589,31.1748 1.3567,34.3078 L 0.97868,37.248 c -0.64709,5.0329 0.21821,-2.072 0.86836,-3.3253 1.11699,-2.1534 5.69903,-0.556 6.27143,1.404 0.90739,3.1069 -1.05502,4.6088 -4.73032,4.2376 C 2.75667,39.5003 1.7252,39.4026 0.8277,39.2129 M 59.65323,14.6473 c -0.34918,2.3645 -0.77609,4.9767 -0.9846,6.8564 0.5177,-3.6141 1.70757,-6.6156 4.16445,-6.402 3.54197,0.3081 2.40695,4.6962 2.14333,7.1655 M 57.0063,9.5102 c -0.11144,0.1752 -0.22283,0.3503 -0.33423,0.5254 -0.0176,0.022 -0.0354,0.045 -0.053,0.067 m -0.62445,4.1079 c -0.4064,2.394 -0.65168,4.5056 -0.94571,6.7651 M 38.2198,11.9929 c -0.39873,2.4026 -0.71503,4.807 -0.95328,6.8059 0.41696,-2.3435 0.96351,-4.4984 1.37572,-6.6395 0.40538,0.2912 1.55804,0.7002 2.21996,0.7971 0.67945,0.1 1.92374,0.092 2.66502,-0.068 M 31.86355,11.3859 c -1.61116,-0.5325 -3.60719,-0.5712 -4.96599,0.9791 -2.8449,3.2459 3.42169,6.8674 5.76626,5.0723 3.23489,-2.4767 0.57023,-8.8464 -3.39667,-5.4982 M 17.18382,9.1222 c 2.51492,0.3375 4.51805,0.5859 7.12951,0.9237 m 3.6036,-7.2104 c -3.31969,-3.4267 -5.79281,-2.275 -6.40005,0.9104 -1.22299,6.4156 -1.89701,15.9047 -2.32599,19.7368" />
+  </g>
+</svg>

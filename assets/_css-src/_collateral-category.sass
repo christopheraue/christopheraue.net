@@ -26,99 +26,7 @@ body.collateral
  *  The Category Page
  *  -----------------
  *
- *  ```
- *  !responsive
- *  !bodyClass collateral
- *
- *  <div id="content">
- *    <section id="theatre">
- *      <div class="marquee">
- *        <object data="/assets/images/collateral_page_marquee.svgz" type="image/svg+xml">
- *          Collateral &mdash; Visual Storytelling in movies & games
- *        </object>
- *        <svg class="light-box" viewBox="0 0 620 110">
- *          <g transform="translate(310,2.5)">
- *            <text y="20">presenting</text>
- *            <text y="40">Life Is Strange: Before the Storm</text>
- *            <text y="70" class="large">Visualization of Emotions &mdash; Part 1</text>
- *            <text y="100"><tspan>Part 2</tspan><tspan dx="30">Mar 12</tspan></text>
- *          </g>
- *        </svg>
- *      </div>
- *      <div class="screen">
- *        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
- *      </div>
- *    </section>
- *    <div class="sections">
- *      <section id="youtube">
- *        <div class="button">
- *          <a href="https://www.youtube.com/channel/UCCX3-7hikDyXCowYRVRIY6A" title="Watch all videos on YouTube" target="_blank">
- *            <svg viewBox="0 0 220 50">
- *              <use xlink:href="/assets/images/collateral_page_annotated_buttons.svgz#youtube-button"></use>
- *            </svg>
- *          </a>
- *        </div>
- *        <div class="annotation">
- *          <svg viewBox="0 0 199.764 58.614">
- *            <title>a new video every two weeks</title>
- *            <use xlink:href="/assets/images/collateral_page_annotated_buttons.svgz#youtube-button-annotation"></use>
- *          </svg>
- *        </div>
- *      </section>
- *      <section id="patreon">
- *        <div class="help-me">
- *          <svg viewBox="0 0 472 273.3333">
- *            <title>Help me make more videos!</title>
- *            <use xlink:href="/assets/images/collateral_page_annotated_buttons.svgz#help-me-make-more-videos"></use>
- *          </svg>
- *        </div>
- *        <div class="button">
- *          <a href="https://www.patreon.com/collateral" title="Become a patron on Patreon" target="_blank">
- *            <svg viewBox="0 0 230 50">
- *              <use xlink:href="/assets/images/collateral_page_annotated_buttons.svgz#patreon-button"></use>
- *            </svg>
- *          </a>
- *        </div>
- *        <div class="annotation">
- *          <svg viewBox="0 0 350 275">
- *            <title>You help by pledging $1 for my next video. On top, you get as a thank-you: Early Access + Bonus Videos</title>
- *            <use xlink:href="/assets/images/collateral_page_annotated_buttons.svgz#patreon-button-annotation"
- *              width="288.194"></use>
- *            <use xlink:href="/assets/images/collateral_page_annotated_buttons.svgz#early-access-bonus-videos"
- *               width="328.634" x="5" y="170"></use>
- *          </svg>
- *        </div>
- *      </section>
- *      <section id="twitter">
- *        <div class="annotation">
- *          <svg viewBox="0 0 108.975 64.025">
- *            <title>for in between</title>
- *            <use xlink:href="/assets/images/collateral_page_annotated_buttons.svgz#twitter-button-annotation"></use>
- *          </svg>
- *        </div>
- *        <div class="gifs">
- *          <svg viewBox="0 0 130.667 41.333">
- *            <title>Gifs</title>
- *            <use xlink:href="/assets/images/collateral_page_annotated_buttons.svgz#gifs"></use>
- *          </svg>
- *        </div>
- *        <div class="button">
- *          <a href="https://twitter.com/christopheraue" title="Follow on Twitter" target="_blank">
- *            <svg viewBox="0 0 240 50">
- *              <use xlink:href="/assets/images/collateral_page_annotated_buttons.svgz#twitter-button"></use>
- *            </svg>
- *          </a>
- *        </div>
- *        <div class="updates">
- *          <svg viewBox="0 0 143.333 54">
- *            <title>Updates</title>
- *            <use xlink:href="/assets/images/collateral_page_annotated_buttons.svgz#updates"></use>
- *          </svg>
- *        </div>
- *      </section>
- *    </div>
- *  </div>
- *  ```
+ *  Displayed at [/collateral](/collateral).
  */
 $google-fonts: str-join($google-fonts, "|", "Open+Sans+Condensed:700")
 
@@ -139,8 +47,8 @@ body.collateral
         width: 100%
       .light-box
         position: absolute
-        top: 31.25%
-        left: 10%
+        top: 31.4%
+        left: 10.25%
         height: 19.1%
         text
           font-family: "Open Sans Condensed"
@@ -229,7 +137,7 @@ body.collateral
       margin-top: .4em
       svg
         height: 11em
-    @media screen and (min-width: 38em) //680px
+    @media screen and (min-width: 45em) //720px
       .help-me
         margin-bottom: -1em
     @media screen and (min-width: 50em) //800px
