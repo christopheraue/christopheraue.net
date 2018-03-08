@@ -4,5 +4,8 @@
     dir: '../assets/js',
     skipDirOptimize: true,
     removeCombined: true,
-    modules: [{name: 'main'}]
+    modules: [{name: 'main'}],
+    paths: {
+        'google-analytics': 'empty:'
+    }
 })

@@ -1,9 +1,9 @@
 require.config({
     paths: {
-        'svgxuse': 'lib/svgxuse'
+        'google-analytics': '//www.google-analytics.com/analytics'
     },
     shim: {
-        '//www.google-analytics.com/analytics.js': {
+        'google-analytics': {
             exports: 'ga'
         }
     }

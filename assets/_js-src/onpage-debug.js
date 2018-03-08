@@ -3,7 +3,7 @@
  */
 
 define('onpage-debug', function () {
-    var body = document.getElementsByTagName('body');
+    var body = document.getElementsByTagName('body')[0];
 
     var wrapper = document.createElement('div');
     wrapper.setAttribute('id', 'js-onpage-debug');
@@ -14,7 +14,7 @@ define('onpage-debug', function () {
     debug.setAttribute('style', 'align-self: flex-end');
 
     wrapper.appendChild(debug);
-    body[0].insertBefore(wrapper, body.firstChild);
+    body.insertBefore(wrapper, body.firstChild);
 
     var debugIdx = 0;
     return {
