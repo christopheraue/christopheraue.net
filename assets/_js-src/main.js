@@ -17,11 +17,4 @@ require([
         require(['//' + disqus_shortname + '.disqus.com/embed.js']);
         require(['//' + disqus_shortname + '.disqus.com/count.js']);
     }
-
-    // on page debug output
-    var debug = document.getElementById('js-debug');
-    debug.idx = 0;
-    debug.log = function(msg) {
-        debug.innerText += this.idx++ + " " + msg + "\n";
-    };
 });
