@@ -7,6 +7,24 @@ define('unified-hover', [
     'core-ext/HTMLCollection',
     'core-ext/TouchEvent'
 ], function () {
+    // Set hover states right after page load
+    var initHoverAt = function(x, y) {
+        var html = document.getElementsByTagName('html')[0];
+        var target = document.elementFromPoint(x, y);
+        html.addClassTracingDescendant('hover', target);
+    };
+
+    if (document.initClientX) {
+        initHoverAt(document.initClientX, document.initClientY);
+    } else {
+        var initHover = function(){
+            initHoverAt(document.initClientX, document.initClientY);
+            document.removeEventListener('mouseover', initHover, false);
+        };
+        document.addEventListener('mouseover', initHover, false);
+    }
+
+    // Update hover states on events
     document.getElementsByTagName('*').forEach(function(el){
         el.addEventListener('touchstart', function(e){
             e.currentTarget.addClass('hover');

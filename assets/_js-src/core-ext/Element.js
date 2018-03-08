@@ -38,8 +38,8 @@ define(function() {
          * will be identical upto a certain index. Elements at a greater index
          * have to be updated.
          */
-        var changedIdx = old.findIndex(function(el, idx){
-            return el !== now[idx]
+        var changedIdx = now.findIndex(function(el, idx){
+            return el !== old[idx]
         });
 
         var i;
