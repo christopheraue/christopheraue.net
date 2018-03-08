@@ -6,6 +6,7 @@
     removeCombined: true,
     modules: [{name: 'main'}],
     paths: {
-        'google-analytics': 'empty:'
+        'google-analytics': 'empty:',
+        'youtube-api': 'empty:'
     }
 })

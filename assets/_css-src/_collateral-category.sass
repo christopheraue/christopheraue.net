@@ -40,9 +40,10 @@ body.collateral
       padding: 0 $gutter-width
   #theatre
     margin-bottom: 7em
+    position: relative
     .marquee
       position: relative
-      margin-bottom: -20%
+      margin-bottom: 40%
       object
         width: 100%
       .light-box
@@ -60,25 +61,50 @@ body.collateral
           &.large
             font-size: 36px
     .screen
-      width: 66%
-      margin: 0 auto
-      position: relative
-      border-radius: .3em
-      box-shadow: 0 0 4em black
-      border: .4em solid black
-      background: black
+      $screen-width: 66.6666%
+
+      width: $screen-width
+      position: absolute
+      top: 95%
+      left: 50%
+      margin-left: -$screen-width/2
+      margin-top: -.5625 * $screen-width/2
+      z-index: 9999
+      desc
+        display: none
+      iframe
+        position: absolute
+        border-radius: .3em
+        box-shadow: 0 0 4em black
+        border: .4em solid black
+        background: black
+        top: -.4em // compensate for border
+        left: -.4em
+        width: 100%
+        height: 100%
+        transition: transform 1s ease // transform set with javascript
+      &:after
+        content: ''
+        display: block
+        padding-bottom: 56.25% // ensure 16/9 format of screen
       &:before
         content: ''
         display: block
-        padding-bottom: 56.25%
-      > *
-        position: absolute
+        position: fixed
         top: 0
         left: 0
-        width: 100%
-        height: 100%
-      desc
-        display: none
+        right: 0
+        bottom: 0
+        background: black
+        opacity: 0
+        transition: opacity 1s ease
+        pointer-events: none
+      &.playing
+        iframe
+          transform: scale(100%/$screen-width)
+        &:before
+          opacity: 0.75
+          pointer-events: auto
   .sections
     text-align: center
     section
