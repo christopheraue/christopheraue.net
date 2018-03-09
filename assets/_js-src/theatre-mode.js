@@ -7,7 +7,7 @@ define('theatre-mode', function(){
             scrollDistance = screenYCenter-viewportYCenter,
             scrollDuration = 1, // seconds
             bodyStyle = document.body.style;
-        console.log(scrollDistance);
+
         bodyStyle.transform = "translate(0px, " + scrollDistance + "px)";
         window.scrollBy(0, scrollDistance);
         bodyStyle.transition = "transform " + scrollDuration + "s ease";
@@ -28,7 +28,20 @@ define('theatre-mode', function(){
         },
         initVideo: function(screen) {
             var initialize = function(YT) {
-                var scrolling = false;
+                var focussed = false;
+
+                var focus = function() {
+                    focussed = true;
+                    smoothScrollToCenterOf(screen);
+                    screen.addClass('playing');
+                    player.playVideo();
+                };
+
+                var unfocus = function() {
+                    focussed = false;
+                    screen.rmvClass('playing');
+                    player.pauseVideo();
+                };
 
                 var player = new YT.Player(screen.getElementsByTagName('iframe')[0], {
                     events: {
@@ -36,28 +49,23 @@ define('theatre-mode', function(){
                             switch(event.data) {
                                 case YT.PlayerState.BUFFERING:
                                 case YT.PlayerState.PLAYING:
-                                    screen.addClass('playing');
-                                    if (!scrolling) {
-                                        scrolling = true;
-                                        smoothScrollToCenterOf(screen);
+                                case YT.PlayerState.PAUSED:
+                                    if (!focussed) {
+                                        focus();
                                     }
                                     break;
                                 default:
-                                    screen.rmvClass('playing');
-                                    scrolling = false;
+                                    if (focussed) {
+                                        unfocus();
+                                    }
                             }
                         }
                     }
                 });
 
                 screen.addEventListener('click', function() {
-                    switch(player.getPlayerState()) {
-                        case YT.PlayerState.PLAYING:
-                        case YT.PlayerState.BUFFERING:
-                            player.pauseVideo();
-                            break;
-                        default:
-                            // do nothing
+                    if (focussed) {
+                        unfocus();
                     }
                 });
             };
