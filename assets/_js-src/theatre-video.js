@@ -1,5 +1,6 @@
 define('theatre-video', [
-    'youtube-api'
+    'youtube-api',
+    'core-ext/body'
 ], function(YT){
     var Video = function(screen) {
         this.screen = screen;
@@ -53,6 +54,7 @@ define('theatre-video', [
             YT.ready(function(){
                 this.focussed = true;
                 this.centerInViewport();
+                document.body.disableScrolling();
                 this.screen.addClass('playing');
                 this.player.playVideo();
             }.bind(this));
@@ -60,6 +62,7 @@ define('theatre-video', [
         unfocus: function(){
             YT.ready(function(){
                 this.focussed = false;
+                document.body.enableScrolling();
                 this.screen.rmvClass('playing');
                 this.player.pauseVideo();
             }.bind(this));
