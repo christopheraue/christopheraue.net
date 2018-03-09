@@ -14,9 +14,12 @@
    height="230.38193"
    viewBox="0 0 328.63385 230.38192"
    version="1.1"
-   id="svg5516"
+   id="patreon-button-annotation"
    inkscape:version="0.92.2 5c3e80d, 2017-08-06"
-   sodipodi:docname="patron_button_annotation.svg">
+   sodipodi:docname="patron_button_annotation.svg"
+   aria-labelledby="patreon-button-annotation-title">
+  <title
+     id="patreon-button-annotation-title">You help by pledging $1 for my next video. On top, you get as a thank-you: Early Access + Bonus Videos.</title>
   <defs
      id="defs5510" />
   <sodipodi:namedview
@@ -74,11 +77,6 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
-  <g
-     id="patreon-button-annotation"
-     aria-labelledby="patreon-button-annotation-title">
-    <title
-       id="patreon-button-annotation-title">You help by pledging $1 for my next video. On top, you get as a thank-you: Early Access + Bonus Videos.</title>
     <path
        style="fill:none;stroke-width:1.5;stroke-linecap:round"
        d="m 15.870322,1.7606912 c -0.1742,11.4548598 7.52889,23.0524198 16.48771,23.2781698"
@@ -129,5 +127,4 @@
        id="image5029"
        x="179.30054"
        y="148.73669" />
-  </g>
 </svg>
