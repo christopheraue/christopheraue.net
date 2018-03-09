@@ -1,9 +1,9 @@
 require([
-    'theatre-mode',
+    'theatre-video',
     'config',
     'lib/svgxuse',
     'unified-hover'
-], function(theatreMode) {
+], function(theatreVideo) {
     require(['google-analytics'], function(ga){
         ga('create', 'UA-48107803-1', 'christopheraue.net');
         ga('send', 'pageview');
@@ -19,11 +19,10 @@ require([
     }
 
     // darken background of playing videos
-    var theatreModeVideos = document.getElementsByClassName('js-theatre-mode');
-    if (theatreModeVideos.length > 0) {
-        theatreMode.init();
-        for (var i=0; i<theatreModeVideos.length; i++) {
-            theatreMode.initVideo(theatreModeVideos[i]);
+    var theatreVideos = document.getElementsByClassName('js-theatre-video');
+    if (theatreVideos.length > 0) {
+        for (var i=0; i<theatreVideos.length; i++) {
+            new theatreVideo(theatreVideos[i]);
         }
     }
 });
