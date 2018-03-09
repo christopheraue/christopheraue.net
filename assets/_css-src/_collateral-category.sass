@@ -101,6 +101,10 @@ body.collateral
           color: black
           opacity: .3
           transition: opacity 1s ease, color 1s ease 1s
+          @media screen and (min-aspect-ratio: 16/10)
+            // Wide landscape viewports have a little less space to display the
+            // "Turn lights back on"-button.
+            bottom: 1em
           &:before
             content: 'Turn lights back on'
       &:after
@@ -108,8 +112,11 @@ body.collateral
         display: block
         padding-bottom: 56.25% // ensure 16/9 format of screen
       &.playing
-        iframe
-          transform: scale(100%/$screen-width)
+        @media screen and (max-aspect-ratio: 16/10)
+          // The video should not be scaled for wide landscape viewports. There will not
+          // be enough room to leave the theatre mode if it is.
+          iframe
+            transform: scale(100%/$screen-width)
         .darkness
           opacity: 0.90
           pointer-events: auto
