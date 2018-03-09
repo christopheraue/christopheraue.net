@@ -68,10 +68,10 @@ define('theatre-video', [
             }.bind(this));
         },
         centerInViewport: function(){
-            var screenRect = this.screen.getBoundingClientRect(),
-                screenYCenter = screenRect.top + screenRect.height/2,
+            var videoRect = this.screen.getBoundingClientRect(),
+                videoYCenter = videoRect.top + videoRect.height/2,
                 viewportYCenter = window.innerHeight/2,
-                scrollDistance = screenYCenter-viewportYCenter,
+                scrollDistance = videoYCenter-viewportYCenter,
                 scrollDuration = 1, // seconds
                 bodyStyle = document.body.style;
 

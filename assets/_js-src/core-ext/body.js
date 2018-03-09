@@ -3,22 +3,24 @@
  */
 
 define(function() {
-    var preventTouchScrolling = function(e){
-        e.preventDefault();
-    };
-
     document.body.disableScrolling = function(){
-        // add a padding to avoid jumps caused by a disappearing sidebar
-        this.style['padding-right'] = (window.innerWidth - this.clientWidth) + "px";
-        this.style['height'] = "100%";
-        this.style['overflow'] = "hidden";
-        this.addEventListener('touchmove', preventTouchScrolling, false);
+        this.dataset.pageYOffset = window.pageYOffset;
+        var scrollbarWidth = window.innerWidth - this.clientWidth;
+        // add a padding to avoid jumps caused by a disappearing scrollbar
+        this.style['padding-right'] = scrollbarWidth + "px";
+        this.style['position'] = "fixed";
+        this.style['top'] = -this.dataset.pageYOffset + 'px';
+        this.style['width'] = "100%";
+        this.style['box-sizing'] = "border-box";
     };
 
     document.body.enableScrolling = function(){
         this.style['padding-right'] = null;
-        this.style['height'] = null;
-        this.style['overflow'] = null;
-        this.removeEventListener('touchmove', preventTouchScrolling, false);
+        this.style['position'] = null;
+        this.style['top'] = null;
+        this.style['width'] = null;
+        this.style['box-sizing'] = null;
+        window.scrollTo(0, this.dataset.pageYOffset);
+        delete this.dataset.pageYOffset;
     };
 });
