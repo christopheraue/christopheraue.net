@@ -29,19 +29,22 @@ defaults:
       path: "home"
     values:
       category: "home"
-      favicon_background_color: #3f668c
+      favicon_macos_safari_color: #3f668c
       favicon_android_theme_color: #ffffff
+      favicon_windows_metro_color: #ffffff
 
   - scope:
       path: "design"
     values:
       category: "design"
-      favicon_background_color: #3f668c
+      favicon_macos_safari_color: #3f668c
       favicon_android_theme_color: #3f668c
+      favicon_windows_metro_color: #3f668c
 
   - scope:
       path: "collateral"
     values:
       category: "collateral"
-      favicon_background_color: #8c3f3f
+      favicon_macos_safari_color: #8c3f3f
       favicon_android_theme_color: #8c3f3f
+      favicon_windows_metro_color: #8c3f3f
