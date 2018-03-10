@@ -111,10 +111,8 @@ body
  *  ```
  *  !responsive
  *
- *  <header id="page-header" class="white-box">HEADER</header>
- *  <div id="content">
- *      <section class="white-box">CONTENT</section>
- *  </div>
+ *  <header class="white-box">HEADER</header>
+ *  <main class="white-box">CONTENT</main>
  *  ```
  */
 body
@@ -129,12 +127,11 @@ body
     @media screen and (min-width: 50em) //800px
         font-size: 1.25em
 
-    #page-header
+    > header
         margin-bottom: 3em
 
-    #content
+    > main
         margin-bottom: 1.5em
-        box-sizing: border-box
 
 /*
  *  Columns

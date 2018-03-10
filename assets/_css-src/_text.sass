@@ -65,16 +65,14 @@ $google-fonts: str-join($google-fonts, "|", "Source+Code+Pro:300,500")
  *  ```
  *  !responsive
  *
- *  <div id="content">
- *      <article class="text fixie white-box">
- *          <h2>No Content before this heading: No top margin. Slight bottom margin.</h2>
- *          <p>This paragraph has no top margin!</p>
- *          <h3>There is a paragraph before this level three heading. So, set a top margin, please.</h3>
- *          <h2>There is a heading before this level 2 heading. So, set a top margin, please. The margin is bigger than for level three.</h2>
- *          <img width="300" height="240"></img>
- *          <p>The image above has no top margin</p>
- *      </article>
- *  </div>
+ *  <article class="text fixie white-box">
+ *      <h2>No Content before this heading: No top margin. Slight bottom margin.</h2>
+ *      <p>This paragraph has no top margin!</p>
+ *      <h3>There is a paragraph before this level three heading. So, set a top margin, please.</h3>
+ *      <h2>There is a heading before this level 2 heading. So, set a top margin, please. The margin is bigger than for level three.</h2>
+ *      <img width="300" height="240"></img>
+ *      <p>The image above has no top margin</p>
+ *  </article>
  *  ```
  */
 .text
@@ -565,13 +563,11 @@ $comment: #888888
  *  ### Asides
  *
  *  ```
- *  <div id="content">
- *      <div class="text fixie">
- *          <aside>
- *              <header>Aside Title</header>
- *              <p></p>
- *          </aside>
- *      </div>
+ *  <div class="text white-box fixie">
+ *      <aside>
+ *          <header>Aside Title</header>
+ *          <p></p>
+ *      </aside>
  *  </div>
  *  ```
  */

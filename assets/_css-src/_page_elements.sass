@@ -13,7 +13,7 @@
  *  ```
  *  !responsive
  *
- *  <header id="page-header">
+ *  <header>
  *    <div class="logo-nav">
  *      <div class="logo">
  *        <a href="/" title="Go to start page">
@@ -50,7 +50,7 @@
  */
 $transition_time: 300ms
 
-#page-header
+body > header
   text-align: center
   padding: 2em 1.25em
   height: 2.5em
@@ -182,42 +182,40 @@ $transition_time: 300ms
  *  ```
  *  !responsive
  *
- *  <div id="content">
- *      <section class="article-list columns-when-wide with-gutters">
- *          <div class="third">
- *              <h2>Section 1</h2>
- *          </div><!--
- *       --><nav class="two-thirds ensure-readability">
- *              <ul>
- *                  <li>
- *                      <h3>Article Headline</h3>
- *                      <p>This is a description of the article. It may become longer than a single line.</p>
- *                  </li>
- *                  <li>
- *                      <h3>Article Headline</h3>
- *                      <p>This is a description of the article.</p>
- *                  </li>
- *              </ul>
- *          </nav>
- *      </section>
- *      <section class="article-list columns-when-wide with-gutters">
- *          <div class="third">
- *              <h2>Section 2</h2>
- *          </div><!--
- *       --><nav class="two-thirds ensure-readability">
- *              <ul>
- *                  <li>
- *                      <h3>This Is a Very Long Article Headline: Maybe With a Subtitle</h3>
- *                      <p>This is a description of the article.</p>
- *                  </li>
- *                  <li>
- *                      <h3>Article Headline</h3>
- *                      <p>This is a description of the article.</p>
- *                  </li>
- *              </ul>
- *          </nav>
- *      </section>
- *  </div>
+ *  <section class="article-list columns-when-wide with-gutters">
+ *      <div class="third">
+ *          <h2>Section 1</h2>
+ *      </div><!--
+ *   --><nav class="two-thirds ensure-readability">
+ *          <ul>
+ *              <li>
+ *                  <h3>Article Headline</h3>
+ *                  <p>This is a description of the article. It may become longer than a single line.</p>
+ *              </li>
+ *              <li>
+ *                  <h3>Article Headline</h3>
+ *                  <p>This is a description of the article.</p>
+ *              </li>
+ *          </ul>
+ *      </nav>
+ *  </section>
+ *  <section class="article-list columns-when-wide with-gutters">
+ *      <div class="third">
+ *          <h2>Section 2</h2>
+ *      </div><!--
+ *   --><nav class="two-thirds ensure-readability">
+ *          <ul>
+ *              <li>
+ *                  <h3>This Is a Very Long Article Headline: Maybe With a Subtitle</h3>
+ *                  <p>This is a description of the article.</p>
+ *              </li>
+ *              <li>
+ *                  <h3>Article Headline</h3>
+ *                  <p>This is a description of the article.</p>
+ *              </li>
+ *          </ul>
+ *      </nav>
+ *  </section>
  *  ```
  */
 .article-list
@@ -254,34 +252,32 @@ $transition_time: 300ms
  *  ```
  *  !responsive
  *
- *  <div id="content">
- *    <article class="article ensure-readability">
- *      <header>
- *        <h1>This Is the Headline of an Article With an Interesting Topic</h1>
- *        <div class="meta">
- *          <div class="social">
- *            <a href="#" class="comments">5 Comments</a>
- *            <span class="dash">—</span>
- *            <ul class="sharing">
- *              <li><a href="#" title="Share on Twitter">
- *                <svg class="social-icon white">
- *                  <use xlink:href="/assets/images/social_icons.svgz#twitter-icon"></use>
- *                </svg>
- *              </a></li><!--
- *           --><li><a href="#" title="Share on Facebook">
- *                <svg class="social-icon white">
- *                  <use xlink:href="/assets/images/social_icons.svgz#facebook-icon"></use>
- *                </svg>
- *              </a></li>
- *            </ul>
- *          </div><!--
- *       --><time datetime="2049-09-15" class="date">September 15, 2049</time>
- *        </div>
- *      </header>
- *      <section class="text white-box fixie"></section>
- *      <div id="disqus_thread" class="white-box">COMMENT SECTION</div>
- *    </article>
- *  </div>
+ *  <article class="article ensure-readability">
+ *    <header>
+ *      <h1>This Is the Headline of an Article With an Interesting Topic</h1>
+ *      <div class="meta">
+ *        <div class="social">
+ *          <a href="#" class="comments">5 Comments</a>
+ *          <span class="dash">—</span>
+ *          <ul class="sharing">
+ *            <li><a href="#" title="Share on Twitter">
+ *              <svg class="social-icon white">
+ *                <use xlink:href="/assets/images/social_icons.svgz#twitter-icon"></use>
+ *              </svg>
+ *            </a></li><!--
+ *         --><li><a href="#" title="Share on Facebook">
+ *              <svg class="social-icon white">
+ *                <use xlink:href="/assets/images/social_icons.svgz#facebook-icon"></use>
+ *              </svg>
+ *            </a></li>
+ *          </ul>
+ *        </div><!--
+ *     --><time datetime="2049-09-15" class="date">September 15, 2049</time>
+ *      </div>
+ *    </header>
+ *    <section class="text white-box fixie"></section>
+ *    <div id="disqus_thread" class="white-box">COMMENT SECTION</div>
+ *  </article>
  *  ```
  */
 

@@ -5,12 +5,12 @@
   </head>
   <body class="{{ page.category }}">
     {% if page.show_header %}
-      <header id="page-header">
+      <header>
         {% include header.html %}
       </header>
     {% endif %}
-    <div id="content">
+    <main role="main">
       {{ content }}
-    </div>
+    </main>
   </body>
 </html>
