@@ -1,10 +1,9 @@
 url: http://c.loc
 destination: ./_site
 name: christopheraue.net
-description: A place for Christopher Aue to write about stuff.
 encoding: UTF-8
 permalink: :categories/:title
-exclude: [test, sass, build.sh, deploy.sh, set_development_env.sh, set_production_env.sh, videos, Gemfile, Gemfile.lock]
+exclude: [build.sh, deploy.sh, Gemfile, Gemfile.lock]
 plugins:
   - jekyll-redirect-from
 

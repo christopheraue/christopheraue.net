@@ -6,8 +6,7 @@ layout: none
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>{{ site.name | xml_escape }}/{{ page.category }}</title>
-        <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}
-        </description>
+        <description>An incomplete list of topics I found worthwhile to write about</description>
         <link>{{ site.url }}/{{ page.category }}</link>
         <atom:link href="{{ site.url }}/{{ page.category }}/feed.xml" rel="self" type="application/rss+xml"/>
         {% for post in site.categories[page.category] %}
