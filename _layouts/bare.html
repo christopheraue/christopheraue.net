@@ -1,39 +1,16 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>{{ page.title | xml_escape }}{% unless page.no_head_title_affix %} - {{ site.name | xml_escape }}{% endunless %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="author" content="Christopher Aue">
-    <meta name="description" content="{{ page.meta_description }}">
-    <meta name="robots" content="index, follow">
-    <link rel="apple-touch-icon" sizes="180x180" href="/{{ page.category }}/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/{{ page.category }}/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/{{ page.category }}/favicons/favicon-16x16.png">
-    <link rel="manifest" href="/{{ page.category }}/favicons/site.webmanifest">
-    <link rel="mask-icon" href="/{{ page.category }}/favicons/safari-pinned-tab.svg" color="{{ page.favicon_macos_safari_color }}">
-    <link rel="shortcut icon" href="/{{ page.category }}/favicons/favicon.ico">
-    <meta name="msapplication-TileColor" content="{{ page.favicon_windows_metro_color }}">
-    <meta name="msapplication-config" content="/{{ page.category }}/browserconfig.xml">
-    <meta name="theme-color" content="{{ page.favicon_android_theme_color }}">
-    {% if page.has_feed %}
-      <link rel="alternate" type="application/rss+xml" title="christopheraue.net" href="{{ site.url | append: page.url | append: '/feed.xml' }}">
-    {% endif %}
-    <link rel="stylesheet" href="/assets/css/styles.css" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,500|Source+Code+Pro:300,500,900|Open+Sans+Condensed:700" rel="stylesheet">
-    <script>
-      !function() {
-          var initializeMousePosition = function(e){
-              document.initClientX = e.clientX;
-              document.initClientY = e.clientY;
-              document.removeEventListener('mouseover', initializeMousePosition, false);
-          };
-          document.addEventListener('mouseover', initializeMousePosition, false);
-      }();
-    </script>
-    <script async data-main="/assets/js/main" src="/assets/js/lib/require.js"></script>
+    {% include head.html %}
   </head>
   <body class="{{ page.category }}">
-    {{ content }}
+    {% if page.show_header %}
+      <header id="page-header">
+        {% include header.html %}
+      </header>
+    {% endif %}
+    <div id="content">
+      {{ content }}
+    </div>
   </body>
 </html>

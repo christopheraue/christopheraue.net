@@ -15,36 +15,37 @@ category_list: [design, collateral]
 defaults:
   - scope:
       path: ""
-      type: "posts"
     values:
-      layout: "article"
+      show_header: true
+      layout: bare
 
   - scope:
       path: ""
-      type: "pages"
+      type: posts
     values:
-      layout: "with_header"
+      layout: article
 
   - scope:
-      path: "home"
+      path: "index.html"
     values:
-      category: "home"
-      favicon_macos_safari_color: #3f668c
-      favicon_android_theme_color: #ffffff
-      favicon_windows_metro_color: #ffffff
+      category: home
+      show_header: false
+      favicon_macos_safari_color: "#3f668c"
+      favicon_android_theme_color: "#ffffff"
+      favicon_windows_metro_color: "#ffffff"
 
   - scope:
       path: "design"
     values:
-      category: "design"
-      favicon_macos_safari_color: #3f668c
-      favicon_android_theme_color: #3f668c
-      favicon_windows_metro_color: #3f668c
+      category: design
+      favicon_macos_safari_color: "#3f668c"
+      favicon_android_theme_color: "#3f668c"
+      favicon_windows_metro_color: "#3f668c"
 
   - scope:
       path: "collateral"
     values:
-      category: "collateral"
-      favicon_macos_safari_color: #8c3f3f
-      favicon_android_theme_color: #8c3f3f
-      favicon_windows_metro_color: #8c3f3f
+      category: collateral
+      favicon_macos_safari_color: "#8c3f3f"
+      favicon_android_theme_color: "#8c3f3f"
+      favicon_windows_metro_color: "#8c3f3f"
