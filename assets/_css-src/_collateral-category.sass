@@ -31,8 +31,9 @@ body.collateral
 $google-fonts: str-join($google-fonts, "|", "Open+Sans+Condensed:700")
 
 body.collateral
+  $max_content_width: 50em
   > main
-    max-width: 50em
+    max-width: $max_content_width
     margin-left: auto
     margin-right: auto
   #theatre
@@ -59,7 +60,6 @@ body.collateral
             font-size: 36px
     .screen
       $screen-width: 66.6666%
-      $theatre-max-aspect-ratio: 16/10
 
       width: $screen-width
       position: absolute
@@ -93,18 +93,12 @@ body.collateral
         pointer-events: none
         .light-switch
           position: absolute
-          bottom: 2em
+          bottom: 1em
           width: 100%
           text-align: center
           color: black
           opacity: .3
           transition: opacity 1s ease, color 1s ease 1s
-          @media screen and (min-aspect-ratio: #{$theatre-max-aspect-ratio*10}/10), screen and (min-width: 50em) and (min-height: 50em/$theatre-max-aspect-ratio)
-            // Wide landscape viewports have a little less space to display the
-            // "Turn lights back on"-button. The content area does not
-            // grow beyond a width of 50em: For wider viewports a static rule makes sure
-            // the aspect ratio is met.
-            bottom: 1em
           &:before
             content: 'Turn lights back on'
       &:after
@@ -112,13 +106,6 @@ body.collateral
         display: block
         padding-bottom: 56.25% // ensure 16/9 format of screen
       &.playing
-        @media screen and (max-aspect-ratio: #{$theatre-max-aspect-ratio*10}/10), screen and (min-width: 50em) and (min-height: 50em/$theatre-max-aspect-ratio)
-          // The video should not be scaled for wide landscape viewports. There will not
-          // be enough room to leave the theatre mode if it is. The content area does not
-          // grow beyond a width of 50em: For wider viewports a static rule makes sure
-          // the aspect ratio is met.
-          iframe
-            transform: scale(100%/$screen-width)
         .darkness
           opacity: 0.90
           pointer-events: auto
@@ -127,6 +114,18 @@ body.collateral
             cursor: pointer
             &.hover
               opacity: 1
+        // The video should be scaled up to the full content width -- except for wide viewports
+        // (e.g. smartphones in landscape orientation). For them, there will not be enough room
+        // to display the light switch and leave the theatre mode.
+        // For larger screens the content area does not grow wider than 50em: For wider viewports
+        // a different rule checks the aspect ratio of the available area.
+        $theatre-max-aspect-ratio: 16/11
+        $q1: '(max-aspect-ratio: #{$theatre-max-aspect-ratio*11}/11)'
+        $q2w: '(min-width: #{font_scale_at($max_content_width)*$max_content_width})'
+        $q2h: '(min-height: #{font_scale_at($max_content_width)*$max_content_width/$theatre-max-aspect-ratio})'
+        @media screen and #{$q1}, screen and #{$q2w} and #{$q2h}
+          iframe
+            transform: scale(100%/$screen-width)
   .sections
     text-align: center
     section
