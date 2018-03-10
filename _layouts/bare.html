@@ -7,6 +7,15 @@
     <meta name="author" content="Christopher Aue">
     <meta name="description" content="{{ page.meta_description }}">
     <meta name="robots" content="index, follow">
+    <link rel="apple-touch-icon" sizes="180x180" href="/{{ page.category }}/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/{{ page.category }}/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/{{ page.category }}/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/{{ page.category }}/favicons/site.webmanifest">
+    <link rel="mask-icon" href="/{{ page.category }}/favicons/safari-pinned-tab.svg" color="{{ page.favicon_background_color }}">
+    <link rel="shortcut icon" href="/{{ page.category }}/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="{{ page.favicon_background_color }}">
+    <meta name="msapplication-config" content="/{{ page.category }}/browserconfig.xml">
+    <meta name="theme-color" content="{{ page.favicon_android_theme_color }}">
     {% if page.has_feed %}
       <link rel="alternate" type="application/rss+xml" title="christopheraue.net" href="{{ site.url | append: page.url | append: '/feed.xml' }}">
     {% endif %}

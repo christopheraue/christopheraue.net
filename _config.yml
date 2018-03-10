@@ -27,11 +27,22 @@ defaults:
       layout: "with_header"
 
   - scope:
+      path: "home"
+    values:
+      category: "home"
+      favicon_background_color: #3f668c
+      favicon_android_theme_color: #ffffff
+
+  - scope:
       path: "design"
     values:
       category: "design"
+      favicon_background_color: #3f668c
+      favicon_android_theme_color: #3f668c
 
   - scope:
       path: "collateral"
     values:
       category: "collateral"
+      favicon_background_color: #8c3f3f
+      favicon_android_theme_color: #8c3f3f
