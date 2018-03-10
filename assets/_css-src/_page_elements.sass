@@ -7,9 +7,6 @@
  *  Header
  *  ------
  *
- *  The header layout stays the same across all viewport widths. The size of
- *  elements changes with the overall font size of the page
- *
  *  ```
  *  !responsive
  *
@@ -174,6 +171,68 @@ body > header
         .arrow:before
           transform: rotate(90deg)
           opacity: 0
+/*
+ *  Footer
+ *  ------
+ *
+ *  ```
+ *  !responsive
+ *
+ *  <footer>
+ *    <p class="fixie"></p>
+ *    <ul>
+ *      <li><a href="mailto:hi@christopheraue.net" title="Write me letter!">
+ *        <svg class="social-icon white">
+ *          <use xlink:href="/assets/images/social_icons.svgz#mail-icon"></use>
+ *        </svg>
+ *      </a></li><!--
+ *   --><li><a href="https://twitter.com/christopheraue" title="My Twitter profile">
+ *        <svg class="social-icon white">
+ *          <use xlink:href="/assets/images/social_icons.svgz#twitter-icon"></use>
+ *        </svg>
+ *      </a></li><!--
+ *   --><li><a href="https://github.com/christopheraue" title="My Github profile">
+ *        <svg class="social-icon white">
+ *          <use xlink:href="/assets/images/social_icons.svgz#github-icon"></use>
+ *        </svg>
+ *      </a></li><!--
+ *   --><li><a href="https://www.youtube.com/channel/UCCX3-7hikDyXCowYRVRIY6A" title="All Collateral videos">
+ *        <svg class="social-icon white">
+ *          <use xlink:href="/assets/images/social_icons.svgz#youtube-icon"></use>
+ *        </svg>
+ *      </a></li><!--
+ *   --><li><a href="https://www.patreon.com/collateral" title="Keep Collateral alive!">
+ *        <svg class="social-icon white">
+ *          <use xlink:href="/assets/images/social_icons.svgz#patreon-icon"></use>
+ *        </svg>
+ *      </a></li>
+ *    </ul>
+ *    <address>Christopher Aue · Weseler Str. 30 · 48151 Münster · Germany</address>
+ *    <p class="copyright">© 2018 Christopher Aue</p>
+ *  </footer>
+ *  ```
+ */
+body > footer
+  font-size: .8em
+  text-align: center
+  color: white
+  pointer-events: none
+  > *
+    max-width: 30em
+    margin: 0 auto
+    pointer-events: auto
+  > * + *
+    margin-top: 1em
+  ul li
+    display: inline-block
+    vertical-align: middle
+    box-sizing: border-box
+    width: 20%
+    a
+      font-size: 2em
+      opacity: .66
+      &.hover
+        opacity: 1
 
 /*
  *  Article Lists
