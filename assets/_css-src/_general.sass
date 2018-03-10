@@ -128,14 +128,13 @@ body
     @media screen and (min-width: 50em) //800px
         font-size: 1.25em
 
+    padding: 1.5*$gutter-width $gutter-width
+
     > header
-        margin-bottom: 3em
+        margin-bottom: 4*$gutter-width
 
     > main
-        margin-bottom: 3em
-
-    > footer
-        margin-bottom: 1.5em
+        margin-bottom: 4*$gutter-width
 
 /*
  *  Columns
@@ -255,7 +254,7 @@ body
 
 .remove-outer-gutters
     overflow: hidden
-    .columns
+    .columns, .columns-when-wide
         margin: 0 (-$gutter-width)
 /*
  *  Alignment
