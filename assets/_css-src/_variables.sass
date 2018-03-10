@@ -1,3 +1,16 @@
+//             512px    800px
+$font_scales: (32em: 1.5, 50em: 1.25)
+
+@function font_scale_at($page_width)
+  $result: 1
+
+  @each $width, $font_scale in $font_scales
+    @if $page_width >= $width
+      $result: $font_scale
+
+  @return $result
+
+
 $gutter-width: 1.25em
 
 $design-dark: #3f668c

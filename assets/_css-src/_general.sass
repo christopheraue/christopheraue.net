@@ -117,16 +117,9 @@ body
  *  ```
  */
 body
-    font-size: 100%
-
-    @media screen and (min-width: 32em) //512px
-        font-size: 1.5em
-
-    @media screen and (min-width: 42.5em) //680px
-        font-size: 1.5em
-
-    @media screen and (min-width: 50em) //800px
-        font-size: 1.25em
+    @each $page_width, $font_scale in $font_scales
+        @media screen and (min-width: $page_width)
+            font-size: #{$font_scale}em
 
     padding: 1.5*$gutter-width $gutter-width
 
