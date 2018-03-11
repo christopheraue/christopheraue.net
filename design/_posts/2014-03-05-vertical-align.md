@@ -1,20 +1,14 @@
 ---
 title: 'Vertical-Align: All You Need To Know'
-summary: The CSS property vertical-align has some seemingly mysterious rules at work. This article forces them to show their true color.
+summary: The CSS property vertical-align seems to have its own mind. Its feels unwieldy and does unexpected things. But there is actually a single rule that explains its behavior. This article unravels it.
 redirect_from: /2014/03/05/vertical-align
 ---
 
-Often I need to vertically align elements side by side.
-
-CSS offers some possibilities. Sometimes I solve it with `float`, sometimes with `position: absolute`, sometimes even dirty by manually adding margins or paddings.
-
-I don't really like these solutions. Floats only align at their tops and need to be cleared manually. Absolute positioning takes the elements out of the flow so they do no longer affect their surroundings. And working with fixed margins and paddings immediately breaks things on the tiniest change.
-
-But there is another player here: **`vertical-align`**. I think it deserves more credit. Ok, technically, using `vertical-align` for layout is a hack, since it wasn't invented for this reason. It's there to align text and elements next to text. Nonetheless, you can also use `vertical-align` in different contexts to align elements very flexible and fine-grained. The sizes of elements need not to be known. Elements stay in the flow so other elements can react to changed dimensions of those. This makes it a valuable option.
+Ok, let's talk about **`vertical-align`**. It's intended use is to align text and elements next to each other. Nonetheless, you can also use `vertical-align` in different contexts to align elements very flexible and fine-grained. The sizes of elements need not to be known. Elements stay in the flow so other elements can react to changed dimensions of those. One useful application is centering an icon next to a bit of text.
 
 Peculiarities Of Vertical-Align
 -------------------------------
-But, `vertical-align` can be a real scumbag sometimes. Working with it can be a little frustrating. There seem to be some mysterious rules at work. For example, it might happen, that the element you changed `vertical-align` for doesn't change its alignment at all, but other elements in the line do! I'm still getting dragged into the dark corners of `vertical-align` from time to time, tearing my hair.
+But, `vertical-align` can be a real scumbag sometimes and working with it might cause a little bit of frustration. There seem to be some mysterious rules at work. For example, it might happen, that the element you changed `vertical-align` for doesn't change its alignment at all, but other elements in the line do! I'm still getting dragged into the dark corners of `vertical-align` from time to time, tearing my hair.
 
 Unfortunately, most resources on the matter are somewhat shallow. Especially, if we want to use `vertical-align` for layout. They concentrate on the misconception of trying to vertical align everything inside an element. They give basic introductions into the property and explain how elements are aligned in very simple situations. They do not explain the tricky parts.
 
