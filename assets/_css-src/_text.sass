@@ -533,31 +533,35 @@ $comment: #888888
  */
 .text table
     width: 100%
+    background: inherit
+    margin-top: 3em
     caption
         font-size: 1em
         font-weight: bold
         line-height: 1.2em
         text-align: left
-        margin-bottom: .3333em
+        background: inherit
+        padding: .5em
     th, td
         padding: .5em
         vertical-align: top
         text-align: left
     th
         font-weight: normal
-    th[rowspan]
-        vertical-align: middle
     thead > tr
+        background-color: rgba(0,0,0,0.05)
         > th
             vertical-align: bottom
         &:first-child
             th, td
                 border-top: 0
-    tbody > tr:nth-child(odd)
-        th, td
-            background-color: rgba(0,0,0,0.032)
+    tbody
+        border-top: .25em solid white
+        > tr:nth-child(odd)
+            th, td
+                background-color: rgba(0,0,0,0.05)
         th[rowspan]
-            background: transparent
+            background-color: rgba(0,0,0,0.05)
 
 /*
  *  ### Asides
