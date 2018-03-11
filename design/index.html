@@ -6,13 +6,35 @@ has_feed: true
 <div class="remove-outer-gutters">
   <section class="article-list columns-when-wide with-gutters">
     <div class="third">
-      <h2>Webdesign</h2>
+      <h2>Software</h2>
+    </div><!--
+ --><nav class="two-thirds ensure-readability">
+      <ul>
+        <li>
+          <a href="https://github.com/christopheraue/m-ruby-concurrently" title="Visit github repository" target="_blank">
+            <h3>concurrently — A concurrency framework for Ruby and mruby</h3>
+            <p>At its core runs an event loop that schedules ruby fibers. It enables event driven
+              software design, especially evented IO. It's fast, light-weight and well documented.</p>
+            <p>The library is hosted on
+              <svg class="social-icon white">
+                <use xlink:href="/assets/images/social_icons.svgz#github-icon"></use>
+              </svg>
+              github.</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+
+  <section class="article-list columns-when-wide with-gutters">
+    <div class="third">
+      <h2>Web Interfaces</h2>
     </div><!--
   --><nav class="two-thirds ensure-readability">
       <ul>
         {% for article in site.posts %}
         <li>
-          <a href="{{ site.url }}{{ article.url }}" title="Go to the article">
+          <a href="{{ article.url }}" title="Go to the article">
             <h3>{{ article.title | xml_escape }}</h3>
             <p>{{ article.summary | xml_escape }}</p>
           </a>
