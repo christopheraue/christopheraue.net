@@ -4,7 +4,7 @@
     {% include head.html %}
   </head>
   <body class="{{ page.category }}">
-    {% if page.show_header %}
+    {% if page.category != 'home' %}
       <header>
         {% include header.html %}
       </header>
@@ -12,8 +12,10 @@
     <main role="main">
       {{ content }}
     </main>
-    <footer>
-      {% include footer.html %}
-    </footer>
+    {% if page.category != 'home' %}
+      <footer>
+        {% include footer.html %}
+      </footer>
+    {% endif %}
   </body>
 </html>

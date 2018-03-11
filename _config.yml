@@ -16,7 +16,6 @@ defaults:
   - scope:
       path: ""
     values:
-      show_header: true
       layout: bare
 
   - scope:
@@ -29,7 +28,6 @@ defaults:
       path: "index.html"
     values:
       category: home
-      show_header: false
       favicon_macos_safari_color: "#3f668c"
       favicon_android_theme_color: "#ffffff"
       favicon_windows_metro_color: "#ffffff"
