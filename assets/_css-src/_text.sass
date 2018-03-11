@@ -293,13 +293,13 @@ $google-fonts: str-join($google-fonts, "|", "Source+Code+Pro:300,500")
  *  ```
  */
 
-$error: #e24234
-$operator: #cc7832
-$identifier: #ffc66d
-$literal: #6e9cbe
-$string: #a5c261
-$parameter: #9876aa
-$comment: #888888
+$error: #cf3f33
+$operator: #e5ad5e
+$identifier: inherit
+$literal: #a4d3ff
+$string: #9acd75
+$parameter: #bd90de
+$comment: #b6b6b6
 
 .text
     .highlight
@@ -328,11 +328,11 @@ $comment: #888888
             font-weight: 500
         .l
             /* Literal */
-            color: $literal
         .n
             /* Name */
         .o
             /* Operator */
+            font-weight: 500
         .x
             /* Other */
         .p
@@ -340,15 +340,20 @@ $comment: #888888
         .cm
             /* Comment.Multiline */
             color: $comment
+            font-style: italic
         .cp
             /* Comment.Preproc */
             color: $comment
+            font-weight: 500
         .c1
             /* Comment.Single */
             color: $comment
+            font-style: italic
         .cs
             /* Comment.Special */
             color: $comment
+            font-style: italic
+            font-weight: 500
         .gd
             /* Generic.Deleted */
             color: $error
@@ -360,7 +365,7 @@ $comment: #888888
             color: $error
         .gh
             /* Generic.Heading */
-            font-weight: 500
+            color: $comment
         .gi
             /* Generic.Inserted */
         .go
@@ -372,6 +377,7 @@ $comment: #888888
             font-weight: 500
         .gu
             /* Generic.Subheading */
+            color: $comment
         .gt
             /* Generic.Traceback */
             color: $error
@@ -392,6 +398,7 @@ $comment: #888888
             font-weight: 500
         .kt
             /* Keyword.Type */
+            color: $operator
             font-weight: 500
         .ld
             /* Literal.Date */
@@ -404,39 +411,53 @@ $comment: #888888
             color: $string
         .na
             /* Name.Attribute */
+            color: $identifier
         .nb
             /* Name.Builtin */
+            color: $identifier
         .nc
             /* Name.Class */
+            color: $identifier
             font-weight: 500
         .no
             /* Name.Constant */
-            font-weight: 500
+            color: $identifier
         .nd
             /* Name.Decorator */
+            color: $identifier
         .ni
             /* Name.Entity */
+            color: $identifier
         .ne
             /* Name.Exception */
+            color: $identifier
+            font-weight: 500
         .nf
             /* Name.Function */
             color: $identifier
+            font-weight: 500
         .nl
             /* Name.Label */
+            color: $identifier
         .nn
             /* Name.Namespace */
+            color: $identifier
         .nx
             /* Name.Other */
+            color: $identifier
         .py
             /* Name.Property */
+            color: $identifier
         .nt
             /* Name.Tag */
             color: $identifier
+            font-weight: 500
         .nv
             /* Name.Variable */
             color: $identifier
         .ow
             /* Operator.Word */
+            font-weight: 500
         .w
             /* Text.Whitespace */
         .mf
@@ -486,12 +507,16 @@ $comment: #888888
             color: $string
         .bp
             /* Name.Builtin.Pseudo */
+            color: $identifier
         .vc
             /* Name.Variable.Class */
+            color: $identifier
         .vg
             /* Name.Variable.Global */
+            color: $identifier
         .vi
             /* Name.Variable.Instance */
+            color: $identifier
         .il
             /* Literal.Number.Integer.Long */
             color: $literal
