@@ -22,7 +22,7 @@ layout: bare
             </a>
           </li><!--
        --><li>
-            <a href="https://www.facebook.com/sharer/sharer.php?m2w&amp;s=100&amp;{{ 'p[url]' | cgi_escape }}={{ site.url | append: page.url | cgi_escape }}&amp;{{ 'p[title]' | cgi_escape }}={{ page.title | cgi_escape }}&amp;{{ 'p[summary]' | cgi_escape }}={{ page.excerpt | cgi_escape }}&amp;{{ 'p[images][0]' | cgi_escape }}={{ site.url | append: '/assets/images/background/' | append: page.image | cgi_escape }}"
+            <a href="https://www.facebook.com/sharer/sharer.php?m2w&amp;s=100&amp;{{ 'p[url]' | cgi_escape }}={{ site.url | append: page.url | cgi_escape }}&amp;{{ 'p[title]' | cgi_escape }}={{ page.title | cgi_escape }}&amp;{{ 'p[summary]' | cgi_escape }}={{ page.summary | cgi_escape }}&amp;{{ 'p[images][0]' | cgi_escape }}={{ site.url | append: '/assets/images/background/' | append: page.image | cgi_escape }}"
                target="_blank"
                title="Share on Facebook"
                onclick="ga('send', 'event', 'Facebook', 'Share Attempt', '{{ site.url | append: page.url }}')">

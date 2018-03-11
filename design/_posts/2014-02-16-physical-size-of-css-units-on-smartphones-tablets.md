@@ -1,7 +1,6 @@
 ---
 title: 'Physical Size of CSS Units On Smartphones, Tablets & Co'
-excerpt: In general, I want the elements on my website to have the same physical size (say in inches or centimetres) for a specific category of device. This cannot be achieved with physical CSS Units. But does this matter anyway?
-meta_description: Do physical CSS units really matter? What is the difference in physical size of websites displayed on smartphones, tables and other devices? Find out!
+summary: Do physical CSS units really matter? What is the difference in physical size of websites displayed on smartphones, tables and other devices? Find out!
 redirect_from: /2014/02/16/physical-size-of-css-units-on-smartphones-tablets
 ---
 
