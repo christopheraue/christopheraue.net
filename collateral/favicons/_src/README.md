@@ -16,6 +16,8 @@ Insert the following code in the `head` section of your pages:
     <link rel="manifest" href="/collateral/favicons/site.webmanifest">
     <link rel="mask-icon" href="/collateral/favicons/safari-pinned-tab.svg" color="#8c3f3f">
     <link rel="shortcut icon" href="/collateral/favicons/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="collateral">
+    <meta name="application-name" content="collateral">
     <meta name="msapplication-TileColor" content="#8c3f3f">
     <meta name="msapplication-config" content="/collateral/favicons/browserconfig.xml">
     <meta name="theme-color" content="#8c3f3f">

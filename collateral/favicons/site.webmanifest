@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "collateral",
+    "short_name": "collateral",
     "icons": [
         {
             "src": "/collateral/favicons/android-chrome-192x192.png",
