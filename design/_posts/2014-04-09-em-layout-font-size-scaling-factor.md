@@ -1,15 +1,15 @@
 ---
 title: 'em Units In Layouts: Font-Size As Global Scaling Factor'
-summary: There are good reasons to subordinate dimensions in a layout to the font size using the CSS unit `em`. It provides a central control knob to scale a website or parts of it up and down while keeping everything in proportion. It's the web designers browser zoom, so to speak.
+summary: There are good reasons to subordinate dimensions in a layout to the font size using the CSS unit `em`. It provides a central control knob to scale a website or parts of it up and down while keeping everything in proportion. It's the web designer's browser zoom, so to speak.
 redirect_from: /2014/04/09/em-layout-font-size-scaling-factor
 ---
 
-For responsive webdesign it is a good choice to define all lengths as relative values. This way they adjust together with a changing layout. There are percentages for measures relative to element's parent dimensions. For measures relative to text, there is a CSS unit called [`em`](http://dev.w3.org/csswg/css-values/#font-relative-lengths). It's a length proportional to the current `font-size` of an element.
+For responsive webdesign it is a good choice to define all lengths as relative values. This way they adjust together with a changing layout. There are percentages for measures relative to the dimensions of an element's parent. For measures relative to text there is a CSS unit called [`em`](http://dev.w3.org/csswg/css-values/#font-relative-lengths). It's a length proportional to an element's current `font-size`.
 
 
 Media Queries As Starting Point
 -------------------------------
-When implementing a responsive design with text in mind, [breaking-points](http://www.smashingmagazine.com/2013/03/01/logical-breakpoints-responsive-design/) of the layout should be, where the line length becomes to long and switching lines is getting harder for the eye. Line length is measured by the number of characters per line. Good line lengths are roughly between [55 and 100 characters](http://www.pearsonified.com/2012/01/characters-per-line.php). If the lines become longer than that, the layout should break, to make them shorter again.
+When implementing a responsive design with text in mind, [breakpoints](http://www.smashingmagazine.com/2013/03/01/logical-breakpoints-responsive-design/) of the layout should be where the line length becomes to long and switching lines is getting harder for the eye. Line length is measured by the number of characters per line. Good line lengths are roughly between [55 and 100 characters](http://www.pearsonified.com/2012/01/characters-per-line.php). If the lines become longer than that the layout should break to make them shorter again.
 
 The definition of media queries is best done using `em`. Their usage is beneficial compared to absolute lengths like `px`, because [things don't break](http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/), if the user chooses to zoom in or has set an initial `font-size` other than the default `medium` (16px).
 
@@ -27,7 +27,7 @@ Putting It Together
 -------------------
 The two types of breakpoints I mentioned above are:
 
-- **layout-breakpoints**: The general layout of a site is changed by modifying position and size of header, footer and/or content columns.
+- **layout-breakpoints**: The general layout of a site is changed by modifying position and size of header, footer and/or content.
 - **`font-size`-breakpoints**: The general layout is untouched but the font is scaled.
 
 Generally, I use layout-breakpoints if the main areas of the page can be shifted in a reasonable and non-confusing way. Otherwise, I use `font-size`-breakpoints as intermediary steps. `em`-based styling makes adjusting and playing around with these breakpoints very cheap and easy. Just change the font size and be sure everything stills look good and in proportion. As a result, I don't care about display resolutions anymore and set breakpoints where the text needs them.
