@@ -1,7 +1,9 @@
 ---
 title: 'Physical Size of CSS Units On Smartphones, Tablets & Co'
 summary: The size of a website in physical units like centimeters or inches does not only differ between smartphones, tablets and desktop monitors. It also differs within these categories. Ideally, this should not be the case to guarantee a consistent usability across devices. Let's see how noticeable these size differences are.
-redirect_from: /2014/02/16/physical-size-of-css-units-on-smartphones-tablets
+redirect_from:
+  - /2014/02/16/physical-size-of-css-units-on-smartphones-tablets
+  - /2014/02/16/physical-size-of-css-units-on-smartphones-tablets/
 ---
 
 *Note from 2018: Although this article was written in and uses data from 2014, its findings are just as applicable today.*

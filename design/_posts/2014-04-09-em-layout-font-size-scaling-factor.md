@@ -1,7 +1,9 @@
 ---
 title: 'em Units In Layouts: Font-Size As Global Scaling Factor'
 summary: There are good reasons to subordinate dimensions in a layout to the font size using the CSS unit `em`. It provides a central control knob to scale a website or parts of it up and down while keeping everything in proportion. It's the web designer's browser zoom, so to speak.
-redirect_from: /2014/04/09/em-layout-font-size-scaling-factor
+redirect_from:
+  - /2014/04/09/em-layout-font-size-scaling-factor
+  - /2014/04/09/em-layout-font-size-scaling-factor/
 ---
 
 For responsive webdesign it is a good choice to define all lengths as relative values. This way they adjust together with a changing layout. There are percentages for measures relative to the dimensions of an element's parent. For measures relative to text there is a CSS unit called [`em`](http://dev.w3.org/csswg/css-values/#font-relative-lengths). It's a length proportional to an element's current `font-size`.
