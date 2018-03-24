@@ -64,7 +64,7 @@ body > header
         height: 2.5em
         vertical-align: middle
         opacity: 0.85
-        &.hover
+        &.focused
           opacity: 1
       svg
         height: 100%
@@ -137,7 +137,7 @@ body > header
           @media screen and (min-width: 32em) //512px
             margin-left: -.275em
             border-width: .3em
-      &.hover
+      &.focused
         height: 4.5em
         font-size: 2em
         box-shadow: 0 0 5px rgba(0,0,0,0.5), 1px 1px 3px rgba(0,0,0,0.5)
@@ -156,16 +156,17 @@ body > header
         .nav-item
           &.collateral
             background: darken($collateral-dark, 5%)
-            &.hover
+            &.focused
               background: $collateral-dark
           &.design
             background: darken($design-dark, 5%)
-            &.hover
+            &.focused
               background: $design-dark
           svg
             opacity: 0.7
-          &.hover svg
-            opacity: 1
+          &.focused
+            svg
+              opacity: 1
         .arrow:before
           transform: rotate(90deg)
           opacity: 0
@@ -241,7 +242,7 @@ body > footer
         font-size: 2em
         opacity: .66
         padding: .5em
-        &.hover
+        &.focused
           opacity: 1
 
 /*
@@ -304,7 +305,7 @@ body > footer
     line-height: 1.5
     + li
       margin-top: $gutter-width
-    &.hover
+    &.focused
       p
         opacity: 1
   @media screen and (min-width: 40em) //640px
@@ -388,7 +389,7 @@ body > footer
     opacity: .7
     vertical-align: middle
     text-decoration: none
-    &.hover
+    &.focused
       opacity: 1
   .dash
     opacity: .7
@@ -404,7 +405,7 @@ body > footer
         font-size: 1.25em
         padding: .25em
         opacity: .7
-        &.hover
+        &.focused
           opacity: 1
   #disqus_thread
     margin-top: $gutter-width
@@ -413,5 +414,5 @@ body > footer
     font-size: .8em
     a
       opacity: .7
-      &.hover
+      &.focused
         opacity: 1

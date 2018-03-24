@@ -25,49 +25,54 @@ define('unified-hover', [
     }
 
     // Update hover states on events
-    document.getElementsByTagName('*').forEach(function(el){
-        el.addEventListener('touchstart', function(e){
-            e.currentTarget.addClass('hover');
+    document.getElementsByTagName('*').forEach(function(el) {
+        el.addEventListener('mouseenter', function (e) {
+            e.currentTarget.addClass('focused');
         }, false);
 
-        el.addEventListener('touchend', function(e){
-            e.currentTarget.rmvClass('hover');
+        el.addEventListener('mouseleave', function (e) {
+            e.currentTarget.rmvClass('focused');
         }, false);
 
-        el.addEventListener('touchcancel', function(e){
-            e.currentTarget.rmvClass('hover');
+        el.addEventListener('touchstart', function (e) {
+            e.currentTarget.addClass('focused');
         }, false);
 
-        el.addEventListener('mouseenter', function(e){
-            e.currentTarget.addClass('hover');
+        el.addEventListener('touchend', function (e) {
+            e.currentTarget.rmvClass('focused');
         }, false);
 
-        el.addEventListener('mouseleave', function(e){
-            e.currentTarget.rmvClass('hover');
+        el.addEventListener('touchcancel', function (e) {
+            e.currentTarget.rmvClass('focused');
         }, false);
     });
 
-    document.getElementsByClassName('js-hover-follow-touch').forEach(function(el){
+    document.getElementsByClassName('js-focused-follows-touchmove').forEach(function(el){
         el.addEventListener('touchstart', function(e){
             e.preventDefault();
         }, false);
 
         el.addEventListener('touchmove', function(e){
-            e.currentTarget.addClassTracingDescendant('hover', e.touchTarget);
+            e.currentTarget.addClassTracingDescendant('focused', e.touchTarget);
             e.preventDefault();
         }, false);
 
         el.addEventListener('touchend', function(e) {
-            e.currentTarget.rmvClass('hover');
-            e.currentTarget.rmvClassFromDescendants('hover');
-            if (e.currentTarget.contains(e.touchTarget)) {
-                e.touchTarget.click();
-            }
+            e.currentTarget.rmvClass('focused');
+            e.currentTarget.rmvClassFromDescendants('focused');
         }, false);
 
         el.addEventListener('touchcancel', function(e) {
-            e.currentTarget.rmvClass('hover');
-            e.currentTarget.rmvClassFromDescendants('hover');
+            e.currentTarget.rmvClass('focused');
+            e.currentTarget.rmvClassFromDescendants('focused');
+        }, false);
+    });
+
+    document.getElementsByClassName('js-click-on-touchend').forEach(function(el){
+        el.addEventListener('touchend', function(e) {
+            if (e.currentTarget.contains(e.touchTarget)) {
+                e.touchTarget.click();
+            }
         }, false);
     });
 });
