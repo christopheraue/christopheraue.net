@@ -4,11 +4,19 @@
 
 define(function() {
     Element.prototype.addClass = function(cls) {
-        this.classList.add(cls);
+        if (!this.hasClass(cls)) {
+            this.classList.add(cls);
+        }
     };
 
     Element.prototype.rmvClass = function(cls) {
-        this.classList.remove(cls);
+        if (this.hasClass(cls)) {
+            this.classList.remove(cls);
+        }
+    };
+
+    Element.prototype.hasClass = function(cls) {
+        return this.classList.contains(cls);
     };
 
     /*
