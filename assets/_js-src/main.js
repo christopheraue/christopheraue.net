@@ -2,7 +2,7 @@ require([
     'theatre-video',
     'config',
     'lib/svgxuse',
-    'unified-hover'
+    'unified-pointer-events'
 ], function(theatreVideo) {
     require(['google-analytics'], function(ga){
         ga('create', 'UA-48107803-1', 'christopheraue.net');
