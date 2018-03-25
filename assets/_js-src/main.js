@@ -2,7 +2,8 @@ require([
     'theatre-video',
     'config',
     'lib/svgxuse',
-    'unified-pointer-events'
+    'unified-pointer-events',
+    'pointer-activated-state'
 ], function(theatreVideo) {
     require(['google-analytics'], function(ga){
         ga('create', 'UA-48107803-1', 'christopheraue.net');
