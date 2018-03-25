@@ -6,7 +6,7 @@ define('unified-pointer-events', [
     'core-ext/Element',
     'core-ext/HTMLCollection',
     'core-ext/TouchEvent'
-], function () {
+], function() {
     // Unify hover state of mouse and touch to *focused*
     document.getElementsByTagName('*').forEach(function(el) {
         el.addEventListener('mouseenter', function (e) {
@@ -50,40 +50,33 @@ define('unified-pointer-events', [
     }
 
     // trigger click instantly when tapping on an element
-    document.getElementsByTagName('*').forEach(function(el) {
+    !function() {
         var touched = false;
 
-        var wasTap = function(touchend) {
+        document.body.addEventListener('touchstart', function(e){
+            var touch = e.changedTouches[0];
+            touched = {clientX: touch.clientX, clientY: touch.clientY};
+        }, true);
+
+        document.body.addEventListener('touchend', function(e){
             if (!touched) { return false; }
-            var touch = touchend.changedTouches[0];
+            var touch = e.changedTouches[0];
             var offsetX = touched.clientX - touch.clientX;
             var offsetY = touched.clientY - touch.clientY;
             var distance = Math.sqrt(offsetX*offsetX + offsetY*offsetY);
-            return distance < 10
-        };
 
-        el.addEventListener('touchstart', function (e){
-            var touch = e.changedTouches[0];
-            touched = {clientX: touch.clientX, clientY: touch.clientY};
-        }, false);
-
-        el.addEventListener('touchend', function (e){
-            if (wasTap(e)) {
-                el.click();
-
-                var preventDelayedClick = function(e){
-                    el.removeEventListener('click', preventDelayedClick);
-                    e.preventDefault();
-                };
-                el.addEventListener('click', preventDelayedClick, false);
+            if (distance < 10) {
+                e.stopImmediatePropagation();
+                e.preventDefault();
+                e.target.click();
             }
             touched = false;
-        }, false);
+        }, true);
 
-        el.addEventListener('touchcancel', function (e){
+        document.body.addEventListener('touchcancel', function(){
             touched = false;
-        }, false);
-    });
+        }, true);
+    }();
 
     // Let the *focused* state follow the touch point and without causing
     // default behavior like scrolling. (works, but currently unused)
