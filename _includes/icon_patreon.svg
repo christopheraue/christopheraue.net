@@ -1,0 +1,6 @@
+<svg aria-labelledby="patreon-icon-title" role="img" version="1.1" viewBox="0 0 256 245.5" xmlns="http://www.w3.org/2000/svg" class="social-icon {{ include.color | default: 'white' }}">
+  <title id="patreon-icon-title">Patreon Icon</title>
+  <desc id="patreon-icon-desc">A rectangle and a circle forming a P</desc>
+  <path id="patreon-circle" class="patreon-circle" d="m164.11 0.00102c-50.825 0-92.175 41.344-92.175 92.166 0 50.668 41.35 91.89 92.175 91.89 50.668 0 91.889-41.223 91.889-91.89 0-50.822-41.221-92.166-91.889-92.166"/>
+  <path id="patreon-stem" class="patreon-stem" d="m0 0h45.005v245.5h-45.005z"/>
+</svg>

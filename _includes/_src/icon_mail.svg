@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="256"
+   height="179.2012"
+   viewBox="0 0 256 179.2012"
+   version="1.1"
+   id="svg4817"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   sodipodi:docname="mail-icon.svg"
+   role="img"
+   aria-labelledby="mail-icon-title">
+  <title
+     id="mail-icon-title">Email Icon</title>
+  <desc
+     id="mail-icon-desc">A mail envelope</desc>
+  <defs
+     id="defs39" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="116.68276"
+     inkscape:cy="56.28974"
+     inkscape:document-units="px"
+     inkscape:current-layer="svg4817"
+     showgrid="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     units="px"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="false"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:snap-bbox-midpoints="false"
+     inkscape:snap-nodes="false"
+     inkscape:snap-others="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid14320"
+       spacingx="33.866667"
+       spacingy="33.866667"
+       empspacing="2"
+       originx="0"
+       originy="-76.798799" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata4814">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     inkscape:connector-curvature="0"
+     id="mail-envelope"
+     d="M 23.9297,0 C 14.5469,0 12.874,4.7687799 20.2442,10.58589 l 92.2109,73.041107 c 4.1813,3.3083 9.9425,4.77959 15.5391,4.50391 5.5874,0.27553 11.3498,-1.18643 15.5312,-4.50391 L 235.7364,10.58589 C 243.125,4.7687799 241.4518,0 232.0782,0 H 128.004 Z M 7.1309,27.021507 C 2.8921,26.707497 1e-4,30.162597 0,36.613307 V 162.13671 c 0,9.38279 7.6818,17.06449 17.0645,17.06449 h 110.9297 110.9394 c 9.3827,0 17.0665,-7.6817 17.0664,-17.06449 V 36.613307 c 0,-9.38279 -6.121,-12.42599 -13.6015,-6.75591 L 141.6329,106.36332 c -3.7679,2.83049 -8.7027,4.20888 -13.6192,4.14448 -4.9257,0.0639 -9.8611,-1.32322 -13.6289,-4.14448 L 13.5997,29.857397 c -2.3377,-1.77192 -4.5421,-2.69321 -6.4688,-2.83589 z"
+     class="mail-envelope" />
+</svg>

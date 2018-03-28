@@ -1,0 +1,6 @@
+<svg aria-labelledby="youtube-icon-title" role="img" version="1.1" viewBox="0 0 256 180.36" xmlns="http://www.w3.org/2000/svg" class="social-icon {{ include.color | default: 'white' }}">
+  <title id="youtube-icon-title">YouTube Icon</title>
+  <desc id="youtube-icon-desc">A triangle pointing right within a flat bellied rectangle with round corners</desc>
+  <path id="youtube-box" class="youtube-box" d="m128 0s-80.052-4.9e-4 -100.02 5.3842c-11.015 2.9629-19.69 11.693-22.634 22.779-5.3483 20.093-5.3501 62.017-5.3501 62.017s0 41.922 5.3501 62.017c2.944 11.085 11.619 19.817 22.634 22.781 19.964 5.3833 100.02 5.3821 100.02 5.3821s80.054 9.8e-4 100.02-5.3821c11.017-2.9643 19.69-11.696 22.634-22.781 5.3498-20.096 5.3501-62.017 5.3501-62.017s-3e-4 -41.924-5.3501-62.017c-2.944-11.087-11.617-19.816-22.634-22.779-19.962-5.3847-100.02-5.3842-100.02-5.3842zm-26.182 52.116 66.909 38.066-66.909 38.062z"/>
+  <path id="youtube-triangle" class="youtube-triangle" d="m101.82 52.116 66.909 38.066-66.909 38.062z"/>
+</svg>

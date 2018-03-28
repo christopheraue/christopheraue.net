@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="256"
+   height="256"
+   viewBox="0 0 256 256"
+   version="1.1"
+   id="svg4817"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   sodipodi:docname="facebook-icon.svg"
+   role="img"
+   aria-labelledby="github-icon-title">
+  <title
+     id="github-icon-title">Facebook Icon</title>
+  <desc
+     id="github-icon-desc">An f within a box with rounded corners</desc>
+  <defs
+     id="defs39" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="104.05585"
+     inkscape:cy="132.07839"
+     inkscape:document-units="px"
+     inkscape:current-layer="svg4817"
+     showgrid="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     units="px"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="false"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:snap-bbox-midpoints="false"
+     inkscape:snap-nodes="false"
+     inkscape:snap-others="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid14320"
+       spacingx="33.866667"
+       spacingy="33.866667"
+       empspacing="2" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata4814">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Facebook Icon</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     inkscape:connector-curvature="0"
+     id="facebook-box"
+     d="M 14.1289,-2.5196851e-6 C 6.3239,-2.5196851e-6 0,6.3248474 0,14.128776 V 241.86902 c 0,7.80291 6.3239,14.13078 14.1289,14.13078 H 136.7383 V 156.86192 H 103.377 v -38.63444 h 33.3613 V 89.735506 c 0,-33.06573 20.1934,-51.07174 49.6914,-51.07174 14.128,0 26.2725,1.05238 29.8125,1.52338 v 34.55441 l -20.459,0.0113 c -16.041,0 -19.1484,7.62255 -19.1484,18.80844 V 118.2291 h 38.2597 l -4.9824,38.63437 h -33.2773 v 99.13648 h 65.2363 c 7.802,0 14.1289,-6.32784 14.1289,-14.13078 V 14.128776 C 256,6.3248474 249.6731,-2.5196851e-6 241.8711,-2.5196851e-6 Z"
+     class="facebook-box" />
+  <path
+     sodipodi:nodetypes="cccccsscccscccccc"
+     d="M 136.7383,255.9998 V 156.86109 H 103.377 v -38.63478 h 33.3613 V 89.734066 c 0,-33.06599 20.1934,-51.07219 49.6914,-51.07219 14.128,0 26.2725,1.05241 29.8125,1.52342 v 34.55471 l -20.459,0.0113 c -16.041,0 -19.1484,7.62258 -19.1484,18.80859 v 24.667994 h 38.2597 l -4.9824,38.63471 h -33.2773 v 99.13735 z"
+     id="facebook-f"
+     inkscape:connector-curvature="0"
+     class="facebook-f" />
+</svg>

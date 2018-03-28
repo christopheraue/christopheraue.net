@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="256"
+   height="245.50272"
+   viewBox="0 0 256 245.50272"
+   version="1.1"
+   id="svg4817"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   sodipodi:docname="patreon-icon.svg"
+   role="img"
+   aria-labelledby="patreon-icon-title">
+  <title
+     id="patreon-icon-title">Patreon Icon</title>
+  <desc
+     id="patreon-icon-desc">A rectangle and a circle forming a P</desc>
+  <defs
+     id="defs39" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="30.314719"
+     inkscape:cy="132.69281"
+     inkscape:document-units="px"
+     inkscape:current-layer="svg4817"
+     showgrid="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     units="px"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="false"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:snap-bbox-midpoints="false"
+     inkscape:snap-nodes="false"
+     inkscape:snap-others="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="-0.7"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid14320"
+       spacingx="33.866667"
+       spacingy="33.866667"
+       empspacing="2"
+       originx="0"
+       originy="-10.497262" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata4814">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Patreon Icon</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     id="patreon-circle"
+     d="m 164.11109,0.00102 c -50.8252,0 -92.175108,41.34432 -92.175108,92.166459 0,50.667931 41.349908,91.890441 92.175108,91.890441 C 214.77909,184.05792 256,142.83541 256,92.167479 256,41.34534 214.7791,0.00102 164.11109,0.00102"
+     inkscape:connector-curvature="0"
+     class="patreon-circle" />
+  <path
+     d="M 0,0 H 45.005083 V 245.50272 H 0 Z"
+     id="patreon-stem"
+     inkscape:connector-curvature="0"
+     class="patreon-stem" />
+</svg>
