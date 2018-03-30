@@ -42,7 +42,8 @@ body.collateral
     .marquee
       position: relative
       margin-bottom: 30%
-      object
+      .scaling-svg
+        display: block
         width: 100%
       .light-box
         position: absolute
@@ -130,11 +131,9 @@ body.collateral
     text-align: center
     section
       margin: 5em auto 0
-  svg
-    vertical-align: middle
   .button
     text-align: center
-    svg
+    .scaling-svg
       height: 3em
     a
       display: inline-block
@@ -157,7 +156,7 @@ body.collateral
     max-width: 30em
     .introduction
       margin-bottom: 1em
-      svg
+      .scaling-svg
         stroke: white
         height: 12em
     .button a
@@ -167,7 +166,7 @@ body.collateral
     .annotation
       text-align: right
       margin-top: .4em
-      svg
+      .scaling-svg
         stroke: white
         height: 3em
   #patreon
@@ -180,12 +179,12 @@ body.collateral
     .help-me
       text-align: left
       margin-bottom: -.2em
-      svg
+      .scaling-svg
         height: 6em
     .annotation
       text-align: right
       margin-top: .4em
-      svg
+      .scaling-svg
         stroke: white
         height: 11em
     @media screen and (min-width: 45em) //720px
@@ -195,7 +194,7 @@ body.collateral
       max-width: 34em
       .help-me
         margin-bottom: -1.5em
-        svg
+        .scaling-svg
           height: 8em
   #twitter
     min-width: 15em
@@ -207,18 +206,18 @@ body.collateral
     .annotation
       margin-bottom: -2.3em
       text-align: left
-      svg
+      .scaling-svg
         stroke: white
         height: 3.5em
     .gifs
       text-align: center
       margin-left: 6em
       margin-bottom: .2em
-      svg
+      .scaling-svg
         height: 2.5em
     .updates
       text-align: center
       margin-right: 3em
       margin-top: .2em
-      svg
+      .scaling-svg
         height: 4em
