@@ -3,6 +3,14 @@
  */
 
 define(function() {
+    // Add classList to all elements (HTML, SVG, ...) in IE 11
+    if (!Object.getOwnPropertyDescriptor(Element.prototype, 'classList')){
+        var classListProp = HTMLElement && Object.getOwnPropertyDescriptor(HTMLElement.prototype,'classList');
+        if (classListProp){
+            Object.defineProperty(Element.prototype, 'classList', classListProp);
+        }
+    }
+
     Element.prototype.addClass = function(cls) {
         if (!this.hasClass(cls)) {
             this.classList.add(cls);
