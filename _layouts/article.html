@@ -14,7 +14,7 @@ layout: bare
             <a href="https://twitter.com/intent/tweet?url={{ site.url | append: page.url | cgi_escape }}&amp;via=christopheraue&amp;text={{ page.title | cgi_escape }}"
                title="Share on Twitter"
                onclick="ga('send', 'event', 'Twitter', 'Share Attempt', '{{ site.url | append: page.url }}')">
-              {% include icon_twitter.svg color="white" %}
+              {% include icon_twitter.html color="white" %}
             </a>
           </li><!--
        --><li>
@@ -22,7 +22,7 @@ layout: bare
                target="_blank"
                title="Share on Facebook"
                onclick="ga('send', 'event', 'Facebook', 'Share Attempt', '{{ site.url | append: page.url }}')">
-              {% include icon_facebook.svg color="white" %}
+              {% include icon_facebook.html color="white" %}
             </a>
           </li>
         </ul>

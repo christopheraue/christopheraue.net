@@ -1,7 +1,7 @@
 <div class="logo-nav">
   <div class="logo">
     <a href="/" title="Go to start page">
-      {% include logo_christopheraue.svg %}
+      {% include logo_christopheraue.html %}
     </a>
   </div><!--
 --><nav class="nav js-activate-on-mouseover js-activate-on-touchdownup">
@@ -13,7 +13,7 @@
         {% else %}
           <a href="/{{ page.category }}" class="nav-item {{ page.category }}" title="Go to /{{ page.category }}">
         {% endif %}
-            {% capture svg %}{% include slash_{{ page.category }}.svg %}{% endcapture %}
+            {% capture svg %}{% include slash_{{ page.category }}.html %}{% endcapture %}
             {{ svg | strip }}<!--
          --><div class="arrow"></div>
         {% if page.url == slashed_category %}
@@ -26,7 +26,7 @@
       {% if category != page.category %}
       <li>
         <a href="/{{ category }}" class="nav-item {{ category }}" title="Go to /{{ category }}">
-          {% include slash_{{ category }}.svg %}
+          {% include slash_{{ category }}.html %}
         </a>
       </li>
       {% endif %}
