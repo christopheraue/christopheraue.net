@@ -78,8 +78,8 @@ define('theatre-video', [
             bodyStyle.transform = "translate(0px, " + scrollDistance + "px)";
             window.scrollBy(0, scrollDistance);
             bodyStyle.transition = "transform " + scrollDuration + "s ease";
-            bodyStyle.transform = null;
-            setTimeout(function(){ bodyStyle.transition = null }, scrollDuration*1000);
+            bodyStyle.transform = '';
+            setTimeout(function(){ bodyStyle.transition = '' }, scrollDuration*1000);
         }
     };
 

@@ -16,11 +16,11 @@ define(function() {
     };
 
     document.body.enableScrolling = function(){
-        this.style['padding-right'] = null;
-        this.style['position'] = null;
-        this.style['top'] = null;
-        this.style['width'] = null;
-        this.style['box-sizing'] = null;
+        this.style['padding-right'] = '';
+        this.style['position'] = '';
+        this.style['top'] = '';
+        this.style['width'] = '';
+        this.style['box-sizing'] = '';
         window.scrollTo(0, this.dataset.pageYOffset);
         delete this.dataset.pageYOffset;
     };
