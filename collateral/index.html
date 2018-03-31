@@ -5,14 +5,18 @@ title: /collateral
 <section id="theatre">
   <div class="marquee">
     {% include_relative _includes/marquee.html %}
-    <svg class="light-box" viewBox="0 0 620 110">
-      <g transform="translate(310,2.5)">
-        <text y="20">presenting</text>
-        <text y="40">Life Is Strange: Before the Storm</text>
-        <text y="70" class="large">Visualization of Emotions &mdash; Part 1</text>
-        <text y="100"><tspan>Part 2</tspan><tspan dx="30">Apr 3</tspan></text>
-      </g>
-    </svg>
+    <div class="scaling-svg light-box">
+      {% comment %} http://nicolasgallagher.com/canvas-fix-svg-scaling-in-internet-explorer/ {% endcomment %}
+      <canvas width="620" height="110"></canvas>
+      <svg viewBox="0 0 620 110">
+        <g transform="translate(310,2.5)">
+          <text y="20">presenting</text>
+          <text y="40">Life Is Strange: Before the Storm</text>
+          <text y="70" class="large">Visualization of Emotions &mdash; Part 1</text>
+          <text y="100"><tspan>Part 2</tspan><tspan dx="30">Apr 3</tspan></text>
+        </g>
+      </svg>
+    </div>
   </div>
   <div class="screen js-theatre-video">
     <div class="darkness"><div class="light-switch"></div></div>
