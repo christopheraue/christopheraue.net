@@ -45,6 +45,8 @@ body.collateral
       overflow: hidden
       .scaling-svg
         display: block
+        canvas
+          width: 100% // svg is scaled with the width as reference
       .light-box
         position: absolute
         top: 31.4%
@@ -136,6 +138,8 @@ body.collateral
     text-align: center
     .scaling-svg
       height: 3em
+      canvas
+        height: 100% // svg is scaled with the height as reference
     a
       display: inline-block
       position: relative
@@ -160,6 +164,8 @@ body.collateral
       .scaling-svg
         stroke: white
         height: 12em
+        canvas
+          height: 100% // svg is scaled with the height as reference
     .button a
       &.focused
         &:after
@@ -170,6 +176,8 @@ body.collateral
       .scaling-svg
         stroke: white
         height: 3em
+        canvas
+          height: 100% // svg is scaled with the height as reference
   #patreon
     min-width: 15em
     max-width: 30em
@@ -182,12 +190,16 @@ body.collateral
       margin-bottom: -.2em
       .scaling-svg
         height: 6em
+        canvas
+          height: 100% // svg is scaled with the height as reference
     .annotation
       text-align: right
       margin-top: .4em
       .scaling-svg
         stroke: white
         height: 11em
+        canvas
+          height: 100% // svg is scaled with the height as reference
     @media screen and (min-width: 45em) //720px
       .help-me
         margin-bottom: -1em
@@ -197,6 +209,8 @@ body.collateral
         margin-bottom: -1.5em
         .scaling-svg
           height: 8em
+          canvas
+            height: 100% // svg is scaled with the height as reference
   #twitter
     min-width: 15em
     max-width: 21.5em
@@ -210,15 +224,21 @@ body.collateral
       .scaling-svg
         stroke: white
         height: 3.5em
+        canvas
+          height: 100% // svg is scaled with the height as reference
     .gifs
       text-align: center
       margin-left: 6em
       margin-bottom: .2em
       .scaling-svg
         height: 2.5em
+        canvas
+          height: 100% // svg is scaled with the height as reference
     .updates
       text-align: center
       margin-right: 3em
       margin-top: .2em
       .scaling-svg
         height: 4em
+        canvas
+          height: 100% // svg is scaled with the height as reference

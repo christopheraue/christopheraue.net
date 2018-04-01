@@ -35,6 +35,8 @@ body > header
         pointer-events: none
         fill: white
         stroke: white
+        canvas
+          height: 100% // svg is scaled with the height as reference
     .nav
       position: absolute
       z-index: 999999
@@ -68,10 +70,8 @@ body > header
           fill: white
           stroke: white
           transition: opacity $transition_time ease
-        &.collateral .scaling-svg
-          width: 5.1em
-        &.design .scaling-svg
-          width: 4em
+          canvas
+            height: 100% // svg is scaled with the height as reference
       li + li
         .nav-item
           padding-right: 1.75em

@@ -26,6 +26,8 @@ body.home
       max-width: 100%
       fill: white
       stroke: white
+      canvas
+        height: 100% // svg is scaled with the height as reference
   .category
     position: absolute
     height: 50%
@@ -37,10 +39,14 @@ body.home
       .slash-text
         width: 69%
         max-width: 8em
+        canvas
+          width: 100% // svg is scaled with the width as reference
       .slash-text-annotation
         width: 67%
         margin-left: 33%
         max-width: 7.8em
+        canvas
+          width: 100% // svg is scaled with the width as reference
     &.collateral
       background: $collateral-dark
       top: 50%
@@ -48,10 +54,14 @@ body.home
       .slash-text
         width: 73%
         max-width: 9.375em
+        canvas
+          width: 100% // svg is scaled with the width as reference
       .slash-text-annotation
         width: 70%
         margin-left: 30%
         max-width: 9.1em
+        canvas
+          width: 100% // svg is scaled with the width as reference
     opacity: 0.8
     &.focused
       opacity: 1
