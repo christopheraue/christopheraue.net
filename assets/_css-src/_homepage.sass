@@ -20,6 +20,8 @@ body.home
     text-align: center
     box-sizing: border-box
     padding: 0 $gutter-width
+    @media screen and (min-aspect-ratio: 1/1)
+      top: 33.3333%
     .scaling-svg
       margin-top: -1.5em
       height: 3em
@@ -32,10 +34,46 @@ body.home
     position: absolute
     height: 50%
     width: 100%
+    top: 0
+    left: 0
+    + .category
+      top: 50%
+      left: 0
+    @media screen and (min-aspect-ratio: 1/1)
+      height: 100%
+      width: 50%
+      + .category
+        top: 0
+        left: 50%
+  .category
+    .desc-container
+      display: block
+      box-sizing: border-box
+      text-align: center
+      width: 100%
+      height: 100%
+      padding: 0 $gutter-width
+      @media screen and (min-aspect-ratio: 1/1)
+        position: relative
+        top: 33.3333%
+        width: 100%
+        height: 66.6666%
+      &:before
+        content: ''
+        display: inline-block
+        vertical-align: middle
+        height: 100%
+    .desc
+      text-align: left
+      display: inline-block
+      vertical-align: middle
+      .slash-text, .slash-text-annotation
+        display: block
+        fill: white
+        stroke: white
+  .category
     &.design
       background: $design-dark
-      top: 0
-      left: 0
       .slash-text
         width: 69%
         max-width: 8em
@@ -49,8 +87,6 @@ body.home
           width: 100% // svg is scaled with the width as reference
     &.collateral
       background: $collateral-dark
-      top: 50%
-      left: 0
       .slash-text
         width: 73%
         max-width: 9.375em
@@ -65,45 +101,3 @@ body.home
     opacity: 0.8
     &.focused
       opacity: 1
-    .desc-container
-      display: block
-      box-sizing: border-box
-      text-align: center
-      width: 100%
-      height: 100%
-      padding: 0 $gutter-width
-      &:before
-        content: ''
-        display: inline-block
-        vertical-align: middle
-        height: 100%
-    .desc
-      text-align: left
-      display: inline-block
-      vertical-align: middle
-      .slash-text, .slash-text-annotation
-        display: block
-        fill: white
-        stroke: white
-  footer
-    position: fixed
-    bottom: 0
-    left: 0
-    right: 0
-  @media screen and (min-aspect-ratio: 1/1)
-    h1
-      top: 33.3333%
-    .category
-      height: 100%
-      width: 50%
-      &.design
-        top: 0
-        left: 0
-      &.collateral
-        top: 0
-        left: 50%
-      .desc-container
-        position: relative
-        top: 33.3333%
-        width: 100%
-        height: 66.6666%
