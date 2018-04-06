@@ -1,0 +1,151 @@
+<style>
+  @keyframes fade-out {
+    from { opacity: 1 }
+    to { opacity: 0 }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0 }
+    to { opacity: 1 }
+  }
+
+  #transition-fader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999999;
+    pointer-events: none;
+    animation-duration: 333ms;
+    animation-timing-function: ease-in-out;
+  }
+
+  body.transition-in #transition-fader {
+    opacity: 0;
+    animation-name: fade-out;
+  }
+
+  body.transition-out #transition-fader {
+    opacity: 1;
+    animation-name: fade-in;
+  }
+
+  /*
+   * ATTENTION! The following styles are tightly linked to the design of
+   *            the corresponding categories!
+   */
+  body.design-transition #transition-fader {
+    background: #3f668c;
+  }
+
+  body.collateral-transition #transition-fader {
+    background: #8c3f3f;
+  }
+
+  body.home-transition #transition-fader {
+    background: linear-gradient(to bottom, #3f668c 50%, #8c3f3f 50%);
+  }
+
+  @media screen and (min-aspect-ratio: 1/1) {
+    body.home-transition #transition-fader {
+      background: linear-gradient(to right, #3f668c 50%, #8c3f3f 50%);
+    }
+  }
+</style>
+
+{% comment %}
+  IE considers pointer-events only on SVG elements
+{% endcomment %}
+<svg id="transition-fader"></svg>
+
+{% comment %}
+  Javascript is inlined because it has to start working immediately
+{% endcomment %}
+<script>
+  !function() {
+      var transitionFader = document.getElementById('transition-fader');
+
+      var initialBodyClass = document.body.getAttribute('class');
+
+      document.body.transitionTo = function(category) {
+          if (category === 'home') {
+              this.hideScrollbar();
+          }
+
+          this.setAttribute('class', initialBodyClass + ' ' + category + '-transition transition-out');
+      };
+
+      document.body.transitionFrom = function(category) {
+          this.setAttribute('class', initialBodyClass + ' ' + category + '-transition transition-in');
+      };
+
+      document.body.removeTransition = function() {
+          this.showScrollbar();
+          this.setAttribute('class', initialBodyClass);
+      };
+
+
+      extractCategoryFrom = function(anchor) {
+          var hostname = anchor.hostname,
+              pathname = anchor.pathname;
+
+          if (hostname !== window.location.hostname) {
+              return false;
+          }
+
+          if (pathname.charAt(0) === '/') {
+              // Normalize all browsers with IE which has no leading slash.
+              pathname = pathname.substring(1);
+          }
+          var category = pathname.split('/')[0];
+          if (category === '') {
+              category = 'home'
+          }
+          return category
+      };
+
+      delayLocationChangeFor = function(anchor, opts) {
+          var element = opts.until[0],
+              event = opts.until[1];
+          anchor.addEventListener('click', function(e) {
+              var eventHandler = function() {
+                  window.location = anchor.href;
+                  element.removeEventListener(event, eventHandler, false);
+              };
+              element.addEventListener(event, eventHandler, false);
+              e.preventDefault();
+          });
+      };
+
+
+      // Transition when navigated from an internal page
+      var category = window.sessionStorage.getItem('pageTransitionCategory');
+      window.sessionStorage.removeItem('pageTransitionCategory');
+      if (category) {
+          document.body.transitionFrom(category);
+      }
+
+      // The faded in page transition on unload might be persisted/cached
+      // and interferes when navigating the browser history. (e.g. in Safari)
+      window.addEventListener('pageshow', function(e) {
+          if (!e.persisted) { return }
+          document.body.removeTransition();
+      }, false);
+
+
+      // Transition when navigating to an internal page
+      window.addEventListener('DOMContentLoaded', function() {
+          var anchors = document.getElementsByTagName('a');
+          for (var aidx = 0; aidx < anchors.length; aidx++) {
+              anchors[aidx].addEventListener('click', function(e) {
+                  var category = extractCategoryFrom(e.currentTarget);
+                  if (!category) { return } // user click a link to another website
+                  document.body.transitionTo(category);
+                  window.sessionStorage.setItem('pageTransitionCategory', category);
+              }, false);
+              delayLocationChangeFor(anchors[aidx], {until: [transitionFader, 'animationend']});
+          }
+      }, false);
+  }();
+</script>
