@@ -30,6 +30,15 @@ define('unified-pointer-events', [
         }, false);
     });
 
+    // The focused state might be persisted/cached when navigating the browser
+    // history (e.g. in Safari). Reset it when the page is re-shown in this way.
+    window.addEventListener('pageshow', function (e) {
+        if (!e.persisted) { return }
+        document.getElementsByClassName('focused').forEach(function (el) {
+            el.rmvClass('focused');
+        });
+    }, false);
+
     // Set focused states right after page load
     var initFocusedAt = function(x, y) {
         var el = document.elementFromPoint(x, y);

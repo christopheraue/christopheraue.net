@@ -73,4 +73,13 @@ define('pointer-activated-state', [
         el.addEventListener('mouseleave', function(){ el.rmvClass('activated') }, false);
     });
     // touch over (finger hovering over the display) does not exist
+
+    // The activated state might be persisted/cached when navigating the browser
+    // history (e.g. in Safari). Reset it when the page is re-shown in this way.
+    window.addEventListener('pageshow', function (e) {
+        if (!e.persisted) { return }
+        document.getElementsByClassName('activated').forEach(function (el) {
+            el.rmvClass('activated');
+        });
+    }, false);
 });
