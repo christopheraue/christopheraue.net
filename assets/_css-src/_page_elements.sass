@@ -47,7 +47,7 @@ body > header
       text-align: right
       white-space: nowrap
       border-radius: .1em
-      transition: font-size $transition_time ease, height $transition_time ease, right $transition_time ease
+      transition: font-size $transition_time ease-in-out, height $transition_time ease-in-out, right $transition_time ease-in-out
       cursor: pointer
       @media screen and (min-width: 50em) //800px
         position: relative
@@ -60,7 +60,7 @@ body > header
       .nav-item
         display: block
         padding: .5em .5em .5em 1.25em
-        transition: background $transition_time ease
+        transition: background $transition_time ease-in-out
         pointer-events: none
         .scaling-svg
           display: inline-block
@@ -69,7 +69,7 @@ body > header
           pointer-events: none
           fill: white
           stroke: white
-          transition: opacity $transition_time ease
+          transition: opacity $transition_time ease-in-out
           canvas
             height: 100% // svg is scaled with the height as reference
       li + li
@@ -98,7 +98,7 @@ body > header
           border-top-color: white
           opacity: 1
           transform: rotate(0deg)
-          transition: transform $transition_time ease, opacity 2*$transition_time ease
+          transition: transform $transition_time ease-in-out, opacity 2*$transition_time ease-in-out
           transform-origin: 50% 15%
           @media screen and (min-width: 32em) //512px
             margin-left: -.275em
