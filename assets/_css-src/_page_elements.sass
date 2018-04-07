@@ -47,7 +47,9 @@ body > header
       text-align: right
       white-space: nowrap
       border-radius: .1em
-      transition: font-size $transition_time ease-in-out, height $transition_time ease-in-out, right $transition_time ease-in-out
+      transform: scale(1)
+      transform-origin: top right
+      transition: transform $transition_time ease-in-out, height $transition_time ease-in-out, right $transition_time ease-in-out
       cursor: pointer
       @media screen and (min-width: 50em) //800px
         position: relative
@@ -105,7 +107,7 @@ body > header
             border-width: .3em
       &.activated
         height: 4.5em
-        font-size: 2em
+        transform: scale(2)
         box-shadow: 0 0 5px rgba(0,0,0,0.5), 1px 1px 3px rgba(0,0,0,0.5)
         &:after
           content: ''
@@ -118,7 +120,9 @@ body > header
           pointer-events: none
           box-shadow: inset -.2em -.2em .5em rgba(0,0,0,0.04), inset .2em .2em .5em rgba(255,255,255,0.04)
         @media screen and (min-width: 32em) //512px
-          font-size: 1.5em
+          transform: scale(1.5)
+        @media screen and (min-width: 50em) //800px
+          transform: scale(1)
         .nav-item
           pointer-events: auto
           &.collateral
