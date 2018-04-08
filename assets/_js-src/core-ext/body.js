@@ -17,10 +17,10 @@ define(function() {
     };
 
     document.body.disableScrolling = function(){
-        this.dataset.pageYOffset = window.pageYOffset;
+        this.savedPageYOffset = window.pageYOffset;
         this.hideScrollbar();
         this.style['position'] = "fixed";
-        this.style['top'] = -this.dataset.pageYOffset + 'px';
+        this.style['top'] = -this.savedPageYOffset + 'px';
         this.style['width'] = "100%";
         this.style['box-sizing'] = "border-box";
     };
@@ -31,7 +31,7 @@ define(function() {
         this.style['top'] = '';
         this.style['width'] = '';
         this.style['box-sizing'] = '';
-        window.scrollTo(0, this.dataset.pageYOffset);
-        delete this.dataset.pageYOffset;
+        window.scrollTo(0, this.savedPageYOffset);
+        delete this.savedPageYOffset;
     };
 });
