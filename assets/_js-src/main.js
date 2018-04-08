@@ -3,11 +3,30 @@ require([
     'hover-element',
     'activatable-element',
     'theatre-video',
-    'core-ext/document',
+
     'config',
+
+    /* core extensions */
+    'core-ext/body',
+    'core-ext/document',
+    'core-ext/Element',
+    'core-ext/HTMLCollection',
+    'core-ext/Object',
+    'core-ext/TouchEvent',
+
+    /* libraries */
     'lib/svgxuse',
     'lib/classList'
 ], function(InstantTapClickArea, HoverElement, ActivatableElement, TheatreVideo) {
+    if(typeof(Event) === 'function') {
+        document.dispatchEvent(new Event('APIsAvailable'));
+    } else {
+        var apiEvent = document.createEvent('Event');
+        apiEvent.initEvent('APIsAvailable', true, true);
+        document.dispatchEvent(apiEvent);
+    }
+
+
     document.ready(function() {
         new InstantTapClickArea(document.body);
     });
