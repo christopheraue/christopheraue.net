@@ -9,13 +9,18 @@
     to { opacity: 1 }
   }
 
+  body header {
+    position: relative;
+    z-index: 999995
+  }
+
   #transition-fader {
     position: fixed;
+    z-index: 999994; /* below the header */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 9999999;
     pointer-events: none;
     animation-duration: 333ms;
     animation-timing-function: ease-in-out;
@@ -29,6 +34,10 @@
   body.transition-out #transition-fader {
     opacity: 1;
     animation-name: fade-in;
+  }
+
+  body.home-transition #transition-fader {
+    z-index: 999996; /* above the header */
   }
 
   /*
@@ -52,6 +61,34 @@
       background: linear-gradient(to right, #3f668c 50%, #8c3f3f 50%);
     }
   }
+
+  body > header nav.transition ul {
+    transition: transform 300ms ease-in-out;
+    transform: translateY(-2.25em)
+  }
+
+  @media screen and (min-width: 50em) { /* 800px */
+    /*
+     *  Avoid pixel jump on page transition for chrome and safari by
+     *  making sure the translation is a whole number in pixels:
+     *  16px (base font-size)
+     *  * 1.25 (body font-size scaling)
+     *  * 1.5 (header font-size scaling)
+     *  * 2.26667 (navigation font-size scaling)
+     *  = 68px
+     */
+    body > header nav {
+      height: 2.26667em;
+    }
+
+    body > header nav .nav-item .scaling-svg {
+      height: 1.26667em;
+    }
+
+    body > header nav.transition ul {
+      transform: translateY(-2.26667em);
+    }
+  }
 </style>
 
 {% comment %}
@@ -59,10 +96,8 @@
 {% endcomment %}
 <svg id="transition-fader"></svg>
 
-{% comment %}
-  Javascript is inlined because it has to start working immediately
-{% endcomment %}
 <script>
+  // Javascript is inlined because it needs to start working immediately
   !function() {
       var transitionFader = document.getElementById('transition-fader');
 
@@ -72,7 +107,6 @@
           if (category === 'home') {
               this.hideScrollbar();
           }
-
           this.setAttribute('class', initialBodyClass + ' ' + category + '-transition transition-out');
       };
 
@@ -136,6 +170,7 @@
 
       // Transition when navigating to an internal page
       window.addEventListener('DOMContentLoaded', function() {
+          // Hook into all links to control the start of the transition
           var anchors = document.getElementsByTagName('a');
           for (var aidx = 0; aidx < anchors.length; aidx++) {
               anchors[aidx].addEventListener('click', function(e) {
@@ -145,6 +180,25 @@
                   window.sessionStorage.setItem('pageTransitionCategory', category);
               }, false);
               delayLocationChangeFor(anchors[aidx], {until: [transitionFader, 'animationend']});
+          }
+
+          // Slide the header navigation to the category that is transitioned to
+          var topnav = document.querySelector('body > header nav');
+          if (topnav) {
+              var navAnchors = topnav.getElementsByTagName('a');
+              for (var i=0; i<navAnchors.length; i++) {
+                  navAnchors[i].addEventListener('click', function() {
+                      topnav.activatedState.disable();
+                      var initialTopnavClass = topnav.getAttribute('class');
+                      topnav.setAttribute('class', initialTopnavClass + ' transition');
+
+                      window.addEventListener('pageshow', function(e) {
+                          if (!e.persisted) { return }
+                          topnav.activatedState.enable();
+                          topnav.setAttribute('class', initialTopnavClass);
+                      }, false);
+                  }, false);
+              }
           }
       }, false);
   }();
