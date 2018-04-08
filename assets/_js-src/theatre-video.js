@@ -57,7 +57,7 @@ define([
                     this.focussed = true;
                     this.centerInViewport();
                     document.body.disableScrolling();
-                    this.screen.addClass('playing');
+                    this.screen.classList.add('playing');
                     this.player.playVideo();
                 }.bind(this));
             }.bind(this));
@@ -67,7 +67,7 @@ define([
                 YT.ready(function(){
                     this.focussed = false;
                     document.body.enableScrolling();
-                    this.screen.rmvClass('playing');
+                    this.screen.classList.remove('playing');
                     this.player.pauseVideo();
                 }.bind(this));
             }.bind(this));

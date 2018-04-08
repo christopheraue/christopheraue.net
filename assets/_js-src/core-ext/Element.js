@@ -3,30 +3,6 @@
  */
 
 define(function() {
-    // Add classList to all elements (HTML, SVG, ...) in IE 11
-    if (!Object.getOwnPropertyDescriptor(Element.prototype, 'classList')){
-        var classListProp = HTMLElement && Object.getOwnPropertyDescriptor(HTMLElement.prototype,'classList');
-        if (classListProp){
-            Object.defineProperty(Element.prototype, 'classList', classListProp);
-        }
-    }
-
-    Element.prototype.addClass = function(cls) {
-        if (!this.hasClass(cls)) {
-            this.classList.add(cls);
-        }
-    };
-
-    Element.prototype.rmvClass = function(cls) {
-        if (this.hasClass(cls)) {
-            this.classList.remove(cls);
-        }
-    };
-
-    Element.prototype.hasClass = function(cls) {
-        return this.classList.contains(cls);
-    };
-
     /*
      * Find the shortest route to a descendant and update the css class of
      * elements along the way. Remove the class from all other descendants.
@@ -61,18 +37,18 @@ define(function() {
         var i;
         if (changedIdx !== -1) {
             for (i=changedIdx; i<old.length; i++){
-                old[i].rmvClass(cls);
+                old[i].classList.remove(cls);
             }
 
             for (i=changedIdx; i<now.length; i++){
-                now[i].addClass(cls);
+                now[i].classList.add(cls);
             }
         }
     };
 
     Element.prototype.rmvClassFromDescendants = function(cls) {
         this.getElementsByClassName(cls).forEach(function(el){
-            el.rmvClass(cls);
+            el.classList.remove(cls);
         });
     };
 });

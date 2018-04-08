@@ -5,7 +5,8 @@ require([
     'theatre-video',
     'core-ext/document',
     'config',
-    'lib/svgxuse'
+    'lib/svgxuse',
+    'lib/classList'
 ], function(InstantTapClickArea, HoverElement, ActivatableElement, TheatreVideo) {
     document.ready(function() {
         new InstantTapClickArea(document.body);

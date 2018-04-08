@@ -19,21 +19,21 @@ define([
     
     ActivatableElement.prototype = {
         enable: function () {
-            this.el.rmvClass('js-activate-deactivated');
+            this.el.classList.remove('js-activate-deactivated');
         },
         disable: function () {
-            this.el.addClass('js-activate-deactivated');
+            this.el.classList.add('js-activate-deactivated');
             this.deactivate();
         },
         isDisabled: function() {
-            return this.el.hasClass('js-activate-deactivated');
+            return this.el.classList.contains('js-activate-deactivated');
         },
         activate: function() {
             if (this.isActivated() || this.isDisabled()) {
                 return;
             }
 
-            this.el.addClass('activated');
+            this.el.classList.add('activated');
             this.el.style['z-index'] = '999999';
 
             this.deactivationArea = document.createElement('div');
@@ -51,27 +51,27 @@ define([
                 return;
             }
 
-            this.el.rmvClass('activated');
+            this.el.classList.remove('activated');
             this.el.parentNode.removeChild(this.deactivationArea);
             delete this.deactivationArea;
         },
         isActivated: function() {
-            return this.el.hasClass('activated');
+            return this.el.classList.contains('activated');
         },
         activateOnMouseDownUp: function() {
             // active on mousedown
-            this.el.addEventListener('mousedown',  function(){ this.el.addClass('active') }.bind(this), false);
-            this.el.addEventListener('mouseup',    function(){ this.el.rmvClass('active') }.bind(this), false);
-            this.el.addEventListener('mouseleave', function(){ this.el.rmvClass('active') }.bind(this), false);
+            this.el.addEventListener('mousedown',  function(){ this.el.classList.add('active') }.bind(this), false);
+            this.el.addEventListener('mouseup',    function(){ this.el.classList.remove('active') }.bind(this), false);
+            this.el.addEventListener('mouseleave', function(){ this.el.classList.remove('active') }.bind(this), false);
 
             // activated on mouseclick
             this.el.addEventListener('click', function(){ this.activate() }.bind(this), false);
         },
         activateOnTouchDownUp: function() {
             // active on touchstart
-            this.el.addEventListener('touchstart',  function(){ this.el.addClass('active') }.bind(this), false);
-            this.el.addEventListener('touchend',    function(){ this.el.rmvClass('active') }.bind(this), false);
-            this.el.addEventListener('touchcancel', function(){ this.el.rmvClass('active') }.bind(this), false);
+            this.el.addEventListener('touchstart',  function(){ this.el.classList.add('active') }.bind(this), false);
+            this.el.addEventListener('touchend',    function(){ this.el.classList.remove('active') }.bind(this), false);
+            this.el.addEventListener('touchcancel', function(){ this.el.classList.remove('active') }.bind(this), false);
 
             // activated on touchtap
             this.el.addEventListener('click', function(){ this.activate() }.bind(this), false);

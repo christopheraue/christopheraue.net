@@ -22,12 +22,12 @@ define([
         unifyMouseAndTouch: function() {
             if (this.isUnified) { return }
 
-            this.el.addEventListener('mouseenter',  function(){ this.el.addClass('focused'); }.bind(this), false);
-            this.el.addEventListener('mouseleave',  function(){ this.el.rmvClass('focused'); }.bind(this), false);
+            this.el.addEventListener('mouseenter',  function(){ this.el.classList.add('focused'); }.bind(this), false);
+            this.el.addEventListener('mouseleave',  function(){ this.el.classList.remove('focused'); }.bind(this), false);
             
-            this.el.addEventListener('touchstart',  function(){ this.el.addClass('focused'); }.bind(this), false);
-            this.el.addEventListener('touchend',    function(){ this.el.rmvClass('focused'); }.bind(this), false);
-            this.el.addEventListener('touchcancel', function(){ this.el.rmvClass('focused'); }.bind(this), false);
+            this.el.addEventListener('touchstart',  function(){ this.el.classList.add('focused'); }.bind(this), false);
+            this.el.addEventListener('touchend',    function(){ this.el.classList.remove('focused'); }.bind(this), false);
+            this.el.addEventListener('touchcancel', function(){ this.el.classList.remove('focused'); }.bind(this), false);
             
             this.isUnified = true;
         },
@@ -45,12 +45,12 @@ define([
             }.bind(this), false);
 
             this.el.addEventListener('touchend', function() {
-                this.el.rmvClass('focused');
+                this.el.classList.remove('focused');
                 this.el.rmvClassFromDescendants('focused');
             }.bind(this), false);
 
             this.el.addEventListener('touchcancel', function() {
-                this.el.rmvClass('focused');
+                this.el.classList.remove('focused');
                 this.el.rmvClassFromDescendants('focused');
             }.bind(this), false);
         }
@@ -90,7 +90,7 @@ define([
     window.addEventListener('pageshow', function (e) {
         if (!e.persisted) { return }
         document.getElementsByClassName('focused').forEach(function (el) {
-            el.rmvClass('focused');
+            el.classList.remove('focused');
         });
     }, false);
     
