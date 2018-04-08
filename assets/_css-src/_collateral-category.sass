@@ -94,7 +94,7 @@ body.collateral
         background: black
         opacity: 0
         transition: opacity 1s ease
-        pointer-events: none
+        display: none
         .light-switch
           position: absolute
           bottom: 1em
@@ -111,8 +111,8 @@ body.collateral
         padding-bottom: 56.25% // ensure 16/9 format of screen
       &.playing
         .darkness
+          display: block
           opacity: 0.90
-          pointer-events: auto
           .light-switch
             color: white
             cursor: pointer
@@ -154,7 +154,6 @@ body.collateral
         left: 0
         right: 0
         bottom: 0
-        pointer-events: none
         box-shadow: inset -.2em -.2em .5em rgba(0,0,0,0.1), inset .2em .2em .5em rgba(255,255,255,0.1)
   #youtube
     min-width: 15em
