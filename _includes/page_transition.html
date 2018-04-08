@@ -168,5 +168,8 @@
               }, false);
           }
       }, false);
+
+      //reduce white flicker during page transition in IE
+      window.addEventListener('beforeunload', function(){});
   }();
 </script>
