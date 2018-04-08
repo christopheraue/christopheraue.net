@@ -8,8 +8,18 @@ define('pointer-activated-state', [
     'core-ext/Object'
 ], function(){
     var activationMethods = {
+        enableActivation: function () {
+            this.rmvClass('js-activate-deactivated');
+        },
+        disableActivation: function () {
+            this.addClass('js-activate-deactivated');
+            this.deactivate();
+        },
+        isActivationDisabled: function() {
+            return this.hasClass('js-activate-deactivated');
+        },
         activate: function() {
-            if (this.isActivated()) {
+            if (this.isActivated() || this.isActivationDisabled()) {
                 return;
             }
 
