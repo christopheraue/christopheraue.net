@@ -99,56 +99,25 @@
 <script>
   // Javascript is inlined because it needs to start working immediately
   !function() {
-      var transitionFader = document.getElementById('transition-fader');
+      var transitionFrom = function(category) {
+          // classList API might not be yet available
+          document.body.setAttribute('class', document.body.getAttribute('class') + ' ' +
+              category + '-transition transition-in');
+      };
 
-      var initialBodyClass = document.body.getAttribute('class');
-
-      document.body.transitionTo = function(category) {
+      var transitionTo = function(category) {
           if (category === 'home') {
-              this.hideScrollbar();
+              document.body.hideScrollbar();
           }
-          this.setAttribute('class', initialBodyClass + ' ' + category + '-transition transition-out');
+          document.body.classList.add(category + '-transition', 'transition-out');
       };
 
-      document.body.transitionFrom = function(category) {
-          this.setAttribute('class', initialBodyClass + ' ' + category + '-transition transition-in');
-      };
-
-      document.body.removeTransition = function() {
-          this.showScrollbar();
-          this.setAttribute('class', initialBodyClass);
-      };
-
-
-      extractCategoryFrom = function(anchor) {
-          var hostname = anchor.hostname,
-              pathname = anchor.pathname;
-
-          if (hostname !== window.location.hostname) {
-              return false;
-          }
-
-          if (pathname.charAt(0) === '/') {
-              // Normalize all browsers with IE which has no leading slash.
-              pathname = pathname.substring(1);
-          }
-          var category = pathname.split('/')[0];
-          if (category === '') {
-              category = 'home'
-          }
-          return category
-      };
-
-      delayLocationChangeFor = function(anchor, opts) {
-          var element = opts.until[0],
-              event = opts.until[1];
-          anchor.addEventListener('click', function(e) {
-              var eventHandler = function() {
-                  window.location = anchor.href;
-                  element.removeEventListener(event, eventHandler, false);
-              };
-              element.addEventListener(event, eventHandler, false);
-              e.preventDefault();
+      var removeTransition = function() {
+          document.body.showScrollbar();
+          document.body.classList.remove('transition-out');
+          document.body.className.split(' ').forEach(function(cls){
+              if (cls.indexOf('-transition') === -1) { return }
+              document.body.classList.remove(cls);
           });
       };
 
@@ -157,48 +126,46 @@
       var category = window.sessionStorage.getItem('pageTransitionCategory');
       window.sessionStorage.removeItem('pageTransitionCategory');
       if (category) {
-          document.body.transitionFrom(category);
+          transitionFrom(category);
       }
 
       // The faded in page transition on unload might be persisted/cached
       // and interferes when navigating the browser history. (e.g. in Safari)
       window.addEventListener('pageshow', function(e) {
           if (!e.persisted) { return }
-          document.body.removeTransition();
+          removeTransition();
       }, false);
 
 
       // Transition when navigating to an internal page
-      window.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('APIsAvailable', function() {
           // Hook into all links to control the start of the transition
-          var anchors = document.getElementsByTagName('a');
-          for (var aidx = 0; aidx < anchors.length; aidx++) {
-              anchors[aidx].addEventListener('click', function(e) {
-                  var category = extractCategoryFrom(e.currentTarget);
+          document.getElementsByTagName('a').forEach(function(anchor) {
+              anchor.addEventListener('click', function() {
+                  var category = anchor.extractCategory();
                   if (!category) { return } // user click a link to another website
-                  document.body.transitionTo(category);
+                  transitionTo(category);
                   window.sessionStorage.setItem('pageTransitionCategory', category);
               }, false);
-              delayLocationChangeFor(anchors[aidx], {until: [transitionFader, 'animationend']});
-          }
+              anchor.delayLocationChangeUntil(document.getElementById('transition-fader'), 'animationend');
+          });
+
 
           // Slide the header navigation to the category that is transitioned to
           var topnav = document.querySelector('body > header nav');
           if (topnav) {
-              var navAnchors = topnav.getElementsByTagName('a');
-              for (var i=0; i<navAnchors.length; i++) {
-                  navAnchors[i].addEventListener('click', function() {
+              topnav.getElementsByTagName('a').forEach(function(anchor) {
+                  anchor.addEventListener('click', function() {
                       topnav.activatedState.disable();
-                      var initialTopnavClass = topnav.getAttribute('class');
-                      topnav.setAttribute('class', initialTopnavClass + ' transition');
-
-                      window.addEventListener('pageshow', function(e) {
-                          if (!e.persisted) { return }
-                          topnav.activatedState.enable();
-                          topnav.setAttribute('class', initialTopnavClass);
-                      }, false);
+                      topnav.classList.add('transition');
                   }, false);
-              }
+              });
+
+              window.addEventListener('pageshow', function(e) {
+                  if (!e.persisted) { return }
+                  topnav.activatedState.enable();
+                  topnav.classList.remove('transition');
+              }, false);
           }
       }, false);
   }();

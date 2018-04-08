@@ -10,6 +10,7 @@ require([
     'core-ext/body',
     'core-ext/document',
     'core-ext/Element',
+    'core-ext/HTMLAnchorElement',
     'core-ext/HTMLCollection',
     'core-ext/Object',
     'core-ext/TouchEvent',
