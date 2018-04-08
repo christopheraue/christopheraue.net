@@ -20,127 +20,127 @@ body > header
   .logo-nav
     position: relative
     display: inline-block
-    .logo
+  .logo
+    display: inline-block
+    vertical-align: top
+    a
       display: inline-block
-      vertical-align: top
-      a
-        display: inline-block
-        height: 2.5em
-        vertical-align: middle
-        opacity: 0.85
-        &.focused
-          opacity: 1
+      height: 2.5em
+      vertical-align: middle
+      opacity: 0.85
+      &.focused
+        opacity: 1
+    .scaling-svg
+      height: 100%
+      pointer-events: none
+      fill: white
+      stroke: white
+      canvas
+        height: 100% // svg is scaled with the height as reference
+  nav
+    position: absolute
+    z-index: 999999
+    top: 35%
+    right: -.5em
+    height: 2.25em
+    overflow: hidden
+    text-align: right
+    white-space: nowrap
+    border-radius: .1em
+    transform: scale(1)
+    transform-origin: top right
+    transition: transform $transition_time ease-in-out, height $transition_time ease-in-out, right $transition_time ease-in-out
+    cursor: pointer
+    @media screen and (min-width: 50em) //800px
+      position: relative
+      display: inline-block
+      right: 0
+      margin-top: -.75em
+      margin-left: -1.1em
+      font-size: 1.5em
+      text-align: left
+    .nav-item
+      display: block
+      padding: .5em .5em .5em 1.25em
+      transition: background $transition_time ease-in-out
+      pointer-events: none
       .scaling-svg
-        height: 100%
+        display: inline-block
+        vertical-align: top
+        height: 1.25em
         pointer-events: none
         fill: white
         stroke: white
+        transition: opacity $transition_time ease-in-out
         canvas
           height: 100% // svg is scaled with the height as reference
-    .nav
-      position: absolute
-      z-index: 999999
-      top: 35%
-      right: -.5em
-      height: 2.25em
-      overflow: hidden
-      text-align: right
-      white-space: nowrap
-      border-radius: .1em
-      transform: scale(1)
-      transform-origin: top right
-      transition: transform $transition_time ease-in-out, height $transition_time ease-in-out, right $transition_time ease-in-out
-      cursor: pointer
-      @media screen and (min-width: 50em) //800px
-        position: relative
-        display: inline-block
-        right: 0
-        margin-top: -.75em
-        margin-left: -1.1em
-        font-size: 1.5em
-        text-align: left
+    li + li
       .nav-item
+        padding-right: 1.75em
+    .arrow
+      display: inline-block
+      vertical-align: top
+      position: relative
+      top: 0
+      right: 0
+      width: 1.25em
+      height: 1.25em
+      pointer-events: none
+      &:before
+        content: ''
         display: block
-        padding: .5em .5em .5em 1.25em
-        transition: background $transition_time ease-in-out
-        pointer-events: none
-        .scaling-svg
-          display: inline-block
-          vertical-align: top
-          height: 1.25em
-          pointer-events: none
-          fill: white
-          stroke: white
-          transition: opacity $transition_time ease-in-out
-          canvas
-            height: 100% // svg is scaled with the height as reference
-      li + li
-        .nav-item
-          padding-right: 1.75em
-      .arrow
-        display: inline-block
-        vertical-align: top
-        position: relative
-        top: 0
-        right: 0
-        width: 1.25em
-        height: 1.25em
-        pointer-events: none
-        &:before
-          content: ''
-          display: block
-          position: absolute
-          top: 50%
-          margin-top: -.15em
-          left: 50%
-          margin-left: -.35em
-          width: 0
-          height: 0
-          border: .35em solid transparent
-          border-top-color: white
-          opacity: 1
-          transform: rotate(0deg)
-          transition: transform $transition_time ease-in-out, opacity 2*$transition_time ease-in-out
-          transform-origin: 50% 15%
-          @media screen and (min-width: 32em) //512px
-            margin-left: -.275em
-            border-width: .3em
-      &.activated
-        height: 4.5em
-        transform: scale(2)
-        box-shadow: 0 0 5px rgba(0,0,0,0.5), 1px 1px 3px rgba(0,0,0,0.5)
-        &:after
-          content: ''
-          display: block
-          position: absolute
-          top: 0
-          left: 0
-          right: 0
-          bottom: 0
-          pointer-events: none
-          box-shadow: inset -.2em -.2em .5em rgba(0,0,0,0.04), inset .2em .2em .5em rgba(255,255,255,0.04)
+        position: absolute
+        top: 50%
+        margin-top: -.15em
+        left: 50%
+        margin-left: -.35em
+        width: 0
+        height: 0
+        border: .35em solid transparent
+        border-top-color: white
+        opacity: 1
+        transform: rotate(0deg)
+        transition: transform $transition_time ease-in-out, opacity 2*$transition_time ease-in-out
+        transform-origin: 50% 15%
         @media screen and (min-width: 32em) //512px
-          transform: scale(1.5)
-        @media screen and (min-width: 50em) //800px
-          transform: scale(1)
-        .nav-item
-          pointer-events: auto
-          &.collateral
-            background: darken($collateral-dark, 5%)
-            &.focused
-              background: $collateral-dark
-          &.design
-            background: darken($design-dark, 5%)
-            &.focused
-              background: $design-dark
-          .scaling-svg
-            opacity: 0.7
+          margin-left: -.275em
+          border-width: .3em
+    &.activated
+      height: 4.5em
+      transform: scale(2)
+      box-shadow: 0 0 5px rgba(0,0,0,0.5), 1px 1px 3px rgba(0,0,0,0.5)
+      &:after
+        content: ''
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        pointer-events: none
+        box-shadow: inset -.2em -.2em .5em rgba(0,0,0,0.04), inset .2em .2em .5em rgba(255,255,255,0.04)
+      @media screen and (min-width: 32em) //512px
+        transform: scale(1.5)
+      @media screen and (min-width: 50em) //800px
+        transform: scale(1)
+      .nav-item
+        pointer-events: auto
+        &.collateral
+          background: darken($collateral-dark, 5%)
           &.focused
-            .scaling-svg
-              opacity: 1
-        .arrow:before
-          transform: rotate(90deg)
-          opacity: 0
+            background: $collateral-dark
+        &.design
+          background: darken($design-dark, 5%)
+          &.focused
+            background: $design-dark
+        .scaling-svg
+          opacity: 0.7
+        &.focused
+          .scaling-svg
+            opacity: 1
+      .arrow:before
+        transform: rotate(90deg)
+        opacity: 0
 
 /*
  *  Footer
