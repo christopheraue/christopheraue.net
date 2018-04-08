@@ -1,16 +1,48 @@
 require([
+    'instant-tap-click-area',
+    'hover-element',
+    'activatable-element',
     'theatre-video',
     'config',
-    'lib/svgxuse',
-    'unified-pointer-events',
-    'pointer-activated-state'
-], function(theatreVideo) {
-    require(['google-analytics'], function(ga){
-        ga('create', 'UA-48107803-1', 'christopheraue.net');
-        ga('send', 'pageview');
+    'lib/svgxuse'
+], function(InstantTapClickArea, HoverElement, ActivatableElement, TheatreVideo) {
+    new InstantTapClickArea(document.body);
+
+
+    document.getElementsByTagName('*').forEach(function(el) {
+        HoverElement.instanceFor(el).unifyMouseAndTouch();
+    });
+    HoverElement.setAfterPageLoad();
+
+
+    document.getElementsByClassName('js-activate-on-mousedownup').forEach(function (el) {
+        ActivatableElement.instanceFor(el).activateOnMouseDownUp();
     });
 
-    // disqus comments
+    document.getElementsByClassName('js-activate-on-touchdownup').forEach(function (el) {
+        ActivatableElement.instanceFor(el).activateOnTouchDownUp();
+    });
+
+    document.getElementsByClassName('js-activate-on-mousedown').forEach(function (el) {
+        ActivatableElement.instanceFor(el).activateOnMouseDown();
+    });
+
+    document.getElementsByClassName('js-activate-on-touchdown').forEach(function (el) {
+        ActivatableElement.instanceFor(el).activateOnTouchDown();
+    });
+
+    document.getElementsByClassName('js-activate-on-mouseover').forEach(function (el) {
+        ActivatableElement.instanceFor(el).activateOnMouseOver();
+    });
+
+    // touch over (finger hovering over the display) does not exist
+
+
+    document.getElementsByClassName('js-theatre-video').forEach(function(video) {
+        new TheatreVideo(video);
+    });
+
+
     if (document.getElementById('disqus_thread')) {
         disqus_shortname = 'christopheraue';
         disqus_identifier = location.pathname;
@@ -19,11 +51,9 @@ require([
         require(['//' + disqus_shortname + '.disqus.com/count.js']);
     }
 
-    // darken background of playing videos
-    var theatreVideos = document.getElementsByClassName('js-theatre-video');
-    if (theatreVideos.length > 0) {
-        for (var i=0; i<theatreVideos.length; i++) {
-            new theatreVideo(theatreVideos[i]);
-        }
-    }
+
+    require(['google-analytics'], function(ga){
+        ga('create', 'UA-48107803-1', 'christopheraue.net');
+        ga('send', 'pageview');
+    });
 });

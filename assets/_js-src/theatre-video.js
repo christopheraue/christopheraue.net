@@ -1,9 +1,9 @@
-define('theatre-video', [
-    'core-ext/body'
+define([
+    'core-ext/body',
+    'core-ext/HTMLCollection'
 ], function(){
-    var Video = function(screen) {
+    var TheatreVideo = function(screen) {
         this.screen = screen;
-
         require(['youtube-api'], function(YT) {
             YT.ready(function() {
                 var prepreviousState = YT.PlayerState.UNSTARTED;
@@ -48,7 +48,7 @@ define('theatre-video', [
         }.bind(this));
     };
 
-    Video.prototype = {
+    TheatreVideo.prototype = {
         player: null,
         focussed: false,
         focus: function(){
@@ -88,5 +88,5 @@ define('theatre-video', [
         }
     };
 
-    return Video;
+    return TheatreVideo;
 });
