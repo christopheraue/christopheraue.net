@@ -99,6 +99,9 @@
 <script>
   // Javascript is inlined because it needs to start working immediately
   !function() {
+      // Disable page transitions for browsers not supporting CSS animations
+      if (!window.AnimationEvent) { return; }
+
       var transitionFrom = function(category) {
           // classList API might not be yet available
           document.body.setAttribute('class', document.body.getAttribute('class') + ' ' +
