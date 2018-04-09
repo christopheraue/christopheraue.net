@@ -161,7 +161,9 @@
               topnav.getElementsByTagName('a').forEach(function(anchor) {
                   anchor.addEventListener('click', function() {
                       topnav.activatedState.disable();
-                      topnav.classList.add('transition');
+                      if (anchor.extractCategory() !== window.location.extractCategory()) {
+                          topnav.classList.add('transition');
+                      }
                   }, false);
               });
 
