@@ -51,4 +51,36 @@ define(function() {
             el.classList.remove(cls);
         });
     };
+
+    Element.prototype.smoothScrollIntoView = function(anchor, transform){
+        var elRect = this.getBoundingClientRect(),
+            distance;
+
+        anchor = anchor || 'center';
+        transform = transform || '300ms ease';
+
+        switch(anchor) {
+            case 'top':
+                distance = elRect.top;
+                break;
+            case 'bottom':
+                distance = elRect.bottom - window.innerHeight;
+                break;
+            default: //case 'center':
+                distance = elRect.top + elRect.height/2 - window.innerHeight/2;
+                break;
+        }
+
+        if (window.TransitionEvent) {
+            document.body.style.transform = 'translate(0px, ' + distance + 'px)';
+        }
+
+        window.scrollBy(0, distance);
+
+        if (window.TransitionEvent) {
+            document.body.style.transition = 'transform ' + transform;
+            document.body.style.transform = '';
+            this.addEventListener('transitionend', function(){ document.body.style.transition = '' }, false);
+        }
+    };
 });

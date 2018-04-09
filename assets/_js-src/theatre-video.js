@@ -55,7 +55,7 @@ define([
             require(['youtube-api'], function(YT) {
                 YT.ready(function(){
                     this.focussed = true;
-                    this.centerInViewport();
+                    this.screen.smoothScrollIntoView('center', '1s ease');
                     document.body.disableScrolling();
                     this.screen.classList.add('playing');
                     this.player.playVideo();
@@ -71,20 +71,6 @@ define([
                     this.player.pauseVideo();
                 }.bind(this));
             }.bind(this));
-        },
-        centerInViewport: function(){
-            var videoRect = this.screen.getBoundingClientRect(),
-                videoYCenter = videoRect.top + videoRect.height/2,
-                viewportYCenter = window.innerHeight/2,
-                scrollDistance = videoYCenter-viewportYCenter,
-                scrollDuration = 1, // seconds
-                bodyStyle = document.body.style;
-
-            bodyStyle.transform = "translate(0px, " + scrollDistance + "px)";
-            window.scrollBy(0, scrollDistance);
-            bodyStyle.transition = "transform " + scrollDuration + "s ease";
-            bodyStyle.transform = '';
-            setTimeout(function(){ bodyStyle.transition = '' }, scrollDuration*1000);
         }
     };
 
