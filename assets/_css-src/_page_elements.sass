@@ -62,6 +62,7 @@ body > header
       display: block
       padding: .5em .5em .5em 1.25em
       transition: background $transition_time ease-in-out
+      pointer-events: none // prevent location change when tapping the nav to open it!
       .scaling-svg
         display: inline-block
         vertical-align: top
@@ -121,6 +122,7 @@ body > header
       @media screen and (min-width: 50em) //800px
         transform: scale(1)
       .nav-item
+        pointer-events: auto
         &.collateral
           background: darken($collateral-dark, 5%)
           &.hover
