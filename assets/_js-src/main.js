@@ -16,7 +16,6 @@ require([
     'core-ext/TouchEvent',
 
     /* libraries */
-    'lib/svgxuse',
     'lib/classList'
 ], function(InstantTapClickArea, HoverElement, ActivatableElement, TheatreVideo) {
     if(typeof(Event) === 'function') {
