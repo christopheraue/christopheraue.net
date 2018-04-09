@@ -56,35 +56,6 @@ define([
         }
     };
 
-    // Set focused states right after page load. document.initClient{X,Y}
-    // are set by an inlined script.
-    var setHoverAt = function(x, y) {
-        var el = document.elementFromPoint(x, y);
-        while (el) {
-            var event;
-            if(typeof(Event) === 'function') {
-                event = new Event('mouseenter');
-            } else {
-                event = document.createEvent('Event');
-                event.initEvent('mouseenter', true, true);
-            }
-            el.dispatchEvent(event);
-            el = el.parentElement;
-        }
-    };
-
-    HoverElement.setAfterPageLoad = function() {
-        if (document.initClientX) {
-            setHoverAt(document.initClientX, document.initClientY);
-        } else {
-            var initHover = function(){
-                setHoverAt(document.initClientX, document.initClientY);
-                document.removeEventListener('mouseover', initHover, false);
-            };
-            document.addEventListener('mouseover', initHover, false);
-        }
-    };
-
     // The focused state might be persisted/cached when navigating the browser
     // history (e.g. in Safari). Reset it when the page is re-shown in this way.
     window.addEventListener('pageshow', function (e) {

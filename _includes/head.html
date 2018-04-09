@@ -18,14 +18,5 @@
 {% endif %}
 <link rel="stylesheet" href="/assets/css/styles.css" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,500|Source+Code+Pro:300,500,900|Open+Sans+Condensed:700" rel="stylesheet">
-<script>
-    !function() {
-        var initializeMousePosition = function(e){
-            document.initClientX = e.clientX;
-            document.initClientY = e.clientY;
-            document.removeEventListener('mouseover', initializeMousePosition, false);
-        };
-        document.addEventListener('mouseover', initializeMousePosition, false);
-    }();
-</script>
+{% include head/mouse_control.html %}
 <script async data-main="/assets/js/main" src="/assets/js/lib/require.js"></script>

@@ -3,6 +3,7 @@ require([
     'hover-element',
     'activatable-element',
     'theatre-video',
+    'mouse-control',
 
     'config',
 
@@ -18,7 +19,7 @@ require([
 
     /* libraries */
     'lib/classList'
-], function(InstantTapClickArea, HoverElement, ActivatableElement, TheatreVideo) {
+], function(InstantTapClickArea, HoverElement, ActivatableElement, TheatreVideo, mouseControl) {
     if(typeof(Event) === 'function') {
         document.dispatchEvent(new Event('APIsAvailable'));
     } else {
@@ -36,7 +37,6 @@ require([
         document.getElementsByTagName('*').forEach(function(el) {
             HoverElement.instanceFor(el).unifyMouseAndTouch();
         });
-        HoverElement.setAfterPageLoad();
     });
 
     document.ready(function() {
@@ -67,6 +67,10 @@ require([
         document.getElementsByClassName('js-theatre-video').forEach(function(video) {
             new TheatreVideo(video);
         });
+    });
+
+    document.ready(function() {
+        mouseControl.triggerMouseEnterAfterPageLoad();
     });
 
     document.ready(function() {
