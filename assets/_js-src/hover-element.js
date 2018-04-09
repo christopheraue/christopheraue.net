@@ -22,17 +22,17 @@ define([
         unifyMouseAndTouch: function() {
             if (this.isUnified) { return }
 
-            this.el.addEventListener('mouseenter',  function(){ this.el.classList.add('focused'); }.bind(this), false);
-            this.el.addEventListener('mouseleave',  function(){ this.el.classList.remove('focused'); }.bind(this), false);
+            this.el.addEventListener('mouseenter',  function(){ this.el.classList.add('hover'); }.bind(this), false);
+            this.el.addEventListener('mouseleave',  function(){ this.el.classList.remove('hover'); }.bind(this), false);
             
-            this.el.addEventListener('touchstart',  function(){ this.el.classList.add('focused'); }.bind(this), false);
-            this.el.addEventListener('touchend',    function(){ this.el.classList.remove('focused'); }.bind(this), false);
-            this.el.addEventListener('touchcancel', function(){ this.el.classList.remove('focused'); }.bind(this), false);
+            this.el.addEventListener('touchstart',  function(){ this.el.classList.add('hover'); }.bind(this), false);
+            this.el.addEventListener('touchend',    function(){ this.el.classList.remove('hover'); }.bind(this), false);
+            this.el.addEventListener('touchcancel', function(){ this.el.classList.remove('hover'); }.bind(this), false);
             
             this.isUnified = true;
         },
         
-        // Let the *focused* state follow the touch point and without causing
+        // Let the *hover* state follow the touch point and without causing
         // default behavior like scrolling. (works, but currently unused)
         followTouch: function() {
             this.el.addEventListener('touchstart', function(e) {
@@ -40,28 +40,28 @@ define([
             }.bind(this), false);
 
             this.el.addEventListener('touchmove', function(e) {
-                this.el.addClassTracingDescendant('focused', e.touchTarget);
+                this.el.addClassTracingDescendant('hover', e.touchTarget);
                 e.preventDefault();
             }.bind(this), false);
 
             this.el.addEventListener('touchend', function() {
-                this.el.classList.remove('focused');
-                this.el.rmvClassFromDescendants('focused');
+                this.el.classList.remove('hover');
+                this.el.rmvClassFromDescendants('hover');
             }.bind(this), false);
 
             this.el.addEventListener('touchcancel', function() {
-                this.el.classList.remove('focused');
-                this.el.rmvClassFromDescendants('focused');
+                this.el.classList.remove('hover');
+                this.el.rmvClassFromDescendants('hover');
             }.bind(this), false);
         }
     };
 
-    // The focused state might be persisted/cached when navigating the browser
+    // The hover state might be persisted/cached when navigating the browser
     // history (e.g. in Safari). Reset it when the page is re-shown in this way.
     window.addEventListener('pageshow', function (e) {
         if (!e.persisted) { return }
-        document.getElementsByClassName('focused').forEach(function (el) {
-            el.classList.remove('focused');
+        document.getElementsByClassName('hover').forEach(function (el) {
+            el.classList.remove('hover');
         });
     }, false);
     
