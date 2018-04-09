@@ -109,6 +109,7 @@
       };
 
       var transitionTo = function(category) {
+          removeTransition();
           if (category === 'home') {
               document.body.hideScrollbar();
           }
