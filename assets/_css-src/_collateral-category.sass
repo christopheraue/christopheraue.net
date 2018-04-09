@@ -84,7 +84,7 @@ body.collateral
         left: -.4em
         width: 100%
         height: 100%
-        transition: transform 1s ease // transform set with javascript
+        transition: transform 1s ease-in-out // transform set with javascript
       .darkness
         position: fixed
         top: 0
@@ -93,7 +93,7 @@ body.collateral
         bottom: 0
         background: black
         opacity: 0
-        transition: opacity 1s ease
+        transition: opacity 1s ease-in-out
         display: none
         .light-switch
           position: absolute
@@ -102,7 +102,7 @@ body.collateral
           text-align: center
           color: black
           opacity: .3
-          transition: opacity 1s ease, color 1s ease 1s
+          transition: opacity 1s ease-in-out, color 1s ease-in-out 1s
           &:before
             content: 'Turn lights back on'
       &:after

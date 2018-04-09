@@ -55,7 +55,7 @@ define([
             require(['youtube-api'], function(YT) {
                 YT.ready(function(){
                     this.focussed = true;
-                    this.screen.smoothScrollIntoView('center', '1s ease');
+                    this.screen.smoothScrollIntoView('center', '1s ease-in-out');
                     document.body.disableScrolling();
                     this.screen.classList.add('playing');
                     this.player.playVideo();
