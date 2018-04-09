@@ -8,7 +8,7 @@ redirect_from:
 
 *Note from 2018: Nowadays, if your browser demographic allows it, you might want to use [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).*
 
-If I need to vertically center elements with CSS I almost always end up using `display: inline-block` together with `vertical-align: middle`. `vertical-align` may not always behave the way you expect it to—I've dedicated a [complete article]({{ site.url | append: '/2014/03/05/vertical-align/' }}) to it—but here it's the solution to go for.
+If I need to vertically center elements with CSS I almost always end up using `display: inline-block` together with `vertical-align: middle`. `vertical-align` may not always behave the way you expect it to—I've dedicated a [complete article]({{ '/design/vertical-align' }}) to it—but here it's the solution to go for.
 
 A Quick Example
 ---------------
