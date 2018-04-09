@@ -121,9 +121,8 @@
 
       var removeTransition = function() {
           document.body.showScrollbar();
-          document.body.classList.remove('transition-out');
           document.body.className.split(' ').forEach(function(cls){
-              if (cls.indexOf('-transition') === -1) { return }
+              if (cls.indexOf('transition') === -1) { return }
               document.body.classList.remove(cls);
           });
       };
