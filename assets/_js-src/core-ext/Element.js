@@ -83,4 +83,31 @@ define(function() {
             this.addEventListener('transitionend', function(){ document.body.style.transition = '' }, false);
         }
     };
+
+    Element.prototype.inView = function() {
+        var elRect = this.getBoundingClientRect();
+
+        /*
+         *
+         *                               .---------.  ✓ top < innerHeight
+         *                       inner   |         |  ✗ left < innerWidth
+         *         0             Width   |         |  ✓ bottom > 0
+         *       0 .---------------.     |         |  ✓ right > 0
+         *         |               |     `---------´  ➥ outside
+         *         |               |
+         *         |               |
+         *         |               |
+         *         |           .---|-----.  ✓ top < innerHeight
+         *   inner |           |   |     |  ✓ left < innerWidth
+         *  Height `---------------´     |  ✓ bottom > 0
+         *                     |         |  ✓ right > 0
+         *                     `---------´  ➥ inside
+         */
+        return (
+            elRect.top <= window.innerHeight &&
+            elRect.left <= window.innerWidth &&
+            elRect.bottom >= 0 &&
+            elRect.right >= 0
+        );
+    }
 });

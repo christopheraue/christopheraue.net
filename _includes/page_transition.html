@@ -22,7 +22,7 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
-    animation-duration: 333ms;
+    animation-duration: 300ms;
     animation-timing-function: ease-in-out;
   }
 
@@ -36,7 +36,7 @@
     animation-name: fade-in;
   }
 
-  body.home-transition #transition-fader {
+  body.header-fade-transition #transition-fader {
     z-index: 999996; /* above the header */
   }
 
@@ -102,18 +102,21 @@
       // Disable page transitions for browsers not supporting CSS animations
       if (!window.AnimationEvent) { return; }
 
-      var transitionFrom = function(category) {
+      var transitionFrom = function(category, fadeHeader) {
           // classList API might not be yet available
           document.body.setAttribute('class', document.body.getAttribute('class') + ' ' +
-              category + '-transition transition-in');
+              category + '-transition transition-in' + (fadeHeader ? ' header-fade-transition' : ''));
       };
 
-      var transitionTo = function(category) {
+      var transitionTo = function(category, fadeHeader) {
           removeTransition();
           if (category === 'home') {
               document.body.hideScrollbar();
           }
           document.body.classList.add(category + '-transition', 'transition-out');
+          if (fadeHeader) {
+              document.body.classList.add('header-fade-transition');
+          }
       };
 
       var removeTransition = function() {
@@ -127,10 +130,12 @@
 
 
       // Transition when navigated from an internal page
-      var category = window.sessionStorage.getItem('pageTransitionCategory');
+      var category = window.sessionStorage.getItem('pageTransitionCategory'),
+          fadeHeader = eval(window.sessionStorage.getItem('pageTransitionFadeHeader'));
       window.sessionStorage.removeItem('pageTransitionCategory');
+      window.sessionStorage.removeItem('pageTransitionFadeHeader');
       if (category) {
-          transitionFrom(category);
+          transitionFrom(category, fadeHeader);
       }
 
       // The faded in page transition on unload might be persisted/cached
@@ -146,10 +151,25 @@
           // Hook into all links to control the start of the transition
           document.getElementsByTagName('a').forEach(function(anchor) {
               anchor.addEventListener('click', function() {
-                  var category = anchor.extractCategory();
-                  if (!category) { return } // user click a link to another website
-                  transitionTo(category);
-                  window.sessionStorage.setItem('pageTransitionCategory', category);
+                  var targetCategory = anchor.extractCategory(),
+                      currentCategory = window.location.extractCategory(),
+                      header = document.querySelector('body > header'),
+                      fadeHeader;
+
+                  if (!targetCategory) { return } // user clicked a link to another website
+
+                  if (currentCategory === 'home') {
+                      fadeHeader = true;
+                  } else if (header.inView() && targetCategory !== 'home') {
+                      document.body.smoothScrollIntoView('top', '300ms ease-in-out');
+                      fadeHeader = false;
+                  } else {
+                      fadeHeader = true;
+                  }
+
+                  transitionTo(targetCategory, fadeHeader);
+                  window.sessionStorage.setItem('pageTransitionCategory', targetCategory);
+                  window.sessionStorage.setItem('pageTransitionFadeHeader', fadeHeader.toString());
               }, false);
               anchor.delayLocationChangeUntil(document.getElementById('transition-fader'), 'animationend');
           });
