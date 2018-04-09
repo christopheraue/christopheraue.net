@@ -28,7 +28,7 @@ body.home
       max-width: 100%
       fill: white
       stroke: white
-      canvas
+      .aspect-ratio-indicator
         height: 100% // svg is scaled with the height as reference
   /*
    * ATTENTION! The following .category styles are imitated by the styles
@@ -78,29 +78,35 @@ body.home
   .category
     &.design
       background: $design-dark
+      .desc
+        width: 100%
+        max-width: 10.64em
       .slash-text
         width: 69%
         max-width: 8em
-        canvas
+        .aspect-ratio-indicator
           width: 100% // svg is scaled with the width as reference
       .slash-text-annotation
         width: 67%
         margin-left: 33%
         max-width: 7.8em
-        canvas
+        .aspect-ratio-indicator
           width: 100% // svg is scaled with the width as reference
     &.collateral
       background: $collateral-dark
+      .desc
+        width: 100%
+        max-width: 11.83em
       .slash-text
         width: 73%
         max-width: 9.375em
-        canvas
+        .aspect-ratio-indicator
           width: 100% // svg is scaled with the width as reference
       .slash-text-annotation
         width: 70%
         margin-left: 30%
         max-width: 9.1em
-        canvas
+        .aspect-ratio-indicator
           width: 100% // svg is scaled with the width as reference
     opacity: 0.8
     &.focused

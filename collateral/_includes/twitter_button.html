@@ -1,5 +1,4 @@
 <div class="scaling-svg">
-  {% comment %} http://nicolasgallagher.com/canvas-fix-svg-scaling-in-internet-explorer/ {% endcomment %}
-  <canvas width="240" height="50.001"></canvas>
+  {% aspect_ratio_indicator 240 50.001 %}
   {% include_relative _includes/svg/twitter_button.svg %}
 </div>

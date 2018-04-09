@@ -1,5 +1,4 @@
 <span class="scaling-svg social-icon {{ include.color | default: 'white' }}">
-  {% comment %} http://nicolasgallagher.com/canvas-fix-svg-scaling-in-internet-explorer/ {% endcomment %}
-  <canvas width="256" height="245.5"></canvas>
+  {% aspect_ratio_indicator 256 245.5 %}
   {% include svg/icon_patreon.svg %}
 </span>

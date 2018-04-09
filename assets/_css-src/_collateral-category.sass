@@ -45,7 +45,7 @@ body.collateral
       overflow: hidden
       .scaling-svg
         display: block
-        canvas
+        .aspect-ratio-indicator
           width: 100% // svg is scaled with the width as reference
       .light-box
         position: absolute
@@ -138,7 +138,7 @@ body.collateral
     text-align: center
     .scaling-svg
       height: 3em
-      canvas
+      .aspect-ratio-indicator
         height: 100% // svg is scaled with the height as reference
     a
       display: inline-block
@@ -163,7 +163,7 @@ body.collateral
       .scaling-svg
         stroke: white
         height: 12em
-        canvas
+        .aspect-ratio-indicator
           height: 100% // svg is scaled with the height as reference
     .button a
       &.focused
@@ -175,7 +175,7 @@ body.collateral
       .scaling-svg
         stroke: white
         height: 3em
-        canvas
+        .aspect-ratio-indicator
           height: 100% // svg is scaled with the height as reference
   #patreon
     min-width: 15em
@@ -189,7 +189,7 @@ body.collateral
       margin-bottom: -.2em
       .scaling-svg
         height: 6em
-        canvas
+        .aspect-ratio-indicator
           height: 100% // svg is scaled with the height as reference
     .annotation
       text-align: right
@@ -197,7 +197,7 @@ body.collateral
       .scaling-svg
         stroke: white
         height: 11em
-        canvas
+        .aspect-ratio-indicator
           height: 100% // svg is scaled with the height as reference
     @media screen and (min-width: 45em) //720px
       .help-me
@@ -208,7 +208,7 @@ body.collateral
         margin-bottom: -1.5em
         .scaling-svg
           height: 8em
-          canvas
+          .aspect-ratio-indicator
             height: 100% // svg is scaled with the height as reference
   #twitter
     min-width: 15em
@@ -223,7 +223,7 @@ body.collateral
       .scaling-svg
         stroke: white
         height: 3.5em
-        canvas
+        .aspect-ratio-indicator
           height: 100% // svg is scaled with the height as reference
     .gifs
       text-align: center
@@ -231,7 +231,7 @@ body.collateral
       margin-bottom: .2em
       .scaling-svg
         height: 2.5em
-        canvas
+        .aspect-ratio-indicator
           height: 100% // svg is scaled with the height as reference
     .updates
       text-align: center
@@ -239,5 +239,5 @@ body.collateral
       margin-top: .2em
       .scaling-svg
         height: 4em
-        canvas
+        .aspect-ratio-indicator
           height: 100% // svg is scaled with the height as reference
