@@ -149,14 +149,15 @@
       document.addEventListener('APIsAvailable', function() {
           // Hook into all links to control the start of the transition
           document.getElementsByTagName('a').forEach(function(anchor) {
+              var targetCategory = anchor.extractCategory(),
+                  currentCategory, header, fadeHeader;
+
+              if (!targetCategory) { return } // user clicked a link to another website
+
+              currentCategory = window.location.extractCategory();
+              header = document.querySelector('body > header');
+
               anchor.addEventListener('click', function() {
-                  var targetCategory = anchor.extractCategory(),
-                      currentCategory = window.location.extractCategory(),
-                      header = document.querySelector('body > header'),
-                      fadeHeader;
-
-                  if (!targetCategory) { return } // user clicked a link to another website
-
                   if (currentCategory === 'home') {
                       fadeHeader = true;
                   } else if (header.inView() && targetCategory !== 'home') {
