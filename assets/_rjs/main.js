@@ -1,3 +1,18 @@
+require.config({
+    paths: {
+        'google-analytics': '//www.google-analytics.com/analytics',
+        'youtube-api': '//www.youtube.com/iframe_api?noext'
+    },
+    shim: {
+        'google-analytics': {
+            exports: 'ga'
+        },
+        'youtube-api': {
+            exports: 'YT'
+        }
+    }
+});
+
 require([
     'main/instant-tap-click-area',
     'main/hover-element',
@@ -5,7 +20,8 @@ require([
     'main/theatre-video',
     'main/mouse-control',
 
-    'config',
+    /* libraries */
+    'lib/classList',
 
     /* core extensions */
     'core-ext/body',
@@ -15,10 +31,7 @@ require([
     'core-ext/HTMLCollection',
     'core-ext/Location',
     'core-ext/Object',
-    'core-ext/TouchEvent',
-
-    /* libraries */
-    'lib/classList'
+    'core-ext/TouchEvent'
 ], function(InstantTapClickArea, HoverElement, ActivatableElement, TheatreVideo, mouseControl) {
     if(typeof(Event) === 'function') {
         document.dispatchEvent(new Event('APIsAvailable'));
