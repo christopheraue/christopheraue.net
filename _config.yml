@@ -6,6 +6,10 @@ permalink: :categories/:title
 exclude: [build.sh, deploy.sh, Gemfile, Gemfile.lock]
 plugins:
   - jekyll-redirect-from
+sass:
+  sass_dir: assets/_sass
+  style: compressed
+  cache_location: assets/_sass/.sass-cache
 
 # Jekyll's site.categories does not return categories without posts. Since
 # /collateral doesn't have any it is not included in the list. Hard code it
