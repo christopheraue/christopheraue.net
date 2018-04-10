@@ -1,9 +1,9 @@
 require([
-    'instant-tap-click-area',
-    'hover-element',
-    'activatable-element',
-    'theatre-video',
-    'mouse-control',
+    'main/instant-tap-click-area',
+    'main/hover-element',
+    'main/activatable-element',
+    'main/theatre-video',
+    'main/mouse-control',
 
     'config',
 
