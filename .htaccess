@@ -1,11 +1,15 @@
+---
+layout: none
+---
+
 Options +SymLinksIfOwnerMatch
 
 # Activate rewrites
 RewriteEngine On
 RewriteBase /
 
-RewriteCond %{HTTP_HOST} !=c.loc
-RewriteRule (.*) http://c.loc/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} !={{ site.url | remove: "http://" }}
+RewriteRule (.*) {{ site.url }}/$1 [R=301,L]
 
 # Disable automatic addition of trailing slashes to directory requests
 DirectorySlash Off
