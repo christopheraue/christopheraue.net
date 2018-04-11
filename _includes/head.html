@@ -16,7 +16,7 @@
 {% if page.has_feed %}
 <link rel="alternate" type="application/rss+xml" title="christopheraue.net" href="{{ site.url | append: page.url | append: '/feed.xml' }}">
 {% endif %}
-<link rel="stylesheet" href="/assets/styles.css" type="text/css" />
+<link rel="stylesheet" href="{{ "/assets/styles.css" | fingerprint }}" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,500|Source+Code+Pro:300,500,900|Open+Sans+Condensed:700" rel="stylesheet">
 {% include head/mouse_control.html %}
-<script async data-main="/assets/main" src="/assets/require.js"></script>
+<script async data-main="{{ "/assets/main.js" | fingerprint }}" src="/assets/require.js"></script>
