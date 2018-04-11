@@ -3,7 +3,6 @@ require 'base64'
 module Jekyll
   module Tags
     class AspectRatioIndicatorTag < Liquid::Tag
-
       def initialize(tag_name, size, options)
         @size = size
         super
