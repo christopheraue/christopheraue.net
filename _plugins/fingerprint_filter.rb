@@ -32,15 +32,11 @@ module Jekyll
         extname = File.extname(relative_url)
         basename = File.basename(relative_url, extname)
 
-        glob_pattern = File.join(site.dest, dirname, "#{basename}-*#{extname}")
-        candidates = Dir.glob(glob_pattern)
-
-        name_pattern = /^#{Regexp.escape(basename)}-[0-9a-f]{32}#{Regexp.escape(extname)}$/
-        found = candidates.find{ |path| File.basename(path) =~ name_pattern }
+        url_pattern = /^#{Regexp.escape("#{dirname}/#{basename}")}-[0-9a-f]{32}#{Regexp.escape(extname)}$/
+        found = site.data[:preprocessed_assets].find{ |asset| asset.url =~ url_pattern }
 
         if found
-          found.sub!(site.dest, '')
-          is_absolute_url ? "#{site_url}/#{found}" : found
+          is_absolute_url ? "#{site_url}/#{found.url}" : found.url
         else
           url
         end
