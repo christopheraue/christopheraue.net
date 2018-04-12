@@ -11,6 +11,9 @@ RewriteBase /
 RewriteCond %{HTTP_HOST} !={{ site.url | remove: "http://" }}
 RewriteRule (.*) {{ site.url }}/$1 [R=301,L]
 
+# Disable directory indexes
+Options -Indexes
+
 # Disable automatic addition of trailing slashes to directory requests
 DirectorySlash Off
 
