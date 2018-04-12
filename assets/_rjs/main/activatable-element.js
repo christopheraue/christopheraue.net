@@ -4,7 +4,7 @@
  */
 
 define([
-    'core-ext/Element',
+    'lib/classList',
     'core-ext/HTMLCollection',
     'core-ext/Object'
 ], function(){

@@ -1,4 +1,6 @@
 define([
+    'lib/classList',
+    'core-ext/Element',
     'core-ext/body',
     'core-ext/HTMLCollection'
 ], function(){
