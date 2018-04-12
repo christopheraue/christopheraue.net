@@ -14,6 +14,7 @@ module Jekyll
 
       def convert(content)
         `node assets/_rjs_optimizer/r.js -o \
+          optimize=#{Jekyll.env == 'development' ? 'none' : 'uglify'} \
           rawText.__content__="#{content}" \
           name=__content__ \
           baseUrl=assets/_rjs \
