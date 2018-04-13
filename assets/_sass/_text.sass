@@ -631,8 +631,11 @@ $comment: #b6b6b6
  *  ```
  */
 .text
-    * + *
+    > * + *
         margin-top: 1.5em
+    > ul, ol
+        li > * + *
+            margin-top: 1.5em
     section
         &:after
             content: ''

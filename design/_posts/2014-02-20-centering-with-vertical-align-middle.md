@@ -154,9 +154,7 @@ Vertical Centering in an Area of Unknown Height
 There is one drawback, if you want to call it one: **It does not work, if the height of the outer element is determined by the height of its content**. This means, it does not work, if the `height` property of the outer element evaluates to `auto` eventually. This particularly happens in the following scenarios (Have a look at the CSS specs about [height](http://www.w3.org/TR/CSS2/visudet.html#propdef-height) for more details.):
 
 - You do not set `height` at all. It defaults to `auto`.
-
 - You do set `height`, but you set it to `auto`. Even if you set a `min-height` to an absolute length, say `200px`, `height` still evaluates to `auto`. It needs to be prepared, if your content makes the element taller than its min-height. The height then becomes defined by the content, again.
-
 - You do set `height` to a percentage, but the parent's `height` evaluates to `auto`. You end up with `height` been set to `auto` for your element, because it contributes to the height of its parent. Otherwise it could happen, that the element increases the height of its parent. Which in turn would increase the height of the element, because of its percentage height. This increases the height of the parent, again. Which leads to... [To infinity and beyond!](http://www.youtube.com/watch?v=2VSYmGSJtCA)
 
 Why do we need a definite height on the outer element? Because the pseudo-element in our solution has a `height` set to `100%`. Look at the last bullet point above to see, what happens, if the outer element's `height` evaluates to `auto`. The pseudo-element gets a `height` of `auto`, too. Its content is an empty string. So its height will be one line-height, not the full height of its parent.
@@ -183,31 +181,23 @@ If we included the pseudo-element, it would look like:
 
 So, there is white-space between the `::before` and the `<div.centered>`: a line-break and some spaces. It all collapses to one space according to the rules html is processed by. This single space is nudging our centered element a bit to the right and might break the layout. Even worse, the space's size differs for different fonts. For example, it is .625em for Courier and .25em for Helvetica. To keep that out of the equation, the white-space must be removed. There are two options:
 
-- Put both opening tags into one line:
-
-  <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"center-area"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"centered"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;/div&gt;&lt;/div&gt;</span></code></pre></div>
-
-{% comment %}
+<ul>
+  <li>
+  <p>Put both opening tags into one line:</p>
 {% highlight html %}
 <div class="center-area"><div class="centered">
 </div></div>
 {% endhighlight %}
-{% endcomment %}
-
-- Keep the indentation and add a comment to filter out the line-break and spaces.
-
-  <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"center-area"</span><span class="nt">&gt;</span><span class="c">&lt;!--</span>
-  <span class="c"> --&gt;</span><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"centered"</span><span class="nt">&gt;&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span></code></pre></div>
-
-{% comment %}
+  </li>
+  <li>
+  <p>Keep the indentation and add a comment to filter out the line-break and spaces.</p>
 {% highlight html %}
 <div class="center-area"><!--
  --><div class="centered"></div>
 </div>
 {% endhighlight %}
-{% endcomment %}
+  </li>
+</ul>
   
 Changing the indentation of the mark-up or adding comments at the right places can be frustrating to maintain. But once you know it, it is quickly fixed and making it the lesser evil in my opinion.
 
