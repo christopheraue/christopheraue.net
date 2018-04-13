@@ -53,28 +53,31 @@ body.collateral
     margin-bottom: 7em
     position: relative
     .marquee
-      position: relative
       margin-bottom: 30%
       overflow: hidden
       .scaling-svg
-        display: block
-        .aspect-ratio-indicator
-          width: 100% // svg is scaled with the width as reference
-      .light-box
-        position: absolute
-        top: 31.4%
-        left: 10.25%
-        right: 10.25%
-        height: 19.1%
-        text
-          font-family: "Open Sans Condensed"
-          font-weight: bold
-          font-size: 22px
-          fill: black
-          text-anchor: middle
-          text-transform: uppercase
-          &.large
-            font-size: 36px
+        width: 100% // delegate parent width down to aspect ratio indicator
+      .aspect-ratio-indicator
+        width: 100% // svg will be scaled relative to the full width of its container
+    .light-box-text
+      position: absolute
+      top: 31.4%
+      left: 10.25%
+      right: 10.25%
+      height: 19.1%
+      .scaling-svg
+        width: 100% // delegate parent width down to aspect ratio indicator
+      .aspect-ratio-indicator
+        width: 100% // svg will be scaled relative to the full width of its container
+      text
+        font-family: "Open Sans Condensed"
+        font-weight: bold
+        font-size: 22px
+        fill: black
+        text-anchor: middle
+        text-transform: uppercase
+        &.large
+          font-size: 36px
     .screen
       $screen-width: 66.6666%
 
@@ -149,10 +152,8 @@ body.collateral
       margin: 5em auto 0
   .button
     text-align: center
-    .scaling-svg
+    .aspect-ratio-indicator
       height: 3em
-      .aspect-ratio-indicator
-        height: 100% // svg is scaled with the height as reference
     a
       display: inline-block
       position: relative
@@ -173,11 +174,9 @@ body.collateral
     max-width: 30em
     .introduction
       margin-bottom: 1em
-      .scaling-svg
-        stroke: white
+      stroke: white
+      .aspect-ratio-indicator
         height: 12em
-        .aspect-ratio-indicator
-          height: 100% // svg is scaled with the height as reference
     .button a
       &.hover
         &:after
@@ -185,11 +184,9 @@ body.collateral
     .annotation
       text-align: right
       margin-top: .4em
-      .scaling-svg
-        stroke: white
+      stroke: white
+      .aspect-ratio-indicator
         height: 3em
-        .aspect-ratio-indicator
-          height: 100% // svg is scaled with the height as reference
   #patreon
     min-width: 15em
     max-width: 30em
@@ -200,18 +197,14 @@ body.collateral
     .help-me
       text-align: left
       margin-bottom: -.2em
-      .scaling-svg
+      .aspect-ratio-indicator
         height: 6em
-        .aspect-ratio-indicator
-          height: 100% // svg is scaled with the height as reference
     .annotation
       text-align: right
       margin-top: .4em
-      .scaling-svg
-        stroke: white
+      stroke: white
+      .aspect-ratio-indicator
         height: 11em
-        .aspect-ratio-indicator
-          height: 100% // svg is scaled with the height as reference
     @media screen and (min-width: 45em) //720px
       .help-me
         margin-bottom: -1em
@@ -219,10 +212,8 @@ body.collateral
       max-width: 34em
       .help-me
         margin-bottom: -1.5em
-        .scaling-svg
+        .aspect-ratio-indicator
           height: 8em
-          .aspect-ratio-indicator
-            height: 100% // svg is scaled with the height as reference
   #twitter
     min-width: 15em
     max-width: 21.5em
@@ -233,24 +224,18 @@ body.collateral
     .annotation
       margin-bottom: -2.3em
       text-align: left
-      .scaling-svg
-        stroke: white
+      stroke: white
+      .aspect-ratio-indicator
         height: 3.5em
-        .aspect-ratio-indicator
-          height: 100% // svg is scaled with the height as reference
     .gifs
       text-align: center
       margin-left: 6em
       margin-bottom: .2em
-      .scaling-svg
+      .aspect-ratio-indicator
         height: 2.5em
-        .aspect-ratio-indicator
-          height: 100% // svg is scaled with the height as reference
     .updates
       text-align: center
       margin-right: 3em
       margin-top: .2em
-      .scaling-svg
+      .aspect-ratio-indicator
         height: 4em
-        .aspect-ratio-indicator
-          height: 100% // svg is scaled with the height as reference

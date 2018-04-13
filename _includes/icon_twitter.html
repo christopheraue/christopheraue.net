@@ -1,4 +1,6 @@
-<span class="scaling-svg social-icon {{ include.color | default: 'white' }}">
-  {% aspect_ratio_indicator 255.3 208.05 %}
-  {% include svg/icon_twitter.svg %}
+<span class="social-icon {{ include.color | default: 'white' }}">
+  <span class="scaling-svg">
+    {% aspect_ratio_indicator 255.3 208.05 %}
+    {% include svg/icon_twitter.svg %}
+  </span>
 </span>
