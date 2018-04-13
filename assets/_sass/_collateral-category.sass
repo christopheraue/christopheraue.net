@@ -55,20 +55,16 @@ body.collateral
     .marquee
       margin-bottom: 30%
       overflow: hidden
-      .aspect-ratio-preservation-area
-        width: 100% // delegate parent width down to aspect ratio indicator
-      .size
-        width: 100% // svg will be scaled relative to the full width of its container
+      .aspect-ratio-preservation-area, .size
+        width: 100%
     .light-box-text
       position: absolute
       top: 31.4%
       left: 10.25%
       right: 10.25%
       height: 19.1%
-      .aspect-ratio-preservation-area
-        width: 100% // delegate parent width down to aspect ratio indicator
-      .size
-        width: 100% // svg will be scaled relative to the full width of its container
+      .aspect-ratio-preservation-area, .size
+        width: 100%
       text
         font-family: "Open Sans Condensed"
         font-weight: bold
@@ -152,7 +148,7 @@ body.collateral
       margin: 5em auto 0
   .button
     text-align: center
-    .size
+    .aspect-ratio-preservation-area, .size
       height: 3em
     a
       display: inline-block
@@ -175,7 +171,7 @@ body.collateral
     .introduction
       margin-bottom: 1em
       stroke: white
-      .size
+      .aspect-ratio-preservation-area, .size
         height: 12em
     .button a
       &.hover
@@ -185,7 +181,7 @@ body.collateral
       text-align: right
       margin-top: .4em
       stroke: white
-      .size
+      .aspect-ratio-preservation-area, .size
         height: 3em
   #patreon
     min-width: 15em
@@ -197,13 +193,13 @@ body.collateral
     .help-me
       text-align: left
       margin-bottom: -.2em
-      .size
+      .aspect-ratio-preservation-area, .size
         height: 6em
     .annotation
       text-align: right
       margin-top: .4em
       stroke: white
-      .size
+      .aspect-ratio-preservation-area, .size
         height: 11em
     @media screen and (min-width: 45em) //720px
       .help-me
@@ -212,7 +208,7 @@ body.collateral
       max-width: 34em
       .help-me
         margin-bottom: -1.5em
-        .size
+        .aspect-ratio-preservation-area, .size
           height: 8em
   #twitter
     min-width: 15em
@@ -225,17 +221,17 @@ body.collateral
       margin-bottom: -2.3em
       text-align: left
       stroke: white
-      .size
+      .aspect-ratio-preservation-area, .size
         height: 3.5em
     .gifs
       text-align: center
       margin-left: 6em
       margin-bottom: .2em
-      .size
+      .aspect-ratio-preservation-area, .size
         height: 2.5em
     .updates
       text-align: center
       margin-right: 3em
       margin-top: .2em
-      .size
+      .aspect-ratio-preservation-area, .size
         height: 4em
