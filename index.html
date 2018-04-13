@@ -7,24 +7,32 @@ category: home
 
 <h1>
   <div class="logo">
-    {% include logo_christopheraue.html %}
+    {% include_svg logo_christopheraue.svg %}
   </div>
 </h1>
 
 <a class="category design" href="/design" title="Go to /design">
-  <span class="desc-container"><!--
- --><span class="desc">
-      {% include slash_design.html %}
-      {% include slash_design_annotation.html %}
-    </span>
-  </span>
+  <div class="desc-container"><!--
+ --><div class="desc">
+      <div class="slash-text">
+        {% include_svg slash_design.svg %}
+      </div>
+      <div class="slash-text-annotation">
+        {% include_svg slash_design_annotation.svg %}
+      </div>
+    </div>
+  </div>
 </a>
 
 <a class="category collateral" href="/collateral" title="Go to /collateral">
-  <span class="desc-container"><!--
- --><span class="desc">
-      {% include slash_collateral.html %}
-      {% include slash_collateral_annotation.html %}
-    </span>
-  </span>
+  <div class="desc-container"><!--
+ --><div class="desc">
+      <div class="slash-text">
+        {% include_svg slash_collateral.svg %}
+      </div>
+      <div class="slash-text-annotation">
+        {% include_svg slash_collateral_annotation.svg %}
+      </div>
+    </div>
+  </div>
 </a>

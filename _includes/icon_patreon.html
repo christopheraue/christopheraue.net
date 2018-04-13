@@ -1,6 +1,3 @@
 <span class="social-icon {{ include.color | default: 'white' }}">
-  <span class="scaling-svg">
-    {% aspect_ratio_indicator 256 245.5 %}
-    {% include svg/icon_patreon.svg %}
-  </span>
+  {% include_svg svg/icon_patreon.svg container_tag="span" %}
 </span>
