@@ -1,0 +1,15 @@
+<div class="video js-minimal-controls{% if include.attributes contains 'autoplay' %} autoplay{% endif %}">
+  <video {{ include.attributes }}>
+    <source src="{{include.src}}.mp4"  type="video/mp4; codecs=avc1.640020">
+    <source src="{{include.src}}.webm" type="video/webm; codecs=vp8">
+  </video>
+  <div class="overlay">
+    <div class="background"></div>
+    <div class="action"><!--
+   --><div class="scaling-svg">
+        {% aspect_ratio_indicator 256 256 %}
+        {% include svg/icon_play.svg %}
+      </div><!--
+ --></div>
+  </div>
+</div>

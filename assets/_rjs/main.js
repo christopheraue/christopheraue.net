@@ -17,6 +17,7 @@ require([
     'main/instant-tap-click-area',
     'main/hover-element',
     'main/activatable-element',
+    'main/video',
     'main/theatre-video',
     'main/mouse-control',
 
@@ -32,7 +33,7 @@ require([
     'core-ext/Location',
     'core-ext/Object',
     'core-ext/TouchEvent'
-], function(InstantTapClickArea, HoverElement, ActivatableElement, TheatreVideo, mouseControl) {
+], function(InstantTapClickArea, HoverElement, ActivatableElement, Video, TheatreVideo, mouseControl) {
     if(typeof(Event) === 'function') {
         document.dispatchEvent(new Event('APIsAvailable'));
     } else {
@@ -74,6 +75,16 @@ require([
         });
 
         // touch over (finger hovering over the display) does not exist
+    });
+
+    document.ready(function() {
+        document.getElementsByClassName('video').forEach(function(el) {
+            var video = new Video(el);
+
+            if (el.classList.contains('js-minimal-controls')) {
+                video.addMinimalControls();
+            }
+        });
     });
 
     document.ready(function() {
