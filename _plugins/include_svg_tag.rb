@@ -1,5 +1,3 @@
-require 'base64'
-
 # Internet Explorer does not properly scale inline SVGs. But it does scale
 # SVGs embedded with an image tag. We can use that fact to implement consistent
 # SVG scaling across all browsers:
@@ -13,20 +11,19 @@ require 'base64'
 module Jekyll
   module Tags
     module IncludeSvgRenderer
+      include PreserveAspectRatioMarkup
+
       def render(context)
         output = super
 
         params = parse_params(context)
-        container_tag = params['container_tag'] || 'div'
-        viewbox = output[/viewBox="[^"]+"/]
-        ratio_svg = "<svg #{viewbox} xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\"></svg>"
+        tag = params['container_tag'] || 'div'
+        number = '\d+(?:\.\d+)?'
+        match = output.match /viewBox="#{number} #{number} (#{number}) (#{number})"/
+        width = match[1]
+        height = match[2]
 
-        <<~HTML
-          <#{container_tag} class="scaling-svg">
-            <img class="aspect-ratio-indicator" src="data:image/svg+xml;base64,#{Base64.strict_encode64(ratio_svg)}">
-            #{output}
-          </#{container_tag}>
-        HTML
+        preserve_aspect_ratio_markup tag, width, height, output
       end
     end
 

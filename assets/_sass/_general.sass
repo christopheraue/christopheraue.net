@@ -336,8 +336,8 @@ body
 
 
 /*
- *  Scaling SVGs
- *  ------------
+ *  Aspect Ratio Preservation Areas (e.g. SVG)
+ *  ------------------------------------------
  *
  *  Cross-Browser (incl. IE 9) solution
  *
@@ -350,14 +350,14 @@ body
  *  </div>
  *  ```
  */
-.scaling-svg
+.aspect-ratio-preservation-area
     display: inline-block
     vertical-align: middle
     position: relative
     pointer-events: none // Safari mobile does not trigger .click() on SVG elements otherwise
-    .aspect-ratio-indicator
+    .size
         display: block
-    svg
+    *:not(.size)
         position: absolute
         top: 0
         left: 0
@@ -372,7 +372,7 @@ body
     display: inline-block
     vertical-align: middle
     line-height: 0
-    .aspect-ratio-indicator
+    .size
         width: 1em
 
 /*
@@ -640,7 +640,7 @@ body
                 display: inline-block
                 vertical-align: middle
                 height: 100%
-            .aspect-ratio-indicator
+            .size
                 width: 2em
     &.autoplay
         .overlay

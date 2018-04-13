@@ -7,8 +7,7 @@ title: /collateral
     {% include_relative_svg _includes/marquee.svg %}
   </div>
   <div class="light-box-text">
-    <div class="scaling-svg">
-      {% aspect_ratio_indicator 620 110 %}
+    {% preserve_aspect_ratio 620/110 %}
       <svg viewBox="0 0 620 110">
         <g transform="translate(310,2.5)">
           <text y="20">presenting</text>
@@ -17,7 +16,7 @@ title: /collateral
           <text y="100"><tspan>UPCOMING:</tspan><tspan dx="30">Annihilation — An interpretation</tspan></text>
         </g>
       </svg>
-    </div>
+    {% endpreserve_aspect_ratio %}
   </div>
   <div class="screen js-theatre-video">
     <div class="darkness"><div class="light-switch"></div></div>
