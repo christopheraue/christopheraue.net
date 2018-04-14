@@ -62,14 +62,15 @@
     }
   }
 
-  body > header nav.transition ul {
+  body.design.collateral-transition.transition-out > header nav ul,
+  body.collateral.design-transition.transition-out > header nav ul {
     transition: transform 300ms ease-in-out;
     transform: translateY(-2.25em)
   }
 
   @media screen and (min-width: 50em) { /* 800px */
     /*
-     *  Avoid pixel jump on page transition for chrome and safari by
+     *  Avoid pixel jump on page transition for wide viewports by
      *  making sure the translation is a whole number in pixels:
      *  16px (base font-size)
      *  * 1.25 (body font-size scaling)
@@ -86,7 +87,8 @@
       height: 1.26667em;
     }
 
-    body > header nav.transition ul {
+    body.design.collateral-transition.transition-out > header nav ul,
+    body.collateral.design-transition.transition-out > header nav ul {
       transform: translateY(-2.26667em);
     }
   }
@@ -221,16 +223,12 @@
               topnav.getElementsByTagName('a').forEach(function(anchor) {
                   anchor.addEventListener('click', function() {
                       topnav.activatedState.disable();
-                      if (anchor.extractCategory() !== window.location.extractCategory()) {
-                          topnav.classList.add('transition');
-                      }
                   }, false);
               });
 
               window.addEventListener('pageshow', function(e) {
                   if (!e.persisted) { return }
                   topnav.activatedState.enable();
-                  topnav.classList.remove('transition');
               }, false);
           }
       }, false);
