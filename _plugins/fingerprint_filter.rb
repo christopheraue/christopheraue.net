@@ -9,7 +9,7 @@ Jekyll::Hooks.register :site, :pre_render do |site, payload|
 
   site.data[:preprocessed_assets].each do |asset|
     asset.output = Jekyll::Renderer.new(site, asset, payload).run
-    asset.basename += "-#{Digest::MD5.hexdigest asset.content}"
+    asset.basename += "-#{Digest::MD5.hexdigest asset.output}"
     asset.remove_instance_variable :@url # reset cached URL
   end
 end
