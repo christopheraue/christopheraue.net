@@ -1,2 +1,4 @@
 url: http://christopheraue.net
 destination: ./_site_production
+sass:
+  style: compressed
