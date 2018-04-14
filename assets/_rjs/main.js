@@ -21,9 +21,6 @@ require([
     'main/theatre-video',
     'main/mouse-control',
 
-    /* libraries */
-    'lib/classList',
-
     /* core extensions */
     'core-ext/body',
     'core-ext/document',

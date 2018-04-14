@@ -18,5 +18,6 @@
 {% endif %}
 <link rel="stylesheet" href="{{ "/assets/styles.css" | fingerprint }}" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,500|Source+Code+Pro:300,500,900|Open+Sans+Condensed:700" rel="stylesheet">
-{% include head/mouse_control.html %}
+<script>{% include head/classList.js %}</script>
+<script>{% include head/mouse_control.js %}</script>
 <script async data-main="{{ "/assets/main.js" | fingerprint }}" src="/assets/require.js"></script>

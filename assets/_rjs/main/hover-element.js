@@ -5,7 +5,6 @@
  */
 
 define([
-    'lib/classList',
     'core-ext/Element',
     'core-ext/HTMLCollection',
     'core-ext/TouchEvent'
