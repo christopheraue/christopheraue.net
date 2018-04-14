@@ -103,48 +103,88 @@
       // Disable page transitions for browsers not supporting CSS animations
       if (!window.AnimationEvent) { return; }
 
-      var transitionFrom = function(category, fadeHeader) {
-          // classList API might not be yet available
-          document.body.setAttribute('class', document.body.getAttribute('class') + ' ' +
-              category + '-transition transition-in' + (fadeHeader ? ' header-fade-transition' : ''));
+      document.body.hideScrollbar = function() {
+          var scrollbarWidth = window.innerWidth - this.clientWidth;
+          var paddingRight = parseFloat(window.getComputedStyle(this, null).getPropertyValue('padding-right'));
+          // add a padding to avoid jumps caused by a disappearing scrollbar
+          this.style['padding-right'] = (paddingRight + scrollbarWidth) + 'px';
+          this.style['overflow'] = 'hidden';
       };
 
-      var transitionTo = function(category, fadeHeader) {
-          removeTransition();
-          if (category === 'home') {
-              document.body.hideScrollbar();
+      document.body.showScrollbar = function() {
+          this.style['padding-right'] = '';
+          this.style['overflow'] = '';
+      };
+
+      var PageTransition = function(category, fadeHeader) {
+          this.category = category;
+          this.fadeHeader = fadeHeader;
+      };
+
+      PageTransition.deleteActive = function() {
+          var category = window.sessionStorage.getItem('pageTransitionCategory'),
+              fadeHeader = eval(window.sessionStorage.getItem('pageTransitionFadeHeader'));
+          window.sessionStorage.removeItem('pageTransitionCategory');
+          window.sessionStorage.removeItem('pageTransitionFadeHeader');
+          return (category ? new PageTransition(category, fadeHeader) : null);
+      };
+
+      PageTransition.prototype = {
+          setActive: function() {
+              window.sessionStorage.setItem('pageTransitionCategory', this.category);
+              window.sessionStorage.setItem('pageTransitionFadeHeader', this.fadeHeader.toString());
+
+              // The faded in page transition on unload might be persisted/cached
+              // and interferes when navigating the browser history. (e.g. in Safari)
+              var listener = function(e) {
+                  if (!e.persisted) { return }
+                  this.remove();
+                  window.removeEventListener('pageshow', listener, false);
+              }.bind(this);
+              window.addEventListener('pageshow', listener, false);
+
+              return this;
+          },
+          fadePageIn: function() {
+              document.body.classList.add(this.category + '-transition', 'transition-in');
+              if (this.fadeHeader) {
+                  document.body.classList.add('header-fade-transition');
+              }
+
+              var fader = document.getElementById('transition-fader');
+              var listener = function(){
+                  this.remove();
+                  fader.removeEventListener('animationend', listener, false);
+              }.bind(this);
+              fader.addEventListener('animationend', listener, false);
+
+              return this;
+          },
+          fadePageOut: function() {
+              if (this.category === 'home') {
+                  document.body.hideScrollbar();
+              }
+              document.body.classList.add(this.category + '-transition', 'transition-out');
+              if (this.fadeHeader) {
+                  document.body.classList.add('header-fade-transition');
+              }
+              return this;
+          },
+          remove: function() {
+              document.body.showScrollbar();
+              document.body.className.split(' ').forEach(function(cls){
+                  if (cls.indexOf('transition') === -1) { return }
+                  document.body.classList.remove(cls);
+              });
+              return this;
           }
-          document.body.classList.add(category + '-transition', 'transition-out');
-          if (fadeHeader) {
-              document.body.classList.add('header-fade-transition');
-          }
       };
-
-      var removeTransition = function() {
-          document.body.showScrollbar();
-          document.body.className.split(' ').forEach(function(cls){
-              if (cls.indexOf('transition') === -1) { return }
-              document.body.classList.remove(cls);
-          });
-      };
-
 
       // Transition when navigated from an internal page
-      var category = window.sessionStorage.getItem('pageTransitionCategory'),
-          fadeHeader = eval(window.sessionStorage.getItem('pageTransitionFadeHeader'));
-      window.sessionStorage.removeItem('pageTransitionCategory');
-      window.sessionStorage.removeItem('pageTransitionFadeHeader');
-      if (category) {
-          transitionFrom(category, fadeHeader);
+      var transition = PageTransition.deleteActive();
+      if (transition) {
+          transition.fadePageIn();
       }
-
-      // The faded in page transition on unload might be persisted/cached
-      // and interferes when navigating the browser history. (e.g. in Safari)
-      window.addEventListener('pageshow', function(e) {
-          if (!e.persisted) { return }
-          removeTransition();
-      }, false);
-
 
       // Transition when navigating to an internal page
       document.addEventListener('APIsAvailable', function() {
@@ -168,10 +208,9 @@
                       fadeHeader = true;
                   }
 
-                  transitionTo(targetCategory, fadeHeader);
-                  window.sessionStorage.setItem('pageTransitionCategory', targetCategory);
-                  window.sessionStorage.setItem('pageTransitionFadeHeader', fadeHeader.toString());
+                  new PageTransition(targetCategory, fadeHeader).setActive().fadePageOut();
               }, false);
+
               anchor.delayLocationChangeUntil(document.getElementById('transition-fader'), 'animationend');
           });
 
