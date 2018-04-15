@@ -4,7 +4,7 @@
     {% include head.html %}
   </head>
   <body class="{{ page.category }}">
-    {% include page_transition.html %}
+    {% component page_transition %}
     {% if page.category != 'home' %}
       <header>
         {% include header.html %}

@@ -8,11 +8,7 @@ require([
     'async/activatable-element',
     'async/video',
     'async/theatre-video',
-    'async/mouse-control',
-
-    /* core extensions */
-    'core-ext/HTMLAnchorElement',
-    'core-ext/Location'
+    'async/mouse-control'
 ], function(InstantTapClickArea, HoverElement, ActivatableElement, Video, TheatreVideo, mouseControl) {
     if(typeof(Event) === 'function') {
         document.dispatchEvent(new Event('APIsAvailable'));

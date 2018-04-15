@@ -1,0 +1,15 @@
+<svg id="transition-fader"></svg>
+
+<script>
+    // Javascript is inlined because the transition when navigated from an
+    // internal page must start immediately.
+    !function() {
+        // Don't transition in browsers not supporting CSS animations
+        if (!window.AnimationEvent) { return; }
+
+        var transition = PageTransition.deleteActive();
+        if (transition) {
+            transition.fadePageIn();
+        }
+    }();
+</script>
