@@ -6,9 +6,7 @@
   <body class="{{ page.category }}">
     {% component page_transition %}
     {% if page.category != 'home' %}
-      <header>
-        {% include header.html %}
-      </header>
+      {% component page_header %}
     {% endif %}
     <main role="main">
       {{ content }}
