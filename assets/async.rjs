@@ -6,10 +6,9 @@ require([
     'async/instant-tap-click-area',
     'async/hover-element',
     'async/activatable-element',
-    'async/video',
     'async/theatre-video',
     'async/mouse-control'
-], function(InstantTapClickArea, HoverElement, ActivatableElement, Video, TheatreVideo, mouseControl) {
+], function(InstantTapClickArea, HoverElement, ActivatableElement, TheatreVideo, mouseControl) {
     if(typeof(Event) === 'function') {
         document.dispatchEvent(new Event('APIsAvailable'));
     } else {
@@ -51,16 +50,6 @@ require([
         });
 
         // touch over (finger hovering over the display) does not exist
-    });
-
-    document.ready(function() {
-        document.getElementsByClassName('video').forEach(function(el) {
-            var video = new Video(el);
-
-            if (el.classList.contains('js-minimal-controls')) {
-                video.addMinimalControls();
-            }
-        });
     });
 
     document.ready(function() {

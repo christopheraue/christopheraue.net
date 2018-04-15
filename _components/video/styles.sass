@@ -1,0 +1,61 @@
+/*
+ *  Video
+ *  =====
+ */
+.video
+  position: relative
+  cursor: pointer
+  video
+    display: block
+    width: 100%
+  .overlay
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    transition-duration: 200ms
+    overflow: hidden
+    .background
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      background: black
+      opacity: 0.66
+    .action
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      text-align: center
+      transition-property: transform
+      transition-duration: 200ms
+      transition-timing-function: linear
+      pointer-events: none
+      fill: white
+      *
+        display: inline-block
+        vertical-align: middle
+      &:before
+        content: ''
+        display: inline-block
+        vertical-align: middle
+        height: 100%
+      .aspect-ratio-preservation-area, .size
+        width: 2em
+  &.autoplay
+    .overlay
+      opacity: 0
+  &.playing
+    .overlay
+      opacity: 0
+      transition-timing-function: ease-out
+      .action
+        transform: scale(3)
+  &.paused
+    .overlay
+      opacity: 1
+      transition-timing-function: ease-in
