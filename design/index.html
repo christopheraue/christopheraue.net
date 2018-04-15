@@ -3,8 +3,8 @@ title: /design
 has_feed: true
 ---
 
-<div class="remove-outer-gutters">
-  <section class="article-list columns-when-wide with-gutters">
+<section class="article-list remove-outer-gutters">
+  <div class="columns-when-wide with-gutters">
     <div class="third">
       <h2>Software</h2>
     </div><!--
@@ -20,23 +20,7 @@ has_feed: true
         </li>
       </ul>
     </nav>
-  </section>
+  </div>
+</section>
 
-  <section class="article-list columns-when-wide with-gutters">
-    <div class="third">
-      <h2>Web Interfaces</h2>
-    </div><!--
-  --><nav class="two-thirds ensure-readability">
-      <ul>
-        {% for article in site.posts %}
-        <li>
-          <a href="{{ article.url }}" title="Go to the article">
-            <h3>{{ article.title | xml_escape }}</h3>
-            <p>{{ article.summary | xml_escape }}</p>
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </section>
-</div>
+{% component article_list title="Web Interfaces" articles=site.posts %}

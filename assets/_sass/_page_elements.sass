@@ -3,77 +3,7 @@
 /*
  *  Page Elements
  *  =============
-
-
-/*
- *  Article Lists
- *  -------------
- *
- *  ```
- *  !responsive
- *
- *  <section class="article-list columns-when-wide with-gutters">
- *      <div class="third">
- *          <h2>Section 1</h2>
- *      </div><!--
- *   --><nav class="two-thirds ensure-readability">
- *          <ul>
- *              <li>
- *                  <h3>Article Headline</h3>
- *                  <p>This is a description of the article. It may become longer than a single line.</p>
- *              </li>
- *              <li>
- *                  <h3>Article Headline</h3>
- *                  <p>This is a description of the article.</p>
- *              </li>
- *          </ul>
- *      </nav>
- *  </section>
- *  <section class="article-list columns-when-wide with-gutters">
- *      <div class="third">
- *          <h2>Section 2</h2>
- *      </div><!--
- *   --><nav class="two-thirds ensure-readability">
- *          <ul>
- *              <li>
- *                  <h3>This Is a Very Long Article Headline: Maybe With a Subtitle</h3>
- *                  <p>This is a description of the article.</p>
- *              </li>
- *              <li>
- *                  <h3>Article Headline</h3>
- *                  <p>This is a description of the article.</p>
- *              </li>
- *          </ul>
- *      </nav>
- *  </section>
- *  ```
  */
-.article-list
-  + .article-list
-    margin-top: 2*$gutter-width
-  h2
-    font-size: 1.625em
-    font-style: italic
-    text-align: left
-    margin-bottom: .75em
-  h3
-    font-weight: bold
-  p
-    opacity: 0.7
-  li
-    font-size: 1em
-    line-height: 1.5
-    + li
-      margin-top: $gutter-width
-    &.hover
-      p
-        opacity: 1
-  @media screen and (min-width: 40em) //640px
-    h2
-      text-align: right
-      font-size: 1.3em
-    li
-      font-size: .8em
 
 /*
  *  Articles
