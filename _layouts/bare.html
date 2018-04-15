@@ -12,9 +12,7 @@
       {{ content }}
     </main>
     {% if page.category != 'home' %}
-      <footer>
-        {% include footer.html %}
-      </footer>
+      {% component page_footer %}
     {% endif %}
   </body>
 </html>

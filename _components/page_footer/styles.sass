@@ -1,0 +1,38 @@
+/*
+ *  Footer
+ *  ======
+ *
+ *  to be seen on [/design](/design)
+ */
+body > footer
+  max-width: 40em
+  margin: 0 auto
+  color: white
+  text-align: center
+  font-size: .6em
+  line-height: 1.5
+  &:before
+    content: ''
+    display: block
+    width: 50%
+    margin: 0 auto
+    border-top: 1px solid white
+    padding-top: 2em
+    opacity: .7
+  > *
+    margin: 0 auto
+    opacity: .7
+  > * + *
+    margin-top: 1em
+  ul
+    opacity: 1
+    li
+      display: inline-block
+      vertical-align: middle
+      a
+        font-size: 2em
+        opacity: .66
+        padding: .5em
+        line-height: 0
+        &.hover
+          opacity: 1
