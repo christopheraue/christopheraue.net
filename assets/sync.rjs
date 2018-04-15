@@ -1,0 +1,9 @@
+---
+layout: none
+---
+
+require([
+  'lib/require',
+  'lib/classList',
+  'sync/mouse-control'
+]);
