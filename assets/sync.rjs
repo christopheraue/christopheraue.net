@@ -3,7 +3,8 @@ layout: none
 ---
 
 require([
-  'lib/require',
-  'lib/classList',
-  'sync/mouse-control'
+    'lib/require',
+    'sync/config',
+    'lib/classList',
+    'sync/mouse-control'
 ]);

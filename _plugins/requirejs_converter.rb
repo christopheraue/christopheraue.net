@@ -16,10 +16,11 @@ module Jekyll
 
       def convert(content)
         err_out = `node assets/_rjs_optimizer/r.js -o \
+          baseUrl=assets/_rjs \
+          mainConfigFile="assets/_rjs/sync/config.js" \
           optimize=#{Jekyll.env == 'development' ? 'none' : 'uglify'} \
           rawText.__content__="#{content}" \
           name=__content__ \
-          baseUrl=assets/_rjs \
           out=#{TMP_OUTPUT} \
           logLevel=3`
 

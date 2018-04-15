@@ -7,7 +7,9 @@ exclude: [build.sh, deploy.sh, Gemfile, Gemfile.lock]
 plugins:
   - jekyll-redirect-from
 sass:
-  sass_dir: assets/_sass
+  load_paths:
+    - assets/_sass
+    - .
   cache_location: assets/_sass/.sass-cache
 
 # Jekyll's site.categories does not return categories without posts. Since
