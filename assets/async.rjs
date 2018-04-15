@@ -2,4 +2,108 @@
 layout: none
 ---
 
-require(['main']);
+require.config({
+    paths: {
+        'google-analytics': '//www.google-analytics.com/analytics',
+        'youtube-api': '//www.youtube.com/iframe_api?noext'
+    },
+    shim: {
+        'google-analytics': {
+            exports: 'ga'
+        },
+        'youtube-api': {
+            exports: 'YT'
+        }
+    }
+});
+
+require([
+    'async/instant-tap-click-area',
+    'async/hover-element',
+    'async/activatable-element',
+    'async/video',
+    'async/theatre-video',
+    'async/mouse-control',
+
+    /* core extensions */
+    'core-ext/HTMLAnchorElement',
+    'core-ext/Location'
+], function(InstantTapClickArea, HoverElement, ActivatableElement, Video, TheatreVideo, mouseControl) {
+    if(typeof(Event) === 'function') {
+        document.dispatchEvent(new Event('APIsAvailable'));
+    } else {
+        var apiEvent = document.createEvent('Event');
+        apiEvent.initEvent('APIsAvailable', true, true);
+        document.dispatchEvent(apiEvent);
+    }
+
+
+    document.ready(function() {
+        new InstantTapClickArea(document.body);
+    });
+
+    document.ready(function() {
+        document.getElementsByTagName('*').forEach(function(el) {
+            HoverElement.instanceFor(el).unifyMouseAndTouch();
+        });
+    });
+
+    document.ready(function() {
+        document.getElementsByClassName('js-activate-on-mousedownup').forEach(function (el) {
+            ActivatableElement.instanceFor(el).activateOnMouseDownUp();
+        });
+
+        document.getElementsByClassName('js-activate-on-touchdownup').forEach(function (el) {
+            ActivatableElement.instanceFor(el).activateOnTouchDownUp();
+        });
+
+        document.getElementsByClassName('js-activate-on-mousedown').forEach(function (el) {
+            ActivatableElement.instanceFor(el).activateOnMouseDown();
+        });
+
+        document.getElementsByClassName('js-activate-on-touchdown').forEach(function (el) {
+            ActivatableElement.instanceFor(el).activateOnTouchDown();
+        });
+
+        document.getElementsByClassName('js-activate-on-mouseover').forEach(function (el) {
+            ActivatableElement.instanceFor(el).activateOnMouseOver();
+        });
+
+        // touch over (finger hovering over the display) does not exist
+    });
+
+    document.ready(function() {
+        document.getElementsByClassName('video').forEach(function(el) {
+            var video = new Video(el);
+
+            if (el.classList.contains('js-minimal-controls')) {
+                video.addMinimalControls();
+            }
+        });
+    });
+
+    document.ready(function() {
+        document.getElementsByClassName('js-theatre-video').forEach(function(video) {
+            new TheatreVideo(video);
+        });
+    });
+
+    document.ready(function() {
+        mouseControl.triggerMouseEnterAfterPageLoad();
+    });
+
+    document.ready(function() {
+        if (document.getElementById('disqus_thread')) {
+            disqus_shortname = 'christopheraue';
+            disqus_identifier = location.pathname;
+            disqus_url = 'http://christopheraue.net' + location.pathname;
+            require(['//' + disqus_shortname + '.disqus.com/embed.js']);
+            require(['//' + disqus_shortname + '.disqus.com/count.js']);
+        }
+    });
+
+    require(['google-analytics'], function(ga){
+        ga('create', 'UA-48107803-1', 'christopheraue.net');
+        ga('send', 'pageview');
+    });
+});

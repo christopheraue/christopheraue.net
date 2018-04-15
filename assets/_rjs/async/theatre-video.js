@@ -1,6 +1,7 @@
 define([
-    'core-ext/Element',
     'core-ext/body',
+    'core-ext/document',
+    'core-ext/Element',
     'core-ext/HTMLCollection'
 ], function(){
     var TheatreVideo = function(screen) {

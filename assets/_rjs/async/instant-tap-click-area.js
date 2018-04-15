@@ -2,7 +2,9 @@
  * Trigger click instantly when tapping on an element.
  */
 
-define(function() {
+define([
+    'core-ext/document'
+], function() {
     var InstantTapClickArea = function(el) {
         var areaTouched = false;
 

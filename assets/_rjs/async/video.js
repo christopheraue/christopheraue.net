@@ -1,4 +1,6 @@
-define(function(){
+define([
+    'core-ext/document'
+], function(){
     var Video = function(wrapper) {
         this.wrapper = wrapper;
         this.el = wrapper.getElementsByTagName('video')[0];

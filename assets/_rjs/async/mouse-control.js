@@ -1,4 +1,6 @@
-define(function() {
+define([
+    'core-ext/document'
+], function() {
     var triggerMouseEnterAt = function(x, y) {
         var el = document.elementFromPoint(x, y);
         while (el) {

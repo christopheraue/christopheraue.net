@@ -1,10 +1,9 @@
 /*
  * Unify handling of mouse hover and touch events.
- *
- * ATTENTION: Has some inlined code in the <head> it depends on!
  */
 
 define([
+    'core-ext/document',
     'core-ext/Element',
     'core-ext/HTMLCollection',
     'core-ext/TouchEvent'
