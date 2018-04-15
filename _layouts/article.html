@@ -2,37 +2,4 @@
 layout: bare
 ---
 
-<article class="article ensure-readability">
-  <header>
-    <h1>{{ page.title | xml_escape }}</h1>
-    <div class="meta">
-      <div class="social">
-        <a href="{{ site.url | append: page.url }}#disqus_thread" title="Go to the comment section" class="comments">0 Comments</a>
-        —
-        <ul class="sharing">
-          <li>
-            <a href="https://twitter.com/intent/tweet?url={{ site.url | append: page.url | cgi_escape }}&amp;via=christopheraue&amp;text={{ page.title | cgi_escape }}"
-               title="Share on Twitter"
-               onclick="ga('send', 'event', 'Twitter', 'Share Attempt', '{{ site.url | append: page.url }}')">
-              {% include icon_twitter.html color="white" %}
-            </a>
-          </li><!--
-       --><li>
-            <a href="https://www.facebook.com/sharer/sharer.php?m2w&amp;s=100&amp;{{ 'p[url]' | cgi_escape }}={{ site.url | append: page.url | cgi_escape }}&amp;{{ 'p[title]' | cgi_escape }}={{ page.title | cgi_escape }}&amp;{{ 'p[summary]' | cgi_escape }}={{ page.summary | cgi_escape }}&amp;{{ 'p[images][0]' | cgi_escape }}={{ site.url | append: '/assets/images/background/' | append: page.image | cgi_escape }}"
-               target="_blank"
-               title="Share on Facebook"
-               onclick="ga('send', 'event', 'Facebook', 'Share Attempt', '{{ site.url | append: page.url }}')">
-              {% include icon_facebook.html color="white" %}
-            </a>
-          </li>
-        </ul>
-      </div><!--
-   --><time datetime="{{ page.date | replace: ' +', '+' }}" class="date">{{ page.date | date: "%B %d, %Y" }}</time>
-    </div>
-  </header>
-  <section class="text white-box">{{ content }}</section>
-  <div id="disqus_thread" class="white-box"></div>
-  <div id="disqus_link">
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-  </div>
-</article>
+{% component article article=page %}
