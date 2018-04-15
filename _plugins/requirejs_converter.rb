@@ -1,6 +1,8 @@
 module Jekyll
   module Converters
     class RequireJs < Converter
+      TMP_OUTPUT = '_rjs_optimizer.tmp.js'.freeze
+
       safe true
       priority :low
 
@@ -13,13 +15,21 @@ module Jekyll
       end
 
       def convert(content)
-        `node assets/_rjs_optimizer/r.js -o \
+        err_out = `node assets/_rjs_optimizer/r.js -o \
           optimize=#{Jekyll.env == 'development' ? 'none' : 'uglify'} \
           rawText.__content__="#{content}" \
           name=__content__ \
           baseUrl=assets/_rjs \
-          out=stdout \
-          logLevel=4`
+          out=#{TMP_OUTPUT} \
+          logLevel=3`
+
+        if err_out.empty?
+          output = File.read TMP_OUTPUT
+          File.unlink TMP_OUTPUT
+          output
+        else
+          raise err_out
+        end
       end
     end
   end
