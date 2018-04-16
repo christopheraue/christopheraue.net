@@ -3,7 +3,8 @@ layout: none
 ---
 
 require([
-    'async/theatre-video'
+    'async/theatre-video',
+    'core-ext/document'
 ], function(TheatreVideo) {
     if(typeof(Event) === 'function') {
         document.dispatchEvent(new Event('APIsAvailable'));

@@ -2,9 +2,7 @@
  * On-page debug output.
  */
 
-define([
-    'core-ext/document'
-], function () {
+define(function () {
     var body = document.getElementsByTagName('body')[0];
 
     var wrapper = document.createElement('div');

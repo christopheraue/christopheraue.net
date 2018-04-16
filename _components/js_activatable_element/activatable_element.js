@@ -4,7 +4,6 @@
  */
 
 define([
-    'core-ext/document',
     'core-ext/HTMLCollection'
 ], function(){
     var ActivatableElement = function(el) {

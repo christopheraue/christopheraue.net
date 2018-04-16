@@ -3,7 +3,6 @@
  */
 
 define([
-    'core-ext/document',
     'core-ext/Element',
     'core-ext/HTMLCollection',
     'core-ext/TouchEvent'
