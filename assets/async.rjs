@@ -3,9 +3,8 @@ layout: none
 ---
 
 require([
-    'async/theatre-video',
     'core-ext/document'
-], function(TheatreVideo) {
+], function() {
     if(typeof(Event) === 'function') {
         document.dispatchEvent(new Event('APIsAvailable'));
     } else {
@@ -13,13 +12,6 @@ require([
         apiEvent.initEvent('APIsAvailable', true, true);
         document.dispatchEvent(apiEvent);
     }
-
-
-    document.ready(function() {
-        document.getElementsByClassName('js-theatre-video').forEach(function(video) {
-            new TheatreVideo(video);
-        });
-    });
 
     document.ready(function() {
         if (document.getElementById('disqus_thread')) {
