@@ -5,14 +5,6 @@ layout: none
 require([
     'core-ext/document'
 ], function() {
-    if(typeof(Event) === 'function') {
-        document.dispatchEvent(new Event('APIsAvailable'));
-    } else {
-        var apiEvent = document.createEvent('Event');
-        apiEvent.initEvent('APIsAvailable', true, true);
-        document.dispatchEvent(apiEvent);
-    }
-
     document.ready(function() {
         if (document.getElementById('disqus_thread')) {
             disqus_shortname = 'christopheraue';
