@@ -3,12 +3,9 @@ layout: none
 ---
 
 require([
-    'async/instant-tap-click-area',
-    'async/hover-element',
     'async/activatable-element',
-    'async/theatre-video',
-    'async/mouse-control'
-], function(InstantTapClickArea, HoverElement, ActivatableElement, TheatreVideo, mouseControl) {
+    'async/theatre-video'
+], function(ActivatableElement, TheatreVideo) {
     if(typeof(Event) === 'function') {
         document.dispatchEvent(new Event('APIsAvailable'));
     } else {
@@ -17,16 +14,6 @@ require([
         document.dispatchEvent(apiEvent);
     }
 
-
-    document.ready(function() {
-        new InstantTapClickArea(document.body);
-    });
-
-    document.ready(function() {
-        document.getElementsByTagName('*').forEach(function(el) {
-            HoverElement.instanceFor(el).unifyMouseAndTouch();
-        });
-    });
 
     document.ready(function() {
         document.getElementsByClassName('js-activate-on-mousedownup').forEach(function (el) {
@@ -56,10 +43,6 @@ require([
         document.getElementsByClassName('js-theatre-video').forEach(function(video) {
             new TheatreVideo(video);
         });
-    });
-
-    document.ready(function() {
-        mouseControl.triggerMouseEnterAfterPageLoad();
     });
 
     document.ready(function() {

@@ -5,6 +5,5 @@ layout: none
 require([
     'lib/require',
     'sync/config',
-    'lib/classList',
-    'sync/mouse-control'
+    'lib/classList'
 ]);
