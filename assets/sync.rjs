@@ -5,5 +5,6 @@ layout: none
 require([
     'lib/require',
     'sync/config',
-    'lib/classList'
+    'lib/classList',
+    'sync/EventConstructor'
 ]);

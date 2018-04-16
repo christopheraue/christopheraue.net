@@ -8,18 +8,9 @@ define([
     'core-ext/document'
 ], function() {
     var triggerMouseEnterAt = function (x, y) {
-        var el = document.elementFromPoint(x, y);
-        while (el) {
-            var event;
-            if (typeof(Event) === 'function') {
-                event = new Event('mouseenter');
-            } else {
-                event = document.createEvent('Event');
-                event.initEvent('mouseenter', true, true);
-            }
-            el.dispatchEvent(event);
-            el = el.parentElement;
-        }
+        var el = document.elementFromPoint(x, y),
+            ev = new Event('mouseenter', {bubbles: true});
+        el.dispatchEvent(ev);
     };
 
     document.ready(function() {
