@@ -3,9 +3,8 @@ layout: none
 ---
 
 require([
-    'async/activatable-element',
     'async/theatre-video'
-], function(ActivatableElement, TheatreVideo) {
+], function(TheatreVideo) {
     if(typeof(Event) === 'function') {
         document.dispatchEvent(new Event('APIsAvailable'));
     } else {
@@ -14,30 +13,6 @@ require([
         document.dispatchEvent(apiEvent);
     }
 
-
-    document.ready(function() {
-        document.getElementsByClassName('js-activate-on-mousedownup').forEach(function (el) {
-            ActivatableElement.instanceFor(el).activateOnMouseDownUp();
-        });
-
-        document.getElementsByClassName('js-activate-on-touchdownup').forEach(function (el) {
-            ActivatableElement.instanceFor(el).activateOnTouchDownUp();
-        });
-
-        document.getElementsByClassName('js-activate-on-mousedown').forEach(function (el) {
-            ActivatableElement.instanceFor(el).activateOnMouseDown();
-        });
-
-        document.getElementsByClassName('js-activate-on-touchdown').forEach(function (el) {
-            ActivatableElement.instanceFor(el).activateOnTouchDown();
-        });
-
-        document.getElementsByClassName('js-activate-on-mouseover').forEach(function (el) {
-            ActivatableElement.instanceFor(el).activateOnMouseOver();
-        });
-
-        // touch over (finger hovering over the display) does not exist
-    });
 
     document.ready(function() {
         document.getElementsByClassName('js-theatre-video').forEach(function(video) {
