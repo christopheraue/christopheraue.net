@@ -1,5 +1,5 @@
 define(function(){
-    var EventTarget = Object.inherit({
+    return Object.inherit({
         constructor: function() {
             this.eventListeners = {};
         },
@@ -24,16 +24,15 @@ define(function(){
                 delete this.eventListeners[name];
             }
         },
-        dispatchEvent: function(name) {
+        dispatchEvent: function(name, data) {
             if (!(name in this.eventListeners)) {
                 return;
             }
             var event = new Event(name);
+            event.data = data;
             this.eventListeners[name].forEach(function(listener){
                 listener(event)
             });
         }
     });
-
-    return EventTarget;
 });

@@ -10,9 +10,17 @@ define([
             this.screen = screen;
             this.video = new YouTubeVideo(screen.getElementsByTagName('iframe')[0]);
 
-            this.video.addEventListener('buffering', function(){ this.focus() }.bind(this));
-            this.video.addEventListener('playing', function(){ this.focus() }.bind(this));
-            this.video.addEventListener('ended', function(){ this.unfocus() }.bind(this));
+            this.video.addEventListener('stateChange', function(e){
+                switch (e.data.to) {
+                    case 'buffering':
+                    case 'playing':
+                        this.focus();
+                        break;
+                    case 'ended':
+                        this.unfocus();
+                        break;
+                }
+            }.bind(this));
 
             this.screen.addEventListener('click', function(){ this.unfocus() }.bind(this));
         },

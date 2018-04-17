@@ -1,10 +1,10 @@
 define([
-    './js/video',
+    './js/html_video',
     'core-ext/document'
-], function(Video) {
+], function(HTMLVideo) {
     document.ready(function () {
         document.getElementsByClassName('video').forEach(function (el) {
-            var video = new Video(el);
+            var video = new HTMLVideo(el);
 
             if (el.classList.contains('minimal-controls')) {
                 video.addMinimalControls();
