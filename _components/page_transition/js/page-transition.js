@@ -1,20 +1,11 @@
 define([
     'core-ext/body'
 ], function() {
-    var PageTransition = function (category, fadeHeader) {
-        this.category = category;
-        this.fadeHeader = fadeHeader;
-    };
-
-    PageTransition.deleteActive = function () {
-        var category = window.sessionStorage.getItem('pageTransitionCategory'),
-            fadeHeader = eval(window.sessionStorage.getItem('pageTransitionFadeHeader'));
-        window.sessionStorage.removeItem('pageTransitionCategory');
-        window.sessionStorage.removeItem('pageTransitionFadeHeader');
-        return (category ? new PageTransition(category, fadeHeader) : null);
-    };
-
-    PageTransition.prototype = {
+    var PageTransition = Object.inherit({
+        constructor: function (category, fadeHeader) {
+            this.category = category;
+            this.fadeHeader = fadeHeader;
+        },
         setActive: function () {
             window.sessionStorage.setItem('pageTransitionCategory', this.category);
             window.sessionStorage.setItem('pageTransitionFadeHeader', this.fadeHeader.toString());
@@ -67,6 +58,14 @@ define([
             });
             return this;
         }
+    });
+
+    PageTransition.deleteActive = function () {
+        var category = window.sessionStorage.getItem('pageTransitionCategory'),
+            fadeHeader = eval(window.sessionStorage.getItem('pageTransitionFadeHeader'));
+        window.sessionStorage.removeItem('pageTransitionCategory');
+        window.sessionStorage.removeItem('pageTransitionFadeHeader');
+        return (category ? new PageTransition(category, fadeHeader) : null);
     };
 
     return PageTransition;

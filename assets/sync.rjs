@@ -6,5 +6,6 @@ require([
     'lib/require',
     'sync/config',
     'lib/classList',
-    'sync/EventConstructor'
+    'sync/EventConstructor',
+    'core-ext/Function'
 ]);

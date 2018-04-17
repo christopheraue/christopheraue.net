@@ -1,10 +1,9 @@
 define(function(){
-    var Video = function(wrapper) {
-        this.wrapper = wrapper;
-        this.el = wrapper.getElementsByTagName('video')[0];
-    };
-
-    Video.prototype = {
+    var Video = Object.inherit({
+        constructor: function(wrapper) {
+            this.wrapper = wrapper;
+            this.el = wrapper.getElementsByTagName('video')[0];
+        },
         addMinimalControls: function() {
             this.wrapper.addEventListener('click', function(){
                 if (this.el.paused) {
@@ -30,7 +29,7 @@ define(function(){
                 this.wrapper.classList.add('paused');
             }.bind(this));
         }
-    };
+    });
 
     return Video;
 });

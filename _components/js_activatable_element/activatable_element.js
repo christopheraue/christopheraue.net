@@ -6,16 +6,11 @@
 define([
     'core-ext/HTMLCollection'
 ], function(){
-    var ActivatableElement = function(el) {
-        this.el = el;
-        el.activatedState = this;
-    };
-
-    ActivatableElement.instanceFor = function(el) {
-        return el.activatedState || new ActivatableElement(el);
-    };
-    
-    ActivatableElement.prototype = {
+    var ActivatableElement = Object.inherit({
+        constructor: function(el) {
+            this.el = el;
+            el.activatedState = this;
+        },
         enable: function () {
             this.el.classList.remove('js-activate-deactivated');
         },
@@ -88,6 +83,10 @@ define([
             this.el.addEventListener('mouseenter', function(){ this.activate() }.bind(this), false);
             this.el.addEventListener('mouseleave', function(){ this.deactivate() }.bind(this), false);
         }
+    });
+
+    ActivatableElement.instanceFor = function(el) {
+        return el.activatedState || new ActivatableElement(el);
     };
 
     // The activated state might be persisted/cached when navigating the browser

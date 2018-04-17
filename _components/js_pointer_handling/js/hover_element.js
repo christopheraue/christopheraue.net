@@ -7,16 +7,11 @@ define([
     'core-ext/HTMLCollection',
     'core-ext/TouchEvent'
 ], function() {
-    var HoverElement = function(el) {
-        this.el = el;
-        el.hoverState = this;
-    };
-
-    HoverElement.instanceFor = function(el) {
-        return el.hoverState || new HoverElement(el);
-    };
-    
-    HoverElement.prototype = {
+    var HoverElement = Object.inherit({
+        constructor: function(el) {
+            this.el = el;
+            el.hoverState = this;
+        },
         unifyMouseAndTouch: function() {
             if (this.isUnified) { return }
 
@@ -52,6 +47,10 @@ define([
                 this.el.rmvClassFromDescendants('hover');
             }.bind(this), false);
         }
+    });
+
+    HoverElement.instanceFor = function(el) {
+        return el.hoverState || new HoverElement(el);
     };
 
     // The hover state might be persisted/cached when navigating the browser
