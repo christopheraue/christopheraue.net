@@ -30,7 +30,7 @@ define(function(){
             }
             var event = new Event(name);
             this.eventListeners[name].forEach(function(listener){
-                listener.call(event)
+                listener(event)
             });
         }
     });
