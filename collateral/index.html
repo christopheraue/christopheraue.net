@@ -21,8 +21,10 @@ title: /collateral
   <div class="screen js-theatre-video">
     <div class="darkness"><div class="light-switch"></div></div>
     <desc id="yt-video-desc">The presented video embedded</desc>
-    <iframe src="https://www.youtube.com/embed/lun1Rd5hnIE?enablejsapi=1&origin={{ site.url }}&showinfo=0&rel=0&playsinline=1"
-            allowfullscreen="allowfullscreen" aria-labelledby="yt-video-desc"></iframe>
+    {% preserve_aspect_ratio 16/9 %}
+      <iframe src="https://www.youtube.com/embed/lun1Rd5hnIE?enablejsapi=1&origin={{ site.url }}&showinfo=0&rel=0&playsinline=1"
+              allowfullscreen="allowfullscreen" aria-labelledby="yt-video-desc"></iframe>
+    {% endpreserve_aspect_ratio %}
   </div>
 </section>
 <div class="sections">

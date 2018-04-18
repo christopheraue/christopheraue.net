@@ -60,6 +60,8 @@ a
     outline: 0
     color: inherit
     text-decoration: none
+    svg
+        pointer-events: none // Safari mobile does not trigger .click() on SVG elements otherwise
 
 *:focus
     outline: 0
@@ -354,15 +356,14 @@ body
     display: inline-block
     vertical-align: middle
     position: relative
-    pointer-events: none // Safari mobile does not trigger .click() on SVG elements otherwise
-    .size
+    > .size
         display: block
-    *:not(.size)
+    > *:not(.size)
         position: absolute
         top: 0
         left: 0
-        right: 0
-        bottom: 0
+        width: 100%
+        height: 100%
 
 /*
  *  Optimal Readability

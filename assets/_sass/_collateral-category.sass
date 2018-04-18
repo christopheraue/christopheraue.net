@@ -77,25 +77,23 @@ body.collateral
     .screen
       $screen-width: 66.6666%
 
-      width: $screen-width
       position: absolute
+      width: $screen-width
       top: 95%
       left: 50%
       margin-left: -$screen-width/2
       margin-top: -.5625 * $screen-width/2
       z-index: 9999
+      .aspect-ratio-preservation-area, .size
+        width: 100%
       desc
         display: none
       iframe
-        position: absolute
         border-radius: .3em
         box-shadow: 0 0 4em black
         border: .4em solid black
         background: black
-        top: -.4em // compensate for border
-        left: -.4em
-        width: 100%
-        height: 100%
+        box-sizing: border-box
         transition: transform 1s ease-in-out // transform set with javascript
       .darkness
         position: fixed
@@ -117,10 +115,6 @@ body.collateral
           transition: opacity 1s ease-in-out, color 1s ease-in-out 1s
           &:before
             content: 'Turn lights back on'
-      &:after
-        content: ''
-        display: block
-        padding-bottom: 56.25% // ensure 16/9 format of screen
       &.playing
         .darkness
           display: block
