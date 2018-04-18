@@ -58,9 +58,7 @@ module Jekyll
       def render(context)
         @component = ComponentTag.parse(@tag_name, "#{@markup} content=\"\"", :no_tokens, @parse_context)
         @component.additional_params = {'content' => super}
-        out = @component.render(context)
-        puts out
-        out
+        @component.render(context)
       end
     end
 

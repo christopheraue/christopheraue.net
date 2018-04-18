@@ -74,7 +74,7 @@ body.collateral
         text-transform: uppercase
         &.large
           font-size: 36px
-    .screen
+    .theatre-screen
       $screen-width: 66.6666%
 
       position: absolute
@@ -88,42 +88,7 @@ body.collateral
         width: 100%
       desc
         display: none
-      iframe
-        border-radius: .3em
-        box-shadow: 0 0 4em black
-        border: .4em solid black
-        background: black
-        box-sizing: border-box
-        transition: transform 1s ease-in-out // transform set with javascript
-      .darkness
-        position: fixed
-        top: 0
-        left: 0
-        right: 0
-        bottom: 0
-        background: black
-        opacity: 0
-        transition: opacity 1s ease-in-out
-        display: none
-        .light-switch
-          position: absolute
-          bottom: 1em
-          width: 100%
-          text-align: center
-          color: black
-          opacity: .3
-          transition: opacity 1s ease-in-out, color 1s ease-in-out 1s
-          &:before
-            content: 'Turn lights back on'
-      &.playing
-        .darkness
-          display: block
-          opacity: 0.90
-          .light-switch
-            color: white
-            cursor: pointer
-            &.hover
-              opacity: 1
+      &.focused
         // The video should be scaled up to the full content width -- except for wide viewports
         // (e.g. smartphones in landscape orientation). For them, there will not be enough room
         // to display the light switch and leave the theatre mode.
@@ -134,7 +99,7 @@ body.collateral
         $q2w: '(min-width: #{font_scale_at($max_content_width)*$max_content_width})'
         $q2h: '(min-height: #{font_scale_at($max_content_width)*$max_content_width/$theatre-max-aspect-ratio})'
         @media screen and #{$q1}, screen and #{$q2w} and #{$q2h}
-          iframe
+          .content
             transform: scale(100%/$screen-width)
   .sections
     text-align: center

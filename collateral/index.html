@@ -18,14 +18,13 @@ title: /collateral
       </svg>
     {% endpreserve_aspect_ratio %}
   </div>
-  <div class="screen js-theatre-video">
-    <div class="darkness"><div class="light-switch"></div></div>
+  {% container theatre_screen %}
     <desc id="yt-video-desc">The presented video embedded</desc>
     {% preserve_aspect_ratio 16/9 %}
       <iframe src="https://www.youtube.com/embed/lun1Rd5hnIE?enablejsapi=1&origin={{ site.url }}&showinfo=0&rel=0&playsinline=1"
               allowfullscreen="allowfullscreen" aria-labelledby="yt-video-desc"></iframe>
     {% endpreserve_aspect_ratio %}
-  </div>
+  {% endcontainer %}
 </section>
 <div class="sections">
   <section id="youtube">
