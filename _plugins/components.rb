@@ -36,7 +36,9 @@ module Jekyll
       end
     end
 
-    class Tag < Jekyll::Tags::IncludeTag
+    class ComponentTag < Jekyll::Tags::IncludeTag
+      attr_accessor :additional_params
+
       def tag_includes_dirs(context)
         [DIRNAME].freeze
       end
@@ -44,8 +46,25 @@ module Jekyll
       def locate_include_file(context, file, safe)
         super context, File.join(file, MARKUP_FILENAME), safe
       end
+
+      def parse_params(context)
+        params = super
+        params.merge! @additional_params if @additional_params
+        params
+      end
     end
 
-    Liquid::Template.register_tag("component", Tag)
+    class ContainerTag < Liquid::Block
+      def render(context)
+        @component = ComponentTag.parse(@tag_name, "#{@markup} content=\"\"", :no_tokens, @parse_context)
+        @component.additional_params = {'content' => super}
+        out = @component.render(context)
+        puts out
+        out
+      end
+    end
+
+    Liquid::Template.register_tag('component', ComponentTag)
+    Liquid::Template.register_tag('container', ContainerTag)
   end
 end
