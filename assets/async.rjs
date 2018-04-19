@@ -1,3 +1,8 @@
 ---
 layout: none
 ---
+
+{% comment %}
+Will be dynamically filled with requires of the *async* modules of all
+components when the page is built.
+{% endcomment %}
