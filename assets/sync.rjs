@@ -1,11 +1,3 @@
 ---
 layout: none
 ---
-
-require([
-    'lib/require',
-    'sync/config',
-    'lib/classList',
-    'sync/EventConstructor',
-    'core-ext/Function'
-]);
