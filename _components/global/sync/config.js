@@ -1,7 +1,6 @@
 require.config({
     paths: {
         'core-ext': '_components/global/core-ext',
-        'async': 'assets/_rjs/async',
         'google-analytics': '//www.google-analytics.com/analytics',
         'youtube-api': '//www.youtube.com/iframe_api?noext'
     },
