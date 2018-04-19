@@ -1,4 +1,4 @@
-@import "variables"
+﻿@import "variables"
 
 /*
  *  General
@@ -21,34 +21,34 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video
-    margin: 0
-    padding: 0
-    border: 0
-    font-size: 100%
-    font: inherit
-    vertical-align: baseline
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  font: inherit
+  vertical-align: baseline
 
 main, article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section
-    display: block
+  display: block
 
 body
-    line-height: 1
+  line-height: 1
 
 ol, ul
-    list-style: none
+  list-style: none
 
 blockquote, q
-    quotes: none
+  quotes: none
 
 blockquote:before, blockquote:after,
 q:before, q:after
-    content: ''
-    content: none
+  content: ''
+  content: none
 
 table
-    border-collapse: collapse
-    border-spacing: 0
+  border-collapse: collapse
+  border-spacing: 0
 
 /*
  *  Links
@@ -57,14 +57,14 @@ table
  *  Remove the outline of active or focused links.
  */
 a
-    outline: 0
-    color: inherit
-    text-decoration: none
-    svg
-        pointer-events: none // Safari mobile does not trigger .click() on SVG elements otherwise
+  outline: 0
+  color: inherit
+  text-decoration: none
+  svg
+    pointer-events: none // Safari mobile does not trigger .click() on SVG elements otherwise
 
 *:focus
-    outline: 0
+  outline: 0
 
 /*
  *  Colors & Text
@@ -91,18 +91,19 @@ a
  *  </div>
  *  ```
  */
-$google-fonts: str-join($google-fonts, "|", "Work+Sans:300,500")
+
+/* Work Sans 300 and 500 are statically included in the <head> */
 
 body
-    background: black
-    color: white
-    font-family: 'Work Sans', sans-serif
-    font-weight: 300
+  background: black
+  color: white
+  font-family: 'Work Sans', sans-serif
+  font-weight: 300
 
 .white-box
-    padding: 1.25em
-    background: white
-    color: black
+  padding: 1.25em
+  background: white
+  color: black
 
 /*
  *  Page Layout
@@ -122,17 +123,17 @@ body
  *  ```
  */
 body
-    @each $page_width, $font_scale in $font_scales
-        @media screen and (min-width: $page_width)
-            font-size: #{$font_scale}em
+  @each $page_width, $font_scale in $font_scales
+    @media screen and (min-width: $page_width)
+      font-size: #{$font_scale}em
 
-    padding: 1.5*$gutter-width $gutter-width
+  padding: 1.5*$gutter-width $gutter-width
 
-    > header
-        margin-bottom: 4*$gutter-width
+  > header
+    margin-bottom: 4*$gutter-width
 
-    > main
-        margin-bottom: 4*$gutter-width
+  > main
+    margin-bottom: 4*$gutter-width
 
 /*
  *  Columns
@@ -207,53 +208,53 @@ body
  *  ```
  */
 @mixin column-widths
-    > .three-quarters
-        width: 75%
-    > .two-thirds
-        width: 66.6666%
-    > .half
-        width: 50%
-    > .third
-        width: 33.3333%
-    > .quarter
-        width: 25%
-    > .sixth
-        width: 16.6666%
-    > .eighth
-        width: 12.5%
-    > .twelfth
-        width: 8.3333%
-    > .sixteenth
-        width: 6.25%
+  > .three-quarters
+    width: 75%
+  > .two-thirds
+    width: 66.6666%
+  > .half
+    width: 50%
+  > .third
+    width: 33.3333%
+  > .quarter
+    width: 25%
+  > .sixth
+    width: 16.6666%
+  > .eighth
+    width: 12.5%
+  > .twelfth
+    width: 8.3333%
+  > .sixteenth
+    width: 6.25%
 
 @mixin columns
+  > *
+    display: block
+    margin: 0
+    box-sizing: border-box
+  &.with-gutters
+    padding: 0 $gutter-width/2
     > *
-        display: block
-        margin: 0
-        box-sizing: border-box
-    &.with-gutters
-        padding: 0 $gutter-width/2
-        > *
-            padding: 0 $gutter-width/2
+      padding: 0 $gutter-width/2
 .columns
-    @include columns
-    > *
-        display: inline-block
-        vertical-align: top
-    @include column-widths
+  @include columns
+  > *
+    display: inline-block
+    vertical-align: top
+  @include column-widths
 
 .columns-when-wide
-    @include columns
-    @media screen and (min-width: 40em) //640px
+  @include columns
+  @media screen and (min-width: 40em) //640px
         > *
             display: inline-block
             vertical-align: top
         @include column-widths
 
 .remove-outer-gutters
-    overflow: hidden
-    .columns, .columns-when-wide
-        margin: 0 (-$gutter-width)
+  overflow: hidden
+  .columns, .columns-when-wide
+    margin: 0 (-$gutter-width)
 /*
  *  Alignment
  *  ---------
@@ -275,19 +276,19 @@ body
  *  ```
  */
 .left
-    text-align: left
-    > *
-        display: inline-block
+  text-align: left
+  > *
+    display: inline-block
 
 .right
-    text-align: right
-    > *
-        display: inline-block
+  text-align: right
+  > *
+    display: inline-block
 
 .center
-    text-align: center
-    > *
-        display: inline-block
+  text-align: center
+  > *
+    display: inline-block
 
 /*
  *  ### Vertical
@@ -305,36 +306,36 @@ body
  *  ```
  */
 .top
-    display: inline-block
-    vertical-align: top !important
+  display: inline-block
+  vertical-align: top !important
 
 .bottom
-    display: inline-block
-    vertical-align: bottom !important
+  display: inline-block
+  vertical-align: bottom !important
 
 .middle
-    display: inline-block
-    vertical-align: middle !important
+  display: inline-block
+  vertical-align: middle !important
 
 .baseline
-    display: inline-block
-    vertical-align: baseline !important
+  display: inline-block
+  vertical-align: baseline !important
 
 .text-top
-    display: inline-block
-    vertical-align: text-top !important
+  display: inline-block
+  vertical-align: text-top !important
 
 .text-bottom
-    display: inline-block
-    vertical-align: text-bottom !important
+  display: inline-block
+  vertical-align: text-bottom !important
 
 .sub
-    display: inline-block
-    vertical-align: sub !important
+  display: inline-block
+  vertical-align: sub !important
 
 .super
-    display: inline-block
-    vertical-align: super !important
+  display: inline-block
+  vertical-align: super !important
 
 
 /*
@@ -353,17 +354,17 @@ body
  *  ```
  */
 .aspect-ratio-preservation-area
-    display: inline-block
-    vertical-align: middle
-    position: relative
-    > .size
-        display: block
-    > *:not(.size)
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
+  display: inline-block
+  vertical-align: middle
+  position: relative
+  > .size
+    display: block
+  > *:not(.size)
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
 
 /*
  *  Optimal Readability
@@ -382,5 +383,5 @@ body
  *  ```
  */
 .ensure-readability
-    max-width: 40em
-    margin: 0 auto
+  max-width: 40em
+  margin: 0 auto
