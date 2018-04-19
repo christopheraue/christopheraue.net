@@ -2,10 +2,10 @@ module Jekyll
   module Components
     COMPONENTS = Dir.glob('**/_components/*/').sort.freeze
     COMPONENT_PATHS = Dir.glob('**/_components/').sort.freeze
-    MARKUP_FILENAME = 'markup.html'.freeze
-    STYLES_FILENAME = 'styles.sass'.freeze
-    SYNCJS_FILENAME = 'sync.js'.freeze
-    ASYNCJS_FILENAME = 'async.js'.freeze
+    MARKUP_FILENAME = '_markup.html'.freeze
+    STYLES_FILENAME = '_styles.sass'.freeze
+    SYNCJS_FILENAME = '_sync.js'.freeze
+    ASYNCJS_FILENAME = '_async.js'.freeze
 
     class AssetGenerator < Jekyll::Generator
       STYLES_FILE = '/assets/styles.sass'.freeze
