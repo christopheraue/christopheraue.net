@@ -1,6 +1,6 @@
 define([
-    './Video',
-    './BufferMonitor'
+    './js/Video',
+    './js/BufferMonitor'
 ], function(Video, BufferMonitor){
     return Video.inherit({
         state: 'initializing',

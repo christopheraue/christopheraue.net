@@ -1,5 +1,5 @@
 define([
-    './js/HTMLVideo'
+    './HTMLVideo'
 ], function(HTMLVideo) {
     document.ready(function () {
         document.getElementsByClassName('video').forEach(function (el) {
