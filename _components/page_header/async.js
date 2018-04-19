@@ -1,5 +1,5 @@
 define([
-    '_components/js_activatable_element/activatable_element',
+    '_components/global/ActivatableElement',
     'core-ext/document'
 ], function(ActivatableElement) {
     document.ready(function() {

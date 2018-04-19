@@ -1,5 +1,5 @@
 define([
-    './video'
+    './Video'
 ],function(Video){
     var api = function(f) {
         require(['youtube-api'], function(YT) {

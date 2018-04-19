@@ -1,6 +1,6 @@
 define([
-    './js/hover_element',
-    './js/instant_tap_click_area',
+    './js/HoverElement',
+    './js/InstantTapClickArea',
     'core-ext/document'
 ], function(HoverElement, InstantTapClickArea) {
     document.ready(function() {

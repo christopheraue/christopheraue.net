@@ -4,7 +4,7 @@
     // Javascript is inlined because the transition when navigated from an
     // internal page must start immediately.
     require([
-        '_components/page_transition/js/page-transition'
+        '_components/page_transition/js/PageTransition'
     ], function(PageTransition) {
         // Don't transition in browsers not supporting CSS animations
         if (!window.AnimationEvent) { return; }

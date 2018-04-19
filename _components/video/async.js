@@ -1,5 +1,5 @@
 define([
-    './js/html_video',
+    './js/HTMLVideo',
     'core-ext/document'
 ], function(HTMLVideo) {
     document.ready(function () {

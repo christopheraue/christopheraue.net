@@ -1,6 +1,6 @@
 define([
     './js/TheatreScreen',
-    '_components/video/js/youtube_video'
+    '_components/video/js/YouTubeVideo'
 ], function(TheatreScreen, YouTubeVideo) {
     document.ready(function() {
         document.getElementsByClassName('theatre-screen').forEach(function(screen) {

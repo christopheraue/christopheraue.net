@@ -3,7 +3,7 @@
  */
 
 define(function() {
-    var InstantTapClickArea = function(el) {
+    return function(el) {
         var areaTouched = false;
 
         el.addEventListener('touchstart', function(e){
@@ -30,6 +30,4 @@ define(function() {
             areaTouched = false;
         }, true);
     };
-    
-    return InstantTapClickArea;
 });
