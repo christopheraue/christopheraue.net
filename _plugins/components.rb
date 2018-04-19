@@ -1,6 +1,7 @@
 module Jekyll
   module Components
-    DIRNAME = '_components'.freeze
+    COMPONENTS = Dir.glob('**/_components/*/').sort.freeze
+    COMPONENT_PATHS = Dir.glob('**/_components/').sort.freeze
     MARKUP_FILENAME = 'markup.html'.freeze
     STYLES_FILENAME = 'styles.sass'.freeze
     SYNCJS_FILENAME = 'sync.js'.freeze
@@ -16,7 +17,7 @@ module Jekyll
         syncjs_page = site.pages.find{ |p| File.join(p.dir, p.name) == SYNCJS_FILE }
         asyncjs_page = site.pages.find{ |p| File.join(p.dir, p.name) == ASYNCJS_FILE }
 
-        Dir.glob("#{DIRNAME}/*/").sort.each do |component_path|
+        COMPONENTS.each do |component_path|
           styles_path = File.join component_path, STYLES_FILENAME
           syncjs_path = File.join component_path, SYNCJS_FILENAME
           asyncjs_path = File.join component_path, ASYNCJS_FILENAME
@@ -40,7 +41,7 @@ module Jekyll
       attr_accessor :additional_params
 
       def tag_includes_dirs(context)
-        [DIRNAME].freeze
+        COMPONENT_PATHS
       end
 
       def locate_include_file(context, file, safe)
