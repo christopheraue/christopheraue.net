@@ -1,6 +1,4 @@
-define([
-    'core-ext/document'
-], function() {
+define(function() {
     document.ready(function () {
         if (document.getElementById('disqus_thread')) {
             disqus_shortname = 'christopheraue';

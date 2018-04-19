@@ -1,7 +1,6 @@
 define([
     './js/PageTransition',
     'core-ext/body',
-    'core-ext/document',
     'core-ext/HTMLAnchorElement',
     'core-ext/HTMLCollection',
     'core-ext/Location'

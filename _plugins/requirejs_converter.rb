@@ -17,7 +17,7 @@ module Jekyll
       def convert(content)
         err_out = `node assets/_rjs_optimizer/r.js -o \
           baseUrl=./ \
-          mainConfigFile="assets/_rjs/sync/config.js" \
+          mainConfigFile="_components/global/sync/config.js" \
           optimize=#{Jekyll.env == 'development' ? 'none' : 'uglify'} \
           rawText.__content__="#{content}" \
           name=__content__ \

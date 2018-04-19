@@ -4,9 +4,7 @@
  * have been registered! That is why the component name starts with ~
  */
 
-define([
-    'core-ext/document'
-], function() {
+define(function() {
     var triggerMouseEnterAt = function (x, y) {
         var el = document.elementFromPoint(x, y),
             ev = new Event('mouseenter', {bubbles: true});

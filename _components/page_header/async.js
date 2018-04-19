@@ -1,6 +1,5 @@
 define([
-    '_components/global/ActivatableElement',
-    'core-ext/document'
+    '_components/global/ActivatableElement'
 ], function(ActivatableElement) {
     document.ready(function() {
         var nav = document.querySelector('body > header nav');

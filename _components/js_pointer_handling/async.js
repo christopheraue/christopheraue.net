@@ -1,7 +1,6 @@
 define([
     './js/HoverElement',
-    './js/InstantTapClickArea',
-    'core-ext/document'
+    './js/InstantTapClickArea'
 ], function(HoverElement, InstantTapClickArea) {
     document.ready(function() {
         document.getElementsByTagName('*').forEach(function(el) {

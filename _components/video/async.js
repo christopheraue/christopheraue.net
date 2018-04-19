@@ -1,6 +1,5 @@
 define([
-    './js/HTMLVideo',
-    'core-ext/document'
+    './js/HTMLVideo'
 ], function(HTMLVideo) {
     document.ready(function () {
         document.getElementsByClassName('video').forEach(function (el) {
