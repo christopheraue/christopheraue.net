@@ -1,7 +1,11 @@
-// Make the page-transition module known to requirejs so it can be loaded
-// without request into the javascript inlined in the markup.
 define([
     '_components/page_transition/js/PageTransition'
-], function(){
+], function(PageTransition) {
+    // Don't transition in browsers not supporting CSS animations
+    if (!window.AnimationEvent) { return; }
 
+    var transition = PageTransition.deleteActive();
+    if (transition) {
+        transition.fadePageIn();
+    }
 });

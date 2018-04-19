@@ -1,17 +1,15 @@
 <svg id="transition-fader"></svg>
 
 <script>
-    // Javascript is inlined because the transition when navigated from an
-    // internal page must start immediately.
-    require([
-        '_components/page_transition/js/PageTransition'
-    ], function(PageTransition) {
-        // Don't transition in browsers not supporting CSS animations
-        if (!window.AnimationEvent) { return; }
+    // requirejs delays loading our synchronous javascript (the _sync.js file)
+    // until the next event loop tick. To prevent the site from flickering
+    // before the transition is started, the initial state of the page
+    // transition must be set up immediately.
+    !function() {
+        var category = window.sessionStorage.getItem('pageTransitionCategory'),
+            fadeHeader = eval(window.sessionStorage.getItem('pageTransitionFadeHeader'));
 
-        var transition = PageTransition.deleteActive();
-        if (transition) {
-            transition.fadePageIn();
-        }
-    });
+        document.body.classList.add(category + '-transition');
+        fadeHeader && document.body.classList.add('header-fade-transition');
+    }();
 </script>
