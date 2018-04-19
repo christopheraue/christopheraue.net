@@ -1,6 +1,6 @@
 require.config({
     paths: {
-        'core-ext': '_components/global/core-ext',
+        'core-ext': '_components/_global/core-ext',
         'google-analytics': '//www.google-analytics.com/analytics',
         'youtube-api': '//www.youtube.com/iframe_api?noext'
     },

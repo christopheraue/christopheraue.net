@@ -1,5 +1,5 @@
 define([
-    '_components/global/ActivatableElement'
+    '_components/_global/ActivatableElement'
 ], function(ActivatableElement) {
     document.ready(function() {
         var nav = document.querySelector('body > header nav');
