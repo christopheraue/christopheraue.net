@@ -6,6 +6,9 @@
     // before the transition is started, the initial state of the page
     // transition must be set up immediately.
     !function() {
+        // Don't transition in browsers not supporting CSS animations
+        if (!window.AnimationEvent) { return; }
+
         var category = window.sessionStorage.getItem('pageTransitionCategory'),
             fadeHeader = eval(window.sessionStorage.getItem('pageTransitionFadeHeader'));
 
