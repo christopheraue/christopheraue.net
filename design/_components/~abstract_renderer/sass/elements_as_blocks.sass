@@ -1,0 +1,44 @@
+@import "variables"
+
+body.design
+  background: $design-dark
+  color: $design-light
+
+  h1
+    display: none
+
+  h2, h3
+    display: inline-block
+    background: $design-light
+    color: transparent
+    *
+      background: transparent !important
+
+  p
+    background: $design-light
+    *
+      background: transparent !important
+    &:before, &:after
+      content: ''
+      display: block
+
+  .white-box
+    background: $design-dark
+    color: $design-light
+
+  article .meta
+    display: none
+
+  .article-list
+    display: none
+    + .article-list
+      display: block
+
+  > footer
+    visibility: hidden
+
+  .article-list
+    .third
+      display: none
+    .two-thirds
+      display: block
