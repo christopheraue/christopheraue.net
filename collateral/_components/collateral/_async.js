@@ -8,9 +8,8 @@ define([
             return
         }
 
-        screen = document.querySelector('#theatre > .theatre-screen');
-
-        var theatreScreen = new TheatreScreen(screen),
+        var screen = document.querySelector('#theatre > .theatre-screen'),
+            theatreScreen = new TheatreScreen(screen),
             video = new YouTubeVideo(screen.getElementsByTagName('iframe')[0]);
 
         video.addEventListener('stateChange', function(e) {
