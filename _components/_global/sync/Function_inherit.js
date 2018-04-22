@@ -1,6 +1,4 @@
-define([
-    'core-ext/Object'
-], function() {
+define(function() {
     Function.prototype.inherit = function(methods) {
         var constructor;
 
@@ -23,7 +21,11 @@ define([
         });
 
         if (typeof methods !== 'undefined') {
-            constructor.prototype.merge(methods);
+            for (var key in methods)  {
+                if (methods.hasOwnProperty(key)) {
+                    constructor.prototype[key] = methods[key];
+                }
+            }
         }
 
         return constructor;
