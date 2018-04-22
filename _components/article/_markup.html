@@ -29,8 +29,10 @@
     </div>
   </header>
   <section class="text white-box">{{ content }}</section>
+  {% unless page.path contains '_drafts/' %}
   <div id="disqus_thread" class="white-box"></div>
   <div id="disqus_link">
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   </div>
+  {% endunless %}
 </article>
