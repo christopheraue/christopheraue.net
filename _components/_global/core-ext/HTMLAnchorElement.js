@@ -18,6 +18,17 @@ define(function() {
         return category
     };
 
+    HTMLAnchorElement.prototype.jumpsWithinPage = function() {
+        var hostname = this.hostname,
+            pathname = this.pathname;
+
+        if (hostname !== window.location.hostname) {
+            return false;
+        }
+
+        return pathname === window.location.pathname;
+    };
+
     HTMLAnchorElement.prototype.delayLocationChangeUntil = function(element, event) {
         this.addEventListener('click', function(e) {
             var eventHandler = function() {

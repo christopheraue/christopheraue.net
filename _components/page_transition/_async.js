@@ -17,8 +17,8 @@ define([
         document.getElementsByTagName('a').forEach(function(anchor) {
             var targetCategory = anchor.extractCategory();
 
-            if (!targetCategory) {
-                // don't transition for links to another website
+            if (!targetCategory || anchor.jumpsWithinPage()) {
+                // don't transition for links to another website and within the same page
                 return;
             }
 
