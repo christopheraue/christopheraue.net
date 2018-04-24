@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="36"
+   height="36"
+   viewBox="0 0 36 36"
+   version="1.1"
+   sodipodi:docname="square_C.svg"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   role="img"
+   aria-labelledby="square-c-title"
+   class="square-c">
+  <title
+     id="square-c-title">C</title>
+  <desc
+     id="square-c-desc">A square with the letter C punched into it</desc>
+  <defs
+     id="defs852" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.0000001"
+     inkscape:cx="-107.25258"
+     inkscape:cy="-170.52554"
+     inkscape:document-units="px"
+     showgrid="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     units="px"
+     viewbox-y="0.37"
+     viewbox-height="3"
+     inkscape:snap-others="false"
+     inkscape:snap-nodes="false"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="false"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:snap-global="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid10679"
+       spacingx="50.000003"
+       spacingy="50.000003"
+       empspacing="2"
+       originx="0"
+       originy="-64" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata855">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Christopher Aue</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     inkscape:connector-curvature="0"
+     d="M 0,0 V 36 H 36 V 0 Z m 19.757797,8.22644 c 0.792038,2e-4 1.531752,0.0242 2.179684,0.13909 0.647962,0.11792 1.201285,0.26865 1.687499,0.4218 0.486198,0.15405 0.871559,0.33048 1.195238,0.49224 0.323829,0.16192 0.558614,0.2617 0.702992,0.35165 l -1.195238,3.4454 c -0.576151,-0.30599 -1.274154,-0.6277 -2.03907,-0.84374 -0.764977,-0.21619 -1.629823,-0.2812 -2.601555,-0.2812 -0.648265,0 -1.27748,0.0665 -1.898442,0.2812 -0.621052,0.21619 -1.140208,0.57766 -1.617184,1.05464 -0.477127,0.47728 -0.90754,1.07233 -1.195237,1.8282 -0.28785,0.75591 -0.421795,1.7326 -0.421795,2.8126 -1.5e-5,0.864 0.09222,1.64339 0.281197,2.3904 0.188825,0.74729 0.491187,1.35852 0.914041,1.8986 0.422852,0.54002 1.00369,1.02077 1.687482,1.33599 0.683793,0.31491 1.488529,0.42179 2.460942,0.42149 0.611981,1.9e-4 1.201588,0.002 1.687499,-0.0695 0.485896,-0.0726 0.887433,-0.18202 1.265688,-0.28119 0.378255,-0.0998 0.696492,-0.22541 0.98434,-0.3515 0.287697,-0.12548 0.539415,-0.244 0.773443,-0.3518 l 1.195238,3.37499 c -0.59384,0.35981 -1.451339,0.69618 -2.531256,0.98449 -1.079886,0.28815 -2.304393,0.42194 -3.726554,0.42194 -3.042126,0 -5.367926,-0.8392 -6.960952,-2.53139 -1.59301,-1.69218 -2.390612,-4.05818 -2.390612,-7.17179 0,-1.54838 0.217096,-2.93361 0.703144,-4.14859 0.486198,-1.21474 1.193121,-2.25641 2.039055,-3.0936 0.846009,-0.83694 1.853389,-1.46631 3.02344,-1.8984 1.169991,-0.43192 2.429073,-0.63284 3.796868,-0.63299 z"
+     sodipodi:nodetypes="ccccccccccccsccccccccccccccscsccccc"
+     style="stroke-width:0"
+     id="path14213" />
+</svg>

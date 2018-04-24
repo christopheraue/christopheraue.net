@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="36"
+   height="36"
+   viewBox="0 0 36 36"
+   version="1.1"
+   sodipodi:docname="square_A.svg"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   role="img"
+   aria-labelledby="square-a-title"
+   class="square-a">
+  <title
+     id="square-a-title">A</title>
+  <desc
+     id="square-a-desc">A square with the letter A punched into it</desc>
+  <defs
+     id="defs852" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.0000001"
+     inkscape:cx="213.24739"
+     inkscape:cy="-91.525544"
+     inkscape:document-units="px"
+     showgrid="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     units="px"
+     viewbox-y="0.37"
+     viewbox-height="3"
+     inkscape:snap-others="false"
+     inkscape:snap-nodes="false"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="false"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:snap-global="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid10679"
+       spacingx="50.000003"
+       spacingy="50.000003"
+       empspacing="2"
+       originx="-40"
+       originy="-24" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata855">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>H</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     inkscape:connector-curvature="0"
+     d="M 0,0 V 36 H 36 V 0 Z m 15.960894,8.64863 h 4.078111 c 0.611981,1.29577 1.163792,2.57839 1.757813,3.93737 0.594141,1.35897 1.225171,2.77702 1.828127,4.28901 0.60291,1.51205 1.197959,3.14139 1.828127,4.8514 0.630123,1.71019 1.337046,3.60919 2.039055,5.62498 h -4.570295 c -0.198501,-0.64796 -0.390047,-1.35473 -0.632844,-2.0388 -0.242797,-0.68394 -0.469266,-1.35518 -0.702992,-2.03897 h -7.312494 c -0.234029,0.68379 -0.460347,1.35488 -0.703144,2.03897 -0.242797,0.68395 -0.434494,1.39087 -0.632844,2.0388 H 8.507833 c 0.701934,-2.01579 1.40931,-3.91479 2.039055,-5.62498 0.62982,-1.71001 1.22502,-3.33941 1.828127,-4.8514 0.603212,-1.51205 1.172863,-2.92999 1.757813,-4.28901 0.584919,-1.35896 1.197959,-2.64158 1.828127,-3.93737 z m 1.968741,4.21878 c -0.09071,0.27016 -0.242041,0.65658 -0.421795,1.12509 -0.179754,0.46791 -0.398816,1.00505 -0.632844,1.617 -0.234029,0.61199 -0.494362,1.23077 -0.773443,1.96881 -0.27908,0.73806 -0.555893,1.50999 -0.843741,2.32038 h 5.343738 c -0.287849,-0.81033 -0.573733,-1.58238 -0.843742,-2.32038 -0.27001,-0.73807 -0.530343,-1.3567 -0.773443,-1.96881 -0.243099,-0.61198 -0.452787,-1.14927 -0.632844,-1.617 -0.179905,-0.46851 -0.313549,-0.85478 -0.421795,-1.12509 z"
+     sodipodi:nodetypes="cccccccccccccccccccccccccccccccccc"
+     style="stroke-width:0" />
+</svg>

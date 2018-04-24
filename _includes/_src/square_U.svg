@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="36"
+   height="36"
+   viewBox="0 0 36 36"
+   version="1.1"
+   sodipodi:docname="square_U.svg"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   role="img"
+   aria-labelledby="square-u-title"
+   class="square-u">
+  <title
+     id="square-u-title">U</title>
+  <desc
+     id="square-u-desc">A square with the letter U punched into it</desc>
+  <defs
+     id="defs852" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.0000001"
+     inkscape:cx="-61.752592"
+     inkscape:cy="-128.52554"
+     inkscape:document-units="px"
+     showgrid="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     units="px"
+     viewbox-y="0.37"
+     viewbox-height="3"
+     inkscape:snap-others="false"
+     inkscape:snap-nodes="false"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="false"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:snap-global="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid10679"
+       spacingx="50.000003"
+       spacingy="50.000003"
+       empspacing="2"
+       originx="-80"
+       originy="-24" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata855">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Christopher Aue</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     inkscape:connector-curvature="0"
+     d="M 0,0 V 36 H 36 V 0 Z m 10.335864,8.43761 h 4.218739 v 11.25 c 0,0.75561 0.110362,1.43759 0.281198,1.96859 0.170835,0.53095 0.405921,0.93234 0.702991,1.26569 0.297067,0.33336 0.631788,0.55907 1.054637,0.70315 0.423011,0.14362 0.902551,0.21104 1.40629,0.21104 1.026071,0 1.82206,-0.28406 2.460941,-0.91419 0.63889,-0.62997 1.28096,-1.75179 0.98449,-3.2342 V 8.4377 h 4.21873 v 11.6014 c -2e-5,1.09833 -0.18611,2.1056 -0.49225,3.0236 -0.30599,0.91782 -0.77616,1.7336 -1.40629,2.39058 -0.63012,0.65704 -1.41868,1.18678 -2.39061,1.5468 -0.97209,0.36011 -2.113781,0.49209 -3.445311,0.4924 -1.31391,-4e-4 -2.420848,-0.19397 -3.375012,-0.56255 -0.954104,-0.36918 -1.769621,-0.81955 -2.390627,-1.47659 -0.621052,-0.65703 -1.109367,-1.48187 -1.406287,-2.39058 -0.296919,-0.90875 -0.212863,-1.94561 -0.421795,-3.0236 z"
+     sodipodi:nodetypes="cccccccscccscccccccccccccc"
+     style="stroke-width:0" />
+</svg>

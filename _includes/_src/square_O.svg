@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="36"
+   height="36"
+   viewBox="0 0 36 36"
+   version="1.1"
+   sodipodi:docname="square_O.svg"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   role="img"
+   aria-labelledby="square-o-title"
+   class="square-o"
+   id="svg41320">
+  <title
+     id="square-o-title">O</title>
+  <desc
+     id="square-o-desc">A square with the letter O punched into it</desc>
+  <defs
+     id="defs852" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.0000001"
+     inkscape:cx="-274.25258"
+     inkscape:cy="-131.52554"
+     inkscape:document-units="px"
+     showgrid="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     units="px"
+     viewbox-y="0.37"
+     viewbox-height="3"
+     inkscape:snap-others="false"
+     inkscape:snap-nodes="false"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="false"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:snap-global="false"
+     inkscape:current-layer="svg41320">
+    <inkscape:grid
+       type="xygrid"
+       id="grid10679"
+       spacingx="50.000003"
+       spacingy="50.000003"
+       empspacing="2"
+       originx="-240"
+       originy="-64" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata855">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>H</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     inkscape:connector-curvature="0"
+     d="M 0,0 V 36 H 36 V 0 Z m 17.99978,8.22644 c 1.27838,2e-4 2.45189,0.21876 3.58594,0.633 1.13416,0.41408 2.1775,1.00052 3.02347,1.82801 0.84586,0.82771 1.48278,1.87878 1.96872,3.09378 0.48589,1.21489 0.70299,2.61639 0.70314,4.2188 -4e-5,1.60179 -0.22602,3.0038 -0.70314,4.2188 -0.47683,1.21489 -1.14066,2.20479 -1.96872,3.02359 -0.82817,0.81834 -1.81002,1.48399 -2.95317,1.8982 -1.14308,0.41409 -2.34225,0.56255 -3.65624,0.56255 -1.2778,0 -2.45187,-0.14816 -3.58595,-0.56255 -1.13401,-0.41424 -2.17747,-1.07973 -3.0234,-1.8982 -0.84586,-0.8188 -1.48263,-1.80861 -1.96876,-3.02359 -0.48619,-1.21489 -0.70299,-2.61701 -0.70299,-4.2188 0,-1.60241 0.19881,-3.0038 0.70299,-4.2188 0.50404,-1.21489 1.18405,-2.26599 2.03906,-3.09378 0.85508,-0.82757 1.89842,-1.41385 3.02343,-1.82801 1.12509,-0.41424 2.27362,-0.63285 3.51562,-0.633 z m 0,3.65641 c -0.7916,2e-4 -1.49701,0.19608 -2.10937,0.49225 -0.61228,0.29691 -1.12403,0.66444 -1.54688,1.19523 -0.42301,0.53095 -0.75954,1.2217 -0.98449,1.9688 -0.22451,0.74729 -0.3515,1.5608 -0.3515,2.46101 0,0.91797 0.12699,1.72299 0.3515,2.461 0.22488,0.73806 0.56133,1.36743 0.98449,1.89839 0.42285,0.53095 0.9346,0.97769 1.54688,1.26569 0.61229,0.28815 1.31785,0.4218 2.10937,0.4218 0.77404,0 1.48838,-0.13455 2.10939,-0.4218 0.62105,-0.288 1.12388,-0.73459 1.54685,-1.26569 0.42285,-0.53094 0.75923,-1.16046 0.98449,-1.89839 0.22526,-0.73807 0.35149,-1.543 0.35149,-2.461 0,-0.91843 -0.12699,-1.78441 -0.35149,-2.5312 -0.22526,-0.74683 -0.56134,-1.36728 -0.98449,-1.89861 -0.42286,-0.53095 -0.92584,-0.90739 -1.54685,-1.19523 -0.62105,-0.2877 -1.33538,-0.4921 -2.10939,-0.49225 z"
+     sodipodi:nodetypes="cccccccccccccscccsccccccccscccscccscccc"
+     style="stroke-width:0"
+     id="path41318" />
+</svg>

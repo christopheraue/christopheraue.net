@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="36"
+   height="36"
+   viewBox="0 0 36 36"
+   version="1.1"
+   sodipodi:docname="square_P.svg"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   role="img"
+   aria-labelledby="square-p-title"
+   class="square-p"
+   id="svg50364">
+  <title
+     id="square-p-title">P</title>
+  <desc
+     id="square-p-desc">A square with the letter P punched into it</desc>
+  <defs
+     id="defs852" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.0000001"
+     inkscape:cx="-314.25258"
+     inkscape:cy="-131.52554"
+     inkscape:document-units="px"
+     showgrid="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     units="px"
+     viewbox-y="0.37"
+     viewbox-height="3"
+     inkscape:snap-others="false"
+     inkscape:snap-nodes="false"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="false"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:snap-global="false"
+     inkscape:current-layer="svg50364">
+    <inkscape:grid
+       type="xygrid"
+       id="grid10679"
+       spacingx="50.000003"
+       spacingy="50.000003"
+       empspacing="2"
+       originx="-280"
+       originy="-64" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata855">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>H</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     inkscape:connector-curvature="0"
+     d="M 0,0 V 36 H 36 V 0 Z m 16.45292,8.50785 c 2.78997,2e-4 4.97454,0.49588 6.46873,1.47659 1.49428,0.98086 2.24996,2.54881 2.24996,4.78121 0,2.24999 -0.80822,3.92299 -2.32025,4.92179 -1.51204,0.999 -3.6607,1.47673 -6.46874,1.47658 h -1.33599 v 6.25781 H 10.82792 V 9.00004 c 0.91843,-0.17991 1.9273,-0.27954 2.95314,-0.3515 1.02591,-0.0726 1.89781,-0.13909 2.67186,-0.13909 z m -0.63285,3.586 c -0.29707,0.0197 -0.55755,0.0514 -0.77344,0.0695 v 5.4142 h 1.33599 c 1.45784,0 2.5666,-0.166 3.30463,-0.56255 0.73806,-0.39594 1.12494,-1.16999 1.12509,-2.24999 -4e-5,-0.52188 -0.0922,-0.92342 -0.2812,-1.26569 -0.18935,-0.34228 -0.49285,-0.63708 -0.84359,-0.84374 -0.35112,-0.20682 -0.76165,-0.34092 -1.26569,-0.4218 -0.50404,-0.0816 -1.0755,-0.13909 -1.68752,-0.13909 -0.30576,0 -0.61697,-0.0197 -0.91404,0 z"
+     sodipodi:nodetypes="cccccccsccccccccccccscccccscc"
+     style="stroke-width:0"
+     id="path50362" />
+</svg>
