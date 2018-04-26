@@ -9,6 +9,11 @@ define([
     if (!window.AnimationEvent) { return; }
 
     document.ready(function() {
+        var transition = PageTransition.deleteActive();
+        if (transition) {
+            transition.fadePageIn();
+        }
+
         // Hook into all links to control the start of the transition
         var header = document.querySelector('body > header'),
             fader = document.getElementById('transition-fader'),

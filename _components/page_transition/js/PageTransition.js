@@ -23,11 +23,15 @@ define([
 
             return this;
         },
-        fadePageIn: function () {
-            document.body.classList.add(this.category + '-transition', 'transition-in');
+        setTransition: function() {
+            document.body.classList.add(this.category + '-transition');
             if (this.fadeHeader) {
                 document.body.classList.add('header-fade-transition');
             }
+            return this;
+        },
+        fadePageIn: function () {
+            document.body.classList.add('transition-in');
 
             var fader = document.getElementById('transition-fader');
             var listener = function () {
@@ -60,12 +64,17 @@ define([
         }
     });
 
-    PageTransition.deleteActive = function () {
+    PageTransition.getActive = function() {
         var category = window.sessionStorage.getItem('pageTransitionCategory'),
             fadeHeader = eval(window.sessionStorage.getItem('pageTransitionFadeHeader'));
+        return (category ? new PageTransition(category, fadeHeader) : null);
+    };
+
+    PageTransition.deleteActive = function() {
+        var pageTransition = this.getActive();
         window.sessionStorage.removeItem('pageTransitionCategory');
         window.sessionStorage.removeItem('pageTransitionFadeHeader');
-        return (category ? new PageTransition(category, fadeHeader) : null);
+        return pageTransition;
     };
 
     return PageTransition;

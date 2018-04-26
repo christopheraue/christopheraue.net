@@ -4,8 +4,8 @@ define([
     // Don't transition in browsers not supporting CSS animations
     if (!window.AnimationEvent) { return; }
 
-    var transition = PageTransition.deleteActive();
+    var transition = PageTransition.getActive();
     if (transition) {
-        transition.fadePageIn();
+        transition.setTransition();
     }
 });
