@@ -7,8 +7,6 @@ define([
     var transition = PageTransition.getActive();
     if (transition) {
         document.body.classList.add(transition.category + '-transition');
-        if (transition.fadeHeader) {
-            document.body.classList.add('header-fade-transition');
-        }
+        transition.fadeHeader && document.body.classList.add('header-fade-transition');
     }
 });

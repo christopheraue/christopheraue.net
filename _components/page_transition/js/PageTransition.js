@@ -13,29 +13,12 @@ define([
             // The faded in page transition on unload might be persisted/cached
             // and interferes when navigating the browser history. (e.g. in Safari)
             var listener = function (e) {
-                if (!e.persisted) {
-                    return
-                }
-                this.remove();
+                if (!e.persisted) { return }
+                this.constructor.events.dispatchEvent('cleanUp', this);
                 window.removeEventListener('pageshow', listener, false);
             }.bind(this);
             window.addEventListener('pageshow', listener, false);
 
-            return this;
-        },
-        fadePageIn: function () {
-            this.constructor.events.dispatchEvent('prepareFadeIn', this);
-            document.body.classList.add('transition-in');
-            return this;
-        },
-        fadePageOut: function () {
-            this.constructor.events.dispatchEvent('prepareFadeOut', this);
-            document.body.classList.add('transition-out');
-            return this;
-        },
-        remove: function () {
-            this.constructor.events.dispatchEvent('cleanUp', this);
-            document.body.classList.remove('transition-in', 'transition-out');
             return this;
         }
     });
