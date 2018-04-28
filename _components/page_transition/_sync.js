@@ -6,6 +6,9 @@ define([
 
     var transition = PageTransition.getActive();
     if (transition) {
-        transition.setTransition();
+        document.body.classList.add(transition.category + '-transition');
+        if (transition.fadeHeader) {
+            document.body.classList.add('header-fade-transition');
+        }
     }
 });

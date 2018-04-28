@@ -1,6 +1,6 @@
 define([
-    'core-ext/body'
-], function() {
+    '_components/_global/EventTarget'
+], function(EventTarget) {
     var PageTransition = Object.inherit({
         constructor: function (category, fadeHeader) {
             this.category = category;
@@ -23,43 +23,19 @@ define([
 
             return this;
         },
-        setTransition: function() {
-            document.body.classList.add(this.category + '-transition');
-            if (this.fadeHeader) {
-                document.body.classList.add('header-fade-transition');
-            }
-            return this;
-        },
         fadePageIn: function () {
+            this.constructor.events.dispatchEvent('prepareFadeIn', this);
             document.body.classList.add('transition-in');
-
-            var fader = document.getElementById('transition-fader');
-            var listener = function () {
-                this.remove();
-                fader.removeEventListener('animationend', listener, false);
-            }.bind(this);
-            fader.addEventListener('animationend', listener, false);
-
             return this;
         },
         fadePageOut: function () {
-            if (this.category === 'home') {
-                document.body.hideScrollbar();
-            }
-            document.body.classList.add(this.category + '-transition', 'transition-out');
-            if (this.fadeHeader) {
-                document.body.classList.add('header-fade-transition');
-            }
+            this.constructor.events.dispatchEvent('prepareFadeOut', this);
+            document.body.classList.add('transition-out');
             return this;
         },
         remove: function () {
-            document.body.showScrollbar();
-            document.body.className.split(' ').forEach(function (cls) {
-                if (cls.indexOf('transition') === -1) {
-                    return
-                }
-                document.body.classList.remove(cls);
-            });
+            this.constructor.events.dispatchEvent('cleanUp', this);
+            document.body.classList.remove('transition-in', 'transition-out');
             return this;
         }
     });
@@ -76,6 +52,8 @@ define([
         window.sessionStorage.removeItem('pageTransitionFadeHeader');
         return pageTransition;
     };
+
+    PageTransition.events = new EventTarget();
 
     return PageTransition;
 });

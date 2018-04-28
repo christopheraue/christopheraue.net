@@ -8,6 +8,38 @@ define([
     // Disable page transitions for browsers not supporting CSS animations
     if (!window.AnimationEvent) { return; }
 
+    PageTransition.events.addEventListener('prepareFadeIn', function(e) {
+        var transition = e.data,
+            fader = document.getElementById('transition-fader');
+        var listener = function () {
+            transition.remove();
+            fader.removeEventListener('animationend', listener, false);
+        };
+        fader.addEventListener('animationend', listener, false);
+    });
+
+    PageTransition.events.addEventListener('prepareFadeOut', function(e) {
+        var transition = e.data;
+        if (transition.category === 'home') {
+            document.body.hideScrollbar();
+        }
+        document.body.classList.add(transition.category + '-transition');
+        if (transition.fadeHeader) {
+            document.body.classList.add('header-fade-transition');
+        }
+    });
+
+    PageTransition.events.addEventListener('cleanUp', function(e) {
+        var transition = e.data;
+        if (transition.category === 'home') {
+            document.body.showScrollbar();
+        }
+        document.body.classList.remove(transition.category + '-transition');
+        if (transition.fadeHeader) {
+            document.body.classList.remove('header-fade-transition');
+        }
+    });
+
     document.ready(function() {
         var transition = PageTransition.deleteActive();
         if (transition) {
