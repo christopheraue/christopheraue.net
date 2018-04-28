@@ -8,7 +8,7 @@ define([
 ], function(PageTransition, Velocity){
     var fadePageIn = function(transition, fader) {
             Velocity(fader, {opacity: [0, 1]}, 300, 'ease-in-out', function(){
-                PageTransition.events.dispatchEvent('cleanUp', this);
+                PageTransition.state.dispatchEvent('cleanUp', this);
             })
         },
         fadePageOut = function(transition, fader) {
@@ -19,7 +19,7 @@ define([
             transition.fadeHeader && document.body.classList.add('header-fade-transition');
 
             Velocity(fader, {opacity: [1, 0]}, 300, 'ease-in-out', function(){
-                fader.dispatchEvent(new Event('fadedOut'))
+                PageTransition.state.dispatchEvent('transitioned', this);
             });
 
             // Slide header navigation to selected item
@@ -33,7 +33,7 @@ define([
             }
         };
 
-    PageTransition.events.addEventListener('cleanUp', function() {
+    PageTransition.state.addEventListener('cleanUp', function() {
         document.body.showScrollbar();
         document.body.className.split(' ').forEach(function (cls) {
             if (cls.indexOf('-transition') === -1) { return }
@@ -77,7 +77,7 @@ define([
                 fadePageOut(transition, fader);
             }, false);
 
-            anchor.delayLocationChangeUntil(fader, 'fadedOut');
+            anchor.delayLocationChangeUntil(PageTransition.state, 'transitioned');
         });
 
 

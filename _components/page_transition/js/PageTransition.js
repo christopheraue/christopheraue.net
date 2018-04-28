@@ -14,7 +14,7 @@ define([
             // and interferes when navigating the browser history. (e.g. in Safari)
             var listener = function (e) {
                 if (!e.persisted) { return }
-                this.constructor.events.dispatchEvent('cleanUp', this);
+                this.constructor.state.dispatchEvent('cleanUp', this);
                 window.removeEventListener('pageshow', listener, false);
             }.bind(this);
             window.addEventListener('pageshow', listener, false);
@@ -36,7 +36,7 @@ define([
         return pageTransition;
     };
 
-    PageTransition.events = new EventTarget();
+    PageTransition.state = new EventTarget();
 
     return PageTransition;
 });
