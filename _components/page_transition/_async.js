@@ -6,61 +6,19 @@ define([
     'core-ext/HTMLCollection',
     'core-ext/Location'
 ], function(PageTransition, Velocity){
-    var fadePageIn = function(transition, fader) {
-            Velocity(fader, {opacity: [0, 1]}, 300, 'ease-in-out', function(){
-                PageTransition.state.dispatchEvent('cleanUp', this);
-            })
-        },
-        fadePageOut = function(transition, fader) {
-            if (transition.category === 'home') {
-                document.body.hideScrollbar();
-            }
-            document.body.classList.add(transition.category + '-transition');
-            transition.fadeHeader && document.body.classList.add('header-fade-transition');
-
-            Velocity(fader, {opacity: [1, 0]}, 300, 'ease-in-out', function(){
-                PageTransition.state.dispatchEvent('transitioned', this);
-            });
-
-            // Slide header navigation to selected item
-            var currentCategory = window.location.extractCategory(),
-                designToCollateral = currentCategory === 'design' && transition.category === 'collateral',
-                collateralToDesign = currentCategory === 'collateral' && transition.category === 'design';
-            if (designToCollateral || collateralToDesign) {
-                var headerNavUl = document.querySelector('body > header nav ul'),
-                    headerNavHeight = headerNavUl.children[0].offsetHeight;
-                Velocity(headerNavUl, {translateY: -headerNavHeight + 'px'}, 300, 'ease-in-out')
-            }
-        };
-
-    PageTransition.state.addEventListener('cleanUp', function() {
-        document.body.showScrollbar();
-        document.body.className.split(' ').forEach(function (cls) {
-            if (cls.indexOf('-transition') === -1) { return }
-            document.body.classList.remove(cls);
-        });
-    });
-
     document.ready(function() {
-        var transition = PageTransition.deleteActive(),
-            fader = document.getElementById('transition-fader');
-
-        if (transition) {
-            fadePageIn(transition, fader);
-        }
-
-        // Hook into all links to control the start of the transition
-        document.getElementsByTagName('a').forEach(function(anchor) {
-            var targetCategory = anchor.extractCategory();
-
-            if (!targetCategory || anchor.jumpsWithinPage()) {
-                // don't transition for links to another website and within the same page
-                return;
-            }
-
-            anchor.addEventListener('click', function() {
+        PageTransition.setUp({
+            fadePageIn: function() {
+                // transition dependent CSS classes already set in _sync.js
+                var fader = document.getElementById('transition-fader');
+                Velocity(fader, {opacity: [0, 1]}, 300, 'ease-in-out', function(){
+                    PageTransition.state.dispatchEvent('cleanUp', this);
+                })
+            },
+            fadePageOut: function(anchor) {
                 var header = document.querySelector('body > header'),
                     currentCategory = window.location.extractCategory(),
+                    targetCategory = anchor.extractCategory(),
                     fadeHeader;
 
                 if (currentCategory === 'home') {
@@ -72,14 +30,39 @@ define([
                     fadeHeader = true;
                 }
 
-                transition = new PageTransition(targetCategory, fadeHeader);
-                transition.setActive();
-                fadePageOut(transition, fader);
-            }, false);
+                var transition = new PageTransition(targetCategory, fadeHeader);
 
-            anchor.delayLocationChangeUntil(PageTransition.state, 'transitioned');
+                if (transition.category === 'home') {
+                    document.body.hideScrollbar();
+                }
+                document.body.classList.add(transition.category + '-transition');
+                transition.fadeHeader && document.body.classList.add('header-fade-transition');
+
+                // Fade page
+                var fader = document.getElementById('transition-fader');
+                Velocity(fader, {opacity: [1, 0]}, 300, 'ease-in-out', function(){
+                    PageTransition.state.dispatchEvent('transitioned', this);
+                });
+
+                // Slide header navigation to selected item
+                var designToCollateral = currentCategory === 'design' && transition.category === 'collateral',
+                    collateralToDesign = currentCategory === 'collateral' && transition.category === 'design';
+                if (designToCollateral || collateralToDesign) {
+                    var headerNavUl = document.querySelector('body > header nav ul'),
+                        headerNavHeight = headerNavUl.children[0].offsetHeight;
+                    Velocity(headerNavUl, {translateY: -headerNavHeight + 'px'}, 300, 'ease-in-out')
+                }
+
+                return transition;
+            },
+            cleanUp: function() {
+                document.body.showScrollbar();
+                document.body.className.split(' ').forEach(function (cls) {
+                    if (cls.indexOf('-transition') === -1) { return }
+                    document.body.classList.remove(cls);
+                });
+            }
         });
-
 
         // Deactivate the header navigation for its transition
         var topnav = document.querySelector('body > header nav');
@@ -95,8 +78,5 @@ define([
                 topnav.activatedState.enable();
             }, false);
         }
-
-        //reduce white flicker during page transition in IE
-        window.addEventListener('beforeunload', function(){});
     }, false);
 });

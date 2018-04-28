@@ -29,6 +29,10 @@ define(function() {
         return pathname === window.location.pathname;
     };
 
+    HTMLAnchorElement.prototype.leavesWebsite = function() {
+        return this.hostname !== window.location.hostname;
+    };
+
     HTMLAnchorElement.prototype.delayLocationChangeUntil = function(element, event) {
         this.addEventListener('click', function(e) {
             var eventHandler = function() {

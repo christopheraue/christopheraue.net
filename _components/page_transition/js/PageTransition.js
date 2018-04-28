@@ -1,5 +1,7 @@
 define([
-    '_components/_global/EventTarget'
+    '_components/_global/EventTarget',
+    'core-ext/HTMLAnchorElement',
+    'core-ext/HTMLCollection'
 ], function(EventTarget) {
     var PageTransition = Object.inherit({
         constructor: function (category, fadeHeader) {
@@ -37,6 +39,30 @@ define([
     };
 
     PageTransition.state = new EventTarget();
+
+    PageTransition.setUp = function(options) {
+        var transition = PageTransition.deleteActive();
+        if (transition) {
+            options.fadePageIn();
+        }
+
+        // Hook into all links to control the start of the transition
+        document.getElementsByTagName('a').forEach(function(anchor) {
+            if (anchor.leavesWebsite() || anchor.jumpsWithinPage()) {
+                return;
+            }
+
+            anchor.addEventListener('click', function(){ options.fadePageOut(anchor).setActive() });
+            anchor.delayLocationChangeUntil(PageTransition.state, 'transitioned');
+        });
+
+        PageTransition.state.addEventListener('cleanUp', function() {
+            options.cleanUp();
+        });
+
+        //reduce white flicker during page transition in IE
+        window.addEventListener('beforeunload', function(){});
+    };
 
     return PageTransition;
 });
