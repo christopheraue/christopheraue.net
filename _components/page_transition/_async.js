@@ -1,25 +1,24 @@
 define([
     './js/PageTransition',
+    'lib/velocity',
     'core-ext/body',
     'core-ext/HTMLAnchorElement',
     'core-ext/HTMLCollection',
     'core-ext/Location'
-], function(PageTransition){
-    // Disable page transitions for browsers not supporting CSS animations
-    if (!window.AnimationEvent) { return; }
-
+], function(PageTransition, Velocity){
     PageTransition.events.addEventListener('prepareFadeIn', function(e) {
         var transition = e.data,
             fader = document.getElementById('transition-fader');
-        var listener = function () {
-            transition.remove();
-            fader.removeEventListener('animationend', listener, false);
-        };
-        fader.addEventListener('animationend', listener, false);
+
+        Velocity(fader, {opacity: [0, 1]}, 300, 'ease-in-out', function(){
+            transition.remove()
+        })
     });
 
     PageTransition.events.addEventListener('prepareFadeOut', function(e) {
-        var transition = e.data;
+        var transition = e.data,
+            fader = document.getElementById('transition-fader');
+
         if (transition.category === 'home') {
             document.body.hideScrollbar();
         }
@@ -27,6 +26,10 @@ define([
         if (transition.fadeHeader) {
             document.body.classList.add('header-fade-transition');
         }
+
+        Velocity(fader, {opacity: [1, 0]}, 300, 'ease-in-out', function(){
+            fader.dispatchEvent(new Event('fadedOut'))
+        })
     });
 
     PageTransition.events.addEventListener('cleanUp', function(e) {
@@ -74,7 +77,7 @@ define([
                 new PageTransition(targetCategory, fadeHeader).setActive().fadePageOut();
             }, false);
 
-            anchor.delayLocationChangeUntil(fader, 'animationend');
+            anchor.delayLocationChangeUntil(fader, 'fadedOut');
         });
 
 
