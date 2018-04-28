@@ -29,7 +29,17 @@ define([
 
         Velocity(fader, {opacity: [1, 0]}, 300, 'ease-in-out', function(){
             fader.dispatchEvent(new Event('fadedOut'))
-        })
+        });
+
+        // Slide header navigation to selected item
+        var currentCategory = window.location.extractCategory(),
+            designToCollateral = currentCategory === 'design' && transition.category === 'collateral',
+            collateralToDesign = currentCategory === 'collateral' && transition.category === 'design';
+        if (designToCollateral || collateralToDesign) {
+            var headerNavUl = document.querySelector('body > header nav ul'),
+                headerNavHeight = headerNavUl.children[0].offsetHeight;
+            Velocity(headerNavUl, {translateY: -headerNavHeight + 'px'}, 300, 'ease-in-out')
+        }
     });
 
     PageTransition.events.addEventListener('cleanUp', function(e) {
