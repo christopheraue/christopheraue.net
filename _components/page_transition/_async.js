@@ -8,29 +8,26 @@ define([
 ], function(PageTransition, Velocity){
     document.ready(function() {
         PageTransition.setUp({
-            fadePageIn: function() {
+            fadePageIn: function(transition) {
                 // transition dependent CSS classes already set in _sync.js
                 var fader = document.getElementById('transition-fader');
                 Velocity(fader, {opacity: [0, 1]}, 300, 'ease-in-out', function(){
-                    PageTransition.state.dispatchEvent('cleanUp', this);
+                    PageTransition.dispatchEvent('cleanUp', transition);
                 })
             },
             fadePageOut: function(anchor) {
                 var header = document.querySelector('body > header'),
                     currentCategory = window.location.extractCategory(),
-                    targetCategory = anchor.extractCategory(),
-                    fadeHeader;
+                    transition = {category: anchor.extractCategory(), fadeHeader: false};
 
                 if (currentCategory === 'home') {
-                    fadeHeader = true;
-                } else if (header.inView() && targetCategory !== 'home') {
+                    transition.fadeHeader = true;
+                } else if (header.inView() && transition.category !== 'home') {
                     document.body.smoothScrollIntoView('top', '300ms ease-in-out');
-                    fadeHeader = false;
+                    transition.fadeHeader = false;
                 } else {
-                    fadeHeader = true;
+                    transition.fadeHeader = true;
                 }
-
-                var transition = new PageTransition(targetCategory, fadeHeader);
 
                 if (transition.category === 'home') {
                     document.body.hideScrollbar();
@@ -41,7 +38,7 @@ define([
                 // Fade page
                 var fader = document.getElementById('transition-fader');
                 Velocity(fader, {opacity: [1, 0]}, 300, 'ease-in-out', function(){
-                    PageTransition.state.dispatchEvent('transitioned', this);
+                    PageTransition.dispatchEvent('transitioned', transition);
                 });
 
                 // Slide header navigation to selected item

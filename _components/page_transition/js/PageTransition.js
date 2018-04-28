@@ -3,66 +3,58 @@ define([
     'core-ext/HTMLAnchorElement',
     'core-ext/HTMLCollection'
 ], function(EventTarget) {
-    var PageTransition = Object.inherit({
-        constructor: function (category, fadeHeader) {
-            this.category = category;
-            this.fadeHeader = fadeHeader;
+    return new (EventTarget.inherit({
+        constructor: function() {
+            EventTarget.call(this)
         },
-        setActive: function () {
-            window.sessionStorage.setItem('pageTransitionCategory', this.category);
-            window.sessionStorage.setItem('pageTransitionFadeHeader', this.fadeHeader.toString());
+        setActive: function (transition) {
+            window.sessionStorage.setItem('pageTransition', JSON.stringify(transition));
 
             // The faded in page transition on unload might be persisted/cached
             // and interferes when navigating the browser history. (e.g. in Safari)
             var listener = function (e) {
-                if (!e.persisted) { return }
-                this.constructor.state.dispatchEvent('cleanUp', this);
+                if (!e.persisted) {
+                    return
+                }
+                this.dispatchEvent('cleanUp', transition);
                 window.removeEventListener('pageshow', listener, false);
             }.bind(this);
             window.addEventListener('pageshow', listener, false);
 
             return this;
-        }
-    });
-
-    PageTransition.getActive = function() {
-        var category = window.sessionStorage.getItem('pageTransitionCategory'),
-            fadeHeader = eval(window.sessionStorage.getItem('pageTransitionFadeHeader'));
-        return (category ? new PageTransition(category, fadeHeader) : null);
-    };
-
-    PageTransition.deleteActive = function() {
-        var pageTransition = this.getActive();
-        window.sessionStorage.removeItem('pageTransitionCategory');
-        window.sessionStorage.removeItem('pageTransitionFadeHeader');
-        return pageTransition;
-    };
-
-    PageTransition.state = new EventTarget();
-
-    PageTransition.setUp = function(options) {
-        var transition = PageTransition.deleteActive();
-        if (transition) {
-            options.fadePageIn();
-        }
-
-        // Hook into all links to control the start of the transition
-        document.getElementsByTagName('a').forEach(function(anchor) {
-            if (anchor.leavesWebsite() || anchor.jumpsWithinPage()) {
-                return;
+        },
+        getActive: function () {
+            var transitionJSON = window.sessionStorage.getItem('pageTransition');
+            return (transitionJSON ? JSON.parse(transitionJSON) : null);
+        },
+        deleteActive: function () {
+            var pageTransition = this.getActive();
+            window.sessionStorage.removeItem('pageTransition');
+            return pageTransition;
+        },
+        setUp: function (options) {
+            var transition = this.deleteActive();
+            if (transition) {
+                options.fadePageIn(transition);
             }
 
-            anchor.addEventListener('click', function(){ options.fadePageOut(anchor).setActive() });
-            anchor.delayLocationChangeUntil(PageTransition.state, 'transitioned');
-        });
+            // Hook into all links to control the fade-out transition
+            document.getElementsByTagName('a').forEach(function (anchor) {
+                if (anchor.leavesWebsite() || anchor.jumpsWithinPage()) {
+                    return;
+                }
 
-        PageTransition.state.addEventListener('cleanUp', function() {
-            options.cleanUp();
-        });
+                anchor.addEventListener('click', function () {
+                    var transition = options.fadePageOut(anchor);
+                    this.setActive(transition);
+                }.bind(this));
+                anchor.delayLocationChangeUntil(this, 'transitioned');
+            }.bind(this));
 
-        //reduce white flicker during page transition in IE
-        window.addEventListener('beforeunload', function(){});
-    };
+            this.addEventListener('cleanUp', options.cleanUp);
 
-    return PageTransition;
+            //reduce white flicker during page transition in IE
+            window.addEventListener('beforeunload', function(){});
+        }
+    }))();
 });
