@@ -12,7 +12,7 @@ define([
                 // transition dependent CSS classes already set in _sync.js
                 var fader = document.getElementById('transition-fader');
                 Velocity(fader, {opacity: [0, 1]}, 300, 'ease-in-out', function(){
-                    PageTransition.dispatchEvent('cleanUp', transition);
+                    PageTransition.cleanUp(transition);
                 })
             },
             fadePageOut: function(anchor) {
@@ -52,12 +52,10 @@ define([
 
                 return transition;
             },
-            cleanUp: function() {
+            cleanUp: function(transition) {
                 document.body.showScrollbar();
-                document.body.className.split(' ').forEach(function (cls) {
-                    if (cls.indexOf('-transition') === -1) { return }
-                    document.body.classList.remove(cls);
-                });
+                document.body.classList.remove(transition.category + '-transition');
+                transition.fadeHeader && document.body.classList.remove('header-fade-transition');
             }
         });
 

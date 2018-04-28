@@ -16,7 +16,7 @@ define([
                 if (!e.persisted) {
                     return
                 }
-                this.dispatchEvent('cleanUp', transition);
+                this.cleanUp(transition);
                 window.removeEventListener('pageshow', listener, false);
             }.bind(this);
             window.addEventListener('pageshow', listener, false);
@@ -33,6 +33,7 @@ define([
             return pageTransition;
         },
         setUp: function (options) {
+            // Immediately start the fade-in transition
             var transition = this.deleteActive();
             if (transition) {
                 options.fadePageIn(transition);
@@ -51,7 +52,8 @@ define([
                 anchor.delayLocationChangeUntil(this, 'transitioned');
             }.bind(this));
 
-            this.addEventListener('cleanUp', options.cleanUp);
+            // Attach a function to clean up the side effects of a transition
+            this.cleanUp = options.cleanUp;
 
             //reduce white flicker during page transition in IE
             window.addEventListener('beforeunload', function(){});
