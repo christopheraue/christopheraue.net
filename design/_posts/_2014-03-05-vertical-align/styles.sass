@@ -1,0 +1,165 @@
+/*
+ *  Figures
+ */
+.text figure
+  line-height: 1
+  &.center
+    text-align: center
+  &.bg-grey
+    background: #f0f0f0
+    padding: 1em
+  .center
+    text-align: center
+    display: inline-block
+    width: 100%
+  + pre
+    margin-top: 1em
+  * + *
+    margin-top: 0
+  figcaption
+    width: 100%
+    margin: 0
+    margin-top: 1em
+    font-style: italic
+    font-size: .8em
+
+/*
+ *  Background
+ */
+.text figure
+  .bg-grey
+    background: lightgrey
+  .bg-green
+    background: #c1cd89
+  .bg-yellow
+    background: #fcdb9a
+  .bg-blue
+    background: #8ab3bf
+    color: white
+
+/*
+ *  Border
+ */
+.text figure .border-grey
+  border: 1px solid lightgrey
+
+/*
+ *  Text
+ */
+.text figure .font
+  white-space: nowrap
+  line-height: 1
+  &.small
+    font-size: .6666em
+  &.smaller
+    font-size: .3333em
+  &.large
+    font-size: 1.5em
+  &.larger
+    font-size: 3em
+  &.tall-line-height
+    line-height: 2
+  &.short-line-height
+    line-height: .5
+  &.color-grey
+    color: lightgrey
+
+/*
+ *  Vertical Alignment
+ */
+.text figure
+  .top
+    display: inline-block
+    vertical-align: top
+  .bottom
+    display: inline-block
+    vertical-align: bottom
+  .middle
+    display: inline-block
+    vertical-align: middle
+  .baseline
+    display: inline-block
+    vertical-align: baseline
+  .text-top
+    display: inline-block
+    vertical-align: text-top
+  .text-bottom
+    display: inline-block
+    vertical-align: text-bottom
+  .sub
+    display: inline-block
+    vertical-align: sub
+  .super
+    display: inline-block
+    vertical-align: super
+
+/*
+ *  Boxes
+ */
+.text figure .box
+  min-width: 1em
+  min-height: 1em
+  &.shorter
+    min-height: .25em
+    &.quad
+      min-width: .25em
+  &.short
+    min-height: .5em
+    &.quad
+      min-width: .5em
+  &.tall
+    height: 2em
+    &.quad
+      width: 2em
+  &.taller
+    height: 4em
+    &.quad
+      width: 4em
+  &.quad.max-third-width
+    max-width: 30%
+
+/*
+ *  Overlays
+ */
+@mixin inline-overlay
+  display: inline-block
+  width: 100%
+  margin-right: -100%
+  position: relative
+  z-index: 10
+
+.text figure .inline-overlay
+  @include inline-overlay
+
+/*
+ *  Lines
+ */
+.text figure .line
+  @include inline-overlay
+  border-top: 1px solid black
+  &.dashed
+    border-style: dashed
+  &.dotted
+    border-style: dotted
+  &.grey
+    border-color: lightgrey
+  &.red
+    border-color: red
+  &.blue
+    border-color: blue
+  &.green
+    border-color: limegreen
+  &.orange
+    border-color: goldenrod
+
+/*
+ *  Box-Model
+ */
+.text figure .show-box-model
+  background: #c1cd89     //padding
+  border-color: #fcdb9a   //border
+  > .show-box-model-content
+    background: #8ab3bf    //content
+    display: block
+    min-width: 100%
+    min-height: 100%

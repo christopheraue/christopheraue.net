@@ -1,6 +1,7 @@
 ---
 title: 'Vertical-Align: All You Need To Know'
 summary: The CSS property vertical-align seems to have its own mind. Its feels unwieldy and does unexpected things. But there is actually a single rule that explains its behavior.
+custom_styles: _2014-03-05-vertical-align/styles.sass
 redirect_from:
   - /2014/03/05/vertical-align
   - /2014/03/05/vertical-align/
@@ -471,7 +472,7 @@ Some Examples:
     <p>Placing two larger elements in a line and vertically aligning them moves the baseline where it fulfils both alignments. Then the height of the line box is adjusted (left). Adding a third element, that does not go beyond the line box's edges because of its alignment, affects neither the line box's height nor the baseline's position (middle). If it *does* go beyond the line box's edges, the line box's height and baseline are adjusted, again. In this case, our first two boxes are pushed down (right).</p>
 
     <figure class="columns">
-        <div class="third baseline"><!--
+        <div class="third top"><!--
          --><span class="green dotted line text-top"> </span><!--
          --><span class="green dotted line text-bottom"> </span><!--
          --><span class="red dotted line top"> </span><!--
@@ -482,7 +483,7 @@ Some Examples:
                 <span class="taller box bg-grey text-top"> </span>
             </span>
         </div><!--
-     --><div class="third baseline"><!--
+     --><div class="third top"><!--
          --><span class="green dotted line text-top"> </span><!--
          --><span class="green dotted line text-bottom"> </span><!--
          --><span class="red dotted line top"> </span><!--
@@ -494,7 +495,7 @@ Some Examples:
                 <span class="taller box bg-grey middle"> </span>
             </span>
         </div><!--
-     --><div class="third baseline"><!--
+     --><div class="third top"><!--
          --><span class="green dotted line text-top"> </span><!--
          --><span class="green dotted line text-bottom"> </span><!--
          --><span class="red dotted line top"> </span><!--

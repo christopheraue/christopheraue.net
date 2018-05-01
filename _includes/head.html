@@ -17,5 +17,13 @@
 <link rel="alternate" type="application/rss+xml" title="christopheraue.net" href="{{ site.url | append: page.url | append: '/feed.xml' }}">
 {% endif %}
 <link rel="stylesheet" href="{{ "/assets/styles.css" | fingerprint }}" type="text/css" />
+{% if page.custom_styles %}
+<style>
+{% capture styles %}
+{% include_relative {{ page.custom_styles }} %}
+{% endcapture %}
+{{ styles | sassify }}
+</style>
+{% endif %}
 <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,500|Source+Code+Pro:300,500,900|Open+Sans+Condensed:700" rel="stylesheet">
 <script data-main="{{ "/assets/async.js" | fingerprint }}" src="{{ "/assets/sync.js" | fingerprint }}"></script>
