@@ -4,8 +4,13 @@ define(function() {
 
         if (typeof methods === 'undefined') {
             constructor = function(){};
-        } else if (typeof methods.constructor === 'undefined') {
-            constructor = function(){};
+        } else if (!methods.hasOwnProperty('constructor')) {
+            if (this === Object) {
+                constructor = function(){}
+            } else {
+                var superconstructor = this;
+                constructor = function(){ superconstructor.call(this) }
+            }
         } else if (typeof methods.constructor !== 'function') {
             throw "constructor no function";
         } else {

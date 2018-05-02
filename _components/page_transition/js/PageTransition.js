@@ -3,9 +3,6 @@ define([
     'core-ext/HTMLAnchorElement'
 ], function(EventTarget) {
     return new (EventTarget.inherit({
-        constructor: function() {
-            EventTarget.call(this)
-        },
         setActive: function (transition) {
             window.sessionStorage.setItem('pageTransition', JSON.stringify(transition));
 
