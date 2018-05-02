@@ -1,7 +1,6 @@
 define([
     '_components/_global/EventTarget',
-    'core-ext/HTMLAnchorElement',
-    'core-ext/HTMLCollection'
+    'core-ext/HTMLAnchorElement'
 ], function(EventTarget) {
     return new (EventTarget.inherit({
         constructor: function() {

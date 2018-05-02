@@ -4,7 +4,9 @@ define([
     './sync/classList',
     './sync/Event_constructor',
     './sync/document_ready',
-    './sync/Function_inherit'
+    './sync/Function_inherit',
+    './sync/HTMLCollection',
+    './sync/NodeList'
 ], function() {
 
 });

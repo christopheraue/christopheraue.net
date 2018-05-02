@@ -3,9 +3,7 @@
  * element by giving it one of the js-activate-on-* classes.
  */
 
-define([
-    'core-ext/HTMLCollection'
-], function(){
+define(function(){
     var ActivatableElement = Object.inherit({
         constructor: function(el) {
             this.el = el;

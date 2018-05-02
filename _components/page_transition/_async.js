@@ -3,7 +3,6 @@ define([
     'lib/velocity',
     'core-ext/body',
     'core-ext/HTMLAnchorElement',
-    'core-ext/HTMLCollection',
     'core-ext/Location'
 ], function(PageTransition, Velocity){
     document.ready(function() {
