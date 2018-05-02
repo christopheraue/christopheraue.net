@@ -13,16 +13,16 @@
    height="36"
    viewBox="0 0 36 36"
    version="1.1"
-   sodipodi:docname="square_T.svg"
+   sodipodi:docname="tile_R.svg"
    inkscape:version="0.92.2 5c3e80d, 2017-08-06"
    role="img"
-   aria-labelledby="square-t-title"
-   class="square-t"
-   id="svg36796">
+   aria-labelledby="TileR-title"
+   class="Tile Tile-R"
+   id="svg23224">
   <title
-     id="square-t-title">T</title>
+     id="TileR-title">R</title>
   <desc
-     id="square-t-desc">A square with the letter T punched into it</desc>
+     id="TileR-desc">A square with the letter R punched into it</desc>
   <defs
      id="defs852" />
   <sodipodi:namedview
@@ -33,7 +33,7 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.0000001"
-     inkscape:cx="-234.25258"
+     inkscape:cx="-401.75255"
      inkscape:cy="-131.52554"
      inkscape:document-units="px"
      showgrid="true"
@@ -56,14 +56,14 @@
      inkscape:bbox-nodes="true"
      inkscape:snap-bbox-edge-midpoints="false"
      inkscape:snap-global="false"
-     inkscape:current-layer="svg36796">
+     inkscape:current-layer="svg23224">
     <inkscape:grid
        type="xygrid"
        id="grid10679"
        spacingx="50.000003"
        spacingy="50.000003"
        empspacing="2"
-       originx="-200"
+       originx="-80"
        originy="-64" />
   </sodipodi:namedview>
   <metadata
@@ -80,8 +80,8 @@
   </metadata>
   <path
      inkscape:connector-curvature="0"
-     d="M 0,0 V 36 H 36 V 0 Z m 10.26547,8.64866 h 15.4687 v 3.58578 h -5.625 V 27.35143 H 15.89046 V 12.23444 h -5.62499 z"
-     sodipodi:nodetypes="cccccccccccccc"
+     d="M 0,0 V 36 H 36 V 0 Z m 15.82023,8.50785 c 2.80809,2e-4 4.9746,0.47758 6.46875,1.47659 1.49413,0.999 2.24999,2.60482 2.25,4.71082 -10e-6,1.31391 -0.31083,2.34519 -0.91404,3.16419 -0.60321,0.81894 -1.46782,1.50077 -2.60155,1.9688 0.37795,0.46805 0.78145,0.94397 1.19523,1.54679 0.41394,0.60291 0.79023,1.24165 1.19524,1.8986 0.40502,0.65673 0.81729,1.32782 1.19524,2.039 0.37795,0.71086 0.73066,1.42519 1.05464,2.10921 h -4.71092 c -0.34182,-0.61198 -0.7036,-1.19796 -1.054641,-1.82801 -0.35105,-0.62997 -0.68546,-1.23409 -1.05464,-1.8282 -0.36919,-0.59399 -0.76528,-1.15639 -1.12509,-1.68741 -0.35981,-0.53095 -0.69438,-1.04496 -1.05464,-1.47674 h -2.109372 v 6.8204 H 10.33579 V 9.0001 C 11.254215,8.82019 12.237784,8.72056 13.218602,8.6486 14.199465,8.576 15.04617,8.50952 15.82016,8.50952 Z m -0.562392,3.586 c -0.243099,0.0197 -0.487257,0.0514 -0.703143,0.0695 v 5.0624 h 1.195235 c 1.58423,2e-4 2.69109,-0.166 3.37502,-0.56239 0.68379,-0.39564 1.05463,-1.08473 1.05463,-2.039 -1e-5,-0.91797 -0.36177,-1.58179 -1.05463,-1.9688 -0.69287,-0.38702 -1.67325,-0.56239 -3.02346,-0.56239 -0.30599,0 -0.600794,-0.0197 -0.843743,0 z"
+     sodipodi:nodetypes="cccccccccccccccccccccccccccccccccscc"
      style="stroke-width:0"
-     id="path36794" />
+     id="path23222" />
 </svg>

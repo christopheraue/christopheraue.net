@@ -13,15 +13,16 @@
    height="36"
    viewBox="0 0 36 36"
    version="1.1"
-   sodipodi:docname="square_C.svg"
+   sodipodi:docname="tile_C.svg"
    inkscape:version="0.92.2 5c3e80d, 2017-08-06"
    role="img"
-   aria-labelledby="square-c-title"
-   class="square-c">
+   aria-labelledby="TileC-title"
+   class="Tile Tile-C"
+   id="svg4841">
   <title
-     id="square-c-title">C</title>
+     id="TileC-title">C</title>
   <desc
-     id="square-c-desc">A square with the letter C punched into it</desc>
+     id="TileC-desc">A square with the letter C punched into it</desc>
   <defs
      id="defs852" />
   <sodipodi:namedview
@@ -32,7 +33,7 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.0000001"
-     inkscape:cx="-107.25258"
+     inkscape:cx="-394.75255"
      inkscape:cy="-170.52554"
      inkscape:document-units="px"
      showgrid="true"
@@ -54,7 +55,8 @@
      inkscape:bbox-paths="false"
      inkscape:bbox-nodes="true"
      inkscape:snap-bbox-edge-midpoints="false"
-     inkscape:snap-global="false">
+     inkscape:snap-global="false"
+     inkscape:current-layer="svg4841">
     <inkscape:grid
        type="xygrid"
        id="grid10679"

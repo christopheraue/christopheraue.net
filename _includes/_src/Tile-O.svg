@@ -13,16 +13,16 @@
    height="36"
    viewBox="0 0 36 36"
    version="1.1"
-   sodipodi:docname="square_O.svg"
+   sodipodi:docname="tile_O.svg"
    inkscape:version="0.92.2 5c3e80d, 2017-08-06"
    role="img"
-   aria-labelledby="square-o-title"
-   class="square-o"
+   aria-labelledby="TileO-title"
+   class="Tile Tile-O"
    id="svg41320">
   <title
-     id="square-o-title">O</title>
+     id="TileO-title">O</title>
   <desc
-     id="square-o-desc">A square with the letter O punched into it</desc>
+     id="TileO-desc">A square with the letter O punched into it</desc>
   <defs
      id="defs852" />
   <sodipodi:namedview
@@ -33,8 +33,8 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.0000001"
-     inkscape:cx="-274.25258"
-     inkscape:cy="-131.52554"
+     inkscape:cx="-176.75259"
+     inkscape:cy="-129.52554"
      inkscape:document-units="px"
      showgrid="true"
      fit-margin-top="0"

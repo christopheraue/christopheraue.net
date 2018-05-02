@@ -13,16 +13,16 @@
    height="36"
    viewBox="0 0 36 36"
    version="1.1"
-   sodipodi:docname="square_P.svg"
+   sodipodi:docname="tile_T.svg"
    inkscape:version="0.92.2 5c3e80d, 2017-08-06"
    role="img"
-   aria-labelledby="square-p-title"
-   class="square-p"
-   id="svg50364">
+   aria-labelledby="TileT-title"
+   class="Tile Tile-T"
+   id="svg36796">
   <title
-     id="square-p-title">P</title>
+     id="TileT-title">T</title>
   <desc
-     id="square-p-desc">A square with the letter P punched into it</desc>
+     id="TileT-desc">A square with the letter T punched into it</desc>
   <defs
      id="defs852" />
   <sodipodi:namedview
@@ -33,7 +33,7 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.0000001"
-     inkscape:cx="-314.25258"
+     inkscape:cx="-521.75255"
      inkscape:cy="-131.52554"
      inkscape:document-units="px"
      showgrid="true"
@@ -56,14 +56,14 @@
      inkscape:bbox-nodes="true"
      inkscape:snap-bbox-edge-midpoints="false"
      inkscape:snap-global="false"
-     inkscape:current-layer="svg50364">
+     inkscape:current-layer="svg36796">
     <inkscape:grid
        type="xygrid"
        id="grid10679"
        spacingx="50.000003"
        spacingy="50.000003"
        empspacing="2"
-       originx="-280"
+       originx="-200"
        originy="-64" />
   </sodipodi:namedview>
   <metadata
@@ -80,8 +80,8 @@
   </metadata>
   <path
      inkscape:connector-curvature="0"
-     d="M 0,0 V 36 H 36 V 0 Z m 16.45292,8.50785 c 2.78997,2e-4 4.97454,0.49588 6.46873,1.47659 1.49428,0.98086 2.24996,2.54881 2.24996,4.78121 0,2.24999 -0.80822,3.92299 -2.32025,4.92179 -1.51204,0.999 -3.6607,1.47673 -6.46874,1.47658 h -1.33599 v 6.25781 H 10.82792 V 9.00004 c 0.91843,-0.17991 1.9273,-0.27954 2.95314,-0.3515 1.02591,-0.0726 1.89781,-0.13909 2.67186,-0.13909 z m -0.63285,3.586 c -0.29707,0.0197 -0.55755,0.0514 -0.77344,0.0695 v 5.4142 h 1.33599 c 1.45784,0 2.5666,-0.166 3.30463,-0.56255 0.73806,-0.39594 1.12494,-1.16999 1.12509,-2.24999 -4e-5,-0.52188 -0.0922,-0.92342 -0.2812,-1.26569 -0.18935,-0.34228 -0.49285,-0.63708 -0.84359,-0.84374 -0.35112,-0.20682 -0.76165,-0.34092 -1.26569,-0.4218 -0.50404,-0.0816 -1.0755,-0.13909 -1.68752,-0.13909 -0.30576,0 -0.61697,-0.0197 -0.91404,0 z"
-     sodipodi:nodetypes="cccccccsccccccccccccscccccscc"
+     d="M 0,0 V 36 H 36 V 0 Z m 10.26547,8.64866 h 15.4687 v 3.58578 h -5.625 V 27.35143 H 15.89046 V 12.23444 h -5.62499 z"
+     sodipodi:nodetypes="cccccccccccccc"
      style="stroke-width:0"
-     id="path50362" />
+     id="path36794" />
 </svg>

@@ -13,16 +13,16 @@
    height="36"
    viewBox="0 0 36 36"
    version="1.1"
-   sodipodi:docname="square_H.svg"
+   sodipodi:docname="tile_I.svg"
    inkscape:version="0.92.2 5c3e80d, 2017-08-06"
    role="img"
-   aria-labelledby="square-h-title"
-   class="square-h"
-   id="svg68427">
+   aria-labelledby="TileI-title"
+   class="Tile Tile-I"
+   id="svg27748">
   <title
-     id="square-h-title">H</title>
+     id="TileI-title">I</title>
   <desc
-     id="square-h-desc">A square with the letter H punched into it</desc>
+     id="TileI-desc">A square with the letter I punched into it</desc>
   <defs
      id="defs852" />
   <sodipodi:namedview
@@ -33,8 +33,8 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.0000001"
-     inkscape:cx="-285.25262"
-     inkscape:cy="-204.52554"
+     inkscape:cx="-441.75255"
+     inkscape:cy="-131.52554"
      inkscape:document-units="px"
      showgrid="true"
      fit-margin-top="0"
@@ -56,14 +56,14 @@
      inkscape:bbox-nodes="true"
      inkscape:snap-bbox-edge-midpoints="false"
      inkscape:snap-global="false"
-     inkscape:current-layer="svg68427">
+     inkscape:current-layer="svg27748">
     <inkscape:grid
        type="xygrid"
        id="grid10679"
        spacingx="50.000003"
        spacingy="50.000003"
        empspacing="2"
-       originx="-320"
+       originx="-120"
        originy="-64" />
   </sodipodi:namedview>
   <metadata
@@ -74,14 +74,14 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title>Christopher Aue</dc:title>
+        <dc:title>H</dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <path
      inkscape:connector-curvature="0"
-     d="M 0,0 V 36 H 36 V 0 Z m 10.26533,8.64866 h 4.21882 v 7.1014 h 7.03121 v -7.1014 h 4.21874 v 18.70277 h -4.21874 v -7.94519 h -7.03121 v 7.94519 h -4.21882 z"
-     sodipodi:nodetypes="cccccccccccccccccc"
+     d="M 0,0 V 36 H 36 V 0 Z m 15.89051,8.64866 h 4.21874 v 18.70277 h -4.21874 z"
+     sodipodi:nodetypes="cccccccccc"
      style="stroke-width:0"
-     id="path68425" />
+     id="path27746" />
 </svg>

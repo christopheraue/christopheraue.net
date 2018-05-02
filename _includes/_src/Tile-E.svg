@@ -13,16 +13,16 @@
    height="36"
    viewBox="0 0 36 36"
    version="1.1"
-   sodipodi:docname="square_E.svg"
+   sodipodi:docname="tile_E.svg"
    inkscape:version="0.92.2 5c3e80d, 2017-08-06"
    role="img"
-   aria-labelledby="square-e-title"
-   class="square-e"
+   aria-labelledby="TileE-title"
+   class="Tile Tile-E"
    id="svg54915">
   <title
-     id="square-e-title">E</title>
+     id="TileE-title">E</title>
   <desc
-     id="square-e-desc">A square with the letter E punched into it</desc>
+     id="TileE-desc">A square with the letter E punched into it</desc>
   <defs
      id="defs852" />
   <sodipodi:namedview
@@ -33,7 +33,7 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.0000001"
-     inkscape:cx="-394.25258"
+     inkscape:cx="-681.75255"
      inkscape:cy="-131.52554"
      inkscape:document-units="px"
      showgrid="true"
