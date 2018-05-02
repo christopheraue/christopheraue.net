@@ -13,7 +13,7 @@
             <a href="/{{ page.category }}" class="nav-item {{ page.category }}" title="Go to /{{ page.category }}">
           {% endif %}
               <div class="slash-text">
-                {% include_svg slash_{{ page.category }}.svg %}
+                {% component Slash{{ page.category | capitalize }} %}
               </div><!--
            --><div class="arrow"></div>
           {% if page.url == slashed_category %}
@@ -27,7 +27,7 @@
         <li>
           <a href="/{{ category }}" class="nav-item {{ category }}" title="Go to /{{ category }}">
             <div class="slash-text">
-              {% include_svg slash_{{ category }}.svg %}
+              {% component Slash{{ category | capitalize }} %}
             </div>
           </a>
         </li>
