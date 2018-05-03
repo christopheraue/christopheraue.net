@@ -1,55 +1,34 @@
 define([
     './js/PageTransition',
-    'lib/velocity',
-    'core-ext/body',
+    '_components/_global/Page',
+    'home/_components/home/Homepage.js',
     'core-ext/Location'
-], function(PageTransition, Velocity){
+], function(PageTransition, Page, Homepage){
     document.ready(function() {
         PageTransition.setUp({
             fadePageIn: function(transition) {
-                // transition dependent CSS classes already set in _sync.js
-                var fader = document.getElementById('transition-fader');
-                Velocity(fader, {opacity: [0, 1]}, 300, 'ease-in-out', function(){
-                    PageTransition.cleanUp(transition);
-                })
+                var category = window.location.extractCategory();
+                if (category === 'home') {
+                    (new Homepage(category)).transitionIn(transition);
+                } else {
+                    (new Page(category)).transitionIn(transition);
+                }
             },
             fadePageOut: function(targetCategory) {
-                var header = document.querySelector('body > header'),
-                    currentCategory = window.location.extractCategory(),
-                    transition = {category: targetCategory, fadeHeader: true};
-
-                if (header && header.inView() && transition.category !== 'home') {
-                    document.body.smoothScrollIntoView('top', '300ms ease-in-out');
-                    transition.fadeHeader = false;
+                var category = window.location.extractCategory();
+                if (category === 'home') {
+                    return (new Homepage(category)).transitionOut(targetCategory);
+                } else {
+                    return (new Page(category)).transitionOut(targetCategory);
                 }
-
-                if (transition.category === 'home') {
-                    document.body.hideScrollbar();
-                }
-
-                // Fade page
-                document.body.classList.add(transition.category + '-transition');
-                var fader = document.getElementById('transition-fader');
-                Velocity(fader, {opacity: [1, 0]}, 300, 'ease-in-out', function(){
-                    PageTransition.dispatchEvent('transitioned', transition);
-                });
-
-                // Transition header
-                if (transition.fadeHeader) {
-                    document.body.classList.add('header-fade-transition');
-                } else if (currentCategory !== transition.category) {
-                    // Slide header navigation to selected item
-                    var headerNavUl = document.querySelector('body > header nav ul'),
-                        headerNavHeight = headerNavUl.children[0].offsetHeight;
-                    Velocity(headerNavUl, {translateY: -headerNavHeight + 'px'}, 300, 'ease-in-out')
-                }
-
-                return transition;
             },
             cleanUp: function(transition) {
-                document.body.showScrollbar();
-                document.body.classList.remove(transition.category + '-transition');
-                transition.fadeHeader && document.body.classList.remove('header-fade-transition');
+                var category = window.location.extractCategory();
+                if (category === 'home') {
+                    (new Homepage(category)).cleanUpTransition(transition);
+                } else {
+                    (new Page(category)).cleanUpTransition(transition);
+                }
             }
         });
 
