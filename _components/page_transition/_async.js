@@ -2,7 +2,6 @@ define([
     './js/PageTransition',
     'lib/velocity',
     'core-ext/body',
-    'core-ext/HTMLAnchorElement',
     'core-ext/Location'
 ], function(PageTransition, Velocity){
     document.ready(function() {
@@ -14,36 +13,32 @@ define([
                     PageTransition.cleanUp(transition);
                 })
             },
-            fadePageOut: function(anchor) {
+            fadePageOut: function(targetCategory) {
                 var header = document.querySelector('body > header'),
                     currentCategory = window.location.extractCategory(),
-                    transition = {category: anchor.extractCategory(), fadeHeader: false};
+                    transition = {category: targetCategory, fadeHeader: true};
 
-                if (currentCategory === 'home') {
-                    transition.fadeHeader = true;
-                } else if (header.inView() && transition.category !== 'home') {
+                if (header && header.inView() && transition.category !== 'home') {
                     document.body.smoothScrollIntoView('top', '300ms ease-in-out');
                     transition.fadeHeader = false;
-                } else {
-                    transition.fadeHeader = true;
                 }
 
                 if (transition.category === 'home') {
                     document.body.hideScrollbar();
                 }
-                document.body.classList.add(transition.category + '-transition');
-                transition.fadeHeader && document.body.classList.add('header-fade-transition');
 
                 // Fade page
+                document.body.classList.add(transition.category + '-transition');
                 var fader = document.getElementById('transition-fader');
                 Velocity(fader, {opacity: [1, 0]}, 300, 'ease-in-out', function(){
                     PageTransition.dispatchEvent('transitioned', transition);
                 });
 
-                // Slide header navigation to selected item
-                var designToCollateral = currentCategory === 'design' && transition.category === 'collateral',
-                    collateralToDesign = currentCategory === 'collateral' && transition.category === 'design';
-                if (designToCollateral || collateralToDesign) {
+                // Transition header
+                if (transition.fadeHeader) {
+                    document.body.classList.add('header-fade-transition');
+                } else if (currentCategory !== transition.category) {
+                    // Slide header navigation to selected item
                     var headerNavUl = document.querySelector('body > header nav ul'),
                         headerNavHeight = headerNavUl.children[0].offsetHeight;
                     Velocity(headerNavUl, {translateY: -headerNavHeight + 'px'}, 300, 'ease-in-out')

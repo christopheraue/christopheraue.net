@@ -42,7 +42,7 @@ define([
                 }
 
                 anchor.addEventListener('click', function () {
-                    var transition = options.fadePageOut(anchor);
+                    var transition = options.fadePageOut(anchor.extractCategory());
                     this.setActive(transition);
                 }.bind(this));
                 anchor.delayLocationChangeUntil(this, 'transitioned');
