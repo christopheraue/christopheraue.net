@@ -1,27 +1,26 @@
 define([
     '_components/_global/EventTarget',
     'lib/velocity',
+    '_components/page_transition/PageTransition',
     'core-ext/body'
-], function(EventTarget, Velocity) {
+], function(EventTarget, Velocity, PageTransition) {
     return EventTarget.inherit({
         constructor: function(category) {
             this.constructor.superconstructor.call(this);
             this.category = category;
         },
         transitionIn: function(transition) {
-            // transition dependent CSS classes already set in _sync.js
-            var fader = document.getElementById('transition-fader');
-            Velocity(fader, {opacity: [0, 1]}, 300, 'ease-in-out', function(){
+            PageTransition.fader.showPage(transition, function() {
                 this.cleanUpTransition(transition);
             }.bind(this));
         },
         transitionOut: function(targetCategory) {
-            var transition = {category: targetCategory, fadeHeader: true},
+            var transition = {category: targetCategory, transitionHeader: true},
                 header = document.querySelector('body > header');
 
             if (header && header.inView() && transition.category !== 'home') {
                 document.body.smoothScrollIntoView('top', '300ms ease-in-out');
-                transition.fadeHeader = false;
+                transition.transitionHeader = false;
             }
 
             if (transition.category === 'home') {
@@ -29,16 +28,12 @@ define([
             }
 
             // Fade page
-            document.body.classList.add(transition.category + '-transition');
-            var fader = document.getElementById('transition-fader');
-            Velocity(fader, {opacity: [1, 0]}, 300, 'ease-in-out', function(){
+            PageTransition.fader.hidePage(transition, function() {
                 this.dispatchEvent('transitionedOut', transition);
             }.bind(this));
 
             // Transition header
-            if (transition.fadeHeader) {
-                document.body.classList.add('header-fade-transition');
-            } else if (this.category !== transition.category) {
+            if (!transition.transitionHeader && this.category !== transition.category) {
                 // Slide header navigation to selected item
                 var headerNavUl = document.querySelector('body > header nav ul'),
                     headerNavHeight = headerNavUl.children[0].offsetHeight;
@@ -49,8 +44,7 @@ define([
         },
         cleanUpTransition: function(transition) {
             document.body.showScrollbar();
-            document.body.classList.remove(transition.category + '-transition');
-            transition.fadeHeader && document.body.classList.remove('header-fade-transition');
+            PageTransition.fader.cleanUpTransition(transition);
         }
     })
 });

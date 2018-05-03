@@ -1,5 +1,5 @@
 define([
-    './js/PageTransition',
+    './PageTransition',
     '_components/_global/Page',
     'home/_components/home/Homepage.js',
     'core-ext/Location'

@@ -1,7 +1,8 @@
 define([
+    './PageTransition/Fader',
     'core-ext/HTMLAnchorElement'
-], function() {
-    return new (Object.inherit({
+], function(Fader) {
+    var PageTransition = new (Object.inherit({
         setActive: function(transition) {
             window.sessionStorage.setItem('pageTransition', JSON.stringify(transition));
 
@@ -51,4 +52,8 @@ define([
             window.addEventListener('beforeunload', function(){});
         }
     }))();
+
+    PageTransition.fader = new Fader();
+
+    return PageTransition;
 });

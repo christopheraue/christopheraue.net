@@ -4,7 +4,7 @@ body > header
   position: relative
   z-index: 999995
 
-#transition-fader
+.PageTransition-Fader
   position: fixed
   z-index: 999994 // below the header
   top: 0
@@ -13,20 +13,20 @@ body > header
   height: 100%
   pointer-events: none
 
-body.header-fade-transition #transition-fader
+.PageTransition-Fader.hide-header
   z-index: 999996 // above the header
 
 /*
  * ATTENTION! The following styles are tightly linked to the design of
  *            the corresponding categories!
  */
-body.design-transition #transition-fader
+.PageTransition-Fader.design-transition
   background: $design-dark
 
-body.collateral-transition #transition-fader
+.PageTransition-Fader.collateral-transition
   background: $collateral-dark
 
-body.home-transition #transition-fader
+.PageTransition-Fader.home-transition
   background: linear-gradient(to bottom, $design-dark 50%, $collateral-dark 50%)
   @media screen and (min-aspect-ratio: 1/1)
     background: linear-gradient(to right, $design-dark 50%, $collateral-dark 50%)
