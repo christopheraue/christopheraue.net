@@ -1,8 +1,7 @@
 define([
-    '_components/_global/EventTarget',
     'core-ext/HTMLAnchorElement'
-], function(EventTarget) {
-    return new (EventTarget.inherit({
+], function() {
+    return new (Object.inherit({
         setActive: function(transition) {
             window.sessionStorage.setItem('pageTransition', JSON.stringify(transition));
 
@@ -45,7 +44,7 @@ define([
                     var transition = page.transitionOut(anchor.extractCategory());
                     this.setActive(transition);
                 }.bind(this));
-                anchor.delayLocationChangeUntil(this, 'transitioned');
+                anchor.delayLocationChangeUntil(page, 'transitionedOut');
             }.bind(this));
 
             //reduce white flicker during page transition in IE

@@ -1,9 +1,10 @@
 define([
-    '_components/page_transition/js/PageTransition',
+    '_components/_global/EventTarget',
     'lib/velocity'
-], function(PageTransition, Velocity) {
-    return Object.inherit({
+], function(EventTarget, Velocity) {
+    return EventTarget.inherit({
         constructor: function(category) {
+            this.constructor.superconstructor.call(this);
             this.category = category;
         },
         transitionIn: function(transition) {
@@ -20,8 +21,8 @@ define([
             document.body.classList.add(transition.category + '-transition');
             var fader = document.getElementById('transition-fader');
             Velocity(fader, {opacity: [1, 0]}, 300, 'ease-in-out', function(){
-                PageTransition.dispatchEvent('transitioned', transition);
-            });
+                this.dispatchEvent('transitionedOut', transition);
+            }.bind(this));
 
             return transition;
         },
