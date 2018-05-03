@@ -10,8 +10,8 @@ define([
             // transition dependent CSS classes already set in _sync.js
             var fader = document.getElementById('transition-fader');
             Velocity(fader, {opacity: [0, 1]}, 300, 'ease-in-out', function() {
-                PageTransition.cleanUp(transition);
-            });
+                this.cleanUpTransition(transition);
+            }.bind(this));
         },
         transitionOut: function(targetCategory) {
             var transition = {category: targetCategory, fadeHeader: true};

@@ -3,53 +3,50 @@ define([
     'core-ext/HTMLAnchorElement'
 ], function(EventTarget) {
     return new (EventTarget.inherit({
-        setActive: function (transition) {
+        setActive: function(transition) {
             window.sessionStorage.setItem('pageTransition', JSON.stringify(transition));
 
             // The faded in page transition on unload might be persisted/cached
             // and interferes when navigating the browser history. (e.g. in Safari)
-            var listener = function (e) {
-                if (!e.persisted) {
-                    return
-                }
-                this.cleanUp(transition);
+            var listener = function(e) {
+                if (!e.persisted) { return }
+                this.page.cleanUpTransition(transition);
                 window.removeEventListener('pageshow', listener, false);
             }.bind(this);
             window.addEventListener('pageshow', listener, false);
 
             return this;
         },
-        getActive: function () {
+        getActive: function() {
             var transitionJSON = window.sessionStorage.getItem('pageTransition');
             return (transitionJSON ? JSON.parse(transitionJSON) : null);
         },
-        deleteActive: function () {
+        deleteActive: function() {
             var pageTransition = this.getActive();
             window.sessionStorage.removeItem('pageTransition');
             return pageTransition;
         },
-        setUp: function (options) {
+        setUpFor: function(page) {
+            this.page = page;
+
             // Immediately start the fade-in transition
             var transition = this.deleteActive();
             if (transition) {
-                options.fadePageIn(transition);
+                page.transitionIn(transition);
             }
 
             // Hook into all links to control the fade-out transition
-            document.getElementsByTagName('a').forEach(function (anchor) {
+            document.getElementsByTagName('a').forEach(function(anchor) {
                 if (anchor.leavesWebsite() || anchor.jumpsWithinPage()) {
                     return;
                 }
 
-                anchor.addEventListener('click', function () {
-                    var transition = options.fadePageOut(anchor.extractCategory());
+                anchor.addEventListener('click', function() {
+                    var transition = page.transitionOut(anchor.extractCategory());
                     this.setActive(transition);
                 }.bind(this));
                 anchor.delayLocationChangeUntil(this, 'transitioned');
             }.bind(this));
-
-            // Attach a function to clean up the side effects of a transition
-            this.cleanUp = options.cleanUp;
 
             //reduce white flicker during page transition in IE
             window.addEventListener('beforeunload', function(){});

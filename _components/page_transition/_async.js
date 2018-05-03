@@ -5,32 +5,11 @@ define([
     'core-ext/Location'
 ], function(PageTransition, Page, Homepage){
     document.ready(function() {
-        PageTransition.setUp({
-            fadePageIn: function(transition) {
-                var category = window.location.extractCategory();
-                if (category === 'home') {
-                    (new Homepage(category)).transitionIn(transition);
-                } else {
-                    (new Page(category)).transitionIn(transition);
-                }
-            },
-            fadePageOut: function(targetCategory) {
-                var category = window.location.extractCategory();
-                if (category === 'home') {
-                    return (new Homepage(category)).transitionOut(targetCategory);
-                } else {
-                    return (new Page(category)).transitionOut(targetCategory);
-                }
-            },
-            cleanUp: function(transition) {
-                var category = window.location.extractCategory();
-                if (category === 'home') {
-                    (new Homepage(category)).cleanUpTransition(transition);
-                } else {
-                    (new Page(category)).cleanUpTransition(transition);
-                }
-            }
-        });
+        var category = window.location.extractCategory(),
+            pageClass = (category === 'home') ? Homepage : Page,
+            page = new pageClass(category);
+
+        PageTransition.setUpFor(page);
 
         // Deactivate the header navigation for its transition
         var topnav = document.querySelector('body > header nav');
