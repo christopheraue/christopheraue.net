@@ -5,15 +5,17 @@ define([
         constructor: function() {
             this.el = document.querySelector('body > header');
         },
-        transitionIn: function(transition, onShown) {
+        transitionIn: function(transition, onTransitioned) {
             // CSS classes already set in inlined javascript in _markup.html
-            // nothing else to do
+            onTransitioned(this);
         },
-        transitionOut: function(transition, onHidden) {
+        transitionOut: function(transition, onTransitioned) {
             if (this.el.inView() && transition.to !== 'home') {
                 transition.transitionHeader = false;
                 this.el.classList.add('on-top');
-                Velocity(document.body, 'scroll', 300, 'ease-in-out');
+                Velocity(document.body, 'scroll', 300, 'ease-in-out', function() {
+                    onTransitioned(this)
+                }.bind(this));
 
                 if (transition.from !== transition.to) {
                     // Slide header navigation to selected item
@@ -23,6 +25,7 @@ define([
                 }
             } else {
                 transition.transitionHeader = true;
+                onTransitioned(this);
             }
         },
         cleanUpTransition: function(transition) {

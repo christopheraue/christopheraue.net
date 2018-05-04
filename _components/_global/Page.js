@@ -9,14 +9,19 @@ define([
         constructor: function(category) {
             this.constructor.superconstructor.call(this);
             this.category = category;
-            this.header = new PageHeader();
-            this.fader = PageTransition.fader;
+            this.transitionBlocks = [new PageHeader(), PageTransition.fader];
         },
         transitionIn: function(transition) {
-            this.header.transitionIn(transition);
-            this.fader.transitionIn(transition, function() {
-                this.cleanUpTransition(transition);
-            }.bind(this));
+            var transitioning = [].concat(this.transitionBlocks),
+                onTransitioned = function(block) {
+                    transitioning.splice(transitioning.indexOf(block), 1);
+                    if (transitioning.length > 0) { return }
+                    this.cleanUpTransition(transition);
+                }.bind(this);
+
+            this.transitionBlocks.forEach(function(block) {
+                block.transitionIn(transition, onTransitioned);
+            });
         },
         transitionOut: function(targetCategory) {
             var transition = {from: this.category, to: targetCategory};
@@ -25,10 +30,16 @@ define([
                 document.body.hideScrollbar();
             }
 
-            this.header.transitionOut(transition);
-            this.fader.transitionOut(transition, function() {
-                this.dispatchEvent('transitionedOut', transition);
-            }.bind(this));
+            var transitioning = [].concat(this.transitionBlocks),
+                onTransitioned = function(block) {
+                    transitioning.splice(transitioning.indexOf(block), 1);
+                    if (transitioning.length > 0) { return }
+                    this.dispatchEvent('transitionedOut', transition);
+                }.bind(this);
+
+            this.transitionBlocks.forEach(function(block) {
+                block.transitionOut(transition, onTransitioned);
+            });
 
             return transition;
         },
@@ -37,8 +48,9 @@ define([
                 document.body.showScrollbar();
             }
 
-            this.header.cleanUpTransition(transition);
-            this.fader.cleanUpTransition(transition);
+            this.transitionBlocks.forEach(function(block) {
+                block.cleanUpTransition(transition);
+            });
         }
     })
 });
