@@ -15,36 +15,40 @@ define([
             }.bind(this));
         },
         transitionOut: function(targetCategory) {
-            var transition = {category: targetCategory, transitionHeader: true},
-                header = document.querySelector('body > header');
-
-            if (header && header.inView() && transition.category !== 'home') {
-                document.body.smoothScrollIntoView('top', '300ms ease-in-out');
-                transition.transitionHeader = false;
-            }
+            var transition = {category: targetCategory, transitionHeader: true};
 
             if (transition.category === 'home') {
                 document.body.hideScrollbar();
             }
 
-            // Fade page
+            // Transition header
+            var header = document.querySelector('body > header');
+            if (header.inView() && transition.category !== 'home') {
+                transition.transitionHeader = false;
+                header.classList.add('on-top');
+                document.body.smoothScrollIntoView('top', '300ms ease-in-out');
+
+                if (this.category !== transition.category) {
+                    // Slide header navigation to selected item
+                    var headerNavUl = document.querySelector('body > header nav ul'),
+                        headerNavHeight = headerNavUl.children[0].offsetHeight;
+                    Velocity(headerNavUl, {translateY: -headerNavHeight + 'px'}, 300, 'ease-in-out')
+                }
+            }
+
+            // Transition content
             PageTransition.fader.hidePage(transition, function() {
                 this.dispatchEvent('transitionedOut', transition);
             }.bind(this));
-
-            // Transition header
-            if (!transition.transitionHeader && this.category !== transition.category) {
-                // Slide header navigation to selected item
-                var headerNavUl = document.querySelector('body > header nav ul'),
-                    headerNavHeight = headerNavUl.children[0].offsetHeight;
-                Velocity(headerNavUl, {translateY: -headerNavHeight + 'px'}, 300, 'ease-in-out')
-            }
 
             return transition;
         },
         cleanUpTransition: function(transition) {
             document.body.showScrollbar();
             PageTransition.fader.cleanUpTransition(transition);
+
+            var header = document.querySelector('body > header');
+            !transition.transitionHeader && header.classList.remove('on-top');
         }
     })
 });

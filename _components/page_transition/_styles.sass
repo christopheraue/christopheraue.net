@@ -1,20 +1,13 @@
 @import "variables"
 
-body > header
-  position: relative
-  z-index: 999995
-
 .PageTransition-Fader
   position: fixed
-  z-index: 999994 // below the header
+  z-index: 9999999 // above everything else
   top: 0
   left: 0
   width: 100%
   height: 100%
   pointer-events: none
-
-.PageTransition-Fader.hide-header
-  z-index: 999996 // above the header
 
 /*
  * ATTENTION! The following styles are tightly linked to the design of
@@ -30,19 +23,3 @@ body > header
   background: linear-gradient(to bottom, $design-dark 50%, $collateral-dark 50%)
   @media screen and (min-aspect-ratio: 1/1)
     background: linear-gradient(to right, $design-dark 50%, $collateral-dark 50%)
-
-/*
- *  Avoid pixel jump on page transition for wide viewports by
- *  making sure the translation is a whole number in pixels:
- *  16px (base font-size)
- *  * 1.25 (body font-size scaling)
- *  * 1.5 (header font-size scaling)
- *  * 2.26667 (navigation font-size scaling)
- *  => 68px
- */
-body > header nav
-  @media screen and (min-width: 50em) // 800px
-    height: 2.26667em
-    .nav-item .slash-text
-      .aspect-ratio-preservation-area, .size
-        height: 1.26667em

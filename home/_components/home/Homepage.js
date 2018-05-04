@@ -16,7 +16,6 @@ define([
         transitionOut: function(targetCategory) {
             var transition = {category: targetCategory, transitionHeader: true};
 
-            // Fade page
             PageTransition.fader.hidePage(transition, function() {
                 this.dispatchEvent('transitionedOut', transition);
             }.bind(this));

@@ -12,6 +12,9 @@ body > header
   text-align: center
   height: 2.5em
   font-size: 1.25em
+  position: relative
+  &.on-top
+    z-index: 9999999 // above everything else
   @media screen and (min-width: 32em) //512px
     font-size: 1em
   .logo-nav
@@ -49,6 +52,16 @@ body > header
       margin-left: -1.1em
       font-size: 1.5em
       text-align: left
+      /*
+       *  Avoid pixel jump on page transition for wide viewports by
+       *  making sure the translation is a whole number in pixels:
+       *  16px (base font-size)
+       *  * 1.25 (body font-size scaling)
+       *  * 1.5 (header font-size scaling)
+       *  * 2.26667 (navigation font-size scaling)
+       *  => exactly 68px
+       */
+      height: 2.26667em
     .nav-item
       display: block
       padding: .5em .5em .5em 1.25em
@@ -62,6 +75,17 @@ body > header
         transition: opacity $transition_time ease-in-out
         .aspect-ratio-preservation-area, .size
           height: 1.25em
+          @media screen and (min-width: 50em) //800px
+            /*
+             *  Avoid pixel jump on page transition for wide viewports by
+             *  making sure the translation is a whole number in pixels:
+             *  16px (base font-size)
+             *  * 1.25 (body font-size scaling)
+             *  * 1.5 (header font-size scaling)
+             *  * 2.26667 (navigation font-size scaling)
+             *  => exactly 68px
+             */
+            height: 1.26667em
     li + li
       .nav-item
         padding-right: 1.75em
