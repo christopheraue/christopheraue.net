@@ -1,6 +1,5 @@
 define([
-    'lib/velocity',
-    'core-ext/Element'
+    'lib/velocity'
 ], function(Velocity) {
     return Object.inherit({
         constructor: function() {
@@ -14,7 +13,7 @@ define([
             if (this.el.inView() && transition.to !== 'home') {
                 transition.transitionHeader = false;
                 this.el.classList.add('on-top');
-                document.body.smoothScrollIntoView('top', '300ms ease-in-out');
+                Velocity(document.body, 'scroll', 300, 'ease-in-out');
 
                 if (transition.from !== transition.to) {
                     // Slide header navigation to selected item
