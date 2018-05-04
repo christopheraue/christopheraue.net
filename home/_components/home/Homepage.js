@@ -9,14 +9,14 @@ define([
             this.category = category;
         },
         transitionIn: function(transition) {
-            PageTransition.fader.showPage(transition, function() {
+            PageTransition.fader.transitionIn(transition, function() {
                 this.cleanUpTransition(transition);
             }.bind(this));
         },
         transitionOut: function(targetCategory) {
-            var transition = {category: targetCategory, transitionHeader: true};
+            var transition = {from: this.category, to: targetCategory, transitionHeader: true};
 
-            PageTransition.fader.hidePage(transition, function() {
+            PageTransition.fader.transitionOut(transition, function() {
                 this.dispatchEvent('transitionedOut', transition);
             }.bind(this));
 

@@ -6,17 +6,17 @@ define([
         constructor: function() {
             this.el = document.querySelector('body > header');
         },
-        transitionIn: function(page, transition, onShown) {
+        transitionIn: function(transition, onShown) {
             // CSS classes already set in inlined javascript in _markup.html
             // nothing else to do
         },
-        transitionOut: function(page, transition, onHidden) {
-            if (this.el.inView() && transition.category !== 'home') {
+        transitionOut: function(transition, onHidden) {
+            if (this.el.inView() && transition.to !== 'home') {
                 transition.transitionHeader = false;
                 this.el.classList.add('on-top');
                 document.body.smoothScrollIntoView('top', '300ms ease-in-out');
 
-                if (page.category !== transition.category) {
+                if (transition.from !== transition.to) {
                     // Slide header navigation to selected item
                     var headerNavUl = document.querySelector('body > header nav ul'),
                         headerNavHeight = headerNavUl.children[0].offsetHeight;
@@ -26,7 +26,7 @@ define([
                 transition.transitionHeader = true;
             }
         },
-        cleanUpTransition: function(page, transition) {
+        cleanUpTransition: function(transition) {
             !transition.transitionHeader && this.el.classList.remove('on-top');
         }
     })

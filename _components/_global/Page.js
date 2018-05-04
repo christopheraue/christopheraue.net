@@ -10,33 +10,35 @@ define([
             this.constructor.superconstructor.call(this);
             this.category = category;
             this.header = new PageHeader();
+            this.fader = PageTransition.fader;
         },
         transitionIn: function(transition) {
-            this.header.transitionIn(this, transition);
-
-            PageTransition.fader.showPage(transition, function() {
+            this.header.transitionIn(transition);
+            this.fader.transitionIn(transition, function() {
                 this.cleanUpTransition(transition);
             }.bind(this));
         },
         transitionOut: function(targetCategory) {
-            var transition = {category: targetCategory};
+            var transition = {from: this.category, to: targetCategory};
 
-            if (transition.category === 'home') {
+            if (transition.to === 'home') {
                 document.body.hideScrollbar();
             }
 
-            this.header.transitionOut(this, transition);
-
-            PageTransition.fader.hidePage(transition, function() {
+            this.header.transitionOut(transition);
+            this.fader.transitionOut(transition, function() {
                 this.dispatchEvent('transitionedOut', transition);
             }.bind(this));
 
             return transition;
         },
         cleanUpTransition: function(transition) {
-            document.body.showScrollbar();
-            this.header.cleanUpTransition(this, transition);
-            PageTransition.fader.cleanUpTransition(transition);
+            if (transition.to === 'home') {
+                document.body.showScrollbar();
+            }
+
+            this.header.cleanUpTransition(transition);
+            this.fader.cleanUpTransition(transition);
         }
     })
 });

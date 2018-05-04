@@ -10,7 +10,7 @@
         if (transitionJSON) {
             var transition = JSON.parse(transitionJSON),
                 fader = document.getElementsByClassName('PageTransition-Fader')[0];
-            fader.classList.add(transition.category + '-transition');
+            fader.classList.add(transition.to + '-transition');
         }
     }();
 </script>
