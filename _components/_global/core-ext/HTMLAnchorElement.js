@@ -32,15 +32,4 @@ define(function() {
     HTMLAnchorElement.prototype.leavesWebsite = function() {
         return this.hostname !== window.location.hostname;
     };
-
-    HTMLAnchorElement.prototype.delayLocationChangeUntil = function(element, event) {
-        this.addEventListener('click', function(e) {
-            var eventHandler = function() {
-                window.location = this.href;
-                element.removeEventListener(event, eventHandler, false);
-            }.bind(this);
-            element.addEventListener(event, eventHandler, false);
-            e.preventDefault();
-        }.bind(this));
-    };
 });

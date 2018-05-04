@@ -5,14 +5,22 @@ define([
         constructor: function() {
             this.el = document.querySelector('body > header');
         },
-        transitionIn: function(transition, onTransitioned) {
-            // CSS classes already set in inlined javascript in _markup.html
-            onTransitioned(this);
+        transitionIn: function(transition) {
+            // CSS styles already set in inlined javascript in _markup.html
+            if (this.el && transition.transitionHeader) {
+                Velocity(this.el, {opacity: [1, 0]}, 300, 'ease-in-out', function() {
+                    this.cleanUpTransition(transition);
+                }.bind(this))
+            } else {
+                this.cleanUpTransition(transition);
+            }
         },
         transitionOut: function(transition, onTransitioned) {
-            if (this.el.inView() && transition.to !== 'home') {
+            if (!this.el) {
+                transition.transitionHeader = true;
+                onTransitioned(this);
+            } else if (this.el.inView() && transition.to !== 'home') {
                 transition.transitionHeader = false;
-                this.el.classList.add('on-top');
                 Velocity(document.body, 'scroll', 300, 'ease-in-out', function() {
                     onTransitioned(this)
                 }.bind(this));
@@ -25,11 +33,15 @@ define([
                 }
             } else {
                 transition.transitionHeader = true;
-                onTransitioned(this);
+                Velocity(this.el, {opacity: [0, 1]}, 300, 'ease-in-out', function() {
+                    onTransitioned(this);
+                }.bind(this))
             }
         },
         cleanUpTransition: function(transition) {
-            !transition.transitionHeader && this.el.classList.remove('on-top');
+            if (this.el) {
+                this.el.opacity = '';
+            }
         }
     })
 });

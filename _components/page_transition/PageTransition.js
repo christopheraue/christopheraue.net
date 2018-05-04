@@ -1,8 +1,11 @@
 define([
-    './PageTransition/Fader',
-    'core-ext/HTMLAnchorElement'
-], function(Fader) {
-    var PageTransition = new (Object.inherit({
+    'core-ext/HTMLAnchorElement',
+    'core-ext/Location'
+], function() {
+    return new (Object.inherit({
+        constructor: function() {
+            this.transitions = [];
+        },
         setActive: function(transition) {
             window.sessionStorage.setItem('pageTransition', JSON.stringify(transition));
 
@@ -10,7 +13,9 @@ define([
             // and interferes when navigating the browser history. (e.g. in Safari)
             var listener = function(e) {
                 if (!e.persisted) { return }
-                this.page.cleanUpTransition(transition);
+                this.transitions.forEach(function(block) {
+                    block.cleanUpTransition(transition);
+                });
                 window.removeEventListener('pageshow', listener, false);
             }.bind(this);
             window.addEventListener('pageshow', listener, false);
@@ -26,13 +31,16 @@ define([
             window.sessionStorage.removeItem('pageTransition');
             return pageTransition;
         },
-        setUpFor: function(page) {
-            this.page = page;
-
+        register: function(block) {
+            this.transitions.push(block);
+        },
+        initialize: function() {
             // Immediately start the fade-in transition
             var transition = this.deleteActive();
             if (transition) {
-                page.transitionIn(transition);
+                this.transitions.forEach(function(block) {
+                    block.transitionIn(transition);
+                });
             }
 
             // Hook into all links to control the fade-out transition
@@ -41,19 +49,31 @@ define([
                     return;
                 }
 
-                anchor.addEventListener('click', function() {
-                    var transition = page.transitionOut(anchor.extractCategory());
+                anchor.addEventListener('click', function(e) {
+                    var transition = {
+                        from: window.location.extractCategory(),
+                        to: anchor.extractCategory()
+                    };
+
+                    var transitioning = [].concat(this.transitions),
+                        onTransitioned = function(block) {
+                            transitioning.splice(transitioning.indexOf(block), 1);
+                            if (transitioning.length > 0) { return }
+                            window.location = anchor.href; // follow link after all transitions
+                                                           // transitioned
+                        }.bind(this);
+
+                    this.transitions.forEach(function(block) {
+                        block.transitionOut(transition, onTransitioned);
+                    });
+
                     this.setActive(transition);
+                    e.preventDefault(); // delay location change until all transitions transitioned
                 }.bind(this));
-                anchor.delayLocationChangeUntil(page, 'transitionedOut');
             }.bind(this));
 
             //reduce white flicker during page transition in IE
             window.addEventListener('beforeunload', function(){});
         }
     }))();
-
-    PageTransition.fader = new Fader();
-
-    return PageTransition;
 });

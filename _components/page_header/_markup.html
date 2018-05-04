@@ -49,7 +49,10 @@
         if (transitionJSON) {
             var transition = JSON.parse(transitionJSON),
                 header = document.querySelector('body > header');
-            !transition.transitionHeader && header.classList.add('on-top');
+
+            if (transition.transitionHeader) {
+                header.style.opacity = 0;
+            }
         }
     }();
 </script>
