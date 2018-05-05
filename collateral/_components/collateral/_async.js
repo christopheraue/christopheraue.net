@@ -1,5 +1,5 @@
 define([
-    '_components/theatre_screen/TheatreScreen',
+    '_components/TheatreScreen/TheatreScreen',
     '_components/video/YouTubeVideo'
 ], function(TheatreScreen, YouTubeVideo) {
     document.ready(function() {
@@ -8,7 +8,7 @@ define([
             return
         }
 
-        var screen = document.querySelector('#theatre > .theatre-screen'),
+        var screen = document.querySelector('#theatre > .TheatreScreen'),
             theatreScreen = new TheatreScreen(screen),
             video = new YouTubeVideo(screen.getElementsByTagName('iframe')[0]);
 
