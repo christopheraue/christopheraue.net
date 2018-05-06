@@ -5,30 +5,36 @@
     </a><!--
  --><nav class="PageHeader-Nav">
       <ul class="PageHeader-NavList">
-        <li class="PageHeader-NavItem">
-          {% assign slashed_category = '/' | append: page.category | append: '/' %}
-          {% if page.url == slashed_category %}
-            <h1 class="PageHeader-NavItemContent current {{ page.category }}" title="You are on /{{ page.category }}">
-          {% else %}
-            <a href="/{{ page.category }}" class="PageHeader-NavItemContent current {{ page.category }}" title="Go to /{{ page.category }}">
+        {% for category in site.category_list %}
+          {% if category == page.category %}
+            <li class="PageHeader-NavItem current {{ category }}">
+              {% assign slashed_category = '/' | append: category | append: '/' %}
+              {% if page.url == slashed_category %}
+                <h1 class="PageHeader-NavItemContent" title="You are on /{{ category }}">
+                  <div class="PageHeader-NavSlashText">
+                    {% component Slash{{ category | capitalize }} %}
+                  </div><!--
+               --><div class="PageHeader-NavArrow"></div>
+                </h1>
+              {% else %}
+                <a href="/{{ category }}" class="PageHeader-NavItemContent" title="Go to /{{ category }}">
+                  <div class="PageHeader-NavSlashText">
+                    {% component Slash{{ category | capitalize }} %}
+                  </div><!--
+               --><div class="PageHeader-NavArrow"></div>
+                </a>
+              {% endif %}
+            </li>
           {% endif %}
-              <div class="PageHeader-NavSlashText">
-                {% component Slash{{ page.category | capitalize }} %}
-              </div><!--
-           --><div class="PageHeader-NavArrow"></div>
-          {% if page.url == slashed_category %}
-            </h1>
-          {% else %}
-            </a>
-          {% endif %}
-        </li>
+        {% endfor %}
         {% for category in site.category_list %}
           {% if category != page.category %}
-            <li class="PageHeader-NavItem">
-              <a href="/{{ category }}" class="PageHeader-NavItemContent {{ category }}" title="Go to /{{ category }}">
+            <li class="PageHeader-NavItem {{ category }}">
+              <a href="/{{ category }}" class="PageHeader-NavItemContent" title="Go to /{{ category }}">
                 <div class="PageHeader-NavSlashText">
                   {% component Slash{{ category | capitalize }} %}
-                </div>
+                </div><!--
+             --><div class="PageHeader-NavArrow"></div>
               </a>
             </li>
           {% endif %}

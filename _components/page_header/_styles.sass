@@ -29,14 +29,11 @@ $transition_time: 300ms
   position: absolute
   top: 30%
   right: -.5em
-  height: 2.25em
-  overflow: hidden
   text-align: right
   white-space: nowrap
-  border-radius: .1em
   transform: scale(1)
   transform-origin: top right
-  transition: transform $transition_time ease-in-out, height $transition_time ease-in-out
+  transition: transform $transition_time ease-in-out
   cursor: pointer
   @media screen and (min-width: 50em) //800px
     position: relative
@@ -46,6 +43,22 @@ $transition_time: 300ms
     margin-left: -1.1em
     font-size: 1.5em
     text-align: left
+  &.activated
+    transform: scale(2)
+    @media screen and (min-width: 32em) //512px
+      transform: scale(1.5)
+    @media screen and (min-width: 50em) //800px
+      transform: scale(1)
+
+.PageHeader-NavList
+  max-height: 2.25em
+  overflow: hidden
+  border-radius: .1em
+  transition-property: box-shadow,       max-height
+  transition-duration: $transition_time, 0s
+  transition-delay:    0s,               $transition_time
+  transition-timing-function: ease-in-out
+  @media screen and (min-width: 50em) //800px
     /*
      *  Avoid pixel jump on page transition for wide viewports by
      *  making sure the translation is a whole number in pixels:
@@ -55,32 +68,40 @@ $transition_time: 300ms
      *  * 2.26667 (navigation font-size scaling)
      *  => exactly 68px
      */
-    height: 2.26667em
-  &.activated
-    height: 4.5em
-    transform: scale(2)
+    max-height: 2.26667em
+
+.PageHeader-Nav.activated
+  .PageHeader-NavList
+    transition-property: box-shadow, max-height
+    transition-delay:    0s,         0s
+    max-height: 80vw
     box-shadow: 0 0 5px rgba(0,0,0,0.5), 1px 1px 3px rgba(0,0,0,0.5)
-    @media screen and (min-width: 32em) //512px
-      transform: scale(1.5)
-    @media screen and (min-width: 50em) //800px
-      transform: scale(1)
 
 .PageHeader-NavItemContent
   display: block
-  padding: .5em 1.75em .5em 1.25em
-  transition: background $transition_time ease-in-out
+  padding: .5em .5em .5em 1.25em
+  transition-property: background, opacity
+  transition-timing-function: ease-in-out
+  transition-duration: $transition_time
   pointer-events: none // prevent location change when tapping the nav to open it!
-  &.current
+  opacity: 0
+
+.PageHeader-NavItem.current
+  .PageHeader-NavItemContent
     padding-right: .5em
+    opacity: 1
 
 .PageHeader-Nav.activated
   .PageHeader-NavItemContent
     pointer-events: auto
-    &.collateral
+    opacity: 1
+  .PageHeader-NavItem.collateral
+    .PageHeader-NavItemContent
       background: darken($collateral-dark, 5%)
       &.hover
         background: $collateral-dark
-    &.design
+  .PageHeader-NavItem.design
+    .PageHeader-NavItemContent
       background: darken($design-dark, 5%)
       &.hover
         background: $design-dark
@@ -118,6 +139,8 @@ $transition_time: 300ms
   position: relative
   width: 1.25em
   height: 1.25em
+  opacity: 0
+  transition: opacity 2*$transition_time ease-in-out
   &:before
     content: ''
     display: block
@@ -132,17 +155,21 @@ $transition_time: 300ms
     border-top-color: white
     opacity: 1
     transform: rotate(0deg)
-    transition: transform $transition_time ease-in-out, opacity 2*$transition_time ease-in-out
+    transition: transform $transition_time ease-in-out
     transform-origin: 50% 15%
     @media screen and (min-width: 32em) //512px
       margin-left: -.25em
       border-width: .3em
 
+.PageHeader-NavItem.current
+  .PageHeader-NavArrow
+    opacity: 1
+
 .PageHeader-Nav.activated
   .PageHeader-NavArrow
+    opacity: 0
     &:before
       transform: rotate(90deg)
-      opacity: 0
 
 .PageHeader-NavShadow
   display: none

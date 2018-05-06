@@ -13,17 +13,5 @@ define([
         var activatable = ActivatableElement.instanceFor(nav);
         activatable.activateOnMouseOver();
         activatable.activateOnTouchDownUp();
-
-        // Deactivate the header navigation for its transition
-        nav.getElementsByTagName('a').forEach(function(anchor) {
-            anchor.addEventListener('click', function() {
-                nav.activatedState.disable();
-            }, false);
-        });
-
-        window.addEventListener('pageshow', function(e) {
-            if (!e.persisted) { return }
-            nav.activatedState.enable();
-        }, false);
     });
 });
