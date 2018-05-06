@@ -5,7 +5,7 @@ define(function () {
             var wrapper = document.createElement('div');
             wrapper.setAttribute('id', 'js-onpage-debug');
             wrapper.setAttribute('style', 'display: flex; position: fixed; bottom: 0; max-height: 50%;' +
-                ' overflow: hidden; background: rgba(0,0,0,0.66); z-index: 999999; font-size: 16px');
+                ' overflow: hidden; background: rgba(0,0,0,0.66); z-index: 9999999; font-size: 16px');
 
             this.logArea = document.createElement('div');
             this.logArea.setAttribute('style', 'align-self: flex-end');

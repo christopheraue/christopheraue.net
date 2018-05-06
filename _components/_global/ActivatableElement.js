@@ -25,7 +25,6 @@ define(function(){
             }
 
             this.el.classList.add('activated');
-            this.el.style['z-index'] = '999999';
 
             this.deactivationArea = document.createElement('div');
             this.deactivationArea.style['position'] = 'fixed';
@@ -33,7 +32,6 @@ define(function(){
             this.deactivationArea.style['left'] = '0';
             this.deactivationArea.style['right'] = '0';
             this.deactivationArea.style['bottom'] = '0';
-            this.deactivationArea.style['z-index'] = '999998';
             this.deactivationArea.addEventListener('click', function(){ this.deactivate(); }.bind(this), false);
             this.el.parentNode.insertBefore(this.deactivationArea, this.el);
         },
