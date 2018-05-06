@@ -1,21 +1,21 @@
-<header>
-  <div class="logo-nav">
-    <a href="/" class="logo" title="Go to start page">
+<header class="PageHeader">
+  <div class="PageHeader-InnerBounds">
+    <a href="/" class="PageHeader-Logo" title="Go to start page">
       {% component LogoChristopherAue %}
     </a><!--
- --><nav>
-      <ul>
-        <li>
+ --><nav class="PageHeader-Nav">
+      <ul class="PageHeader-NavList">
+        <li class="PageHeader-NavItem">
           {% assign slashed_category = '/' | append: page.category | append: '/' %}
           {% if page.url == slashed_category %}
-            <h1 class="nav-item {{ page.category }}" title="You are on /{{ page.category }}">
+            <h1 class="PageHeader-NavItemContent current {{ page.category }}" title="You are on /{{ page.category }}">
           {% else %}
-            <a href="/{{ page.category }}" class="nav-item {{ page.category }}" title="Go to /{{ page.category }}">
+            <a href="/{{ page.category }}" class="PageHeader-NavItemContent current {{ page.category }}" title="Go to /{{ page.category }}">
           {% endif %}
-              <div class="slash-text">
+              <div class="PageHeader-NavSlashText">
                 {% component Slash{{ page.category | capitalize }} %}
               </div><!--
-           --><div class="arrow"></div>
+           --><div class="PageHeader-NavArrow"></div>
           {% if page.url == slashed_category %}
             </h1>
           {% else %}
@@ -23,18 +23,18 @@
           {% endif %}
         </li>
         {% for category in site.category_list %}
-        {% if category != page.category %}
-        <li>
-          <a href="/{{ category }}" class="nav-item {{ category }}" title="Go to /{{ category }}">
-            <div class="slash-text">
-              {% component Slash{{ category | capitalize }} %}
-            </div>
-          </a>
-        </li>
-        {% endif %}
+          {% if category != page.category %}
+            <li class="PageHeader-NavItem">
+              <a href="/{{ category }}" class="PageHeader-NavItemContent {{ category }}" title="Go to /{{ category }}">
+                <div class="PageHeader-NavSlashText">
+                  {% component Slash{{ category | capitalize }} %}
+                </div>
+              </a>
+            </li>
+          {% endif %}
         {% endfor %}
       </ul>
-      <svg class="shadow"></svg>
+      <svg class="PageHeader-NavShadow"></svg>
     </nav>
   </div>
 </header>
@@ -48,7 +48,7 @@
         var transitionJSON = window.sessionStorage.getItem('pageTransition');
         if (transitionJSON) {
             var transition = JSON.parse(transitionJSON),
-                header = document.querySelector('body > header');
+                header = document.querySelector('.PageHeader');
 
             if (transition.transitionHeader) {
                 header.style.opacity = 0;

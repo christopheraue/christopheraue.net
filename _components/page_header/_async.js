@@ -6,7 +6,7 @@ define([
     document.ready(function() {
         PageTransition.register(new PageHeaderTransition());
 
-        var nav = document.querySelector('body > header nav');
+        var nav = document.querySelector('.PageHeader-Nav');
         if (!nav) { return }
 
         // Make the header navigation activatable

@@ -3,7 +3,7 @@ define([
 ], function(Velocity) {
     return Object.inherit({
         constructor: function() {
-            this.el = document.querySelector('body > header');
+            this.el = document.querySelector('.PageHeader');
         },
         transitionIn: function(transition) {
             // CSS styles already set in inlined javascript in _markup.html
@@ -27,7 +27,7 @@ define([
 
                 if (transition.from !== transition.to) {
                     // Slide header navigation to selected item
-                    var headerNavUl = document.querySelector('body > header nav ul'),
+                    var headerNavUl = document.querySelector('.PageHeader-NavList'),
                         headerNavHeight = headerNavUl.children[0].offsetHeight;
                     Velocity(headerNavUl, {translateY: -headerNavHeight + 'px'}, 300, 'ease-in-out')
                 }
