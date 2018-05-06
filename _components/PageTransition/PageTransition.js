@@ -8,18 +8,6 @@ define([
         },
         setActive: function(transition) {
             window.sessionStorage.setItem('pageTransition', JSON.stringify(transition));
-
-            // The faded in page transition on unload might be persisted/cached
-            // and interferes when navigating the browser history. (e.g. in Safari)
-            var listener = function(e) {
-                if (!e.persisted) { return }
-                this.transitions.forEach(function(block) {
-                    block.cleanUpTransition(transition);
-                });
-                window.removeEventListener('pageshow', listener, false);
-            }.bind(this);
-            window.addEventListener('pageshow', listener, false);
-
             return this;
         },
         getActive: function() {

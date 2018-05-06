@@ -9,13 +9,13 @@ define([
         transitionIn: function(transition) {
             var duration = 300;
 
-            // CSS styles already set in inlined javascript in _markup.html
+            // CSS styles for the transition already set in inlined javascript
+            // in _markup.html
             if (this.el && transition.transitionHeader) {
                 Velocity(this.el, {opacity: [1, 0]}, duration, 'ease-in-out', function() {
-                    this.cleanUpTransition(transition);
+                    // Remove the styles set in _markup.html
+                    this.el.style.opacity = ''
                 }.bind(this))
-            } else {
-                this.cleanUpTransition(transition);
             }
         },
         transitionOut: function(transition, onTransitioned) {
@@ -36,29 +36,25 @@ define([
                 // Close the header navigation for its transition
                 var categoryDropdown = new CategoryDropdown(this.el.querySelector('.CategoryDropdown'));
                 categoryDropdown.disable();
-                window.addEventListener('pageshow', function(e) {
-                    if (!e.persisted) { return }
+                document.onPersistedPageshow(function() {
                     categoryDropdown.enable();
-                }, false);
+                }.bind(this));
 
                 // Slide header navigation to the selected category
                 if (transition.from !== transition.to) {
                     categoryDropdown.slideTo(transition.to, duration);
-                    window.addEventListener('pageshow', function(e) {
-                        if (!e.persisted) { return }
+                    document.onPersistedPageshow(function() {
                         categoryDropdown.releaseSlide();
-                    }, false);
+                    }.bind(this));
                 }
             } else {
                 transition.transitionHeader = true;
                 Velocity(this.el, {opacity: [0, 1]}, duration, 'ease-in-out', function() {
+                    document.onPersistedPageshow(function() {
+                        this.el.style.opacity = ''
+                    }.bind(this));
                     onTransitioned(this);
                 }.bind(this))
-            }
-        },
-        cleanUpTransition: function(transition) {
-            if (this.el) {
-                this.el.opacity = '';
             }
         }
     })
