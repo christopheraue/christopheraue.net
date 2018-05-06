@@ -8,7 +8,6 @@
     right: 0
     bottom: 0
     opacity: 0
-    transition: opacity 1s ease-in-out
 
   .TheatreScreen-Background
     position: absolute
@@ -17,7 +16,7 @@
     width: 100%
     height: 100%
     background: black
-    pointer-events: none
+    display: none
 
   .TheatreScreen-Switch
     position: absolute
@@ -26,32 +25,16 @@
     padding: 1em
     box-sizing: border-box
     text-align: center
-    color: black
-    opacity: .3
-    transition: opacity 1s ease-in-out, color 1s ease-in-out 1s
-    &:before
-      content: 'Turn lights back on'
-
-  .TheatreScreen-Content
-    border-radius: .3em
-    box-shadow: 0 0 4em black
-    border: .4em solid black
-    background: black
-    box-sizing: border-box
-    transition: transform 1s ease-in-out, box-shadow 1s ease-in-out // transform set with javascript
-
-.TheatreScreen.focused
-  .TheatreScreen-Black
-    opacity: 0.90
-
-  .TheatreScreen-Background
-    pointer-events: auto
-
-  .TheatreScreen-Switch
     color: white
+    opacity: .5
+    transition: opacity 1s ease-in-out
     cursor: pointer
     &.hover
       opacity: 1
 
   .TheatreScreen-Content
-    box-shadow: 0 0 0 black
+    box-sizing: border-box
+    border: .4em solid black
+    border-radius: .3em
+    background: black
+    box-shadow: 0 0 4em black

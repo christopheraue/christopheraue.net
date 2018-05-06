@@ -16,16 +16,16 @@ define([
             switch (e.data.to) {
                 case 'buffering':
                 case 'playing':
-                    theatreScreen.focus();
+                    theatreScreen.focus(1000);
                     break;
                 case 'ended':
-                    theatreScreen.unfocus();
+                    theatreScreen.unfocus(1000);
                     break;
             }
         }.bind(this));
 
         screen.addEventListener('click', function() {
-            theatreScreen.unfocus();
+            theatreScreen.unfocus(1000);
             video.pause();
         }.bind(this));
     });
