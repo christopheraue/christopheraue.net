@@ -2,7 +2,7 @@
 
 $transition_time: 300ms
 
-.PageHeaderNavItem
+.CategoryDropdownItem
   display: block
   padding: .5em .5em .5em 1.25em
   transition-property: background, opacity
@@ -11,7 +11,7 @@ $transition_time: 300ms
   pointer-events: none // prevent location change when tapping the nav to open it!
   opacity: 0
 
-.PageHeaderNavItem-SlashText
+.CategoryDropdownItem-Content
   display: inline-block
   vertical-align: top
   fill: white
@@ -31,7 +31,7 @@ $transition_time: 300ms
        */
       height: 1.26667em
 
-.PageHeaderNavItem-Arrow
+.CategoryDropdownItem-Arrow
   display: inline-block
   vertical-align: top
   position: relative
@@ -59,15 +59,15 @@ $transition_time: 300ms
       margin-left: -.25em
       border-width: .3em
 
-.PageHeader-NavItem.current
-  .PageHeaderNavItem
+.CategoryDropdown-Item.current
+  .CategoryDropdownItem
     padding-right: .5em
     opacity: 1
-  .PageHeaderNavItem-Arrow
+  .CategoryDropdownItem-Arrow
     opacity: 1
 
-.PageHeader-Nav.activated
-  .PageHeaderNavItem
+.CategoryDropdown.activated
+  .CategoryDropdownItem
     pointer-events: auto
     opacity: 1
     &.collateral
@@ -79,11 +79,11 @@ $transition_time: 300ms
         background: $collateral-dark
       &.design
         background: $design-dark
-      .PageHeaderNavItem-SlashText
+      .CategoryDropdownItem-Content
         opacity: 1
-  .PageHeaderNavItem-SlashText
+  .CategoryDropdownItem-Content
     opacity: 0.7
-  .PageHeaderNavItem-Arrow
+  .CategoryDropdownItem-Arrow
     opacity: 0
     &:before
       transform: rotate(90deg)

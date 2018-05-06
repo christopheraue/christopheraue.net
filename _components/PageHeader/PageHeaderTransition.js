@@ -1,6 +1,7 @@
 define([
-    'lib/velocity'
-], function(Velocity) {
+    'lib/velocity',
+    '_components/CategoryDropdown/CategoryDropdown'
+], function(Velocity, CategoryDropdown) {
     return Object.inherit({
         constructor: function() {
             this.el = document.querySelector('.PageHeader');
@@ -33,28 +34,19 @@ define([
                 }.bind(this));
 
                 // Close the header navigation for its transition
-                var nav = document.querySelector('.PageHeader-Nav');
-                nav.activatedState.disable();
+                var categoryDropdown = new CategoryDropdown(this.el.querySelector('.CategoryDropdown'));
+                categoryDropdown.disable();
                 window.addEventListener('pageshow', function(e) {
                     if (!e.persisted) { return }
-                    nav.activatedState.enable();
+                    categoryDropdown.enable();
                 }, false);
 
                 // Slide header navigation to the selected category
                 if (transition.from !== transition.to) {
-                    var navList = document.querySelector('.PageHeader-NavList'),
-                        firstNavItem = navList.children[0],
-                        targetNavItem = document.querySelector('.PageHeader-NavItem.' + transition.to),
-                        targetNavItemIdx = Array.prototype.indexOf.call(navList.children, targetNavItem),
-                        navItemHeight = firstNavItem.offsetHeight;
-
-                    Velocity(firstNavItem, {marginTop: -targetNavItemIdx*navItemHeight + 'px'}, duration, 'ease-in-out');
-                    targetNavItem.classList.add('current');
-
+                    categoryDropdown.slideTo(transition.to, duration);
                     window.addEventListener('pageshow', function(e) {
                         if (!e.persisted) { return }
-                        firstNavItem.style['margin-top'] = '';
-                        targetNavItem.classList.remove('current');
+                        categoryDropdown.releaseSlide();
                     }, false);
                 }
             } else {

@@ -6,9 +6,9 @@
 {% endif %}
 {% endcapture %}
 
-<{{ include.tag }} class="PageHeaderNavItem {{ include.category }}" {{ tag_attributes }}>
-<div class="PageHeaderNavItem-SlashText">
+<{{ include.tag }} class="CategoryDropdownItem {{ include.category }}" {{ tag_attributes }}>
+<div class="CategoryDropdownItem-Content">
   {% component Slash{{ include.category | capitalize }} %}
 </div><!--
---><div class="PageHeaderNavItem-Arrow"></div>
+--><div class="CategoryDropdownItem-Arrow"></div>
 </{{ include.tag }}>

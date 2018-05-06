@@ -3,30 +3,7 @@
     <a href="/" class="PageHeader-Logo" title="Go to start page">
       {% component LogoChristopherAue %}
     </a><!--
- --><nav class="PageHeader-Nav">
-      <ul class="PageHeader-NavList">
-        {% for category in site.category_list %}
-          {% if category == page.category %}
-            <li class="PageHeader-NavItem current {{ category }}">
-              {% assign slashed_category = '/' | append: category | append: '/' %}
-              {% if page.url == slashed_category %}
-                {% component PageHeaderNavItem current=true tag="h1" category=category %}
-              {% else %}
-                {% component PageHeaderNavItem current=true tag="a" category=category %}
-              {% endif %}
-            </li>
-          {% endif %}
-        {% endfor %}
-        {% for category in site.category_list %}
-          {% if category != page.category %}
-            <li class="PageHeader-NavItem {{ category }}">
-              {% component PageHeaderNavItem tag="a" category=category %}
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-      <svg class="PageHeader-NavShadow"></svg>
-    </nav>
+ -->{%- component CategoryDropdown -%}
   </div>
 </header>
 
