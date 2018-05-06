@@ -1,0 +1,89 @@
+@import 'variables'
+
+$transition_time: 300ms
+
+.PageHeaderNavItem
+  display: block
+  padding: .5em .5em .5em 1.25em
+  transition-property: background, opacity
+  transition-timing-function: ease-in-out
+  transition-duration: $transition_time
+  pointer-events: none // prevent location change when tapping the nav to open it!
+  opacity: 0
+
+.PageHeaderNavItem-SlashText
+  display: inline-block
+  vertical-align: top
+  fill: white
+  stroke: white
+  transition: opacity $transition_time ease-in-out
+  .aspect-ratio-preservation-area, .size
+    height: 1.25em
+    @media screen and (min-width: 50em) //800px
+      /*
+       *  Avoid pixel jump on page transition for wide viewports by
+       *  making sure the translation is a whole number in pixels:
+       *  16px (base font-size)
+       *  * 1.25 (body font-size scaling)
+       *  * 1.5 (header font-size scaling)
+       *  * 2.26667 (navigation font-size scaling)
+       *  => exactly 68px
+       */
+      height: 1.26667em
+
+.PageHeaderNavItem-Arrow
+  display: inline-block
+  vertical-align: top
+  position: relative
+  width: 1.25em
+  height: 1.25em
+  opacity: 0
+  transition: opacity 2*$transition_time ease-in-out
+  &:before
+    content: ''
+    display: block
+    position: absolute
+    top: 50%
+    margin-top: -.15em
+    left: 50%
+    margin-left: -.3em
+    width: 0
+    height: 0
+    border: .35em solid transparent
+    border-top-color: white
+    opacity: 1
+    transform: rotate(0deg)
+    transition: transform $transition_time ease-in-out
+    transform-origin: 50% 15%
+    @media screen and (min-width: 32em) //512px
+      margin-left: -.25em
+      border-width: .3em
+
+.PageHeader-NavItem.current
+  .PageHeaderNavItem
+    padding-right: .5em
+    opacity: 1
+  .PageHeaderNavItem-Arrow
+    opacity: 1
+
+.PageHeader-Nav.activated
+  .PageHeaderNavItem
+    pointer-events: auto
+    opacity: 1
+    &.collateral
+      background: darken($collateral-dark, 5%)
+    &.design
+      background: darken($design-dark, 5%)
+    &.hover
+      &.collateral
+        background: $collateral-dark
+      &.design
+        background: $design-dark
+      .PageHeaderNavItem-SlashText
+        opacity: 1
+  .PageHeaderNavItem-SlashText
+    opacity: 0.7
+  .PageHeaderNavItem-Arrow
+    opacity: 0
+    &:before
+      transform: rotate(90deg)

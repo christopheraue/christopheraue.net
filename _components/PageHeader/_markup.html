@@ -10,19 +10,9 @@
             <li class="PageHeader-NavItem current {{ category }}">
               {% assign slashed_category = '/' | append: category | append: '/' %}
               {% if page.url == slashed_category %}
-                <h1 class="PageHeader-NavItemContent" title="You are on /{{ category }}">
-                  <div class="PageHeader-NavSlashText">
-                    {% component Slash{{ category | capitalize }} %}
-                  </div><!--
-               --><div class="PageHeader-NavArrow"></div>
-                </h1>
+                {% component PageHeaderNavItem current=true tag="h1" category=category %}
               {% else %}
-                <a href="/{{ category }}" class="PageHeader-NavItemContent" title="Go to /{{ category }}">
-                  <div class="PageHeader-NavSlashText">
-                    {% component Slash{{ category | capitalize }} %}
-                  </div><!--
-               --><div class="PageHeader-NavArrow"></div>
-                </a>
+                {% component PageHeaderNavItem current=true tag="a" category=category %}
               {% endif %}
             </li>
           {% endif %}
@@ -30,12 +20,7 @@
         {% for category in site.category_list %}
           {% if category != page.category %}
             <li class="PageHeader-NavItem {{ category }}">
-              <a href="/{{ category }}" class="PageHeader-NavItemContent" title="Go to /{{ category }}">
-                <div class="PageHeader-NavSlashText">
-                  {% component Slash{{ category | capitalize }} %}
-                </div><!--
-             --><div class="PageHeader-NavArrow"></div>
-              </a>
+              {% component PageHeaderNavItem tag="a" category=category %}
             </li>
           {% endif %}
         {% endfor %}
