@@ -3,22 +3,32 @@ define([
     'core-ext/Element'
 ], function() {
     return Object.inherit({
-        constructor: function(screen) {
-            this.screen = screen;
+        constructor: function(container) {
+            this.container = container;
+            this.switch = this.container.querySelector('.TheatreScreen-Switch')
+            this.content = this.container.querySelector('.TheatreScreen-Content');
         },
         isFocused: function() {
-            return this.screen.classList.contains('focused');
+            return this.container.classList.contains('focused');
         },
         focus: function() {
             if (this.isFocused()){ return }
-            this.screen.smoothScrollIntoView('center', '1s ease-in-out');
+            this.container.smoothScrollIntoView('center', '1s ease-in-out');
             document.body.disableScrolling();
-            this.screen.classList.add('focused');
+            this.container.classList.add('focused');
+
+            var maxWidth = document.getElementsByTagName('main')[0].offsetWidth,
+                maxHeight = window.innerHeight - 2*this.switch.offsetHeight,
+                maxWidthScale = maxWidth/this.content.offsetWidth,
+                maxHeightScale = maxHeight/this.content.offsetHeight;
+
+            this.content.style.transform = 'scale(' + Math.min(maxWidthScale, maxHeightScale) + ')';
         },
         unfocus: function() {
             if (!this.isFocused()){ return }
             document.body.enableScrolling();
-            this.screen.classList.remove('focused');
+            this.container.classList.remove('focused');
+            this.content.style.transform = '';
         }
     });
 });

@@ -89,19 +89,6 @@ body.collateral
         width: 100%
       desc
         display: none
-      &.focused
-        // The video should be scaled up to the full content width -- except for wide viewports
-        // (e.g. smartphones in landscape orientation). For them, there will not be enough room
-        // to display the light switch and leave the theatre mode.
-        // For larger screens the content area does not grow wider than 50em: For wider viewports
-        // a different rule checks the aspect ratio of the available area.
-        $theatre-max-aspect-ratio: 16/11
-        $q1: '(max-aspect-ratio: #{$theatre-max-aspect-ratio*11}/11)'
-        $q2w: '(min-width: #{font_scale_at($max_content_width)*$max_content_width})'
-        $q2h: '(min-height: #{font_scale_at($max_content_width)*$max_content_width/$theatre-max-aspect-ratio})'
-        @media screen and #{$q1}, screen and #{$q2w} and #{$q2h}
-          .TheatreScreen-Content
-            transform: scale(100%/$screen-width)
   .sections
     text-align: center
     section
