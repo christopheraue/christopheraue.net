@@ -1,6 +1,6 @@
 define([
     './PageHeaderTransition',
-    '_components/page_transition/PageTransition',
+    '_components/PageTransition/PageTransition',
     '_components/_global/ActivatableElement'
 ], function(PageHeaderTransition, PageTransition, ActivatableElement) {
     document.ready(function() {

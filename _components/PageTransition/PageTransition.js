@@ -32,6 +32,7 @@ define([
             return pageTransition;
         },
         register: function(block) {
+            console.log(block)
             this.transitions.push(block);
         },
         initialize: function() {
