@@ -6,7 +6,7 @@
   <body class="{{ page.category }}">
     {% component PageTransition %}
     {% if page.category != 'home' %}
-      {% component page_header %}
+      {% component PageHeader %}
     {% endif %}
     <main role="main">
       {{ content }}
