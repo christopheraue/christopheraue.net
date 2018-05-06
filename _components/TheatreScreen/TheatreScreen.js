@@ -16,7 +16,7 @@ define([
             if (this.isFocused){ return }
             this.isFocused = true;
 
-            this.container.smoothScrollIntoView('center', '1s ease-in-out');
+            this.content.smoothScrollIntoView({duration: 1000, easing: 'ease-in-out'});
             document.body.disableScrolling();
 
             this.background.style.display = 'block';

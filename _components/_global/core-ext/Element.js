@@ -2,7 +2,9 @@
  * Extensions for Elements
  */
 
-define(function() {
+define([
+    'lib/velocity'
+],function(Velocity) {
     /*
      * Find the shortest route to a descendant and update the css class of
      * elements along the way. Remove the class from all other descendants.
@@ -52,12 +54,13 @@ define(function() {
         });
     };
 
-    Element.prototype.smoothScrollIntoView = function(anchor, transform){
+    Element.prototype.smoothScrollIntoView = function(options){
+        duration = options.duration || 300;
+        easing = options.easing || 'ease';
+        anchor = options.anchor || 'center';
+
         var elRect = this.getBoundingClientRect(),
             distance;
-
-        anchor = anchor || 'center';
-        transform = transform || '300ms ease';
 
         switch(anchor) {
             case 'top':
@@ -71,17 +74,10 @@ define(function() {
                 break;
         }
 
-        if (window.TransitionEvent) {
-            document.body.style.transform = 'translate(0px, ' + distance + 'px)';
-        }
-
         window.scrollBy(0, distance);
-
-        if (window.TransitionEvent) {
-            document.body.style.transition = 'transform ' + transform;
-            document.body.style.transform = '';
-            this.addEventListener('transitionend', function(){ document.body.style.transition = '' }, false);
-        }
+        Velocity(document.body, {translateY: [0, distance]}, duration, easing, function() {
+            document.body.style.transform = ''
+        });
     };
 
     Element.prototype.inView = function() {
