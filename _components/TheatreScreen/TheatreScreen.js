@@ -6,7 +6,6 @@ define([
     return Object.inherit({
         constructor: function(container) {
             this.container = container;
-            this.black = this.container.querySelector('.TheatreScreen-Black');
             this.background = this.container.querySelector('.TheatreScreen-Background');
             this.switch = this.container.querySelector('.TheatreScreen-Switch');
             this.content = this.container.querySelector('.TheatreScreen-Content');
@@ -21,7 +20,7 @@ define([
 
             this.background.style.display = 'block';
 
-            Velocity(this.black, {opacity: [.9, 0]}, duration, 'ease-in-out');
+            Velocity(this.background, {opacity: [.9, 0]}, duration, 'ease-in-out');
 
             var maxWidth = document.getElementsByTagName('main')[0].offsetWidth,
                 maxHeight = window.innerHeight - 2*this.switch.offsetHeight,
@@ -39,9 +38,9 @@ define([
 
             document.body.enableScrolling();
 
-            Velocity(this.black, {opacity: 0}, duration, 'ease-in-out', function() {
+            Velocity(this.background, {opacity: 0}, duration, 'ease-in-out', function() {
                 this.background.style.display = '';
-            });
+            }.bind(this));
 
             Velocity(this.content, {
                 scale: 1,
