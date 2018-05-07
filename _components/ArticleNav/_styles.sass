@@ -3,11 +3,11 @@
 .ArticleNav-Item
   font-size: 1em
   line-height: 1.5
+  margin-top: $gutter-width
+  &:first-child
+    margin-top: 0
   @media screen and (min-width: 40em) //640px
     font-size: .8em
-
-.ArticleNav-Item + .ArticleNav-Item
-    margin-top: $gutter-width
 
 .ArticleNav-ItemTitle
   font-weight: bold
@@ -18,16 +18,3 @@
 .ArticleNav-Item.hover
   .ArticleNav-ItemSummary
     opacity: 1
-
-
-.Section + .Section
-  margin-top: 2*$gutter-width
-
-.Section-Title
-  font-size: 1.625em
-  font-style: italic
-  text-align: left
-  margin-bottom: .75em
-  @media screen and (min-width: 40em) //640px
-    text-align: right
-    font-size: 1.3em

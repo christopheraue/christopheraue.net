@@ -1,19 +1,12 @@
-<section class="Section remove-outer-gutters">
-  <div class="columns-when-wide with-gutters">
-    <div class="third">
-      <h2 class="Section-Title">{{ include.title | xml_escape }}</h2>
-    </div><!--
- --><nav class="ArticleNav two-thirds ensure-readability">
-      <ul class="ArticleNav-List">
-        {% for article in include.articles %}
-        <li class="ArticleNav-Item">
-          <a href="{{ article.url }}" title="Go to the article">
-            <h3 class="ArticleNav-ItemTitle">{{ article.title | xml_escape }}</h3>
-            <p class="ArticleNav-ItemSummary">{{ article.summary | xml_escape }}</p>
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </div>
-</section>
+<nav class="ArticleNav ensure-readability">
+  <ul class="ArticleNav-List">
+    {% for article in include.articles %}
+    <li class="ArticleNav-Item">
+      <a href="{{ article.url }}" title="Go to the article">
+        <h3 class="ArticleNav-ItemTitle">{{ article.title | xml_escape }}</h3>
+        <p class="ArticleNav-ItemSummary">{{ article.summary | xml_escape }}</p>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>

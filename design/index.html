@@ -3,24 +3,21 @@ title: /design
 has_feed: true
 ---
 
-<section class="Section remove-outer-gutters">
-  <div class="columns-when-wide with-gutters">
-    <div class="third">
-      <h2 class="Section-Title">Software</h2>
-    </div><!--
- --><nav class="ArticleNav two-thirds ensure-readability">
-      <ul class="ArticleNav-List">
-        <li class="ArticleNav-Item">
-          <a href="https://github.com/christopheraue/m-ruby-concurrently" title="Visit github repository" target="_blank">
-            <h3 class="ArticleNav-ItemTitle">concurrently — A concurrency framework for Ruby and mruby</h3>
-            <p class="ArticleNav-ItemSummary">At its core runs an event loop that schedules ruby fibers. It enables event driven
-              software design, especially evented IO. It's fast, light-weight and well documented.<br>
-              The library is hosted on {% block icon type="github" color="white" %} github.</p>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</section>
+{% container DesignCategorySection %}
+  <nav class="ArticleNav ensure-readability">
+    <ul class="ArticleNav-List">
+      <li class="ArticleNav-Item">
+        <a href="https://github.com/christopheraue/m-ruby-concurrently" title="Visit github repository" target="_blank">
+          <h3 class="ArticleNav-ItemTitle">concurrently — A concurrency framework for Ruby and mruby</h3>
+          <p class="ArticleNav-ItemSummary">At its core runs an event loop that schedules ruby fibers. It enables event driven
+            software design, especially evented IO. It's fast, light-weight and well documented.<br>
+            The library is hosted on {% block icon type="github" color="white" %} github.</p>
+        </a>
+      </li>
+    </ul>
+  </nav>
+{% endcontainer %}
 
-{% block ArticleNav title="Web Interfaces" articles=site.posts %}
+{% container DesignCategorySection %}
+  {% block ArticleNav articles=site.posts %}
+{% endcontainer %}

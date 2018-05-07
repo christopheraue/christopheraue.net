@@ -8,8 +8,9 @@
  */
 
 .article
-  @media screen and (max-width: 50em) //800px
-    margin: 0 -$gutter-width
+  margin: 0 -$gutter-width
+  @media screen and (min-width: 50em) //800px
+    margin: 0 auto
   > header
     margin: 0 $gutter-width
     position: relative
