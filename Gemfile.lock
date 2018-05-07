@@ -61,7 +61,6 @@ PLATFORMS
 DEPENDENCIES
   jekyll
   jekyll-redirect-from
-  sass
 
 BUNDLED WITH
    1.15.1
