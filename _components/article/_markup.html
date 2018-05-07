@@ -12,7 +12,7 @@
             <a href="https://twitter.com/intent/tweet?url={{ article.url | absolute_url | cgi_escape }}&amp;via=christopheraue&amp;text={{ article.title | cgi_escape }}"
                title="Share on Twitter"
                onclick="ga('send', 'event', 'Twitter', 'Share Attempt', '{{ article.url | absolute_url }}')">
-              {% component icon type="twitter" color="white" %}
+              {% block icon type="twitter" color="white" %}
             </a>
           </li><!--
        --><li>
@@ -20,7 +20,7 @@
                target="_blank"
                title="Share on Facebook"
                onclick="ga('send', 'event', 'Facebook', 'Share Attempt', '{{ article.url | absolute_url }}')">
-              {% component icon type="facebook" color="white" %}
+              {% block icon type="facebook" color="white" %}
             </a>
           </li>
         </ul>

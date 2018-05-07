@@ -6,14 +6,14 @@ category: home
 ---
 
 <h1>
-  {% component LogoChristopherAue %}
+  {% block LogoChristopherAue %}
 </h1>
 
 <a class="category design" href="/design" title="Go to /design">
   <div class="desc-container"><!--
  --><div class="desc">
       <div class="slash-text">
-        {% component SlashDesign %}
+        {% block SlashDesign %}
       </div>
       <div class="slash-text-annotation">
         {% include_svg SlashDesignAnnotation.svg %}
@@ -26,7 +26,7 @@ category: home
   <div class="desc-container"><!--
  --><div class="desc">
       <div class="slash-text">
-        {% component SlashCollateral %}
+        {% block SlashCollateral %}
       </div>
       <div class="slash-text-annotation">
         {% include_svg SlashCollateralAnnotation.svg %}

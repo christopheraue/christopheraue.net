@@ -5,9 +5,9 @@
       <li class="CategoryDropdown-Item current {{ category }}">
         {% assign slashed_category = '/' | append: category | append: '/' %}
         {% if page.url == slashed_category %}
-          {% component CategoryDropdownItem tag="h1" category=category %}
+          {% block CategoryDropdownItem tag="h1" category=category %}
         {% else %}
-          {% component CategoryDropdownItem tag="a" category=category %}
+          {% block CategoryDropdownItem tag="a" category=category %}
         {% endif %}
       </li>
       {% endif %}
@@ -15,7 +15,7 @@
     {% for category in site.category_list %}
       {% if category != page.category %}
       <li class="CategoryDropdown-Item {{ category }}">
-        {% component CategoryDropdownItem tag="a" category=category %}
+        {% block CategoryDropdownItem tag="a" category=category %}
       </li>
       {% endif %}
     {% endfor %}

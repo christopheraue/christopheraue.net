@@ -37,7 +37,7 @@ module Jekyll
       end
     end
 
-    class ComponentTag < Jekyll::Tags::IncludeTag
+    class BlockTag < Jekyll::Tags::IncludeTag
       def tag_includes_dirs(context)
         COMPONENT_PATHS
       end
@@ -50,7 +50,7 @@ module Jekyll
     class ContainerTag < Liquid::Block
       def render(context)
         # Call .parse instead of .new since .new is private
-        block = ComponentTag.parse(@tag_name, "#{@markup} content=\"\"", :no_tokens, @parse_context)
+        block = BlockTag.parse(@tag_name, "#{@markup} content=\"\"", :no_tokens, @parse_context)
         context.stack do
           context['container'] = ContentDrop.new{ super }
           block.render(context)
@@ -68,7 +68,9 @@ module Jekyll
       end
     end
 
-    Liquid::Template.register_tag('component', ComponentTag)
     Liquid::Template.register_tag('container', ContainerTag)
+    Liquid::Template.register_tag('block', BlockTag)
+    Liquid::Template.register_tag('list', ContainerTag)
+    Liquid::Template.register_tag('item', BlockTag)
   end
 end

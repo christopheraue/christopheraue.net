@@ -4,15 +4,15 @@
     {% include head.html %}
   </head>
   <body class="{{ page.category }}">
-    {% component PageTransition %}
+    {% block PageTransition %}
     {% if page.category != 'home' %}
-      {% component PageHeader %}
+      {% block PageHeader %}
     {% endif %}
     <main role="main">
       {{ content }}
     </main>
     {% if page.category != 'home' %}
-      {% component PageFooter %}
+      {% block PageFooter %}
     {% endif %}
   </body>
 </html>

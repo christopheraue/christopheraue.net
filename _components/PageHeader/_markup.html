@@ -1,11 +1,11 @@
 <header class="PageHeader">
   <div class="PageHeader-InnerBounds">
     <a href="/" class="PageHeader-Logo" title="Go to start page">
-      {% component LogoChristopherAue %}
+      {% block LogoChristopherAue %}
     </a><!--
- -->{%- container CategoryDropdown -%}
-      {% component Slash{{ include.category | capitalize }} %}
-    {%- endcontainer -%}
+ -->{%- list CategoryDropdown -%}
+      {% item Slash{{ include.category | capitalize }} %}
+    {%- endlist -%}
   </div>
 </header>
 
