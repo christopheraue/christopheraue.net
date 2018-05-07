@@ -38,8 +38,6 @@ module Jekyll
     end
 
     class ComponentTag < Jekyll::Tags::IncludeTag
-      attr_accessor :additional_params
-
       def tag_includes_dirs(context)
         COMPONENT_PATHS
       end
@@ -47,19 +45,16 @@ module Jekyll
       def locate_include_file(context, file, safe)
         super context, File.join(file, MARKUP_FILENAME), safe
       end
-
-      def parse_params(context)
-        params = super
-        params.merge! @additional_params if @additional_params
-        params
-      end
     end
 
     class ContainerTag < Liquid::Block
       def render(context)
-        @component = ComponentTag.parse(@tag_name, "#{@markup} content=\"\"", :no_tokens, @parse_context)
-        @component.additional_params = {'content' => super}
-        @component.render(context)
+        # Call .parse instead of .new since .new is private
+        block = ComponentTag.parse(@tag_name, "#{@markup} content=\"\"", :no_tokens, @parse_context)
+        context.stack do
+          context['container'] = super
+          block.render(context)
+        end
       end
     end
 
