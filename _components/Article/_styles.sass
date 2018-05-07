@@ -1,2 +1,72 @@
-﻿@import "sass/article"
-@import "sass/text"
+﻿@import 'variables'
+
+.Article
+  margin: 0 -$gutter-width
+  @media screen and (min-width: 50em) //800px
+    margin: 0 auto
+
+.Article-Header
+  margin: 0 $gutter-width
+  position: relative
+
+.Article-Title
+  font-size: 1.5em
+  @media screen and (min-width: 50em) //800px
+    font-size: 2em
+  font-style: italic
+  font-weight: bold
+  text-align: left
+  @media screen and (min-width: 22em) // 352px
+    text-align: center
+
+.Article-Meta
+  white-space: nowrap
+  font-size: .8em
+
+.Article-MetaLeft,
+.Article-MetaRight
+  display: block
+  margin: .5em 0
+  @media screen and (min-width: 22em) // 352px
+    display: inline-block
+    vertical-align: middle
+
+.Article-MetaLeft
+  @media screen and (min-width: 22em) // 352px
+    width: 60%
+
+.Article-MetaRight
+  @media screen and (min-width: 22em) // 352px
+    width: 40%
+    text-align: right
+
+.Article-CommentsLink
+  opacity: .7
+  vertical-align: middle
+  text-decoration: none
+  &.hover
+    opacity: 1
+
+.Article-ShareList
+  display: inline-block
+  vertical-align: middle
+
+.Article-ShareListItem
+  display: inline-block
+  vertical-align: middle
+
+.Article-ShareListLink
+  display: inline-block
+  vertical-align: middle
+  font-size: 1.25em
+  padding: .25em
+  opacity: .7
+  line-height: 0
+  &.hover
+    opacity: 1
+
+.Article-Date
+  opacity: .7
+
+.Article-CommentsThread
+  margin-top: $gutter-width

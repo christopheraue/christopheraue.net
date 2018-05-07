@@ -1,7 +1,7 @@
 /*
  *  Figures
  */
-.text figure
+.Text figure
   line-height: 1
   &.center
     text-align: center
@@ -26,7 +26,7 @@
 /*
  *  Background
  */
-.text figure
+.Text figure
   .bg-grey
     background: lightgrey
   .bg-green
@@ -40,13 +40,13 @@
 /*
  *  Border
  */
-.text figure .border-grey
+.Text figure .border-grey
   border: 1px solid lightgrey
 
 /*
  *  Text
  */
-.text figure .font
+.Text figure .font
   white-space: nowrap
   line-height: 1
   &.small
@@ -67,7 +67,7 @@
 /*
  *  Vertical Alignment
  */
-.text figure
+.Text figure
   .top
     display: inline-block
     vertical-align: top
@@ -96,7 +96,7 @@
 /*
  *  Boxes
  */
-.text figure .box
+.Text figure .box
   min-width: 1em
   min-height: 1em
   &.shorter
@@ -128,13 +128,13 @@
   position: relative
   z-index: 10
 
-.text figure .inline-overlay
+.Text figure .inline-overlay
   @include inline-overlay
 
 /*
  *  Lines
  */
-.text figure .line
+.Text figure .line
   @include inline-overlay
   border-top: 1px solid black
   &.dashed
@@ -155,7 +155,7 @@
 /*
  *  Box-Model
  */
-.text figure .show-box-model
+.Text figure .show-box-model
   background: #c1cd89     //padding
   border-color: #fcdb9a   //border
   > .show-box-model-content
