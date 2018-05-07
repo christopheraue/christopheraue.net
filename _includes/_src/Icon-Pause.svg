@@ -15,7 +15,13 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.2 5c3e80d, 2017-08-06"
-   sodipodi:docname="media-pause-icon.svg">
+   sodipodi:docname="media-pause-icon.svg"
+   role="img"
+   aria-labelledby="PauseIcon-Title">
+  <title
+     id="PauseIcon-Title">Pause Icon</title>
+  <desc
+     id="PauseIcon-Desc">Two thick vertical bars next to each other</desc>
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -53,9 +59,9 @@
     </rdf:RDF>
   </metadata>
   <path
+     class="PauseIcon-Bars"
      style="stroke:none"
      d="M 41.201172,0 C 36.119498,-1.8115063e-5 31.999982,4.1194975 32,9.2011719 V 246.79883 c -1.7e-5,5.08167 4.119498,9.20119 9.201172,9.20117 h 45.597656 c 5.081674,2e-5 9.201189,-4.1195 9.201172,-9.20117 V 9.2011719 C 96.000018,4.1194975 91.880502,-1.8115063e-5 86.798828,0 Z M 169.20117,0 C 164.1195,-1.7010485e-5 159.99998,4.1194982 160,9.2011719 V 246.79883 c -2e-5,5.08167 4.1195,9.20119 9.20117,9.20117 h 45.59766 c 5.08167,2e-5 9.20119,-4.1195 9.20117,-9.20117 V 9.2011719 C 224.00002,4.1194982 219.8805,-1.7010485e-5 214.79883,0 Z"
      id="rect4828"
-     inkscape:connector-curvature="0"
-     class="pause-icon" />
+     inkscape:connector-curvature="0" />
 </svg>

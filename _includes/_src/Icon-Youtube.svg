@@ -17,11 +17,11 @@
    inkscape:version="0.92.2 5c3e80d, 2017-08-06"
    sodipodi:docname="youtube-icon.svg"
    role="img"
-   aria-labelledby="youtube-icon-title">
+   aria-labelledby="YoutubeIcon-Title">
   <title
-     id="youtube-icon-title">YouTube Icon</title>
+     id="YoutubeIcon-Title">YouTube Icon</title>
   <desc
-     id="youtube-icon-desc">A triangle pointing right within a flat bellied rectangle with round corners</desc>
+     id="YoutubeIcon-Desc">A triangle pointing right within a flat bellied rectangle with round corners</desc>
   <defs
      id="defs39" />
   <sodipodi:namedview
@@ -76,14 +76,12 @@
     </rdf:RDF>
   </metadata>
   <path
+     class="YoutubeIcon-Box"
      inkscape:connector-curvature="0"
-     id="youtube-box"
-     d="M 128,0 C 128,0 47.9478,-4.8999998e-4 27.9842,5.3841999 16.969,8.3471199 8.2941,17.0767 5.3501,28.16323 0.0018,48.25621 0,90.18062 0,90.18062 c 0,0 0,41.9215 5.3501,62.0174 2.944,11.08498 11.6189,19.81678 22.6341,22.7811 19.9636,5.3833 100.0158,5.38209 100.0158,5.38209 0,0 80.0537,9.8e-4 100.0158,-5.38209 11.0167,-2.96432 19.6901,-11.69612 22.6341,-22.7811 5.3498,-20.0959 5.3501,-62.0174 5.3501,-62.0174 0,0 -3e-4,-41.92441 -5.3501,-62.01739 C 247.7059,17.0767 239.0325,8.3471199 228.0158,5.3841999 208.0537,-4.8999998e-4 128,0 128,0 Z m -26.1816,52.11621 66.9094,38.06649 -66.9094,38.0623 z"
-     class="youtube-box" />
+     d="M 128,0 C 128,0 47.9478,-4.8999998e-4 27.9842,5.3841999 16.969,8.3471199 8.2941,17.0767 5.3501,28.16323 0.0018,48.25621 0,90.18062 0,90.18062 c 0,0 0,41.9215 5.3501,62.0174 2.944,11.08498 11.6189,19.81678 22.6341,22.7811 19.9636,5.3833 100.0158,5.38209 100.0158,5.38209 0,0 80.0537,9.8e-4 100.0158,-5.38209 11.0167,-2.96432 19.6901,-11.69612 22.6341,-22.7811 5.3498,-20.0959 5.3501,-62.0174 5.3501,-62.0174 0,0 -3e-4,-41.92441 -5.3501,-62.01739 C 247.7059,17.0767 239.0325,8.3471199 228.0158,5.3841999 208.0537,-4.8999998e-4 128,0 128,0 Z m -26.1816,52.11621 66.9094,38.06649 -66.9094,38.0623 z" />
   <path
+     class="YoutubeIcon-Triangle"
      sodipodi:nodetypes="cccc"
      d="M 101.8184,52.11621 168.7278,90.1827 101.8184,128.245 Z"
-     id="youtube-triangle"
-     inkscape:connector-curvature="0"
-     class="youtube-triangle" />
+     inkscape:connector-curvature="0" />
 </svg>

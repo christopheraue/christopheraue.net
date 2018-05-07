@@ -9,19 +9,19 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="255.3"
-   height="208.04599"
-   viewBox="0 0 255.3 208.04599"
+   width="256"
+   height="245.50272"
+   viewBox="0 0 256 245.50272"
    version="1.1"
    id="svg4817"
    inkscape:version="0.92.2 5c3e80d, 2017-08-06"
-   sodipodi:docname="twitter-icon.svg"
+   sodipodi:docname="Icon-Patreon.svg"
    role="img"
-   aria-labelledby="twitter-icon-title">
+   aria-labelledby="PatreonIcon-Title">
   <title
-     id="twitter-icon-title">Twitter Icon</title>
+     id="PatreonIcon-Title">Patreon Icon</title>
   <desc
-     id="twitter-icon-desc">A stylized bird with spread wings looking to the right</desc>
+     id="PatreonIcon-Desc">A rectangle and a circle forming a P</desc>
   <defs
      id="defs39" />
   <sodipodi:namedview
@@ -32,8 +32,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="116.68276"
-     inkscape:cy="246.75894"
+     inkscape:cx="30.314719"
+     inkscape:cy="132.69281"
      inkscape:document-units="px"
      inkscape:current-layer="svg4817"
      showgrid="true"
@@ -60,8 +60,8 @@
        spacingx="33.866667"
        spacingy="33.866667"
        empspacing="2"
-       originx="-1.0658141e-14"
-       originy="-47.95401" />
+       originx="0"
+       originy="-10.497262" />
   </sodipodi:namedview>
   <metadata
      id="metadata4814">
@@ -71,13 +71,16 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title>Patreon Icon</dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <path
-     id="twitter-bird"
-     d="M 256,24.62797 C 246.58,28.80499 236.458,31.628 225.83399,32.898 236.679,26.398 245.006,16.10499 248.927,3.8409899 A 105.183,105.183 0 0 1 215.57599,16.58601 C 205.99499,6.3789799 192.34599,0 177.23899,0 c -29.006,0 -52.523,23.516 -52.523,52.519977 0,4.117 0.465,8.125 1.36,11.97003 -43.65,-2.19103 -82.35,-23.100017 -108.255,-54.8760171 -4.52,7.7569901 -7.11,16.7800101 -7.11,26.4040101 0,18.222007 9.273,34.296977 23.365,43.715977 a 52.311999,52.311999 0 0 1 -23.79,-6.56999 c -0.003,0.21997 -0.003,0.44001 -0.003,0.661 0,25.44699 18.104,46.675013 42.13,51.499993 A 52.591998,52.591998 0 0 1 28.695,126.225 c 6.683,20.86598 26.08,36.05001 49.062,36.47498 -17.975,14.08603 -40.622,22.48301 -65.228,22.48301 -4.24,0 -8.42,-0.24907 -12.529,-0.73399 23.243,14.902 50.85,23.59699 80.51,23.59699 96.607,0 149.434,-80.031 149.434,-149.435003 0,-2.27799 -0.05,-4.54299 -0.15201,-6.794987 a 106.748,106.748 0 0 0 26.208,-27.18803"
-     inkscape:connector-curvature="0"
-     class="twitter-bird" />
+     class="PatreonIcon-Circle"
+     d="m 164.11109,0.00102 c -50.8252,0 -92.175108,41.34432 -92.175108,92.166459 0,50.667931 41.349908,91.890441 92.175108,91.890441 C 214.77909,184.05792 256,142.83541 256,92.167479 256,41.34534 214.7791,0.00102 164.11109,0.00102"
+     inkscape:connector-curvature="0" />
+  <path
+     class="PatreonIcon-Stem"
+     d="M 0,0 H 45.005083 V 245.50272 H 0 Z"
+     inkscape:connector-curvature="0" />
 </svg>

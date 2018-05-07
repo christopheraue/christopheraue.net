@@ -21,10 +21,10 @@
 ## {{type | capitalize }}
 
 ```
-{% block icon type="{{ type }}" %}
+{% block Icon type="{{ type }}" %}
 ```
 
 ```
-{% block icon type="{{ type }}" color="white" %}
+{% block Icon type="{{ type }}" color="white" %}
 ```
 {% endfor %}  

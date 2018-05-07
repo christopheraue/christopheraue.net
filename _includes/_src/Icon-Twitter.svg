@@ -9,19 +9,19 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="256"
-   height="256"
-   viewBox="0 0 256 256"
+   width="255.3"
+   height="208.04599"
+   viewBox="0 0 255.3 208.04599"
    version="1.1"
    id="svg4817"
    inkscape:version="0.92.2 5c3e80d, 2017-08-06"
-   sodipodi:docname="facebook-icon.svg"
+   sodipodi:docname="twitter-icon.svg"
    role="img"
-   aria-labelledby="github-icon-title">
+   aria-labelledby="TwitterIcon-Title">
   <title
-     id="github-icon-title">Facebook Icon</title>
+     id="TwitterIcon-Title">Twitter Icon</title>
   <desc
-     id="github-icon-desc">An f within a box with rounded corners</desc>
+     id="TwitterIcon-Desc">A stylized bird with spread wings looking to the right</desc>
   <defs
      id="defs39" />
   <sodipodi:namedview
@@ -32,8 +32,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="104.05585"
-     inkscape:cy="132.07839"
+     inkscape:cx="116.68276"
+     inkscape:cy="246.75894"
      inkscape:document-units="px"
      inkscape:current-layer="svg4817"
      showgrid="true"
@@ -49,13 +49,19 @@
      inkscape:snap-bbox-edge-midpoints="false"
      inkscape:snap-bbox-midpoints="false"
      inkscape:snap-nodes="false"
-     inkscape:snap-others="false">
+     inkscape:snap-others="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="-0.7"
+     fit-margin-bottom="0">
     <inkscape:grid
        type="xygrid"
        id="grid14320"
        spacingx="33.866667"
        spacingy="33.866667"
-       empspacing="2" />
+       empspacing="2"
+       originx="-1.0658141e-14"
+       originy="-47.95401" />
   </sodipodi:namedview>
   <metadata
      id="metadata4814">
@@ -65,19 +71,12 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title>Facebook Icon</dc:title>
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <path
-     inkscape:connector-curvature="0"
-     id="facebook-box"
-     d="M 14.1289,-2.5196851e-6 C 6.3239,-2.5196851e-6 0,6.3248474 0,14.128776 V 241.86902 c 0,7.80291 6.3239,14.13078 14.1289,14.13078 H 136.7383 V 156.86192 H 103.377 v -38.63444 h 33.3613 V 89.735506 c 0,-33.06573 20.1934,-51.07174 49.6914,-51.07174 14.128,0 26.2725,1.05238 29.8125,1.52338 v 34.55441 l -20.459,0.0113 c -16.041,0 -19.1484,7.62255 -19.1484,18.80844 V 118.2291 h 38.2597 l -4.9824,38.63437 h -33.2773 v 99.13648 h 65.2363 c 7.802,0 14.1289,-6.32784 14.1289,-14.13078 V 14.128776 C 256,6.3248474 249.6731,-2.5196851e-6 241.8711,-2.5196851e-6 Z"
-     class="facebook-box" />
-  <path
-     sodipodi:nodetypes="cccccsscccscccccc"
-     d="M 136.7383,255.9998 V 156.86109 H 103.377 v -38.63478 h 33.3613 V 89.734066 c 0,-33.06599 20.1934,-51.07219 49.6914,-51.07219 14.128,0 26.2725,1.05241 29.8125,1.52342 v 34.55471 l -20.459,0.0113 c -16.041,0 -19.1484,7.62258 -19.1484,18.80859 v 24.667994 h 38.2597 l -4.9824,38.63471 h -33.2773 v 99.13735 z"
-     id="facebook-f"
-     inkscape:connector-curvature="0"
-     class="facebook-f" />
+     class="TwitterIcon-Bird"
+     d="M 256,24.62797 C 246.58,28.80499 236.458,31.628 225.83399,32.898 236.679,26.398 245.006,16.10499 248.927,3.8409899 A 105.183,105.183 0 0 1 215.57599,16.58601 C 205.99499,6.3789799 192.34599,0 177.23899,0 c -29.006,0 -52.523,23.516 -52.523,52.519977 0,4.117 0.465,8.125 1.36,11.97003 -43.65,-2.19103 -82.35,-23.100017 -108.255,-54.8760171 -4.52,7.7569901 -7.11,16.7800101 -7.11,26.4040101 0,18.222007 9.273,34.296977 23.365,43.715977 a 52.311999,52.311999 0 0 1 -23.79,-6.56999 c -0.003,0.21997 -0.003,0.44001 -0.003,0.661 0,25.44699 18.104,46.675013 42.13,51.499993 A 52.591998,52.591998 0 0 1 28.695,126.225 c 6.683,20.86598 26.08,36.05001 49.062,36.47498 -17.975,14.08603 -40.622,22.48301 -65.228,22.48301 -4.24,0 -8.42,-0.24907 -12.529,-0.73399 23.243,14.902 50.85,23.59699 80.51,23.59699 96.607,0 149.434,-80.031 149.434,-149.435003 0,-2.27799 -0.05,-4.54299 -0.15201,-6.794987 a 106.748,106.748 0 0 0 26.208,-27.18803"
+     inkscape:connector-curvature="0" />
 </svg>

@@ -11,7 +11,13 @@
    viewBox="0 0 256 256"
    id="svg4899"
    sodipodi:docname="media-play-icon.svg"
-   inkscape:version="0.92.2 5c3e80d, 2017-08-06">
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   role="img"
+   aria-labelledby="PlayIcon-Title">
+  <title
+     id="PlayIcon-Title">Pause Icon</title>
+  <desc
+     id="PlayIcon-Desc">Two thick vertical bars next to each other</desc>
   <metadata
      id="metadata4905">
     <rdf:RDF>
@@ -48,7 +54,7 @@
      inkscape:window-maximized="0"
      inkscape:current-layer="svg4899" />
   <path
-     class="play-icon"
+     class="PlayIcon-Triangle"
      d="M 28.081,1.0706 C 26.9206,0.40065 25.6102,0.0338 24.2706,0.0023 19.7804,-0.10347 16.0815,3.5066 16.0815,7.998 v 239.99 c 0,6.1573 6.6671,10.006 11.999,6.9274 l 207.84,-119.99 c 5.3334,-3.0792 5.3334,-10.778 0,-13.857 -69.279,-39.998 -207.84,-119.99 -207.84,-119.99 z"
      id="path4897"
      inkscape:connector-curvature="0" />
