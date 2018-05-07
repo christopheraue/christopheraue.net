@@ -3,7 +3,9 @@
     <a href="/" class="PageHeader-Logo" title="Go to start page">
       {% component LogoChristopherAue %}
     </a><!--
- -->{%- component CategoryDropdown -%}
+ -->{%- container CategoryDropdown -%}
+      {% component Slash{{ include.category | capitalize }} %}
+    {%- endcontainer -%}
   </div>
 </header>
 

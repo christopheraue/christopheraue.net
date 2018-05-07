@@ -52,8 +52,18 @@ module Jekyll
         # Call .parse instead of .new since .new is private
         block = ComponentTag.parse(@tag_name, "#{@markup} content=\"\"", :no_tokens, @parse_context)
         context.stack do
-          context['container'] = super
+          context['container'] = ContentDrop.new{ super }
           block.render(context)
+        end
+      end
+
+      class ContentDrop < Liquid::Drop
+        def initialize(&content_renderer)
+          @content_renderer = content_renderer
+        end
+
+        def content
+          @content_renderer.call
         end
       end
     end
