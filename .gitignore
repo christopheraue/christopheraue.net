@@ -1,5 +1,3 @@
-assets/_sass/.sass-cache
-assets/styles-dev.css
-assets/styles-dev.css.map
+_build/tmp
 _site
 _site_production

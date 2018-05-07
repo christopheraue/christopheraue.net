@@ -7,8 +7,8 @@ module Jekyll
     SYNCJS_FILENAME = '_sync.js'.freeze
     ASYNCJS_FILENAME = '_async.js'.freeze
 
-    SRC_RJSCONFIG_PATH = 'assets/_rjs/config.template.js'.freeze
-    DST_RJSCONFIG_PATH = 'assets/_rjs/config.js'.freeze
+    SRC_RJSCONFIG_PATH = '_build/rjs_config.template.js'.freeze
+    DST_RJSCONFIG_PATH = '_build/tmp/rjs_config.js'.freeze
     RJSCONFIG_PACKAGES_PLACEHOLDER = '/* DYNAMIC_PACKAGES_CONFIG */'.freeze
 
     class AssetGenerator < Jekyll::Generator
