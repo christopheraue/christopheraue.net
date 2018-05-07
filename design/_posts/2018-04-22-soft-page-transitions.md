@@ -8,14 +8,14 @@ Soft page transitions? Ehm, what?
 I'm talking about **fading a page out on *unload* and the new page in on *load***. You can see the effect here:
 
 <figure>
-  {% block video src="/design/soft-page-transitions/soft_page_transition" controls="minimal" attributes="loop preload=\"auto\"" %}
+  {% block Video src="/design/soft-page-transitions/soft_page_transition" controls="minimal" attributes="loop preload=\"auto\"" %}
   <figcaption>A soft page transition</figcaption>
 </figure>
 
 It's subtle—as it should be to not get into the way of the user. For comparision, here is the usual hard page transition:
 
 <figure>
-  {% block video src="/design/soft-page-transitions/hard_page_transition" controls="minimal" attributes="loop preload=\"auto\"" %}
+  {% block Video src="/design/soft-page-transitions/hard_page_transition" controls="minimal" attributes="loop preload=\"auto\"" %}
   <figcaption>A hard page transition</figcaption>
 </figure>
 
