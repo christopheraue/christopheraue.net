@@ -1,5 +1,5 @@
 define([
-    '_components/_global/ActivatableElement'
+    '_global/ActivatableElement'
 ], function(ActivatableElement) {
     document.ready(function() {
         var nav = document.querySelector('.CategoryDropdown');

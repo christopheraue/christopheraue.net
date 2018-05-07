@@ -1,6 +1,6 @@
 define([
     './PageHeaderTransition',
-    '_components/PageTransition/PageTransition'
+    'PageTransition'
 ], function(PageHeaderTransition, PageTransition) {
     document.ready(function() {
         PageTransition.register(new PageHeaderTransition());

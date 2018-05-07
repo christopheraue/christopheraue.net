@@ -12,5 +12,8 @@ require.config({
         'youtube-api': {
             exports: 'YT'
         }
-    }
+    },
+    packages: [
+        /* DYNAMIC_PACKAGES_CONFIG */
+    ]
 });

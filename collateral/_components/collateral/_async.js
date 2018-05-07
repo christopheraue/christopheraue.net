@@ -1,6 +1,6 @@
 define([
-    '_components/TheatreScreen/TheatreScreen',
-    '_components/Video/YouTubeVideo'
+    'TheatreScreen',
+    'Video/YouTubeVideo'
 ], function(TheatreScreen, YouTubeVideo) {
     document.ready(function() {
         if (!document.body.classList.contains('collateral')) {

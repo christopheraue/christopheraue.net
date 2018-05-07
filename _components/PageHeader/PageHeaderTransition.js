@@ -1,6 +1,6 @@
 define([
     'lib/velocity',
-    '_components/CategoryDropdown/CategoryDropdown'
+    'CategoryDropdown'
 ], function(Velocity, CategoryDropdown) {
     return Object.inherit({
         constructor: function() {

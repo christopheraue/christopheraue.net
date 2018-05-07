@@ -5,7 +5,7 @@
  */
 
 define([
-    '_components/PageTransition/PageTransition'
+    'PageTransition'
 ], function(PageTransition){
     document.ready(function() {
         PageTransition.initialize();
