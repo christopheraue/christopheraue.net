@@ -42,32 +42,8 @@ body.design
 /* Source Code Pro 900 is statically included in the <head> */
 
 /*
- *  Changes To an Article List
- *  --------------------------
- *
- *  Headings are displayed with this category's characteristic font.
- */
-body.design
-    .article-list
-        h2, h3
-            font-family: 'Source Code Pro', monospace
-
-/*
- *  Changes To an Article
- *  ---------------------
- *
- *  An article's header is displayed with this category's characteristic font.
- */
-body.design
-    .article
-        > header
-            font-family: 'Source Code Pro', monospace
-
-/*
- *  Changes To Text
- *  ---------------
- *
- *  ### Headings and Captions
+ *  Changes To Headings and Captions
+ *  --------------------------------
  *
  *  Rendered with this category's characteristic font.
  *
@@ -84,9 +60,19 @@ body.design
  *  ```
  */
 body.design
-    .text
-        h2, h3, h4, h5, h6,
-        table caption
+    h2, h3, h4, h5, h6,
+    table caption
+        font-family: 'Source Code Pro', monospace
+
+/*
+ *  Changes To an Article
+ *  ---------------------
+ *
+ *  An article's header is displayed with this category's characteristic font.
+ */
+body.design
+    .article
+        > header
             font-family: 'Source Code Pro', monospace
 
 /*
