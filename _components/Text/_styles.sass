@@ -46,15 +46,15 @@
  *  ```
  */
 .Text
-    h2, h3, h4, h5, h6
-        font-weight: bold
-    h2
-        font-size: 1.5em
-        line-height: 1.2em
-    h3
-        font-size: 1.3em
-    h4, h5, h6
-        font-size: 1.1em
+  h2, h3, h4, h5, h6
+    font-weight: bold
+  h2
+    font-size: 1.5em
+    line-height: 1.2em
+  h3
+    font-size: 1.3em
+  h4, h5, h6
+    font-size: 1.1em
 
 /*
  *  ### Spacings
@@ -77,20 +77,20 @@
  *  ```
  */
 .Text
-    h2, h3, h4, h5, h6
-        margin: 0
-        margin-bottom: .3333em
-        //clear: both
-        + *
-            margin-top: 0 !important  //important is necessary, so this rule is not overwritten by something like * + p
+  h2, h3, h4, h5, h6
+    margin: 0
+    margin-bottom: .3333em
+    //clear: both
+    + *
+      margin-top: 0 !important  //important is necessary, so this rule is not overwritten by something like * + p
 
-    * + h2, * + section > h2
-        margin-top: 1.6666em !important
-    * + h3, * + section > h3,
-    * + h4, * + section > h4,
-    * + h5, * + section > h5,
-    * + h6, * + section > h6
-        margin-top: 2.5em !important
+  * + h2, * + section > h2
+    margin-top: 1.6666em !important
+  * + h3, * + section > h3,
+  * + h4, * + section > h4,
+  * + h5, * + section > h5,
+  * + h6, * + section > h6
+    margin-top: 2.5em !important
 
 /*  Inline Elements
  *  ---------------
@@ -104,7 +104,7 @@
  *  ```
  */
 .Text
-    font: 300 1em/1.5 'Work Sans'
+  font: 300 1em/1.5 'Work Sans'
 
 /*
  *  ### Links
@@ -116,11 +116,11 @@
  *  ```
  */
 .Text a
-    text-decoration: underline
-    color: inherit
-    &.hover
-        font-style: italic
-        text-decoration: none
+  text-decoration: underline
+  color: inherit
+  &.hover
+    font-style: italic
+    text-decoration: none
 
 /*
  *  ### Emphasis
@@ -133,10 +133,10 @@
  *  ```
  */
 .Text em
-    font-style: italic
+  font-style: italic
 
 .Text strong
-    font-weight: 500
+  font-weight: 500
 
 /*
  *  ### Inline Code
@@ -148,12 +148,12 @@
  *  ```
  */
 .Text code
-    font-family: 'Source Code Pro', monospace
-    white-space: nowrap
-    background-color: rgba(0,0,0,0.1)
-    border-radius: .2em
-    padding: .1em .25em
-    font-size: .95em
+  font-family: 'Source Code Pro', monospace
+  white-space: nowrap
+  background-color: rgba(0,0,0,0.1)
+  border-radius: .2em
+  padding: .1em .25em
+  font-size: .95em
 
 /*
  *  Block Elements
@@ -180,8 +180,8 @@
  *  ```
  */
 .Text ul
-    list-style-type: square
-    padding-left: 3em
+  list-style-type: square
+  padding-left: 3em
 
 /*
  *  #### Ordered
@@ -193,8 +193,8 @@
  *  ```
  */
 .Text ol
-    list-style-type: decimal
-    padding-left: 3em
+  list-style-type: decimal
+  padding-left: 3em
 
 /*
  *  #### Margins Between Items
@@ -213,10 +213,10 @@
  */
 .Text ul,
 .Text ol
-    li + li
-        margin-top: 0
-        > :first-child
-            margin-top: 1.5em
+  li + li
+    margin-top: 0
+    > :first-child
+      margin-top: 1.5em
 
 /*
  *  ### Quotes
@@ -231,17 +231,17 @@
  *  ```
  */
 .Text blockquote
-    padding: 0 1em
+  padding: 0 1em
+  font-style: italic
+  footer
+    margin-top: 0
+    text-align: right
+  *
     font-style: italic
-    footer
-        margin-top: 0
-        text-align: right
-    *
-        font-style: italic
-    p:first-child:before
-        content: '“'
-    p:last-child:after
-        content: '”'
+  p:first-child:before
+    content: '“'
+  p:last-child:after
+    content: '”'
 
 /*
  *  ### Short Quotes
@@ -256,18 +256,18 @@
  *  ```
  */
 .Text blockquote.short
-    background: transparent
-    > *
-        display: inline
-    > p
-        font-size: 1.5em
-        &:before
-            content: '“'
-        &:after
-            content: '”'
+  background: transparent
+  > *
+    display: inline
+  > p
+    font-size: 1.5em
+    &:before
+      content: '“'
+    &:after
+      content: '”'
 
 .Text * + blockquote.short
-    margin-top: 1em
+  margin-top: 1em
 
 /*
  *  ### Code Blocks
@@ -303,231 +303,231 @@ $parameter: #bd90de
 $comment: #b6b6b6
 
 .Text
+  .highlight
+    margin-left: -$gutter-width
+    margin-right: -$gutter-width
+    padding: $gutter-width
+    overflow: auto
+    background: black
+    color: white
+    font-weight: 300
+    line-height: 1.3
+    .hll
+      background-color: #404040
+    .c
+      /* Comment */
+      color: $comment
+      font-style: italic
+    .err
+      /* Error */
+      color: $error
+      background-color: $identifier
+    .g
+      /* Generic */
+    .k
+      /* Keyword */
+      font-weight: 500
+    .l
+      /* Literal */
+    .n
+      /* Name */
+    .o
+      /* Operator */
+      font-weight: 500
+    .x
+      /* Other */
+    .p
+      /* Punctuation */
+    .cm
+      /* Comment.Multiline */
+      color: $comment
+      font-style: italic
+    .cp
+      /* Comment.Preproc */
+      color: $comment
+      font-weight: 500
+    .c1
+      /* Comment.Single */
+      color: $comment
+      font-style: italic
+    .cs
+      /* Comment.Special */
+      color: $comment
+      font-style: italic
+      font-weight: 500
+    .gd
+      /* Generic.Deleted */
+      color: $error
+    .ge
+      /* Generic.Emph */
+      font-style: italic
+    .gr
+      /* Generic.Error */
+      color: $error
+    .gh
+      /* Generic.Heading */
+      color: $comment
+    .gi
+      /* Generic.Inserted */
+    .go
+      /* Generic.Output */
+    .gp
+      /* Generic.Prompt */
+    .gs
+      /* Generic.Strong */
+      font-weight: 500
+    .gu
+      /* Generic.Subheading */
+      color: $comment
+    .gt
+      /* Generic.Traceback */
+      color: $error
+    .kc
+      /* Keyword.Constant */
+      font-weight: 500
+    .kd
+      /* Keyword.Declaration */
+      font-weight: 500
+    .kn
+      /* Keyword.Namespace */
+      font-weight: 500
+    .kp
+      /* Keyword.Pseudo */
+      font-weight: 500
+    .kr
+      /* Keyword.Reserved */
+      font-weight: 500
+    .kt
+      /* Keyword.Type */
+      color: $operator
+      font-weight: 500
+    .ld
+      /* Literal.Date */
+      color: $literal
+    .m
+      /* Literal.Number */
+      color: $literal
+    .s
+      /* Literal.String */
+      color: $string
+    .na
+      /* Name.Attribute */
+      color: $identifier
+    .nb
+      /* Name.Builtin */
+      color: $identifier
+    .nc
+      /* Name.Class */
+      color: $identifier
+      font-weight: 500
+    .no
+      /* Name.Constant */
+      color: $identifier
+    .nd
+      /* Name.Decorator */
+      color: $identifier
+    .ni
+      /* Name.Entity */
+      color: $identifier
+    .ne
+      /* Name.Exception */
+      color: $identifier
+      font-weight: 500
+    .nf
+      /* Name.Function */
+      color: $identifier
+      font-weight: 500
+    .nl
+      /* Name.Label */
+      color: $identifier
+    .nn
+      /* Name.Namespace */
+      color: $identifier
+    .nx
+      /* Name.Other */
+      color: $identifier
+    .py
+      /* Name.Property */
+      color: $identifier
+    .nt
+      /* Name.Tag */
+      color: $identifier
+      font-weight: 500
+    .nv
+      /* Name.Variable */
+      color: $identifier
+    .ow
+      /* Operator.Word */
+      font-weight: 500
+    .w
+      /* Text.Whitespace */
+    .mf
+      /* Literal.Number.Float */
+      color: $literal
+    .mh
+      /* Literal.Number.Hex */
+      color: $literal
+    .mi
+      /* Literal.Number.Integer */
+      color: $literal
+    .mo
+      /* Literal.Number.Oct */
+      color: $literal
+    .sb
+      /* Literal.String.Backtick */
+      color: $string
+    .sc
+      /* Literal.String.Char */
+      color: $string
+    .sd
+      /* Literal.String.Doc */
+      color: $string
+    .s2
+      /* Literal.String.Double */
+      color: $string
+    .se
+      /* Literal.String.Escape */
+      color: $string
+    .sh
+      /* Literal.String.Heredoc */
+      color: $string
+    .si
+      /* Literal.String.Interpol */
+      color: $string
+    .sx
+      /* Literal.String.Other */
+      color: $string
+    .sr
+      /* Literal.String.Regex */
+      color: $string
+    .s1
+      /* Literal.String.Single */
+      color: $string
+    .ss
+      /* Literal.String.Symbol */
+      color: $string
+    .bp
+      /* Name.Builtin.Pseudo */
+      color: $identifier
+    .vc
+      /* Name.Variable.Class */
+      color: $identifier
+    .vg
+      /* Name.Variable.Global */
+      color: $identifier
+    .vi
+      /* Name.Variable.Instance */
+      color: $identifier
+    .il
+      /* Literal.Number.Integer.Long */
+      color: $literal
+  ul, ol
     .highlight
-        margin-left: -$gutter-width
-        margin-right: -$gutter-width
-        padding: $gutter-width
-        overflow: auto
-        background: black
-        color: white
-        font-weight: 300
-        line-height: 1.3
-        .hll
-            background-color: #404040
-        .c
-            /* Comment */
-            color: $comment
-            font-style: italic
-        .err
-            /* Error */
-            color: $error
-            background-color: $identifier
-        .g
-            /* Generic */
-        .k
-            /* Keyword */
-            font-weight: 500
-        .l
-            /* Literal */
-        .n
-            /* Name */
-        .o
-            /* Operator */
-            font-weight: 500
-        .x
-            /* Other */
-        .p
-            /* Punctuation */
-        .cm
-            /* Comment.Multiline */
-            color: $comment
-            font-style: italic
-        .cp
-            /* Comment.Preproc */
-            color: $comment
-            font-weight: 500
-        .c1
-            /* Comment.Single */
-            color: $comment
-            font-style: italic
-        .cs
-            /* Comment.Special */
-            color: $comment
-            font-style: italic
-            font-weight: 500
-        .gd
-            /* Generic.Deleted */
-            color: $error
-        .ge
-            /* Generic.Emph */
-            font-style: italic
-        .gr
-            /* Generic.Error */
-            color: $error
-        .gh
-            /* Generic.Heading */
-            color: $comment
-        .gi
-            /* Generic.Inserted */
-        .go
-            /* Generic.Output */
-        .gp
-            /* Generic.Prompt */
-        .gs
-            /* Generic.Strong */
-            font-weight: 500
-        .gu
-            /* Generic.Subheading */
-            color: $comment
-        .gt
-            /* Generic.Traceback */
-            color: $error
-        .kc
-            /* Keyword.Constant */
-            font-weight: 500
-        .kd
-            /* Keyword.Declaration */
-            font-weight: 500
-        .kn
-            /* Keyword.Namespace */
-            font-weight: 500
-        .kp
-            /* Keyword.Pseudo */
-            font-weight: 500
-        .kr
-            /* Keyword.Reserved */
-            font-weight: 500
-        .kt
-            /* Keyword.Type */
-            color: $operator
-            font-weight: 500
-        .ld
-            /* Literal.Date */
-            color: $literal
-        .m
-            /* Literal.Number */
-            color: $literal
-        .s
-            /* Literal.String */
-            color: $string
-        .na
-            /* Name.Attribute */
-            color: $identifier
-        .nb
-            /* Name.Builtin */
-            color: $identifier
-        .nc
-            /* Name.Class */
-            color: $identifier
-            font-weight: 500
-        .no
-            /* Name.Constant */
-            color: $identifier
-        .nd
-            /* Name.Decorator */
-            color: $identifier
-        .ni
-            /* Name.Entity */
-            color: $identifier
-        .ne
-            /* Name.Exception */
-            color: $identifier
-            font-weight: 500
-        .nf
-            /* Name.Function */
-            color: $identifier
-            font-weight: 500
-        .nl
-            /* Name.Label */
-            color: $identifier
-        .nn
-            /* Name.Namespace */
-            color: $identifier
-        .nx
-            /* Name.Other */
-            color: $identifier
-        .py
-            /* Name.Property */
-            color: $identifier
-        .nt
-            /* Name.Tag */
-            color: $identifier
-            font-weight: 500
-        .nv
-            /* Name.Variable */
-            color: $identifier
-        .ow
-            /* Operator.Word */
-            font-weight: 500
-        .w
-            /* Text.Whitespace */
-        .mf
-            /* Literal.Number.Float */
-            color: $literal
-        .mh
-            /* Literal.Number.Hex */
-            color: $literal
-        .mi
-            /* Literal.Number.Integer */
-            color: $literal
-        .mo
-            /* Literal.Number.Oct */
-            color: $literal
-        .sb
-            /* Literal.String.Backtick */
-            color: $string
-        .sc
-            /* Literal.String.Char */
-            color: $string
-        .sd
-            /* Literal.String.Doc */
-            color: $string
-        .s2
-            /* Literal.String.Double */
-            color: $string
-        .se
-            /* Literal.String.Escape */
-            color: $string
-        .sh
-            /* Literal.String.Heredoc */
-            color: $string
-        .si
-            /* Literal.String.Interpol */
-            color: $string
-        .sx
-            /* Literal.String.Other */
-            color: $string
-        .sr
-            /* Literal.String.Regex */
-            color: $string
-        .s1
-            /* Literal.String.Single */
-            color: $string
-        .ss
-            /* Literal.String.Symbol */
-            color: $string
-        .bp
-            /* Name.Builtin.Pseudo */
-            color: $identifier
-        .vc
-            /* Name.Variable.Class */
-            color: $identifier
-        .vg
-            /* Name.Variable.Global */
-            color: $identifier
-        .vi
-            /* Name.Variable.Instance */
-            color: $identifier
-        .il
-            /* Literal.Number.Integer.Long */
-            color: $literal
-    ul, ol
-        .highlight
-            border-radius: .25em 0 0 .25em
-    pre code
-        white-space: pre
-        background: transparent
-        padding: 0
+      border-radius: .25em 0 0 .25em
+  pre code
+    white-space: pre
+    background: transparent
+    padding: 0
 
 /*
  *  ### Tables
@@ -559,36 +559,36 @@ $comment: #b6b6b6
  *  ```
  */
 .Text table
-    width: 100%
+  width: 100%
+  background: inherit
+  margin-top: 3em
+  caption
+    font-size: 1em
+    font-weight: bold
+    line-height: 1.2em
+    text-align: left
     background: inherit
-    margin-top: 3em
-    caption
-        font-size: 1em
-        font-weight: bold
-        line-height: 1.2em
-        text-align: left
-        background: inherit
-        padding: .5em
-    th, td
-        padding: .5em
-        vertical-align: top
-        text-align: left
-    th
-        font-weight: normal
-    thead > tr
+    padding: .5em
+  th, td
+    padding: .5em
+    vertical-align: top
+    text-align: left
+  th
+    font-weight: normal
+  thead > tr
+    background-color: rgba(0,0,0,0.05)
+    > th
+      vertical-align: bottom
+    &:first-child
+      th, td
+        border-top: 0
+  tbody
+    border-top: .25em solid white
+    > tr:nth-child(odd)
+      th, td
         background-color: rgba(0,0,0,0.05)
-        > th
-            vertical-align: bottom
-        &:first-child
-            th, td
-                border-top: 0
-    tbody
-        border-top: .25em solid white
-        > tr:nth-child(odd)
-            th, td
-                background-color: rgba(0,0,0,0.05)
-        th[rowspan]
-            background-color: rgba(0,0,0,0.05)
+    th[rowspan]
+      background-color: rgba(0,0,0,0.05)
 
 /*
  *  ### Combination of Block Elements
@@ -633,16 +633,16 @@ $comment: #b6b6b6
  *  ```
  */
 .Text
-    > * + *
-        margin-top: 1.5em
-    > ul, ol
-        li > * + *
-            margin-top: 1.5em
-    section
-        &:after
-            content: ''
-            display: block
-            clear: both
+  > * + *
+    margin-top: 1.5em
+  > ul, ol
+    li > * + *
+      margin-top: 1.5em
+  section
+    &:after
+      content: ''
+      display: block
+      clear: both
 
 /*
  *  Embedded Media
@@ -656,74 +656,74 @@ $comment: #b6b6b6
  *  the following classes, corresponding to their aspect ratio:
  */
 @mixin floatElementAndSetBaseMargins
-    float: left
-    margin-top: .4em
-    margin-right: 1em
-    + p
-        margin-top: 0
+  float: left
+  margin-top: .4em
+  margin-right: 1em
+  + p
+    margin-top: 0
 
 @mixin setMarginsIfFollowsBlock
-    margin-top: 1.9em
-    + p
-        margin-top: 1.5em
+  margin-top: 1.9em
+  + p
+    margin-top: 1.5em
 
 @mixin setMarginsIfFollowsHeadline
-    margin-top: .4em !important //overwrite the important rule set for elements following headings
-    + p
-        margin-top: 0
+  margin-top: .4em !important //overwrite the important rule set for elements following headings
+  + p
+    margin-top: 0
 
 @mixin floatSelector($selector)
-    #{$selector}
-        @include floatElementAndSetBaseMargins
-    *
-        + #{$selector}
-            @include setMarginsIfFollowsBlock
-    h2, h3, h4, h5, h6
-        + #{$selector}
-            @include setMarginsIfFollowsHeadline
+  #{$selector}
+    @include floatElementAndSetBaseMargins
+  *
+    + #{$selector}
+      @include setMarginsIfFollowsBlock
+  h2, h3, h4, h5, h6
+    + #{$selector}
+      @include setMarginsIfFollowsHeadline
 
 @mixin setContentSizeToParentSize
-    position: relative
-    > *
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
+  position: relative
+  > *
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
 
 @mixin setHeight($lines)
-    height: (.745em+1.5*$lines)
+  height: (.745em+1.5*$lines)
 
 @mixin setFlexibleRatioBasedOnWidth($width: 100%)
+  height: auto
+  padding-bottom: 0
+  padding-top: 0
+  > *
+    position: static
+    width: 100%
     height: auto
-    padding-bottom: 0
-    padding-top: 0
-    > *
-        position: static
-        width: 100%
-        height: auto
-        box-sizing: border-box
+    box-sizing: border-box
 
 @mixin setFlexibleRatioBasedOnHeight($lines: 1)
+  width: auto
+  padding-bottom: 0
+  padding-top: 0
+  > *
+    position: static
     width: auto
-    padding-bottom: 0
-    padding-top: 0
-    > *
-        position: static
-        width: auto
-        height: 100%
+    height: 100%
 
 @mixin setFixedRatioBasedOnWidth($ratio: 1, $width: 100%, $widthOffset: 0)
-    height: 0
-    padding-bottom: $width/$ratio
-    padding-top: $widthOffset/$ratio
-    @include setContentSizeToParentSize
+  height: 0
+  padding-bottom: $width/$ratio
+  padding-top: $widthOffset/$ratio
+  @include setContentSizeToParentSize
 
 @mixin setFixedRatioBasedOnHeight($ratio, $lines)
-    width: (.745em+1.5*$lines*$ratio)
-    padding-bottom: 0
-    padding-top: 0
-    @include setContentSizeToParentSize
+  width: (.745em+1.5*$lines*$ratio)
+  padding-bottom: 0
+  padding-top: 0
+  @include setContentSizeToParentSize
 
 /*
  *  ### .landscape
@@ -764,12 +764,12 @@ $comment: #b6b6b6
  *  ```
  */
 .Text
-    .landscape
-        @include setFlexibleRatioBasedOnWidth(100%)
-        &.video //video format 16/9
-            @include setFixedRatioBasedOnWidth((16/9), 100%)
-        &.photo //photo format 3/2
-            @include setFixedRatioBasedOnWidth((3/2), 100%)
+  .landscape
+    @include setFlexibleRatioBasedOnWidth(100%)
+    &.video //video format 16/9
+      @include setFixedRatioBasedOnWidth((16/9), 100%)
+    &.photo //photo format 3/2
+      @include setFixedRatioBasedOnWidth((3/2), 100%)
 
 /*
  *  #### Floating Media
@@ -809,17 +809,17 @@ $comment: #b6b6b6
  *  ```
  */
 .Text
-    @media screen and (min-width: 36em) //576px
-        @include floatSelector('.landscape.float')
-        .landscape.float
-            @include setHeight(5)
-            @include setFlexibleRatioBasedOnHeight(5)
-            &.video //video format 16/9
-                @include setHeight(6)
-                @include setFixedRatioBasedOnHeight((16/9), 6)
-            &.photo //photo format 3/2
-                @include setHeight(7)
-                @include setFixedRatioBasedOnHeight((3/2), 7)
+  @media screen and (min-width: 36em) //576px
+    @include floatSelector('.landscape.float')
+    .landscape.float
+      @include setHeight(5)
+      @include setFlexibleRatioBasedOnHeight(5)
+      &.video //video format 16/9
+        @include setHeight(6)
+        @include setFixedRatioBasedOnHeight((16/9), 6)
+      &.photo //photo format 3/2
+        @include setHeight(7)
+        @include setFixedRatioBasedOnHeight((3/2), 7)
 
 /*
  *  ### .square
@@ -853,14 +853,14 @@ $comment: #b6b6b6
  *  ```
  */
 .Text
-    .square
-        @include setFixedRatioBasedOnWidth(1, 100%)
+  .square
+    @include setFixedRatioBasedOnWidth(1, 100%)
 
-    @media screen and (min-width: 38em) //608px
-        @include floatSelector('.square')
-        .square
-            @include setHeight(9)
-            @include setFixedRatioBasedOnHeight(1, 9)
+  @media screen and (min-width: 38em) //608px
+    @include floatSelector('.square')
+    .square
+      @include setHeight(9)
+      @include setFixedRatioBasedOnHeight(1, 9)
 
 /*
  *  ### .portrait
@@ -898,16 +898,16 @@ $comment: #b6b6b6
  *  ```
  */
 .Text
-    .portrait
-        @include setFlexibleRatioBasedOnWidth(100%)
-        &.photo //photo format 2/3
-            @include setFixedRatioBasedOnWidth((2/3), 100%)
+  .portrait
+    @include setFlexibleRatioBasedOnWidth(100%)
+    &.photo //photo format 2/3
+      @include setFixedRatioBasedOnWidth((2/3), 100%)
 
-    @media screen and (min-width: 22.5em) //360px
-        @include floatSelector('.portrait')
-        .portrait
-            @include setHeight(14)
-            @include setFlexibleRatioBasedOnHeight(14)
-        .portrait.photo //photo format 2/3
-            @include setHeight(10)
-            @include setFixedRatioBasedOnHeight((2/3), 10)
+  @media screen and (min-width: 22.5em) //360px
+    @include floatSelector('.portrait')
+    .portrait
+      @include setHeight(14)
+      @include setFlexibleRatioBasedOnHeight(14)
+    .portrait.photo //photo format 2/3
+      @include setHeight(10)
+      @include setFixedRatioBasedOnHeight((2/3), 10)
