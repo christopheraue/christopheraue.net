@@ -28,7 +28,11 @@
    --><time class="Article-MetaRight Article-Date" datetime="{{ article.date | replace: ' +', '+' }}">{{ article.date | date: "%B %d, %Y" }}</time>
     </div>
   </header>
-  <section class="Text white-box">{{ content }}</section>
+  <section class="white-box">
+    {% container Text %}
+      {{ content }}
+    {% endcontainer %}
+  </section>
   {% unless page.path contains '_drafts/' %}
   <div id="disqus_thread" class="Article-CommentsThread white-box"></div>
   {% endunless %}
