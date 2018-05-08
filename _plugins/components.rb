@@ -1,5 +1,7 @@
 module Jekyll
   module Components
+    Error = Class.new(StandardError)
+
     COMPONENTS = Dir.glob('**/_components/*/').sort.freeze
     COMPONENT_PATHS = Dir.glob('**/_components/').sort.freeze
     MARKUP_FILENAME = '_markup.html'.freeze
@@ -59,6 +61,27 @@ module Jekyll
       def tag_includes_dirs(context)
         COMPONENT_PATHS
       end
+
+      def dir(context)
+        site = context.registers[:site]
+        name = File.dirname(render_variable(context) || @file)
+        tag_includes_dirs(context).each do |dir|
+          path = File.join(dir, name)
+          return path if valid_include_dir?(path, dir, site.safe)
+        end
+        raise IOError, could_not_locate_message(name, tag_includes_dirs(context), site.safe)
+      end
+
+      def valid_include_dir?(path, dir, safe)
+        !outside_site_source?(path, dir, safe) && File.directory?(path)
+      end
+
+      def render(context)
+        context.registers[:current_component_dir] = dir(context)
+        super
+      ensure
+        context.registers.delete :current_component_dir
+      end
     end
 
     class ContainerTag < Liquid::Block
@@ -82,9 +105,23 @@ module Jekyll
       end
     end
 
+    class IncludePartialTag < Jekyll::Tags::IncludeTag
+      def tag_includes_dirs(context)
+        [File.join(context.registers[:current_component_dir], '_partials')].freeze
+      end
+
+      def render(context)
+        unless context.registers[:current_component_dir]
+          raise Error, "include_partials tag not supported outside of components"
+        end
+        super
+      end
+    end
+
     Liquid::Template.register_tag('container', ContainerTag)
     Liquid::Template.register_tag('block', BlockTag)
     Liquid::Template.register_tag('list', ContainerTag)
     Liquid::Template.register_tag('item', BlockTag)
+    Liquid::Template.register_tag('include_partial', IncludePartialTag)
   end
 end
