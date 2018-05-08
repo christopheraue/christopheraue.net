@@ -8,7 +8,7 @@ plugins:
   - jekyll-redirect-from
 sass:
   load_paths:
-    - assets/_sass
+    - _components/_global/_sass
     - .
   cache_location: _build/tmp/.sass-cache
 
