@@ -1,45 +1,23 @@
 require 'digest/md5'
 
-Jekyll::Hooks.register :site, :pre_render do |site, payload|
-  asset_exts = %w(.js .css)
-
-  site.data[:preprocessed_assets], site.pages = site.pages.partition do |page|
-    asset_exts.include? page.output_ext
-  end
-
-  site.data[:preprocessed_assets].each do |asset|
-    asset.output = Jekyll::Renderer.new(site, asset, payload).run
-    asset.basename += "-#{Digest::MD5.hexdigest asset.output}"
-    asset.remove_instance_variable :@url # reset cached URL
-  end
-end
-
-Jekyll::Hooks.register :site, :post_render do |site|
-  site.pages.unshift *site.data.delete(:preprocessed_assets)
-end
-
 module Jekyll
   module Filters
     module FingerprintFilter
+      ASSET_EXTS = %w(.js .css).freeze
+
+      Jekyll::Hooks.register :pages, :post_init do |page|
+        next unless ASSET_EXTS.include? page.output_ext
+        page.basename += "-#{Digest::MD5.hexdigest page.site.time.to_i.to_s}"
+      end
+
       def fingerprint(url)
         site = @context.registers[:site]
-        site_url = site.config['url']
 
-        is_absolute_url = url.start_with? site_url
+        dirname = File.dirname(url)
+        extname = File.extname(url)
+        basename = File.basename(url, extname)
 
-        relative_url = url.sub(site_url, '')
-        dirname = File.dirname(relative_url)
-        extname = File.extname(relative_url)
-        basename = File.basename(relative_url, extname)
-
-        url_pattern = /^#{Regexp.escape("#{dirname}/#{basename}")}-[0-9a-f]{32}#{Regexp.escape(extname)}$/
-        found = site.data[:preprocessed_assets].find{ |asset| asset.url =~ url_pattern }
-
-        if found
-          is_absolute_url ? "#{site_url}/#{found.url}" : found.url
-        else
-          url
-        end
+        "#{dirname}/#{basename}-#{Digest::MD5.hexdigest site.time.to_i.to_s}#{extname}"
       end
     end
   end
