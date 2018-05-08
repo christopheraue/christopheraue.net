@@ -51,12 +51,13 @@ module Jekyll
     end
 
     class BlockTag < Jekyll::Tags::IncludeTag
-      def tag_includes_dirs(context)
-        COMPONENT_PATHS
+      def initialize(*)
+        super
+        @file = File.join(@file, MARKUP_FILENAME)
       end
 
-      def locate_include_file(context, file, safe)
-        super context, File.join(file, MARKUP_FILENAME), safe
+      def tag_includes_dirs(context)
+        COMPONENT_PATHS
       end
     end
 
