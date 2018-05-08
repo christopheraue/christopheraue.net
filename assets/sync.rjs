@@ -1,8 +1,0 @@
----
-layout: none
----
-
-{% comment %}
-Will be dynamically filled with requires of the *sync* modules of all
-components when the page is built.
-{% endcomment %}

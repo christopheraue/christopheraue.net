@@ -5,11 +5,6 @@ module Jekyll
     module FingerprintFilter
       ASSET_EXTS = %w(.js .css).freeze
 
-      Jekyll::Hooks.register :pages, :post_init do |page|
-        next unless ASSET_EXTS.include? page.output_ext
-        page.basename += "-#{Digest::MD5.hexdigest page.site.time.to_i.to_s}"
-      end
-
       def fingerprint(url)
         site = @context.registers[:site]
 

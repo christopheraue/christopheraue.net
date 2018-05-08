@@ -4,58 +4,58 @@ module Jekyll
 
     COMPONENTS = Dir.glob('**/_components/*/').sort.freeze
     COMPONENT_PATHS = Dir.glob('**/_components/').sort.freeze
-    MARKUP_FILENAME = '_markup.html'.freeze
-    STYLES_FILENAME = '_styles.sass'.freeze
-    SYNCJS_FILENAME = '_sync.js'.freeze
-    ASYNCJS_FILENAME = '_async.js'.freeze
 
     SRC_RJSCONFIG_PATH = '_build/rjs_config.template.js'.freeze
     DST_RJSCONFIG_PATH = '_build/tmp/rjs_config.js'.freeze
     RJSCONFIG_PACKAGES_PLACEHOLDER = '/* DYNAMIC_PACKAGES_CONFIG */'.freeze
 
-    class AssetGenerator < Jekyll::Generator
-      STYLES_FILE = '/assets/styles.sass'.freeze
-      SYNCJS_FILE = '/assets/sync.rjs'.freeze
-      ASYNCJS_FILE = '/assets/async.rjs'.freeze
+    Jekyll::Hooks.register :site, :post_render do |site|
+      styles, syncjs, asyncjs = %w(styles.sass sync.rjs async.rjs).map do |filename|
+        extname = File.extname(filename)
+        basename = File.basename(filename, extname)
+        fingerprinted_filename = "#{basename}-#{Digest::MD5.hexdigest site.time.to_i.to_s}#{extname}"
 
-      def generate(site)
-        styles_page = site.pages.find{ |p| File.join(p.dir, p.name) == STYLES_FILE }
-        syncjs_page = site.pages.find{ |p| File.join(p.dir, p.name) == SYNCJS_FILE }
-        asyncjs_page = site.pages.find{ |p| File.join(p.dir, p.name) == ASYNCJS_FILE }
+        page = Jekyll::PageWithoutAFile.new site, site.source, 'assets/', fingerprinted_filename
+        page.data['layout'] = 'none'
+        page.content = ''
+        page
+      end
 
-        rjsconfig = File.read(SRC_RJSCONFIG_PATH)
-        rjs_packages = []
+      rjsconfig = File.read(SRC_RJSCONFIG_PATH)
+      rjs_packages = []
 
-        COMPONENTS.each do |component_path|
-          comp_name = File.basename component_path
-          styles_path = File.join component_path, STYLES_FILENAME
-          syncjs_path = File.join component_path, SYNCJS_FILENAME
-          asyncjs_path = File.join component_path, ASYNCJS_FILENAME
+      COMPONENTS.each do |component_path|
+        comp_name = File.basename component_path
 
-          if File.exist? styles_path
-            styles_page.content += "\n@import \"#{styles_path.chomp('.sass')}\""
-          end
-
-          if File.exist? syncjs_path
-            syncjs_page.content += "\nrequire(['#{comp_name}/#{SYNCJS_FILENAME.chomp('.js')}'])"
-          end
-
-          if File.exist? asyncjs_path
-            asyncjs_page.content += "\nrequire(['#{comp_name}/#{ASYNCJS_FILENAME.chomp('.js')}'])"
-          end
-
-          rjs_packages << "{name: '#{comp_name}', location: '#{component_path.chomp '/'}'}"
+        if File.exist? File.join(component_path, '_styles.sass')
+          styles.content += "@import \"#{File.join component_path, '_styles'}\"\n"
         end
 
-        rjsconfig.sub! RJSCONFIG_PACKAGES_PLACEHOLDER, rjs_packages.join(",\n")
-        File.write(DST_RJSCONFIG_PATH, rjsconfig)
+        if File.exist? File.join(component_path, '_sync.js')
+          syncjs.content += "require(['#{comp_name}/_sync'])\n"
+        end
+
+        if File.exist? File.join(component_path, '_async.js')
+          asyncjs.content += "require(['#{comp_name}/_async'])\n"
+        end
+
+        rjs_packages << "{name: '#{comp_name}', location: '#{component_path.chomp '/'}'}"
       end
+
+      rjsconfig.sub! RJSCONFIG_PACKAGES_PLACEHOLDER, rjs_packages.join(",\n")
+      File.write(DST_RJSCONFIG_PATH, rjsconfig)
+
+      styles.render site.layouts, site.site_payload
+      syncjs.render site.layouts, site.site_payload
+      asyncjs.render site.layouts, site.site_payload
+
+      site.pages << styles << syncjs << asyncjs
     end
 
     class BlockTag < Jekyll::Tags::IncludeTag
       def initialize(*)
         super
-        @file = File.join(@file, MARKUP_FILENAME)
+        @file = File.join(@file, '_markup.html')
       end
 
       def tag_includes_dirs(context)
