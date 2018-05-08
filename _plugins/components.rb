@@ -15,7 +15,7 @@ module Jekyll
         basename = File.basename(filename, extname)
         fingerprinted_filename = "#{basename}-#{Digest::MD5.hexdigest site.time.to_i.to_s}#{extname}"
 
-        page = Jekyll::PageWithoutAFile.new site, site.source, 'assets/', fingerprinted_filename
+        page = Jekyll::PageWithoutAFile.new site, site.source, '/', fingerprinted_filename
         page.data['layout'] = 'none'
         page.content = ''
         page

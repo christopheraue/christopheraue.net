@@ -9,6 +9,7 @@ module Jekyll
         site = @context.registers[:site]
 
         dirname = File.dirname(url)
+        dirname = '' if dirname == '/'
         extname = File.extname(url)
         basename = File.basename(url, extname)
 
