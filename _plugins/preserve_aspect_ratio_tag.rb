@@ -1,3 +1,5 @@
+require_relative 'preserve_aspect_ratio_markup'
+
 module Jekyll
   module Tags
     class PreserveAspectRatioTag < Liquid::Block
