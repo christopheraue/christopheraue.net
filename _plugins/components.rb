@@ -24,6 +24,8 @@ module Jekyll
       rjsconfig = File.read(SRC_RJSCONFIG_PATH)
       rjs_packages = []
 
+      last_js = []
+
       COMPONENTS.each do |component_path|
         comp_name = File.basename component_path
 
@@ -39,8 +41,14 @@ module Jekyll
           asyncjs.content += "require(['#{comp_name}/_async'])\n"
         end
 
+        if File.exist? File.join(component_path, '_last.js')
+          last_js << "require(['#{comp_name}/_last'])"
+        end
+
         rjs_packages << "{name: '#{comp_name}', location: '#{component_path.chomp '/'}'}"
       end
+
+      asyncjs.content += last_js.join "\n"
 
       rjsconfig.sub! RJSCONFIG_PACKAGES_PLACEHOLDER, rjs_packages.join(",\n")
       File.write(DST_RJSCONFIG_PATH, rjsconfig)
