@@ -7,7 +7,7 @@
  *  The homepage is displayed with a vertical layout for narrow viewports. Wide
  *  viewports use a horizontal layout.
  */
-.HomeIndex-Logo
+.home-Index-Logo
   position: absolute
   z-index: 99
   left: 0
@@ -28,7 +28,7 @@
     stroke: white
     pointer-events: none
 
-.HomeIndex-Category
+.home-Index-Category
   position: absolute
   height: 50%
   width: 100%
@@ -37,17 +37,17 @@
   opacity: 0.8
   &.hover
     opacity: 1
-  + .HomeIndex-Category
+  + .home-Index-Category
     top: 50%
     left: 0
   @media screen and (min-aspect-ratio: 1/1)
     height: 100%
     width: 50%
-    + .HomeIndex-Category
+    + .home-Index-Category
       top: 0
       left: 50%
 
-.HomeIndex-DescContainer
+.home-Index-DescContainer
   display: block
   box-sizing: border-box
   text-align: center
@@ -65,42 +65,42 @@
     vertical-align: middle
     height: 100%
 
-.HomeIndex-Desc
+.home-Index-Desc
   text-align: left
   display: inline-block
   vertical-align: middle
-  > .HomeIndex-SlashText,
-  > .HomeIndex-SlashTextAnnotation
+  > .home-Index-SlashText,
+  > .home-Index-SlashTextAnnotation
     display: block
     fill: white
     stroke: white
     .aspect-ratio-preservation-area, .size
       width: 100%
 
-.HomeIndex-Category.design
+.home-Index-Category.design
   background: $design-dark
-  > .HomeIndex-DescContainer
-    > .HomeIndex-Desc
+  > .home-Index-DescContainer
+    > .home-Index-Desc
       width: 100%
       max-width: 10.64em
-      > .HomeIndex-SlashText
+      > .home-Index-SlashText
         width: 69%
         max-width: 8em
-      > .HomeIndex-SlashTextAnnotation
+      > .home-Index-SlashTextAnnotation
         width: 67%
         margin-left: 33%
         max-width: 7.8em
 
-.HomeIndex-Category.collateral
+.home-Index-Category.collateral
   background: $collateral-dark
-  > .HomeIndex-DescContainer
-    > .HomeIndex-Desc
+  > .home-Index-DescContainer
+    > .home-Index-Desc
       width: 100%
       max-width: 11.83em
-      > .HomeIndex-SlashText
+      > .home-Index-SlashText
         width: 73%
         max-width: 9.375em
-      > .HomeIndex-SlashTextAnnotation
+      > .home-Index-SlashTextAnnotation
         width: 70%
         margin-left: 30%
         max-width: 9.1em

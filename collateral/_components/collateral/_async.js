@@ -8,7 +8,7 @@ define([
             return
         }
 
-        var screen = document.querySelector('#theatre > .TheatreScreen'),
+        var screen = document.querySelector('.collateral-Theatre-Screen > .TheatreScreen'),
             theatreScreen = new TheatreScreen(screen),
             video = new YouTubeVideo(screen.getElementsByTagName('iframe')[0]);
 
