@@ -3,7 +3,6 @@ module Jekyll
     Error = Class.new(StandardError)
 
     COMPONENTS = Dir.glob('**/_components/*/').sort.freeze
-    COMPONENT_PATHS = Dir.glob('**/_components/').sort.freeze
 
     SRC_RJSCONFIG_PATH = '_build/rjs_config.template.js'.freeze
     DST_RJSCONFIG_PATH = '_build/tmp/rjs_config.js'.freeze
@@ -27,7 +26,7 @@ module Jekyll
       last_js = []
 
       COMPONENTS.each do |component_path|
-        comp_name = File.basename component_path
+        comp_name = (component_path.sub '_components/', '').chomp '/'
 
         if File.exist? File.join(component_path, '_styles.sass')
           styles.content += "@import \"#{File.join component_path, '_styles'}\"\n"
@@ -63,25 +62,45 @@ module Jekyll
     class BlockTag < Jekyll::Tags::IncludeTag
       def initialize(*)
         super
-        @file = File.join(@file, '_markup.html')
+        @dir = @file
+        @file = '_markup.html'
+      end
+
+      def render_variable(context, var = @file)
+        if var =~ VARIABLE_SYNTAX
+          partial = context.registers[:site]
+                      .liquid_renderer
+                      .file("(variable)")
+                      .parse(var)
+          partial.render!(context)
+        else
+          var
+        end
       end
 
       def tag_includes_dirs(context)
-        COMPONENT_PATHS
+        [dir(context)].freeze
       end
 
       def dir(context)
-        site = context.registers[:site]
-        name = File.dirname(render_variable(context) || @file)
-        tag_includes_dirs(context).each do |dir|
-          path = File.join(dir, name)
-          return path if valid_include_dir?(path, dir, site.safe)
-        end
-        raise IOError, could_not_locate_message(name, tag_includes_dirs(context), site.safe)
-      end
+        dir, slash, name = render_variable(context, @dir).rpartition('/')
+        dir << slash << '_components'
+        path = File.join(dir, name)
 
-      def valid_include_dir?(path, dir, safe)
-        !outside_site_source?(path, dir, safe) && File.directory?(path)
+        site = context.registers[:site]
+        if File.directory?(path) && !outside_site_source?(path, dir, site.safe)
+          path
+        else
+          raise IOError, begin
+            "Could not locate component #{@dir} with path '#{path}'. Ensure it " \
+            "exists and" <<
+            if site.safe
+              " is not a symlink as those are not allowed in safe mode."
+            else
+              ", if it is a symlink, does not point outside your site source."
+            end
+          end
+        end
       end
 
       def render(context)
