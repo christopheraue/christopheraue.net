@@ -1,0 +1,44 @@
+.Theatre
+  margin-bottom: 7em
+  position: relative
+
+.Theatre-Marquee
+  margin-bottom: 30%
+  overflow: hidden
+  .aspect-ratio-preservation-area, .size
+    width: 100%
+
+.Theatre-LightBox
+  position: absolute
+  top: 31.4%
+  left: 10.25%
+  right: 10.25%
+  height: 19.1%
+  .aspect-ratio-preservation-area, .size
+    width: 100%
+
+.Theatre-LightBoxText
+  // Open Sans Condensed 700 is statically included in the <head>
+  font-family: "Open Sans Condensed"
+  font-weight: bold
+  font-size: 22px
+  fill: black
+  text-anchor: middle
+  text-transform: uppercase
+  &.large
+    font-size: 36px
+
+.Theatre-Screen
+  $screen-width: 66.6666%
+
+  position: absolute
+  width: $screen-width
+  top: 95%
+  left: 50%
+  margin-left: -$screen-width/2
+  margin-top: -.5625 * $screen-width/2
+  z-index: 9999
+  .aspect-ratio-preservation-area, .size
+    width: 100%
+  desc
+    display: none
