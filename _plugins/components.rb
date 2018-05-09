@@ -109,12 +109,13 @@ module Jekyll
       end
 
       def render(context)
-        dir = dir(context)
-        context.registers[:current_component_path] = dir
-        context.registers[:site].data[:used_component_paths].add dir
+        parent = context.registers[:current_component]
+        current = dir(context)
+        context.registers[:current_component] = current
+        context.registers[:site].data[:used_component_paths].add current
         super
       ensure
-        context.registers.delete :current_component_path
+        context.registers[:current_component] = parent
       end
     end
 
@@ -122,13 +123,23 @@ module Jekyll
       def render(context)
         # Call .parse instead of .new since .new is private
         block = BlockTag.parse(@tag_name, "#{@markup} content=\"\"", :no_tokens, @parse_context)
+
         context.stack do
-          context['container'] = ContentDrop.new{ super }
+          container_parent = context.registers[:current_component]
+          context['container'] = ContainerDrop.new do
+            begin
+              parent = context.registers[:current_component]
+              context.registers[:current_component] = container_parent
+              super
+            ensure
+              context.registers[:current_component] = parent
+            end
+          end
           block.render(context)
         end
       end
 
-      class ContentDrop < Liquid::Drop
+      class ContainerDrop < Liquid::Drop
         def initialize(&content_renderer)
           @content_renderer = content_renderer
         end
@@ -141,11 +152,11 @@ module Jekyll
 
     class IncludePartialTag < Jekyll::Tags::IncludeTag
       def tag_includes_dirs(context)
-        [File.join(context.registers[:current_component_path], '_partials')].freeze
+        [File.join(context.registers[:current_component], '_partials')].freeze
       end
 
       def render(context)
-        unless context.registers[:current_component_path]
+        unless context.registers[:current_component]
           raise Error, "include_partials tag not supported outside of components"
         end
         super
