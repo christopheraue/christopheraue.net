@@ -1,0 +1,106 @@
+@import "variables"
+
+/*
+ *  Homepage
+ *  ========
+ *
+ *  The homepage is displayed with a vertical layout for narrow viewports. Wide
+ *  viewports use a horizontal layout.
+ */
+.HomeIndex-Logo
+  position: absolute
+  z-index: 99
+  left: 0
+  top: 50%
+  width: 100%
+  height: 0
+  text-align: center
+  box-sizing: border-box
+  padding: 0 $gutter-width
+  @media screen and (min-aspect-ratio: 1/1)
+    top: 33.3333%
+  > .LogoChristopherAue
+    display: inline-block
+    font-size: 1.5em
+    margin-top: -0.95em
+    max-width: 100%
+    fill: white
+    stroke: white
+    pointer-events: none
+
+.HomeIndex-Category
+  position: absolute
+  height: 50%
+  width: 100%
+  top: 0
+  left: 0
+  opacity: 0.8
+  &.hover
+    opacity: 1
+  + .HomeIndex-Category
+    top: 50%
+    left: 0
+  @media screen and (min-aspect-ratio: 1/1)
+    height: 100%
+    width: 50%
+    + .HomeIndex-Category
+      top: 0
+      left: 50%
+
+.HomeIndex-DescContainer
+  display: block
+  box-sizing: border-box
+  text-align: center
+  width: 100%
+  height: 100%
+  padding: 0 $gutter-width
+  @media screen and (min-aspect-ratio: 1/1)
+    position: relative
+    top: 33.3333%
+    width: 100%
+    height: 66.6666%
+  &:before
+    content: ''
+    display: inline-block
+    vertical-align: middle
+    height: 100%
+
+.HomeIndex-Desc
+  text-align: left
+  display: inline-block
+  vertical-align: middle
+  > .HomeIndex-SlashText,
+  > .HomeIndex-SlashTextAnnotation
+    display: block
+    fill: white
+    stroke: white
+    .aspect-ratio-preservation-area, .size
+      width: 100%
+
+.HomeIndex-Category.design
+  background: $design-dark
+  > .HomeIndex-DescContainer
+    > .HomeIndex-Desc
+      width: 100%
+      max-width: 10.64em
+      > .HomeIndex-SlashText
+        width: 69%
+        max-width: 8em
+      > .HomeIndex-SlashTextAnnotation
+        width: 67%
+        margin-left: 33%
+        max-width: 7.8em
+
+.HomeIndex-Category.collateral
+  background: $collateral-dark
+  > .HomeIndex-DescContainer
+    > .HomeIndex-Desc
+      width: 100%
+      max-width: 11.83em
+      > .HomeIndex-SlashText
+        width: 73%
+        max-width: 9.375em
+      > .HomeIndex-SlashTextAnnotation
+        width: 70%
+        margin-left: 30%
+        max-width: 9.1em

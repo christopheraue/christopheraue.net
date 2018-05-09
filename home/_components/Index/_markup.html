@@ -1,0 +1,29 @@
+<h1 class="HomeIndex-Logo">
+  {% block LogoChristopherAue %}
+</h1>
+
+<a class="HomeIndex-Category design" href="/design" title="Go to /design">
+  <div class="HomeIndex-DescContainer"><!--
+ --><div class="HomeIndex-Desc">
+      <div class="HomeIndex-SlashText">
+        {% block SlashDesign %}
+      </div>
+      <div class="HomeIndex-SlashTextAnnotation">
+        {% include SlashDesignAnnotation.svg %}
+      </div>
+    </div>
+  </div>
+</a>
+
+<a class="HomeIndex-Category collateral" href="/collateral" title="Go to /collateral">
+  <div class="HomeIndex-DescContainer"><!--
+ --><div class="HomeIndex-Desc">
+      <div class="HomeIndex-SlashText">
+        {% block SlashCollateral %}
+      </div>
+      <div class="HomeIndex-SlashTextAnnotation">
+        {% include SlashCollateralAnnotation.svg %}
+      </div>
+    </div>
+  </div>
+</a>
