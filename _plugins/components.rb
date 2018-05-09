@@ -8,6 +8,10 @@ module Jekyll
     DST_RJSCONFIG_PATH = '_build/tmp/rjs_config.js'.freeze
     RJSCONFIG_PACKAGES_PLACEHOLDER = '/* DYNAMIC_PACKAGES_CONFIG */'.freeze
 
+    Jekyll::Hooks.register :site, :pre_render do |site|
+      site.data[:used_component_paths] = Set.new
+    end
+
     Jekyll::Hooks.register :site, :post_render do |site|
       styles, syncjs, asyncjs = %w(styles.sass sync.rjs async.rjs).map do |filename|
         extname = File.extname(filename)
@@ -25,7 +29,8 @@ module Jekyll
 
       last_js = []
 
-      COMPONENTS.each do |component_path|
+      components = Dir.glob('**/_components/_base').sort + site.data[:used_component_paths].to_a.sort
+      components.each do |component_path|
         comp_name = (component_path.sub '_components/', '').chomp '/'
 
         if File.exist? File.join(component_path, '_styles.sass')
@@ -104,10 +109,12 @@ module Jekyll
       end
 
       def render(context)
-        context.registers[:current_component_dir] = dir(context)
+        dir = dir(context)
+        context.registers[:current_component_path] = dir
+        context.registers[:site].data[:used_component_paths].add dir
         super
       ensure
-        context.registers.delete :current_component_dir
+        context.registers.delete :current_component_path
       end
     end
 
@@ -134,11 +141,11 @@ module Jekyll
 
     class IncludePartialTag < Jekyll::Tags::IncludeTag
       def tag_includes_dirs(context)
-        [File.join(context.registers[:current_component_dir], '_partials')].freeze
+        [File.join(context.registers[:current_component_path], '_partials')].freeze
       end
 
       def render(context)
-        unless context.registers[:current_component_dir]
+        unless context.registers[:current_component_path]
           raise Error, "include_partials tag not supported outside of components"
         end
         super
