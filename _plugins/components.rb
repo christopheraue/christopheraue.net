@@ -27,7 +27,7 @@ module Jekyll
 
       last_js = []
 
-      components = Dir.glob('**/_components/_base').sort + site.data[:used_component_paths].to_a.sort
+      components = ['_components/_base'] + site.data[:used_component_paths].to_a.sort
       components.each do |component_path|
         *dir_parts, _components, base = component_path.split('/')
         component = [*dir_parts, base].join '-'
