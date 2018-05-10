@@ -3,13 +3,11 @@ define([
     'Video/YouTubeVideo'
 ], function(TheatreScreen, YouTubeVideo) {
     document.ready(function() {
-        if (!document.body.classList.contains('collateral')) {
-            // not on collateral page
-            return
-        }
+        var screen = document.querySelector('.collateral-Theatre-Screen > .TheatreScreen');
 
-        var screen = document.querySelector('.collateral-Theatre-Screen > .TheatreScreen'),
-            theatreScreen = new TheatreScreen(screen),
+        if (!screen) { return }
+
+        var theatreScreen = new TheatreScreen(screen),
             video = new YouTubeVideo(screen.getElementsByTagName('iframe')[0]);
 
         video.addEventListener('stateChange', function(e) {
