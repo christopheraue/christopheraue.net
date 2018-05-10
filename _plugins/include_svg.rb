@@ -8,30 +8,26 @@
 # inlined SVG is then absolutely positioned to span the whole area of the
 # container.
 
-require_relative 'preserve_aspect_ratio_markup'
-
 module Jekyll
   module Tags
     module SvgRenderer
-      include PreserveAspectRatioMarkup
+      def render(context)
+        output = super
 
-      def wrap_svg(svg, context)
+        return output unless @file.end_with? '.svg'
+
         params = parse_params(context)
         tag = params['container_tag'] || 'div'
         number = '\d+(?:\.\d+)?'
-        match = svg.match /viewBox="#{number} #{number} (#{number}) (#{number})"/
+        match = output.match /viewBox="#{number} #{number} (#{number}) (#{number})"/
         width = match[1]
         height = match[2]
 
-        preserve_aspect_ratio_markup tag, width, height, svg
-      end
-
-      def render(context)
-        if @file.end_with? '.svg'
-          wrap_svg(super, context)
-        else
-          super
-        end
+        Liquid::Template.parse(<<-HTML).render(context)
+          {% container PreserveAspectRatio tag='#{tag}' ratio='#{width}/#{height}' %}
+            #{output}
+          {% endcontainer %}
+        HTML
       end
     end
 

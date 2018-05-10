@@ -1,0 +1,8 @@
+{% assign tag = include.tag | default: 'div' %}
+{% capture viewbox %}viewBox="0 0 {{ include.ratio | split: '/' | join: ' ' }}"{% endcapture %}
+{% capture svg %}<svg {{ viewbox }} xmlns="http://www.w3.org/2000/svg" version="1.1"></svg>{% endcapture %}
+
+<{{ tag }} class="aspect-ratio-preservation-area">
+  <img class="size" src="data:image/svg+xml;base64,{{ svg | base64 }}">
+  {{ container.content }}
+</{{ tag }}>
