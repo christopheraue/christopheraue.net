@@ -1,0 +1,120 @@
+/*
+ *  Columns
+ *  -------
+ *
+ *  A container with css class `.columns` displays its containing elements
+ *  with the given width next to each other.
+ *
+ *  When using `.columns-when-wide` columns are rendered on top of each other
+ *  for small viewports. For viewports wider than 40 em (640 px), the columns
+ *  move next to each other.
+ *
+ *  ### Halves, Quarters, Eighths and Sixteenths
+ *
+ *  ```
+ *  <div class="columns">
+ *      <div class="half"><div class="white-box center">1/2</div></div><!--
+ *   --><div class="quarter"><div class="white-box center">1/4</div></div><!--
+ *   --><div class="eighth"><div class="white-box center">1/8</div></div><!--
+ *   --><div class="sixteenth"><div class="white-box center">1/16</div></div><!--
+ *   --><div class="sixteenth"><div class="white-box center">1/16</div></div>
+ *  </div>
+ *  ```
+ *
+ *  ### Two Thirds
+ *
+ *  ```
+ *  <div class="columns">
+ *      <div class="two-thirds"><div class="white-box center">2/3</div></div><!--
+ *   --><div class="third"><div class="white-box center">1/3</div></div>
+ *  </div>
+ *  ```
+ *
+ *  ### Thirds, Sixths and Twelfths
+ *
+ *  ```
+ *  <div class="columns">
+ *      <div class="twelfth"><div class="white-box center">1/12</div></div><!--
+ *   --><div class="twelfth"><div class="white-box center">1/12</div></div><!--
+ *   --><div class="sixth"><div class="white-box center">1/6</div></div><!--
+ *   --><div class="third"><div class="white-box center">1/3</div></div><!--
+ *   --><div class="sixth"><div class="white-box center">1/6</div></div><!--
+ *   --><div class="twelfth"><div class="white-box center">1/12</div></div><!--
+ *   --><div class="twelfth"><div class="white-box center">1/12</div></div>
+ *  </div>
+ *  ```
+ *
+ *  ### Columns With Gutters
+ *
+ *  ```
+ *  <div class="columns with-gutters">
+ *      <div class="sixth"><div class="white-box center">1/6</div></div><!--
+ *   --><div class="sixth"><div class="white-box center">1/6</div></div><!--
+ *   --><div class="third"><div class="white-box center">1/3</div></div><!--
+ *   --><div class="sixth"><div class="white-box center">1/6</div></div><!--
+ *   --><div class="sixth"><div class="white-box center">1/6</div></div>
+ *  </div>
+ *  ```
+ *
+ *  ### Columns With Inner Gutters Only
+ *
+ *  ```
+ *  <div class="remove-outer-gutters">
+ *      <div class="columns with-gutters">
+ *         <div class="sixth"><div class="white-box center">1/6</div></div><!--
+ *      --><div class="sixth"><div class="white-box center">1/6</div></div><!--
+ *      --><div class="third"><div class="white-box center">1/3</div></div><!--
+ *      --><div class="sixth"><div class="white-box center">1/6</div></div><!--
+ *      --><div class="sixth"><div class="white-box center">1/6</div></div>
+ *      </div>
+ *  </div>
+ *  ```
+ */
+@mixin column-widths
+  > .three-quarters
+    width: 75%
+  > .two-thirds
+    width: 66.6666%
+  > .half
+    width: 50%
+  > .third
+    width: 33.3333%
+  > .quarter
+    width: 25%
+  > .sixth
+    width: 16.6666%
+  > .eighth
+    width: 12.5%
+  > .twelfth
+    width: 8.3333%
+  > .sixteenth
+    width: 6.25%
+
+@mixin columns
+  > *
+    display: block
+    margin: 0
+    box-sizing: border-box
+  &.with-gutters
+    padding: 0 $gutter-width/2
+    > *
+      padding: 0 $gutter-width/2
+.columns
+  @include columns
+  > *
+    display: inline-block
+    vertical-align: top
+  @include column-widths
+
+.columns-when-wide
+  @include columns
+  @media screen and (min-width: 40em) //640px
+        > *
+            display: inline-block
+            vertical-align: top
+        @include column-widths
+
+.remove-outer-gutters
+  overflow: hidden
+  .columns, .columns-when-wide
+    margin: 0 (-$gutter-width)
