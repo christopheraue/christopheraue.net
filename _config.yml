@@ -24,12 +24,6 @@ defaults:
       layout: bare
 
   - scope:
-      path: ""
-      type: posts
-    values:
-      layout: article
-
-  - scope:
       path: "index.html"
     values:
       category: home
@@ -44,6 +38,12 @@ defaults:
       favicon_macos_safari_color: "#3f668c"
       favicon_android_theme_color: "#3f668c"
       favicon_windows_metro_color: "#3f668c"
+
+  - scope:
+      path: "design"
+      type: posts
+    values:
+      render_with: design/Article
 
   - scope:
       path: "collateral"
