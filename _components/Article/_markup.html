@@ -5,7 +5,7 @@
     <h1 class="Article-Title">{{ article.title | xml_escape }}</h1>
     <div class="Article-Meta">
       <div class="Article-MetaLeft">
-        <a class="Article-CommentsLink" href="{{ article.url | absolute_url }}#disqus_thread" title="Go to the comment section">0 Comments</a>
+        <a class="Article-CommentsLink" href="{{ article.url | absolute_url }}#disqus_thread" title="Go to the comments section">0 Comments</a>
         —
         <ul class="Article-ShareList">
           <li class="Article-ShareListItem">
@@ -20,7 +20,9 @@
           </li>
         </ul>
       </div><!--
-   --><time class="Article-MetaRight Article-Date" datetime="{{ article.date | replace: ' +', '+' }}">{{ article.date | date: "%B %d, %Y" }}</time>
+   --><div class="Article-MetaRight">
+        <time class="Article-Date" datetime="{{ article.date | replace: ' +', '+' }}">{{ article.date | date: "%B %d, %Y" }}</time>
+      </div>
     </div>
   </header>
   <section class="Article-Text">
