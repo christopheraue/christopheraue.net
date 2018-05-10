@@ -51,6 +51,17 @@ module Jekyll
         rjs_packages << "{name: '#{component}', location: '#{component_path.chomp '/'}'}"
       end
 
+      Dir.glob('**/_skin/').sort.each do |skin_path|
+        components.each do |component_path|
+          *dir_parts, _components, base = component_path.split('/')
+          component = [*dir_parts, base].join '-'
+          skin_component_path = File.join skin_path, component
+          if File.exist? "#{skin_component_path}.sass"
+            styles.content += "@import \"#{skin_component_path}\"\n"
+          end
+        end
+      end
+
       asyncjs.content += last_js.join "\n"
 
       rjsconfig.sub! RJSCONFIG_PACKAGES_PLACEHOLDER, rjs_packages.join(",\n")
