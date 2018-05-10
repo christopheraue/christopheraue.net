@@ -67,7 +67,7 @@ module Jekyll
     class BlockTag < Jekyll::Tags::IncludeTag
       def initialize(*)
         super
-        @dir = @file
+        @name_src = @file
         @file = '_markup.html'
       end
 
@@ -88,16 +88,17 @@ module Jekyll
       end
 
       def dir(context)
-        dir, slash, name = render_variable(context, @dir).rpartition('/')
-        dir << slash << '_components'
-        path = File.join(dir, name)
+        name = render_variable(context, @name_src)
+        *dir_parts, base = name.split('-')
+        dir = File.join *dir_parts, '_components'
+        path = File.join dir, base
 
         site = context.registers[:site]
         if File.directory?(path) && !outside_site_source?(path, dir, site.safe)
           path
         else
           raise IOError, begin
-            "Could not locate component #{@dir} with path '#{path}'. Ensure it " \
+            "Could not locate component #{name} with path '#{path}'. Ensure it " \
             "exists and" <<
             if site.safe
               " is not a symlink as those are not allowed in safe mode."

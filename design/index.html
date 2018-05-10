@@ -3,7 +3,7 @@ title: /design
 has_feed: true
 ---
 
-{% container design/IndexSection title="Software" %}
+{% container design-IndexSection title="Software" %}
   <nav class="design-ArticleNav ensure-readability">
     <ul class="design-ArticleNav-List">
       <li class="design-ArticleNav-Item">
@@ -18,6 +18,6 @@ has_feed: true
   </nav>
 {% endcontainer %}
 
-{% container design/IndexSection title="Web Interfaces" %}
-  {% block design/ArticleNav articles=site.posts %}
+{% container design-IndexSection title="Web Interfaces" %}
+  {% block design-ArticleNav articles=site.posts %}
 {% endcontainer %}

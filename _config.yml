@@ -43,7 +43,7 @@ defaults:
       path: "design"
       type: posts
     values:
-      render_with: design/Article
+      render_with: design-Article
 
   - scope:
       path: "collateral"
