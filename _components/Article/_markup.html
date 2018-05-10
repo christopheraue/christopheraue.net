@@ -9,19 +9,14 @@
         —
         <ul class="Article-ShareList">
           <li class="Article-ShareListItem">
-            <a class="Article-ShareListLink" href="https://twitter.com/intent/tweet?url={{ article.url | absolute_url | cgi_escape }}&amp;via=christopheraue&amp;text={{ article.title | cgi_escape }}"
-               title="Share on Twitter"
-               onclick="ga('send', 'event', 'Twitter', 'Share Attempt', '{{ article.url | absolute_url }}')">
+            {% container ShareLink page=article on="twitter" class="Article-ShareLink" %}
               {% block Icon type="twitter" color="white" %}
-            </a>
+            {% endcontainer %}
           </li><!--
        --><li class="Article-ShareListItem">
-            <a class="Article-ShareListLink" href="https://www.facebook.com/sharer/sharer.php?m2w&amp;s=100&amp;{{ 'p[url]' | cgi_escape }}={{ article.url | absolute_url | cgi_escape }}&amp;{{ 'p[title]' | cgi_escape }}={{ article.title | cgi_escape }}&amp;{{ 'p[summary]' | cgi_escape }}={{ article.summary | cgi_escape }}"
-               target="_blank"
-               title="Share on Facebook"
-               onclick="ga('send', 'event', 'Facebook', 'Share Attempt', '{{ article.url | absolute_url }}')">
+            {% container ShareLink page=article on="facebook" class="Article-ShareLink" %}
               {% block Icon type="facebook" color="white" %}
-            </a>
+            {% endcontainer %}
           </li>
         </ul>
       </div><!--
