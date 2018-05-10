@@ -16,10 +16,6 @@ body.design
   background: $design-dark
   color: $design-light
 
-  .white-box
-    background: $design-light
-    color: $design-dark
-
 /*
  *  The Characteristic Font
  *  -----------------------
@@ -58,54 +54,8 @@ body.design
  *  ```
  */
 body.design
-  h2, h3, h4, h5, h6,
-  table caption
+  h2, h3
     font-family: 'Source Code Pro', monospace
-
-/*
- *  Changes To an Article
- *  ---------------------
- *
- *  An article's header is displayed with this category's characteristic font.
- */
-body.design
-  .Article-Header
-    font-family: 'Source Code Pro', monospace
-
-/*
- *  ### Inline Code
- *
- *  Colors are adjusted to match the colors of this category.
- *
- *  ```
- *  !bodyClass design
- *
- *  <div class="Text white-box">
- *      <p>This is an <code>inline code</code> fragment.</p>
- *  </div>
- *  ```
- */
-body.design
-  .Text code
-    background-color: rgba($design-dark,0.1)
-
-/*
- *  ### Code Blocks
- *
- *  Colors are adjusted to match the colors of this category.
- *
- *  ```
- *  !bodyClass design
- *
- *  <div class="Text white-box">
- *      <pre><code>&lt;div class="center-area"&gt;&#10; &nbsp;&lt;div class="centered"&gt;&lt;/div&gt;&#10;&lt;/div&gt;</code></pre>
- *  </div>
- *  ```
- */
-body.design
-  .Text .highlight
-    background-color: $design-dark
-    color: $design-light
 
 /*
  *  Videos
