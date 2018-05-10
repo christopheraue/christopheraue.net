@@ -2,8 +2,6 @@ module Jekyll
   module Components
     Error = Class.new(StandardError)
 
-    COMPONENTS = Dir.glob('**/_components/*/').sort.freeze
-
     SRC_RJSCONFIG_PATH = '_build/rjs_config.template.js'.freeze
     DST_RJSCONFIG_PATH = '_build/tmp/rjs_config.js'.freeze
     RJSCONFIG_PACKAGES_PLACEHOLDER = '/* DYNAMIC_PACKAGES_CONFIG */'.freeze
@@ -31,25 +29,26 @@ module Jekyll
 
       components = Dir.glob('**/_components/_base').sort + site.data[:used_component_paths].to_a.sort
       components.each do |component_path|
-        comp_name = (component_path.sub '_components/', '').chomp '/'
+        *dir_parts, _components, base = component_path.split('/')
+        component = [*dir_parts, base].join '-'
 
         if File.exist? File.join(component_path, '_styles.sass')
           styles.content += "@import \"#{File.join component_path, '_styles'}\"\n"
         end
 
         if File.exist? File.join(component_path, '_sync.js')
-          syncjs.content += "require(['#{comp_name}/_sync'])\n"
+          syncjs.content += "require(['#{component}/_sync'])\n"
         end
 
         if File.exist? File.join(component_path, '_async.js')
-          asyncjs.content += "require(['#{comp_name}/_async'])\n"
+          asyncjs.content += "require(['#{component}/_async'])\n"
         end
 
         if File.exist? File.join(component_path, '_last.js')
-          last_js << "require(['#{comp_name}/_last'])"
+          last_js << "require(['#{component}/_last'])"
         end
 
-        rjs_packages << "{name: '#{comp_name}', location: '#{component_path.chomp '/'}'}"
+        rjs_packages << "{name: '#{component}', location: '#{component_path.chomp '/'}'}"
       end
 
       asyncjs.content += last_js.join "\n"
@@ -87,8 +86,12 @@ module Jekyll
         [dir(context)].freeze
       end
 
+      def name(context)
+        render_variable(context, @name_src)
+      end
+
       def dir(context)
-        name = render_variable(context, @name_src)
+        name = name(context)
         *dir_parts, base = name.split('-')
         dir = File.join *dir_parts, '_components'
         path = File.join dir, base
@@ -110,13 +113,12 @@ module Jekyll
       end
 
       def render(context)
-        parent = context.registers[:current_component]
-        current = dir(context)
-        context.registers[:current_component] = current
-        context.registers[:site].data[:used_component_paths].add current
+        parent = context.registers[:current_component_path]
+        context.registers[:current_component_path] = dir(context)
+        context.registers[:site].data[:used_component_paths].add dir(context)
         super
       ensure
-        context.registers[:current_component] = parent
+        context.registers[:current_component_path] = parent
       end
     end
 
@@ -126,14 +128,14 @@ module Jekyll
         block = BlockTag.parse(@tag_name, "#{@markup} content=\"\"", :no_tokens, @parse_context)
 
         context.stack do
-          container_parent = context.registers[:current_component]
+          container_parent = context.registers[:current_component_path]
           context['container'] = ContainerDrop.new do
             begin
-              parent = context.registers[:current_component]
-              context.registers[:current_component] = container_parent
+              parent = context.registers[:current_component_path]
+              context.registers[:current_component_path] = container_parent
               super
             ensure
-              context.registers[:current_component] = parent
+              context.registers[:current_component_path] = parent
             end
           end
           block.render(context)
@@ -153,11 +155,11 @@ module Jekyll
 
     class IncludePartialTag < Jekyll::Tags::IncludeTag
       def tag_includes_dirs(context)
-        [File.join(context.registers[:current_component], '_partials')].freeze
+        [File.join(context.registers[:current_component_path], '_partials')].freeze
       end
 
       def render(context)
-        unless context.registers[:current_component]
+        unless context.registers[:current_component_path]
           raise Error, "include_partials tag not supported outside of components"
         end
         super
