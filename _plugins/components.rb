@@ -4,21 +4,15 @@ module Jekyll
     DST_RJSCONFIG_PATH = '_build/tmp/rjs_config.js'.freeze
     RJSCONFIG_PACKAGES_PLACEHOLDER = '/* DYNAMIC_PACKAGES_CONFIG */'.freeze
 
-    Jekyll::Hooks.register :site, :pre_render do |site|
-      site.data[:used_components] = {}
-    end
-
     Jekyll::Hooks.register :site, :post_render do |site|
       styles, syncjs, asyncjs = %w(styles.sass sync.rjs async.rjs).map do |filename|
         AssetFile.new site, filename
       end
 
       rjs_packages = []
-
       skin_paths = Dir.glob('**/_skin/').sort
-      components = [Component.new('_components/_base')] + site.data[:used_components].values.sort
 
-      components.each do |component|
+      Component.used.each do |component|
         styles << component.styles_import if component.styles_exist?
         skin_paths.each do |skin_path|
           styles << component.skin_import(skin_path) if component.skin_exists? skin_path

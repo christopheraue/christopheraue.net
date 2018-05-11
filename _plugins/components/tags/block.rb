@@ -48,9 +48,7 @@ module Jekyll
 
         def render(context)
           parent = context.registers[:current_component]
-          path = path(context)
-          component = context.registers[:site].data[:used_components][path] ||= Component.new(path)
-          context.registers[:current_component] = component
+          context.registers[:current_component] = Component.instance(path context)
           super
         ensure
           context.registers[:current_component] = parent

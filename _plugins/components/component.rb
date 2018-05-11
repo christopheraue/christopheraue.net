@@ -1,10 +1,20 @@
 module Jekyll
   module Components
     class Component
+      @instances = {}
+
       STYLES_FILENAME = '_styles'.freeze
       ASNYCJS_FILENAME = '_async'.freeze
       SNYCJS_FILENAME = '_sync'.freeze
       LASTJS_FILENAME = '_last'.freeze
+
+      def self.used
+        [new('_components/_base')] + @instances.values.sort
+      end
+
+      def self.instance(path)
+        @instances[path] ||= new path
+      end
 
       def initialize(path)
         @path = path.chomp '/'
