@@ -1,0 +1,19 @@
+﻿@import "variables"
+
+body
+  background: black
+  color: white
+  font-family: 'Work Sans', sans-serif
+  font-weight: 300
+
+  @each $page_width, $font_scale in $font_scales
+    @media screen and (min-width: $page_width)
+      font-size: #{$font_scale}em
+
+  padding: 1.5*$gutter-width $gutter-width
+
+.PageContent
+  margin-top: 4*$gutter-width
+
+.PageFooter
+  margin-top: 4*$gutter-width

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include_partial head.html %}
+  </head>
+  <body class="{{ page.category }}">
+    {% block PageTransition %}
+    {% if page.category != 'home' %}
+      {% block PageHeader %}
+    {% endif %}
+    <main class="PageContent" role="main">
+      {% if page.render_with %}
+        {% block {{ page.render_with }} page=page %}
+      {% else %}
+        {{ include.content }}
+      {% endif %}
+    </main>
+    {% if page.category != 'home' %}
+      {% block PageFooter %}
+    {% endif %}
+  </body>
+</html>
