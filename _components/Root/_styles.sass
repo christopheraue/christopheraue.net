@@ -5,15 +5,16 @@ body
   color: white
   font-family: 'Work Sans', sans-serif
   font-weight: 300
+  line-height: $vertical-rhythm
 
   @each $page_width, $font_scale in $font_scales
     @media screen and (min-width: $page_width)
       font-size: #{$font_scale}em
 
-  padding: 1.5*$gutter-width $gutter-width
+  padding: #{$vertical-rhythm}em
 
 .PageContent
-  margin-top: 4*$gutter-width
+  margin-top: #{4*$vertical-rhythm}em
 
 .PageFooter
-  margin-top: 4*$gutter-width
+  margin-top: #{4*$vertical-rhythm}em

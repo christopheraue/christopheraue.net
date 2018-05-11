@@ -96,9 +96,9 @@
     margin: 0
     box-sizing: border-box
   &.with-gutters
-    padding: 0 $gutter-width/2
+    padding: 0 #{$vertical-rhythm/2}em
     > *
-      padding: 0 $gutter-width/2
+      padding: 0 #{$vertical-rhythm/2}em
 .columns
   @include columns
   > *
@@ -117,4 +117,4 @@
 .remove-outer-gutters
   overflow: hidden
   .columns, .columns-when-wide
-    margin: 0 (-$gutter-width)
+    margin: 0 (-#{$vertical-rhythm}em)

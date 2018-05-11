@@ -1,29 +1,27 @@
 @import "variables"
 
 .design-IndexSection
-  margin-top: 2*$gutter-width
+  margin-top: #{2*$vertical-rhythm}em
   &:first-child
     margin-top: 0
 
 .design-IndexSection-Title
   font-family: 'Source Code Pro', monospace
-  font-size: 1.625em
+  font-size: 2em
   font-style: italic
   text-align: left
   margin-bottom: .75em
-  @media screen and (min-width: 40em) //640px
+  @media screen and (min-width: 50em)
     text-align: right
-    font-size: 1.3em
     display: inline-block
     vertical-align: top
     width: 33.3333%
-    padding-right: .5em
     box-sizing: border-box
 
 .design-IndexSection-Content
-  @media screen and (min-width: 40em) //640px
+  @media screen and (min-width: 50em)
     display: inline-block
     vertical-align: top
     width: 66.6666%
-    padding-left: .5em
+    padding-left: #{$vertical-rhythm}em
     box-sizing: border-box
