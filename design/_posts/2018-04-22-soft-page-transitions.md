@@ -37,13 +37,13 @@ Some HTML and CSS
 
 Enough talk. Let's get to it. We need an element to create the fade effect:
 
-```html
+{% highlight html %}
 <svg id="fader"></svg>
-```
+{% endhighlight %}
 
 This little, innocent `#fader` has to span the whole area of the viewport and must be placed above everything else on the page. Somewhere in our styles we have to have the following rules:
 
-```css
+{% highlight css %}
 #fader {
     position: fixed;
     top: 0;
@@ -51,31 +51,31 @@ This little, innocent `#fader` has to span the whole area of the viewport and mu
     width: 100%;
     height: 100%;
     z-index: 999999;
-```
+{% endhighlight %}
 
 Why is it an `<svg>` element? Because the Internet Explorer does not support `pointer-events` on non-SVG elements. Since we placed `#fader` above everything else we need to make sure it does not interfere with any interaction with the page below it:
 
-```
+{% highlight css %}
     pointer-events: none;
-```
+{% endhighlight %}
 
 In this example the page simply fades out to white and fades in from white:
 
-```
+{% highlight css %}
     background: white;
-```
+{% endhighlight %}
 
 Lastly, it will be animated with a CSS animation. A duration of `300ms` is slow enough to be noticeable but it's still fast enough that it does not feel cumbersome. We also make sure the animation accelerates at its beginning as much as it decelerates at its end:
 
-```
+{% highlight css %}
     animation-duration: 300ms;
     animation-timing-function: ease-in-out;
 }
-```
+{% endhighlight %}
 
 What's left is to define the actual animation of the `#fader`'s `opacity`:
 
-```css
+{% highlight css %}
 @keyframes fade-out {
     from { opacity: 1 }
       to { opacity: 0 }
@@ -95,7 +95,7 @@ What's left is to define the actual animation of the `#fader`'s `opacity`:
     opacity: 1;
     animation-name: fade-in;
 }
-```
+{% endhighlight %}
 
 Now, every time the `#fader` is assigned the CSS class `fade-in` or `fade-out` the corresponding animation plays. Directly after a page load it has none of these classes, thus it's visible and hides the page underneath. On to the next point on the list.
 
@@ -104,7 +104,7 @@ Fading In a Page Immediately After Load
 
 And by *immediately after load* I mean immediately after the browser **started** to receive and render the first bytes of the page. Do not wait for the `DOMContentLoaded` event let alone the `load` event or else the page will flicker. The solution is straight forward: Make the `#fader` the first child of the `<body>` and embed a script right after it. Such as:
 
-```html
+{% highlight html %}
 <html>
     …
     <body>
@@ -115,27 +115,27 @@ And by *immediately after load* I mean immediately after the browser **started**
         …
     </body>
 </html>
-```
+{% endhighlight %}
 
 The javascript:
 
-```javascript
+{% highlight javascript %}
 function fadeInPage() {
-```
+{% endhighlight %}
 
 First, since we use CSS animations to create the fade effect bail out for browsers not supporting them (e.g. IE 9):
 
-```javascript
+{% highlight javascript %}
     if (!window.AnimationEvent) { return; }
-```
+{% endhighlight %}
 
 Then, let the `fade-out` animation play. Fading *out* the `#fader` will fade *in* the page.
 
-```javascript
+{% highlight javascript %}
     var fader = document.getElementById('fader');
     fader.classList.add('fade-out');
 }
-```
+{% endhighlight %}
 
 Fade in: Check! Fade out: Next!
 
@@ -152,37 +152,37 @@ All in all, there is no general way to catch the moment when a user leaves a web
 
 Ok, we only need to do a page transition when following links within the website then. In an inline or external script we have to write the following:
 
-```javascript
+{% highlight javascript %}
 document.addEventListener('DOMContentLoaded', function() {
-```
+{% endhighlight %}
 
 Again, bail out for browsers not supporting CSS animations:
 
-```javascript
+{% highlight javascript %}
     if (!window.AnimationEvent) { return; }
-```
+{% endhighlight %}
 
 We iterate over all anchors:
 
-```javascript
+{% highlight javascript %}
     var anchors = document.getElementsByTagName('a'),
         anchor;
     
     for (var idx=0; idx<anchors.length; idx+=1) {
         anchor = anchors[idx];
-```
+{% endhighlight %}
 
 Links to other websites are disregarded:
 
-```javascript
+{% highlight javascript %}
         if (anchor.hostname !== window.location.hostname) {
             return;
         }
-```
+{% endhighlight %}
 
 For all internal links defer the location change until the animation has finished playing.
 
-```javascript
+{% highlight javascript %}
         anchor.addEventListener('click', function(event) {
             var fader = document.getElementById('fader');
             
@@ -193,20 +193,20 @@ For all internal links defer the location change until the animation has finishe
             fader.addEventListener('animationend', listener);
             
             event.preventDefault();
-```
+{% endhighlight %}
 
 And, finally, initiate the fade. Fading *in* the `#fader` element, fades *out* the page.
 
-```javascript
+{% highlight javascript %}
             fader.classList.add('fade-in');
         });
     }
 });
-```
+{% endhighlight %}
 
 That's it. Basically. But there is still one thing we need to take care of. Some browsers, especially Safari, use cached versions of a webpage when navigating the browser history. Since the page was faded out, it will be displayed as such when going back to it. We need to clean up in this case:
 
-```javascript
+{% highlight javascript %}
 window.addEventListener('pageshow', function (event) {
   if (!event.persisted) {
     return;
@@ -214,6 +214,6 @@ window.addEventListener('pageshow', function (event) {
   var fader = document.getElementById('fader');
   fader.classList.remove('fade-in');
 });
-```
+{% endhighlight %}
 
 That got out of the way, we are now *really* done. 

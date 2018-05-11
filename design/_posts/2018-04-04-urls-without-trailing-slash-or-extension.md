@@ -18,20 +18,20 @@ On we go to the configuration part…
 
 First, we tell nginx which files are suitable candidates to serve an incoming request:
 
-```
+{% highlight nginx %}
 http {
     server {
         try_files $uri $uri.html $uri/index.html =404;
-```
+{% endhighlight %}
 
 Then, we redirect URLs with a trailing slash or extension to clean ones:
 
-```
+{% highlight nginx %}
         rewrite ^/(.*)/index(?:.html)?$ /$1 permanent;
         rewrite ^/(.*)(?:.html|/)$ /$1 permanent;
     }
 }
-```
+{% endhighlight %}
 
 The first rule redirects `request/index` or `request/index.html` to `request`. The second one redirects `request.html` or `request/` to `request`.
 
@@ -42,7 +42,7 @@ And that's it already!
 
 First, to serve a request, we issue an internal redirect to the corresponding `.html`-file:
 
-```
+{% highlight apache %}
 # configuration block in e.g. .htaccess
     
     RewriteEngine On
@@ -53,19 +53,19 @@ First, to serve a request, we issue an internal redirect to the corresponding `.
     
     RewriteCond %{REQUEST_FILENAME}/index.html -f
     RewriteRule ^(.*)$ $1/index.html [L]
-```
+{% endhighlight %}
 
 For an incoming `request`, if `request.html` exists, serve it. If it doesn't, check the directory variant `request/index.html` and serve that, if it exists. That covers the basic case, where the request has an already clean URL.
 
 Next, we want to redirect URLs with a trailing slash or extension to clean ones:
 
-```
+{% highlight apache %}
     RewriteCond %{ENV:REDIRECT_STATUS} ^$
     RewriteRule ^(.*)/index(?:.html)?$ $1 [R=301,L]
     
     RewriteCond %{ENV:REDIRECT_STATUS} ^$
     RewriteRule ^(.*)(?:.html|/)$ $1 [R=301,L]
-```
+{% endhighlight %}
 
 The first rule redirects `request/index` or `request/index.html` to `request`. The second one redirects `request.html` or `request/` to `request`. Take note of the `RewriteCond`. It makes sure the redirect is only applied if we are not coming from one of the internal redirects above. Not checking that would lead to an infinite redirection loop. For example: `request` is internally redirected to `request.html` for which then the external redirect to `request` would be applied which is then internally redirected to `request.html` which is then again external redirected, and so on.
 
@@ -73,10 +73,10 @@ And that does, what we intended to achieve. Well, almost…
 
 By default, Apache's mod_dir automatically appends a trailing slash to directory requests. That is, a request to `folder` is redirected to `folder/`. With our rewrite rules that again leads to an infinite redirection loop. We need to turn that off:
  
-```
+{% highlight apache %}
     DirectorySlash Off
     
 # end of configuration block in .htaccess
-```
+{% endhighlight %}
 
 Now, we are done for good.
