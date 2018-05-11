@@ -1,0 +1,14 @@
+{% capture tag_attributes %}
+{% if include.tag == 'a' %}
+href="/{{ include.category }}" title="Go to /{{ include.category }}"
+{% else %}
+title="You are on /{{ include.category }}"
+{% endif %}
+{% endcapture %}
+
+<{{ include.tag }} class="CategoryDropdown-ItemWrapper {{ include.category }}" {{ tag_attributes }}>
+  <div class="CategoryDropdown-ItemContent">
+    {{ container.content }}
+  </div><!--
+--><div class="CategoryDropdown-ItemArrow"></div>
+</{{ include.tag }}>
