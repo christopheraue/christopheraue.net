@@ -3,9 +3,9 @@
     <a href="/" class="PageHeader-Logo" title="Go to start page">
       {% block LogoChristopherAue %}
     </a><!--
- -->{%- list CategoryDropdown -%}
-      {% item Slash{{ include.category | capitalize }} %}
-    {%- endlist -%}
+ -->{%- container_with_dynamically_scoped_body CategoryDropdown -%}
+      {% block Slash{{ include.category | capitalize }} %}
+    {%- endcontainer_with_dynamically_scoped_body -%}
   </div>
 </header>
 

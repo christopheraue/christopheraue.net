@@ -133,22 +133,35 @@ module Jekyll
       end
     end
 
-    class ContainerTag < Liquid::Block
+    class ContainerWithLexicallyScopedBodyTag < Liquid::Block
       def render(context)
         # Call .parse instead of .new since .new is private
         block = BlockTag.parse(@tag_name, "#{@markup} content=\"\"", :no_tokens, @parse_context)
+        container_drop = ContainerDrop.new(super)
 
         context.stack do
-          container_parent = context.registers[:current_component_path]
-          context['container'] = ContainerDrop.new do
-            begin
-              parent = context.registers[:current_component_path]
-              context.registers[:current_component_path] = container_parent
-              super
-            ensure
-              context.registers[:current_component_path] = parent
-            end
-          end
+          context['container'] = container_drop
+          block.render(context)
+        end
+      end
+
+      class ContainerDrop < Liquid::Drop
+        def initialize(content)
+          @content = content
+        end
+
+        attr_reader :content
+      end
+    end
+
+    class ContainerWithDynamicallyScopedBodyTag < Liquid::Block
+      def render(context)
+        # Call .parse instead of .new since .new is private
+        block = BlockTag.parse(@tag_name, "#{@markup} content=\"\"", :no_tokens, @parse_context)
+        container_drop = ContainerDrop.new{ super }
+
+        context.stack do
+          context['container'] = container_drop
           block.render(context)
         end
       end
@@ -177,10 +190,9 @@ module Jekyll
       end
     end
 
-    Liquid::Template.register_tag('container', ContainerTag)
+    Liquid::Template.register_tag('container', ContainerWithLexicallyScopedBodyTag)
+    Liquid::Template.register_tag('container_with_dynamically_scoped_body', ContainerWithDynamicallyScopedBodyTag)
     Liquid::Template.register_tag('block', BlockTag)
-    Liquid::Template.register_tag('list', ContainerTag)
-    Liquid::Template.register_tag('item', BlockTag)
     Liquid::Template.register_tag('include_partial', IncludePartialTag)
   end
 end
