@@ -1,7 +1,7 @@
 module Jekyll
   module Components
     module Tags
-      class ContainerDrop < Liquid::Drop
+      class ParameterDrop < Liquid::Drop
         def initialize(content)
           @content = content
         end
@@ -13,14 +13,18 @@ module Jekyll
             @content
           end
         end
+
+        def liquid_method_missing(m)
+          Liquid::VariableLookup.parse("include.#{m}").evaluate(@context)
+        end
       end
 
       class Container < Liquid::Block
-        def render_with_drop(context, container_drop)
+        def render_with_drop(context, parameter_drop)
           # Call .parse instead of .new since .new is private
           block = Block.parse(@tag_name, "#{@markup} content=\"\"", :no_tokens, @parse_context)
           context.stack do
-            context['container'] = container_drop
+            context['param'] = parameter_drop
             block.render(context)
           end
         end
@@ -28,13 +32,13 @@ module Jekyll
 
       class ContainerWithLexicallyScopedBody < Container
         def render(context)
-          render_with_drop context, ContainerDrop.new(super)
+          render_with_drop context, ParameterDrop.new(super)
         end
       end
 
       class ContainerWithDynamicallyScopedBody < Container
         def render(context)
-          render_with_drop context, ContainerDrop.new(->{ super })
+          render_with_drop context, ParameterDrop.new(->{ super })
         end
       end
 
