@@ -1,36 +1,37 @@
-{% assign article = param.page %}
-
-<article class="design-Article">
-  <header class="design-Article-Header">
-    <h1 class="design-Article-Title">{{ article.title | xml_escape }}</h1>
-    <div class="design-Article-Meta">
-      <div class="design-Article-MetaLeft">
-        <a class="design-Article-CommentsLink" href="{{ article.url | absolute_url }}#disqus_thread" title="Go to the comments section">0 Comments</a>
-        —
-        <ul class="design-Article-ShareList">
-          <li class="design-Article-ShareListItem">
-            {% container ShareLink page=article on="twitter" class="design-Article-ShareLink" %}
-              {% block Icon type="twitter" color="white" %}
+{% container Root %}
+  {% assign article = page %}
+  <article class="design-Article">
+    <header class="design-Article-Header">
+      <h1 class="design-Article-Title">{{ article.title | xml_escape }}</h1>
+      <div class="design-Article-Meta">
+        <div class="design-Article-MetaLeft">
+          <a class="design-Article-CommentsLink" href="{{ article.url | absolute_url }}#disqus_thread" title="Go to the comments section">0 Comments</a>
+          —
+          <ul class="design-Article-ShareList">
+            <li class="design-Article-ShareListItem">
+              {% container ShareLink page=article on="twitter" class="design-Article-ShareLink" %}
+                {% block Icon type="twitter" color="white" %}
+              {% endcontainer %}
+            </li><!--
+         --><li class="design-Article-ShareListItem">
+            {% container ShareLink page=article on="facebook" class="design-Article-ShareLink" %}
+              {% block Icon type="facebook" color="white" %}
             {% endcontainer %}
-          </li><!--
-       --><li class="design-Article-ShareListItem">
-          {% container ShareLink page=article on="facebook" class="design-Article-ShareLink" %}
-            {% block Icon type="facebook" color="white" %}
-          {% endcontainer %}
-        </li>
-        </ul>
-      </div><!--
-   --><div class="design-Article-MetaRight">
-      <time class="design-Article-Date" datetime="{{ article.date | replace: ' +', '+' }}">{{ article.date | date: "%B %d, %Y" }}</time>
-    </div>
-    </div>
-  </header>
-  <section class="design-Article-Text">
-    {% container Text %}
-      {{ article.content }}
-    {% endcontainer %}
-  </section>
-  {% unless page.path contains '_drafts/' %}
-    <section class="design-Article-Comments" id="disqus_thread"></section>
-  {% endunless %}
-</article>
+          </li>
+          </ul>
+        </div><!--
+     --><div class="design-Article-MetaRight">
+        <time class="design-Article-Date" datetime="{{ article.date | replace: ' +', '+' }}">{{ article.date | date: "%B %d, %Y" }}</time>
+      </div>
+      </div>
+    </header>
+    <section class="design-Article-Text">
+      {% container Text %}
+        {{ param.content }}
+      {% endcontainer %}
+    </section>
+    {% unless page.path contains '_drafts/' %}
+      <section class="design-Article-Comments" id="disqus_thread"></section>
+    {% endunless %}
+  </article>
+{% endcontainer %}

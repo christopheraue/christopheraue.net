@@ -21,7 +21,8 @@ defaults:
   - scope:
       path: ""
     values:
-      layout: bare
+      layout: root
+      render_inside: Root
 
   - scope:
       path: "index.html"
@@ -43,7 +44,7 @@ defaults:
       path: "design"
       type: posts
     values:
-      render_with: design-Article
+      render_inside: design-Article
 
   - scope:
       path: "collateral"

@@ -9,11 +9,7 @@
       {% block PageHeader %}
     {% endif %}
     <main class="PageContent" role="main">
-      {% if page.render_with %}
-        {% block {{ page.render_with }} page=page %}
-      {% else %}
-        {{ param.content }}
-      {% endif %}
+      {{ param.content }}
     </main>
     {% if page.category != 'home' %}
       {% block PageFooter %}
