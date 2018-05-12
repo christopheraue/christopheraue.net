@@ -25,23 +25,18 @@ module Jekyll
         end
 
         def path(context)
-          name = render_variable(context, @name_src)
-          *dir_parts, base = name.split('-')
-          dir = File.join *dir_parts, '_components'
-          path = File.join dir, base
-
+          path = Component.path_from_name render_variable(context, @name_src)
           site = context.registers[:site]
-          if File.directory? path and not outside_site_source?(path, dir, site.safe)
+          if File.directory? path and not outside_site_source?(path, File.dirname(path), site.safe)
             path
           else
             raise IOError, begin
               "Could not locate component #{name} with path '#{path}'. Ensure it " \
-            "exists and" <<
-                if site.safe
-                  " is not a symlink as those are not allowed in safe mode."
-                else
-                  ", if it is a symlink, does not point outside your site source."
-                end
+              "exists and" << if site.safe
+                                " is not a symlink as those are not allowed in safe mode."
+                              else
+                                ", if it is a symlink, does not point outside your site source."
+                              end
             end
           end
         end

@@ -28,6 +28,12 @@ module Jekyll
         @instances[path] ||= new path
       end
 
+      def self.path_from_name(name)
+        *dir_parts, base = name.split('-')
+        dir = File.join *dir_parts, '_components'
+        File.join dir, base
+      end
+
       def initialize(path)
         @path = path.chomp '/'
       end
