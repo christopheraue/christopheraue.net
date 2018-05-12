@@ -8,6 +8,18 @@ module Jekyll
       SNYCJS_FILENAME = '_sync'.freeze
       LASTJS_FILENAME = '_last'.freeze
 
+      def self.repositories
+        global_repo = '_components/'
+        category_repos = Dir.glob('[^_]*/**/_components/')
+        [global_repo, *category_repos]
+      end
+
+      def self.all
+        repositories.flat_map do |repo|
+          Dir.glob(File.join repo, '*/').map{ |path| new path }
+        end
+      end
+
       def self.used
         [new('_components/_base')] + @instances.values.sort
       end
