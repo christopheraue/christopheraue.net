@@ -12,7 +12,7 @@
       {% if page.render_with %}
         {% block {{ page.render_with }} page=page %}
       {% else %}
-        {{ include.content }}
+        {{ param.content }}
       {% endif %}
     </main>
     {% if page.category != 'home' %}

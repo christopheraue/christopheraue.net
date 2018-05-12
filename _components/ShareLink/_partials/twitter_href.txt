@@ -1,1 +1,1 @@
-https://twitter.com/intent/tweet?url={{ include.page.url | absolute_url | cgi_escape }}&amp;via=christopheraue&amp;text={{ include.page.title | cgi_escape }}
+https://twitter.com/intent/tweet?url={{ param.page.url | absolute_url | cgi_escape }}&amp;via=christopheraue&amp;text={{ param.page.title | cgi_escape }}

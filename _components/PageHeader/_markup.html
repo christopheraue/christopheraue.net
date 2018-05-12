@@ -4,7 +4,7 @@
       {% block LogoChristopherAue %}
     </a><!--
  -->{%- container_with_dynamically_scoped_body CategoryDropdown -%}
-      {% block Slash{{ include.category | capitalize }} %}
+      {% block Slash{{ param.category | capitalize }} %}
     {%- endcontainer_with_dynamically_scoped_body -%}
   </div>
 </header>

@@ -46,10 +46,13 @@ module Jekyll
           end
         end
 
-        def render(context)
+        def render(context, parameter_drop = Drops::Parameter.new)
           parent = context.registers[:current_component]
           context.registers[:current_component] = Component.instance(path context)
-          super
+          context.stack do
+            context['param'] = parameter_drop
+            super context
+          end
         ensure
           context.registers[:current_component] = parent
         end

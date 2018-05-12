@@ -1,7 +1,7 @@
-<div class="Video {{ include.controls }}-controls{% if include.attributes contains 'autoplay' %} autoplay{% endif %}">
-  <video class="Video-Video" {{ include.attributes }}>
-    <source src="{{include.src}}.mp4"  type="video/mp4; codecs=avc1.640020">
-    <source src="{{include.src}}.webm" type="video/webm; codecs=vp8">
+<div class="Video {{ param.controls }}-controls{% if param.attributes contains 'autoplay' %} autoplay{% endif %}">
+  <video class="Video-Video" {{ param.attributes }}>
+    <source src="{{param.src}}.mp4"  type="video/mp4; codecs=avc1.640020">
+    <source src="{{param.src}}.webm" type="video/webm; codecs=vp8">
   </video>
   <div class="Video-Overlay">
     <div class="Video-OverlayBackground"></div>

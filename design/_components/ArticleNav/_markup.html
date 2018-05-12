@@ -1,6 +1,6 @@
 <nav class="design-ArticleNav">
   <ul class="design-ArticleNav-List">
-    {% for article in include.articles %}
+    {% for article in param.articles %}
     <li class="design-ArticleNav-Item">
       <a href="{{ article.url }}" title="Go to the article">
         <h3 class="design-ArticleNav-ItemTitle">{{ article.title | xml_escape }}</h3>
