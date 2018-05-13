@@ -21,7 +21,7 @@ module Jekyll
       end
 
       def self.used
-        [new('_components/_base')] + @instances.values.sort
+        @instances.values.sort
       end
 
       def self.instance(path)
