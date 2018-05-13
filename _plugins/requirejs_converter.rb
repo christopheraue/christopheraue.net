@@ -1,7 +1,19 @@
 module Jekyll
   module Converters
     class RequireJs < Converter
+      RJS = '_build/r.js'.freeze
       TMP_OUTPUT = '_build/tmp/rjs_out.js'.freeze
+      SRC_CONFIG_PATH = '_build/rjs_config.template.js'.freeze
+      DST_CONFIG_PATH = '_build/tmp/rjs_config.js'.freeze
+      CONFIG_PACKAGES_PLACEHOLDER = '/* DYNAMIC_PACKAGES_CONFIG */'.freeze
+
+      class << self
+        def write_packages_to_config(packages)
+          rjsconfig = File.read(SRC_CONFIG_PATH)
+          rjsconfig.sub! CONFIG_PACKAGES_PLACEHOLDER, packages.join(",\n")
+          File.write(DST_CONFIG_PATH, rjsconfig)
+        end
+      end
 
       safe true
       priority :low
@@ -15,9 +27,9 @@ module Jekyll
       end
 
       def convert(content)
-        err_out = `node _build/r.js -o \
+        err_out = `node #{RJS} -o \
           baseUrl=./ \
-          mainConfigFile="#{Components::DST_RJSCONFIG_PATH}" \
+          mainConfigFile="#{DST_CONFIG_PATH}" \
           optimize=#{Jekyll.env == 'development' ? 'none' : 'uglify'} \
           rawText.__content__="#{content}" \
           name=__content__ \

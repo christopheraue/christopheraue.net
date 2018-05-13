@@ -1,9 +1,5 @@
 module Jekyll
   module Components
-    SRC_RJSCONFIG_PATH = '_build/rjs_config.template.js'.freeze
-    DST_RJSCONFIG_PATH = '_build/tmp/rjs_config.js'.freeze
-    RJSCONFIG_PACKAGES_PLACEHOLDER = '/* DYNAMIC_PACKAGES_CONFIG */'.freeze
-
     Jekyll::Hooks.register :site, :post_render do |site|
       styles, syncjs, asyncjs = %w(styles.sass sync.rjs async.rjs).map do |filename|
         AssetFile.new site, filename
@@ -24,9 +20,7 @@ module Jekyll
         rjs_packages << component.rjs_package
       end
 
-      rjsconfig = File.read(SRC_RJSCONFIG_PATH)
-      rjsconfig.sub! RJSCONFIG_PACKAGES_PLACEHOLDER, rjs_packages.join(",\n")
-      File.write(DST_RJSCONFIG_PATH, rjsconfig)
+      Converters::RequireJs.write_packages_to_config rjs_packages
 
       [styles, syncjs, asyncjs].each(&:render)
     end
