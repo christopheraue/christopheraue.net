@@ -23,6 +23,22 @@ module Jekyll
       def each(&block)
         @repositories.each(&block)
       end
+
+      def all_components
+        @repositories.values.flat_map do |repo_path|
+          Dir.glob(File.join(repo_path, '*/')).map do |comp_path|
+            Component.new @site, comp_path.chomp('/')
+          end
+        end
+      end
+
+      def base_components
+        @repositories.values.flat_map do |repo_path|
+          Dir.glob(File.join(repo_path, '_base/')).map do |comp_path|
+            Component.new @site, comp_path.chomp('/')
+          end
+        end
+      end
     end
   end
 

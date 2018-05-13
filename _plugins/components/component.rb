@@ -18,14 +18,6 @@ module Jekyll
       end
 
       class << self
-        def all(site)
-          site.component_repositories.flat_map do |repo_name, repo_path|
-            Dir.glob(File.join(repo_path, '*/')).map do |comp_path|
-              new site, comp_path.chomp('/')
-            end
-          end
-        end
-
         def path_from_name(site, name)
           repo_name, dash, comp_name = name.rpartition '-'
           File.join site.component_repositories.path_from_name(repo_name), comp_name
