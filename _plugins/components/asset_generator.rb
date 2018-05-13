@@ -9,7 +9,7 @@ module Jekyll
       skin_paths = Dir.glob('**/_skin/').sort
 
       configured = [Component.new(site, File.join(site.source, '_components/_base'))]
-      used = Component.used(site)
+      used = site.used_components.sort
 
       (configured + used).each do |component|
         styles << component.styles_import if component.styles_exist?

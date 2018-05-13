@@ -6,10 +6,6 @@ module Jekyll
       SNYCJS_FILENAME = '_sync'.freeze
       LASTJS_FILENAME = '_last'.freeze
 
-      Jekyll::Hooks.register :site, :post_read do |site|
-        site.data[:used_components] = {}
-      end
-
       Jekyll::Hooks.register :site, :pre_render do |site|
         components_site = site.config['components_site']
         next if components_site
@@ -28,14 +24,6 @@ module Jekyll
               new site, comp_path.chomp('/')
             end
           end
-        end
-
-        def used(site)
-          site.data[:used_components].values.sort
-        end
-
-        def register(site, abs_path)
-          site.data[:used_components][abs_path] ||= new site, abs_path
         end
 
         def path_from_name(site, name)

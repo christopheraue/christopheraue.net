@@ -45,7 +45,7 @@ module Jekyll
         def render(context, parameter_drop = Drops::Parameter.new)
           site = context.registers[:site]
           parent = context.registers[:current_component]
-          context.registers[:current_component] = Component.register(site, path(context))
+          context.registers[:current_component] = site.used_components[path context]
           context.stack do
             context['param'] = parameter_drop
             super context
