@@ -9,7 +9,6 @@ plugins:
 sass:
   load_paths:
     - _components/_base/_sass
-    - .
   cache_location: _build/.sass-cache
 
 # Jekyll's site.categories does not return categories without posts. Since

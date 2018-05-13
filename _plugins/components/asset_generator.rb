@@ -6,7 +6,7 @@ module Jekyll
       end
 
       rjs_packages = []
-      skin_paths = Dir.glob('**/_skin/').sort
+      skin_paths = Dir.glob(File.join(site.source, '**', '_skin/')).sort
 
       configured = [Component.new(site, File.join(site.source, '_components/_base'))]
       used = site.used_components.sort
