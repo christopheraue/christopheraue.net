@@ -82,6 +82,14 @@ module Jekyll
         "{name: '#{name}', location: '#{@abs_path}'}"
       end
 
+      def rjs_pathmap
+        repo_name, dash, comp_name = @name.rpartition '-'
+        repo_prefix = (repo_name == '') ? '' : "#{repo_name}-"
+        %w(core-ext lib).map do |path|
+          "'#{repo_prefix}#{path}': '#{File.join @abs_path, path}'"
+        end
+      end
+
       def <=>(other)
         @path <=> other.path
       end

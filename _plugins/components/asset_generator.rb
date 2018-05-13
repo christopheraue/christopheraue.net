@@ -5,7 +5,6 @@ module Jekyll
         AssetFile.new site, filename
       end
 
-      rjs_packages = []
       skin_paths = Dir.glob(File.join(site.source, '**', '_skin/')).sort
 
       base = site.component_repositories.base_components.sort
@@ -21,10 +20,9 @@ module Jekyll
         syncjs << component.syncjs_require if component.sync_js_exists?
         asyncjs << component.asyncjs_require if component.async_js_exists?
         asyncjs.last component.lastjs_require if component.last_js_exists?
-        rjs_packages << component.rjs_package
       end
 
-      Converters::RequireJs.create_build_config site, rjs_packages
+      Converters::RequireJs.create_build_config site, base.flat_map(&:rjs_pathmap), all.map(&:rjs_package)
 
       [styles, syncjs, asyncjs].each(&:render)
     end
