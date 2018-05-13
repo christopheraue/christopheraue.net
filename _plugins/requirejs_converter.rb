@@ -7,7 +7,7 @@ module Jekyll
       CONFIG_PACKAGES_PLACEHOLDER = "/* DYNAMIC_PACKAGES_CONFIG */".freeze
       CONFIG_PATHS_PLACEHOLDER = "/* DYNAMIC_PATHS_CONFIG */".freeze
       BUILD_CONFIG_NAME = "rjs_config.js".freeze
-      BUILD_FILE_NAME = "rjs_out.js".freeze
+      BUILD_FILE_OUT = "rjs_out.js".freeze
 
       class << self
         def create_build_config(site, pathmap, packages)
@@ -24,7 +24,7 @@ module Jekyll
       def initialize(*)
         super
         @build_config_path = File.join @config['source'], '_build', BUILD_CONFIG_NAME
-        @build_file_path = File.join @config['source'], '_build', BUILD_FILE_NAME
+        @build_file_out = File.join @config['source'], '_build', BUILD_FILE_OUT
       end
 
       def matches(ext)
@@ -37,16 +37,14 @@ module Jekyll
 
       def convert(content)
         err_out = `node #{RJS} -o \
-          baseUrl=./ \
           mainConfigFile="#{@build_config_path}" \
           optimize=#{Jekyll.env == 'development' ? 'none' : 'uglify'} \
-          rawText.__content__="#{content}" \
-          name=__content__ \
-          out=#{@build_file_path} \
-          logLevel=3`
+          include=#{content} \
+          insertRequire=#{content} \
+          out=#{@build_file_out}`
 
         if err_out.empty?
-          File.read @build_file_path
+          File.read @build_file_out
         else
           raise err_out
         end

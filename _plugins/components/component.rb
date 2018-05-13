@@ -1,11 +1,6 @@
 module Jekyll
   module Components
     class Component
-      STYLES_FILENAME = '_styles'.freeze
-      ASNYCJS_FILENAME = '_async'.freeze
-      SNYCJS_FILENAME = '_sync'.freeze
-      LASTJS_FILENAME = '_last'.freeze
-
       Jekyll::Hooks.register :site, :pre_render do |site|
         components_site = site.config['components_site']
         next if components_site
@@ -38,44 +33,16 @@ module Jekyll
 
       attr_reader :path, :name
 
-      def styles_exist?
-        File.exist? "#{File.join @abs_path, STYLES_FILENAME}.sass"
+      def add_styles(path = @abs_path, asset_name, to:, bucket: :content)
+        file_path = File.join path, "#{asset_name}.sass"
+        return unless File.exist? file_path
+        to.__send__(bucket) << "@import \"#{File.join path, asset_name}\""
       end
 
-      def sync_js_exists?
-        File.exist? "#{File.join @abs_path, SNYCJS_FILENAME}.js"
-      end
-
-      def async_js_exists?
-        File.exist? "#{File.join @abs_path, ASNYCJS_FILENAME}.js"
-      end
-
-      def last_js_exists?
-        File.exist? "#{File.join @abs_path, LASTJS_FILENAME}.js"
-      end
-
-      def skin_exists?(skin_path)
-        File.exist? "#{File.join skin_path, name}.sass"
-      end
-
-      def styles_import
-        "@import \"#{File.join @abs_path, STYLES_FILENAME}\""
-      end
-
-      def syncjs_require
-        "require(['#{name}/#{SNYCJS_FILENAME}']);"
-      end
-
-      def asyncjs_require
-        "require(['#{name}/#{ASNYCJS_FILENAME}']);"
-      end
-
-      def lastjs_require
-        "require(['#{name}/#{LASTJS_FILENAME}']);"
-      end
-
-      def skin_import(skin_path)
-        "@import \"#{File.join skin_path, name}\""
+      def add_script(path = @abs_path, asset_name, to:, bucket: :content)
+        file_path = File.join path, "#{asset_name}.js"
+        return unless File.exist? file_path
+        to.__send__(bucket) << "#{name}/#{asset_name}"
       end
 
       def rjs_package

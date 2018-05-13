@@ -1,8 +1,9 @@
 module Jekyll
   module Components
     class AssetFile
-      def initialize(site, filename)
+      def initialize(site, filename, content_delimiter)
         @site = site
+        @content_delimiter = content_delimiter
 
         extname = File.extname(filename)
         basename = File.basename(filename, extname)
@@ -10,20 +11,14 @@ module Jekyll
 
         @page = Jekyll::PageWithoutAFile.new @site, @site.source, '/', fingerprinted_filename
         @page.data['layout'] = 'none'
-        @bulk = []
-        @last = []
+        @content = []
+        @after_content = []
       end
-
-      def <<(content)
-        @bulk << content
-      end
-
-      def last(content)
-        @last << content
-      end
+      
+      attr_reader :content, :after_content
 
       def render
-        @page.content = @bulk.join("\n") + @last.join("\n")
+        @page.content = (@content + @after_content).join @content_delimiter
         @page.render @site.layouts, @site.site_payload
         @site.pages << @page
       end

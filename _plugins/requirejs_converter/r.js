@@ -28900,8 +28900,7 @@ define('build', function (require) {
         uglify2: true,
         closure: true,
         map: true,
-        throwWhen: true,
-        rawText:true
+        throwWhen: true
     };
 
     build.hasDotPropMatch = function (prop) {
