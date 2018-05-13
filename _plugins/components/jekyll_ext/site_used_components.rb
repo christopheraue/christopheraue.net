@@ -22,7 +22,7 @@ module Jekyll
     attr_accessor :used_components
   end
 
-  Hooks.register :site, :after_init do |site|
+  Hooks.register :site, :after_reset do |site|
     site.used_components = Components::UsedComponents.new site
   end
 end

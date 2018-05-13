@@ -46,7 +46,7 @@ module Jekyll
     attr_accessor :component_repositories
   end
 
-  Hooks.register :site, :after_init do |site|
+  Hooks.register :site, :after_reset do |site|
     site.component_repositories = Components::Repositories.new site
   end
 end

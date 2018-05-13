@@ -1,7 +1,7 @@
 module Jekyll
   module Components
     class Component
-      Jekyll::Hooks.register :site, :pre_render do |site|
+      Jekyll::Hooks.register :site, :post_read do |site|
         components_site = site.config['components_site']
         next if components_site
 
