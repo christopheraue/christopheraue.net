@@ -23,7 +23,7 @@ module Jekyll
         rjs_packages << component.rjs_package
       end
 
-      Converters::RequireJs.write_packages_to_config rjs_packages
+      Converters::RequireJs.create_build_config site, rjs_packages
 
       [styles, syncjs, asyncjs].each(&:render)
     end
