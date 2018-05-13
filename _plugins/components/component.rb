@@ -7,29 +7,25 @@ module Jekyll
       LASTJS_FILENAME = '_last'.freeze
 
       Jekyll::Hooks.register :site, :post_read do |site|
-        site.data[:component_repositories] = {}
         site.data[:used_components] = {}
       end
 
       Jekyll::Hooks.register :site, :pre_render do |site|
         components_site = site.config['components_site']
         next if components_site
+
         ['_components/', *Dir.glob('[^_]*/**/_components/')].each do |path|
-          add_repository(site, path)
+          name = path.chomp('_components/').chomp('/').gsub('/', '-')
+          abs_path = File.join site.source, path
+          site.component_repositories.register name, abs_path
         end
       end
 
       class << self
-        def add_repository(site, path, name = nil)
-          name ||= path.chomp('_components/').chomp('/')
-          path = File.join(site.source, path.chomp('/'))
-          site.data[:component_repositories][name] = path
-        end
-
         def all(site)
-          site.data[:component_repositories].values.flat_map do |repo|
-            Dir.glob(File.join(repo, '*/')).map do |path|
-              new site, path.chomp('/')
+          site.component_repositories.flat_map do |repo_name, repo_path|
+            Dir.glob(File.join(repo_path, '*/')).map do |comp_path|
+              new site, comp_path.chomp('/')
             end
           end
         end
@@ -44,12 +40,12 @@ module Jekyll
 
         def path_from_name(site, name)
           repo_name, dash, comp_name = name.rpartition '-'
-          File.join site.data[:component_repositories][repo_name], comp_name
+          File.join site.component_repositories.path_from_name(repo_name), comp_name
         end
 
         def name_from_path(site, path)
           repo_path, slash, comp_name = path.rpartition '/'
-          repo_name = site.data[:component_repositories].key repo_path
+          repo_name = site.component_repositories.name_from_path(repo_path)
           (repo_name == '') ? comp_name : "#{repo_name}-#{comp_name}"
         end
       end
