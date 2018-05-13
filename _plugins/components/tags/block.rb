@@ -25,8 +25,9 @@ module Jekyll
         end
 
         def path(context)
-          path = Component.path_from_name render_variable(context, @name_src)
           site = context.registers[:site]
+          name = render_variable(context, @name_src)
+          path = Component.path_from_name site, name
           if File.directory? path and not outside_site_source?(path, File.dirname(path), site.safe)
             path
           else
@@ -42,8 +43,9 @@ module Jekyll
         end
 
         def render(context, parameter_drop = Drops::Parameter.new)
+          site = context.registers[:site]
           parent = context.registers[:current_component]
-          context.registers[:current_component] = Component.instance(path context)
+          context.registers[:current_component] = Component.register(site, path(context))
           context.stack do
             context['param'] = parameter_drop
             super context

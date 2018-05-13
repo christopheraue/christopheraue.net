@@ -1,66 +1,81 @@
 module Jekyll
   module Components
     class Component
-      @instances = {}
-
       STYLES_FILENAME = '_styles'.freeze
       ASNYCJS_FILENAME = '_async'.freeze
       SNYCJS_FILENAME = '_sync'.freeze
       LASTJS_FILENAME = '_last'.freeze
 
-      def self.repositories
-        global_repo = '_components/'
-        category_repos = Dir.glob('[^_]*/**/_components/')
-        [global_repo, *category_repos]
+      Jekyll::Hooks.register :site, :post_read do |site|
+        site.data[:component_repositories] = {}
+        site.data[:used_components] = {}
       end
 
-      def self.all
-        repositories.flat_map do |repo|
-          Dir.glob(File.join repo, '*/').map{ |path| new path }
+      Jekyll::Hooks.register :site, :pre_render do |site|
+        components_site = site.config['components_site']
+        next if components_site
+        ['_components/', *Dir.glob('[^_]*/**/_components/')].each do |path|
+          add_repository(site, path)
         end
       end
 
-      def self.used
-        @instances.values.sort
-      end
+      class << self
+        def add_repository(site, path, name = nil)
+          name ||= path.chomp('_components/').chomp('/')
+          path = File.join(site.source, path.chomp('/'))
+          site.data[:component_repositories][name] = path
+        end
 
-      def self.instance(path)
-        @instances[path] ||= new path
-      end
+        def all(site)
+          site.data[:component_repositories].values.flat_map do |repo|
+            Dir.glob(File.join(repo, '*/')).map do |path|
+              new site, path.chomp('/')
+            end
+          end
+        end
 
-      def self.path_from_name(name)
-        *dir_parts, base = name.split('-')
-        dir = File.join *dir_parts, '_components'
-        File.join dir, base
-      end
+        def used(site)
+          site.data[:used_components].values.sort
+        end
 
-      def initialize(path)
-        @path = path.chomp '/'
-      end
+        def register(site, abs_path)
+          site.data[:used_components][abs_path] ||= new site, abs_path
+        end
 
-      attr_reader :path
+        def path_from_name(site, name)
+          repo_name, dash, comp_name = name.rpartition '-'
+          File.join site.data[:component_repositories][repo_name], comp_name
+        end
 
-      def name
-        @name ||= begin
-          *path_parts, _components, base = @path.split '/'
-          [*path_parts, base].join '-'
+        def name_from_path(site, path)
+          repo_path, slash, comp_name = path.rpartition '/'
+          repo_name = site.data[:component_repositories].key repo_path
+          (repo_name == '') ? comp_name : "#{repo_name}-#{comp_name}"
         end
       end
+
+      def initialize(site, abs_path)
+        @abs_path = abs_path
+        @path = abs_path.sub("#{site.source}/", '').chomp '/'
+        @name = self.class.name_from_path(site, @abs_path)
+      end
+
+      attr_reader :path, :name
 
       def styles_exist?
-        File.exist? "#{File.join @path, STYLES_FILENAME}.sass"
+        File.exist? "#{File.join @abs_path, STYLES_FILENAME}.sass"
       end
 
       def sync_js_exists?
-        File.exist? "#{File.join @path, SNYCJS_FILENAME}.js"
+        File.exist? "#{File.join @abs_path, SNYCJS_FILENAME}.js"
       end
 
       def async_js_exists?
-        File.exist? "#{File.join @path, ASNYCJS_FILENAME}.js"
+        File.exist? "#{File.join @abs_path, ASNYCJS_FILENAME}.js"
       end
 
       def last_js_exists?
-        File.exist? "#{File.join @path, LASTJS_FILENAME}.js"
+        File.exist? "#{File.join @abs_path, LASTJS_FILENAME}.js"
       end
 
       def skin_exists?(skin_path)
@@ -68,7 +83,7 @@ module Jekyll
       end
 
       def styles_import
-        "@import \"#{File.join @path, STYLES_FILENAME}\""
+        "@import \"#{File.join @abs_path, STYLES_FILENAME}\""
       end
 
       def syncjs_require
@@ -88,7 +103,7 @@ module Jekyll
       end
 
       def rjs_package
-        "{name: '#{name}', location: '#{@path}'}"
+        "{name: '#{name}', location: '#{@abs_path}'}"
       end
 
       def <=>(other)

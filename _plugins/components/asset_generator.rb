@@ -8,8 +8,8 @@ module Jekyll
       rjs_packages = []
       skin_paths = Dir.glob('**/_skin/').sort
 
-      configured = [Component.new('_components/_base')]
-      used = Component.used
+      configured = [Component.new(site, File.join(site.source, '_components/_base'))]
+      used = Component.used(site)
 
       (configured + used).each do |component|
         styles << component.styles_import if component.styles_exist?
