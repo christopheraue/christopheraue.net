@@ -10,7 +10,7 @@ sass:
   load_paths:
     - _components/_base/_sass
     - .
-  cache_location: _build/tmp/.sass-cache
+  cache_location: _build/.sass-cache
 
 # Jekyll's site.categories does not return categories without posts. Since
 # /collateral doesn't have any it is not included in the list. Hard code it

@@ -1,11 +1,12 @@
 module Jekyll
   module Converters
     class RequireJs < Converter
-      RJS = '_build/r.js'.freeze
-      TMP_OUTPUT = '_build/tmp/rjs_out.js'.freeze
-      SRC_CONFIG_PATH = '_build/rjs_config.template.js'.freeze
-      DST_CONFIG_PATH = '_build/tmp/rjs_config.js'.freeze
-      CONFIG_PACKAGES_PLACEHOLDER = '/* DYNAMIC_PACKAGES_CONFIG */'.freeze
+      dir = __FILE__.chomp File.extname __FILE__
+      RJS = "#{dir}/r.js".freeze
+      TMP_OUTPUT = "#{dir}/tmp/rjs_out.js".freeze
+      SRC_CONFIG_PATH = "#{dir}/rjs_config.template.js".freeze
+      DST_CONFIG_PATH = "#{dir}/tmp/rjs_config.js".freeze
+      CONFIG_PACKAGES_PLACEHOLDER = "/* DYNAMIC_PACKAGES_CONFIG */".freeze
 
       class << self
         def write_packages_to_config(packages)
