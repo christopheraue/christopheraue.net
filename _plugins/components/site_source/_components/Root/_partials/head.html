@@ -1,0 +1,18 @@
+<title>{{ page.title | xml_escape }} - {{ site.title | xml_escape }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="author" content="Christopher Aue">
+<meta name="description" content="{{ page.description | xml_escape }}">
+<meta name="robots" content="noindex, nofollow">
+<link rel="apple-touch-icon" sizes="180x180" href="/home/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/home/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/home/favicons/favicon-16x16.png">
+<link rel="manifest" href="/home/favicons/site.webmanifest">
+<link rel="mask-icon" href="/home/favicons/safari-pinned-tab.svg" color="{{ page.favicon_macos_safari_color }}">
+<link rel="shortcut icon" href="/home/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="{{ page.favicon_windows_metro_color }}">
+<meta name="msapplication-config" content="/home/browserconfig.xml">
+<meta name="theme-color" content="{{ page.favicon_android_theme_color }}">
+<link rel="stylesheet" href="{{ "/components/styles.css" | fingerprint }}" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,500" rel="stylesheet">
+<script data-main="{{ "/components/async.js" | fingerprint }}" src="{{ "/components/sync.js" | fingerprint }}"></script>
