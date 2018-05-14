@@ -1,7 +1,7 @@
 module Jekyll
   module Components
     class AssetFile
-      def initialize(site, filename, content_delimiter)
+      def initialize(site, dir, filename, content_delimiter)
         @site = site
         @content_delimiter = content_delimiter
 
@@ -9,7 +9,7 @@ module Jekyll
         basename = File.basename(filename, extname)
         fingerprinted_filename = "#{basename}-#{Digest::MD5.hexdigest @site.time.to_i.to_s}#{extname}"
 
-        @page = Jekyll::PageWithoutAFile.new @site, @site.source, '/', fingerprinted_filename
+        @page = Jekyll::PageWithoutAFile.new @site, @site.source, dir, fingerprinted_filename
         @page.data['layout'] = 'none'
         @content = []
         @after_content = []
