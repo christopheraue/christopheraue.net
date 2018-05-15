@@ -6,6 +6,7 @@ permalink: :categories/:title
 exclude: [build.sh, deploy.sh, Gemfile, Gemfile.lock]
 plugins:
   - jekyll-redirect-from
+  - jekyll-components
 sass:
   load_paths:
     - _components/_base/_sass

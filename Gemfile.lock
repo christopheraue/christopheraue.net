@@ -1,3 +1,9 @@
+PATH
+  remote: ../jekyll-components
+  specs:
+    jekyll-components (0.1)
+      jekyll (~> 3.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -60,6 +66,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll
+  jekyll-components!
   jekyll-redirect-from
 
 BUNDLED WITH
