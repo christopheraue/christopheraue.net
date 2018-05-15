@@ -13,6 +13,10 @@
 <meta name="msapplication-TileColor" content="{{ page.favicon_windows_metro_color }}">
 <meta name="msapplication-config" content="/home/browserconfig.xml">
 <meta name="theme-color" content="{{ page.favicon_android_theme_color }}">
-<link rel="stylesheet" href="{{ "/components/styles.css" | fingerprint }}" type="text/css" />
+
+{% assign styles = "/components" | append: page.asset_path | append: "styles.css" %}
+{% assign async = "/components" | append: page.asset_path | append: "async.js" %}
+{% assign sync = "/components" | append: page.asset_path | append: "sync.js" %}
+<link rel="stylesheet" href="{{ styles | fingerprint }}" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,500" rel="stylesheet">
-<script data-main="{{ "/components/async.js" | fingerprint }}" src="{{ "/components/sync.js" | fingerprint }}"></script>
+<script data-main="{{ async | fingerprint }}" src="{{ sync | fingerprint }}"></script>

@@ -65,6 +65,7 @@ module Jekyll
         page = Jekyll::Page.new site, site.source, @path, "_doc.md"
         page.data['title'] = name
         page.data['permalink'] = name
+        page.data['asset_path'] = "/"
         page.data['render_inside'] = 'componentIndex-Root'
         page.data['component'] = Drops::Component.new self
         page
