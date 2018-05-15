@@ -1,5 +1,5 @@
 module Jekyll
-  module Components
+  class Components
     Error = Class.new(StandardError)
   end
 end

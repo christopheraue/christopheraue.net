@@ -1,5 +1,5 @@
 module Jekyll
-  module Components
+  class Components
     module Tags
       class Block < Jekyll::Tags::IncludeTag
         def initialize(*)

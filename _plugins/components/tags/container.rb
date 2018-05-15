@@ -1,5 +1,5 @@
 module Jekyll
-  module Components
+  class Components
     module Tags
       class Container < Liquid::Block
         def render_with_drop(context, parameter_drop)

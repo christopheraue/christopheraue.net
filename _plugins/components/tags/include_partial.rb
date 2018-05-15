@@ -1,5 +1,5 @@
 module Jekyll
-  module Components
+  class Components
     module Tags
       class IncludePartial < Jekyll::Tags::IncludeTag
         def tag_includes_dirs(context)

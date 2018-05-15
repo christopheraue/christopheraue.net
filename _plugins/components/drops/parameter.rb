@@ -1,5 +1,5 @@
 module Jekyll
-  module Components
+  class Components
     module Drops
       class Parameter < Liquid::Drop
         def initialize(content = nil)

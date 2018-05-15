@@ -28,12 +28,12 @@ module Jekyll
       components_site = site.config['components_site']
       next unless components_site
 
-      components_site.component_repositories.each do |repo_name, repo_path|
-        site.component_repositories.register repo_name, repo_path
+      components_site.components.repositories.each do |repo_name, repo_path|
+        site.components.repositories.register repo_name, repo_path
       end
-      site.component_repositories.register 'componentIndex', File.join(site.source, '_components/')
+      site.components.repositories.register 'componentIndex', File.join(site.source, '_components/')
 
-      components_site.component_repositories.all_components.select(&:doc_exists?).each do |component|
+      components_site.components.select(&:doc_exists?).each do |component|
         page = Jekyll::Page.new components_site, components_site.source, component.path, "_doc.md"
         page.data['title'] = component.name
         page.data['permalink'] = component.name

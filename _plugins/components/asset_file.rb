@@ -1,5 +1,5 @@
 module Jekyll
-  module Components
+  class Components
     class AssetFile
       def initialize(site, dir, filename, content_delimiter)
         @site = site

@@ -1,5 +1,5 @@
 module Jekyll
-  module Components
+  class Components
     class CapturedComponents
       include Enumerable
 
@@ -19,7 +19,7 @@ module Jekyll
 
         skin_paths = Dir.glob(File.join @site.source, '**', '_skin/').sort
 
-        base = @site.component_repositories.base_components.sort
+        base = @site.components.base.sort
         used = @components.values.sort
         all = base + used
 

@@ -1,5 +1,5 @@
 module Jekyll
-  module Components
+  class Components
     class Component
       Jekyll::Hooks.register :site, :post_read do |site|
         components_site = site.config['components_site']
@@ -8,19 +8,19 @@ module Jekyll
         ['_components/', *Dir.glob('[^_]*/**/_components/')].each do |path|
           name = path.chomp('_components/').chomp('/').gsub('/', '-')
           abs_path = File.join site.source, path
-          site.component_repositories.register name, abs_path
+          site.components.repositories.register name, abs_path
         end
       end
 
       class << self
         def path_from_name(site, name)
           repo_name, dash, comp_name = name.rpartition '-'
-          File.join site.component_repositories.path_from_name(repo_name), comp_name
+          File.join site.components.repositories.path_from_name(repo_name), comp_name
         end
 
         def name_from_path(site, path)
           repo_path, slash, comp_name = path.rpartition '/'
-          repo_name = site.component_repositories.name_from_path(repo_path)
+          repo_name = site.components.repositories.name_from_path(repo_path)
           (repo_name == '') ? comp_name : "#{repo_name}-#{comp_name}"
         end
       end
