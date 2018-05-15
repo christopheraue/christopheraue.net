@@ -16,8 +16,8 @@ module Jekyll
           iframe_page.data['layout'] = 'root'
           iframe_page.data['render_inside'] = 'componentIndex-IframeRoot'
           iframe_page.data['title'] = "#{comp.name} #{name.capitalize}"
-          iframe_page.data['asset_path'] = "/#{URL_PATH}#{url}-"
-          iframe_page.data['iframe_src'] = "/#{URL_PATH}#{url}"
+          iframe_page.data['asset_path'] = "#{site.config['path']}#{url}-"
+          iframe_page.data['iframe_src'] = "#{site.config['path']}#{url}"
           iframe_page.content = super
           iframe_page.render site.layouts, context
           site.pages << iframe_page

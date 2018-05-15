@@ -1,17 +1,6 @@
 module Jekyll
   class Components
     class Component
-      Jekyll::Hooks.register :site, :post_read do |site|
-        components_site = site.config['components_site']
-        next if components_site
-
-        ['_components/', *Dir.glob('[^_]*/**/_components/')].each do |path|
-          name = path.chomp('_components/').chomp('/').gsub('/', '-')
-          abs_path = File.join site.source, path
-          site.components.repositories.register name, abs_path
-        end
-      end
-
       class << self
         def path_from_name(site, name)
           repo_name, dash, comp_name = name.rpartition '-'
