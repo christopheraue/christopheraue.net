@@ -4,10 +4,12 @@ module Jekyll
 
     def initialize(site)
       @site = site
-      @repositories = Components::Repositories.new site
+      @repositories = Repositories.new site
+      @used = Used.new site
+      @capture_stack = []
     end
 
-    attr_reader :repositories
+    attr_reader :repositories, :used
 
     def each(&block)
       to_a.each(&block)

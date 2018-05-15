@@ -11,7 +11,7 @@ module Jekyll
         name = "iframe#{page['iframe_count']}"
         url = "#{dir}/#{name}"
 
-        site.used_components.capture_and_write_to dir, "#{name}-" do
+        site.components.used.capture_and_bundle_assets_into dir, prefix: "#{name}-" do
           iframe_page = Jekyll::PageWithoutAFile.new site, site.source, dir, "#{name}.html"
           iframe_page.data['layout'] = 'root'
           iframe_page.data['render_inside'] = 'componentIndex-IframeRoot'
