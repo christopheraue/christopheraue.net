@@ -1,5 +1,7 @@
 module Jekyll
-  module Components
+  module ComponentsIndex
+    URL_PATH = 'components'
+
     Jekyll::Hooks.register :site, :post_write do |site|
       next if site.config['components_site']
 
@@ -8,8 +10,8 @@ module Jekyll
 
       config = Jekyll.configuration(
         'skip_config_files' => true,
-        'source' => File.join(site.source, '_plugins', 'components', 'site_source'),
-        'destination' => File.join(site.dest, 'components'),
+        'source' => File.join(site.source, '_plugins', 'components_index', 'site_source'),
+        'destination' => File.join(site.dest, URL_PATH),
         'sass' => sass_config,
         'title' => "Component Index of #{site.config['name']}",
         'components_site' => site)
@@ -32,8 +34,13 @@ module Jekyll
       site.component_repositories.register 'componentIndex', File.join(site.source, '_components/')
 
       components_site.component_repositories.all_components.select(&:doc_exists?).each do |component|
-        # render doc.md and make it available under /components/#{component.name}
-        site.pages << component.doc_page(components_site)
+        page = Jekyll::Page.new components_site, components_site.source, component.path, "_doc.md"
+        page.data['title'] = component.name
+        page.data['permalink'] = component.name
+        page.data['asset_path'] = "/#{URL_PATH}/"
+        page.data['render_inside'] = 'componentIndex-Root'
+        page.data['component'] = ComponentDrop.new component
+        site.pages << page
       end
     end
   end

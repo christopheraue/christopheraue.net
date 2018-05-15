@@ -14,9 +14,9 @@
 <meta name="msapplication-config" content="/home/browserconfig.xml">
 <meta name="theme-color" content="{{ page.favicon_android_theme_color }}">
 
-{% assign styles = "/components" | append: page.asset_path | append: "styles.css" %}
-{% assign async = "/components" | append: page.asset_path | append: "async.js" %}
-{% assign sync = "/components" | append: page.asset_path | append: "sync.js" %}
+{% assign styles = page.asset_path | append: "styles.css" %}
+{% assign async = page.asset_path | append: "async.js" %}
+{% assign sync = page.asset_path | append: "sync.js" %}
 <link rel="stylesheet" href="{{ styles | fingerprint }}" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,500" rel="stylesheet">
 <script data-main="{{ async | fingerprint }}" src="{{ sync | fingerprint }}"></script>
