@@ -12,10 +12,10 @@ module Jekyll
         @components[abs_path] ||= Component.new @site, abs_path
       end
 
-      def bundle_assets_into(dir)
-        styles = AssetFile.new @site, dir, 'styles.sass', "\n"
-        syncjs = AssetFile.new @site, dir, 'sync.rjs', ','
-        asyncjs = AssetFile.new @site, dir, 'async.rjs', ','
+      def bundle_assets_into(dir, prefix='')
+        styles = AssetFile.new @site, dir, "#{prefix}styles.sass", "\n"
+        syncjs = AssetFile.new @site, dir, "#{prefix}sync.rjs", ','
+        asyncjs = AssetFile.new @site, dir, "#{prefix}async.rjs", ','
 
         skin_paths = Dir.glob(File.join @site.source, '**', '_skin/').sort
 
@@ -54,15 +54,15 @@ module Jekyll
         @stack.last[abs_path]
       end
 
-      def stop_capture_and_bundle_assets_into(dir)
-        @stack.pop.bundle_assets_into dir
+      def stop_capture_and_bundle_assets_into(dir, *optional)
+        @stack.pop.bundle_assets_into dir, *optional
       end
 
-      def capture_and_write_to(dir) #&block
+      def capture_and_write_to(dir, *optional) #&block
         start_capture
         yield
       ensure
-        stop_capture_and_bundle_assets_into dir
+        stop_capture_and_bundle_assets_into dir, *optional
       end
     end
   end

@@ -22,17 +22,9 @@ found in source at: {{ page.component.path }}
 ### {{type | capitalize }}
 
 {% for color in colors %}
-  <section>
-    <p>
-      {% block Icon type=type color=color %}
-    </p>
-
-    <p>
-      Usage:
-      {%- highlight liquid -%}
-        {%raw%}{%{%endraw%} block Icon type="{{ type }}" color="{{ color }}" %}
-      {%- endhighlight -%}
-    </p>
-  </section>
+{{ color }}:
+{% componentIndexIframe %}
+  {% block Icon type=type color=color %}
+{% endcomponentIndexIframe %}
 {% endfor %}
 {% endfor %}
