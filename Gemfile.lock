@@ -3,6 +3,13 @@ PATH
   specs:
     jekyll-components (0.1)
       jekyll (~> 3.7)
+      jekyll-requirejs_converter (~> 0.1)
+
+PATH
+  remote: ../jekyll-requirejs_converter
+  specs:
+    jekyll-requirejs_converter (0.1)
+      jekyll (~> 3.7)
 
 GEM
   remote: https://rubygems.org/
@@ -68,6 +75,7 @@ DEPENDENCIES
   jekyll
   jekyll-components!
   jekyll-redirect-from
+  jekyll-requirejs_converter!
 
 BUNDLED WITH
    1.15.1
