@@ -3,9 +3,9 @@
  */
 
 define([
-    'core-ext/Element',
+    './HoverElement/classHelper',
     'core-ext/TouchEvent'
-], function() {
+], function(classHelper) {
     var HoverElement = Object.inherit({
         constructor: function(el) {
             this.el = el;
@@ -32,18 +32,18 @@ define([
             }.bind(this), false);
 
             this.el.addEventListener('touchmove', function(e) {
-                this.el.addClassTracingDescendant('hover', e.touchTarget);
+                classHelper.addClassTracingDescendant(this.el, 'hover', e.touchTarget);
                 e.preventDefault();
             }.bind(this), false);
 
             this.el.addEventListener('touchend', function() {
                 this.el.classList.remove('hover');
-                this.el.rmvClassFromDescendants('hover');
+                classHelper.rmvClassFromDescendants(this.el, 'hover');
             }.bind(this), false);
 
             this.el.addEventListener('touchcancel', function() {
                 this.el.classList.remove('hover');
-                this.el.rmvClassFromDescendants('hover');
+                classHelper.rmvClassFromDescendants(this.el, 'hover');
             }.bind(this), false);
         }
     });

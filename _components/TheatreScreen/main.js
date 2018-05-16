@@ -1,7 +1,6 @@
 define([
     'lib/velocity',
-    '_base/ScrollControl',
-    'core-ext/Element'
+    '_base/ScrollControl'
 ], function(Velocity, ScrollControl) {
     return Object.inherit({
         constructor: function(container) {
