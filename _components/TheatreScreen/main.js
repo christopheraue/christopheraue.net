@@ -1,8 +1,8 @@
 define([
     'lib/velocity',
-    'core-ext/body',
+    '_base/ScrollControl',
     'core-ext/Element'
-], function(Velocity) {
+], function(Velocity, ScrollControl) {
     return Object.inherit({
         constructor: function(container) {
             this.container = container;
@@ -15,8 +15,8 @@ define([
             if (this.isFocused){ return }
             this.isFocused = true;
 
-            this.content.smoothScrollIntoView({duration: 1000, easing: 'ease-in-out'});
-            document.body.disableScrolling();
+            ScrollControl.smoothScrollIntoView(this.content, {duration: 1000, easing: 'ease-in-out'});
+            ScrollControl.disableScrolling(document.documentElement);
 
             this.background.style.display = 'block';
 
@@ -36,7 +36,7 @@ define([
             if (!this.isFocused){ return }
             this.isFocused = false;
 
-            document.body.enableScrolling();
+            ScrollControl.enableScrolling(document.documentElement);
 
             Velocity(this.background, {opacity: 0}, duration, 'ease-in-out', function() {
                 this.background.style.display = '';

@@ -2,9 +2,7 @@
  * Extensions for Elements
  */
 
-define([
-    'lib/velocity'
-],function(Velocity) {
+define(function() {
     /*
      * Find the shortest route to a descendant and update the css class of
      * elements along the way. Remove the class from all other descendants.
@@ -53,57 +51,4 @@ define([
             el.classList.remove(cls);
         });
     };
-
-    Element.prototype.smoothScrollIntoView = function(options){
-        duration = options.duration || 300;
-        easing = options.easing || 'ease';
-        anchor = options.anchor || 'center';
-
-        var elRect = this.getBoundingClientRect(),
-            distance;
-
-        switch(anchor) {
-            case 'top':
-                distance = elRect.top;
-                break;
-            case 'bottom':
-                distance = elRect.bottom - window.innerHeight;
-                break;
-            default: //case 'center':
-                distance = elRect.top + elRect.height/2 - window.innerHeight/2;
-                break;
-        }
-
-        window.scrollBy(0, distance);
-        Velocity(document.body, {translateY: [0, distance]}, duration, easing, function() {
-            document.body.style.transform = ''
-        });
-    };
-
-    Element.prototype.inView = function() {
-        var elRect = this.getBoundingClientRect();
-
-        /*
-         *
-         *                               .---------.  ✓ top < innerHeight
-         *                       inner   |         |  ✗ left < innerWidth
-         *         0             Width   |         |  ✓ bottom > 0
-         *       0 .---------------.     |         |  ✓ right > 0
-         *         |               |     `---------´  ➥ outside
-         *         |               |
-         *         |               |
-         *         |               |
-         *         |           .---|-----.  ✓ top < innerHeight
-         *   inner |           |   |     |  ✓ left < innerWidth
-         *  Height `---------------´     |  ✓ bottom > 0
-         *                     |         |  ✓ right > 0
-         *                     `---------´  ➥ inside
-         */
-        return (
-            elRect.top <= window.innerHeight &&
-            elRect.left <= window.innerWidth &&
-            elRect.bottom >= 0 &&
-            elRect.right >= 0
-        );
-    }
 });

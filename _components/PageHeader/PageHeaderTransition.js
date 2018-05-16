@@ -1,7 +1,8 @@
 define([
     'lib/velocity',
-    'CategoryDropdown'
-], function(Velocity, CategoryDropdown) {
+    'CategoryDropdown',
+    '_base/ScrollControl'
+], function(Velocity, CategoryDropdown, ScrollControl) {
     return Object.inherit({
         constructor: function() {
             this.el = document.querySelector('.PageHeader');
@@ -27,7 +28,7 @@ define([
                 return;
             }
 
-            if (this.el.inView() && transition.to !== 'home') {
+            if (ScrollControl.isInView(this.el) && transition.to !== 'home') {
                 transition.transitionHeader = false;
                 Velocity(document.body, 'scroll', duration, 'ease-in-out', function() {
                     onTransitioned(this)

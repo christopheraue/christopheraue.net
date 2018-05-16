@@ -1,7 +1,7 @@
 define([
     'lib/velocity',
-    'core-ext/body'
-], function(Velocity) {
+    '_base/ScrollControl'
+], function(Velocity, ScrollControl) {
     return Object.inherit({
         constructor: function() {
             this.el = document.getElementsByClassName('PageTransition-Fader')[0];
@@ -16,9 +16,9 @@ define([
         },
         transitionOut: function(transition, onTransitioned) {
             if (transition.to === 'home') {
-                document.body.hideScrollbar();
+                ScrollControl.hideScrollbar(document.documentElement);
                 document.onPersistedPageshow(function() {
-                    document.body.showScrollbar();
+                    ScrollControl.showScrollbar(document.documentElement);
                 }.bind(this));
             }
 
