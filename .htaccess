@@ -8,8 +8,8 @@ Options +SymLinksIfOwnerMatch
 RewriteEngine On
 RewriteBase /
 
-RewriteCond %{HTTP_HOST} !={{ site.url | remove: "http://" }}
-RewriteRule (.*) {{ site.url }}/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} !={{ '/' | absolute_url | remove: "http://" | remove : "/" }}
+RewriteRule (.*) {{ '/' | absolute_url }}$1 [R=301,L]
 
 # Disable directory indexes
 Options -Indexes
