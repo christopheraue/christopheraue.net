@@ -1,0 +1,94 @@
+@import 'variables'
+
+/*
+ *  Columns
+ *  -------
+ *
+ *  A container with css class `.Columns` displays its containing elements
+ *  with the given width next to each other.
+ *
+ *  ### Halves, Quarters, Eighths and Sixteenths
+ *
+ *  ```
+ *  <div class="Columns">
+ *      <div class="Columns-Column half"><div class="white-box center">1/2</div></div><!--
+ *   --><div class="Columns-Column quarter"><div class="white-box center">1/4</div></div><!--
+ *   --><div class="Columns-Column eighth"><div class="white-box center">1/8</div></div><!--
+ *   --><div class="Columns-Column sixteenth"><div class="white-box center">1/16</div></div><!--
+ *   --><div class="Columns-Column sixteenth"><div class="white-box center">1/16</div></div>
+ *  </div>
+ *  ```
+ *
+ *  ### Two Thirds
+ *
+ *  ```
+ *  <div class="Columns">
+ *      <div class="Columns-Column two-thirds"><div class="white-box center">2/3</div></div><!--
+ *   --><div class="Columns-Column third"><div class="white-box center">1/3</div></div>
+ *  </div>
+ *  ```
+ *
+ *  ### Thirds, Sixths and Twelfths
+ *
+ *  ```
+ *  <div class="Columns">
+ *      <div class="Columns-Column twelfth"><div class="white-box center">1/12</div></div><!--
+ *   --><div class="Columns-Column twelfth"><div class="white-box center">1/12</div></div><!--
+ *   --><div class="Columns-Column sixth"><div class="white-box center">1/6</div></div><!--
+ *   --><div class="Columns-Column third"><div class="white-box center">1/3</div></div><!--
+ *   --><div class="Columns-Column sixth"><div class="white-box center">1/6</div></div><!--
+ *   --><div class="Columns-Column twelfth"><div class="white-box center">1/12</div></div><!--
+ *   --><div class="Columns-Column twelfth"><div class="white-box center">1/12</div></div>
+ *  </div>
+ *  ```
+ *
+ *  ### Columns With Gutters
+ *
+ *  ```
+ *  <div class="Columns with-gutters">
+ *      <div class="Columns-Column sixth"><div class="white-box center">1/6</div></div><!--
+ *   --><div class="Columns-Column sixth"><div class="white-box center">1/6</div></div><!--
+ *   --><div class="Columns-Column third"><div class="white-box center">1/3</div></div><!--
+ *   --><div class="Columns-Column sixth"><div class="white-box center">1/6</div></div><!--
+ *   --><div class="Columns-Column sixth"><div class="white-box center">1/6</div></div>
+ *  </div>
+ *  ```
+ */
+
+.Columns
+  overflow: hidden
+  &.with-gutters
+    margin: 0 (-#{$vertical-rhythm}em)
+    padding: 0 #{$vertical-rhythm/2}em
+    > .Columns-Column
+      padding: 0 #{$vertical-rhythm/2}em
+
+.Columns-Column
+  display: inline-block
+  box-sizing: border-box
+  &.three-quarters
+    width: 75%
+  &.two-thirds
+    width: 66.6666%
+  &.half
+    width: 50%
+  &.third
+    width: 33.3333%
+  &.quarter
+    width: 25%
+  &.sixth
+    width: 16.6666%
+  &.eighth
+    width: 12.5%
+  &.twelfth
+    width: 8.3333%
+  &.sixteenth
+    width: 6.25%
+  &.top
+    vertical-align: top
+  &.middle
+    vertical-align: middle
+  &.baseline
+    vertical-align: baseline
+  &.bottom
+    vertical-align: bottom
