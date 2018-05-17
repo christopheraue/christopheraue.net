@@ -1,12 +1,12 @@
 PATH
-  remote: ../jekyll-components
+  remote: ../../jekyll_components/jekyll-components
   specs:
     jekyll-components (0.1)
       jekyll (~> 3.7)
       jekyll-requirejs_converter (~> 0.1)
 
 PATH
-  remote: ../jekyll-requirejs_converter
+  remote: ../../jekyll_components/jekyll-requirejs_converter
   specs:
     jekyll-requirejs_converter (0.1)
       jekyll (~> 3.7)
