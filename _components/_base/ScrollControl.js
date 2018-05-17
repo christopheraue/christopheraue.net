@@ -1,5 +1,5 @@
 define([
-  'lib/velocity'
+  '_base/lib/velocity'
 ],function(Velocity) {
   return {
     smoothScrollIntoView: function(el, options) {

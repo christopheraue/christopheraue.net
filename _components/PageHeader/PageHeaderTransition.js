@@ -1,5 +1,5 @@
 define([
-    'lib/velocity',
+    '_base/lib/velocity',
     'CategoryDropdown',
     '_base/ScrollControl'
 ], function(Velocity, CategoryDropdown, ScrollControl) {

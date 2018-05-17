@@ -4,7 +4,7 @@
 
 define([
     './HoverElement/classHelper',
-    'core-ext/TouchEvent'
+    '_base/core-ext/TouchEvent'
 ], function(classHelper) {
     var HoverElement = Object.inherit({
         constructor: function(el) {
