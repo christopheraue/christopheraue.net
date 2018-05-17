@@ -1,5 +1,5 @@
 define([
-    '_base/lib/velocity'
+    'base-_base/lib/velocity'
 ], function(Velocity) {
     return Object.inherit({
         constructor: function(el) {

@@ -7,6 +7,7 @@ exclude: [build.sh, deploy.sh, Gemfile, Gemfile.lock]
 plugins:
   - jekyll-redirect-from
   - jekyll-components
+  - jekyll-components-base_components
 sass:
   load_paths:
     - _components/_base/_sass

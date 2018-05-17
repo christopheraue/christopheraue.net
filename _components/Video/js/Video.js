@@ -1,5 +1,5 @@
 define([
-    '_base/EventTarget'
+    'base-_base/EventTarget'
 ], function(EventTarget){
     return EventTarget.inherit({
         state: 'initializing',

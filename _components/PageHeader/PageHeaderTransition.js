@@ -1,8 +1,8 @@
 define([
-    '_base/lib/velocity',
-    'CategoryDropdown',
-    '_base/ScrollControl'
-], function(Velocity, CategoryDropdown, ScrollControl) {
+    'base-_base/lib/velocity',
+    'base-_base/ScrollControl',
+    'CategoryDropdown'
+], function(Velocity, ScrollControl, CategoryDropdown) {
     return Object.inherit({
         constructor: function() {
             this.el = document.querySelector('.PageHeader');
