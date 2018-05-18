@@ -1,4 +1,4 @@
-# {{ page.component.name }}
+# {{ page.component.id }}
 {% assign types = "mail twitter facebook github youtube patreon play pause" | split: " " %}
 {% assign colors = "default white" | split: " " %}
 
