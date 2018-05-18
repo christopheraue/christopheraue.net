@@ -1,6 +1,6 @@
 define([
-    'base-_base/lib/velocity',
-    'base-_base/ScrollControl'
+    'base/lib/velocity',
+    'base/ScrollControl'
 ], function(Velocity, ScrollControl) {
     return Object.inherit({
         constructor: function(container) {
