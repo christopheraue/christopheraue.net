@@ -3,7 +3,7 @@
     {% include_partial marquee.svg %}
   </div>
   <div class="collateral-Theatre-LightBox">
-    {% container PreserveAspectRatio ratio='620/110' %}
+    {% container base-PreserveAspectRatio ratio='620/110' %}
       <svg viewBox="0 0 620 110">
         <g transform="translate(310,2.5)">
           <text y="20" class="collateral-Theatre-LightBoxText">presenting</text>
@@ -17,7 +17,7 @@
   <div class="collateral-Theatre-Screen">
     {% container TheatreScreen %}
       <desc id="yt-video-desc">The presented video embedded</desc>
-      {% container PreserveAspectRatio ratio='16/9' %}
+      {% container base-PreserveAspectRatio ratio='16/9' %}
         <iframe src="https://www.youtube.com/embed/lun1Rd5hnIE?enablejsapi=1&origin={{ site.url }}&showinfo=0&rel=0&playsinline=1"
                 allowfullscreen="allowfullscreen" aria-labelledby="yt-video-desc"></iframe>
       {% endcontainer %}
