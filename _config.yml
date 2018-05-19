@@ -21,7 +21,6 @@ defaults:
   - scope:
       path: ""
     values:
-      layout: root
       render_inside: Root
 
   - scope:
