@@ -62,7 +62,7 @@ The most important reference point to align vertically is the baseline of the in
 ### Inline Element
 <figure class="VerticalAlign-Example">
   {% container Columns %}
-    {% container Column width='third' align='middle' %}
+    {% container Columns-Column width='third' align='middle' %}
       <div class="large font"><!--
      --><span class="green dotted line text-top"> </span><!--
      --><span class="green dotted line text-bottom"> </span><!--
@@ -73,7 +73,7 @@ The most important reference point to align vertically is the baseline of the in
       </div>
     {% endcontainer %}<!--
 
- -->{% container Column width='third' align='middle' %}
+ -->{% container Columns-Column width='third' align='middle' %}
       <div class="large font tall-line-height"><!--
      --><span class="green dotted line text-top"> </span><!--
      --><span class="green dotted line text-bottom"> </span><!--
@@ -84,7 +84,7 @@ The most important reference point to align vertically is the baseline of the in
       </div>
     {% endcontainer %}<!--
 
- -->{% container Column width='third' align='middle' %}
+ -->{% container Columns-Column width='third' align='middle' %}
       <div class="large font short-line-height"><!--
      --><span class="inline-overlay"><!--
        --><span class="red dotted line top"> </span><!--
@@ -108,7 +108,7 @@ Here you see three lines of text next to each other. The top and bottom edge of 
 ### Inline-Block Element
 <figure  class="VerticalAlign-Example">
   {% container Columns %}
-    {% container Column width='third' %}
+    {% container Columns-Column width='third' %}
       <span class="red dotted line top"> </span><!--
    --><span class="red dotted line bottom"> </span><!--
    --><span class="blue dotted line baseline"> </span><!--
@@ -117,7 +117,7 @@ Here you see three lines of text next to each other. The top and bottom edge of 
       </span>
     {% endcontainer %}<!--
 
- -->{% container Column width='third' %}
+ -->{% container Columns-Column width='third' %}
       <span class="red dotted line top"> </span><!--
    --><span class="blue dotted line baseline"> </span><!--
    --><span class="inline-block show-box-model" style="overflow: hidden"><!--
@@ -125,7 +125,7 @@ Here you see three lines of text next to each other. The top and bottom edge of 
       </span>
     {% endcontainer %}<!--
 
- -->{% container Column width='third' %}
+ -->{% container Columns-Column width='third' %}
       <span class="red dotted line top"> </span><!--
    --><span class="blue dotted line baseline"> </span><!--
    --><span class="inline-block show-box-model"><!--
@@ -309,12 +309,12 @@ One question bugging me was the following: I have an icon I want to center next 
 
 <figure class="VerticalAlign-Example">
   {% container Columns %}
-    {% container Column width='half' %}
+    {% container Columns-Column width='half' %}
       <div class="center">
         <span class="small box bg-grey middle"> </span> Centered?
       </div>
     {% endcontainer %}<!--
- -->{% container Column width='half' %}
+ -->{% container Columns-Column width='half' %}
       <div class="center">
         <span class="small box bg-grey middle"> </span> <span class="middle">Centered!</span>
       </div>
@@ -343,7 +343,7 @@ Here is the example again, but I drew in some auxiliary lines you already know f
 
 <figure class="VerticalAlign-Example">
   {% container Columns %}
-    {% container Column width='half' %}
+    {% container Columns-Column width='half' %}
       <span class="orange dotted line middle"> </span><!--
    --><span class="font color-grey inline-overlay baseline"><!--
      --><span class="blue dotted line baseline"> </span><!--
@@ -358,7 +358,7 @@ Here is the example again, but I drew in some auxiliary lines you already know f
         </span>
       </span>
     {% endcontainer %}<!--
- -->{% container Column width='half' %}
+ -->{% container Columns-Column width='half' %}
       <span class="orange dotted line middle"> </span><!--
    --><span class="font color-grey inline-overlay baseline"><!--
      --><span class="blue dotted line baseline"> </span><!--
@@ -391,7 +391,7 @@ Some Examples:
     
     <figure class="VerticalAlign-Example">
       {% container Columns %}
-        {% container Column width='half' %}
+        {% container Columns-Column width='half' %}
           <span class="green dotted line text-top"> </span><!--
        --><span class="green dotted line text-bottom"> </span><!--
        --><span class="red dotted line top"> </span><!--
@@ -402,7 +402,7 @@ Some Examples:
             <span class="short box bg-grey baseline"> </span>
           </span>
         {% endcontainer %}<!--
-     -->{% container Column width='half' %}
+     -->{% container Columns-Column width='half' %}
           <span class="green dotted line text-top"> </span><!--
        --><span class="green dotted line text-bottom"> </span><!--
        --><span class="red dotted line top"> </span><!--
@@ -442,7 +442,7 @@ Some Examples:
     
     <figure class="VerticalAlign-Example">
       {% container Columns %}
-        {% container Column width='half' %}
+        {% container Columns-Column width='half' %}
           <span class="green dotted line text-top"> </span><!--
        --><span class="green dotted line text-bottom"> </span><!--
        --><span class="red dotted line top"> </span><!--
@@ -453,7 +453,7 @@ Some Examples:
             <span class="short box bg-grey baseline"> </span>
           </span>
         {% endcontainer %}<!--
-     -->{% container Column width='half' %}
+     -->{% container Columns-Column width='half' %}
           <span class="green dotted line text-top"> </span><!--
        --><span class="green dotted line text-bottom"> </span><!--
        --><span class="red dotted line top"> </span><!--
@@ -491,7 +491,7 @@ Some Examples:
 
     <figure class="VerticalAlign-Example">
       {% container Columns %}
-        {% container Column width='third' %}
+        {% container Columns-Column width='third' %}
           <span class="green dotted line text-top"> </span><!--
        --><span class="green dotted line text-bottom"> </span><!--
        --><span class="red dotted line top"> </span><!--
@@ -502,7 +502,7 @@ Some Examples:
             <span class="taller box bg-grey text-top"> </span>
           </span>
         {% endcontainer %}<!--
-     -->{% container Column width='third' %}
+     -->{% container Columns-Column width='third' %}
           <span class="green dotted line text-top"> </span><!--
        --><span class="green dotted line text-bottom"> </span><!--
        --><span class="red dotted line top"> </span><!--
@@ -514,7 +514,7 @@ Some Examples:
             <span class="taller box bg-grey middle"> </span>
           </span>
         {% endcontainer %}<!--
-     -->{% container Column width='third' %}
+     -->{% container Columns-Column width='third' %}
           <span class="green dotted line text-top"> </span><!--
        --><span class="green dotted line text-bottom"> </span><!--
        --><span class="red dotted line top"> </span><!--
@@ -562,14 +562,14 @@ Have a look at this setting. It's common if you try to vertical-align `li` eleme
 
 <figure class="VerticalAlign-Example">
   {% container Columns %}
-    {% container Column width='half' %}
+    {% container Columns-Column width='half' %}
       <ul class="baseline center bg-yellow" style="padding: 0">
         <li class="taller quad max-third-width box bg-grey baseline"> </li>
         <li class="taller quad max-third-width box bg-grey baseline"> </li>
         <li class="taller quad max-third-width box bg-grey baseline"> </li>
       </ul>
     {% endcontainer %}<!--
- -->{% container Column width='half' %}
+ -->{% container Columns-Column width='half' %}
       <span class="green dotted line text-top"> </span><!--
    --><span class="green dotted line text-bottom"> </span><!--
    --><span class="red dotted line top"> </span><!--
@@ -601,14 +601,14 @@ As you can see, the list items sit on the baseline. Below the baseline is some s
 
 <figure class="VerticalAlign-Example">
   {% container Columns %}
-    {% container Column width='half' %}
+    {% container Columns-Column width='half' %}
       <ul class="baseline center bg-yellow" style="padding: 0">
         <li class="taller quad max-third-width box bg-grey middle"> </li>
         <li class="taller quad max-third-width box bg-grey middle"> </li>
         <li class="taller quad max-third-width box bg-grey middle"> </li>
       </ul>
     {% endcontainer %}<!--
- -->{% container Column width='half' %}
+ -->{% container Columns-Column width='half' %}
       <span class="green dotted line text-top"> </span><!--
    --><span class="green dotted line text-bottom"> </span><!--
    --><span class="red dotted line top"> </span><!--
@@ -647,7 +647,7 @@ You can see this gap in the former example between the list items. The gap comes
 
 <figure class="VerticalAlign-Example">
   {% container Columns %}
-    {% container Column width='half' %}
+    {% container Columns-Column width='half' %}
       <div class="border-grey" style="box-sizing: border-box">
         <div class="tall box center bg-blue" style="width: 50%">
           50% wide
@@ -657,7 +657,7 @@ You can see this gap in the former example between the list items. The gap comes
         </div>
       </div>
     {% endcontainer %}<!--
- -->{% container Column width='half' %}
+ -->{% container Columns-Column width='half' %}
       <div class="border-grey" style="box-sizing: border-box">
         <div class="tall box center bg-blue" style="width: 50%">
           50% wide
