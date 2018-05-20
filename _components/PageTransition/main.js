@@ -1,6 +1,6 @@
 define([
-    'base/core-ext/HTMLAnchorElement',
-    'base/core-ext/Location'
+    'core-ext/HTMLAnchorElement',
+    'core-ext/Location'
 ], function() {
     return new (Object.inherit({
         constructor: function() {

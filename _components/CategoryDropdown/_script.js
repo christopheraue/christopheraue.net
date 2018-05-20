@@ -1,5 +1,5 @@
 define([
-    'base/ActivatableElement'
+    'ActivatableElement'
 ], function(ActivatableElement) {
     document.ready(function() {
         var nav = document.querySelector('.CategoryDropdown');
