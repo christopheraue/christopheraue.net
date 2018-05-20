@@ -4,7 +4,7 @@
  *  incomplete!
  */
 define([
-  'PageTransition'
+  'root-PageTransition'
 ], function(PageTransition) {
   document.ready(function() {
     PageTransition.initialize();

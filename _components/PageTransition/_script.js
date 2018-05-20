@@ -1,5 +1,5 @@
 define([
-    'PageTransition',
+    'root-PageTransition',
     './PageTransition/Fader'
 ], function(PageTransition, Fader){
     document.ready(function() {

@@ -21,7 +21,7 @@ defaults:
   - scope:
       path: ""
     values:
-      render_inside: Root
+      render_inside: root-Root
 
   - scope:
       path: "index.html"
