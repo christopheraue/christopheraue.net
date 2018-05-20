@@ -4,15 +4,15 @@
     {% include_partial head.html %}
   </head>
   <body class="{{ page.category }}">
-    {% block PageTransition %}
+    {% block root-PageTransition %}
     {% if page.category != 'home' %}
-      {% block PageHeader %}
+      {% block root-PageHeader %}
     {% endif %}
     <main class="PageContent" role="main">
       {{ param.content }}
     </main>
     {% if page.category != 'home' %}
-      {% block PageFooter %}
+      {% block root-PageFooter %}
     {% endif %}
   </body>
 </html>

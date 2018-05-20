@@ -1,10 +1,10 @@
 <header class="PageHeader">
   <div class="PageHeader-InnerBounds">
     <a href="/" class="PageHeader-Logo" title="Go to start page">
-      {% block LogoChristopherAue %}
+      {% block root-LogoChristopherAue %}
     </a><!--
  -->{%- container_with_dynamically_scoped_body CategoryDropdown -%}
-      {% block Slash{{ param.category | capitalize }} %}
+      {% block root-Slash{{ param.category | capitalize }} %}
     {%- endcontainer_with_dynamically_scoped_body -%}
   </div>
 </header>

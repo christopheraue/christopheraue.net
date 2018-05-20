@@ -1,4 +1,4 @@
-{% container Root %}
+{% container root-Root %}
   {% assign article = page %}
   <article class="design-Article">
     <header class="design-Article-Header">
@@ -9,13 +9,13 @@
           —
           <ul class="design-Article-ShareList">
             <li class="design-Article-ShareListItem">
-              {% container ShareLink page=article on="twitter" class="design-Article-ShareLink" %}
-                {% block Icon type="twitter" color="white" %}
+              {% container root-ShareLink page=article on="twitter" class="design-Article-ShareLink" %}
+                {% block root-Icon type="twitter" color="white" %}
               {% endcontainer %}
             </li><!--
          --><li class="design-Article-ShareListItem">
-            {% container ShareLink page=article on="facebook" class="design-Article-ShareLink" %}
-              {% block Icon type="facebook" color="white" %}
+            {% container root-ShareLink page=article on="facebook" class="design-Article-ShareLink" %}
+              {% block root-Icon type="facebook" color="white" %}
             {% endcontainer %}
           </li>
           </ul>

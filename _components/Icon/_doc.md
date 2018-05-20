@@ -8,7 +8,7 @@ found in source at: {{ page.component.path }}
 ## Usage
 
 {% raw %}
-  {% block Icon type="type" color="color" %}
+  {% block root-Icon type="type" color="color" %}
 {% endraw %}
 
 *type* [required] The type of icon to be rendered. (defaults to: "{{ types | first }}")
@@ -24,7 +24,7 @@ found in source at: {{ page.component.path }}
 {% for color in colors %}
 {{ color }}:
 {% componentIndexIframe %}
-  {% block Icon type=type color=color %}
+  {% block root-Icon type=type color=color %}
 {% endcomponentIndexIframe %}
 {% endfor %}
 {% endfor %}
