@@ -1,6 +1,7 @@
 url: http://c.loc
 destination: ./_site
 name: christopheraue.net
+author: Christopher Aue
 encoding: UTF-8
 permalink: :categories/:title
 exclude: [build.sh, deploy.sh, Gemfile, Gemfile.lock]
