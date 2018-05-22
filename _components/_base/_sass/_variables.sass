@@ -1,5 +1,5 @@
-//             512px    800px
-$font_scales: (32em: 1.5, 50em: 1.25)
+//             512px         800px
+$font_scales: (32em: 1.5385, 50em: 1.231)
 
 @function font_scale_at($page_width)
   $result: 1
@@ -10,8 +10,16 @@ $font_scales: (32em: 1.5, 50em: 1.25)
 
   @return $result
 
+@function pow($number, $exponent)
+  $value: 1
 
-$vertical-rhythm: 1.5
+  @if $exponent > 0
+    @for $i from 1 through $exponent
+      $value: $value * $number
+
+  @return $value
+
+$vertical-rhythm: 1.618
 
 $design-dark: #3f668c
 $design-light: white
