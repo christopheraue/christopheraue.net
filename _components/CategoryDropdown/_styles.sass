@@ -11,15 +11,16 @@ $transition_time: 300ms
   transform: scale(1)
   transform-origin: top right
   transition: transform $transition_time ease-in-out
+  font-size: .75em
   cursor: pointer
   @media screen and (min-width: 50em) //800px
     position: relative
     display: inline-block
     top: 0
     right: 0
-    margin-top: -1em
+    margin-top: -.75em
     margin-left: -1.25em
-    font-size: #{$vertical-rhythm}em
+    font-size: 1em
     text-align: left
 
 .CategoryDropdown-List
@@ -42,9 +43,9 @@ $transition_time: 300ms
   box-shadow: inset -.2em -.2em .5em rgba(0,0,0,0.04), inset .2em .2em .5em rgba(255,255,255,0.04)
 
 .CategoryDropdown.activated
-  transform: scale(2)
+  transform: scale(1.5)
   @media screen and (min-width: 32em) //512px
-    transform: scale(1.5)
+    transform: scale(1.25)
   @media screen and (min-width: 50em) //800px
     transform: scale(1)
   .CategoryDropdown-List
@@ -59,8 +60,8 @@ $transition_time: 300ms
 
 .CategoryDropdown-ItemWrapper
   display: block
-  padding: #{$vertical-rhythm/2}em
-  padding-left: #{$vertical-rhythm}em
+  padding: .5em
+  padding-left: 1.5em
   transition-property: background, opacity
   transition-timing-function: ease-in-out
   transition-duration: $transition_time
@@ -74,15 +75,15 @@ $transition_time: 300ms
   stroke: white
   transition: opacity $transition_time ease-in-out
   .PreserveAspectRatio-Reference
-    height: #{$vertical-rhythm}em
+    height: 1.5em
     vertical-align: top
 
 .CategoryDropdown-ItemArrow
   display: inline-block
   vertical-align: top
   position: relative
-  width: #{$vertical-rhythm}em
-  height: #{$vertical-rhythm}em
+  width: 1.5em
+  height: 1.5em
   opacity: 0
   transition: opacity 2*$transition_time ease-in-out
   text-align: center
@@ -98,13 +99,14 @@ $transition_time: 300ms
     vertical-align: middle
     width: 0
     height: 0
-    border: .3em solid transparent
-    margin-top: .15em
+    border: .35em solid transparent
     border-top-color: white
     opacity: 1
     transform: rotate(0deg)
     transition: transform $transition_time ease-in-out
     transform-origin: 50% 15%
+    @media screen and (min-width: 32em) //512px
+      border-width: .3em
 
 .CategoryDropdown-Item.current
   .CategoryDropdown-ItemWrapper
