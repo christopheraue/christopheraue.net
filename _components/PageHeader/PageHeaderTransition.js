@@ -1,7 +1,7 @@
 define([
     'lib/velocity',
     'ScrollControl',
-    'root-CategoryDropdown'
+    'CategoryDropdown'
 ], function(Velocity, ScrollControl, CategoryDropdown) {
     return Object.inherit({
         constructor: function() {
