@@ -1,1 +1,0 @@
-https://www.facebook.com/sharer/sharer.php?m2w&amp;s=100&amp;{{ 'p[url]' | cgi_escape }}={{ param.page.url | absolute_url | cgi_escape }}&amp;{{ 'p[title]' | cgi_escape }}={{ param.page.title | cgi_escape }}&amp;{{ 'p[summary]' | cgi_escape }}={{ param.page.summary | cgi_escape }}

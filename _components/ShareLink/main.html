@@ -1,7 +1,0 @@
-<a class="ShareLink {{ param.class }}"
-   href="{% include_partial {{ param.on | downcase }}_href.txt page=param.page %}"
-   title="Share on {{ param.on | capitalize }}"
-   target="_blank"
-   data-url="{{ param.page.url | absolute_url }}">
-  {{ param.content }}
-</a>
