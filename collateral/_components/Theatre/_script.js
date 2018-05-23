@@ -1,5 +1,5 @@
 define([
-    'root-TheatreScreen',
+    'TheatreScreen',
     'Video/YouTubeVideo'
 ], function(TheatreScreen, YouTubeVideo) {
     document.ready(function() {
