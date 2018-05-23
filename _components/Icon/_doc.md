@@ -17,14 +17,20 @@ found in source at: {{ page.component.path }}
 
 
 ## Variations
-
 {% for type in types %}
 ### {{type | capitalize }}
-
-{% for color in colors %}
-{{ color }}:
-{% componentIndexIframe %}
-  {% block root-Icon type=type color=color %}
-{% endcomponentIndexIframe %}
-{% endfor %}
+<div>
+  {% container Columns %}
+    {% for color in colors %}
+      {%- container Columns-Column width='half' -%}
+        <figure>
+          {% componentIndexIframe %}
+            {% block root-Icon type=type color=color %}
+          {% endcomponentIndexIframe %}
+          <figcaption>{{ color }}</figcaption>
+        </figure>
+      {%- endcontainer -%}
+    {% endfor %}
+  {% endcontainer %}
+</div>
 {% endfor %}
