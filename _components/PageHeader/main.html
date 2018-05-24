@@ -1,10 +1,20 @@
+{% assign slashed_category = '/' | append: page.category | append: '/' %}
+{% if page.url == slashed_category %}
+  {% assign selected_tag = 'h1' %}
+{% else %}
+  {% assign selected_tag = 'a' %}
+{% endif %}
+
 <header class="PageHeader">
   <div class="PageHeader-InnerBounds">
     <a href="/" class="PageHeader-Logo" title="Go to start page">
       {% block root-LogoChristopherAue %}
     </a><!--
- -->{%- container_with_dynamically_scoped_body CategoryDropdown -%}
-      {% block root-Slash{{ param.category | capitalize }} %}
+ -->{%- container_with_dynamically_scoped_body CategoryDropdown
+        entries=site.category_list
+        selected=page.category
+        selected_tag=selected_tag -%}
+      {% block root-Slash{{ param.entry | capitalize }} %}
     {%- endcontainer_with_dynamically_scoped_body -%}
   </div>
 </header>
