@@ -5,6 +5,13 @@ PATH
       jekyll-components (~> 0.1)
 
 PATH
+  remote: ../../jekyll_components/jekyll-components-index
+  specs:
+    jekyll-components-index (0.1)
+      jekyll-components (~> 0.1)
+      jekyll-components-base_components (~> 0.1)
+
+PATH
   remote: ../../jekyll_components/jekyll-components
   specs:
     jekyll-components (0.1)
@@ -81,6 +88,7 @@ DEPENDENCIES
   jekyll
   jekyll-components!
   jekyll-components-base_components!
+  jekyll-components-index!
   jekyll-redirect-from
   jekyll-requirejs_converter!
 
