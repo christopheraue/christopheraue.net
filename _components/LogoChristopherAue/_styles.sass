@@ -1,20 +1,32 @@
 .LogoChristopherAue
+  display: inline-block
   line-height: 0
   text-align: left
-  .LogoChristopherAue-Col
-    display: inline-block
-    vertical-align: middle
-    width: .95em
-    height: .95em
-    margin: .05em
-    .PreserveAspectRatio-Reference
-      width: 100%
-    svg
-      display: block
-  .LogoChristopherAue-Row
-    perspective: 300px
-    white-space: nowrap
-  .LogoChristopherAue-Row:first-child
-    margin-top: -.05em
-  .LogoChristopherAue-Row:last-child
-    margin-bottom: -.05em
+  height: 100%
+  overflow: hidden
+
+.LogoChristopherAue-Row
+  white-space: nowrap
+  height: 50%
+
+.LogoChristopherAue-Col
+  display: inline-block
+  height: 95%
+  .PreserveAspectRatio-Reference
+    height: 100%
+  svg
+    display: block
+
+.LogoChristopherAue-Gutter
+  display: inline-block
+  height: 100%
+  .PreserveAspectRatio-Reference
+    height: 100%
+
+.LogoChristopherAue-Row:first-child
+  .LogoChristopherAue-Col, .LogoChristopherAue-Gutter
+    vertical-align: top
+
+.LogoChristopherAue-Row:last-child
+  .LogoChristopherAue-Col, .LogoChristopherAue-Gutter
+    vertical-align: bottom
