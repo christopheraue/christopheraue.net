@@ -1,6 +1,9 @@
 .PageHeader-CategoryDropdown
+  .CategoryDropdown
+    .CategoryDropdown-Item.collateral
+      transition-property: opacity, background
   .CategoryDropdown.open
-    .CategoryDropdown-ItemWrapper
+    .CategoryDropdown-Item
       &.collateral
         background: darken($collateral-dark, 5%)
       &.hover
