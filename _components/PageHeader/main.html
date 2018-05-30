@@ -9,8 +9,8 @@
   <div class="PageHeader-InnerBounds">
     <a href="/" class="PageHeader-Logo" title="Go to start page">
       {% block root-LogoChristopherAue %}
-    </a><!--
- --><nav class="PageHeader-CategoryDropdown">
+    </a>
+    <nav class="PageHeader-CategoryDropdown">
       {%- container_with_dynamically_scoped_body CategoryDropdown
           entries=site.category_list
           selected=page.category
