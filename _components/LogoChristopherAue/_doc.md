@@ -2,8 +2,8 @@
 
 found in source at: {{ page.component.path }}
 
-The component fills the complete height of its container: The container must have an **explicit** height!
+The component is exactly 2em tall.
 
-{% example resizable height="5em" %}
+{% example %}
   {% block root-LogoChristopherAue %}
 {% endexample %}
