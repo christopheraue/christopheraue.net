@@ -10,12 +10,14 @@
     <a href="/" class="PageHeader-Logo" title="Go to start page">
       {% block root-LogoChristopherAue %}
     </a><!--
- -->{%- container_with_dynamically_scoped_body CategoryDropdown
-        entries=site.category_list
-        selected=page.category
-        selected_tag=selected_tag -%}
-      {% block root-Slash{{ param.entry | capitalize }} %}
-    {%- endcontainer_with_dynamically_scoped_body -%}
+ --><nav class="PageHeader-CategoryDropdown">
+      {%- container_with_dynamically_scoped_body CategoryDropdown
+          entries=site.category_list
+          selected=page.category
+          selected_tag=selected_tag -%}
+        {% block root-Slash{{ param.entry | capitalize }} %}
+      {%- endcontainer_with_dynamically_scoped_body -%}
+    </nav>
   </div>
 </header>
 

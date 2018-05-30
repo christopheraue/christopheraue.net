@@ -3,6 +3,6 @@
 found in source at: {{ page.component.path }}
 
 
-{% example resizable bodyStyle="padding: 1.3em 1.3em 7em 1.3em; background: black" %}
+{% example resizable bodyStyle="padding: 1.3em 1.3em 7em 1.3em; background: #3f668c" %}
   {% block root-PageHeader %}
 {% endexample %}
