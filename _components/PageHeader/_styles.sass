@@ -36,26 +36,27 @@
     text-align: left
 
 .PageHeader-CategoryDropdown
-  .CategoryDropdown
+  .CategoryDropdown-ListWrapper
     transform: scale(1)
     transform-origin: top right
     transition: transform 300ms ease-in-out
-  .CategoryDropdown.activated
-    transform: scale(1.5)
-    @media screen and (min-width: 32em) //512px
-      transform: scale(1.25)
-    @media screen and (min-width: 50em) //800px
-      transform: scale(1)
-    .CategoryDropdown-List
-      transition-property: box-shadow, max-height
-      transition-delay:    0s,         0s
-      max-height: 80vw
-      box-shadow: 0 0 5px rgba(0,0,0,0.5), 1px 1px 3px rgba(0,0,0,0.5)
   .CategoryDropdown-ItemContent
     fill: white
     stroke: white
   .CategoryDropdown-ItemArrow
     &:before
       border-top-color: white
-  .CategoryDropdown-Overlay
-    box-shadow: inset -.2em -.2em .5em rgba(0,0,0,0.04), inset .2em .2em .5em rgba(255,255,255,0.04)
+  .CategoryDropdown.open
+    .CategoryDropdown-ListWrapper
+      transform: scale(1.5)
+      @media screen and (min-width: 32em) //512px
+        transform: scale(1.25)
+      @media screen and (min-width: 50em) //800px
+        transform: scale(1)
+    .CategoryDropdown-List
+      transition-property: box-shadow, max-height
+      transition-delay:    0s,         0s
+      max-height: 80vw
+      box-shadow: 0 0 5px rgba(0,0,0,0.5), 1px 1px 3px rgba(0,0,0,0.5)
+    .CategoryDropdown-ListOverlay
+      box-shadow: inset -.2em -.2em .5em rgba(0,0,0,0.04), inset .2em .2em .5em rgba(255,255,255,0.04)
