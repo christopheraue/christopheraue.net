@@ -15,7 +15,10 @@
           entries=site.category_list
           selected=page.category
           selected_tag=selected_tag -%}
-        {% block root-Slash{{ param.entry | capitalize }} %}
+        <div class="PageHeader-CategoryDropdown-ItemContent">
+          {% block root-Slash{{ param.entry | capitalize }} %}
+        </div><!--
+     --><div class="PageHeader-CategoryDropdown-ItemArrow"></div>
       {%- endcontainer_with_dynamically_scoped_body -%}
     </nav>
   </div>
