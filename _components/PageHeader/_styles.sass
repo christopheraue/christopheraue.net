@@ -46,13 +46,12 @@
     margin-right: -$padding
     @media screen and (min-width: 50em) //800px
       margin-left: -(1em+$padding)
-
-  .CategoryDropdown-ListContainer
     transform: scale(1)
     transform-origin: top right
-    transition-property: transform, box-shadow
-    transition-duration: $transition_time
-    transition-timing-function: ease-in-out
+    transition: transform $transition_time ease-in-out
+
+  .CategoryDropdown-ListContainer
+    transition: box-shadow $transition_time ease-in-out
 
   .CategoryDropdown-List
     max-height: 1em + 2*$padding
@@ -104,13 +103,13 @@
       transition: transform $transition_time ease-in-out
 
   .CategoryDropdown.open
+    transform: scale(1.5)
+    @media screen and (min-width: 32em) //512px
+      transform: scale(1.25)
+    @media screen and (min-width: 50em) //800px
+      transform: scale(1)
     .CategoryDropdown-ListContainer
-      transform: scale(1.5)
       box-shadow: 0 0 5px rgba(0,0,0,0.5), 1px 1px 3px rgba(0,0,0,0.5)
-      @media screen and (min-width: 32em) //512px
-        transform: scale(1.25)
-      @media screen and (min-width: 50em) //800px
-        transform: scale(1)
 
     .CategoryDropdown-ListOverlay
       box-shadow: inset -.2em -.2em .5em rgba(0,0,0,0.04), inset .2em .2em .5em rgba(255,255,255,0.04)
