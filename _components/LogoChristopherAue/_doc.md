@@ -4,6 +4,6 @@ found in source at: {{ page.component.path }}
 
 The component is exactly 2em tall.
 
-{% example %}
+{% example resizable %}
   {% block root-LogoChristopherAue %}
 {% endexample %}
