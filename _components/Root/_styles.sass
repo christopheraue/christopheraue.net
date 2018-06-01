@@ -1,14 +1,13 @@
 ﻿body
-  background: black
-  color: white
   font-family: 'Work Sans', sans-serif
   font-weight: 300
   line-height: $vertical-rhythm
-
   @each $page_width, $font_scale in $font_scales
     @media screen and (min-width: $page_width)
       font-size: #{$font_scale}em
 
+  background: black
+  color: white
   padding: #{$vertical-rhythm}em
 
 .PageContent
