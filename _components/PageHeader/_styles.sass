@@ -39,6 +39,7 @@
 .PageHeader-CategoryDropdown
   $transition_time: 300ms
   $padding: .5em
+  $shadow_spread: 5px
   line-height: 0
 
   .CategoryDropdown
@@ -50,12 +51,14 @@
     transform-origin: top right
     transition: transform $transition_time ease-in-out
 
-  .CategoryDropdown-ListContainer
-    transition: box-shadow $transition_time ease-in-out
-
   .CategoryDropdown-ListWindow
+    margin: -$shadow_spread
     max-height: 1em + 2*$padding
     transition: max-height 0s ease-in-out $transition_time
+
+  .CategoryDropdown-ListContainer
+    margin: $shadow_spread
+    transition: box-shadow $transition_time ease-in-out
 
   .CategoryDropdown-List
     border-radius: .1em
@@ -133,7 +136,7 @@
       transition-delay: 0s
 
     .CategoryDropdown-ListContainer
-      box-shadow: 0 0 5px rgba(0,0,0,0.5), 1px 1px 3px rgba(0,0,0,0.5)
+      box-shadow: 0 0 $shadow_spread rgba(0,0,0,0.5), 1px 1px $shadow_spread/2 rgba(0,0,0,0.5)
 
     .CategoryDropdown-ListOverlay
       opacity: 1
