@@ -92,7 +92,7 @@
     width: 1em
     height: 1em
     opacity: 0
-    transition: opacity $transition_time/2 ease-in-out
+    transition: opacity $transition_time ease-in-out
     text-align: center
     margin-left: .1em // gutter width between tiles
     &:after
@@ -112,6 +112,14 @@
       transform: translateY(25%) rotate(0deg)
       transform-origin: 50% 15%
       transition: transform $transition_time ease-in-out
+
+  .CategoryDropdown-ListFocus
+    height: 1em + 2*$padding
+    opacity: 0
+    transition: opacity $transition_time ease-in-out
+    border: 1px solid white
+    box-sizing: border-box
+    background: rgba(255,255,255,.1)
 
   .CategoryDropdown.open
     transform: scale(1.5)
@@ -135,6 +143,5 @@
       &:before
         transform: translateY(25%) rotate(90deg)
 
-    .CategoryDropdown-Item.hover
-      .PageHeader-CategoryDropdown-ItemArrow
-        opacity: 1
+    .CategoryDropdown-ListFocus
+      opacity: 1
