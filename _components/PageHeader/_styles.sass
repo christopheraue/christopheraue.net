@@ -55,6 +55,7 @@
 
   .CategoryDropdown-ListWindow
     max-height: 1em + 2*$padding
+    transition: max-height 0s ease-in-out $transition_time
 
   .CategoryDropdown-List
     border-radius: .1em
@@ -66,6 +67,9 @@
 
   .CategoryDropdown-ItemContainer
     padding: $padding $padding $padding 1em+$padding
+
+  .CategoryDropdown-Item
+    transition: opacity $transition_time ease-in-out
 
   .CategoryDropdown-Item.current
     .PageHeader-CategoryDropdown-ItemArrow
@@ -115,6 +119,10 @@
       transform: scale(1.25)
     @media screen and (min-width: 50em) //800px
       transform: scale(1)
+
+    .CategoryDropdown-ListWindow
+      transition-duration: $transition_time
+      transition-delay: 0s
 
     .CategoryDropdown-ListContainer
       box-shadow: 0 0 5px rgba(0,0,0,0.5), 1px 1px 3px rgba(0,0,0,0.5)
