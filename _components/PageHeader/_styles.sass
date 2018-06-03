@@ -15,7 +15,7 @@
   opacity: 0.85
   .LogoChristopherAue
     fill: white
-  &.hover
+  &.hover, &:hover
     opacity: 1
 
 .PageHeader-CategoryDropdown
@@ -121,7 +121,8 @@
     box-sizing: border-box
     background: rgba(255,255,255,.05)
 
-  .CategoryDropdown.open
+  .CategoryDropdown.open,
+  .CategoryDropdown.no-js:hover
     transform: scale(1.5)
     @media screen and (min-width: 32em) //512px
       transform: scale(1.25)
