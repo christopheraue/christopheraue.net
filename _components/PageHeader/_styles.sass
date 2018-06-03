@@ -44,7 +44,6 @@
 
   .CategoryDropdown
     margin-top: -$item_height/2
-    margin-right: -$item_height
     @media screen and (min-width: 50em) //800px
       margin-left: -$item_height
     transform: scale(1)
@@ -56,27 +55,25 @@
     max-height: 1em + $item_height
     transition: max-height 0s ease-in-out $transition_time
 
-  .CategoryDropdown-ListContainer
-    margin: $shadow_spread
-    transition: box-shadow $transition_time ease-in-out
-
   .CategoryDropdown-List
+    margin: $shadow_spread
     border-radius: .1em
+    overflow: hidden
+    transition-property: box-shadow, transform
+    transition-duration: $transition_time
+    transition-timing-function: ease-in-out
 
   .CategoryDropdown-ListOverlay
     box-shadow: inset -.2em -.2em .5em rgba(0,0,0,0.04), inset .2em .2em .5em rgba(255,255,255,0.04)
     opacity: 0
     transition: opacity $transition_time ease-in-out
 
-  .CategoryDropdown-ItemContainer
-    padding: $item_height/2 0 $item_height/2 $item_height
-
   .CategoryDropdown-Item
+    padding: $item_height/2 0 $item_height/2 $item_height
     transition: opacity $transition_time ease-in-out, background $transition_time ease-in-out
-
-  .CategoryDropdown-Item.current
-    .PageHeader-CategoryDropdown-ItemArrow
-      opacity: 1
+    &.selected
+      .PageHeader-CategoryDropdown-ItemArrow
+        opacity: 1
 
   .PageHeader-CategoryDropdown-ItemContent,
   .PageHeader-CategoryDropdown-ItemArrow
@@ -118,8 +115,9 @@
 
   .CategoryDropdown-ListFocus
     height: 1em + $item_height
-    opacity: 0
-    transition: opacity $transition_time ease-in-out
+    transition-property: opacity, transform
+    transition-duration: $transition_time, 100ms
+    transition-timing-function: ease-in-out
     border: 1px solid white
     box-sizing: border-box
     background: rgba(255,255,255,.1)
@@ -135,7 +133,7 @@
       transition-duration: $transition_time
       transition-delay: 0s
 
-    .CategoryDropdown-ListContainer
+    .CategoryDropdown-List
       box-shadow: 0 0 $shadow_spread rgba(0,0,0,0.5), 1px 1px $shadow_spread/2 rgba(0,0,0,0.5)
 
     .CategoryDropdown-ListOverlay
@@ -145,6 +143,3 @@
       opacity: 0
       &:before
         transform: translateY(25%) rotate(90deg)
-
-    .CategoryDropdown-ListFocus
-      opacity: 1

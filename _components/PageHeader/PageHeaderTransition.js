@@ -44,7 +44,7 @@ define([
 
                 // Slide header navigation to the selected category
                 if (transition.from !== transition.to) {
-                    categoryDropdown.select(transition.to, duration);
+                    categoryDropdown.select(transition.to);
                     document.onPersistedPageshow(function() {
                         categoryDropdown.select(0);
                     }.bind(this));
