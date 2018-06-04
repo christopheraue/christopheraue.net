@@ -9,6 +9,9 @@
 {% include_partial nav_focus_indicator.html %}
 {% endcapture %}
 
+{% assign categories = param.categories | default: site.category_list %}
+{% assign selected = param.selected_category | default: page.category %}
+
 <header class="PageHeader">
   <div class="PageHeader-InnerBounds">
     <a href="/" class="PageHeader-Logo" title="Go to start page">
@@ -16,8 +19,8 @@
     </a>
     <nav class="PageHeader-CategoryDropdown">
       {%- container_with_dynamically_scoped_body CategoryDropdown
-          entries=site.category_list
-          selected=page.category
+          entries=categories
+          selected=selected
           selected_tag=selected_tag
           focus_indicator=focus_indicator -%}
         <div class="PageHeader-CategoryDropdown-ItemContent">

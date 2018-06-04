@@ -4,6 +4,15 @@ found in source at: {{ page.component.path }}
 
 The component is exactly 2em tall.
 
-{% example resizable bodyStyle="padding: 1.3em 1.3em 7em 1.3em; background: #3f668c" %}
-  {% block root-PageHeader %}
+{% capture_yaml categories %}
+- url: design
+  name: design
+- url: collateral
+  name: collateral
+{% endcapture_yaml %}
+
+{% assign variations = categories | map: 'name' %}
+{% example resizable bodyStyle="padding: 1.3em 1.3em 7em 1.3em" variations=variations %}
+  {% block PageTransition %}
+  {% block root-PageHeader categories=categories selected_category=page.variation %}
 {% endexample %}
