@@ -1,25 +1,25 @@
 PATH
-  remote: ../../jekyll_components/jekyll-components-base_components
+  remote: ../../jekyll_plugins/jekyll-components-base_components
   specs:
     jekyll-components-base_components (0.1)
       jekyll-components (~> 0.1)
 
 PATH
-  remote: ../../jekyll_components/jekyll-components-index
+  remote: ../../jekyll_plugins/jekyll-components-index
   specs:
     jekyll-components-index (0.1)
       jekyll-components (~> 0.1)
       jekyll-components-base_components (~> 0.1)
 
 PATH
-  remote: ../../jekyll_components/jekyll-components
+  remote: ../../jekyll_plugins/jekyll-components
   specs:
     jekyll-components (0.1)
       jekyll (~> 3.7)
       jekyll-requirejs_converter (~> 0.1)
 
 PATH
-  remote: ../../jekyll_components/jekyll-requirejs_converter
+  remote: ../../jekyll_plugins/jekyll-requirejs_converter
   specs:
     jekyll-requirejs_converter (0.1)
       jekyll (~> 3.7)
