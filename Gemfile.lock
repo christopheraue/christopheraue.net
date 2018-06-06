@@ -1,4 +1,10 @@
 PATH
+  remote: ../../jekyll_plugins/jekyll-category_tree
+  specs:
+    jekyll-category_tree (0.1)
+      jekyll (~> 3.7)
+
+PATH
   remote: ../../jekyll_plugins/jekyll-components-base_components
   specs:
     jekyll-components-base_components (0.1)
@@ -86,6 +92,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll
+  jekyll-category_tree!
   jekyll-components!
   jekyll-components-base_components!
   jekyll-components-index!

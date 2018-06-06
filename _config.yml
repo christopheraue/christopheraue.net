@@ -8,17 +8,12 @@ exclude: [build.sh, deploy.sh, Gemfile, Gemfile.lock]
 plugins:
   - jekyll-redirect-from
   - jekyll-components
+  - jekyll-category_tree
 component_repositories:
   '': jekyll-components-base_components
 sass:
   load_paths: [/]
   cache_location: _build/.sass-cache
-
-category_list:
-  - url: /design
-    name: design
-  - url: /collateral
-    name: collateral
 
 defaults:
   - scope:
