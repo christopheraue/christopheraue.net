@@ -11,6 +11,7 @@ plugins:
   - jekyll-category_tree
 component_repositories:
   '': jekyll-components-base_components
+  'nav': jekyll-category_tree
 sass:
   load_paths: [/]
   cache_location: _build/.sass-cache
