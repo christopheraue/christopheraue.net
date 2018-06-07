@@ -50,12 +50,12 @@
     transform-origin: top right
     transition: transform $transition_time ease-in-out
 
-  .CategoryDropdown-ListWindow
+  .CategoryDropdown-Window
     margin: -$shadow_spread
     max-height: 1em + $item_height
     transition: max-height 0s ease-in-out $transition_time
 
-  .CategoryDropdown-List
+  .Navigation
     margin: $shadow_spread
     border-radius: .1em
     overflow: hidden
@@ -63,12 +63,12 @@
     transition-duration: $transition_time
     transition-timing-function: ease-in-out
 
-  .CategoryDropdown-ListOverlay
+  .Navigation-Overlay
     box-shadow: inset -.2em -.2em .5em rgba(0,0,0,0.04), inset .2em .2em .5em rgba(255,255,255,0.04)
     opacity: 0
     transition: opacity $transition_time ease-in-out
 
-  .CategoryDropdown-Item
+  .Navigation-Item
     padding: $item_height/2 0 $item_height/2 $item_height
     transition: opacity $transition_time ease-in-out, background $transition_time ease-in-out
     &.selected
@@ -113,13 +113,13 @@
       transform-origin: 50% 15%
       transition: transform $transition_time ease-in-out
 
-  .CategoryDropdown-ListFocus
-    height: 1em + $item_height
+  .Navigation-Focus
+    background: rgba(255,255,255,.05)
+
+  .Navigation-ListFocus
     transition-property: opacity, transform
     transition-duration: $transition_time, 100ms
     transition-timing-function: ease-in-out
-    box-sizing: border-box
-    background: rgba(255,255,255,.05)
 
   .CategoryDropdown.open,
   .CategoryDropdown.no-js:hover
@@ -129,15 +129,12 @@
     @media screen and (min-width: 50em) //800px
       transform: scale(1)
 
-    .CategoryDropdown-ListWindow
+    .CategoryDropdown-Window
       transition-duration: $transition_time
       transition-delay: 0s
 
-    .CategoryDropdown-List
+    .Navigation
       box-shadow: 0 0 $shadow_spread rgba(0,0,0,0.5), 1px 1px $shadow_spread/2 rgba(0,0,0,0.5)
-
-    .CategoryDropdown-ListOverlay
-      opacity: 1
 
     .PageHeader-CategoryDropdown-ItemArrow
       opacity: 0

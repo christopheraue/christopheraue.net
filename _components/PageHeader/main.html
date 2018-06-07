@@ -18,16 +18,16 @@
       {% block root-LogoChristopherAue %}
     </a>
     <nav class="PageHeader-CategoryDropdown">
-      {%- container_with_dynamically_scoped_body nav-CategoryDropdown
-          entries=categories
-          selected=selected
-          selected_tag=selected_tag
-          focus_indicator=focus_indicator -%}
+      {% list nav-CategoryDropdown
+            entries=categories
+            selected_item_first=true
+            selected=selected
+            selected_tag=selected_tag
+            focus_indicator=focus_indicator %}
         <div class="PageHeader-CategoryDropdown-ItemContent">
           {% block root-Slash{{ param.entry.name | capitalize }} %}
-        </div><!--
-     --><div class="PageHeader-CategoryDropdown-ItemArrow"></div>
-      {%- endcontainer_with_dynamically_scoped_body -%}
+        </div><div class="PageHeader-CategoryDropdown-ItemArrow"></div>
+      {% endlist %}
     </nav>
   </div>
 </header>
