@@ -35,7 +35,7 @@ define([
                 }.bind(this));
 
                 // Close the header navigation for its transition
-                var categoryDropdown = new CategoryDropdown(this.el.querySelector('.CategoryDropdown'));
+                var categoryDropdown = new CategoryDropdown(this.el.querySelector('.nav-CategoryDropdown'));
                 categoryDropdown.close();
                 categoryDropdown.disable();
                 document.onPersistedPageshow(function() {

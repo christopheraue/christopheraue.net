@@ -23,7 +23,7 @@
   top: 1.05em
   right: 0
   text-align: right
-  .CategoryDropdown
+  .nav-CategoryDropdown
     font-size: .95em
   @media screen and (min-width: 50em) //800px
     display: inline-block
@@ -33,7 +33,7 @@
     right: auto
     text-align: left
     height: 0 // does not contribute to the height of the header
-    .CategoryDropdown
+    .nav-CategoryDropdown
       font-size: 1.5em
 
 .PageHeader-CategoryDropdown
@@ -42,7 +42,7 @@
   $shadow_spread: 5px
   line-height: 0
 
-  .CategoryDropdown
+  .nav-CategoryDropdown
     margin-top: -$item_height/2
     @media screen and (min-width: 50em) //800px
       margin-left: -$item_height
@@ -50,12 +50,12 @@
     transform-origin: top right
     transition: transform $transition_time ease-in-out
 
-  .CategoryDropdown-Window
+  .nav-CategoryDropdown-Window
     margin: -$shadow_spread
     max-height: 1em + $item_height
     transition: max-height 0s ease-in-out $transition_time
 
-  .Navigation
+  .nav-Navigation
     margin: $shadow_spread
     border-radius: .1em
     overflow: hidden
@@ -63,12 +63,12 @@
     transition-duration: $transition_time
     transition-timing-function: ease-in-out
 
-  .Navigation-Overlay
+  .nav-Navigation-Overlay
     box-shadow: inset -.2em -.2em .5em rgba(0,0,0,0.04), inset .2em .2em .5em rgba(255,255,255,0.04)
     opacity: 0
     transition: opacity $transition_time ease-in-out
 
-  .Navigation-Item
+  .nav-Navigation-Item
     padding: $item_height/2 0 $item_height/2 $item_height
     transition: opacity $transition_time ease-in-out, background $transition_time ease-in-out
     &.selected
@@ -113,27 +113,27 @@
       transform-origin: 50% 15%
       transition: transform $transition_time ease-in-out
 
-  .Navigation-Focus
+  .nav-Navigation-Focus
     background: rgba(255,255,255,.05)
 
-  .Navigation-ListFocus
+  .nav-Navigation-ListFocus
     transition-property: opacity, transform
     transition-duration: $transition_time, 100ms
     transition-timing-function: ease-in-out
 
-  .CategoryDropdown.open,
-  .CategoryDropdown.no-js:hover
+  .nav-CategoryDropdown.open,
+  .nav-CategoryDropdown.no-js:hover
     transform: scale(1.5)
     @media screen and (min-width: 32em) //512px
       transform: scale(1.25)
     @media screen and (min-width: 50em) //800px
       transform: scale(1)
 
-    .CategoryDropdown-Window
+    .nav-CategoryDropdown-Window
       transition-duration: $transition_time
       transition-delay: 0s
 
-    .Navigation
+    .nav-Navigation
       box-shadow: 0 0 $shadow_spread rgba(0,0,0,0.5), 1px 1px $shadow_spread/2 rgba(0,0,0,0.5)
 
     .PageHeader-CategoryDropdown-ItemArrow
