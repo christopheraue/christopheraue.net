@@ -1,11 +1,10 @@
-﻿body
-  font-family: 'Work Sans', sans-serif
-  font-weight: 300
-  line-height: $vertical-rhythm
+﻿html
+  font: 300 1em/$vertical-rhythm 'Work Sans', sans-serif
   @each $page_width, $font_scale in $font_scales
     @media screen and (min-width: $page_width)
       font-size: #{$font_scale}em
 
+body
   background: black
   color: white
   padding: #{$vertical-rhythm}em
