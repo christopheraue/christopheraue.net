@@ -10,9 +10,9 @@ The component is exactly 2em tall.
 - url: collateral
   name: collateral
 {% endcapture_yaml %}
-
 {% assign variations = categories | map: 'name' %}
+
 {% example resizable bodyStyle="padding: 1.3em 1.3em 7em 1.3em" variations=variations %}
   {% block PageTransition %}
-  {% block root-PageHeader categories=categories selected_category=page.variation %}
+  {% block root-PageHeader categories=categories %}
 {% endexample %}
