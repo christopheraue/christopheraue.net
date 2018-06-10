@@ -120,6 +120,7 @@
     transition-property: opacity, transform
     transition-duration: $transition_time, 100ms
     transition-timing-function: ease-in-out
+    opacity: 0
 
   .nav-CategoryDropdown.open,
   .nav-CategoryDropdown.no-js:hover
@@ -135,6 +136,9 @@
 
     .nav-Navigation
       box-shadow: 0 0 $shadow_spread rgba(0,0,0,0.5), 1px 1px $shadow_spread/2 rgba(0,0,0,0.5)
+
+    .nav-Navigation-ListFocus
+      opacity: 1
 
     .PageHeader-CategoryDropdown-ItemArrow
       opacity: 0
