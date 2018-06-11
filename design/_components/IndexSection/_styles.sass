@@ -1,14 +1,14 @@
 .design-IndexSection
-  margin-top: #{2*$vertical-rhythm}em
+  margin-top: 2*ms(1)
   &:first-child
     margin-top: 0
 
 .design-IndexSection-Title
   font-family: 'Source Code Pro', monospace
-  font-size: #{1*$vertical-rhythm}em
+  font-size: ms(1)
   font-weight: bold
   line-height: 1em
-  padding: #{.5*($vertical-rhythm - 1)}em 0
+  padding: #{(ms(1) - 1em)/2} 0
   text-align: left
   @media screen and (min-width: 50em)
     text-align: right
@@ -22,5 +22,5 @@
     display: inline-block
     vertical-align: top
     width: 66.6666%
-    padding-left: #{$vertical-rhythm}em
+    padding-left: ms(1)
     box-sizing: border-box

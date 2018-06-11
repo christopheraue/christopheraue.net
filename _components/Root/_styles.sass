@@ -1,5 +1,5 @@
 ﻿html
-  font: 300 1em/$vertical-rhythm 'Work Sans', sans-serif
+  font: 300 #{ms(0)}/#{ms(1)/ms(0)} 'Work Sans', sans-serif
   @each $page_width, $font_scale in $font_scales
     @media screen and (min-width: $page_width)
       font-size: #{$font_scale}em
@@ -7,10 +7,10 @@
 body
   background: black
   color: white
-  padding: #{$vertical-rhythm}em
+  padding: ms(1)
 
 .PageContent
-  margin-top: #{4*$vertical-rhythm}em
+  margin-top: 4*ms(1)
 
 .PageFooter
-  margin-top: #{4*$vertical-rhythm}em
+  margin-top: 4*ms(1)
