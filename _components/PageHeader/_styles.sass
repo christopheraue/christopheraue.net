@@ -19,12 +19,15 @@
     opacity: 1
 
 .PageHeader-CategoryDropdown
+  $transition_time: 300ms
+  $item_height: 1em
+  $shadow_spread: 5px
+  line-height: 0
+
   position: absolute
-  top: 1.05em
+  top: 1em
   right: 0
   text-align: right
-  .nav-CategoryDropdown
-    font-size: .95em
   @media screen and (min-width: 50em) //800px
     display: inline-block
     vertical-align: top
@@ -33,30 +36,27 @@
     right: auto
     text-align: left
     height: 0 // does not contribute to the height of the header
-    .nav-CategoryDropdown
-      font-size: 1.5em
-
-.PageHeader-CategoryDropdown
-  $transition_time: 300ms
-  $item_height: 1em
-  $shadow_spread: 5px
-  line-height: 0
 
   .nav-CategoryDropdown
-    margin-top: -$item_height/2
+    font-size: .9em
+    margin-top: -.5*$item_height
+    @media screen and (min-width: 50em) //800px
+      font-size: 1.5em
+
+  .Openable
     @media screen and (min-width: 50em) //800px
       margin-left: -$item_height
     transform: scale(1)
     transform-origin: top right
     transition: transform $transition_time ease-in-out
 
-  .nav-CategoryDropdown-Window
-    margin: -$shadow_spread
-    max-height: 1em + $item_height
-    transition: max-height 0s ease-in-out $transition_time
+    .Openable-Content
+      margin: -$shadow_spread
+      padding: $shadow_spread
+      max-height: 2*$item_height
+      transition: max-height 0s ease-in-out $transition_time
 
   .nav-Navigation
-    margin: $shadow_spread
     border-radius: .1em
     overflow: hidden
     transition-property: box-shadow, transform
@@ -122,15 +122,15 @@
     transition-timing-function: ease-in-out
     opacity: 0
 
-  .nav-CategoryDropdown.open,
-  .nav-CategoryDropdown.no-js:hover
+  .Openable.open,
+  .Openable.no-js:hover
     transform: scale(1.5)
     @media screen and (min-width: 32em) //512px
       transform: scale(1.25)
     @media screen and (min-width: 50em) //800px
       transform: scale(1)
 
-    .nav-CategoryDropdown-Window
+    .Openable-Content
       transition-duration: $transition_time
       transition-delay: 0s
 
