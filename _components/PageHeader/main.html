@@ -16,15 +16,16 @@
     <a href="/" class="PageHeader-Logo" title="Go to start page">
       {% block root-Logo %}
     </a>
-    <nav class="PageHeader-CategoryDropdown">
+    <nav class="PageHeader-Nav">
       {% list nav-CategoryDropdown
             items=categories
             selected_item_first=true
             selected_tag=selected_tag
-            focus_indicator=focus_indicator %}
-        <div class="PageHeader-CategoryDropdown-ItemContent">
+            focus_indicator=focus_indicator
+            css_class_prefix='PageHeader-Nav' %}
+        <div class="PageHeader-Nav-CategoryDropdown-Navigation-ItemContent">
           {% block root-Slash{{ param.item.name | capitalize }} %}
-        </div><div class="PageHeader-CategoryDropdown-ItemArrow"></div>
+        </div><div class="PageHeader-Nav-CategoryDropdown-Navigation-ItemArrow"></div>
       {% endlist %}
     </nav>
   </div>
