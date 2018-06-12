@@ -1,8 +1,8 @@
 define([
     'lib/velocity',
     'ScrollControl',
-    'nav-CategoryDropdown'
-], function(Velocity, ScrollControl, CategoryDropdown) {
+    'nav-DropdownNavigation'
+], function(Velocity, ScrollControl, DropdownNavigation) {
     return Object.inherit({
         constructor: function() {
             this.el = document.querySelector('.PageHeader');
@@ -35,7 +35,7 @@ define([
                 }.bind(this));
 
                 // Close the header navigation for its transition
-                var categoryDropdown = new CategoryDropdown(this.el.querySelector('.PageHeader-Nav-CategoryDropdown'));
+                var categoryDropdown = new DropdownNavigation(this.el.querySelector('.PageHeader-Nav-DropdownNavigation'));
                 categoryDropdown.close();
                 categoryDropdown.disable();
                 document.onPersistedPageshow(function() {

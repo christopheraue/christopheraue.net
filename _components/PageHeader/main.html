@@ -17,15 +17,15 @@
       {% block root-Logo %}
     </a>
     <nav class="PageHeader-Nav">
-      {% list nav-CategoryDropdown
+      {% list nav-DropdownNavigation
             items=categories
             selected_item_first=true
             selected_tag=selected_tag
             focus_indicator=focus_indicator
             css_class_prefix='PageHeader-Nav' %}
-        <div class="PageHeader-Nav-CategoryDropdown-Navigation-ItemContent">
+        <div class="PageHeader-Nav-DropdownNavigation-Navigation-ItemContent">
           {% block root-Slash{{ param.item.name | capitalize }} %}
-        </div><div class="PageHeader-Nav-CategoryDropdown-Navigation-ItemArrow"></div>
+        </div><div class="PageHeader-Nav-DropdownNavigation-Navigation-ItemArrow"></div>
       {% endlist %}
     </nav>
   </div>
