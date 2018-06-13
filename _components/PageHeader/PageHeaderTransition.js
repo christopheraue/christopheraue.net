@@ -1,6 +1,6 @@
 define([
-    'lib/velocity',
-    'ScrollControl',
+    'base/lib/velocity',
+    'base/ScrollControl',
     'nav-DropdownNavigation'
 ], function(Velocity, ScrollControl, DropdownNavigation) {
     return Object.inherit({

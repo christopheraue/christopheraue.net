@@ -9,13 +9,13 @@
           —
           <ul class="design-Article-ShareList">
             <li class="design-Article-ShareListItem">
-              {% container ShareLink page=article on="twitter" class="design-Article-ShareLink" %}
-                {% block Icon type="twitter" %}
+              {% container base-ShareLink page=article on="twitter" class="design-Article-ShareLink" %}
+                {% block base-Icon type="twitter" %}
               {% endcontainer %}
             </li><!--
          --><li class="design-Article-ShareListItem">
-            {% container ShareLink page=article on="facebook" class="design-Article-ShareLink" %}
-              {% block Icon type="facebook" %}
+            {% container base-ShareLink page=article on="facebook" class="design-Article-ShareLink" %}
+              {% block base-Icon type="facebook" %}
             {% endcontainer %}
           </li>
           </ul>
@@ -26,7 +26,7 @@
       </div>
     </header>
     <section class="design-Article-Text">
-      {% container Text %}
+      {% container base-Text %}
         {{ param.content }}
       {% endcontainer %}
     </section>

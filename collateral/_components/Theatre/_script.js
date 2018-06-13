@@ -1,9 +1,9 @@
 define([
-    'TheatreScreen',
-    'Video/YouTubeVideo'
+    'base-TheatreScreen',
+    'base-Video/YouTubeVideo'
 ], function(TheatreScreen, YouTubeVideo) {
     document.ready(function() {
-        var screen = document.querySelector('.collateral-Theatre-Screen > .TheatreScreen');
+        var screen = document.querySelector('.collateral-Theatre-Screen > .base-TheatreScreen');
 
         if (!screen) { return }
 

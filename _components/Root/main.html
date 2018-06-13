@@ -4,7 +4,7 @@
     {% include_partial head.html %}
   </head>
   <body class="{{ page.category }}">
-    {% block PageTransition %}
+    {% block base-PageTransition %}
     {% if page.category != 'home' %}
       {% block root-PageHeader %}
     {% endif %}
