@@ -6,13 +6,13 @@
   <body class="{{ page.category }}">
     {% block base-PageTransition %}
     {% if page.category != 'home' %}
-      {% block root-PageHeader %}
+      {% block PageHeader %}
     {% endif %}
     <main class="PageContent" role="main">
       {{ param.content }}
     </main>
     {% if page.category != 'home' %}
-      {% block root-PageFooter %}
+      {% block PageFooter %}
     {% endif %}
   </body>
 </html>

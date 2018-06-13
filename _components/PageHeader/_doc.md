@@ -14,5 +14,5 @@ The component is exactly 2em tall.
 
 {% example resizable bodyStyle="padding: 1.3em 1.3em 7em 1.3em" variations=variations %}
   {% block base-PageTransition %}
-  {% block root-PageHeader categories=categories %}
+  {% block PageHeader categories=categories %}
 {% endexample %}
