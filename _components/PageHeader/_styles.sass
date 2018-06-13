@@ -47,15 +47,17 @@ $shadow_spread: 5px
 .PageHeader-Nav-DropdownNavigation-Openable
   @media screen and (min-width: 50em) //800px
     margin-left: -$item_height
-  transform: scale(1)
-  transform-origin: top right
-  transition: transform $transition_time ease-in-out
 
 .PageHeader-Nav-DropdownNavigation-Openable-Content
+  transform: scale(1)
+  transform-origin: top right
   margin: -$shadow_spread
   padding: $shadow_spread
   max-height: 2*$item_height
-  transition: max-height 0s ease-in-out $transition_time
+  transition-property: max-height, transform
+  transition-duration: 0s,         $transition_time
+  transition-delay:    $transition_time, 0s
+  transition-timing-function: ease-in-out
 
 .PageHeader-Nav-DropdownNavigation-Navigation
   border-radius: .1em
@@ -125,13 +127,12 @@ $shadow_spread: 5px
 
 .PageHeader-Nav-DropdownNavigation-Openable.open,
 .PageHeader-Nav-DropdownNavigation-Openable.no-js:hover
-  transform: scale(1.5)
-  @media screen and (min-width: 32em) //512px
-    transform: scale(1.25)
-  @media screen and (min-width: 50em) //800px
-    transform: scale(1)
-
   .PageHeader-Nav-DropdownNavigation-Openable-Content
+    transform: scale(1.5)
+    @media screen and (min-width: 32em) //512px
+      transform: scale(1.25)
+    @media screen and (min-width: 50em) //800px
+      transform: scale(1)
     transition-duration: $transition_time
     transition-delay: 0s
 
