@@ -48,16 +48,16 @@ $shadow_spread: 5px
   @media screen and (min-width: 50em) //800px
     margin-left: -$item_height
 
-.PageHeader .base-Openable-Content
+.PageHeader .base-Openable-EventArea
   transform: scale(1)
   transform-origin: top right
+  transition: transform $transition_time ease-in-out
+
+.PageHeader .base-Openable-Content
   margin: -$shadow_spread
   padding: $shadow_spread
   max-height: 2*$item_height
-  transition-property: max-height, transform
-  transition-duration: 0s,         $transition_time
-  transition-delay:    $transition_time, 0s
-  transition-timing-function: ease-in-out
+  transition: max-height 0s ease-in-out $transition_time
 
 .PageHeader .nav-Navigation
   border-radius: .1em
@@ -127,12 +127,13 @@ $shadow_spread: 5px
 
 .PageHeader .base-Openable.open,
 .PageHeader .base-Openable.no-js:hover
-  .base-Openable-Content
+  .base-Openable-EventArea
     transform: scale(1.5)
     @media screen and (min-width: 32em) //512px
       transform: scale(1.25)
     @media screen and (min-width: 50em) //800px
       transform: scale(1)
+  .base-Openable-Content
     transition-duration: $transition_time
     transition-delay: 0s
 
@@ -142,7 +143,7 @@ $shadow_spread: 5px
   .nav-Navigation-ListFocus
     opacity: 1
 
-  .nav-Navigation-ItemArrow
+  .PageHeader-Nav-ItemArrow
     opacity: 0
     &:before
       transform: translateY(25%) rotate(90deg)
