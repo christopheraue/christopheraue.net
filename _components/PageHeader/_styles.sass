@@ -38,17 +38,17 @@ $shadow_spread: 5px
     text-align: left
     height: 0 // does not contribute to the height of the header
 
-.PageHeader-Nav-DropdownNavigation
+.PageHeader .nav-DropdownNavigation
   font-size: .9em
   margin-top: -.5*$item_height
   @media screen and (min-width: 50em) //800px
     font-size: 1.5em
 
-.PageHeader-Nav-DropdownNavigation-Openable
+.PageHeader .base-Openable
   @media screen and (min-width: 50em) //800px
     margin-left: -$item_height
 
-.PageHeader-Nav-DropdownNavigation-Openable-Content
+.PageHeader .base-Openable-Content
   transform: scale(1)
   transform-origin: top right
   margin: -$shadow_spread
@@ -59,38 +59,38 @@ $shadow_spread: 5px
   transition-delay:    $transition_time, 0s
   transition-timing-function: ease-in-out
 
-.PageHeader-Nav-DropdownNavigation-Navigation
+.PageHeader .nav-Navigation
   border-radius: .1em
   overflow: hidden
   transition-property: box-shadow, transform
   transition-duration: $transition_time
   transition-timing-function: ease-in-out
 
-.PageHeader-Nav-DropdownNavigation-Navigation-Overlay
+.PageHeader .nav-Navigation-Overlay
   box-shadow: inset -.2em -.2em .5em rgba(0,0,0,0.04), inset .2em .2em .5em rgba(255,255,255,0.04)
   opacity: 0
   transition: opacity $transition_time ease-in-out
 
-.PageHeader-Nav-DropdownNavigation-Navigation-Item
+.PageHeader .nav-Navigation-Item
   padding: $item_height/2 0 $item_height/2 $item_height
   transition: opacity $transition_time ease-in-out, background $transition_time ease-in-out
   &.selected
-    .PageHeader-Nav-DropdownNavigation-Navigation-ItemArrow
+    .PageHeader-Nav-ItemArrow
       opacity: 1
 
-.PageHeader-Nav-DropdownNavigation-Navigation-ItemContent,
-.PageHeader-Nav-DropdownNavigation-Navigation-ItemArrow
+.PageHeader-Nav-ItemContent,
+.PageHeader-Nav-ItemArrow
   display: inline-block
   vertical-align: middle
 
-.PageHeader-Nav-DropdownNavigation-Navigation-ItemContent
+.PageHeader-Nav-ItemContent
   fill: white
   stroke: white
   .base-PreserveAspectRatio-Reference
     height: 1em
     vertical-align: top
 
-.PageHeader-Nav-DropdownNavigation-Navigation-ItemArrow
+.PageHeader-Nav-ItemArrow
   position: relative
   width: $item_height
   height: $item_height
@@ -116,18 +116,18 @@ $shadow_spread: 5px
     transform-origin: 50% 15%
     transition: transform $transition_time ease-in-out
 
-.PageHeader-Nav-DropdownNavigation-Navigation-Focus
+.PageHeader .nav-Navigation-Focus
   background: rgba(255,255,255,.05)
 
-.PageHeader-Nav-DropdownNavigation-Navigation-ListFocus
+.PageHeader .nav-Navigation-ListFocus
   transition-property: opacity, transform
   transition-duration: $transition_time, 100ms
   transition-timing-function: ease-in-out
   opacity: 0
 
-.PageHeader-Nav-DropdownNavigation-Openable.open,
-.PageHeader-Nav-DropdownNavigation-Openable.no-js:hover
-  .PageHeader-Nav-DropdownNavigation-Openable-Content
+.PageHeader .base-Openable.open,
+.PageHeader .base-Openable.no-js:hover
+  .base-Openable-Content
     transform: scale(1.5)
     @media screen and (min-width: 32em) //512px
       transform: scale(1.25)
@@ -136,13 +136,13 @@ $shadow_spread: 5px
     transition-duration: $transition_time
     transition-delay: 0s
 
-  .PageHeader-Nav-DropdownNavigation-Navigation
+  .nav-Navigation
     box-shadow: 0 0 $shadow_spread rgba(0,0,0,0.5), 1px 1px $shadow_spread/2 rgba(0,0,0,0.5)
 
-  .PageHeader-Nav-DropdownNavigation-Navigation-ListFocus
+  .nav-Navigation-ListFocus
     opacity: 1
 
-  .PageHeader-Nav-DropdownNavigation-Navigation-ItemArrow
+  .nav-Navigation-ItemArrow
     opacity: 0
     &:before
       transform: translateY(25%) rotate(90deg)

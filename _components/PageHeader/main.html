@@ -21,11 +21,10 @@
             items=categories
             selected_item_first=true
             selected_tag=selected_tag
-            focus_indicator=focus_indicator
-            css_class_prefix='PageHeader-Nav' %}
-        <div class="PageHeader-Nav-DropdownNavigation-Navigation-ItemContent">
+            focus_indicator=focus_indicator %}
+        <div class="PageHeader-Nav-ItemContent">
           {% block Slash{{ param.item.name | capitalize }} %}
-        </div><div class="PageHeader-Nav-DropdownNavigation-Navigation-ItemArrow"></div>
+        </div><div class="PageHeader-Nav-ItemArrow"></div>
       {% endlist %}
     </nav>
   </div>
