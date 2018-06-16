@@ -3,7 +3,7 @@ destination: ./_site
 name: christopheraue.net
 author: Christopher Aue
 encoding: UTF-8
-permalink: :categories/:title
+permalink: :categories
 exclude: [build.sh, deploy.sh, Gemfile, Gemfile.lock]
 plugins:
   - jekyll-redirect-from
