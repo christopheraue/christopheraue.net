@@ -1,10 +1,8 @@
 define([
+  'base-PageTransition',
   './PageHeaderTransition'
-], function (PageHeaderTransition) {
-  if (requirejs.defined('base-PageTransition')) {
-    var PageTransition = require('base-PageTransition');
-    document.ready(function () {
-      PageTransition.register(new PageHeaderTransition());
-    });
-  }
+], function (basePageTransition, PageHeaderTransition) {
+  document.ready(function () {
+    basePageTransition.register(new PageHeaderTransition());
+  });
 });
