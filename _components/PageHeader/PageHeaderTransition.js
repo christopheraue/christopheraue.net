@@ -3,6 +3,8 @@ define([
   'base/ScrollControl',
   'nav-DropdownNavigation'
 ], function(Velocity, ScrollControl, DropdownNavigation) {
+  CSS_DURATION = /^(\d+(?:\.\d+)?)(s|ms)$/;
+
   return Object.inherit({
     constructor: function() {
       this.el = document.querySelector('.PageHeader');
@@ -29,7 +31,8 @@ define([
       }
 
       if (ScrollControl.isInView(this.el) && transition.to !== 'home') {
-        var duration = 300;
+        var match = getComputedStyle(this.el)['animation-duration'].match(CSS_DURATION),
+            duration = (match[2] === 's' ? 1000 : 1) * parseFloat(match[1]);
         transition.transitionHeader = false;
         Velocity(document.body, 'scroll', duration, 'ease-in-out', function() {
           onTransitioned(this)
