@@ -48,9 +48,9 @@ define([
 
         // Slide header navigation to the selected category
         if (transition.from[0] !== transition.to[0]) {
-          categoryDropdown.select(transition.to[0]);
+          categoryDropdown.select(transition.to[0] + '-category');
           document.onPersistedPageshow(function() {
-            categoryDropdown.select(transition.from[0]);
+            categoryDropdown.select(transition.from[0] + '-category');
           }.bind(this));
         }
       } else {
