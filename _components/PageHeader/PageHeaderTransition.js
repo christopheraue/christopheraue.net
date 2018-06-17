@@ -30,7 +30,7 @@ define([
         return;
       }
 
-      if (ScrollControl.isInView(this.el) && transition.to !== 'home') {
+      if (ScrollControl.isInView(this.el) && transition.to[0] !== 'home') {
         var match = getComputedStyle(this.el)['animation-duration'].match(CSS_DURATION),
             duration = (match[2] === 's' ? 1000 : 1) * parseFloat(match[1]);
         transition.transitionHeader = false;
@@ -47,10 +47,10 @@ define([
         }.bind(this));
 
         // Slide header navigation to the selected category
-        if (transition.from !== transition.to) {
-          categoryDropdown.select(transition.to);
+        if (transition.from[0] !== transition.to[0]) {
+          categoryDropdown.select(transition.to[0]);
           document.onPersistedPageshow(function() {
-            categoryDropdown.select(0);
+            categoryDropdown.select(transition.from[0]);
           }.bind(this));
         }
       } else {

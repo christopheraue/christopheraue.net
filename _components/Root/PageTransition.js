@@ -6,7 +6,7 @@ define([
       // nothing special to do
     },
     transitionOut: function(transition, onTransitioned) {
-      if (transition.to === 'home') {
+      if (transition.to[0] === 'home') {
         ScrollControl.hideScrollbar(document.documentElement);
         document.onPersistedPageshow(function() {
           ScrollControl.showScrollbar(document.documentElement);
