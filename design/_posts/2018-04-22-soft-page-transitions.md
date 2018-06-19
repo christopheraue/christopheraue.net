@@ -215,4 +215,10 @@ window.addEventListener('pageshow', function (event) {
 });
 {% endhighlight %}
 
-That got out of the way, we are now *really* done. 
+That got out of the way, we are now *really* done.
+
+Here's an iframe with a working example that puts everything together. On each page load random colors are set:
+
+{% container base-PreserveAspectRatio ratio='16/9' %}
+  <iframe src="/design/soft-page-transitions/example.html"></iframe>
+{% endcontainer %}

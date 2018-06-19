@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script>
+      function fadeInPage() {
+        if (!window.AnimationEvent) { return; }
+        var fader = document.getElementById('fader');
+        fader.classList.add('fade-out');
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        if (!window.AnimationEvent) { return }
+
+        var anchors = document.getElementsByTagName('a');
+
+        for (var idx=0; idx<anchors.length; idx+=1) {
+          if (anchors[idx].hostname !== window.location.hostname) {
+            return;
+          }
+
+          anchors[idx].addEventListener('click', function(event) {
+            var fader = document.getElementById('fader'),
+                anchor = event.currentTarget;
+
+            var listener = function() {
+              window.location = anchor.href;
+              fader.removeEventListener('animationend', listener);
+            };
+            fader.addEventListener('animationend', listener);
+
+            event.preventDefault();
+            fader.classList.add('fade-in');
+          });
+        }
+      });
+
+      window.addEventListener('pageshow', function (event) {
+        if (!event.persisted) {
+          return;
+        }
+        var fader = document.getElementById('fader');
+        fader.classList.remove('fade-in');
+      });
+
+      /*
+       * Set random colors to differentiate reloaded pages.
+       */
+      document.addEventListener('DOMContentLoaded', function() {
+        var color = [255*Math.random(), 255*Math.random(), 255*Math.random()],
+            inverse = color.map(function(c){ return 255-c }),
+            link = document.getElementById('link');
+        document.body.style.background = 'rgb(' + color.join(', ') + ')';
+        link.style.color = 'rgb(' + inverse.join(', ') + ')';
+      });
+    </script>
+    <style>
+      #fader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999999;
+        pointer-events: none;
+        background: white;
+        animation-duration: 300ms;
+        animation-timing-function: ease-in-out;
+      }
+
+      #fader:before {
+        content: 'fade'
+      }
+
+      @keyframes fade-out {
+        from { opacity: 1 }
+        to { opacity: 0 }
+      }
+
+      @keyframes fade-in {
+        from { opacity: 0 }
+        to { opacity: 1 }
+      }
+
+      #fader.fade-out {
+        opacity: 0;
+        animation-name: fade-out;
+      }
+
+      #fader.fade-in {
+        opacity: 1;
+        animation-name: fade-in;
+      }
+
+      /*
+       * The below styles are only there for cosmetic reasons.
+       */
+      body {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #link {
+        display: block;
+        font: bold 4em sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <svg id="fader"></svg>
+    <script>fadeInPage()</script>
+    <a id="link" href="example.html">Click me!</a>
+  </body>
+</html>
