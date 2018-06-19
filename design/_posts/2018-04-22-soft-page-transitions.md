@@ -165,17 +165,15 @@ Again, bail out for browsers not supporting CSS animations:
 We iterate over all anchors:
 
 {% highlight javascript %}
-    var anchors = document.getElementsByTagName('a'),
-        anchor;
+    var anchors = document.getElementsByTagName('a');
     
     for (var idx=0; idx<anchors.length; idx+=1) {
-        anchor = anchors[idx];
 {% endhighlight %}
 
 Links to other websites are disregarded:
 
 {% highlight javascript %}
-        if (anchor.hostname !== window.location.hostname) {
+        if (anchors[idx].hostname !== window.location.hostname) {
             return;
         }
 {% endhighlight %}
@@ -183,11 +181,12 @@ Links to other websites are disregarded:
 For all internal links defer the location change until the animation has finished playing.
 
 {% highlight javascript %}
-        anchor.addEventListener('click', function(event) {
-            var fader = document.getElementById('fader');
+        anchors[idx].addEventListener('click', function(event) {
+            var fader = document.getElementById('fader'),
+                anchor = event.currentTarget;
             
-            var listener = function () {
-                window.location = event.currentTarget.href;
+            var listener = function() {
+                window.location = anchor.href;
                 fader.removeEventListener('animationend', listener);
             };
             fader.addEventListener('animationend', listener);
