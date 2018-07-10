@@ -7,7 +7,6 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="342.05807"
@@ -15,7 +14,7 @@
    viewBox="0 0 342.05811 85.019409"
    version="1.1"
    sodipodi:docname="SlashCollateral.svg"
-   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   inkscape:version="0.92.2 2405546, 2018-03-11"
    role="img"
    aria-labelledby="SlashCollateral-title"
    id="svg4827">
@@ -24,44 +23,7 @@
   <desc
      id="SlashCollateral-desc">The text &quot;/collateral&quot; written by hand</desc>
   <defs
-     id="defs852">
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient4798">
-      <stop
-         style="stop-color:#ffffff;stop-opacity:1"
-         offset="0"
-         id="stop4794" />
-      <stop
-         style="stop-color:#ffffff;stop-opacity:1"
-         offset="0.94999999"
-         id="stop4804" />
-      <stop
-         style="stop-color:#000000;stop-opacity:1"
-         offset="1"
-         id="stop4796" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4798"
-       id="linearGradient9560"
-       gradientUnits="userSpaceOnUse"
-       x1="0"
-       y1="42.509705"
-       x2="361.55807"
-       y2="42.509705" />
-    <mask
-       maskUnits="userSpaceOnUse"
-       id="SlashCollateral-BlendMask">
-      <rect
-         style="fill:url(#linearGradient9560);stroke:none"
-         id="rect9558"
-         width="362.05801"
-         height="85.019409"
-         x="0"
-         y="0" />
-    </mask>
-  </defs>
+     id="defs852" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -70,7 +32,7 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.0000002"
-     inkscape:cx="119.467"
+     inkscape:cx="121.217"
      inkscape:cy="9.0662954"
      inkscape:document-units="px"
      showgrid="true"
@@ -118,7 +80,7 @@
     </rdf:RDF>
   </metadata>
   <g
-     mask="url(#SlashCollateral-BlendMask)"
+     mask="none"
      class="SlashCollateral"
      id="g4825">
     <path
