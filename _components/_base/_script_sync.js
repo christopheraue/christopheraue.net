@@ -1,5 +1,0 @@
-define([
-  './sync/config'
-], function() {
-
-});
