@@ -16,11 +16,7 @@
   </div>
   <div class="collateral-Theatre-Screen">
     {% container base-TheatreScreen %}
-      <desc id="yt-video-desc">The presented video embedded</desc>
-      {% container base-PreserveAspectRatio ratio='16/9' %}
-        <iframe src="https://www.youtube.com/embed/u16di3cah8w?enablejsapi=1&origin={{ site.url }}&showinfo=0&rel=0&playsinline=1"
-                allowfullscreen="allowfullscreen" aria-labelledby="yt-video-desc"></iframe>
-      {% endcontainer %}
+      {% block base-Video-YouTube video_id='u16di3cah8w' aria_label='The presented video embedded' %}
     {% endcontainer %}
   </div>
 </div>
