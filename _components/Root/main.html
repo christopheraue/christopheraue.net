@@ -2,6 +2,8 @@
 <html lang="{{ page.lang }}">
   <head>
     {% include_partial head.html %}
+    {% block GoogleAnalytics %}
+    {% block Matomo %}
   </head>
   <body class="{{ page.category }}">
     {% block base-PageTransition %}
