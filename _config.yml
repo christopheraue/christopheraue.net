@@ -19,6 +19,7 @@ defaults:
       path: ""
     values:
       render_inside: Root
+      robots: index, follow
 
   - scope:
       path: "index.html"
