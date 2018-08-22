@@ -14,7 +14,7 @@
 <meta name="msapplication-config" content="/{{ page.category }}/browserconfig.xml">
 <meta name="theme-color" content="{{ page.favicon_android_theme_color }}">
 {% if page.has_feed %}
-<link rel="alternate" type="application/rss+xml" title="christopheraue.net" href="{{ page.url | absolute_url | append: 'feed.xml' }}">
+<link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ page.url | absolute_url | append: 'feed.xml' }}">
 {% endif %}
 <link rel="stylesheet" href="{{ "/styles.css" | fingerprint }}" type="text/css" />
 {% if page.custom_styles %}
