@@ -26,10 +26,7 @@
 <link rel="stylesheet" href="{{ "/styles.css" | fingerprint }}" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ site.google_fonts }}">
 {% if page.custom_styles %}
-{% capture styles %}
-{% include_relative {{ page.custom_styles }} %}
-{% endcapture %}
-<style>{{ styles | sassify }}</style>
+<link rel="stylesheet" href="{{ page.url }}/{{ page.custom_styles }}" type="text/css">
 {% endif %}
 
 <!-- Scripts -->
