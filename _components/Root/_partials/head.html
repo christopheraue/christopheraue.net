@@ -1,9 +1,17 @@
+<!-- Metadata -->
 <title>{{ page.title | xml_escape }}{% unless page.no_head_title_affix %} — {{ site.name | xml_escape }}{% endunless %}</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="{{ page.author | xml_escape }}">
 <meta name="description" content="{{ page.summary | xml_escape }}">
 <meta name="robots" content="{{ page.robots }}">
+
+<!-- Alternatives, Canonicals -->
+{% if page.has_feed %}
+<link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ page.url | absolute_url | append: 'feed.xml' }}">
+{% endif %}
+
+<!-- Favions -->
 <link rel="apple-touch-icon" sizes="180x180" href="/{{ page.category }}/favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/{{ page.category }}/favicons/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/{{ page.category }}/favicons/favicon-16x16.png">
@@ -13,17 +21,16 @@
 <meta name="msapplication-TileColor" content="{{ page.favicon_windows_metro_color }}">
 <meta name="msapplication-config" content="/{{ page.category }}/browserconfig.xml">
 <meta name="theme-color" content="{{ page.favicon_android_theme_color }}">
-{% if page.has_feed %}
-<link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ page.url | absolute_url | append: 'feed.xml' }}">
-{% endif %}
-<link rel="stylesheet" href="{{ "/styles.css" | fingerprint }}" type="text/css" />
+
+<!-- Styles -->
+<link rel="stylesheet" href="{{ "/styles.css" | fingerprint }}" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ site.google_fonts }}">
 {% if page.custom_styles %}
-<style>
 {% capture styles %}
 {% include_relative {{ page.custom_styles }} %}
 {% endcapture %}
-{{ styles | sassify }}
-</style>
+<style>{{ styles | sassify }}</style>
 {% endif %}
-{% block base-GoogleFonts fonts=site.google_fonts %}
+
+<!-- Scripts -->
 <script data-main="{{ "/async.js" | fingerprint }}" src="{{ "/sync.js" | fingerprint }}"></script>
