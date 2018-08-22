@@ -14,6 +14,8 @@ sass:
   load_paths: [/]
   cache_location: _build/.sass-cache
 
+google_fonts: Work+Sans:300,500|Source+Code+Pro:300,500,900|Open+Sans+Condensed:700
+
 defaults:
   - scope:
       path: ""

@@ -25,7 +25,7 @@
 {{ styles | sassify }}
 </style>
 {% endif %}
-<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,500|Source+Code+Pro:300,500,900|Open+Sans+Condensed:700" rel="stylesheet">
+{% block base-GoogleFonts fonts=site.google_fonts %}
 <script data-main="{{ "/async.js" | fingerprint }}" src="{{ "/sync.js" | fingerprint }}"></script>
 {% block GoogleAnalytics %}
 {% block Matomo %}
