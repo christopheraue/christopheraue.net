@@ -20,6 +20,7 @@ defaults:
     values:
       render_inside: Root
       robots: index, follow
+      lang: en
 
   - scope:
       path: "index.html"
