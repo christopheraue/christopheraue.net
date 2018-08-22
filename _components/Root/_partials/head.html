@@ -1,7 +1,7 @@
 <title>{{ page.title | xml_escape }}{% unless page.no_head_title_affix %} — {{ site.name | xml_escape }}{% endunless %}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta name="author" content="{{ site.author | xml_escape }}">
+<meta name="author" content="{{ page.author | xml_escape }}">
 <meta name="description" content="{{ page.summary | xml_escape }}">
 <meta name="robots" content="{{ page.robots }}">
 <link rel="apple-touch-icon" sizes="180x180" href="/{{ page.category }}/favicons/apple-touch-icon.png">

@@ -1,7 +1,6 @@
 url: http://c.loc
 destination: ./_site
 name: christopheraue.net
-author: Christopher Aue
 encoding: UTF-8
 permalink: :categories
 exclude: [build.sh, deploy.sh, Gemfile, Gemfile.lock]
@@ -23,6 +22,7 @@ defaults:
       render_inside: Root
       robots: index, follow
       lang: en
+      author: Christopher Aue
 
   - scope:
       path: "index.html"
