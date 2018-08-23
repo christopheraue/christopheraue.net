@@ -27,7 +27,7 @@ defaults:
   - scope:
       path: "index.html"
     values:
-      category: home
+      category: root
       favicon_macos_safari_color: "#3f668c"
       favicon_android_theme_color: "#ffffff"
       favicon_windows_metro_color: "#ffffff"

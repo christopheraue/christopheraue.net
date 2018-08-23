@@ -5,14 +5,14 @@
  *  The homepage is displayed with a vertical layout for narrow viewports. Wide
  *  viewports use a horizontal layout.
  */
-body.home
+body.root
   position: fixed
   top: 0
   left: 0
   right: 0
   bottom: 0
 
-.home-Index-Logo
+.root-Index-Logo
   position: absolute
   z-index: 99
   left: 0
@@ -33,7 +33,7 @@ body.home
     stroke: white
     pointer-events: none
 
-.home-Index-Category
+.root-Index-Category
   position: absolute
   height: 50%
   width: 100%
@@ -42,17 +42,17 @@ body.home
   opacity: 0.8
   &.hover, &:hover
     opacity: 1
-  + .home-Index-Category
+  + .root-Index-Category
     top: 50%
     left: 0
   @media screen and (min-aspect-ratio: 1/1)
     height: 100%
     width: 50%
-    + .home-Index-Category
+    + .root-Index-Category
       top: 0
       left: 50%
 
-.home-Index-DescContainer
+.root-Index-DescContainer
   display: block
   box-sizing: border-box
   text-align: center
@@ -70,42 +70,42 @@ body.home
     vertical-align: middle
     height: 100%
 
-.home-Index-Desc
+.root-Index-Desc
   text-align: left
   display: inline-block
   vertical-align: middle
-  > .home-Index-SlashText,
-  > .home-Index-SlashTextAnnotation
+  > .root-Index-SlashText,
+  > .root-Index-SlashTextAnnotation
     display: block
     fill: white
     stroke: white
     .base-PreserveAspectRatio-Reference
       width: 100%
 
-.home-Index-Category.design
+.root-Index-Category.design
   background: $design-dark
-  > .home-Index-DescContainer
-    > .home-Index-Desc
+  > .root-Index-DescContainer
+    > .root-Index-Desc
       width: 100%
       max-width: 10.64em
-      > .home-Index-SlashText
+      > .root-Index-SlashText
         width: 69%
         max-width: 8em
-      > .home-Index-SlashTextAnnotation
+      > .root-Index-SlashTextAnnotation
         width: 67%
         margin-left: 33%
         max-width: 7.8em
 
-.home-Index-Category.collateral
+.root-Index-Category.collateral
   background: $collateral-dark
-  > .home-Index-DescContainer
-    > .home-Index-Desc
+  > .root-Index-DescContainer
+    > .root-Index-Desc
       width: 100%
       max-width: 11.83em
-      > .home-Index-SlashText
+      > .root-Index-SlashText
         width: 73%
         max-width: 9.375em
-      > .home-Index-SlashTextAnnotation
+      > .root-Index-SlashTextAnnotation
         width: 70%
         margin-left: 30%
         max-width: 9.1em

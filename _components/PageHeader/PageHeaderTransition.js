@@ -30,7 +30,7 @@ define([
         return;
       }
 
-      if (ScrollControl.isInView(this.el) && transition.to[0] !== 'home') {
+      if (ScrollControl.isInView(this.el) && transition.to[0] !== 'root') {
         var match = getComputedStyle(this.el)['animation-duration'].match(CSS_DURATION),
             duration = (match[2] === 's' ? 1000 : 1) * parseFloat(match[1]);
         transition.transitionHeader = false;
