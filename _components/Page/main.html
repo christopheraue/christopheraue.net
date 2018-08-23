@@ -8,14 +8,14 @@
   </head>
   <body class="{{ page.category }}">
     {% block base-PageTransition %}
-    {% if page.category != 'root' %}
+    {% unless page.hide_header %}
       {% block PageHeader %}
-    {% endif %}
+    {% endunless %}
     <main class="PageContent" role="main">
       {{ param.content }}
     </main>
-    {% if page.category != 'root' %}
+    {% unless page.hide_footer %}
       {% block PageFooter %}
-    {% endif %}
+    {% endunless %}
   </body>
 </html>

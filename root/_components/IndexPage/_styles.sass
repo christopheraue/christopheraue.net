@@ -12,7 +12,7 @@ body.root
   right: 0
   bottom: 0
 
-.root-Index-Logo
+.root-IndexPage-Logo
   position: absolute
   z-index: 99
   left: 0
@@ -33,7 +33,7 @@ body.root
     stroke: white
     pointer-events: none
 
-.root-Index-Category
+.root-IndexPage-Category
   position: absolute
   height: 50%
   width: 100%
@@ -42,17 +42,17 @@ body.root
   opacity: 0.8
   &.hover, &:hover
     opacity: 1
-  + .root-Index-Category
+  + .root-IndexPage-Category
     top: 50%
     left: 0
   @media screen and (min-aspect-ratio: 1/1)
     height: 100%
     width: 50%
-    + .root-Index-Category
+    + .root-IndexPage-Category
       top: 0
       left: 50%
 
-.root-Index-DescContainer
+.root-IndexPage-DescContainer
   display: block
   box-sizing: border-box
   text-align: center
@@ -70,42 +70,42 @@ body.root
     vertical-align: middle
     height: 100%
 
-.root-Index-Desc
+.root-IndexPage-Desc
   text-align: left
   display: inline-block
   vertical-align: middle
-  > .root-Index-SlashText,
-  > .root-Index-SlashTextAnnotation
+  > .root-IndexPage-SlashText,
+  > .root-IndexPage-SlashTextAnnotation
     display: block
     fill: white
     stroke: white
     .base-PreserveAspectRatio-Reference
       width: 100%
 
-.root-Index-Category.design
+.root-IndexPage-Category.design
   background: $design-dark
-  > .root-Index-DescContainer
-    > .root-Index-Desc
+  > .root-IndexPage-DescContainer
+    > .root-IndexPage-Desc
       width: 100%
       max-width: 10.64em
-      > .root-Index-SlashText
+      > .root-IndexPage-SlashText
         width: 69%
         max-width: 8em
-      > .root-Index-SlashTextAnnotation
+      > .root-IndexPage-SlashTextAnnotation
         width: 67%
         margin-left: 33%
         max-width: 7.8em
 
-.root-Index-Category.collateral
+.root-IndexPage-Category.collateral
   background: $collateral-dark
-  > .root-Index-DescContainer
-    > .root-Index-Desc
+  > .root-IndexPage-DescContainer
+    > .root-IndexPage-Desc
       width: 100%
       max-width: 11.83em
-      > .root-Index-SlashText
+      > .root-IndexPage-SlashText
         width: 73%
         max-width: 9.375em
-      > .root-Index-SlashTextAnnotation
+      > .root-IndexPage-SlashTextAnnotation
         width: 70%
         margin-left: 30%
         max-width: 9.1em

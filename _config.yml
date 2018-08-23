@@ -19,7 +19,7 @@ defaults:
   - scope:
       path: ""
     values:
-      render_inside: Root
+      render_inside: Page
       robots: index, follow
       lang: en
       author: Christopher Aue
@@ -42,7 +42,7 @@ defaults:
       path: "design"
       type: posts
     values:
-      render_inside: design-Article
+      render_inside: design-ArticlePage
 
   - scope:
       path: "collateral"
