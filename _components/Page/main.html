@@ -6,7 +6,7 @@
       {% block Matomo %}
     {% endcontainer %}
   </head>
-  <body class="{{ page.category }}">
+  <body class="{{ page.categories[0] }}">
     {% block base-PageTransition %}
     {% unless page.hide_header %}
       {% block PageHeader %}
