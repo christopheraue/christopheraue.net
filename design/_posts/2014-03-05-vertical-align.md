@@ -1,7 +1,6 @@
 ---
 title: 'Vertical-Align: All You Need To Know'
 summary: The CSS property vertical-align seems to have its own mind. Its feels unwieldy and does unexpected things. But there is actually a single rule that explains its behavior.
-custom_styles: styles.css
 redirect_from:
   - /2014/03/05/vertical-align
   - /2014/03/05/vertical-align/
