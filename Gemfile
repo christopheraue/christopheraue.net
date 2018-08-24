@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem 'jekyll'
+gem 'jekyll', '~> 3.8'
 gem 'jekyll-redirect-from'
 gem 'jekyll-requirejs_converter', path: "../../jekyll_plugins/jekyll-requirejs_converter"
 gem 'jekyll-components', path: "../../jekyll_plugins/jekyll-components"
