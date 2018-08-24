@@ -12,6 +12,10 @@ plugins:
 sass:
   load_paths: [/]
   cache_location: _build/.sass-cache
+liquid:
+  error_mode: strict
+  strict_filters: true
+  strict_variables: true
 
 google_fonts: Work+Sans:300,500|Source+Code+Pro:300,500,900|Open+Sans+Condensed:700
 
@@ -23,6 +27,8 @@ defaults:
       robots: index, follow
       lang: en
       author: Christopher Aue
+      hide_header: false
+      hide_footer: false
 
   - scope:
       path: "index.html"
