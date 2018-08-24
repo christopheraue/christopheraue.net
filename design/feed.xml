@@ -5,11 +5,11 @@ layout: none
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        {% assign category = page.categories[0] %}
-        <title>{{ site.name | xml_escape }}/{{ category }}</title>
+        <title>{{ site.name | xml_escape }}{{ page.category_urls[-2] }}</title>
         <description>An incomplete list of topics I found worthwhile to write about</description>
-        <link>{{ category | absolute_url }}</link>
-        <atom:link href="{{ category | absolute_url }}/feed.xml" rel="self" type="application/rss+xml"/>
+        <link>{{ page.category_urls[-2] | absolute_url }}</link>
+        <atom:link href="{{ page.url | absolute_url }}" rel="self" type="application/rss+xml"/>
+        {% assign category = page.categories[0] %}
         {% for post in site.categories[category] %}
         <item>
             <title>{{ post.title | xml_escape }}</title>
