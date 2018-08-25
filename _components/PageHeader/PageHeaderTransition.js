@@ -1,8 +1,8 @@
 define([
   'base/lib/velocity',
   'base/ScrollControl',
-  'nav-DropdownNavigation',
-  'nav/ROOT_CATEGORY_NAME'
+  'cat-DropdownNavigation',
+  'cat/ROOT_CATEGORY_NAME'
 ], function(Velocity, ScrollControl, DropdownNavigation, ROOT_CATEGORY_NAME) {
   CSS_DURATION = /^(\d+(?:\.\d+)?)(s|ms)$/;
 
@@ -40,7 +40,7 @@ define([
         }.bind(this));
 
         // Close the header navigation for its transition
-        var categoryDropdown = new DropdownNavigation(this.el.querySelector('.nav-DropdownNavigation'));
+        var categoryDropdown = new DropdownNavigation(this.el.querySelector('.cat-DropdownNavigation'));
         categoryDropdown.close();
         categoryDropdown.disable();
         document.onPersistedPageshow(function() {

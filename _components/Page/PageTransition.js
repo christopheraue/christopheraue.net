@@ -1,6 +1,6 @@
 define([
   'base/ScrollControl',
-  'nav/ROOT_CATEGORY_NAME'
+  'cat/ROOT_CATEGORY_NAME'
 ], function(ScrollControl, ROOT_CATEGORY_NAME) {
   return Object.inherit({
     transitionIn: function() {
