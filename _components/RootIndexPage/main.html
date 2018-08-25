@@ -1,0 +1,29 @@
+<h1 class="RootIndexPage-Logo">
+  {% block Logo %}
+</h1>
+
+<a class="RootIndexPage-Category design" href="/design" title="Go to /design">
+  <div class="RootIndexPage-DescContainer"><!--
+ --><div class="RootIndexPage-Desc">
+      <div class="RootIndexPage-SlashText">
+        {% block SlashDesign %}
+      </div>
+      <div class="RootIndexPage-SlashTextAnnotation">
+        {% include_partial SlashDesignAnnotation.svg %}
+      </div>
+    </div>
+  </div>
+</a>
+
+<a class="RootIndexPage-Category collateral" href="/collateral" title="Go to /collateral">
+  <div class="RootIndexPage-DescContainer"><!--
+ --><div class="RootIndexPage-Desc">
+      <div class="RootIndexPage-SlashText">
+        {% block SlashCollateral %}
+      </div>
+      <div class="RootIndexPage-SlashTextAnnotation">
+        {% include_partial SlashCollateralAnnotation.svg %}
+      </div>
+    </div>
+  </div>
+</a>
