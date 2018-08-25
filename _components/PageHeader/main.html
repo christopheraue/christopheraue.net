@@ -1,4 +1,4 @@
-{% assign slashed_category = '/' | append: page.categories[0] | append: '/' %}
+{% assign slashed_category = '/' | append: page.category.name | append: '/' %}
 {% if page.url == slashed_category %}
   {% assign selected_tag = 'h1' %}
 {% else %}

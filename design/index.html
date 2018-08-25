@@ -19,5 +19,6 @@ summary: Articles about web and software design
 {% endcontainer %}
 
 {% container design-IndexSection title="Web Interfaces" %}
-  {% block design-ArticleNav articles=site.posts %}
+{%   assign posts = page.category.documents | where: 'collection', 'posts' | reverse %}
+{%   block design-ArticleNav articles=posts %}
 {% endcontainer %}

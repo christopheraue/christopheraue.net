@@ -2,7 +2,7 @@ url: http://c.loc
 destination: ./_site
 name: christopheraue.net
 encoding: UTF-8
-permalink: :categories
+permalink: :categories/:title
 exclude: [build.sh, deploy.sh, Gemfile, Gemfile.lock]
 plugins:
   - jekyll-redirect-from
