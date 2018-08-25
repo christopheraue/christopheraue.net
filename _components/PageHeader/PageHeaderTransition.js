@@ -1,8 +1,9 @@
 define([
   'base/lib/velocity',
   'base/ScrollControl',
-  'nav-DropdownNavigation'
-], function(Velocity, ScrollControl, DropdownNavigation) {
+  'nav-DropdownNavigation',
+  'nav/ROOT_CATEGORY_NAME'
+], function(Velocity, ScrollControl, DropdownNavigation, ROOT_CATEGORY_NAME) {
   CSS_DURATION = /^(\d+(?:\.\d+)?)(s|ms)$/;
 
   return Object.inherit({
@@ -30,7 +31,7 @@ define([
         return;
       }
 
-      if (ScrollControl.isInView(this.el) && transition.to[0] !== 'root') {
+      if (ScrollControl.isInView(this.el) && transition.to[0] !== ROOT_CATEGORY_NAME) {
         var match = getComputedStyle(this.el)['animation-duration'].match(CSS_DURATION),
             duration = (match[2] === 's' ? 1000 : 1) * parseFloat(match[1]);
         transition.transitionHeader = false;
