@@ -29,30 +29,6 @@ defaults:
       author: Christopher Aue
       hide_header: false
       hide_footer: false
-
-  - scope:
-      path: "index.html"
-    values:
       favicon_macos_safari_color: "#3f668c"
       favicon_android_theme_color: "#ffffff"
       favicon_windows_metro_color: "#ffffff"
-
-  - scope:
-      path: "design"
-    values:
-      favicon_macos_safari_color: "#3f668c"
-      favicon_android_theme_color: "#3f668c"
-      favicon_windows_metro_color: "#3f668c"
-
-  - scope:
-      path: "design"
-      type: posts
-    values:
-      render_inside: design-ArticlePage
-
-  - scope:
-      path: "collateral"
-    values:
-      favicon_macos_safari_color: "#8c3f3f"
-      favicon_android_theme_color: "#8c3f3f"
-      favicon_windows_metro_color: "#8c3f3f"
