@@ -1,13 +1,12 @@
+name: christopheraue.net
 url: http://c.loc
 destination: ./_site
-name: christopheraue.net
+
 plugins:
   - jekyll-redirect-from
   - jekyll-components
   - jekyll-components-base_components
   - jekyll-category_tree
-
-google_fonts: Work+Sans:300,500|Source+Code+Pro:300,500,900|Open+Sans+Condensed:700
 
 defaults:
   - scope:
