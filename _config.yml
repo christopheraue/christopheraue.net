@@ -1,7 +1,6 @@
 url: http://c.loc
 destination: ./_site
 name: christopheraue.net
-permalink: :categories/:title
 plugins:
   - jekyll-redirect-from
   - jekyll-components
