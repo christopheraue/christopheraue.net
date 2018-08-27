@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+
+Dir.chdir File.realpath File.join(__dir__, '..')
+
+system "jekyll build", out: STDOUT, err: STDERR
+system "echo"
+system "echo 'Building component index…'"
+system "jekyll build -s $(comp_index_source) -d ./_site_components", out: STDOUT, err: STDERR
