@@ -2,7 +2,7 @@ PATH
   remote: ../../jekyll_plugins/jekyll-category_tree
   specs:
     jekyll-category_tree (0.1)
-      jekyll (~> 3.7)
+      jekyll-components (~> 0.1)
 
 PATH
   remote: ../../jekyll_plugins/jekyll-components-base_components
@@ -14,7 +14,6 @@ PATH
   remote: ../../jekyll_plugins/jekyll-components-index
   specs:
     jekyll-components-index (0.1)
-      jekyll-components (~> 0.1)
       jekyll-components-base_components (~> 0.1)
 
 PATH

@@ -4,7 +4,6 @@ destination: ./_site
 
 plugins:
   - jekyll-redirect-from
-  - jekyll-components
   - jekyll-components-base_components
   - jekyll-category_tree
 
