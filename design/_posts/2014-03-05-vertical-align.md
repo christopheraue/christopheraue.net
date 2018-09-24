@@ -1,12 +1,26 @@
 ---
 title: 'Vertical-Align: All You Need To Know'
-summary: The CSS property vertical-align seems to have its own mind. Its feels unwieldy and does unexpected things. But there is actually a single rule that explains its behavior.
+summary: 'The CSS property vertical-align never seems to do what is expected from it. But its behavior can actually be understood. This article explains what is going on.'
 redirect_from:
   - /2014/03/05/vertical-align
   - /2014/03/05/vertical-align/
 ---
 
-Ok, let's talk about `vertical-align`. It's intended use is to align text and elements next to each other. Nonetheless, you can also use `vertical-align` in different contexts to align elements very flexible and fine-grained. The sizes of elements need not to be known. Elements stay in the flow so other elements can react to changed dimensions of those. One useful application is centering an icon next to a bit of text.
+<figure class="VerticalAlign-Example">
+  <div class="large font">
+    <span class="center">
+      <span class="middle">We need</span>
+      <span class="tall box bg-grey text-bottom"> </span>
+      <span class="top">to talk</span>
+      <span class="tall box bg-grey text-top"> </span>
+      <span class="bottom">about this!</span>
+    </span>
+  </div>
+</figure>
+
+Yep, let's talk about the CSS property `vertical-align`. It's intended use is to align text and elements next to each other. Like [centering an icon next to a bit of text](#centering-an-icon).
+
+*You are just tracking down a problem? [This article](/design/why-vertical-align-is-not-working) might get you quicker to why `vertical-align` is not working for you.*
 
 Peculiarities Of Vertical-Align
 -------------------------------
