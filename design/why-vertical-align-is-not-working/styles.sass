@@ -1,0 +1,166 @@
+---
+---
+
+$red: #f00008
+$green: #16e807
+$blue: #0919ff
+$orange: #ffbf00
+
+$light_red: #F0B8B2
+$light_green: #C8ECB2
+$light_blue: #AACCED
+$light_orange: #FFEDAF
+
+/*
+ *  Figures
+ */
+.ContainerAlign-Example
+  line-height: 1
+  .line
+    line-height: 1
+  .center
+    text-align: center
+  + pre
+    margin-top: 1em
+  * + *
+    margin-top: 0
+  figcaption
+    width: 100%
+    margin: 0
+    margin-top: 1em
+    font-style: italic
+    font-size: .8em
+
+/*
+ *  Background
+ */
+.ContainerAlign-Example
+  .bg-light
+    background: whitesmoke
+  .bg-grey
+    background: #e6e6e6
+  .bg-green
+    background: $light_green
+  .bg-yellow
+    background: $light_orange
+  .bg-blue
+    background: $light_blue
+  .bg-red
+    background: $light_red
+
+/*
+ *  Text
+ */
+.ContainerAlign-Example .font
+  line-height: 1
+  &.small
+    font-size: .6666em
+  &.smaller
+    font-size: .3333em
+  &.large
+    font-size: 1.5em
+  &.larger
+    font-size: 3em
+
+.ContainerAlign-Example
+  .tall-line-height
+    line-height: 2
+  .normal-line-height
+    line-height: 1
+  .short-line-height
+    line-height: .5
+
+/*
+ *  Vertical Alignment
+ */
+.ContainerAlign-Example
+  .inline
+    display: inline
+  .inline-block
+    display: inline-block
+  .top
+    vertical-align: top
+  .bottom
+    vertical-align: bottom
+  .middle
+    vertical-align: middle
+  .baseline
+    vertical-align: baseline
+  .text-top
+    vertical-align: text-top
+  .text-bottom
+    vertical-align: text-bottom
+
+/*
+ *  Boxes
+ */
+.ContainerAlign-Example .inline-block
+  min-width: 1em
+  min-height: 1em
+  &.shorter
+    min-height: .25em
+    &.quad
+      min-width: .25em
+  &.short
+    min-height: .5em
+    &.quad
+      min-width: .5em
+  &.tall
+    height: 2em
+    &.quad
+      width: 2em
+  &.taller
+    height: 4em
+    &.quad
+      width: 4em
+  &.quad.max-third-width
+    max-width: 30%
+
+/*
+ *  Overlays
+ */
+.ContainerAlign-Example
+  .x-overlay
+    color: lightgrey
+    line-height: 1
+
+@mixin line
+  display: inline-block
+  position: relative
+  z-index: 999999
+  width: 100%
+  margin-right: -100%
+  border-top: 1px dotted black
+
+.ContainerAlign-Example
+  .top-line
+    @include line
+    border-color: $red
+    vertical-align: top
+  .bottom-line
+    @include line
+    border-color: $red
+    vertical-align: bottom
+
+.ContainerAlign-Example
+  .text-top-line
+    @include line
+    border-color: $green
+    vertical-align: text-top
+  .text-bottom-line
+    @include line
+    border-color: $green
+    vertical-align: text-bottom
+
+.ContainerAlign-Example
+  .baseline-line
+    @include line
+    border-color: $blue
+    vertical-align: baseline
+
+.ContainerAlign-Example
+  .middle-line
+    @include line
+    border-color: $orange
+    vertical-align: middle
+
