@@ -1,6 +1,16 @@
 ---
 ---
 
+$red: #f00008
+$green: #16e807
+$blue: #0919ff
+$orange: #ffbf00
+
+$light_red: #F0B8B2
+$light_green: #C8ECB2
+$light_blue: #AACCED
+$light_orange: #FFEDAF
+
 /*
  *  Figures
  */
@@ -31,20 +41,15 @@
  */
 .VerticalAlign-Example
   .bg-grey
-    background: lightgrey
+    background: #e6e6e6
   .bg-green
-    background: #c1cd89
+    background: $light_green
   .bg-yellow
-    background: #fcdb9a
+    background: $light_orange
   .bg-blue
-    background: #8ab3bf
-    color: white
-
-/*
- *  Border
- */
-.VerticalAlign-Example .border-grey
-  border: 1px solid lightgrey
+    background: $light_blue
+  .bg-red
+    background: $light_red
 
 /*
  *  Text
@@ -58,14 +63,24 @@
     font-size: .3333em
   &.large
     font-size: 1.5em
+    &.responsive
+      @media screen and (max-width: 50em)
+        font-size: 1.25em
+      @media screen and (max-width: 32em)
+        font-size: 1em
   &.larger
-    font-size: 3em
+    font-size: 2em
+    &.responsive
+      @media screen and (max-width: 50em)
+        font-size: 1.5em
+      @media screen and (max-width: 32em)
+        font-size: 1em
   &.tall-line-height
     line-height: 2
   &.short-line-height
     line-height: .5
   &.color-grey
-    color: lightgrey
+    color: #e6e6e6
 
 /*
  *  Vertical Alignment
@@ -102,6 +117,8 @@
 .VerticalAlign-Example .box
   min-width: 1em
   min-height: 1em
+  padding: .25em
+  box-sizing: border-box
   &.shorter
     min-height: .25em
     &.quad
@@ -145,24 +162,24 @@
   &.dotted
     border-style: dotted
   &.grey
-    border-color: lightgrey
+    border-color: #e6e6e6
   &.red
-    border-color: red
+    border-color: $red
   &.blue
-    border-color: blue
+    border-color: $blue
   &.green
-    border-color: limegreen
+    border-color: $green
   &.orange
-    border-color: goldenrod
+    border-color: $orange
 
 /*
  *  Box-Model
  */
 .VerticalAlign-Example .show-box-model
-  background: #c1cd89     //padding
-  border-color: #fcdb9a   //border
+  border-color: $light_orange   //border
+  background: $light_green     //padding
   > .show-box-model-content
-    background: #8ab3bf    //content
+    background: $light_blue    //content
     display: block
     min-width: 100%
     min-height: 100%
