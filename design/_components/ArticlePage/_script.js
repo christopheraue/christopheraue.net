@@ -1,8 +1,10 @@
 define(function() {
     document.ready(function () {
-        if (document.getElementById('disqus_thread')) {
+        var hostname = 'christopheraue.net';
+
+        if (location.hostname === hostname && document.getElementById('disqus_thread')) {
             window.disqus_config = function () {
-                this.page.url = 'http://christopheraue.net' + location.pathname;
+                this.page.url = location.href;
                 this.page.identifier = location.pathname;
             };
 
