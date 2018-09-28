@@ -20,8 +20,6 @@ redirect_from:
 
 Yep, let's talk about the CSS property `vertical-align`. It's intended use is to align text and elements next to each other. Like [centering an icon next to a bit of text](#centering-an-icon).
 
-*You are just tracking down a problem? [This article](/design/why-vertical-align-is-not-working) might get you quicker to why `vertical-align` is not working for you.*
-
 Peculiarities Of Vertical-Align
 -------------------------------
 But, `vertical-align` can be a real scumbag sometimes and working with it might cause a little bit of frustration. There seem to be some mysterious rules at work. For example, it might happen, that the element you changed `vertical-align` for doesn't change its alignment at all, but other elements in the line do! I'm still getting dragged into the dark corners of `vertical-align` from time to time, tearing my hair.
@@ -709,3 +707,5 @@ Yea, that's it. It is not very complicated once you know the rules. If `vertical
 * Where is the baseline and top and bottom edge of the inline-level elements?
 
 This will corner the solution to the problem.
+
+Here is a more complex example [how to vertically center an element in a `<div>`](/design/how-to-vertically-center-element-in-div-of-unknown-height) with `vertical-align: middle`.

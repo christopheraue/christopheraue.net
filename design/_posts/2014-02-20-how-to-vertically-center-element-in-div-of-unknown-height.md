@@ -187,6 +187,4 @@ The space's size also differs for different fonts. For example, it is .625em for
   
 Changing the indentation of the mark-up or adding comments at the right places can be frustrating to maintain. But once you know it, it is quickly fixed.
 
-Further Reading
----------------
-If you despair of `vertical-align` from time to time, I recommend having a look at my in-depth article [Vertical-Align: All You Need To Know](/design/vertical-align).
+If you despair of `vertical-align` from time to time, I recommend having a look at [the 3 reasons why vertical-align is not working](/design/why-vertical-align-is-not-working).
