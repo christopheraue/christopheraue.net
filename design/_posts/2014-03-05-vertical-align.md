@@ -20,18 +20,23 @@ redirect_from:
 
 Yep, let's talk about the CSS property `vertical-align`. It's intended use is to align text and elements next to each other. Like [centering an icon next to a bit of text](#centering-an-icon).
 
-Peculiarities Of Vertical-Align
--------------------------------
-But, `vertical-align` can be a real scumbag sometimes and working with it might cause a little bit of frustration. There seem to be some mysterious rules at work. For example, it might happen, that the element you changed `vertical-align` for doesn't change its alignment at all, but other elements in the line do! I'm still getting dragged into the dark corners of `vertical-align` from time to time, tearing my hair.
+But, it can be a real scumbag sometimes with all its seemingly mysterious rules at work. For example, it might happen, that the element you changed `vertical-align` for doesn't change its alignment at all, but other elements next to it do! What a joy!
 
-Unfortunately, most resources on the matter are somewhat shallow. Especially, if we want to use `vertical-align` for layout. They concentrate on the misconception of trying to vertical align everything inside an element. They give basic introductions into the property and explain how elements are aligned in very simple situations. They do not explain the tricky parts.
+So, to minimize future pain, I waded through W3C's [CSS](http://www.w3.org/TR/CSS2/visudet.html#line-height) [specifications](http://www.w3.org/TR/CSS2/visuren.html#inline-formatting) to **clarify the behavior of `vertical-align` once and for all**.
 
-So, I set myself the target to **clarify the behavior of vertical-align once and for all**. I ended up working through the W3C's [CSS](http://www.w3.org/TR/CSS2/visudet.html#line-height) [specifications](http://www.w3.org/TR/CSS2/visuren.html#inline-formatting) and playing with some examples. The result is this article.
+Let's tackle the rules of the game!
 
-So, let's tackle the rules of the game.
+**What you will learn in this article:**<br>
+1. Vertical-Align Acts On Inline-level Elements In a Line Box. [⬀](#vertical-align-acts-on-inline-level-elements-in-a-line-box)
+2. Inline-level Elements and Line Boxes Have Baselines, Tops and Bottoms. [⬀](#about-baselines-tops-and-bottoms)
+3. Vertical-Align Aligns Baselines, Tops and Bottoms. [⬀](#vertical-align-aligns-baselines-tops-and-bottoms)
+4. Example: How to center an icon next to a bit of text. [⬀](#centering-an-icon)
+5. Example: How the baseline might move. [⬀](#movement-of-the-line-boxs-baseline)
+6. Example: How to vertically center elements without a gap at the bottom. [⬀](#there-might-be-a-little-gap-below-inline-level-elements)
+7. Example: How to remove the gap between two aligned elements. [⬀](#a-gap-between-inline-level-elements-is-breaking-the-layout)
 
-Vertical-Align Is For Inline-Level Elements
--------------------------------------------
+Vertical-Align Acts On Inline-Level Elements In a Line Box
+----------------------------------------------------------
 `vertical-align` is used to align [inline-level elements](http://www.w3.org/TR/CSS2/visuren.html#inline-level). These are elements, whose `display` property evaluates to
 
 * inline,
@@ -68,8 +73,8 @@ Inline-level elements are laid out next to each other in lines. Once there are m
 
 The line boxes trace out the field we are playing on. Inside these line boxes the property `vertical-align` is responsible for aligning the individual elements. **So, in respect to what are elements aligned?**
 
-About Baselines and Outer Edges
--------------------------------
+About Baselines, Tops and Bottoms
+---------------------------------
 The most important reference point to align vertically is the baseline of the involved elements. In some cases the top and bottom edge of the elements' enclosing box becomes important, too. Let's have a look where the baseline and outer edges live for each involved type of element:
 
 ### Inline Element
@@ -222,7 +227,7 @@ Phew, this was the hard part. **Now, we know everything to put things into persp
 * There is an area called *line box*. This is the area in which vertical alignment takes place. It has a *baseline*, a *text box* and a *top* and *bottom edge*.
 * There are *inline-level elements*. These are the objects that are aligned. They have a *baseline* and a *top* and *bottom edge*.
 
-## The Values Of Vertical-Align
+## Vertical-Align Aligns Baselines, Tops and Bottoms
 By using `vertical-align` the reference points mentioned in the list above are set into a certain relationship.
 
 ### Aligning Relative To the Line Box's Baseline
