@@ -4,7 +4,12 @@ require 'bundler/setup'
 
 Dir.chdir File.realpath File.join(__dir__, '..')
 
-system "jekyll build", out: STDOUT, err: STDERR
-system "echo"
-system "echo 'Building component index…'"
-system "jekyll build -s $(comp_index_source) -d ./_site_components", out: STDOUT, err: STDERR
+no_comp_idx = ARGV.delete '--no-comp-idx'
+
+system "jekyll build #{ARGV.join ' '}", out: STDOUT, err: STDERR
+
+unless no_comp_idx
+  system "echo"
+  system "echo 'Building component index…'"
+  system "jekyll build #{ARGV.join ' '} -s $(comp_index_source) -d ./_site_components", out: STDOUT, err: STDERR
+end
