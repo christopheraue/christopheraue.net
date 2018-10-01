@@ -1,7 +1,9 @@
 {% container base-Page %}
   <head>
     {% container base-Page-Head %}
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans:300,500|Source+Code+Pro:300,500,900|Open+Sans+Condensed:700">
+      <style>
+        {% print_uri_content https://fonts.googleapis.com/css?family=Work+Sans:300,500|Source+Code+Pro:300,500,900|Open+Sans+Condensed:700 %}
+      </style>
       {% block GoogleAnalytics %}
       {% block Matomo %}
     {% endcontainer %}
