@@ -1,13 +1,14 @@
 ---
-title: 'How To Vertically Center an Element In a <div> Of Unknown Height'
-summary: 'A way to vertically center elements with CSS is to use display: inline-block together with vertical-align: middle. This is especially powerful when the area that an element is centered in has a height determined by its content.'
+title: 'Centering an Inline-Block With Vertical-Align: Middle'
+summary: 'A way to vertically center an inline-block with CSS is to use vertical-align: middle. This is especially powerful when the area that an element is centered in has a height determined by its content.'
 redirect_from: 
   - /2014/02/20/centering-with-vertical-align-middle
   - /2014/02/20/centering-with-vertical-align-middle/
   - /design/centering-with-vertical-align-middle
+  - /design/how-to-vertically-center-element-in-div-of-unknown-height
 ---
 
-The CSS properties `display: inline-block` and `vertical-align: middle` provide a flexible and maintainable way to center any content inside a `<div>` with a height determined by the `<div>`'s content.
+The CSS properties `display: inline-block` and `vertical-align: middle` provide a flexible and maintainable way to center any content inside a `<div>`. The height of the `<div>` does not even need to be known and can by dynamically determined by its content.
 
 Let's jump right in and start with
 
@@ -18,7 +19,7 @@ A Quick Example
   <div class="full-area">
     <div class="container">
       <div class="center-area"><!--
-        --><div class="centered">Yay, I'm centered in the blue min-height area!</div>
+        --><div class="centered">Yay, I'm centered in the blue area!</div>
       </div>
       <div class="content">Click to change content height</div>
     </div>
@@ -102,7 +103,9 @@ The minimal markup and CSS:
 {% highlight html %}
 <div class="container">
   <div class="center-area"><!--
-    --><div class="centered">Yay, I'm centered ...!</div>
+ --><div class="centered">
+      Yay, I'm centered in the blue area!
+    </div>
   </div>
   <div class="content">
     <!-- Some content defining the
@@ -140,10 +143,9 @@ The minimal markup and CSS:
 This approach has a few advantages:
 
 - You don't need to know the dimensions of the elements to be centered.
-- The CSS doesn't need to know the the size of the center-area and can be reused for all center-area sizes.
-- The height of the container can be defined by its content which can change dynamically.
-- It works for block and inline elements alike since you explicitly set the `display` property.
-- It's markup is relatively clean. Only one helper element (the center-area) is required.
+- The CSS doesn't need to know the the size of the `.center-area`.
+- The height of the `.container` can be defined by its content which can change dynamically.
+- It's markup is relatively clean. Only one helper element (the `.center-area`) is required.
 - It is able to vertically align more than one element next to each other.
 - It is supported across all browsers.
 
