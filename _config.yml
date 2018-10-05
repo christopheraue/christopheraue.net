@@ -3,6 +3,7 @@ url: http://c.loc
 destination: ./_site
 
 plugins:
+  - jekyll-nginx_redirects
   - jekyll-components-base_components
   - jekyll-category_tree
 

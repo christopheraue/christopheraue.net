@@ -24,6 +24,12 @@ PATH
       jekyll-requirejs_converter (~> 0.1)
 
 PATH
+  remote: ../../jekyll_plugins/jekyll-nginx_redirects
+  specs:
+    jekyll-nginx_redirects (0.1)
+      jekyll (~> 3.7)
+
+PATH
   remote: ../../jekyll_plugins/jekyll-requirejs_converter
   specs:
     jekyll-requirejs_converter (0.1)
@@ -58,8 +64,6 @@ GEM
       pathutil (~> 0.9)
       rouge (>= 1.7, < 4)
       safe_yaml (~> 1.0)
-    jekyll-redirect-from (0.14.0)
-      jekyll (~> 3.3)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
     jekyll-watch (2.0.0)
@@ -95,7 +99,7 @@ DEPENDENCIES
   jekyll-components!
   jekyll-components-base_components!
   jekyll-components-index!
-  jekyll-redirect-from
+  jekyll-nginx_redirects!
   jekyll-requirejs_converter!
 
 BUNDLED WITH
