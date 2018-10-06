@@ -39,3 +39,36 @@
   margin-left: -$screen-width/2
   margin-top: -.5625 * $screen-width/2
   z-index: 9999
+
+  $transition_duration: 1s
+  $transition_easing: ease-in-out
+
+  .base-TheatreScreen-Background
+    background: black
+    opacity: 0
+    transition-property: opacity, bottom
+    transition-duration: $transition_duration, 0s
+    transition-delay: 0s, $transition_duration
+    transition-timing-function: $transition_easing
+
+  .base-TheatreScreen-Switch
+    color: white
+    opacity: .5
+    transition: opacity $transition_duration $transition_easing
+    &.hover, &:hover
+      opacity: 1
+
+  .base-TheatreScreen-Content
+    box-sizing: border-box
+    border: .4em solid black
+    border-radius: .3em
+    background: black
+    box-shadow: 0 0 4em black
+    transition: transform $transition_duration $transition_easing, box-shadow $transition_duration $transition_easing
+
+  .base-TheatreScreen.focused
+    .base-TheatreScreen-Background
+      opacity: 0.9
+      transition-delay: 0s
+    .base-TheatreScreen-Content
+      box-shadow: 0 0 0 black
