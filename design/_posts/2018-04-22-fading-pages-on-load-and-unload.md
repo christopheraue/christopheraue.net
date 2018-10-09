@@ -1,21 +1,23 @@
 ---
-title: Soft Page Transitions
-summary: Every website has hard page transitions by default. It's the effect that after a new page is loaded it immediately replaces the old one. It's jarring and ugly. A soft page transition where the old page fades out and the new one fades in is a more pleasing alternative.
+title: 'How To Fade Web Pages On Load And Unload'
+summary: Fading web pages on load and unload creates a more pleasing experience for a website's visitors. It can be achieved with plain old html, a little bit of CSS and JS.
+redirect_from:
+  - /design/soft-page-transitions
 ---
 
-Soft page transitions? Ehm, what?
+I'm talking about a soft transition from one page to another. And I'm talking about achieving it with plain old http requests. **No Ajax, no frameworks, just some html, a few lines of JS and a bit of CSS.** That's it.
 
-I'm talking about **fading a page out on *unload* and the new page in on *load***. You can see the effect here:
+You can see the effect here:
 
 <figure>
-  {% block base-Video src="/design/soft-page-transitions/soft_page_transition" controls="minimal" attributes="loop preload=\"auto\"" %}
+  {% block base-Video src="/design/fading-pages-on-load-and-unload/soft_page_transition" controls="minimal" attributes="loop preload=\"auto\"" %}
   <figcaption>A soft page transition</figcaption>
 </figure>
 
 It's subtle—as it should be to not get into the way of the user. For comparision, here is the usual hard page transition:
 
 <figure>
-  {% block base-Video src="/design/soft-page-transitions/hard_page_transition" controls="minimal" attributes="loop preload=\"auto\"" %}
+  {% block base-Video src="/design/fading-pages-on-load-and-unload/hard_page_transition" controls="minimal" attributes="loop preload=\"auto\"" %}
   <figcaption>A hard page transition</figcaption>
 </figure>
 
@@ -220,5 +222,5 @@ That got out of the way, we are now *really* done.
 Here's an iframe with a working example that puts everything together. On each page load random colors are set:
 
 {% container base-PreserveAspectRatio ratio='16/9' %}
-  <iframe src="/design/soft-page-transitions/example.html"></iframe>
+  <iframe src="/design/fading-pages-on-load-and-unload/example.html"></iframe>
 {% endcontainer %}
