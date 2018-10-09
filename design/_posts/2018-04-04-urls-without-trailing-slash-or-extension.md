@@ -1,5 +1,5 @@
 ---
-title: 'User-friendly URLs Without Trailing Slash or Extension (with Apache or Nginx)'
+title: 'URLs Without Trailing Slash or Extension (Nginx, Apache)'
 summary: I prefer URLs without a trailing slash or an extension when they are pointing to pure html content. They get the information across without burdening the user with technical implementation details. The configuration for nginx is easy, Apache needs some kicks in the butt.
 ---
 

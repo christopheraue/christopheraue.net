@@ -1,5 +1,5 @@
 ---
-title: 'Vertical-Align: All You Need To Know'
+title: 'Vertical-Align: All You Need To Know (CSS)'
 summary: 'The CSS property vertical-align never seems to do what is expected from it. But its behavior can actually be understood. This article explains what is going on.'
 redirect_from:
   - /2014/03/05/vertical-align

@@ -1,5 +1,5 @@
 ---
-title: 'Centering an Inline-Block With Vertical-Align: Middle'
+title: 'Centering an Inline-Block With Vertical-Align: Middle (CSS)'
 summary: 'A way to vertically center an inline-block with CSS is to use vertical-align: middle. This is especially powerful when the area that an element is centered in has a height determined by its content.'
 redirect_from: 
   - /2014/02/20/centering-with-vertical-align-middle

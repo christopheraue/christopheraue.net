@@ -1,5 +1,5 @@
 ---
-title: 'Why This Damn vertical-align Is Not Working'
+title: 'Why This Damn Vertical-Align Is Not Working (CSS)'
 summary: 'There are three things you need to know about the CSS property vertical-align to make it work: 1. It aligns elements in a line of text which 2. might change its height and 3. might reposition its baseline.'
 ---
 

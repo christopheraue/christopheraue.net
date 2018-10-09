@@ -1,5 +1,5 @@
 ---
-title: 'How To Fade Web Pages On Load And Unload'
+title: 'How To Fade Web Pages On Load And Unload (CSS + JS)'
 summary: Fading web pages on load and unload creates a more pleasing experience for a website's visitors. It can be achieved with plain old html, a little bit of CSS and JS.
 redirect_from:
   - /design/soft-page-transitions
