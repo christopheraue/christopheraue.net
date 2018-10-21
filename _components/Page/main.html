@@ -1,4 +1,14 @@
 {% container base-Page %}
+  {% capture body %}
+  <body class="{% css_class %} {{ page.category.self_and_ancestors | reverse | map: 'name' | push: page.slug | join: ' ' }}">
+    {% block base-PageTransition %}
+    {% unless page.hide_header %}{% block PageHeader %}{% endunless %}
+    <main class="PageContent" role="main">
+      {{ param.content }}
+    </main>
+    {% unless page.hide_footer %}{% block PageFooter %}{% endunless %}
+  </body>
+  {% endcapture %}
   <head>
     {% container base-Page-Head %}
       <style>
@@ -8,12 +18,5 @@
       {% block Matomo %}
     {% endcontainer %}
   </head>
-  <body class="{% css_class %} {{ page.category.self_and_ancestors | reverse | map: 'name' | push: page.slug | join: ' ' }}">
-    {% block base-PageTransition %}
-    {% unless page.hide_header %}{% block PageHeader %}{% endunless %}
-    <main class="PageContent" role="main">
-      {{ param.content }}
-    </main>
-    {% unless page.hide_footer %}{% block PageFooter %}{% endunless %}
-  </body>
+  {{ body }}
 {% endcontainer %}
