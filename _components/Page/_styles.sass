@@ -1,4 +1,8 @@
-﻿html
+﻿//             512px         800px
+$font_scales: (32em: 1.4, 50em: 1.2)
+$modularscale: (base: 1em, ratio: 1.618)
+
+html
   font: 300 #{ms(0)}/#{ms(1)/ms(0)} 'Work Sans', sans-serif
   @each $page_width, $font_scale in $font_scales
     @media screen and (min-width: $page_width)
