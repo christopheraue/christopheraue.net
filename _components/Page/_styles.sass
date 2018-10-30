@@ -2,6 +2,18 @@
 $font_scales: (32em: 1.4, 50em: 1.2)
 $modularscale: (base: 1em, ratio: 1.618)
 
+@font-face
+  font-family: 'Work Sans'
+  font-style: normal
+  font-weight: 300
+  src: local('Work Sans Light'), local('WorkSans-Light'), url('{% component_asset_url work-sans-v3-latin-300.woff2 %}') format('woff2'), url('{% component_asset_url work-sans-v3-latin-300.woff %}') format('woff')
+
+@font-face
+  font-family: 'Work Sans'
+  font-style: normal
+  font-weight: 500
+  src: local('Work Sans Medium'), local('WorkSans-Medium'), url('{% component_asset_url work-sans-v3-latin-500.woff2 %}') format('woff2'), url('{% component_asset_url work-sans-v3-latin-500.woff %}') format('woff')
+
 html
   font: 300 #{ms(0)}/#{ms(1)/ms(0)} 'Work Sans', sans-serif
   @each $page_width, $font_scale in $font_scales
@@ -18,6 +30,3 @@ body
 
 .PageFooter
   margin-top: 4*ms(1)
-
-code
-  font-family: "Source Code Pro"
