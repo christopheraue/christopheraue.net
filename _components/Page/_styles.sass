@@ -2,18 +2,24 @@
 $font_scales: (32em: 1.4, 50em: 1.2)
 $modularscale: (base: 1em, ratio: 1.618)
 
+{% assign ws300_woff2 = site.component_assets | where: 'id', 'work-sans-v3-latin-300.woff2' | first %}
+{% assign ws300_woff = site.component_assets | where: 'id', 'work-sans-v3-latin-300.woff' | first %}
+
 @font-face
   font-family: 'Work Sans'
   font-style: normal
   font-weight: 300
-  src: local('Work Sans Light'), local('WorkSans-Light'), url('{% component_asset_url work-sans-v3-latin-300.woff2 %}') format('woff2'), url('{% component_asset_url work-sans-v3-latin-300.woff %}') format('woff')
+  src: local('Work Sans Light'), local('WorkSans-Light'), url('{{ ws300_woff2.url }}') format('woff2'), url('{{ ws300_woff.url }}') format('woff')
   font-display: swap
+
+{% assign ws500_woff2 = site.component_assets | where: 'id', 'work-sans-v3-latin-500.woff2' | first %}
+{% assign ws500_woff = site.component_assets | where: 'id', 'work-sans-v3-latin-500.woff' | first %}
 
 @font-face
   font-family: 'Work Sans'
   font-style: normal
   font-weight: 500
-  src: local('Work Sans Medium'), local('WorkSans-Medium'), url('{% component_asset_url work-sans-v3-latin-500.woff2 %}') format('woff2'), url('{% component_asset_url work-sans-v3-latin-500.woff %}') format('woff')
+  src: local('Work Sans Medium'), local('WorkSans-Medium'), url('{{ ws500_woff2.url }}') format('woff2'), url('{{ ws500_woff.url }}') format('woff')
   font-display: swap
 
 html

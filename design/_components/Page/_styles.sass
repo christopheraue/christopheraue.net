@@ -1,20 +1,29 @@
+{% assign scp300_woff2 = site.component_assets | where: 'id', 'source-code-pro-v8-latin-300.woff2' | first %}
+{% assign scp300_woff = site.component_assets | where: 'id', 'source-code-pro-v8-latin-300.woff' | first %}
+
 @font-face
   font-family: 'Source Code Pro'
   font-style: normal
   font-weight: 300
-  src: local('Source Code Pro Light'), local('SourceCodePro-Light'), url('{% component_asset_url source-code-pro-v8-latin-300.woff2 %}') format('woff2'), url('{% component_asset_url source-code-pro-v8-latin-300.woff %}') format('woff')
+  src: local('Source Code Pro Light'), local('SourceCodePro-Light'), url('{{ scp300_woff2.url }}') format('woff2'), url('{{ scp300_woff.url }}') format('woff')
   font-display: swap
+
+{% assign scp500_woff2 = site.component_assets | where: 'id', 'source-code-pro-v8-latin-500.woff2' | first %}
+{% assign scp500_woff = site.component_assets | where: 'id', 'source-code-pro-v8-latin-500.woff' | first %}
 
 @font-face
   font-family: 'Source Code Pro'
   font-style: normal
   font-weight: 500
-  src: local('Source Code Pro Medium'), local('SourceCodePro-Medium'), url('{% component_asset_url source-code-pro-v8-latin-500.woff2 %}') format('woff2'), url('{% component_asset_url source-code-pro-v8-latin-500.woff %}') format('woff')
+  src: local('Source Code Pro Medium'), local('SourceCodePro-Medium'), url('{{ scp500_woff2.url }}') format('woff2'), url('{{ scp500_woff.url }}') format('woff')
   font-display: swap
+
+{% assign scp900_woff2 = site.component_assets | where: 'id', 'source-code-pro-v8-latin-500.woff2' | first %}
+{% assign scp900_woff = site.component_assets | where: 'id', 'source-code-pro-v8-latin-500.woff' | first %}
 
 @font-face
   font-family: 'Source Code Pro'
   font-style: normal
   font-weight: 900
-  src: local('Source Code Pro Black'), local('SourceCodePro-Black'), url('{% component_asset_url source-code-pro-v8-latin-900.woff2 %}') format('woff2'), url('{% component_asset_url source-code-pro-v8-latin-900.woff %}') format('woff')
+  src: local('Source Code Pro Black'), local('SourceCodePro-Black'), url('{{ scp900_woff2.url }}') format('woff2'), url('{{ scp900_woff.url }}') format('woff')
   font-display: swap

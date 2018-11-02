@@ -1,8 +1,11 @@
+{% assign osc700_woff2 = site.component_assets | where: 'id', 'open-sans-condensed-v12-latin-700.woff2' | first %}
+{% assign osc700_woff = site.component_assets | where: 'id', 'open-sans-condensed-v12-latin-700.woff' | first %}
+
 @font-face
   font-family: 'Open Sans Condensed'
   font-style: normal
   font-weight: 700
-  src: local('Open Sans Condensed Bold'), local('OpenSansCondensed-Bold'), url('{% component_asset_url open-sans-condensed-v12-latin-700.woff2 %}') format('woff2'), url('{% component_asset_url open-sans-condensed-v12-latin-700.woff %}') format('woff')
+  src: local('Open Sans Condensed Bold'), local('OpenSansCondensed-Bold'), url('{{ osc700_woff2.url }}') format('woff2'), url('{{ osc700_woff.url }}') format('woff')
   font-display: swap
 
 .collateral-Theatre
