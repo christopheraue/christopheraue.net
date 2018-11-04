@@ -23,6 +23,7 @@ $modularscale: (base: 1em, ratio: 1.618)
   font-display: swap
 
 html
+  overflow-y: scroll
   font: 300 #{ms(0)}/#{ms(1)/ms(0)} 'Work Sans', sans-serif
   @each $page_width, $font_scale in $font_scales
     @media screen and (min-width: $page_width)
@@ -32,7 +33,6 @@ body
   background: black
   color: white
   padding: ms(1)
-  overflow-y: scroll
 
 .PageContent
   margin-top: 4*ms(1)
