@@ -1,5 +1,5 @@
 name: christopheraue.net
-url: http://c.loc
+url: https://c.loc
 destination: ./_site
 
 plugins:
