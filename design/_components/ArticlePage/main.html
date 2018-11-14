@@ -26,9 +26,7 @@
       </div>
     </header>
     <section class="design-Article-Text">
-      {% container base-Text %}
-        {{ param.content }}
-      {% endcontainer %}
+      {% block base-Text content=param.content %}
     </section>
     {% unless page.path contains '_drafts/' %}
       <section class="design-Article-Comments" id="disqus_thread"></section>
