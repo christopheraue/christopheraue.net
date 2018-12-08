@@ -176,7 +176,7 @@ Links to other websites are disregarded:
 
 {% highlight javascript %}
         if (anchors[idx].hostname !== window.location.hostname) {
-            return;
+            continue;
         }
 {% endhighlight %}
 

@@ -16,7 +16,7 @@
 
         for (var idx=0; idx<anchors.length; idx+=1) {
           if (anchors[idx].hostname !== window.location.hostname) {
-            return;
+            continue;
           }
 
           anchors[idx].addEventListener('click', function(event) {
