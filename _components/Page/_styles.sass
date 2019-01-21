@@ -2,8 +2,8 @@
 $font_scales: (32em: 1.4, 50em: 1.2)
 $modularscale: (base: 1em, ratio: 1.618)
 
-{% assign ws300_woff2 = site.component_assets | where: 'id', 'work-sans-v3-latin-300.woff2' | first %}
-{% assign ws300_woff = site.component_assets | where: 'id', 'work-sans-v3-latin-300.woff' | first %}
+{% assign ws300_woff2 = component.assets | where: 'id', 'work-sans-v3-latin-300.woff2' | first %}
+{% assign ws300_woff = component.assets | where: 'id', 'work-sans-v3-latin-300.woff' | first %}
 
 @font-face
   font-family: 'Work Sans'
@@ -12,8 +12,8 @@ $modularscale: (base: 1em, ratio: 1.618)
   src: local('Work Sans Light'), local('WorkSans-Light'), url('{{ ws300_woff2.url }}') format('woff2'), url('{{ ws300_woff.url }}') format('woff')
   font-display: swap
 
-{% assign ws500_woff2 = site.component_assets | where: 'id', 'work-sans-v3-latin-500.woff2' | first %}
-{% assign ws500_woff = site.component_assets | where: 'id', 'work-sans-v3-latin-500.woff' | first %}
+{% assign ws500_woff2 = component.assets | where: 'id', 'work-sans-v3-latin-500.woff2' | first %}
+{% assign ws500_woff = component.assets | where: 'id', 'work-sans-v3-latin-500.woff' | first %}
 
 @font-face
   font-family: 'Work Sans'

@@ -1,5 +1,5 @@
-{% assign scp300_woff2 = site.component_assets | where: 'id', 'source-code-pro-v8-latin-300.woff2' | first %}
-{% assign scp300_woff = site.component_assets | where: 'id', 'source-code-pro-v8-latin-300.woff' | first %}
+{% assign scp300_woff2 = component.assets | where: 'id', 'source-code-pro-v8-latin-300.woff2' | first %}
+{% assign scp300_woff = component.assets | where: 'id', 'source-code-pro-v8-latin-300.woff' | first %}
 
 @font-face
   font-family: 'Source Code Pro'
@@ -8,8 +8,8 @@
   src: local('Source Code Pro Light'), local('SourceCodePro-Light'), url('{{ scp300_woff2.url }}') format('woff2'), url('{{ scp300_woff.url }}') format('woff')
   font-display: swap
 
-{% assign scp500_woff2 = site.component_assets | where: 'id', 'source-code-pro-v8-latin-500.woff2' | first %}
-{% assign scp500_woff = site.component_assets | where: 'id', 'source-code-pro-v8-latin-500.woff' | first %}
+{% assign scp500_woff2 = component.assets | where: 'id', 'source-code-pro-v8-latin-500.woff2' | first %}
+{% assign scp500_woff = component.assets | where: 'id', 'source-code-pro-v8-latin-500.woff' | first %}
 
 @font-face
   font-family: 'Source Code Pro'
@@ -18,8 +18,8 @@
   src: local('Source Code Pro Medium'), local('SourceCodePro-Medium'), url('{{ scp500_woff2.url }}') format('woff2'), url('{{ scp500_woff.url }}') format('woff')
   font-display: swap
 
-{% assign scp900_woff2 = site.component_assets | where: 'id', 'source-code-pro-v8-latin-500.woff2' | first %}
-{% assign scp900_woff = site.component_assets | where: 'id', 'source-code-pro-v8-latin-500.woff' | first %}
+{% assign scp900_woff2 = component.assets | where: 'id', 'source-code-pro-v8-latin-500.woff2' | first %}
+{% assign scp900_woff = component.assets | where: 'id', 'source-code-pro-v8-latin-500.woff' | first %}
 
 @font-face
   font-family: 'Source Code Pro'

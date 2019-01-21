@@ -1,5 +1,5 @@
-{% assign osc700_woff2 = site.component_assets | where: 'id', 'open-sans-condensed-v12-latin-700.woff2' | first %}
-{% assign osc700_woff = site.component_assets | where: 'id', 'open-sans-condensed-v12-latin-700.woff' | first %}
+{% assign osc700_woff2 = component.assets | where: 'id', 'open-sans-condensed-v12-latin-700.woff2' | first %}
+{% assign osc700_woff = component.assets | where: 'id', 'open-sans-condensed-v12-latin-700.woff' | first %}
 
 @font-face
   font-family: 'Open Sans Condensed'
