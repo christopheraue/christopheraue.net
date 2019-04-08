@@ -2,3 +2,4 @@ _build
 _site
 _site_production
 _site_components
+node_modules

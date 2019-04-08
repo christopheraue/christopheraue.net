@@ -1,4 +1,6 @@
-define(function() {
+define([
+  'scriptjs'
+], function(scriptjs) {
     document.ready(function () {
         var hostname = 'christopheraue.net';
 
@@ -10,8 +12,8 @@ define(function() {
 
             // disqus_shortname must be global or else the comment counter breaks.
             disqus_shortname = 'christopheraue';
-            require(['//' + disqus_shortname + '.disqus.com/embed.js']);
-            require(['//' + disqus_shortname + '.disqus.com/count.js']);
+            scriptjs('//' + disqus_shortname + '.disqus.com/embed.main');
+            scriptjs('//' + disqus_shortname + '.disqus.com/count.main');
         }
     });
 });

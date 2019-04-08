@@ -22,7 +22,6 @@ PATH
     jekyll-components (0.1)
       fastimage (~> 2.1)
       jekyll (~> 3.7)
-      jekyll-requirejs_converter (~> 0.1)
 
 PATH
   remote: ../../jekyll_plugins/jekyll-nginx_redirects

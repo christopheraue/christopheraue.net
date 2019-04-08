@@ -1,5 +1,5 @@
 define([
-  'base-PageTransition',
+  'base-PageTransition/main',
   './PageTransition',
   'base/ScrollControl'
 ], function (basePageTransition, PageTransition, ScrollControl) {

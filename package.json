@@ -1,0 +1,10 @@
+{
+  "name": "aue-websites.de",
+  "version": "0.0.1",
+  "description": "Aue Websites",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "jekyll-components": "file:../../jekyll_plugins/jekyll-components",
+    "jekyll-components-base_components": "file:../../jekyll_plugins/jekyll-components-base_components"
+  }
+}

@@ -1,5 +1,5 @@
 define([
-  'base-PageTransition',
+  'base-PageTransition/main',
   './PageHeaderTransition'
 ], function (basePageTransition, PageHeaderTransition) {
   document.ready(function () {

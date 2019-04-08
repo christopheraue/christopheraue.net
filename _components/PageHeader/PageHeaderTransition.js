@@ -1,6 +1,6 @@
 define([
   'base/ScrollControl',
-  'cat-DropdownNavigation',
+  'cat-DropdownNavigation/main',
   'cat/ROOT_CATEGORY_NAME'
 ], function(ScrollControl, DropdownNavigation, ROOT_CATEGORY_NAME) {
   CSS_DURATION = /^(\d+(?:\.\d+)?)(s|ms)$/;
