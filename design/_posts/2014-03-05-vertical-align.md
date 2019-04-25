@@ -470,6 +470,7 @@ Some Examples:
 {% endhighlight %}
     
     <p>The same behaviour shows up when aligning a tall element with other values for <code>vertical-align</code>.</p>
+    <p></p>
   </li>
   <li>
     <p>Even setting <code>vertical-align</code> to <code>bottom</code> (left) and <code>top</code> (right) moves the baseline. This is strange, since the baseline shouldn't be involved at all.</p>
@@ -521,6 +522,7 @@ Some Examples:
   .top       { vertical-align: top; }
 </style>
 {% endhighlight %}
+    <p></p>
   </li>
   <li>
     <p>Placing two larger elements in a line and vertically aligning them moves the baseline where it fulfils both alignments. Then the height of the line box is adjusted (left). Adding a third element, that does not go beyond the line box's edges because of its alignment, affects neither the line box's height nor the baseline's position (middle). If it *does* go beyond the line box's edges, the line box's height and baseline are adjusted, again. In this case, our first two boxes are pushed down (right).</p>
