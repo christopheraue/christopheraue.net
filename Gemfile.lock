@@ -29,12 +29,6 @@ PATH
     jekyll-nginx_redirects (0.1)
       jekyll (~> 3.7)
 
-PATH
-  remote: ../../jekyll_plugins/jekyll-requirejs_converter
-  specs:
-    jekyll-requirejs_converter (0.1)
-      jekyll (~> 3.7)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -101,7 +95,6 @@ DEPENDENCIES
   jekyll-components-base_components!
   jekyll-components-index!
   jekyll-nginx_redirects!
-  jekyll-requirejs_converter!
 
 BUNDLED WITH
    1.16.3
