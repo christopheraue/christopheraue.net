@@ -1,6 +1,7 @@
-﻿//             512px         800px
+﻿@import 'modularscale'
+
+//             512px      800px
 $font_scales: (32em: 1.4, 50em: 1.2)
-$modularscale: (base: 1em, ratio: 1.618)
 
 {% assign ws300_woff2 = component.assets | where: 'id', 'work-sans-v3-latin-300.woff2' | first %}
 {% assign ws300_woff = component.assets | where: 'id', 'work-sans-v3-latin-300.woff' | first %}
