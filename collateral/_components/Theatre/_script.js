@@ -1,30 +1,28 @@
-define([
-    'base-TheatreScreen/main',
-    'base-Video/YouTubeVideo'
-], function(TheatreScreen, YouTubeVideo) {
-    document.ready(function() {
-        var screen = document.querySelector('.collateral-Theatre-Screen > .base-TheatreScreen');
+import TheatreScreen from 'base-TheatreScreen/main'
+import YouTubeVideo from 'base-Video/YouTubeVideo'
 
-        if (!screen) { return }
+document.ready(_ => {
+  const screen = document.querySelector('.collateral-Theatre-Screen > .base-TheatreScreen')
 
-        var theatreScreen = new TheatreScreen(screen),
-            video = new YouTubeVideo(screen.getElementsByTagName('iframe')[0]);
+  if (!screen) return
 
-        video.addEventListener('stateChange', function(e) {
-            switch (e.data.to) {
-                case 'buffering':
-                case 'playing':
-                    theatreScreen.focus('1s ease-in-out');
-                    break;
-                case 'ended':
-                    theatreScreen.unfocus();
-                    break;
-            }
-        }.bind(this));
+  const theatreScreen = new TheatreScreen(screen)
+  const video = new YouTubeVideo(screen.getElementsByTagName('iframe')[0])
 
-        screen.addEventListener('click', function() {
-            theatreScreen.unfocus();
-            video.pause();
-        }.bind(this));
-    });
-});
+  video.addEventListener('stateChange', e => {
+    switch (e.data.to) {
+      case 'buffering':
+      case 'playing':
+        theatreScreen.focus('1s ease-in-out')
+        break
+      case 'ended':
+        theatreScreen.unfocus()
+        break
+    }
+  })
+
+  screen.addEventListener('click', _ => {
+    theatreScreen.unfocus()
+    video.pause()
+  })
+})

@@ -1,5 +1,2 @@
-define([
-  'GoogleAnalytics/instance'
-], function() {
-  // requiring the instance initializes Google Analytics
-});
+import 'GoogleAnalytics/instance'
+// importing the instance initializes Google Analytics

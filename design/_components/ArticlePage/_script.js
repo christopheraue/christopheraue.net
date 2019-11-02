@@ -1,19 +1,17 @@
-define([
-  'scriptjs'
-], function(scriptjs) {
-    document.ready(function () {
-        var hostname = 'christopheraue.net';
+import scriptjs from 'scriptjs'
 
-        if (location.hostname === hostname && document.getElementById('disqus_thread')) {
-            window.disqus_config = function () {
-                this.page.url = location.href;
-                this.page.identifier = location.pathname;
-            };
+document.ready(function () {
+  const hostname = 'christopheraue.net';
 
-            // disqus_shortname must be global or else the comment counter breaks.
-            disqus_shortname = 'christopheraue';
-            scriptjs('//' + disqus_shortname + '.disqus.com/embed.main');
-            scriptjs('//' + disqus_shortname + '.disqus.com/count.main');
-        }
-    });
-});
+  if (location.hostname === hostname && document.getElementById('disqus_thread')) {
+    window.disqus_config = function () {
+      this.page.url = location.href;
+      this.page.identifier = location.pathname;
+    }
+
+    // disqus_shortname must be global or else the comment counter breaks.
+    disqus_shortname = 'christopheraue'
+    scriptjs('//' + disqus_shortname + '.disqus.com/embed.main')
+    scriptjs('//' + disqus_shortname + '.disqus.com/count.main')
+  }
+})

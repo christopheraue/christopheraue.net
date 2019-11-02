@@ -1,10 +1,8 @@
-define(function() {
-  return Object.inherit({
-    transitionIn: function() {
-      // nothing special to do
-    },
-    transitionOut: function(transition, onTransitioned) {
-      onTransitioned(this);
-    }
-  })
-});
+export default Object.inherit({
+  transitionIn() {
+    // nothing special to do
+  },
+  transitionOut(transition, onTransitioned) {
+    onTransitioned(this)
+  }
+})

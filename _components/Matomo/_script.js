@@ -1,7 +1,3 @@
-define([
-  'Matomo/instance'
-], function(matomo) {
-  matomo.with_api(function(tracker) {
-    tracker.trackVisibleContentImpressions();
-  });
-});
+import matomo from 'Matomo/instance'
+
+matomo.with_api(tracker => tracker.trackVisibleContentImpressions())

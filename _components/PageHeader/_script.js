@@ -1,8 +1,6 @@
-define([
-  'base-PageTransition/main',
-  './PageHeaderTransition'
-], function (basePageTransition, PageHeaderTransition) {
-  document.ready(function () {
-    basePageTransition.register(new PageHeaderTransition());
-  });
-});
+import basePageTransition from 'base-PageTransition/main'
+import PageHeaderTransition from './PageHeaderTransition'
+
+document.ready(_ => {
+  basePageTransition.register(new PageHeaderTransition())
+})
