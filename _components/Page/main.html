@@ -1,3 +1,8 @@
+{% include_in_head %}
+  {% block GoogleAnalytics %}
+  {% block Matomo %}
+{% endinclude_in_head %}
+
 {% block base-PageTransition %}
 {% unless page.hide_header %}{% block PageHeader %}{% endunless %}
 <main class="PageContent" role="main">

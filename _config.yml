@@ -11,7 +11,6 @@ defaults:
   - scope:
       path: ""
     values:
-      include_in_head: Page-Head
       include_in_body: Page
       robots: index, follow
       lang: en
