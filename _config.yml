@@ -11,7 +11,7 @@ defaults:
   - scope:
       path: ""
     values:
-      include_in_body: Page
+      wrap_body_in: Page
       robots: index, follow
       lang: en
       author: Christopher Aue
