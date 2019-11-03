@@ -3,6 +3,11 @@ title: Christopher Aue /design
 summary: Articles about web and software design
 ---
 
+{% include_in_head %}
+<!-- RSS Feed -->
+<link rel="alternate" type="application/rss+xml" title="{{ site.name | xml_escape }}{{ page.url }}" href="{{ page.url | append: 'feed.xml' | absolute_url }}">
+{% endinclude_in_head %}
+
 {% container design-IndexSection title="Software" %}
   <nav class="design-ArticleNav">
     <ul class="design-ArticleNav-List">
