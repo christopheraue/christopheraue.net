@@ -1,5 +1,4 @@
 import TheatreScreen from 'base-TheatreScreen/main'
-import YouTubeVideo from 'base-Video/YouTubeVideo'
 
 document.ready(_ => {
   const screen = document.querySelector('.collateral-Theatre-Screen > .base-TheatreScreen')
@@ -7,7 +6,7 @@ document.ready(_ => {
   if (!screen) return
 
   const theatreScreen = new TheatreScreen(screen)
-  const video = new YouTubeVideo(screen.getElementsByTagName('iframe')[0])
+  const video = screen.querySelector('.base-Video-YouTube').__component__
 
   video.addEventListener('stateChange', e => {
     switch (e.data.to) {
