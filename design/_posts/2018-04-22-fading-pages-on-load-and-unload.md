@@ -10,14 +10,14 @@ I'm talking about a soft transition from one page to another. And I'm talking ab
 You can see the effect here:
 
 <figure>
-  {% block base-Video src="/design/fading-pages-on-load-and-unload/soft_page_transition" controls="minimal" attributes="loop preload=\"auto\"" %}
+  {% block base-Video source="/design/fading-pages-on-load-and-unload/soft_page_transition.mp4" controls="playButton" attributes="playsinline loop preload=\"auto\"" %}
   <figcaption>A soft page transition</figcaption>
 </figure>
 
 It's subtle—as it should be to not get into the way of the user. For comparision, here is the usual hard page transition:
 
 <figure>
-  {% block base-Video src="/design/fading-pages-on-load-and-unload/hard_page_transition" controls="minimal" attributes="loop preload=\"auto\"" %}
+  {% block base-Video source="/design/fading-pages-on-load-and-unload/hard_page_transition.mp4" controls="playButton" attributes="playsinline loop preload=\"auto\"" %}
   <figcaption>A hard page transition</figcaption>
 </figure>
 
