@@ -18,7 +18,7 @@ defaults:
       hide_header: false
       hide_footer: false
       referrer: unsafe-url
-      favicon_path: "/favicons"
+      favicon_path: "/design/favicons"
       favicon_macos_safari_color: "#3f668c"
-      favicon_android_theme_color: "#ffffff"
-      favicon_windows_metro_color: "#ffffff"
+      favicon_android_theme_color: "#3f668c"
+      favicon_windows_metro_color: "#3f668c"

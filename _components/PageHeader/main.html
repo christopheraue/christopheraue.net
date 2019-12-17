@@ -5,10 +5,6 @@
   {% assign selected_tag = 'a' %}
 {% endif %}
 
-{% capture focus_indicator %}
-{% include_partial nav_focus_indicator.html %}
-{% endcapture %}
-
 {% assign categories = param.categories | default: site.root_category.children %}
 
 <header class="PageHeader">
@@ -23,17 +19,6 @@
     <a href="/" class="PageHeader-Logo" title="Go to start page">
       {% block Logo %}
     </a>
-    <nav class="PageHeader-Nav">
-      {% list cat-DropdownNavigation
-            items=categories
-            selected_item_first=true
-            selected_tag=selected_tag
-            focus_indicator=focus_indicator %}
-        <div class="PageHeader-Nav-ItemContent">
-          {% block Slash{{ param.item.name | capitalize }} %}
-        </div><div class="PageHeader-Nav-ItemArrow"></div>
-      {% endlist %}
-    </nav>
   </div>
 </header>
 
