@@ -172,10 +172,11 @@ We iterate over all anchors:
     for (var idx=0; idx<anchors.length; idx+=1) {
 {% endhighlight %}
 
-Links to other websites are disregarded:
+Links to other websites and links to anchors on the same page are disregarded:
 
 {% highlight javascript %}
-        if (anchors[idx].hostname !== window.location.hostname) {
+        if (anchors[idx].hostname !== window.location.hostname ||
+            anchors[idx].pathname === window.location.pathname) {
             continue;
         }
 {% endhighlight %}
