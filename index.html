@@ -10,7 +10,13 @@ redirect_from:
 <link rel="alternate" type="application/rss+xml" title="{{ site.name | xml_escape }}{{ page.url }}" href="{{ page.url | append: 'feed.xml' | absolute_url }}">
 {% endinclude_in_head %}
 
-{% container design-IndexSection title="Software" %}
+{% container design-IndexSection title="Articles" %}
+{%   assign design_category = page.category.children | where: 'name', 'design' | first %}
+{%   assign posts = design_category.documents | where: 'collection', 'posts' | reverse %}
+{%   block design-ArticleNav articles=posts %}
+{% endcontainer %}
+
+{% container design-IndexSection title="Projects" %}
   <nav class="design-ArticleNav">
     <ul class="design-ArticleNav-List">
       <li class="design-ArticleNav-Item">
@@ -23,10 +29,4 @@ redirect_from:
       </li>
     </ul>
   </nav>
-{% endcontainer %}
-
-{% container design-IndexSection title="Web Interfaces" %}
-{%   assign design_category = page.category.children | where: 'name', 'design' | first %}
-{%   assign posts = design_category.documents | where: 'collection', 'posts' | reverse %}
-{%   block design-ArticleNav articles=posts %}
 {% endcontainer %}
