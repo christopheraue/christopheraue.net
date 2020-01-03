@@ -24,16 +24,19 @@ http {
         try_files $uri $uri.html $uri/index.html =404;
 {% endhighlight %}
 
-Then, we redirect URLs with a trailing slash or extension to clean ones:
+Then, we redirect URLs with an extension or trailing slash to clean ones:
 
 {% highlight nginx %}
-        rewrite ^/(.*)/index(?:.html)?$ /$1 permanent;
-        rewrite ^/(.*)(?:.html|/)$ /$1 permanent;
+        rewrite ^/index(?:\.html|/)?$ / permanent;
+        rewrite ^/(.*)/index(?:\.html|/)?$ /$1 permanent;
+        rewrite ^/(.*)(?:\.html|/)$ /$1 permanent;
     }
 }
 {% endhighlight %}
 
-The first rule redirects `request/index` or `request/index.html` to `request`. The second one redirects `request.html` or `request/` to `request`.
+The first rule redirects `/index.html` and `/index/` to `/`.
+The second one redirects `/some/path/index.html` and `some/path/index/` to `/some/path`.
+The third redirects `/some/path/page.html` and `/some/path/page/` to `/some/path/page`.
 
 And that's it already!
 
@@ -61,10 +64,10 @@ Next, we want to redirect URLs with a trailing slash or extension to clean ones:
 
 {% highlight apache %}
     RewriteCond %{ENV:REDIRECT_STATUS} ^$
-    RewriteRule ^(.*)/index(?:.html)?$ $1 [R=301,L]
+    RewriteRule ^(.*)/index(?:\.html)?$ $1 [R=301,L]
     
     RewriteCond %{ENV:REDIRECT_STATUS} ^$
-    RewriteRule ^(.*)(?:.html|/)$ $1 [R=301,L]
+    RewriteRule ^(.*)(?:\.html|/)$ $1 [R=301,L]
 {% endhighlight %}
 
 The first rule redirects `request/index` or `request/index.html` to `request`. The second one redirects `request.html` or `request/` to `request`. Take note of the `RewriteCond`. It makes sure the redirect is only applied if we are not coming from one of the internal redirects above. Not checking that would lead to an infinite redirection loop. For example: `request` is internally redirected to `request.html` for which then the external redirect to `request` would be applied which is then internally redirected to `request.html` which is then again external redirected, and so on.
