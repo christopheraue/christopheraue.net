@@ -23,20 +23,15 @@
   white-space: nowrap
   font-size: .8em
   margin: .9375em 0
-
-.design-Article-MetaLeft,
-.design-Article-MetaRight
-  display: block
-  @media screen and (min-width: 22em) // 352px
-    display: inline-block
-    vertical-align: middle
+  @media screen and (min-width: 22em)
+    display: flex
 
 .design-Article-MetaLeft
-  @media screen and (min-width: 22em) // 352px
+  @media screen and (min-width: 22em)
     width: 60%
 
 .design-Article-MetaRight
-  @media screen and (min-width: 22em) // 352px
+  @media screen and (min-width: 22em)
     width: 40%
     text-align: right
 
@@ -48,16 +43,12 @@
     opacity: 1
 
 .design-Article-ShareList
-  display: inline-block
+  display: inline-flex
   vertical-align: middle
-
-.design-Article-ShareListItem
-  display: inline-block
-  vertical-align: middle
+  align-items: center
 
 .design-Article-ShareLink
   display: inline-block
-  vertical-align: middle
   width: 1em
   font-size: 1.25em
   padding: .25em
@@ -68,6 +59,7 @@
 
 .design-Article-Date
   opacity: .7
+  vertical-align: middle
 
 .design-Article-Text
   padding: ms(1)

@@ -4,6 +4,8 @@
   margin-top: 2*ms(1)
   &:first-child
     margin-top: 0
+  @media screen and (min-width: 50em)
+    display: flex
 
 .design-IndexSection-Title
   font-size: ms(1)
@@ -11,15 +13,11 @@
   text-align: left
   @media screen and (min-width: 50em)
     text-align: right
-    display: inline-block
-    vertical-align: top
     width: 33.3333%
     box-sizing: border-box
 
 .design-IndexSection-Content
   @media screen and (min-width: 50em)
-    display: inline-block
-    vertical-align: top
     width: 66.6666%
     padding-left: ms(1)
     box-sizing: border-box

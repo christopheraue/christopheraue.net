@@ -12,17 +12,17 @@
               {% container base-ShareLink page=article on="twitter" class="design-Article-ShareLink" %}
                 {% block base-Icon type="twitter" %}
               {% endcontainer %}
-            </li><!--
-         --><li class="design-Article-ShareListItem">
+            </li>
+            <li class="design-Article-ShareListItem">
             {% container base-ShareLink page=article on="facebook" class="design-Article-ShareLink" %}
               {% block base-Icon type="facebook" %}
             {% endcontainer %}
           </li>
           </ul>
-        </div><!--
-     --><div class="design-Article-MetaRight">
-        <time class="design-Article-Date" datetime="{{ article.date | replace: ' +', '+' }}">{{ article.date | date: "%B %d, %Y" }}</time>
-      </div>
+        </div>
+        <div class="design-Article-MetaRight">
+          <time class="design-Article-Date" datetime="{{ article.date | replace: ' +', '+' }}">{{ article.date | date: "%B %d, %Y" }}</time>
+        </div>
       </div>
     </header>
     <section class="design-Article-Text">
