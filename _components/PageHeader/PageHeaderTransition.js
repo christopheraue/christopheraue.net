@@ -2,10 +2,11 @@ import ScrollControl from 'base/ScrollControl'
 
 const CSS_DURATION = /^(\d+(?:\.\d+)?)(s|ms)$/
 
-export default Object.inherit({
+export default class PageHeaderTransition {
   constructor() {
     this.el = document.querySelector('.PageHeader')
-  },
+  }
+
   transitionIn() {
     if (!this.el || !this.el.classList.contains('prepare-transition-in')) return
 
@@ -17,7 +18,8 @@ export default Object.inherit({
             this.el.classList.remove('transition-in')
           }
     this.el.addEventListener('animationend', removeTransition)
-  },
+  }
+
   transitionOut(transition, onTransitioned) {
     if (!this.el) {
       transition.transitionHeader = true
@@ -50,4 +52,4 @@ export default Object.inherit({
       }
     }
   }
-})
+}
