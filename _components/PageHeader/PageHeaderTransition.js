@@ -1,3 +1,4 @@
+import 'base/document_onPersistedPageshow'
 import ScrollControl from 'base/ScrollControl'
 
 const CSS_DURATION = /^(\d+(?:\.\d+)?)(s|ms)$/
