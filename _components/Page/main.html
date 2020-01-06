@@ -3,8 +3,8 @@
 {% endinclude_in_head %}
 
 {% block base-PageTransition %}
-{% unless page.hide_header %}{% block PageHeader %}{% endunless %}
+{% block PageHeader %}
 <main class="PageContent" role="main">
   {{ param.content }}
 </main>
-{% unless page.hide_footer %}{% block PageFooter %}{% endunless %}
+{% block PageFooter %}

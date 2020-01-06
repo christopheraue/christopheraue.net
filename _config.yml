@@ -15,8 +15,6 @@ defaults:
       robots: index, follow
       lang: en
       author: Christopher Aue
-      hide_header: false
-      hide_footer: false
       referrer: unsafe-url
       favicon_path: "/design/favicons"
       favicon_macos_safari_color: "#3f668c"
