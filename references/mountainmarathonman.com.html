@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Technicalities -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="referrer" content="unsafe-url">
+
+    <!-- Page Metadata -->
+    <title>Ultimate Trail Running Giveaway – Mountain Marathon Man</title>
+    <meta name="description" content="Win a free flight to the french alps for a two days guided running with Kevin Carr.">
+    <meta name="author" content="Kevin Carr">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="mountainmarathonman.com/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="mountainmarathonman.com/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="mountainmarathonman.com/favicons/favicon-16x16.png">
+    <link rel="manifest" href="mountainmarathonman.com/favicons/site.webmanifest">
+    <link rel="mask-icon" href="mountainmarathonman.com/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="mountainmarathonman.com/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="mountainmarathonman.com/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <style>
+      /* Fonts */
+      @font-face {
+        font-family: Amatic;
+        src: url(mountainmarathonman.com/Amatic-Regular.ttf);
+      }
+
+      @font-face {
+        font-family: Amatic;
+        src: url(mountainmarathonman.com/Amatic-Bold.ttf);
+        font-weight: bold;
+      }
+
+      @font-face {
+        font-family: JustRealize;
+        src: url(mountainmarathonman.com/JustRealize-Regular.ttf)
+      }
+
+      @font-face {
+        font-family: JustRealize;
+        src: url(mountainmarathonman.com/JustRealize-Bold.ttf);
+        font-weight: bold;
+      }
+
+      @font-face {
+        font-family: Dker-Poster;
+        src: url(mountainmarathonman.com/Dker-Poster.ttf)
+      }
+
+      @font-face {
+        font-family: Franchise;
+        src: url(mountainmarathonman.com/Franchise-Bold.ttf);
+        font-weight: bold;
+      }
+
+      /* Defaults */
+      html,
+      body {
+        height: 100%;
+        font-size: 1em;
+        line-height: 1.5;
+        overflow-x: hidden;
+      }
+
+      * {
+        flex: 1 0 auto;
+        margin: 0;
+        padding: 0;
+        font-size: 100%;
+        font: inherit;
+      }
+
+      /* Blocks */
+      .layout-image::before {
+        content: '';
+        display: block;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        margin-bottom: -1px; /* rounding due to % padding may lead to render artifacts */
+      }
+
+      .content {
+        width: 100%;
+        max-width: 40em;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5em;
+        box-sizing: border-box;
+      }
+
+      .text {
+        font-family: Amatic, sans-serif;
+        width: 100%;
+        max-width: 24em;
+      }
+
+      .text > * + * {
+        margin-top: 1.5em;
+      }
+
+      .text a {
+        color: currentColor;
+      }
+
+      .cta img {
+        height: 1.5em;
+        display: block
+      }
+
+      /* Objects */
+      .compass::before {
+        background-image: url(mountainmarathonman.com/compass.png);
+        padding-bottom: 86.5%; /* image aspect ratio */
+        opacity: 0.2;
+      }
+
+      .plane::before {
+        background-image: url(mountainmarathonman.com/plane.png);
+        padding-bottom: 33.5%; /* image aspect ratio */
+        opacity: 0.2;
+      }
+
+      .birds1::before {
+        background-image: url(mountainmarathonman.com/birds1.png);
+        padding-bottom: 42.5%; /* image aspect ratio */
+      }
+
+      .birds2::before {
+        background-image: url(mountainmarathonman.com/birds2.png);
+        padding-bottom: 41.9%; /* image aspect ratio */
+      }
+
+      /* Book Composition */
+      .book-composition {
+        width: 70%;
+        max-width: 64em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+      }
+
+      .book {
+        width: 90%;
+        transform: rotate(6deg);
+        border-radius: .5%;
+        overflow: hidden;
+        margin: 1.5em 0;
+      }
+
+      .book::before {
+        background-image: url(mountainmarathonman.com/book.jpg);
+        padding-bottom: 158.8%; /* image aspect ratio */
+      }
+
+      .book-snippet1,
+      .book-snippet2 {
+        width: 125%;
+        font-family: JustRealize, cursive;
+        font-size: 0.85em;
+        color: rgb(250, 244, 226);
+        text-align: center;
+        position: relative;
+        margin: 1.5em 0;
+      }
+
+      .book-snippet1 {
+        transform: rotate(-5deg);
+      }
+
+      .book-snippet2 {
+        transform: rotate(-3deg);
+      }
+
+      .book-snippet1-arrow,
+      .book-snippet2-arrow {
+        width: 25%;
+        position: absolute;
+      }
+
+      .book-snippet1-arrow {
+        top: calc(100% - 0.5 * 1.5em);
+        left: -0.6em;
+        transform-origin: top left;
+        transform: rotate(40deg)
+      }
+
+      .book-snippet2-arrow {
+        top: calc(0.5 * 1.5em);
+        right: -0.6em;
+        transform-origin: top right;
+        transform: rotate(40deg) scaleY(-1);
+      }
+
+      .book-snippet1-arrow::before {
+        background-image: url(mountainmarathonman.com/book-arrow1.png);
+        padding-bottom: 55.6%; /* image aspect ratio */
+      }
+
+      .book-snippet2-arrow::before {
+        background-image: url(mountainmarathonman.com/book-arrow2.png);
+        padding-bottom: 66.6%; /* image aspect ratio */
+      }
+
+      .book-numbers {
+        font-family: Dker-Poster, sans-serif;
+        text-transform: uppercase;
+        font-size: 0.7em;
+        color: rgb(250, 244, 226);
+        list-style: none;
+        margin-top: 1.5em;
+      }
+
+      .book-numbers li::before {
+        content: '';
+        display: inline-block;
+        height: 1.2em;
+        width: 1em;
+        background-image: url(mountainmarathonman.com/bullet.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        margin-right: 0.6em;
+      }
+
+      .book-numbers .number {
+        font-weight: bold;
+        font-size: 1.7em;
+        font-family: JustRealize, cursive;
+        color: rgb(250, 231, 155);
+      }
+
+      /*
+       * Download your sneak preview chapter now
+       * and automatically enter the
+       * Ultimate Trail Running Giveaway
+       */
+      .last-call {
+        font-family: Dker-Poster, sans-serif;
+        text-transform: uppercase;
+        text-align: justify;
+        color: rgb(250, 244, 226);
+        line-height: 1.2em;
+        padding: 1.5em;
+        max-width: 17em;
+      }
+
+      .last-call .download-your-sneak-preview-chapter-now {
+        font-size: 0.74em;
+        white-space: nowrap;
+      }
+
+      .last-call .and-automatically-enter-the {
+        font-size: 1.08em;
+        white-space: nowrap;
+      }
+
+      .last-call .ultimate-trail-running-giveaway {
+        font-size: 1.67em;
+        line-height: 1em;
+        white-space: nowrap;
+        font-family: Franchise, sans-serif;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: white;
+      }
+
+      .last-call .sneak-preview-chapter {
+        color: rgb(43, 60, 80);
+        background-image: url(mountainmarathonman.com/underscore.png);
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        background-size: 100% auto;
+        padding: 0 1.45em .25em .25em;
+        margin: 0 -1.45em -.25em -.25em;
+      }
+
+      /* Copyright */
+      .copyright {
+        font-family: Amatic, sans-serif;
+        color: rgb(250, 244, 226);
+        text-align: center;
+      }
+
+      .copyright > * {
+        white-space: nowrap;
+      }
+
+      /* Intro Section */
+      #intro {
+        position: relative;
+        background-color: rgb(146, 192, 199);
+        margin-bottom: calc(-2 * 1.5em);
+      }
+
+      #intro .hero {
+        background-image: url(mountainmarathonman.com/vista-480.jpg), linear-gradient(to bottom, rgb(30, 40, 46), rgb(146, 192, 199));
+        background-size: 100%;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 4%;
+        position: relative;
+        margin-bottom: 7.9%;
+      }
+
+      #intro .hero::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-image: url(mountainmarathonman.com/vista-bottom-480.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        padding-bottom: 7.9%;
+      }
+
+      @media (min-width: 480px), (min-width: 240px) and (min-resolution: 192dpi) {
+        #intro .hero {
+          background-image: url(mountainmarathonman.com/vista-768.jpg), linear-gradient(to bottom, rgb(30, 40, 46), rgb(146, 192, 199));
+        }
+
+        #intro .hero::after {
+          background-image: url(mountainmarathonman.com/vista-bottom-768.png);
+        }
+      }
+
+      @media (min-width: 768px), (min-width: 384px) and (min-resolution: 192dpi) {
+        #intro .hero {
+          background-image: url(mountainmarathonman.com/vista-1024.jpg), linear-gradient(to bottom, rgb(30, 40, 46), rgb(146, 192, 199));
+        }
+
+        #intro .hero::after {
+          background-image: url(mountainmarathonman.com/vista-bottom-1024.png);
+        }
+      }
+
+      @media (min-width: 1024px), (min-width: 512px) and (min-resolution: 192dpi) {
+        #intro .hero {
+          background-image: url(mountainmarathonman.com/vista-1920.jpg), linear-gradient(to bottom, rgb(30, 40, 46), rgb(146, 192, 199));
+        }
+
+        #intro .hero::after {
+          background-image: url(mountainmarathonman.com/vista-bottom-1920.png);
+        }
+      }
+
+      #intro .hero h1 {
+        margin-top: 5%;
+        width: 90%;
+        max-width: 45em;
+        flex-grow: 0;
+      }
+
+      #intro .hero h1 img {
+        display: block;
+        width: 100%;
+      }
+
+      #intro .hero .cta {
+        display: block;
+        margin-top: 5%;
+        flex-grow: 0;
+      }
+
+      #intro .hero .cta img {
+        max-width: 100%;
+      }
+      
+      #intro .text {
+        color: rgb(250, 244, 226);
+        text-align: center;
+      }
+
+      #intro .content {
+        position: relative;
+      }
+
+      #intro .compass {
+        position: absolute;
+        left: 10%;
+        top: 35%;
+        transform: translate(-50%, -50%);
+        width: 30%;
+        max-width: 7em;
+      }
+
+      #intro .plane {
+        position: absolute;
+        right: 10%;
+        bottom: 5%;
+        transform: translate(50%, 0);
+        width: 50%;
+        max-width: 12em;
+        z-index: 1;
+      }
+
+      #intro .cta {
+        margin-top: 1.5em;
+        position: relative;
+        z-index: 1;
+      }
+
+      #gift {
+        position: relative;
+        background-image: linear-gradient(to bottom, rgb(146, 192, 199), rgb(250, 244, 226));
+      }
+
+      /* Gift Section */
+      #gift .top {
+        width: 100%;
+      }
+
+      #gift .top::before {
+        background-image: url(mountainmarathonman.com/forest-top-1024.png);
+        padding-bottom: 32.7%; /* image aspect ratio */
+      }
+
+      @media (min-width: 1024px), (min-width: 512px) and (min-resolution: 192dpi) {
+        #gift .top::before {
+          background-image: url(mountainmarathonman.com/forest-top-1920.png);
+        }
+      }
+
+      #gift .body {
+        background-image: url(mountainmarathonman.com/forest-background.jpg);
+        background-size: 100%;
+        background-repeat: repeat-y;
+      }
+
+      #gift .bottom {
+        width: 100%;
+      }
+
+      #gift .bottom::before {
+        background-image: url(mountainmarathonman.com/forest-bottom-1024.png);
+        padding-bottom: 12.7%; /* image aspect ratio */
+      }
+
+      @media (min-width: 1024px), (min-width: 512px) and (min-resolution: 192dpi) {
+        #gift .bottom::before {
+          background-image: url(mountainmarathonman.com/forest-bottom-1920.png);
+        }
+      }
+
+      #gift h2 {
+        width: 100%;
+        flex-grow: 0;
+      }
+
+      #gift h2 img {
+        display: block;
+        width: 100%;
+      }
+
+      #gift .cta {
+        margin-top: 1.5em;
+      }
+
+      /* About Section */
+      #about {
+        background-color: rgb(250, 244, 226);
+        margin-bottom: calc(-1 * 1.5em);
+        position: relative;
+      }
+
+      #about .birds1 {
+        position: absolute;
+        top: 1.5em;
+        left: 15%;
+        transform: translate(-50%);
+        width: 50%;
+        max-width: 12em;
+      }
+
+      #about .birds2 {
+        position: absolute;
+        bottom: calc(2 * 1.5em);
+        right: 20%;
+        transform: translate(50%);
+        width: 50%;
+        max-width: 12em;
+      }
+
+      #about h2 {
+        width: 50%;
+        max-width: 7.5em;
+        margin-bottom: 1.5em;
+        flex-grow: 0;
+      }
+
+      #about h2 img {
+        display: block;
+        width: 100%;
+      }
+
+      #about .text {
+        color: rgb(0, 28, 40);
+      }
+
+      #about .photo {
+        width: 100%;
+        max-width: 12em;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+
+      #about .more-info {
+        background-image: url(mountainmarathonman.com/button.jpg);
+        background-size: 100% 100%;
+        padding: 0.25em 0.7em;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      #about .cta {
+        margin-top: 1.5em;
+      }
+
+      /* Enter Section */
+      #enter {
+        position: relative;
+      }
+
+      #enter .top {
+        width: 100%;
+      }
+
+      #enter .top::before {
+        background-color: rgb(250, 244, 226);
+        background-image: url(mountainmarathonman.com/mountains-top.png);
+        padding-bottom: 16.7%; /* image aspect ratio */
+      }
+
+      #enter .body {
+        background-color: rgb(146, 192, 199);
+      }
+
+      #enter .content {
+        padding: 0;
+      }
+
+      #enter .bottom {
+        width: 100%;
+        background-color: rgb(146, 192, 199);
+      }
+
+      #enter .bottom::before {
+        background-image: url(mountainmarathonman.com/mountains-bottom.png);
+        padding-bottom: 22.4%; /* image aspect ratio */
+      }
+
+      #enter .widget {
+        width: 100%;
+        margin-top: -22.4%;
+      }
+
+      /* Adjustments for Larger Screens */
+      @media (min-width: 30em) {
+        html {
+          font-size: 1.2em
+        }
+
+        #enter .last-call {
+          font-size: 1.2em
+        }
+      }
+
+      @media (min-width: 40em) {
+        html {
+          font-size: 2em
+        }
+
+        #enter .last-call {
+          font-size: 1em
+        }
+      }
+
+      @media (min-width: 45em) {
+        #enter .last-call {
+          font-size: 1.2em
+        }
+      }
+
+      @media (min-width: 60em) {
+        .cta img {
+          height: calc(1.5 * 1.5em);
+        }
+
+        .book-composition {
+          width: 40%;
+        }
+
+        .book-snippet1,
+        .book-snippet2 {
+          width: 80%;
+          position: absolute;
+          margin: 0;
+        }
+
+        .book-snippet1 {
+          top: 5%;
+          right: 92%;
+        }
+
+        .book-snippet2 {
+          bottom: 5%;
+          left: 100%;
+          transform: rotate(3deg);
+        }
+
+        .book-snippet1-arrow,
+        .book-snippet2-arrow {
+          width: 40%;
+        }
+
+        .book-snippet1-arrow {
+          top: 100%;
+          left: 50%;
+          transform: rotate(20deg)
+        }
+
+        .book-snippet2-arrow {
+          top: 100%;
+          right: 60%;
+          transform: rotate(20deg);
+        }
+
+        #enter .last-call {
+          font-size: 1.6em
+        }
+
+        .copyright {
+          font-size: 0.8em;
+        }
+      }
+
+      @media (min-width: 100em) {
+        #intro .hero {
+          padding-bottom: 10%;
+        }
+      }
+    </style>
+    <script></script>
+  </head>
+  <body>
+    <section id="intro">
+      <div class="hero">
+        <h1><img
+            srcset="mountainmarathonman.com/ultimate-trail-running-giveaway-480.png 480w,
+                    mountainmarathonman.com/ultimate-trail-running-giveaway-768.png 768w,
+                    mountainmarathonman.com/ultimate-trail-running-giveaway-1440.png 1440w"
+            sizes="((min-width: 768px) or ((min-width: 384px) and (min-resolution: 192dpi))) 1440px,
+                   ((min-width: 480px) or ((min-width: 240px) and (min-resolution: 192dpi)))  768px,
+                                                                                              480px"
+            src="mountainmarathonman.com/ultimate-trail-running-giveaway-1440.png" alt="Ultimate Trail Running Giveaway"></h1>
+        <a class="cta" href="#enter"><img src="mountainmarathonman.com/i-want-to-win-the-ultimate-trail-running-prize.png" alt="I want to win the Ultimate Trail Running Giveaway"></a>
+      </div>
+      <div class="body">
+        <div class="content">
+          <div class="compass layout-image"></div>
+          <div class="text">
+            <p>We’ll fly the winner to the <strong>French Alps</strong>, where you’ll join <strong><a href="#about">Kevin Carr</a></strong> — the first athlete to ever run a continuous circumnavigation of the world — for <strong>two days guided running</strong> on some of the most stunning trails in the world!</p>
+            <p>We’ll also <strong>kit you out head to toe</strong> in Inov8 racing kit+shoes and a Suunto GPS watch — Kevin’s choice of kit when running in the mountains.</p>
+            <p>Once you return home Kevin will provide you with <strong>6 months online coaching</strong> to help you progress to your next running goal.</p>
+          </div>
+          <a class="cta" href="#enter"><img src="mountainmarathonman.com/enter-the-giveaway.png" alt="Enter the Giveaway"></a>
+          <div class="plane layout-image"></div>
+        </div>
+      </div>
+    </section>
+    <section id="gift">
+      <div class="top layout-image"></div>
+      <div class="body">
+        <div class="content">
+          <h2><img src="mountainmarathonman.com/exclusive-bonus-gift-for-entering-today.png" alt="Exclusive Bonus Gift for Entering Today"></h2>
+          <div class="book-composition">
+            <div class="book-snippet1">
+              <p>The <strong>amazing true story</strong> of the first athlete to ever run a solo circumnavigation of the world!</p>
+              <div class="book-snippet1-arrow layout-image"></div>
+            </div>
+            <div class="book layout-image"></div>
+            <div class="book-snippet2 layout-image">
+              <div class="book-snippet2-arrow layout-image"></div>
+              <p>Enter the ultimate Trail Running Giveaway today and you'll automatically <strong>receive a sneak preview</strong> of the soon to be released book “Mountain Marathon Man – Confessions Of The Fastest Runner Around The World”</p>
+            </div>
+          </div>
+          <ul class="book-numbers">
+            <li><span class="number">32.7</span> million steps</li>
+            <li><span class="number">622</span> marathons in 621 days</li>
+            <li><span class="number">16,300</span> miles / <span class="number">26,232.48</span> km</li>
+          </ul>
+          <a class="cta" href="#enter"><img src="mountainmarathonman.com/enter-the-giveaway.png" alt="Enter the Giveaway"></a>
+        </div>
+      </div>
+      <div class="bottom layout-image"></div>
+    </section>
+    <section id="about">
+      <div class="birds1 layout-image"></div>
+      <div class="body">
+        <div class="content">
+          <h2><img src="mountainmarathonman.com/about-kevin.png" alt="About Kevin"></h2>
+          <div class="text">
+            <p>The <strong>28th of July 2013, Dartmoor, England, U.K., Kevin began running east</strong>, he continued to head east, running every inch of land <strong>through 26 countries</strong>, crossing four continents from coast to coast until he made it all the way back to the very same spot from where he had set forth, some <strong>621 days</strong> later.</p>
+            <p>Having closed a loop around planet Earth, becoming the <strong>first athlete to ever run a continuous circumnavigation of the world</strong>, and the fastest runner to have run around the world.</p>
+            <img class="photo" src="mountainmarathonman.com/kevin.png">
+            <p>He ran <strong>solo and unsupported</strong>, pushing all his kit in a cart, camping at the side of the road:</p>
+            <ul>
+              <li>climbed up and over the <strong>Andes</strong>,</li>
+              <li>crossed the infamous <strong>Nullarbor Plain</strong>,</li>
+              <li>fought off <strong>packs of feral dogs</strong>,</li>
+              <li><strong>knocked over</strong> by a motorist,</li>
+              <li>twice entered the <strong>Arctic</strong> where he <strong>met with wolves</strong>,</li>
+              <li><strong>stalked by a bear</strong> in the Northwest Territories, Canada,</li>
+              <li>faced <strong>temperature extremes</strong> of -31 °C to +55 °C.</li>
+            </ul>
+            <p>The book “Mountain Marathon Man – Confessions Of The Fastest Runner Around The World” is the <strong>book where Kevin shares the above highlights</strong> amongst many others, in the true account of one of the greatest expeditions of all time, due to be <strong>released winter 2017</strong>.</p>
+            <a class="more-info" href="http://hardwayround.com/" target="_blank">More Info</a>
+          </div>
+          <a class="cta" href="http://hardwayround.com/#Contact" target="_blank"><img src="mountainmarathonman.com/media-enquiries.png" alt="Media Enquiries"></a>
+        </div>
+      </div>
+      <div class="birds2 layout-image"></div>
+    </section>
+    <section id="enter" class="layout-image">
+      <div class="top layout-image"></div>
+      <div class="body layout-image">
+        <div class="content">
+          <p class="last-call">
+            <span class="download-your-sneak-preview-chapter-now">Download your <span class="sneak-preview-chapter">sneak preview chapter</span> now</span>
+            <span class="and-automatically-enter-the">and automatically enter the</span>
+            <span class="ultimate-trail-running-giveaway">Ultimate Trail Running Giveaway!</span>
+          </p>
+        </div>
+      </div>
+      <div class="bottom layout-image">
+        <div class="widget">
+          <a class="e-widget no-button" href="https://gleam.io/IrgjY/ultimate-trail-running-giveaway" rel="nofollow">Ultimate Trail Running Giveaway</a>
+          <script src="https://js.gleam.io/e.js"></script>
+        </div>
+        <div class="copyright">
+          <span>Copyright 2017 World Run Hard Way Around.</span>
+          <span>All Rights Reserved.</span>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
