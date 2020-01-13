@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+      /*
+       * Layout
+       * (State and Animation at the bottom)
+       */
+      html,
+      body {
+        position: fixed; /* prevent jump to :target */
+        height: 100%;
+        width: 100%;
+      }
+
+      a {
+        outline: none
+      }
+
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        background-color: rgb(56, 124, 189);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      body::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 5px;
+        background-color: rgb(227, 6, 19);
+      }
+
+      #bereich {
+        position: relative;
+        width: 100%;
+        max-width: 32em;
+        flex-grow: 1;
+        flex-shrink: 0; /* IE11 */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform-origin: top center;
+      }
+
+      .responsive-image::before {
+        content: '';
+        display: block;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 100%;
+      }
+
+      #lidl {
+        margin-top: -5%;
+        width: 80%;
+        flex-shrink: 0; /* IE11 */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #zettel {
+        width: 80%;
+      }
+
+      #zettel::before {
+        background-image: url(./lidl_ad/Zettel.png);
+        margin-left: 5%; /* compensation for shadow on the right */
+        padding-bottom: 135%; /* image aspect ratio */
+      }
+
+      #marken-kracher {
+        width: 100%;
+        margin-top: 5%;
+      }
+
+      #marken-kracher::before {
+        background-image: url(./lidl_ad/Logo.png);
+        padding-bottom: 54%; /* image aspect ratio */
+      }
+
+      #marken {
+        margin-top: 5%;
+        width: 50%;
+        flex-shrink: 0; /* IE11 */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #bosch {
+        width: 100%;
+      }
+
+      #bosch::before {
+        background-image: url(./lidl_ad/MarkenLogo1.png);
+        padding-bottom: 23.2%; /* image aspect ratio */
+      }
+
+      #braun {
+        width: 66%;
+      }
+
+      #braun::before {
+        background-image: url(./lidl_ad/MarkenLogo2.png);
+        padding-bottom: 43.3%; /* image aspect ratio */
+      }
+
+      #produkte-bereich {
+        position: relative;
+        width: 120%;
+        max-width: 24em;
+        flex-grow: 1;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #produkte {
+        position: relative;
+        width: 100%;
+      }
+
+      #podest {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 9999em;
+        margin-top: 75%;
+        z-index: -1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .produkt {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .produkt + .produkt {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .produkt .bild {
+        width: 100%;
+      }
+
+      .produkt .infos {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .produkt .info {
+        width: 100%;
+        max-width: 12em;
+        align-self: start;
+      }
+
+      .produkt .preis {
+        width: 100%;
+        max-width: 12em;
+        align-self: end;
+      }
+
+      #produkt1 .bild::before {
+        background-image: url(./lidl_ad/Produkt1.png);
+        padding-bottom: 86.2%; /* image aspect ratio */
+      }
+
+      #produkt2 .bild::before {
+        background-image: url(./lidl_ad/Produkt2.png);
+        padding-bottom: 86.2%; /* image aspect ratio */
+      }
+
+      #produkt3 .bild::before {
+        background-image: url(./lidl_ad/Produkt3.png);
+        padding-bottom: 86.2%; /* image aspect ratio */
+      }
+
+      #produkt4 .bild::before {
+        background-image: url(./lidl_ad/Produkt4.png);
+        padding-bottom: 86.2%; /* image aspect ratio */
+      }
+
+      #produkt1 .info::before {
+        background-image: url(./lidl_ad/Info1.png);
+        padding-bottom: 80%; /* image aspect ratio */
+      }
+
+      #produkt2 .info::before {
+        background-image: url(./lidl_ad/Info2.png);
+        padding-bottom: 80%; /* image aspect ratio */
+      }
+
+      #produkt3 .info::before {
+        background-image: url(./lidl_ad/Info3.png);
+        padding-bottom: 80%; /* image aspect ratio */
+      }
+
+      #produkt4 .info::before {
+        background-image: url(./lidl_ad/Info4.png);
+        padding-bottom: 80%; /* image aspect ratio */
+      }
+
+      #produkt1 .preis::before {
+        background-image: url(./lidl_ad/Preis1.png);
+        padding-bottom: 70.1%; /* image aspect ratio */
+      }
+
+      #produkt2 .preis::before {
+        background-image: url(./lidl_ad/Preis2.png);
+        padding-bottom: 70.1%; /* image aspect ratio */
+      }
+
+      #produkt3 .preis::before {
+        background-image: url(./lidl_ad/Preis3.png);
+        padding-bottom: 70.1%; /* image aspect ratio */
+      }
+
+      #produkt4 .preis::before {
+        background-image: url(./lidl_ad/Preis4.png);
+        padding-bottom: 70.1%; /* image aspect ratio */
+      }
+
+      #podest-top {
+        width: 80%;
+      }
+
+      #podest-top::before {
+        background-image: url(./lidl_ad/PodestTop.png);
+        padding-bottom: 21.2%;
+      }
+
+      #podest-bottom {
+        width: 80%;
+        height: 100%;
+      }
+
+      #podest-bottom::before {
+        background-image: url(./lidl_ad/PodestBottom.png);
+        background-repeat: repeat-y;
+        height: 100%;
+      }
+
+      #navi {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-top: -15%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        pointer-events: none;
+      }
+
+      #vor,
+      #zurueck {
+        width: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: auto;
+      }
+
+      #zurueck::before,
+      #vor::before {
+        border-radius: 100%;
+        background-color: rgb(227, 6, 19);
+        background-image: url(./lidl_ad/Arrow_sitebar.png);
+        width: 100%;
+        padding-bottom: 100%;
+        background-size: auto 70%;
+        background-position: 45% 50%;
+      }
+
+      #vor::before {
+        transform: rotate(180deg);
+      }
+
+      #mehr-produkte {
+        position: relative;
+        padding-bottom: 1em;
+        width: 80%;
+        max-width: 12em;
+        flex-shrink: 0; /* IE11 */
+      }
+
+      #mehr-produkte::before {
+        background-image: url(./lidl_ad/CTA.png);
+        padding-bottom: 27.5%; /* image aspect ratio */
+      }
+
+      #mehr-produkte-arrow {
+        position: absolute;
+        top: 31%;
+        right: 11%;
+        width: 15%;
+      }
+
+      #mehr-produkte-arrow::before {
+        background-image: url(./lidl_ad/arrow.png);
+        padding-bottom: 71.8%; /* image aspect ratio */
+        transform: translateY(-50%);
+      }
+
+      @media (min-aspect-ratio: 1/6) {
+        #produkte-bereich {
+          position: relative;
+          width: 100%;
+        }
+
+        #navi {
+          margin-top: 20%;
+          width: 90%;
+        }
+
+        #vor,
+        #zurueck {
+          width: 20%;
+          max-width: 3em;
+        }
+      }
+
+      @media (min-aspect-ratio: 1/4) {
+        #lidl {
+          flex-direction: row-reverse;
+          justify-content: space-between;
+        }
+
+        #marken-kracher {
+          width: 57.5%;
+        }
+
+        #zettel {
+          width: 37.5%;
+        }
+
+        #marken {
+          margin-top: 2%;
+          width: 80%;
+          flex-direction: row;
+          align-items: flex-end;
+          justify-content: space-between;
+        }
+
+        #bosch {
+          margin-bottom: -1.75%;
+          width: 50%;
+        }
+
+        #braun {
+          width: 30%;
+        }
+      }
+
+      @media (min-aspect-ratio: 1/3) {
+        #navi {
+          margin-top: 30%;
+        }
+
+        #marken {
+          width: 60%;
+        }
+
+        .produkt .infos {
+          flex-direction: row;
+        }
+      }
+
+      @media (min-width: 26em) {
+        .produkt .infos {
+          width: 120%;
+        }
+      }
+
+      /*
+       * State & Animation
+       */
+
+      @keyframes growFromZero {
+        0% { transform: scale(1); opacity: 0 } /* start at scale(1) to fix blurry image in Firefox */
+        0.01% { transform: scale(0); opacity: 1 }
+        66% { transform: scale(1.1) }
+      }
+
+      @keyframes fallFromTop {
+        0% { transform: translateY(-100%) }
+        66% { transform: translateY(5%) }
+      }
+
+      @keyframes raiseFromBottom {
+        0% { transform: translateY(110%) }
+        66% { transform: translateY(-5%) }
+      }
+
+      @keyframes float {
+        65% { transform: translateY(2%) }
+      }
+
+      @keyframes sideShift {
+        50% { transform: translate(25%) }
+      }
+
+      #zettel {
+        transform: translate(0); /* fix choppy animation in IE11 */
+        animation: fallFromTop 400ms backwards;
+      }
+
+      #marken-kracher {
+        animation: growFromZero 400ms 200ms backwards;
+      }
+
+      #bosch {
+        animation: growFromZero 400ms 300ms backwards;
+      }
+
+      #braun {
+        animation: growFromZero 400ms 400ms backwards;
+      }
+
+      #produkte-bereich {
+        transform: translate(0); /* fix choppy animation in IE11 */
+        animation: raiseFromBottom 500ms 800ms backwards;
+      }
+
+      #mehr-produkte {
+        transform: translate(0); /* fix choppy animation in IE11 */
+        animation: raiseFromBottom 500ms 900ms backwards;
+      }
+
+      .produkt {
+        transition: 400ms;
+      }
+
+      .produkt:not(:target) {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+
+      .produkt:target {
+        opacity: 1;
+        transform: none;
+      }
+
+      .produkt .bild {
+        transform: translate(0); /* fix choppy animation in IE11 */
+        animation: float 3s ease-in-out infinite;
+      }
+
+      #mehr-produkte:hover #mehr-produkte-arrow {
+        animation: sideShift 500ms;
+      }
+    </style>
+    <script>
+      (function() {
+        /* helpers */
+        function currentProduct() {
+          return location.hash && document.getElementById(location.hash.slice(1)) || document.querySelector('.produkt')
+        }
+
+        function prevProduct() {
+          var prevEl = currentProduct().previousElementSibling
+          return prevEl && prevEl.classList.contains('produkt') ? prevEl : (function() {
+                                                                             var all = document.querySelectorAll('.produkt')
+                                                                             return all[all.length-1]
+                                                                           }())
+        }
+
+        function nextProduct() {
+          var nextEl = currentProduct().nextElementSibling
+          return nextEl && nextEl.classList.contains('produkt') ? nextEl : document.querySelector('.produkt')
+        }
+
+        /* responsive height */
+        function scaleAreaToBodyHeight() {
+          var area = document.getElementById('bereich')
+          var areaHeight = parseFloat(getComputedStyle(area).height)
+          var overshootRatio = areaHeight/window.innerHeight
+          area.style.transform = overshootRatio > 1 ? 'scale('+ 1/overshootRatio +')'
+                                                    : ''
+        }
+        window.addEventListener('resize', scaleAreaToBodyHeight)
+        window.addEventListener('load', scaleAreaToBodyHeight)
+
+        /* update product navigation buttons */
+        function setNavigationTargets() {
+          document.getElementById('zurueck').href = '#'+prevProduct().id
+          document.getElementById('vor').href = '#'+nextProduct().id
+        }
+        window.addEventListener('hashchange', setNavigationTargets)
+        document.addEventListener('DOMContentLoaded', setNavigationTargets)
+
+        /* automatic cycle through products */
+        document.addEventListener('DOMContentLoaded', function() {
+          location.hash = '#'+currentProduct().id
+
+          var intervalId
+          function resumeCycle() {
+            intervalId = setInterval(function() {
+              location.hash = '#'+nextProduct().id
+            }, 4000)
+          }
+
+          function suspendCycle() {
+            clearInterval(intervalId)
+          }
+
+          var productArea = document.getElementById('produkte-bereich')
+          function startCycle() {
+            resumeCycle()
+            productArea.addEventListener('mouseleave', resumeCycle)
+            productArea.addEventListener('mouseenter', suspendCycle)
+            productArea.removeEventListener('animationend', startCycle)
+          }
+          productArea.addEventListener('animationend', startCycle)
+        })
+      }())
+    </script>
+  </head>
+  <body>
+    <div id="bereich">
+      <div id="lidl">
+        <div id="zettel" class="responsive-image"></div>
+        <div id="marken-kracher" class="responsive-image"></div>
+      </div>
+      <div id="marken">
+        <div id="bosch" class="responsive-image"></div>
+        <div id="braun" class="responsive-image"></div>
+      </div>
+      <div id="produkte-bereich">
+        <div id="produkte">
+          <a id="produkt1" class="produkt" href="https://link-zu-produkt1" target="_blank">
+            <div class="bild responsive-image"></div>
+            <div class="infos">
+              <div class="info responsive-image"></div>
+              <div class="preis responsive-image"></div>
+            </div>
+          </a>
+          <a id="produkt2" class="produkt" href="https://link-zu-produkt2" target="_blank">
+            <div class="bild responsive-image"></div>
+            <div class="infos">
+              <div class="info responsive-image"></div>
+              <div class="preis responsive-image"></div>
+            </div>
+          </a>
+          <a id="produkt3" class="produkt" href="https://link-zu-produkt3" target="_blank">
+            <div class="bild responsive-image"></div>
+            <div class="infos">
+              <div class="info responsive-image"></div>
+              <div class="preis responsive-image"></div>
+            </div>
+          </a>
+          <a id="produkt4" class="produkt" href="https://link-zu-produkt4" target="_blank">
+            <div class="bild responsive-image"></div>
+            <div class="infos">
+              <div class="info responsive-image"></div>
+              <div class="preis responsive-image"></div>
+            </div>
+          </a>
+          <div id="podest">
+            <div id="podest-top" class="responsive-image"></div>
+            <div id="podest-bottom" class="responsive-image"></div>
+          </div>
+          <div id="navi">
+            <a id="zurueck" class="responsive-image"></a>
+            <a id="vor" class="responsive-image"></a>
+          </div>
+        </div>
+      </div>
+      <a id="mehr-produkte" class="responsive-image" href="https://link-zu-weiteren-produkten" target="_blank">
+        <div id="mehr-produkte-arrow" class="responsive-image"></div>
+      </a>
+    </div>
+  </body>
+</html>
