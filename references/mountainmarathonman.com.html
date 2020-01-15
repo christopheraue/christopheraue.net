@@ -66,8 +66,7 @@
       }
 
       /* Defaults */
-      html,
-      body {
+      html {
         height: 100%;
         font-size: 1em;
         line-height: 1.5;
@@ -367,6 +366,8 @@
         font-family: Amatic, sans-serif;
         color: rgb(250, 244, 226);
         text-align: center;
+        margin-top: 1.5em;
+        max-width: 50%;
       }
 
       .copyright > * {
@@ -746,6 +747,7 @@
 
       #enter .body {
         background-color: rgb(146, 192, 199);
+        margin-bottom: -22.4%;
       }
 
       #enter .content {
@@ -772,7 +774,13 @@
 
       #enter .widget {
         width: 100%;
-        margin-top: -22.4%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #enter .e-widget-wrapper {
+        width: 100%;
       }
 
       /* Adjustments for Larger Screens */
@@ -1020,18 +1028,36 @@
             <span class="and-automatically-enter-the">and automatically enter the</span>
             <span class="ultimate-trail-running-giveaway">Ultimate Trail Running Giveaway!</span>
           </p>
+          <div class="widget">
+            <a class="e-widget no-button cta" href="https://gleam.io/IrgjY/ultimate-trail-running-giveaway" rel="nofollow">
+              <picture>
+                <source type="image/webp" srcset="mountainmarathonman.com/enter-the-giveaway.webp">
+                <source type="image/jp2" srcset="mountainmarathonman.com/enter-the-giveaway.jp2">
+                <img src="mountainmarathonman.com/enter-the-giveaway.png" alt="Enter the Giveaway">
+              </picture>
+            </a>
+            <script>
+              (function() {
+                var enterSection = document.getElementById('enter')
+                var gleam = document.createElement('script')
+                gleam.src = 'https://js.gleam.io/e.js'
+
+                window.addEventListener('scroll', function() {
+                  var rect = enterSection.getBoundingClientRect()
+                  var inViewport = rect.top >= 0
+                                && rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+                  if (inViewport && !gleam.parentElement) document.head.appendChild(gleam)
+                })
+              }())
+            </script>
+          </div>
+          <div class="copyright">
+            <span>Copyright 2017 World Run Hard Way Around.</span>
+            <span>All Rights Reserved.</span>
+          </div>
         </div>
       </div>
-      <div class="bottom layout-image">
-        <div class="widget">
-          <a class="e-widget no-button" href="https://gleam.io/IrgjY/ultimate-trail-running-giveaway" rel="nofollow">Ultimate Trail Running Giveaway</a>
-          <script src="https://js.gleam.io/e.js" defer></script>
-        </div>
-        <div class="copyright">
-          <span>Copyright 2017 World Run Hard Way Around.</span>
-          <span>All Rights Reserved.</span>
-        </div>
-      </div>
+      <div class="bottom layout-image"></div>
     </section>
   </body>
 </html>
