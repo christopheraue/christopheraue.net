@@ -124,10 +124,26 @@
         opacity: 0.2;
       }
 
+      .jp2 .compass::before {
+        background-image: url(mountainmarathonman.com/compass.jp2);
+      }
+
+      .webp .compass::before {
+        background-image: url(mountainmarathonman.com/compass.webp);
+      }
+
       .plane::before {
         background-image: url(mountainmarathonman.com/plane.png);
         padding-bottom: 33.5%; /* image aspect ratio */
         opacity: 0.2;
+      }
+
+      .jp2 .plane::before {
+        background-image: url(mountainmarathonman.com/plane.jp2);
+      }
+
+      .webp .plane::before {
+        background-image: url(mountainmarathonman.com/plane.webp);
       }
 
       .birds1::before {
@@ -135,9 +151,25 @@
         padding-bottom: 42.5%; /* image aspect ratio */
       }
 
+      .jp2 .birds1::before {
+        background-image: url(mountainmarathonman.com/birds1.jp2);
+      }
+
+      .webp .birds1::before {
+        background-image: url(mountainmarathonman.com/birds1.webp);
+      }
+
       .birds2::before {
         background-image: url(mountainmarathonman.com/birds2.png);
         padding-bottom: 41.9%; /* image aspect ratio */
+      }
+
+      .jp2 .birds2::before {
+        background-image: url(mountainmarathonman.com/birds2.jp2);
+      }
+
+      .webp .birds2::before {
+        background-image: url(mountainmarathonman.com/birds2.webp);
       }
 
       /* Book Composition */
@@ -161,6 +193,14 @@
       .book::before {
         background-image: url(mountainmarathonman.com/book.jpg);
         padding-bottom: 158.8%; /* image aspect ratio */
+      }
+
+      .jp2 .book::before {
+        background-image: url(mountainmarathonman.com/book.jp2);
+      }
+
+      .webp .book::before {
+        background-image: url(mountainmarathonman.com/book.webp);
       }
 
       .book-snippet1,
@@ -207,9 +247,25 @@
         padding-bottom: 55.6%; /* image aspect ratio */
       }
 
+      .jp2 .book-snippet1-arrow::before {
+        background-image: url(mountainmarathonman.com/book-arrow1.jp2);
+      }
+
+      .webp .book-snippet1-arrow::before {
+        background-image: url(mountainmarathonman.com/book-arrow1.webp);
+      }
+
       .book-snippet2-arrow::before {
         background-image: url(mountainmarathonman.com/book-arrow2.png);
         padding-bottom: 66.6%; /* image aspect ratio */
+      }
+
+      .jp2 .book-snippet2-arrow::before {
+        background-image: url(mountainmarathonman.com/book-arrow2.jp2);
+      }
+
+      .webp .book-snippet2-arrow::before {
+        background-image: url(mountainmarathonman.com/book-arrow2.webp);
       }
 
       .book-numbers {
@@ -230,6 +286,14 @@
         background-size: 100%;
         background-repeat: no-repeat;
         margin-right: 0.6em;
+      }
+
+      .jp2 .book-numbers li::before {
+        background-image: url(mountainmarathonman.com/bullet.jp2);
+      }
+
+      .webp .book-numbers li::before {
+        background-image: url(mountainmarathonman.com/bullet.webp);
       }
 
       .book-numbers .number {
@@ -284,6 +348,14 @@
         margin: 0 -1.45em -.25em -.25em;
       }
 
+      .jp2 .last-call .sneak-preview-chapter {
+        background-image: url(mountainmarathonman.com/underscore.jp2);
+      }
+
+      .webp .last-call .sneak-preview-chapter {
+        background-image: url(mountainmarathonman.com/underscore.webp);
+      }
+
       /* Copyright */
       .copyright {
         font-family: Amatic, sans-serif;
@@ -315,6 +387,14 @@
         margin-bottom: 7.9%;
       }
 
+      .jp2 #intro .hero {
+        background-image: url(mountainmarathonman.com/vista-480.jp2), linear-gradient(to bottom, rgb(30, 40, 46), rgb(146, 192, 199));
+      }
+
+      .webp #intro .hero {
+        background-image: url(mountainmarathonman.com/vista-480.webp), linear-gradient(to bottom, rgb(30, 40, 46), rgb(146, 192, 199));
+      }
+
       #intro .hero::after {
         content: '';
         position: absolute;
@@ -325,6 +405,15 @@
         background-size: 100%;
         background-repeat: no-repeat;
         padding-bottom: 7.9%;
+        margin-top: -1px; /* rounding due to % padding may lead to render artifacts */
+      }
+
+      .jp2 #intro .hero::after {
+        background-image: url(mountainmarathonman.com/vista-bottom-480.jp2);
+      }
+
+      .webp #intro .hero::after {
+        background-image: url(mountainmarathonman.com/vista-bottom-480.webp);
       }
 
       @media (min-width: 480px), (min-width: 240px) and (min-resolution: 192dpi) {
@@ -332,8 +421,24 @@
           background-image: url(mountainmarathonman.com/vista-768.jpg), linear-gradient(to bottom, rgb(30, 40, 46), rgb(146, 192, 199));
         }
 
+        .jp2 #intro .hero {
+          background-image: url(mountainmarathonman.com/vista-768.jp2), linear-gradient(to bottom, rgb(30, 40, 46), rgb(146, 192, 199));
+        }
+
+        .webp #intro .hero {
+          background-image: url(mountainmarathonman.com/vista-768.webp), linear-gradient(to bottom, rgb(30, 40, 46), rgb(146, 192, 199));
+        }
+
         #intro .hero::after {
           background-image: url(mountainmarathonman.com/vista-bottom-768.png);
+        }
+
+        .jp2 #intro .hero::after {
+          background-image: url(mountainmarathonman.com/vista-bottom-768.jp2);
+        }
+
+        .webp #intro .hero::after {
+          background-image: url(mountainmarathonman.com/vista-bottom-768.webp);
         }
       }
 
@@ -342,8 +447,24 @@
           background-image: url(mountainmarathonman.com/vista-1024.jpg), linear-gradient(to bottom, rgb(30, 40, 46), rgb(146, 192, 199));
         }
 
+        .jp2 #intro .hero {
+          background-image: url(mountainmarathonman.com/vista-1024.jp2), linear-gradient(to bottom, rgb(30, 40, 46), rgb(146, 192, 199));
+        }
+
+        .webp #intro .hero {
+          background-image: url(mountainmarathonman.com/vista-1024.webp), linear-gradient(to bottom, rgb(30, 40, 46), rgb(146, 192, 199));
+        }
+
         #intro .hero::after {
           background-image: url(mountainmarathonman.com/vista-bottom-1024.png);
+        }
+
+        .jp2 #intro .hero::after {
+          background-image: url(mountainmarathonman.com/vista-bottom-1024.jp2);
+        }
+
+        .webp #intro .hero::after {
+          background-image: url(mountainmarathonman.com/vista-bottom-1024.webp);
         }
       }
 
@@ -352,8 +473,24 @@
           background-image: url(mountainmarathonman.com/vista-1920.jpg), linear-gradient(to bottom, rgb(30, 40, 46), rgb(146, 192, 199));
         }
 
+        .jp2 #intro .hero {
+          background-image: url(mountainmarathonman.com/vista-1920.jp2), linear-gradient(to bottom, rgb(30, 40, 46), rgb(146, 192, 199));
+        }
+
+        .webp #intro .hero {
+          background-image: url(mountainmarathonman.com/vista-1920.webp), linear-gradient(to bottom, rgb(30, 40, 46), rgb(146, 192, 199));
+        }
+
         #intro .hero::after {
           background-image: url(mountainmarathonman.com/vista-bottom-1920.png);
+        }
+
+        .jp2 #intro .hero::after {
+          background-image: url(mountainmarathonman.com/vista-bottom-1920.jp2);
+        }
+
+        .webp #intro .hero::after {
+          background-image: url(mountainmarathonman.com/vista-bottom-1920.webp);
         }
       }
 
@@ -428,9 +565,25 @@
         padding-bottom: 32.7%; /* image aspect ratio */
       }
 
+      .jp2 #gift .top::before {
+        background-image: url(mountainmarathonman.com/forest-top-1024.jp2);
+      }
+
+      .webp #gift .top::before {
+        background-image: url(mountainmarathonman.com/forest-top-1024.webp);
+      }
+
       @media (min-width: 1024px), (min-width: 512px) and (min-resolution: 192dpi) {
         #gift .top::before {
           background-image: url(mountainmarathonman.com/forest-top-1920.png);
+        }
+
+        .jp2 #gift .top::before {
+          background-image: url(mountainmarathonman.com/forest-top-1920.jp2);
+        }
+
+        .webp #gift .top::before {
+          background-image: url(mountainmarathonman.com/forest-top-1920.webp);
         }
       }
 
@@ -438,6 +591,14 @@
         background-image: url(mountainmarathonman.com/forest-background.jpg);
         background-size: 100%;
         background-repeat: repeat-y;
+      }
+
+      .jp2 #gift .body {
+        background-image: url(mountainmarathonman.com/forest-background.jp2);
+      }
+
+      .webp #gift .body {
+        background-image: url(mountainmarathonman.com/forest-background.webp);
       }
 
       #gift .bottom {
@@ -449,9 +610,25 @@
         padding-bottom: 12.7%; /* image aspect ratio */
       }
 
+      .jp2 #gift .bottom::before {
+        background-image: url(mountainmarathonman.com/forest-bottom-1024.jp2);
+      }
+
+      .webp #gift .bottom::before {
+        background-image: url(mountainmarathonman.com/forest-bottom-1024.webp);
+      }
+
       @media (min-width: 1024px), (min-width: 512px) and (min-resolution: 192dpi) {
         #gift .bottom::before {
           background-image: url(mountainmarathonman.com/forest-bottom-1920.png);
+        }
+
+        .jp2 #gift .bottom::before {
+          background-image: url(mountainmarathonman.com/forest-bottom-1920.jp2);
+        }
+
+        .webp #gift .bottom::before {
+          background-image: url(mountainmarathonman.com/forest-bottom-1920.webp);
         }
       }
 
@@ -526,6 +703,14 @@
         display: inline-block;
       }
 
+      .jp2 #about .more-info {
+        background-image: url(mountainmarathonman.com/button.jp2);
+      }
+
+      .webp #about .more-info {
+        background-image: url(mountainmarathonman.com/button.webp);
+      }
+
       #about .cta {
         margin-top: 1.5em;
       }
@@ -545,6 +730,14 @@
         padding-bottom: 16.7%; /* image aspect ratio */
       }
 
+      .jp2 #enter .top::before {
+        background-image: url(mountainmarathonman.com/mountains-top.jp2);
+      }
+
+      .webp #enter .top::before {
+        background-image: url(mountainmarathonman.com/mountains-top.webp);
+      }
+
       #enter .body {
         background-color: rgb(146, 192, 199);
       }
@@ -561,6 +754,14 @@
       #enter .bottom::before {
         background-image: url(mountainmarathonman.com/mountains-bottom.png);
         padding-bottom: 22.4%; /* image aspect ratio */
+      }
+
+      .jp2 #enter .bottom::before {
+        background-image: url(mountainmarathonman.com/mountains-bottom.jp2);
+      }
+
+      .webp #enter .bottom::before {
+        background-image: url(mountainmarathonman.com/mountains-bottom.webp);
       }
 
       #enter .widget {
@@ -654,20 +855,55 @@
         }
       }
     </style>
-    <script></script>
+
+    <script>
+      /*
+       * Feature detection for webp and jp2 images
+       */
+      var webp = new Image()
+      document.documentElement.classList.add('webp')
+      webp.onerror = function(){ document.documentElement.classList.remove('webp') }
+      webp.src = 'data:image/webp;base64,UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAABBxAR/Q9ERP8DAABWUDggGAAAADABAJ0BKgEAAQADADQlpAADcAD++/1QAA=='
+
+      document.documentElement.classList.add('jp2')
+      var jp2 = new Image()
+      jp2.onerror = function(){ document.documentElement.classList.remove('jp2') }
+      jp2.src = 'data:image/jp2;base64,/0//UQAyAAAAAAABAAAAAgAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAEBwEBBwEBBwEBBwEB/1IADAAAAAEAAAQEAAH/XAAEQED/ZAAlAAFDcmVhdGVkIGJ5IE9wZW5KUEVHIHZlcnNpb24gMi4wLjD/kAAKAAAAAABYAAH/UwAJAQAABAQAAf9dAAUBQED/UwAJAgAABAQAAf9dAAUCQED/UwAJAwAABAQAAf9dAAUDQED/k8+kEAGvz6QQAa/PpBABr994EAk//9k='
+    </script>
   </head>
   <body>
     <section id="intro">
       <div class="hero">
-        <h1><img
-            srcset="mountainmarathonman.com/ultimate-trail-running-giveaway-480.png 480w,
-                    mountainmarathonman.com/ultimate-trail-running-giveaway-768.png 768w,
-                    mountainmarathonman.com/ultimate-trail-running-giveaway-1440.png 1440w"
-            sizes="((min-width: 768px) or ((min-width: 384px) and (min-resolution: 192dpi))) 1440px,
-                   ((min-width: 480px) or ((min-width: 240px) and (min-resolution: 192dpi)))  768px,
-                                                                                              480px"
-            src="mountainmarathonman.com/ultimate-trail-running-giveaway-1440.png" alt="Ultimate Trail Running Giveaway"></h1>
-        <a class="cta" href="#enter"><img src="mountainmarathonman.com/i-want-to-win-the-ultimate-trail-running-prize.png" alt="I want to win the Ultimate Trail Running Giveaway"></a>
+        <h1>
+          <picture>
+            <source
+              type="image/webp"
+              sizes="90vw"
+              srcset="mountainmarathonman.com/ultimate-trail-running-giveaway-480.webp 480w,
+                      mountainmarathonman.com/ultimate-trail-running-giveaway-768.webp 768w,
+                      mountainmarathonman.com/ultimate-trail-running-giveaway-1440.webp 1440w">
+            <source
+              type="image/jp2"
+              sizes="90vw"
+              srcset="mountainmarathonman.com/ultimate-trail-running-giveaway-480.jp2 480w,
+                      mountainmarathonman.com/ultimate-trail-running-giveaway-768.jp2 768w,
+                      mountainmarathonman.com/ultimate-trail-running-giveaway-1440.jp2 1440w">
+            <img
+              src="mountainmarathonman.com/ultimate-trail-running-giveaway-1440.png"
+              sizes="90vw"
+              srcset="mountainmarathonman.com/ultimate-trail-running-giveaway-480.png 480w,
+                      mountainmarathonman.com/ultimate-trail-running-giveaway-768.png 768w,
+                      mountainmarathonman.com/ultimate-trail-running-giveaway-1440.png 1440w"
+              alt="Ultimate Trail Running Giveaway">
+          </picture>
+        </h1>
+        <a class="cta" href="#enter">
+          <picture>
+            <source type="image/webp" srcset="mountainmarathonman.com/i-want-to-win-the-ultimate-trail-running-prize.webp">
+            <source type="image/jp2" srcset="mountainmarathonman.com/i-want-to-win-the-ultimate-trail-running-prize.jp2">
+            <img src="mountainmarathonman.com/i-want-to-win-the-ultimate-trail-running-prize.png" alt="I want to win the Ultimate Trail Running Giveaway">
+          </picture>
+        </a>
       </div>
       <div class="body">
         <div class="content">
@@ -677,7 +913,13 @@
             <p>We’ll also <strong>kit you out head to toe</strong> in Inov8 racing kit+shoes and a Suunto GPS watch — Kevin’s choice of kit when running in the mountains.</p>
             <p>Once you return home Kevin will provide you with <strong>6 months online coaching</strong> to help you progress to your next running goal.</p>
           </div>
-          <a class="cta" href="#enter"><img src="mountainmarathonman.com/enter-the-giveaway.png" alt="Enter the Giveaway"></a>
+          <a class="cta" href="#enter">
+            <picture>
+              <source type="image/webp" srcset="mountainmarathonman.com/enter-the-giveaway.webp">
+              <source type="image/jp2" srcset="mountainmarathonman.com/enter-the-giveaway.jp2">
+              <img src="mountainmarathonman.com/enter-the-giveaway.png" alt="Enter the Giveaway">
+            </picture>
+          </a>
           <div class="plane layout-image"></div>
         </div>
       </div>
@@ -686,7 +928,13 @@
       <div class="top layout-image"></div>
       <div class="body">
         <div class="content">
-          <h2><img src="mountainmarathonman.com/exclusive-bonus-gift-for-entering-today.png" alt="Exclusive Bonus Gift for Entering Today"></h2>
+          <h2>
+            <picture>
+              <source type="image/webp" srcset="mountainmarathonman.com/exclusive-bonus-gift-for-entering-today.webp">
+              <source type="image/jp2" srcset="mountainmarathonman.com/exclusive-bonus-gift-for-entering-today.jp2">
+              <img src="mountainmarathonman.com/exclusive-bonus-gift-for-entering-today.png" alt="Exclusive Bonus Gift for Entering Today">
+            </picture>
+          </h2>
           <div class="book-composition">
             <div class="book-snippet1">
               <p>The <strong>amazing true story</strong> of the first athlete to ever run a solo circumnavigation of the world!</p>
@@ -703,7 +951,13 @@
             <li><span class="number">622</span> marathons in 621 days</li>
             <li><span class="number">16,300</span> miles / <span class="number">26,232.48</span> km</li>
           </ul>
-          <a class="cta" href="#enter"><img src="mountainmarathonman.com/enter-the-giveaway.png" alt="Enter the Giveaway"></a>
+          <a class="cta" href="#enter">
+            <picture>
+              <source type="image/webp" srcset="mountainmarathonman.com/enter-the-giveaway.webp">
+              <source type="image/jp2" srcset="mountainmarathonman.com/enter-the-giveaway.jp2">
+              <img src="mountainmarathonman.com/enter-the-giveaway.png" alt="Enter the Giveaway">
+            </picture>
+          </a>
         </div>
       </div>
       <div class="bottom layout-image"></div>
@@ -712,11 +966,21 @@
       <div class="birds1 layout-image"></div>
       <div class="body">
         <div class="content">
-          <h2><img src="mountainmarathonman.com/about-kevin.png" alt="About Kevin"></h2>
+          <h2>
+            <picture>
+              <source type="image/webp" srcset="mountainmarathonman.com/about-kevin.webp">
+              <source type="image/jp2" srcset="mountainmarathonman.com/about-kevin.jp2">
+              <img src="mountainmarathonman.com/about-kevin.png" alt="About Kevin">
+            </picture>
+          </h2>
           <div class="text">
             <p>The <strong>28th of July 2013, Dartmoor, England, U.K., Kevin began running east</strong>, he continued to head east, running every inch of land <strong>through 26 countries</strong>, crossing four continents from coast to coast until he made it all the way back to the very same spot from where he had set forth, some <strong>621 days</strong> later.</p>
             <p>Having closed a loop around planet Earth, becoming the <strong>first athlete to ever run a continuous circumnavigation of the world</strong>, and the fastest runner to have run around the world.</p>
-            <img class="photo" src="mountainmarathonman.com/kevin.png">
+            <picture>
+              <source type="image/webp" srcset="mountainmarathonman.com/kevin.webp">
+              <source type="image/jp2" srcset="mountainmarathonman.com/kevin.jp2">
+              <img class="photo" src="mountainmarathonman.com/kevin.png" alt="Kevin">
+            </picture>
             <p>He ran <strong>solo and unsupported</strong>, pushing all his kit in a cart, camping at the side of the road:</p>
             <ul>
               <li>climbed up and over the <strong>Andes</strong>,</li>
@@ -730,7 +994,13 @@
             <p>The book “Mountain Marathon Man – Confessions Of The Fastest Runner Around The World” is the <strong>book where Kevin shares the above highlights</strong> amongst many others, in the true account of one of the greatest expeditions of all time, due to be <strong>released winter 2017</strong>.</p>
             <a class="more-info" href="http://hardwayround.com/" target="_blank">More Info</a>
           </div>
-          <a class="cta" href="http://hardwayround.com/#Contact" target="_blank"><img src="mountainmarathonman.com/media-enquiries.png" alt="Media Enquiries"></a>
+          <a class="cta" href="http://hardwayround.com/#Contact" target="_blank">
+            <picture>
+              <source type="image/webp" srcset="mountainmarathonman.com/media-enquiries.webp">
+              <source type="image/jp2" srcset="mountainmarathonman.com/media-enquiries.jp2">
+              <img src="mountainmarathonman.com/media-enquiries.png" alt="Media Enquiries">
+            </picture>
+          </a>
         </div>
       </div>
       <div class="birds2 layout-image"></div>
@@ -749,7 +1019,7 @@
       <div class="bottom layout-image">
         <div class="widget">
           <a class="e-widget no-button" href="https://gleam.io/IrgjY/ultimate-trail-running-giveaway" rel="nofollow">Ultimate Trail Running Giveaway</a>
-          <script src="https://js.gleam.io/e.js"></script>
+          <script src="https://js.gleam.io/e.js" defer></script>
         </div>
         <div class="copyright">
           <span>Copyright 2017 World Run Hard Way Around.</span>
